@@ -1,101 +1,127 @@
-//'http://localhost:8080/crud/api/items';
-
-
-
-const apiUrl = 'http://localhost:8080/crud/api/items';
-
-// Function to fetch and display items
-async function fetchItems() {
-    try {
-        const response = await fetch(apiUrl);
-        const items = await response.json();
-        const itemList = document.getElementById('item-list');
-        itemList.innerHTML = '';
-        items.forEach(item => {
-            const li = document.createElement('li');
-            li.textContent = item.name;
-            const editButton = document.createElement('button');
-            editButton.textContent = 'Edit';
-            editButton.onclick = () => editItem(item);
-            const deleteButton = document.createElement('button');
-            deleteButton.textContent = 'Delete';
-            deleteButton.onclick = () => deleteItem(item.id);
-            li.appendChild(editButton);
-            li.appendChild(deleteButton);
-            itemList.appendChild(li);
-        });
-    } catch (error) {
-        console.error('Error fetching items:', error);
-    }
-}
-
-// Function to create a new item
-async function createItem(item) {
-    try {
-        await fetch(apiUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(item),
-        });
-        fetchItems();
-    } catch (error) {
-        console.error('Error creating item:', error);
-    }
-}
-
-// Function to update an existing item
-async function updateItem(item) {
-    try {
-        await fetch(`${apiUrl}/${item.id}`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(item),
-        });
-        fetchItems();
-    } catch (error) {
-        console.error('Error updating item:', error);
-    }
-}
-
-// Function to delete an item
-async function deleteItem(id) {
-    try {
-        await fetch(`${apiUrl}/${id}`, {
-            method: 'DELETE',
-        });
-        fetchItems();
-    } catch (error) {
-        console.error('Error deleting item:', error);
-    }
-}
-
-// Function to handle form submission
-document.getElementById('item-form').addEventListener('submit', (event) => {
-    event.preventDefault();
-    const itemId = document.getElementById('item-id').value;
-    const itemName = document.getElementById('item-name').value;
-
-    if (itemId) {
-        // Update existing item
-        updateItem({ id: itemId, name: itemName });
-    } else {
-        // Create new item
-        createItem({ name: itemName });
-    }
-
-    // Reset form
-    document.getElementById('item-form').reset();
-    document.getElementById('submit-button').style.display = 'inline';
-    document.getElementById('update-button').style.display = 'none';
+document.addEventListener('DOMContentLoaded', function () {
+    loadEquipment();
 });
 
-// Function to set up edit mode
-function editItem(item) {
-    document.getElementById('item-id').value = item.id;
-    document.getElementById('item-name').value = item.name;
-    document.getElementById('submit-button').style.display = 'none';
-    document.getElementById('update-button').style.display = 'inline';
+function loadEquipment() {
+    fetch('http://localhost:8080/crud/api/equipment')
+        .then(response => response.json())
+        .then(data => {
+            const equipmentTableBody = document.getElementById('equipment-table-body');
+            equipmentTableBody.innerHTML = '';
+
+            data.forEach(equipment => {
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+                    <td>${equipment.equipmentId}</td>
+                    <td>${equipment.name}</td>
+                    <td>${equipment.purchaseDate}</td>
+                    <td>${equipment.status}</td>
+                    <td>${equipment.maintenanceDuration}</td>
+                    <td>
+                        <button onclick="editEquipment(${equipment.equipmentId})">Edit</button>
+                        <button onclick="deleteEquipment(${equipment.equipmentId})">Delete</button>
+                    </td>
+                `;
+
+                equipmentTableBody.appendChild(row);
+            });
+        })
+        .catch(error => console.error('Error:', error));
 }
 
-// Initial fetch of items
-fetchItems();
+function saveEquipment() {
+    const name = document.getElementById('name').value;
+    const purchaseDate = document.getElementById('purchase-date').value;
+    const status = document.getElementById('status').value;
+    const maintenanceDuration = document.getElementById('maintenance-duration').value;
+
+    const equipment = { name, purchaseDate, status, maintenanceDuration };
+
+    fetch('http://localhost:8080/crud/api/equipment', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(equipment)
+    })
+    .then(response => {
+        if (response.ok) {
+            loadEquipment();
+            resetForm();
+        } else {
+            console.error('Error:', response.statusText);
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+function editEquipment(id) {
+    fetch(`/api/equipment/${id}`)
+        .then(response => response.json())
+        .then(equipment => {
+            document.getElementById('equipment-id').value = equipment.equipmentId;
+            document.getElementById('name').value = equipment.name;
+            document.getElementById('purchase-date').value = equipment.purchaseDate;
+            document.getElementById('status').value = equipment.status;
+            document.getElementById('maintenance-duration').value = equipment.maintenanceDuration;
+
+            document.getElementById('form-title').textContent = 'Edit Equipment';
+            document.getElementById('save-btn').style.display = 'none';
+            document.getElementById('update-btn').style.display = 'inline';
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+function updateEquipment() {
+    const id = document.getElementById('equipment-id').value;
+    const name = document.getElementById('name').value;
+    const purchaseDate = document.getElementById('purchase-date').value;
+    const status = document.getElementById('status').value;
+    const maintenanceDuration = document.getElementById('maintenance-duration').value;
+
+    const equipment = { name, purchaseDate, status, maintenanceDuration };
+
+    fetch(`/api/equipment/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(equipment)
+    })
+    .then(response => {
+        if (response.ok) {
+            loadEquipment();
+            resetForm();
+        } else {
+            console.error('Error:', response.statusText);
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+function deleteEquipment(id) {
+    fetch(`/api/equipment/${id}`, {
+        method: 'DELETE'
+    })
+    .then(response => {
+        if (response.ok) {
+            loadEquipment();
+        } else {
+            console.error('Error:', response.statusText);
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+function resetForm() {
+    document.getElementById('equipment-id').value = '';
+    document.getElementById('name').value = '';
+    document.getElementById('purchase-date').value = '';
+    document.getElementById('status').value = '';
+    document.getElementById('maintenance-duration').value = '';
+
+    document.getElementById('form-title').textContent = 'Add New Equipment';
+    document.getElementById('save-btn').style.display = 'inline';
+    document.getElementById('update-btn').style.display = 'none';
+}

@@ -3,18 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Application</title>
+    <title>Equipment Management</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>CRUD Application</h1>
-    <form id="item-form">
-        <input type="hidden" id="item-id" value="">
-        <input type="text" id="item-name" placeholder="Enter item name">
-        <button type="submit" id="submit-button">Add Item</button>
-        <button type="button" id="update-button" style="display: none;">Update Item</button>
-    </form>
-    <ul id="item-list"></ul>
+    <h1>Equipment Management</h1>
+
+    <div id="equipment-form">
+        <h2 id="form-title">Add New Equipment</h2>
+        <input type="hidden" id="equipment-id">
+        <label for="name">Name:</label>
+        <input type="text" id="name">
+        <label for="purchase-date">Purchase Date:</label>
+        <input type="date" id="purchase-date">
+        <label for="status">Status:</label>
+        <input type="text" id="status">
+        <label for="maintenance-duration">Maintenance Duration:</label>
+        <input type="text" id="maintenance-duration">
+        <button id="save-btn" onclick="saveEquipment()">Save</button>
+        <button id="update-btn" onclick="updateEquipment()" style="display:none;">Update</button>
+        <button onclick="resetForm()">Cancel</button>
+    </div>
+
+    <div id="equipment-list">
+        <h2>Equipment List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Purchase Date</th>
+                    <th>Status</th>
+                    <th>Maintenance Duration</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="equipment-table-body">
+                <!-- Equipment rows will be added here -->
+            </tbody>
+        </table>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

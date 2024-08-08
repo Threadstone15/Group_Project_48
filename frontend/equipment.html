@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipment CRUD</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Equipment CRUD Operations</h1>
+    <form id="equipmentForm">
+        <input type="hidden" id="equipmentId">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="type">Type:</label>
+        <input type="text" id="type" name="type" required>
+        <button type="submit">Save</button>
+    </form>
+    <h2>Equipment</h2>
+    <table id="equipmentTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script src="equipmentScript.js"></script>
+</body>
+</html>
