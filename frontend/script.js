@@ -57,7 +57,7 @@ function saveEquipment() {
 }
 
 function editEquipment(id) {
-    fetch(`/api/equipment/${id}`)
+    fetch(`/${id}`)
         .then(response => response.json())
         .then(equipment => {
             document.getElementById('equipment-id').value = equipment.equipmentId;
@@ -82,7 +82,7 @@ function updateEquipment() {
 
     const equipment = { name, purchaseDate, status, maintenanceDuration };
 
-    fetch(`/api/equipment/${id}`, {
+    fetch(`http://localhost:8080/crud/api/equipment/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -101,7 +101,7 @@ function updateEquipment() {
 }
 
 function deleteEquipment(id) {
-    fetch(`/api/equipment/${id}`, {
+    fetch(`http://localhost:8080/crud/api/equipment/${id}`, {
         method: 'DELETE'
     })
     .then(response => {
