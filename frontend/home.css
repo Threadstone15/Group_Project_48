@@ -1,0 +1,178 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+nav {
+    width: 100%;
+    padding-right: 78px;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    background-color: #f1f1f1;
+    position: fixed; /* Keep navbar always on top */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1730px;
+    height: 184.21px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.nav-logo {
+    width: 220px;
+    height: 184.21px;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 40px;
+}
+
+.nav-links a {
+    font-size: 21px;
+    font-weight: 500;
+    color: black;
+    text-decoration: none; /* Remove underline */
+}
+
+.nav-links a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.nav-button-container {
+    display: flex;
+    gap: 15px;
+}
+
+.sign-up-button {
+    width: 160px;
+    height: 50px;
+    background: #FF5F00;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.log-in-button {
+    width: 160px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    border: 1px solid #FF5F00;
+    color: #FF5F00;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    padding-top: 220px; /* Adjust for fixed navbar height */
+}
+
+.content-1 {
+    flex: 1;
+    text-align: center;
+}
+
+.content-2 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-3 {
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.headline {
+    width: 836px;
+    height: 113px;
+    margin: 0 auto;
+    color: black;
+    font-size: 70px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.subheadline {
+    width: 836px;
+    height: 113px;
+    margin: 0 auto;
+    color: black;
+    font-size: 70px;
+    font-weight: 600;
+}
+
+.subheadline span:nth-child(2) {
+    color: #FF5F00;
+}
+
+.description {
+    width: 794px;
+    height: 63px;
+    margin: 20px auto;
+    color: #4F4F4F;
+    font-size: 21px;
+    font-weight: 600;
+}
+
+.cta-button {
+    width: 270px;
+    height: 60px;
+    margin: 20px auto;
+    background: #FF5F00;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 21px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.streamline-text {
+    width: 1278px;
+    height: 144px;
+    margin: 40px auto;
+    text-align: center;
+    color: black;
+    font-size: 48px;
+    font-weight: 600;
+}
+
+.about-section {
+    padding: 20px;
+    background-color: #f1f1f1;
+}
+
+.facilities-section {
+    padding: 20px;
+}
