@@ -1,327 +1,114 @@
-/* Base styles */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-/* Navigation Bar */
-nav {
-    width: 100%;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f1f1f1;
-}
-
-.nav-container {
-    max-width: 1730px;
-    width: 100%;
-    height: 184.21px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 auto;
-}
-
-.nav-logo {
-    width: 220px;
-    height: 100%;
-}
-
-.nav-links {
-    display: flex;
-    gap: 40px;
-}
-
-.nav-links a {
-    font-size: 21px;
-    font-weight: 500;
-    color: black;
-    text-decoration: none;
-}
-
-.nav-links a:hover {
-    text-decoration: underline;
-}
-
-.nav-button-container {
-    display: flex;
-    gap: 15px;
-}
-
-.sign-up-button,
-.log-in-button {
-    width: 160px;
-    height: 50px;
-    border-radius: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    font-weight: 500;
-    text-decoration: none;
-}
-
-.sign-up-button {
-    background: #FF5F00;
-    color: white;
-}
-
-.log-in-button {
-    border: 1px solid #FF5F00;
-    color: #FF5F00;
-}
-
-/* About Us Section */
 .about-banner {
     width: 100%;
-    height: 489px;
-    background: rgba(255, 95, 0, 0.80);
-    position: relative;
+    height: 300px;
+    background: url('path_to_your_image.jpg') center center/cover no-repeat;
 }
 
 .about-title {
-    width: 233px;
-    height: 72px;
-    color: white;
+    text-align: center;
     font-size: 48px;
-    font-family: Poppins, sans-serif;
-    font-weight: 600;
-    position: absolute;
-    top: 20px;
-    left: 20px;
+    font-weight: 700;
+    color: #FF5F00;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .about-content {
-    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
     text-align: center;
 }
 
 .about-description-container {
+    max-width: 800px;
     position: relative;
     margin-bottom: 20px;
 }
 
 .about-description {
-    color: white;
-    font-size: 21px;
-    font-weight: 500;
-    line-height: 1.5;
-    max-width: 800px;
-    margin: 0 auto;
+    font-size: 18px;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 10px;
 }
 
 .about-title-overlay {
     position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    font-size: 48px;
-    font-weight: 600;
-    pointer-events: none;
+    top: 10px;
+    right: 10px;
+    font-size: 60px;
+    font-weight: 700;
+    color: rgba(255, 95, 0, 0.1);
+    z-index: -1; /* Ensure it stays in the background */
 }
 
 .see-more-container {
-    display: flex;
-    justify-content: center;
     margin-top: 20px;
 }
 
 .see-more-button {
-    width: 200px;
-    height: 60px;
-    background: rgba(255, 95, 0, 0);
-    border-radius: 30px;
-    border: 1px white solid;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 21px;
-    font-weight: 500;
-    text-decoration: none;
-    position: relative;
-}
-
-.see-more-text {
-    margin-right: 10px;
-}
-
-.see-more-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.see-more-icon-inner {
-    width: 24px;
-    height: 13.41px;
-    background: white;
-}
-
-/* Facilities Section */
-.facilities {
-    padding: 60px 20px;
-}
-
-.facilities-title {
-    font-size: 48px;
-    font-weight: 600;
-    color: black;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.facilities-description {
-    font-size: 21px;
-    font-weight: 500;
-    color: #4F4F4F;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.facilities-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.facility-item {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.facility-text {
-    color: #FF5F00;
-    font-size: 21px;
-    font-weight: 500;
-}
-
-.see-more-facilities-container {
-    display: flex;
-    justify-content: center;
-}
-
-.see-more-facilities-button {
-    width: 200px;
-    height: 60px;
-    background: rgba(255, 95, 0, 0);
-    border-radius: 30px;
-    border: 1px #FF5F00 solid;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #FF5F00;
-    font-size: 21px;
-    font-weight: 500;
-    text-decoration: none;
-    position: relative;
-}
-
-.see-more-facilities-text {
-    margin-right: 10px;
-}
-
-.see-more-facilities-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.see-more-facilities-icon-inner {
-    width: 24px;
-    height: 13.41px;
+    padding: 10px 30px;
     background: #FF5F00;
+    border-radius: 30px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
 }
 
-/* Smooth Scrolling */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Responsive Styles */
-@media (max-width: 1200px) {
-    .nav-links {
-        gap: 20px;
-    }
-
+@media (min-width: 768px) {
     .about-title {
-        font-size: 36px;
+        font-size: 56px;
+        margin-top: 30px;
+        margin-bottom: 30px;
     }
 
     .about-description {
-        font-size: 18px;
+        font-size: 20px;
+    }
+
+    .about-title-overlay {
+        font-size: 80px;
     }
 
     .see-more-button {
         font-size: 18px;
-    }
-
-    .facilities-title {
-        font-size: 36px;
-    }
-
-    .facilities-description {
-        font-size: 18px;
+        padding: 15px 40px;
     }
 }
 
-@media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        gap: 10px;
+@media (min-width: 1024px) {
+    .about-banner {
+        height: 400px;
     }
 
     .about-title {
-        font-size: 30px;
+        font-size: 64px;
+        margin-top: 40px;
+        margin-bottom: 40px;
     }
 
     .about-description {
-        font-size: 16px;
+        font-size: 22px;
+    }
+
+    .about-title-overlay {
+        font-size: 100px;
     }
 
     .see-more-button {
-        font-size: 16px;
-    }
-
-    .facilities-title {
-        font-size: 30px;
-    }
-
-    .facilities-description {
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    .about-title {
-        font-size: 24px;
-    }
-
-    .about-description {
-        font-size: 14px;
-    }
-
-    .see-more-button {
-        font-size: 14px;
-    }
-
-    .facilities-title {
-        font-size: 24px;
-    }
-
-    .facilities-description {
-        font-size: 14px;
+        font-size: 20px;
+        padding: 20px 50px;
     }
 }

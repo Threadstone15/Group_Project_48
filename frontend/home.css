@@ -3,130 +3,109 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 nav {
     width: 100%;
-    padding-right: 78px;
-    justify-content: flex-start;
+    padding-right: 20px;
+    padding-left: 20px;
+    justify-content: space-between;
     align-items: center;
     display: flex;
     background-color: #f1f1f1;
-    position: fixed; /* Keep navbar always on top */
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000; /* Ensure it stays above other content */
+    z-index: 1000;
 }
 
 .nav-container {
     width: 100%;
-    max-width: 1730px;
-    height: 184.21px;
-    position: relative;
+    max-width: 1200px;
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
+    padding: 10px 20px;
 }
 
 .nav-logo {
-    width: 220px;
-    height: 184.21px;
+    width: 160px;
+    height: auto;
 }
 
 .nav-links {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
 }
 
 .nav-links a {
-    font-size: 21px;
+    font-size: 18px;
     font-weight: 500;
     color: black;
-    text-decoration: none; /* Remove underline */
+    text-decoration: none;
 }
 
 .nav-links a:hover {
-    text-decoration: underline; /* Underline on hover */
+    text-decoration: underline;
 }
 
 .nav-button-container {
     display: flex;
-    gap: 15px;
+    gap: 10px;
+}
+
+.sign-up-button, .log-in-button {
+    width: 130px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
 }
 
 .sign-up-button {
-    width: 160px;
-    height: 50px;
     background: #FF5F00;
-    border-radius: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     color: white;
-    font-size: 16px;
-    font-weight: 500;
-    text-decoration: none;
 }
 
 .log-in-button {
-    width: 160px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 30px;
     border: 1px solid #FF5F00;
     color: #FF5F00;
-    font-size: 16px;
-    font-weight: 500;
-    text-decoration: none;
 }
 
 .content-container {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 20px;
-    padding-top: 220px; /* Adjust for fixed navbar height */
-}
-
-.content-1 {
-    flex: 1;
-    text-align: center;
-}
-
-.content-2 {
-    flex: 1;
-    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+    padding-top: 150px; /* Adjust for fixed navbar height */
+    text-align: center;
 }
 
-.content-3 {
-    padding: 20px;
-    text-align: center;
+.content-1, .content-2 {
     width: 100%;
 }
 
+.content-1 {
+    max-width: 800px;
+}
+
 .headline {
-    width: 836px;
-    height: 113px;
-    margin: 0 auto;
-    color: black;
-    font-size: 70px;
+    font-size: 48px;
     font-weight: 600;
-    line-height: 1.5;
 }
 
 .subheadline {
-    width: 836px;
-    height: 113px;
-    margin: 0 auto;
-    color: black;
-    font-size: 70px;
+    font-size: 48px;
     font-weight: 600;
 }
 
@@ -135,44 +114,112 @@ nav {
 }
 
 .description {
-    width: 794px;
-    height: 63px;
-    margin: 20px auto;
-    color: #4F4F4F;
-    font-size: 21px;
+    font-size: 18px;
     font-weight: 600;
+    margin-top: 20px;
 }
 
 .cta-button {
-    width: 270px;
-    height: 60px;
-    margin: 20px auto;
+    width: 220px;
+    height: 50px;
     background: #FF5F00;
     border-radius: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 21px;
+    font-size: 18px;
     font-weight: 500;
     text-decoration: none;
+    margin-top: 20px;
+}
+
+.content-2 .images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.content-2 img {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+}
+
+.content-3 {
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
 }
 
 .streamline-text {
-    width: 1278px;
-    height: 144px;
-    margin: 40px auto;
-    text-align: center;
-    color: black;
-    font-size: 48px;
+    font-size: 32px;
     font-weight: 600;
+    width: 100%;
 }
 
-.about-section {
+.about-section, .facilities-section, .get-started-section {
     padding: 20px;
     background-color: #f1f1f1;
 }
 
-.facilities-section {
-    padding: 20px;
+@media (min-width: 768px) {
+    .nav-container {
+        height: 140px;
+    }
+
+    .content-container {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .content-1, .content-2 {
+        width: 50%;
+    }
+
+    .headline, .subheadline {
+        font-size: 56px;
+    }
+
+    .cta-button {
+        width: 240px;
+        height: 60px;
+        font-size: 20px;
+    }
+
+    .content-2 .images {
+        justify-content: flex-end;
+    }
+
+    .content-2 img {
+        max-width: 500px;
+    }
+
+    .streamline-text {
+        font-size: 40px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .nav-container {
+        height: 160px;
+    }
+
+    .headline, .subheadline {
+        font-size: 64px;
+    }
+
+    .cta-button {
+        width: 270px;
+        height: 60px;
+        font-size: 21px;
+    }
+
+    .streamline-text {
+        font-size: 48px;
+    }
 }

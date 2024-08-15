@@ -1,37 +1,38 @@
-body {
-    font-family: Arial, sans-serif;
+.container {
+    width: 706px;
     text-align: center;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-h1 {
-    font-size: 24px;
+.title {
+    font-size: 48px;
+    font-family: Poppins;
+    font-weight: 600;
+    color: black;
     margin-bottom: 20px;
 }
 
-p {
+.description {
+    font-size: 21px;
+    font-family: Poppins;
+    font-weight: 500;
+    color: #4F4F4F;
     margin-bottom: 30px;
 }
 
-h2 {
-    font-size: 20px;
-    margin-bottom: 15px;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
+.feature {
+    font-size: 21px;
+    font-family: Poppins;
+    font-weight: 500;
+    color: #FF5F00;
     margin-bottom: 10px;
 }
 
-li strong {
-    font-weight: bold;
+.see-more {
+    background: none;
+    border: none;
+    color: #FF5F00;
+    font-size: 21px;
+    font-family: Poppins;
+    font-weight: 500;
+    cursor: pointer;
 }
