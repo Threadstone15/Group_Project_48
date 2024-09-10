@@ -1,1 +1,890 @@
-/* stles common to entire application :- theme color*/
+/* Styles common to entire application - theme color */
+.nav-bar {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: relative;
+    box-sizing: border-box;
+    flex-wrap: wrap; /* Allows wrapping for smaller screens */
+    margin-top: 10px;
+}
+
+/* Adjusted flex container */
+.nav-bar .frame {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+    flex: 1;
+}
+
+/* Responsive adjustments for logo */
+.nav-bar .logo-black {
+    width: 100px;
+    height: auto;
+    cursor: pointer;
+}
+
+/* Flex container for navigation links */
+.nav-bar .div {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+/* Responsive text styles */
+.nav-bar .text-wrapper,
+.nav-bar .text-wrapper-2,
+.nav-bar .text-wrapper-3,
+.nav-bar .text-wrapper-4,
+.nav-bar .text-wrapper-5,
+.nav-bar .text-wrapper-6,
+.nav-bar .text-wrapper-7 {
+    font-family: "Poppins", Helvetica;
+    font-weight: 500;
+    color: #000000;
+    font-size: 16px;
+    line-height: 1.5;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+/* Hover state for navigation text */
+.nav-bar .text-wrapper:hover,
+.nav-bar .text-wrapper-2:hover,
+.nav-bar .text-wrapper-3:hover,
+.nav-bar .text-wrapper-4:hover,
+.nav-bar .text-wrapper-5:hover {
+  color: #E43700; /* Change text color on hover */
+}
+
+/* Active (clicked) state for navigation text */
+.nav-bar .text-wrapper:active,
+.nav-bar .text-wrapper-2:active,
+.nav-bar .text-wrapper-3:active,
+.nav-bar .text-wrapper-4:active,
+.nav-bar .text-wrapper-5:active {
+  color: #B83200; /* Darker text color for active state */
+}
+
+/* Adjusted container for buttons */
+.nav-bar .frame-2 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 0 0 auto;
+}
+
+/* Specific text color for "Become a Member" button */
+.nav-bar .become-a-member .text-wrapper-7 {
+    color: #ffffff;
+}
+
+/* Adjusted button style */
+.nav-bar .become-a-member {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background-color: #ff5f00;
+    border-radius: 30px;
+    color: #ffffff;
+    flex: 0 0 auto;
+    cursor: pointer;
+}
+
+/* Hover state for the button */
+.nav-bar .become-a-member:hover {
+    background-color: #E43700; /* Change to hover color */
+  }
+  
+  /* Active (clicked) state for the button */
+.nav-bar .become-a-member:active {
+    background-color: #B83200; /* Darker shade for active state */
+  }
+
+.nav-bar .overlap-group-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+/* Update for Log In button - text button style */
+.nav-bar .overlap-group {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.nav-bar .text-wrapper-6 {
+    font-family: "Poppins", Helvetica;
+    font-weight: 500;
+    color: #ff5f00;
+    font-size: 16px;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+/* Hover effect for text button (optional) */
+.nav-bar .overlap-group:hover .text-wrapper-6 {
+    text-decoration: underline;
+}
+
+
+/* Media queries for responsive design */
+@media (max-width: 1200px) {
+    .nav-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-bar .frame {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .nav-bar .div,
+    .nav-bar .frame-2 {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-bar .text-wrapper,
+    .nav-bar .text-wrapper-2,
+    .nav-bar .text-wrapper-3,
+    .nav-bar .text-wrapper-4,
+    .nav-bar .text-wrapper-5,
+    .nav-bar .text-wrapper-6,
+    .nav-bar .text-wrapper-7 {
+        font-size: 14px;
+    }
+
+    .nav-bar .become-a-member,
+    .nav-bar .overlap-group {
+        padding: 8px 15px;
+    }
+
+    .nav-bar .logo-black {
+        width: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-bar {
+        padding: 0 10px;
+    }
+
+    .nav-bar .text-wrapper,
+    .nav-bar .text-wrapper-2,
+    .nav-bar .text-wrapper-3,
+    .nav-bar .text-wrapper-4,
+    .nav-bar .text-wrapper-5,
+    .nav-bar .text-wrapper-6,
+    .nav-bar .text-wrapper-7 {
+        font-size: 12px;
+    }
+
+    .nav-bar .become-a-member,
+    .nav-bar .overlap-group {
+        padding: 6px 10px;
+    }
+
+    .nav-bar .logo-black {
+        width: 60px;
+    }
+
+    .nav-bar .div {
+        gap: 10px;
+    }
+}
+
+/* End of styles for nav-bar component */
+
+.footer {
+    background-color: rgba(255, 95, 0, 0.8);
+    padding: 52px 80px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1363px;
+  }
+  
+  .footer-main {
+    display: flex;
+    align-items: flex-start;
+    gap: 100px;
+    color: #fff;
+    font: 500 16px Poppins, sans-serif;
+  }
+  
+  .footer-logo {
+    font-size: 45px;
+    font-weight: 600;
+    flex-grow: 1;
+    width: 220px;
+    margin: 0;
+  }
+  
+  .footer-nav {
+    display: flex;
+    gap: 100px;
+  }
+  
+  .footer-nav-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-nav-list li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-nav-list a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 77px;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+  
+  .copyright {
+    color: #fff;
+    font: 700 16px Poppins, sans-serif;
+    margin: 0;
+  }
+  
+  @media (max-width: 991px) {
+    .footer {
+      padding: 52px 20px;
+    }
+  
+    .footer-main {
+      flex-direction: column;
+      gap: 40px;
+    }
+  
+    .footer-logo {
+      font-size: 40px;
+    }
+  
+    .footer-nav {
+      flex-direction: column;
+      gap: 40px;
+    }
+  
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 30px;
+      margin-top: 40px;
+    }
+  }
+
+/* End of styles for footer component */
+
+/* home page */
+.fitness-management {
+  font-family: Poppins, sans-serif;
+}
+
+.content-wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.text-column {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 80px;
+  margin-top: 60px;
+  margin-left: 30px;
+}
+
+.main-heading {
+  font-size: 60px;
+  font-weight: 600;
+  color: #000;
+  line-height: 1.27;
+}
+
+.highlight {
+  color: #FF5F00;
+}
+
+.subheading {
+  font-size: 16px;
+  color: #000000;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.cta-button {
+  align-self: flex-start;
+  border-radius: 30px;
+  background-color: #FF5F00;
+  color: #FFF;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 40px;
+  text-decoration: none;
+  margin-top: 61px;
+  flex: 0 0 auto;
+  font-family: Poppins, sans-serif;
+}
+
+.cta-button {
+  border: none; /* Remove default border */
+  outline: none; /* Remove default focus outline */
+}
+
+/* Hover state for the button */
+.cta-button:hover {
+  background-color: #E43700; /* Change to hover color */
+}
+
+/* Active (clicked) state for the button */
+.cta-button:active {
+  background-color: #B83200; /* Darker shade for active state */
+}
+
+.creative-image {
+  width: 100%; /* Adjust based on your layout, or specify a fixed width */
+  max-width: 600px; /* Maximum width of the image */
+  height: auto; /* Maintain aspect ratio */
+  border: none; /* Remove any default border */
+  display: block; /* Ensure the image is a block-level element (useful for margin adjustments) */
+  margin: 0 auto; /* Center the image horizontally (if needed) */
+  padding-top: 90px; /* Add space above the image */
+  padding-right: 80px; /* Add space to the right of the image */
+  padding-left: -30px;
+}
+
+
+
+
+.bottom-heading {
+  color: #000;
+  text-align: center;
+  font-size: 35px;
+  font-weight: 600;
+  margin-top: 130px;
+}
+
+@media (max-width: 991px) {
+  .content-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .text-column {
+    width: 100%;
+    margin: 40px -18px 0 0;
+  }
+
+  .main-heading {
+    font-size: 40px;
+  }
+
+  .cta-button {
+    margin-top: 40px;
+    padding: 10px 20px;
+  }
+
+  .image-column-1,
+  .image-column-2 {
+    width: 100%;
+  }
+
+  .user-image {
+    margin-top: 40px;
+  }
+
+  .bottom-heading {
+    margin-top: 40px;
+  }
+}
+
+.about-us-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.aboutUs-content-wrapper {
+  background-color: rgba(255, 95, 0, 0.8);
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  margin-top: 100px;
+}
+
+.aboutUs-section-header {
+  display: flex;
+  width: 792px;
+  max-width: 100%;
+  flex-direction: column;
+  justify-content: start;
+  font-family: Poppins, sans-serif;
+  color: #fff;
+  text-align: center;
+}
+
+.aboutUs-section-title {
+  font-size: 35px;
+  font-weight: 600;
+  margin-top: 50px;
+}
+
+.aboutUs-section-description {
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+.seeMore-cta-container {
+  position: relative;
+  display: flex;
+  justify-content: center;  /* Center the button horizontally */
+  align-items: center;      /* Center the button vertically */
+  margin-top: 20px;
+  min-height: 50px;
+  width: 200px;
+  max-width: 100%;
+  flex-direction: column;
+  padding: 13px 48px;
+  margin-bottom: 30px;
+}
+
+.seeMore-cta-button {
+  border-radius: 30px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 50px;
+  width: 200px;
+  border: 1px solid #fff;
+  color: #fff;
+  font: 500 16px Poppins, sans-serif;
+  cursor: pointer;
+}
+
+
+.button-text {
+  width: 74px;
+}
+
+.button-icon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 24px;
+}
+
+@media (max-width: 991px) {
+  .aboutUs-content-wrapper {
+      max-width: 100%;
+      padding: 0 20px;
+  }
+
+  .aboutUs-section-header {
+      max-width: 100%;
+  }
+
+  .aboutUs-section-title,
+  .aboutUs-section-description {
+      max-width: 100%;
+  }
+
+  .aboutUs-cta-container {
+      padding: 0 20px;
+  }
+}
+
+/*facilities*/
+.facilities {
+  display: flex;
+  gap: 20px;
+}
+
+.facilities-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 50%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-family: Poppins, sans-serif;
+  padding: 0 100px;
+  margin-left: 80px;
+}
+
+.facilities-info {
+  max-width: 714px;
+}
+
+.facilities-title {
+  color: #000;
+  font-size: 35px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.facilities-description {
+  color: #4f4f4f;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.facilities-list {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 30px;
+}
+
+.facilities-list li {
+  color: #ff5f00;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.see-more-wrapper {
+  position: relative;
+  width: 200px;
+}
+
+.see-more-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Poppins, sans-serif;
+  width: 100%;
+  height: 50px;
+  border: 1px solid #ff5f00;
+  border-radius: 30px;
+  background-color: transparent;
+  color: #ff5f00;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.see-more-btn:hover,
+.see-more-btn:focus {
+  background-color: rgba(255, 95, 0, 0.1);
+}
+
+.arrow-icon {
+  width: 24px;
+  height: 24px;
+  margin-left: 5px;
+}
+
+.facilities-image {
+  width: 25%;
+  margin-top: 50px;
+  margin-left: 100px;
+}
+
+.facilities-img {
+  width: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+@media (max-width: 991px) {
+  .facilities {
+    flex-direction: column;
+  }
+
+  .facilities-content,
+  .facilities-image {
+    width: 100%;
+  }
+
+  .facilities-content {
+    margin-top: 40px;
+  }
+
+  .facilities-title,
+  .facilities-description {
+    max-width: 100%;
+  }
+
+  .facilities-img {
+    margin-top: 40px;
+  }
+
+  .see-more-wrapper {
+    padding: 0 20px;
+  }
+}
+
+/*trainers*/
+.trainers-section {
+  max-width: 986px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.section-title {
+  color: #000;
+  text-align: center;
+  font: 600 35px Poppins, sans-serif;
+  margin-top: -12px;
+}
+
+.highlight {
+  color: #FF5F00;
+}
+
+.trainer-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 75px;
+  width: 100%;
+}
+
+.trainer-card {
+  border-radius: 20px;
+  background-color: rgba(255, 95, 0, 0.8);
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  padding: 35px;
+  width: calc(50% - 15px);
+  min-width: 240px;
+}
+
+.trainer-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.trainer-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.trainer-name {
+  font-size: 35px;
+  font-weight: 600;
+  color: #FFF;
+  margin: 0;
+}
+
+.trainer-specialty {
+  font-size: 18px;
+  font-weight: 500;
+  color: #FFF;
+  margin-top: 0px;
+}
+
+.trainer-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.trainer-icon:hover {
+  transform: scale(1.2); /* Slight zoom effect on hover */
+}
+
+.trainer-icon:active {
+  transform: scale(0.95); /* Slight shrink effect on click */
+}
+
+
+.trainersSee-cta-container {
+  position: relative;
+  margin-top: 50px;
+}
+
+.trainersSee-cta-button {
+  border: 1px solid #FF5F00;
+  border-radius: 30px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 13px 34px 13px 48px;
+  cursor: pointer;
+}
+
+.trainersSee-cta-text {
+  color: #FF5F00;
+  font: 500 16px Poppins, sans-serif;
+}
+
+.tainersSee-cta-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+@media (max-width: 991px) {
+  .trainer-grid {
+    margin-top: 40px;
+  }
+
+  .trainer-card {
+    width: 100%;
+    padding: 35px 20px;
+  }
+
+  .cta-container {
+    margin-top: 40px;
+  }
+
+  .cta-button {
+    padding: 13px 20px;
+  }
+}
+
+/*ready to transform*/
+.final-content-container {
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 924px;
+  margin: 0 auto; /* Centers the container horizontally */
+  color: rgba(0, 0, 0, 1);
+  font: 600 65px Poppins, sans-serif;
+  margin-bottom: 100px;
+  margin-top: 150px;
+}
+
+@media (max-width: 991px) {
+  .final-content-container {
+      font-size: 40px;
+  }
+}
+
+.final-main-heading,
+.final-sub-heading {
+  line-height: 1.2;
+  text-align: center;
+  z-index: 10;
+  margin: 0; /* Reset margin */
+  font-size: 65px;
+  font-weight: 600;
+}
+
+@media (max-width: 991px) {
+  .final-main-heading,
+  .final-sub-heading {
+      max-width: 100%;
+      font-size: 40px;
+  }
+}
+
+.final-highlighted-text {
+  color: rgba(255, 95, 0, 1);
+}
+
+.final-info-text {
+  color: rgba(79, 79, 79, 1);
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 19px;
+  width: 100%;
+  max-width: 924px;
+}
+
+@media (max-width: 991px) {
+  .final-info-text {
+      max-width: 100%;
+  }
+}
+
+.final-cta-button {
+  align-self: flex-start;
+  border-radius: 30px;
+  background-color: #FF5F00;
+  color: #FFF;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 40px;
+  text-decoration: none;
+  margin: 0 auto;
+  margin-top: 61px;
+  flex: 0 0 auto;
+  font-family: Poppins, sans-serif;
+  
+}
+
+.final-cta-button {
+  border: none;
+  outline: none;
+}
+
+/* Hover state for the button */
+.final-cta-button:hover {
+  background-color: #E43700;
+}
+
+/* Active (clicked) state for the button */
+.final-cta-button:active {
+  background-color: #B83200;
+}
