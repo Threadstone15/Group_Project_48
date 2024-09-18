@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Member Attendance</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/globals.css">
+
+   <!-- Add your script here -->
+   <script defer>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Load sidebar.html into the sidebar-container
+        fetch("../../../components/dashboard/staffSideBar.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("sidebar-container").innerHTML = data;
+
+                // Optional: Update logo path or other elements if needed
+                const logoImage = document.querySelector('.sidebar-logo-black');
+                if (logoImage) {
+                    logoImage.src = '../../../assets/images/logo-black-transparent.png';
+                }
+            })
+            .catch(error => console.error('Error loading sidebar:', error));
+
+        // Dynamically load stylesheets
+        function loadStylesheet(href) {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = href;
+            document.head.appendChild(link);
+        }
+
+        // Paths to stylesheets (adjust as needed)
+        loadStylesheet('../../../css/style.css');
+        loadStylesheet('../../../css/globals.css');
+    });
+</script>
+
+</head>
+<body>
+    <div class="memberAttendance-container">
+        <div id="sidebar-container"></div>
+        <div class="memberAttendance-content">
+            <div class="memberAttendance-content-header">
+                <h1 class="memberAttendance-content-headerText">Member Attendance</h1>
+                
+            </div>
+            <div class="memberAttendance-content-subheader">
+                <button class="memberAttendance-content-headerButton">Add a Member</button>
+            </div>
+    </div>
+    </div>
+    
+
+</body>

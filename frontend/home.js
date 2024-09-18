@@ -21,4 +21,5 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("footer-container").innerHTML = data;
       })
       .catch(error => console.error('Error loading footer:', error));
+
 });

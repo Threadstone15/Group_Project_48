@@ -36,5 +36,17 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("member").addEventListener("click", function () {
       navigateTo("../pages/becomeAMember.html");
     });
+
+    const sidebarLinks = document.querySelectorAll('.sidebar-list-item');
+
+    sidebarLinks.forEach(link => {
+      link.addEventListener('click', function () {
+        // Remove 'active' class from all sidebar list items
+        sidebarLinks.forEach(item => item.parentElement.classList.remove('active'));
+  
+        // Add 'active' class to the clicked link's parent list item
+        this.parentElement.classList.add('active');
+      });
+    });
   });
   
