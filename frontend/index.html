@@ -3,76 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GymVerse</title>
-    <link rel="stylesheet" href="home.css">
+    <title>Login and Signup System</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="container">
+        <h2>Signup</h2>
+        <form id="signup-form">
+            <input type="email" name="email" placeholder="Email" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <select name="role" required>
+                <option value="trainer">Trainer</option>
+                <option value="owner">Owner</option>
+                <option value="staff">Staff</option>
+                <option value="member">Member</option>
+            </select><br>
+            <input type="hidden" name="signup" value="1"> <!-- Hidden input to signify signup form submission -->
+            <button type="submit">Signup</button>
+        </form>
 
-    <!-- Navigation Bar -->
-    <nav>
-        <div class="nav-container">
-            <!-- Logo -->
-            <img class="nav-logo" src="assets/logo-black-transparent.png" alt="Logo">
+        <h2>Login</h2>
+        <form id="login-form">
+            <input type="email" name="email" placeholder="Email" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <input type="hidden" name="login" value="1">
+            <button type="submit">Login</button>
+        </form>
 
-            <!-- Navigation Links -->
-            <div class="nav-links">
-                <a href="#find-a-trainer">Find a Trainer</a>
-                <a href="#become-a-trainer">Become a Trainer</a>
-                <a href="#about-us">About</a>
-                <a href="#plans">Plans</a>
-                <a href="#facilities">Facilities</a>
-            </div>
-
-            <!-- Sign Up and Log In Buttons -->
-            <div class="nav-button-container">
-                <a href="register.html" class="sign-up-button">Sign Up</a>
-                <a href="login.html" class="log-in-button">Log In</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <div class="content-container">
-        <div class="content-1">
-            <div class="headline">Seamless Fitness,</div>
-            <div class="subheadline">
-                <span>Smarter </span><span>Management .</span>
-            </div>
-            <div class="description">
-                Effortlessly Manage Memberships, Classes, and Payments in just one platform!
-            </div>
-            <a href="#" class="cta-button">Become a Member</a>
-        </div>
-        <div class="content-2">
-            <div class="images">
-                <img src="assets/img_hm_2.png" alt="Image 1" width="354" height="611">
-                <img src="assets/img_hm_1.png" alt="Image 2" width="465" height="390">
-            </div>
-        </div>
-    </div>
-    
-    <div class="content-3">
-        <div class="streamline-text">
-            <span>Streamline memberships, classes, and payments with </span><span>ease.</span>
-            <br />
-        </div>
+        <div id="response"></div>
     </div>
 
-    <!-- About Us Section Placeholder -->
-    <div id="about-us" class="about-section">
-        <!-- Content will be loaded here dynamically -->
-    </div>
-
-    <!-- Facilities Section Placeholder -->
-    <div id="facilities" class="facilities-section">
-        <!-- Content will be loaded here dynamically -->
-    </div>
-
-    <!-- Get Started Section Placeholder -->
-    <div id="get-started" class="get-started-section">
-        <!-- Content will be loaded here dynamically -->
-    </div>
-
-    <script src="home.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
