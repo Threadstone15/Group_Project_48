@@ -37,19 +37,14 @@ document.getElementById("login-form").addEventListener("submit", function(e) {
 
     console.log("Submitting login form with data:", { email, password }); // Log form data
 
-    // Create query string with email and password
-    const queryString = new URLSearchParams({
-        email: email,
-        password: password
-    }).toString();
-
-    // Fetch request with GET method and query parameters
-    fetch(`http://localhost:3000/backend/api/controllers/authController.php?${queryString}`, {
-        method: "GET"
+    // Fetch request with POST method
+    fetch(`http://localhost:3000/backend/api/controllers/authController.php`, {
+        method: "POST",
+        body: formData // Send the payload as body
     })
     .then(response => {
         console.log("Login response status:", response.status); // Log response status
-        return response.json();
+        return response.json(); // Expecting JSON response
     })
     .then(data => {
         console.log("Login response data:", data); // Log the response data
@@ -60,14 +55,19 @@ document.getElementById("login-form").addEventListener("submit", function(e) {
 
         // Redirect user based on role
         if (data.role) {
-            if (data.role === 'trainer') {
-                window.location.href = '/trainer-dashboard.html';
-            } else if (data.role === 'owner') {
-                window.location.href = '/owner-dashboard.html';
-            } else if (data.role === 'staff') {
-                window.location.href = '/staff-dashboard.html';
-            } else if (data.role === 'member') {
-                window.location.href = '/frontend/member-dashboard.html';
+            switch(data.role) {
+                case 'trainer':
+                    window.location.href = '/frontend/trainer-dashboard.html';
+                    break;
+                case 'owner':
+                    window.location.href = '/frontend/owner-dashboard.html';
+                    break;
+                case 'staff':
+                    window.location.href = '/frontend/staff-dashboard.html';
+                    break;
+                case 'member':
+                    window.location.href = '/frontend/member-dashboard.html';
+                    break;
             }
         }
     })
@@ -75,5 +75,9 @@ document.getElementById("login-form").addEventListener("submit", function(e) {
         console.error('Error during login:', err); // Log any errors during the request
     });
 });
+
+
+
+
 
 

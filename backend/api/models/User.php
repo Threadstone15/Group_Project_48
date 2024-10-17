@@ -84,5 +84,32 @@ class User {
             return false;
         }
     }
+
+    public function getUserByEmail($email) {
+        logMessage("Fetching user by email: $email");
+    
+        // Prepare the query
+        $query = "SELECT user_id FROM " . $this->table . " WHERE email = ?";
+        $stmt = $this->conn->prepare($query);
+    
+        if ($stmt === false) {
+            logMessage("Error preparing statement for getUserByEmail: " . $this->conn->error);
+            return false;
+        }
+    
+        // Bind the email parameter
+        $stmt->bind_param("s", $email);
+    
+        // Execute the query
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            return $result->fetch_assoc();
+        } else {
+            logMessage("Error executing getUserByEmail query: " . $stmt->error);
+            return false;
+        }
+    }
+    
+
 }
 ?>
