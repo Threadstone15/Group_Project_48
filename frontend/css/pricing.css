@@ -1,1 +1,101 @@
-/* pricing.css */
+/* Reset and General Styling */
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap");
+
+:root {
+  --white: white;
+  --gray: #999;
+  --lightgray: whitesmoke;
+  --darkgreen: #2a9d8f;
+  --starter: #f73859;
+  --essential: #00aeef;
+  --professional: #ff7f45;
+}
+
+body {
+  font-family: "Noto Sans", sans-serif;
+  background: var(--lightgray);
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.intro-text {
+  margin-bottom: 40px;
+}
+
+.switch-wrapper {
+  position: relative;
+  display: inline-flex;
+  padding: 4px;
+  border: 1px solid lightgrey;
+  margin-bottom: 40px;
+  border-radius: 30px;
+  background: var(--white);
+}
+
+.switch-wrapper input[type="radio"] {
+  position: absolute;
+  left: -9999px;
+}
+
+.switch-wrapper label {
+  font-size: 16px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+.switch-wrapper .highlighter {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 50%;
+  height: calc(100% - 8px);
+  background: var(--darkgreen);
+  border-radius: 30px;
+  transition: transform 0.25s ease-in-out;
+}
+
+input[type="radio"]:checked#monthly ~ .highlighter {
+  transform: none;
+}
+
+input[type="radio"]:checked#yearly ~ .highlighter {
+  transform: translateX(100%);
+}
+
+.table-wrapper {
+  background: var(--white);
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  padding: 10px;
+}
+
+.amount {
+  font-size: 2rem;
+}
+
+.price.hide {
+  display: none;
+}
+
+table button {
+  padding: 10px 20px;
+  background-color: var(--darkgreen);
+  color: var(--white);
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}

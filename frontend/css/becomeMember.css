@@ -1,1 +1,158 @@
-/* becomeMember.css */
+.signup-form {
+    max-width: 650px;
+    font-family: Poppins, sans-serif;
+    margin: 0 auto; /* Center the container horizontally */
+    margin-top: 20px;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+  }
+  
+  .name-fields {
+    display: flex;
+    gap: 17px;
+    flex-wrap: wrap;
+  }
+  
+  .name-fields .input-group {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  label {
+    color: #000000;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 11px;
+  }
+  
+  .input-field,
+  .select-field {
+    border-radius: 15px;
+    background-color: #FFFFFF;
+    border: 1px solid #4F4F4F;
+    padding: 20px;
+    font-size: 14px;
+    color: rgba(79, 79, 79, 0.7);
+    width: 100%;
+    height: 60px;
+    font-family: Poppins, sans-serif;
+  }
+  
+  .date-of-birth {
+    border: none;
+    padding: 0;
+    margin-top: 30px;
+  }
+  
+  .date-of-birth legend {
+    color: #000000;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  
+  .dob-fields {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .select-wrapper {
+    flex: 1;
+    min-width: 150px;
+  }
+  
+  .select-field {
+    appearance: none;
+    background-image: url('https://cdn.builder.io/api/v1/image/assets/TEMP/1513a20edf14c2d7bfe04899b58850da43fe757932dcc40685c91510e7031487?placeholderIfAbsent=true&apiKey=015e1c54eb5347dfb8c175d60fbc5fdf');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 30px;
+  }
+  
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  
+  @media (max-width: 991px) {
+    .signup-form,
+    .input-group,
+    .input-field,
+    .select-field {
+      max-width: 100%;
+    }
+  }
+
+  .final-cta-button {
+    border-radius: 30px;
+    background-color: #FF5F00;
+    color: #FFF;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 40px;
+    text-decoration: none;
+    margin: 0 auto;
+    margin-top: 90px;
+    flex: 0 0 auto;
+    font-family: Poppins, sans-serif;
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    max-width: 650px;
+    
+  }
+  
+  .final-cta-button {
+    border: none;
+    outline: none;
+  }
+  
+  /* Hover state for the button */
+  .final-cta-button:hover {
+    background-color: #E43700;
+  }
+  
+  /* Active (clicked) state for the button */
+  .final-cta-button:active {
+    background-color: #B83200;
+  }
+  
+  .header {
+    text-align: center; /* Center the text content */
+    margin: 0 auto; /* Center the entire header block */
+    padding: 20px; /* Add some padding to the header for spacing */
+    margin-top: 20px;
+  }
+  
+  .heading {
+    font-size: 35px; /* Set font size for heading */
+    font-weight: 600; /* Set font weight to bold for emphasis */
+    font-family: 'Poppins', sans-serif; /* Use Poppins font */
+    color: #000; /* Set text color (black) */
+    margin-bottom: 10px; /* Add spacing between heading and subheading */
+  }
+  
+  .subheading {
+    font-size: 16px; /* Set font size for subheading */
+    font-family: 'Poppins', sans-serif; /* Use Poppins font */
+    color: #4F4F4F; /* Set a slightly lighter text color */
+    max-width: 600px; /* Restrict width to ensure readability */
+    margin: 0 auto; /* Center the subheading */
+    line-height: 1.5; /* Add some line spacing for better readability */
+  }
+  
