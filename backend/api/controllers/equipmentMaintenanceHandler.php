@@ -1,0 +1,80 @@
+<?php
+// equipmentMaintenanceHandler.php
+
+include_once "../models/EquipmentMaintenance.php";
+include_once "../../logs/save.php";
+
+function addMaintenance($conn) {
+    $equipmentMaintenance = new EquipmentMaintenance($conn);
+    $equipment_id = intval($_POST['equipment_id']);
+    $maintenance_date = $_POST['maintenance_date'];
+    $details = filter_var($_POST['details'], FILTER_SANITIZE_STRING);
+    $next_maintenance_date = $_POST['next_maintenance_date'];
+
+    if ($equipmentMaintenance->addMaintenance($equipment_id, $maintenance_date, $details, $next_maintenance_date)) {
+        logMessage("Maintenance added for equipment: $equipment_id");
+        echo json_encode(["message" => "Maintenance record added successfully"]);
+    } else {
+        logMessage("Failed to add maintenance for equipment: $equipment_id");
+        echo json_encode(["error" => "Failed to add maintenance record"]);
+    }
+}
+
+function getMaintenance($conn) {
+    $equipmentMaintenance = new EquipmentMaintenance($conn);
+    $maintenance_id = isset($_GET['maintenance_id']) ? intval($_GET['maintenance_id']) : null;
+
+    $result = $equipmentMaintenance->getMaintenance($maintenance_id);
+
+    if ($result) {
+        logMessage("Maintenance data fetched");
+        echo json_encode($result);
+    } else {
+        logMessage("No maintenance record found");
+        echo json_encode(["error" => "No maintenance record found"]);
+    }
+}
+
+function updateMaintenance($conn) {
+    $equipmentMaintenance = new EquipmentMaintenance($conn);
+    $data = json_decode(file_get_contents("php://input"), true);
+
+    if (isset($data['maintenance_id'], $data['maintenance_date'], $data['details'], $data['next_maintenance_date'])) {
+        $maintenance_id = intval($data['maintenance_id']);
+        $maintenance_date = $data['maintenance_date'];
+        $details = filter_var($data['details'], FILTER_SANITIZE_STRING);
+        $next_maintenance_date = $data['next_maintenance_date'];
+
+        if ($equipmentMaintenance->updateMaintenance($maintenance_id, $maintenance_date, $details, $next_maintenance_date)) {
+            logMessage("Maintenance record updated: $maintenance_id");
+            echo json_encode(["message" => "Maintenance record updated successfully"]);
+        } else {
+            logMessage("Failed to update maintenance record: $maintenance_id");
+            echo json_encode(["error" => "Maintenance record update failed"]);
+        }
+    } else {
+        logMessage("Invalid input for maintenance update");
+        echo json_encode(["error" => "Invalid input data"]);
+    }
+}
+
+function deleteMaintenance($conn) {
+    $equipmentMaintenance = new EquipmentMaintenance($conn);
+    $input = json_decode(file_get_contents("php://input"), true);
+
+    if (isset($input['maintenance_id'])) {
+        $maintenance_id = intval($input['maintenance_id']);
+
+        if ($equipmentMaintenance->deleteMaintenance($maintenance_id)) {
+            logMessage("Maintenance record deleted: $maintenance_id");
+            echo json_encode(["message" => "Maintenance record deleted successfully"]);
+        } else {
+            logMessage("Failed to delete maintenance record: $maintenance_id");
+            echo json_encode(["error" => "Maintenance record deletion failed"]);
+        }
+    } else {
+        logMessage("Invalid input for maintenance deletion");
+        echo json_encode(["error" => "Invalid input data"]);
+    }
+}
+?>
