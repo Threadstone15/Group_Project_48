@@ -978,3 +978,363 @@
 [2024-10-25 14:17:13] Connection established successfully to the database: rad_gymverse
 [2024-10-25 14:17:13] passed
 [2024-10-25 14:17:13] Running: GET
+[2024-11-04 11:37:13] This is a test log entry.
+[2024-11-04 11:37:13] Connection established successfully to the database: rad_gymverse
+[2024-11-04 11:37:13] passed
+[2024-11-04 11:37:13] Running: POST
+[2024-11-04 11:37:13] Running log-in
+[2024-11-04 11:37:13] User Login model running for: dulan@gmail.com
+[2024-11-04 11:37:13] Query bound and ready to execute for login: dulan@gmail.com
+[2024-11-04 11:37:14] User login successful: dulan@gmail.com with role: trainer
+[2024-11-04 11:37:14] Login Successful: eyJ1c2VyX2lkIjo2MywiZXhwIjoxNzMwNzE4MDAwfQ==.27fcad493dcd0c5aa3db3573f0f427ec3daea837eb0f99e45864e28be73b5d6d trainer
+[2024-11-06 16:52:58] This is a test log entry.
+[2024-11-06 16:52:59] Connection established successfully to the database: rad_gymverse
+[2024-11-06 16:52:59] passed
+[2024-11-06 16:52:59] Running: POST
+[2024-11-06 16:52:59] Running Sign-up
+[2024-11-06 16:52:59] Request received: johnmarkus@gmail.com with role: trainer
+[2024-11-06 16:52:59] User Register model running...
+[2024-11-06 16:52:59] Password hashed for user: johnmarkus@gmail.com
+[2024-11-06 16:52:59] Query bound and ready to execute for user: johnmarkus@gmail.com
+[2024-11-06 16:52:59] User registered successfully: johnmarkus@gmail.com with role: trainer
+[2024-11-06 16:52:59] User registered: johnmarkus@gmail.com with role: trainer
+[2024-11-06 16:53:47] This is a test log entry.
+[2024-11-06 16:53:47] Connection established successfully to the database: rad_gymverse
+[2024-11-06 16:53:47] Trainer model initialized
+[2024-11-06 16:53:47] Running: POST
+[2024-11-06 16:53:47] Running Trainer Details Saving Process
+[2024-11-06 16:54:22] This is a test log entry.
+[2024-11-06 16:54:23] Connection established successfully to the database: rad_gymverse
+[2024-11-06 16:54:23] passed
+[2024-11-06 16:54:23] Trainer model initialized
+[2024-11-06 16:54:23] Running: POST
+[2024-11-06 16:54:23] Running Trainer Details Saving Process
+[2024-11-06 16:54:23] Fetching user by id : 66
+[2024-11-06 16:54:23] Saving trainer details...
+[2024-11-06 16:54:24] Query bound for trainer details saving: John Markus with Trainer ID: T1
+[2024-11-06 16:54:24] Trainer details saved successfully with Trainer ID: T1
+[2024-11-06 16:54:24] Trainer details saved successfully with user ID: 66
+[2024-11-06 16:56:24] This is a test log entry.
+[2024-11-06 16:56:25] Connection established successfully to the database: rad_gymverse
+[2024-11-06 16:56:25] passed
+[2024-11-06 16:56:25] Trainer model initialized
+[2024-11-06 16:56:25] Running: POST
+[2024-11-06 16:56:25] Running Trainer Details Saving Process
+[2024-11-06 16:56:25] Fetching user by id : 66
+[2024-11-06 16:56:25] Saving trainer details...
+[2024-11-06 16:56:26] Query bound for trainer details saving: John Markus with Trainer ID: T2
+[2024-11-06 16:56:26] Trainer details saved successfully with Trainer ID: T2
+[2024-11-06 16:56:26] Trainer details saved successfully with user ID: 66
+[2024-11-06 16:56:50] This is a test log entry.
+[2024-11-06 16:56:51] Connection established successfully to the database: rad_gymverse
+[2024-11-06 16:56:51] passed
+[2024-11-06 16:56:51] Trainer model initialized
+[2024-11-06 16:56:51] Running: POST
+[2024-11-06 16:56:51] Running Trainer Details Saving Process
+[2024-11-06 16:56:51] Fetching user by id : 66
+[2024-11-06 16:56:51] Saving trainer details...
+[2024-11-06 16:56:51] Query bound for trainer details saving: John Markus with Trainer ID: T3
+[2024-11-06 16:56:52] Trainer details saved successfully with Trainer ID: T3
+[2024-11-06 16:56:52] Trainer details saved successfully with user ID: 66
+[2024-11-06 17:33:12] This is a test log entry.
+[2024-11-06 17:33:12] Connection established successfully to the database: rad_gymverse
+[2024-11-06 17:33:12] passed
+[2024-11-06 17:33:12] Trainer model initialized
+[2024-11-06 17:33:12] Running: POST
+[2024-11-06 17:33:12] Running Trainer Details Saving Process
+[2024-11-06 17:33:12] Fetching user by id : 101
+[2024-11-06 17:33:13] User doesn't exists for the user_id : 101
+[2024-11-06 17:33:19] This is a test log entry.
+[2024-11-06 17:33:20] Connection established successfully to the database: rad_gymverse
+[2024-11-06 17:33:20] passed
+[2024-11-06 17:33:20] Trainer model initialized
+[2024-11-06 17:33:20] Running: POST
+[2024-11-06 17:33:20] Running Trainer Details Saving Process
+[2024-11-06 17:33:20] Fetching user by id : 66
+[2024-11-06 17:33:21] Trainer record already exists
+[2024-11-06 17:39:29] This is a test log entry.
+[2024-11-06 17:39:30] Connection established successfully to the database: rad_gymverse
+[2024-11-06 17:39:30] passed
+[2024-11-06 17:39:30] Trainer model initialized
+[2024-11-06 17:39:30] Running: POST
+[2024-11-06 17:39:30] Running Trainer Details Saving Process
+[2024-11-06 17:39:30] Fetching user by id : 66
+[2024-11-06 17:39:31] Trainer record already exists
+[2024-11-06 17:40:42] This is a test log entry.
+[2024-11-06 17:40:43] Connection established successfully to the database: rad_gymverse
+[2024-11-06 17:40:43] passed
+[2024-11-06 17:40:43] Trainer model initialized
+[2024-11-06 17:40:43] Running: POST
+[2024-11-06 17:40:43] Running Trainer Details Saving Process
+[2024-11-06 17:40:43] Fetching user by id : 66
+[2024-11-06 17:40:43] Saving trainer details...
+[2024-11-06 17:40:44] Query bound for trainer details saving: John Markus with Trainer ID: T1
+[2024-11-06 17:40:44] Trainer details saved successfully with Trainer ID: T1
+[2024-11-06 17:40:44] address : gotham USA
+[2024-11-06 17:40:44] Trainer details saved successfully with user ID: 66
+[2024-11-06 17:43:18] This is a test log entry.
+[2024-11-06 17:43:19] Connection established successfully to the database: rad_gymverse
+[2024-11-06 17:43:19] passed
+[2024-11-06 17:43:19] Trainer model initialized
+[2024-11-06 17:43:19] Running: POST
+[2024-11-06 17:43:19] Running Trainer Details Saving Process
+[2024-11-06 17:43:19] Fetching user by id : 66
+[2024-11-06 17:43:20] Saving trainer details...
+[2024-11-06 17:43:20] gotham USA
+[2024-11-06 17:43:20] Query bound for trainer details saving: John Markus with Trainer ID: T1
+[2024-11-06 17:43:20] Trainer details saved successfully with Trainer ID: T1
+[2024-11-06 17:43:20] Trainer details saved successfully with user ID: 66
+[2024-11-06 17:47:41] This is a test log entry.
+[2024-11-06 17:47:41] Connection established successfully to the database: rad_gymverse
+[2024-11-06 17:47:41] passed
+[2024-11-06 17:47:41] Trainer model initialized
+[2024-11-06 17:47:41] Running: POST
+[2024-11-06 17:47:41] Running Trainer Details Saving Process
+[2024-11-06 17:47:41] Fetching user by id : 66
+[2024-11-06 17:47:42] Saving trainer details...
+[2024-11-06 17:47:42] Query bound for trainer details saving: John Markus with Trainer ID: T1
+[2024-11-06 17:50:15] This is a test log entry.
+[2024-11-06 17:50:15] Connection established successfully to the database: rad_gymverse
+[2024-11-06 17:50:15] passed
+[2024-11-06 17:50:15] Trainer model initialized
+[2024-11-06 17:50:15] Running: POST
+[2024-11-06 17:50:15] Running Trainer Details Saving Process
+[2024-11-06 17:50:15] Fetching user by id : 66
+[2024-11-06 17:50:16] Saving trainer details...
+[2024-11-06 17:50:16] Query bound for trainer details saving: John Markus with Trainer ID: T1
+[2024-11-06 17:50:17] Trainer details saved successfully with Trainer ID: T1
+[2024-11-06 17:50:17] Trainer details saved successfully with user ID: 66
+[2024-11-06 18:36:56] This is a test log entry.
+[2024-11-06 18:36:57] Connection established successfully to the database: rad_gymverse
+[2024-11-06 18:36:57] passed
+[2024-11-06 18:36:57] Trainer model initialized
+[2024-11-06 18:36:57] Running: POST
+[2024-11-06 18:36:57] Running Trainer Details Saving Process
+[2024-11-06 18:36:57] Fetching user by id : 66
+[2024-11-06 18:36:58] Trainer record already exists
+[2024-11-06 18:44:34] This is a test log entry.
+[2024-11-06 18:44:35] Connection established successfully to the database: rad_gymverse
+[2024-11-06 18:44:35] passed
+[2024-11-06 18:44:35] Trainer model initialized
+[2024-11-06 18:44:35] Running: POST
+[2024-11-06 18:44:35] Running Trainer Details Updating Process
+[2024-11-06 18:44:35] Fetching user by id : 66
+[2024-11-06 18:44:36] Updating trainer details for user ID: 66
+[2024-11-06 18:44:36] Trainer details updated successfully for user ID: 66
+[2024-11-06 18:44:36] Trainer details updated successfully with user ID: 66
+[2024-11-06 18:44:59] This is a test log entry.
+[2024-11-06 18:45:00] Connection established successfully to the database: rad_gymverse
+[2024-11-06 18:45:00] passed
+[2024-11-06 18:45:00] Trainer model initialized
+[2024-11-06 18:45:00] Running: POST
+[2024-11-06 18:45:00] Running Trainer Details Updating Process
+[2024-11-06 18:45:00] Fetching user by id : 66
+[2024-11-06 18:45:00] Updating trainer details for user ID: 66
+[2024-11-06 18:45:01] Trainer details updated successfully for user ID: 66
+[2024-11-06 18:45:01] Trainer details updated successfully with user ID: 66
+[2024-11-06 18:47:01] This is a test log entry.
+[2024-11-06 18:47:02] Connection established successfully to the database: rad_gymverse
+[2024-11-06 18:47:02] passed
+[2024-11-06 18:47:02] Trainer model initialized
+[2024-11-06 18:47:02] Running: POST
+[2024-11-06 18:47:02] Running Trainer Details Updating Process
+[2024-11-06 18:47:02] Fetching user by id : 
+[2024-11-06 18:47:02] User doesn't exists for the user_id : 
+[2024-11-06 18:47:09] This is a test log entry.
+[2024-11-06 18:47:10] Connection established successfully to the database: rad_gymverse
+[2024-11-06 18:47:10] passed
+[2024-11-06 18:47:10] Trainer model initialized
+[2024-11-06 18:47:10] Running: POST
+[2024-11-06 18:47:10] Running Trainer Details Updating Process
+[2024-11-06 18:47:10] Fetching user by id : 66
+[2024-11-06 18:47:10] Updating trainer details for user ID: 66
+[2024-11-06 18:47:11] Trainer details updated successfully for user ID: 66
+[2024-11-06 18:47:11] Trainer details updated successfully with user ID: 66
+[2024-11-06 18:48:49] This is a test log entry.
+[2024-11-06 18:48:50] Connection established successfully to the database: rad_gymverse
+[2024-11-06 18:48:50] passed
+[2024-11-06 18:48:50] Trainer model initialized
+[2024-11-06 18:48:50] Running: POST
+[2024-11-06 18:48:50] Running Trainer Details Updating Process
+[2024-11-06 18:48:50] Fetching user by id : 66
+[2024-11-06 18:48:50] Updating trainer details for user ID: 66
+[2024-11-06 18:48:51] Trainer details updated successfully for user ID: 66
+[2024-11-06 18:48:51] Trainer details updated successfully with user ID: 66
+[2024-11-06 18:49:11] This is a test log entry.
+[2024-11-06 18:49:12] Connection established successfully to the database: rad_gymverse
+[2024-11-06 18:49:12] passed
+[2024-11-06 18:49:12] Trainer model initialized
+[2024-11-06 18:49:12] Running: POST
+[2024-11-06 18:49:12] Running Trainer Details Updating Process
+[2024-11-06 18:49:12] Fetching user by id : 66
+[2024-11-06 18:49:12] Updating trainer details for user ID: 66
+[2024-11-06 18:49:13] Trainer details updated successfully for user ID: 66
+[2024-11-06 18:49:13] Trainer details updated successfully with user ID: 66
+[2024-11-06 18:49:55] This is a test log entry.
+[2024-11-06 18:49:56] Connection established successfully to the database: rad_gymverse
+[2024-11-06 18:49:56] passed
+[2024-11-06 18:49:56] Trainer model initialized
+[2024-11-06 18:49:56] Running: POST
+[2024-11-06 18:49:56] Running Trainer Details Updating Process
+[2024-11-06 18:49:56] Fetching user by id : 66
+[2024-11-06 18:49:57] Updating trainer details for user ID: 66
+[2024-11-06 18:49:57] Trainer details updated successfully for user ID: 66
+[2024-11-06 18:49:57] Trainer details updated successfully with user ID: 66
+[2024-11-06 18:51:12] This is a test log entry.
+[2024-11-06 18:51:13] Connection established successfully to the database: rad_gymverse
+[2024-11-06 18:51:13] passed
+[2024-11-06 18:51:13] Trainer model initialized
+[2024-11-06 18:51:13] Running: POST
+[2024-11-06 18:51:13] Running Trainer Details removing Process
+[2024-11-06 18:51:13] Fetching user by id : 66
+[2024-11-06 18:51:14] Deleting trainer with user ID: 66
+[2024-11-06 18:51:14] Trainer deleted successfully with user ID: 66
+[2024-11-06 18:51:14] Trainer details removed successfully for user ID: 66
+[2024-11-06 18:51:37] This is a test log entry.
+[2024-11-06 18:51:38] Connection established successfully to the database: rad_gymverse
+[2024-11-06 18:51:38] passed
+[2024-11-06 18:51:38] Trainer model initialized
+[2024-11-06 18:51:38] Running: POST
+[2024-11-06 18:51:38] Running Trainer Details Saving Process
+[2024-11-06 18:51:38] Fetching user by id : 66
+[2024-11-06 18:51:38] Saving trainer details...
+[2024-11-06 18:51:39] Query bound for trainer details saving: John Markus with Trainer ID: T1
+[2024-11-06 18:51:39] Trainer details saved successfully with Trainer ID: T1
+[2024-11-06 18:51:39] Trainer details saved successfully with user ID: 66
+[2024-11-06 18:53:57] This is a test log entry.
+[2024-11-06 18:53:58] Connection established successfully to the database: rad_gymverse
+[2024-11-06 18:53:58] passed
+[2024-11-06 18:53:58] Trainer model initialized
+[2024-11-06 18:53:58] Running: POST
+[2024-11-06 18:53:58] Running Trainer Details removing Process
+[2024-11-06 18:53:58] Fetching user by id : 66
+[2024-11-06 18:53:58] Deleting trainer with user ID: 66
+[2024-11-06 18:53:59] Trainer deleted successfully with user ID: 66
+[2024-11-06 18:53:59] Trainer details removed successfully for user ID: 66
+[2024-11-06 18:54:04] This is a test log entry.
+[2024-11-06 18:54:04] Connection established successfully to the database: rad_gymverse
+[2024-11-06 18:54:04] passed
+[2024-11-06 18:54:04] Trainer model initialized
+[2024-11-06 18:54:04] Running: POST
+[2024-11-06 18:54:04] Running Trainer Details Saving Process
+[2024-11-06 18:54:04] Fetching user by id : 66
+[2024-11-06 18:54:05] Saving trainer details...
+[2024-11-06 18:54:05] Query bound for trainer details saving: John Markus with Trainer ID: T1
+[2024-11-06 18:54:05] Trainer details saved successfully with Trainer ID: T1
+[2024-11-06 18:54:05] Trainer details saved successfully with user ID: 66
+[2024-11-06 18:54:07] This is a test log entry.
+[2024-11-06 18:54:08] Connection established successfully to the database: rad_gymverse
+[2024-11-06 18:54:08] passed
+[2024-11-06 18:54:08] Trainer model initialized
+[2024-11-06 18:54:08] Running: POST
+[2024-11-06 18:54:08] Running Trainer Details Saving Process
+[2024-11-06 18:54:08] Fetching user by id : 66
+[2024-11-06 18:54:08] Trainer record already exists
+[2024-11-06 18:54:15] This is a test log entry.
+[2024-11-06 18:54:15] Connection established successfully to the database: rad_gymverse
+[2024-11-06 18:54:15] passed
+[2024-11-06 18:54:15] Trainer model initialized
+[2024-11-06 18:54:15] Running: POST
+[2024-11-06 18:54:15] Running Trainer Details Updating Process
+[2024-11-06 18:54:15] Fetching user by id : 66
+[2024-11-06 18:54:16] Updating trainer details for user ID: 66
+[2024-11-06 18:54:16] Trainer details updated successfully for user ID: 66
+[2024-11-06 18:54:16] Trainer details updated successfully with user ID: 66
+[2024-11-06 18:54:23] This is a test log entry.
+[2024-11-06 18:54:23] Connection established successfully to the database: rad_gymverse
+[2024-11-06 18:54:23] passed
+[2024-11-06 18:54:23] Trainer model initialized
+[2024-11-06 18:54:23] Running: POST
+[2024-11-06 18:54:23] Running Trainer Details removing Process
+[2024-11-06 18:54:23] Fetching user by id : 66
+[2024-11-06 18:54:24] Deleting trainer with user ID: 66
+[2024-11-06 18:54:25] Trainer deleted successfully with user ID: 66
+[2024-11-06 18:54:25] Trainer details removed successfully for user ID: 66
+[2024-11-06 18:54:28] This is a test log entry.
+[2024-11-06 18:54:28] Connection established successfully to the database: rad_gymverse
+[2024-11-06 18:54:28] passed
+[2024-11-06 18:54:28] Trainer model initialized
+[2024-11-06 18:54:28] Running: POST
+[2024-11-06 18:54:28] Running Trainer Details Saving Process
+[2024-11-06 18:54:28] Fetching user by id : 66
+[2024-11-06 18:54:29] Saving trainer details...
+[2024-11-06 18:54:29] Query bound for trainer details saving: John Markus with Trainer ID: T1
+[2024-11-06 18:54:29] Trainer details saved successfully with Trainer ID: T1
+[2024-11-06 18:54:29] Trainer details saved successfully with user ID: 66
+[2024-11-06 19:01:20] This is a test log entry.
+[2024-11-06 19:01:20] Connection established successfully to the database: rad_gymverse
+[2024-11-06 19:01:20] passed
+[2024-11-06 19:01:20] Trainer model initialized
+[2024-11-06 19:01:20] Running: POST
+[2024-11-06 19:01:20] Running Trainer Details Saving Process
+[2024-11-06 19:01:20] Fetching user by id : 66
+[2024-11-06 19:01:21] Trainer record already exists
+[2024-11-06 19:01:48] This is a test log entry.
+[2024-11-06 19:01:48] Connection established successfully to the database: rad_gymverse
+[2024-11-06 19:01:48] passed
+[2024-11-06 19:01:48] Trainer model initialized
+[2024-11-06 19:01:48] Running: POST
+[2024-11-06 19:01:48] Running get Trainer Details Process
+[2024-11-06 19:01:48] Fetching user by id : 66
+[2024-11-06 19:01:50] Trainer details retrieved successfully for user ID: 66
+[2024-11-06 19:08:52] This is a test log entry.
+[2024-11-06 19:08:53] Connection established successfully to the database: rad_gymverse
+[2024-11-06 19:08:53] passed
+[2024-11-06 19:08:53] Trainer model initialized
+[2024-11-06 19:08:53] Running: POST
+[2024-11-06 19:08:53] Running get Trainer Details Process
+[2024-11-06 19:08:53] Fetching user by id : 66
+[2024-11-06 19:08:54] Trainer details retrieved successfully for user ID: 66
+[2024-11-06 19:09:22] This is a test log entry.
+[2024-11-06 19:09:23] Connection established successfully to the database: rad_gymverse
+[2024-11-06 19:09:23] passed
+[2024-11-06 19:09:23] Trainer model initialized
+[2024-11-06 19:09:23] Running: POST
+[2024-11-06 19:09:23] Running get Trainer Details Process
+[2024-11-06 19:09:23] Fetching user by id : 66
+[2024-11-06 19:09:24] Trainer details retrieved successfully for user ID: 66
+[2024-11-06 19:10:12] This is a test log entry.
+[2024-11-06 19:10:12] Connection established successfully to the database: rad_gymverse
+[2024-11-06 19:10:12] passed
+[2024-11-06 19:10:12] Trainer model initialized
+[2024-11-06 19:10:12] Running: POST
+[2024-11-06 19:10:12] Running get Trainer Details Process
+[2024-11-06 19:10:12] Fetching user by id : 67
+[2024-11-06 19:10:12] User doesn't exists for the user_id : 67
+[2024-11-06 19:10:26] This is a test log entry.
+[2024-11-06 19:10:26] Connection established successfully to the database: rad_gymverse
+[2024-11-06 19:10:26] passed
+[2024-11-06 19:10:26] Trainer model initialized
+[2024-11-06 19:10:26] Running: POST
+[2024-11-06 19:10:26] Running Trainer Details removing Process
+[2024-11-06 19:10:26] Fetching user by id : 67
+[2024-11-06 19:10:27] User doesn't exists for the user_id : 67
+[2024-11-06 19:10:31] This is a test log entry.
+[2024-11-06 19:10:32] Connection established successfully to the database: rad_gymverse
+[2024-11-06 19:10:32] passed
+[2024-11-06 19:10:32] Trainer model initialized
+[2024-11-06 19:10:32] Running: POST
+[2024-11-06 19:10:32] Running Trainer Details removing Process
+[2024-11-06 19:10:32] Fetching user by id : 66
+[2024-11-06 19:10:33] Deleting trainer with user ID: 66
+[2024-11-06 19:10:33] Trainer deleted successfully with user ID: 66
+[2024-11-06 19:10:33] Trainer details removed successfully for user ID: 66
+[2024-11-06 19:10:41] This is a test log entry.
+[2024-11-06 19:10:41] Connection established successfully to the database: rad_gymverse
+[2024-11-06 19:10:41] passed
+[2024-11-06 19:10:41] Trainer model initialized
+[2024-11-06 19:10:41] Running: POST
+[2024-11-06 19:10:41] Running Trainer Details Saving Process
+[2024-11-06 19:10:41] Fetching user by id : 66
+[2024-11-06 19:10:42] Saving trainer details...
+[2024-11-06 19:10:42] Query bound for trainer details saving: John Markus with Trainer ID: T1
+[2024-11-06 19:10:43] Trainer details saved successfully with Trainer ID: T1
+[2024-11-06 19:10:43] Trainer details saved successfully with user ID: 66
+[2024-11-06 19:11:03] This is a test log entry.
+[2024-11-06 19:11:04] Connection established successfully to the database: rad_gymverse
+[2024-11-06 19:11:04] passed
+[2024-11-06 19:11:04] Trainer model initialized
+[2024-11-06 19:11:04] Running: POST
+[2024-11-06 19:11:04] Running get Trainer Details Process
+[2024-11-06 19:11:04] Fetching user by id : 66
+[2024-11-06 19:11:05] Trainer details retrieved successfully for user ID: 66

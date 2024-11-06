@@ -91,4 +91,22 @@ function checkRole($allowedRoles) {
         exit();
     }
 }
+
+// Function to extract user_id from token
+function getUserIdFromToken($token) {
+    // Split the token into payload and signature
+    list($base64Payload, $signature) = explode('.', $token);
+
+    // Decode the payload from base64
+    $payload = json_decode(base64_decode($base64Payload), true);
+
+    // Check if payload contains user_id
+    if (isset($payload['user_id'])) {
+        return $payload['user_id'];
+    }
+
+    // Return null if user_id is not found
+    return null;
+}
+
 ?>

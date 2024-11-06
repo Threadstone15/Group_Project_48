@@ -20,53 +20,170 @@ $trainer = new Trainer($conn);
 $request_method = $_SERVER['REQUEST_METHOD'];
 logMessage("Running: $request_method");
 
-// Register User and Trainer
-if ($request_method == 'POST' && isset($_POST['signup'])) {
+//extracting user_id from token
+// $token = $_POST['token'];
+// $user_id = getUserIdFromToken($token);
 
-    logMessage("Running Trainer Sign-up");
+// save trainer details
+if ($request_method == 'POST' && isset($_POST['save_trainerDetails'])) {
+
+    logMessage("Running Trainer Details Saving Process");
 
     // Get the user data from the request
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    $password = $_POST['password'];
+    $user_id = $_POST['user_id'];
     $firstName = filter_var($_POST['firstName'], FILTER_SANITIZE_STRING);
     $lastName = filter_var($_POST['lastName'], FILTER_SANITIZE_STRING);
     $NIC = $_POST['NIC']; 
-    $dob = $_POST['dob'];  // Assuming this is sent as yyyy-mm-dd
+    $DOB_date = $_POST['DOB_date'];
+    $DOB_month = $_POST['DOB_month'];
+    $DOB_year = $_POST['DOB_year'];
     $address = $_POST['address'];
     $mobile_number = $_POST['mobile_number'];
     $years_of_experience = $_POST['years_of_experience'];
     $specialties = $_POST['specialties'];
-    $cv_link = $_POST['cv_link'];
-    $role = 'trainer';  // Assuming the role is trainer for this example
 
-    logMessage("Details: $email , $password, $role");
-
-    // Register user
-    if ($user->register($email, $password, $role)) {
-        logMessage("User registered: $email");
-
-        // Get the user_id for the newly registered user
-        $userData = $user->getUserByEmail($email);
-        if ($userData) {
-            $user_id = $userData['user_id'];
-
-            logMessage("Entering to trainers: $user_id");
-
-            // Register the trainer using the user_id
-            if ($trainer->registerTrainer($user_id, $firstName, $lastName, $NIC, $dob, $address, $mobile_number, $years_of_experience, $specialties, $cv_link)) {
-                logMessage("Trainer registered successfully with user ID: $user_id");
-                echo json_encode(["message" => "User and Trainer registered successfully"]);
-            } else {
-                logMessage("Trainer registration failed for user ID: $user_id");
-                echo json_encode(["error" => "Trainer registration failed"]);
-            }
-        } else {
-            logMessage("User not found after registration: $email");
-            echo json_encode(["error" => "User registration successful, but user data not found"]);
+    //checknig whether user exists
+    $userData = $user->getUserByUserID($user_id);
+    if($userData){
+        //user exists
+        //Now, check whether trainer record already exists or nt
+        $trainerData = $trainer->checkTrainerExists($user_id);
+        if($trainerData){
+            //trainer record exists
+            logMessage("Trainer record already exists");
+            echo json_encode(["error"=> "trainer record already exists"]);
+            return;
         }
-    } else {
-        logMessage("User registration failed: $email");
-        echo json_encode(["error" => "User registration failed"]);
+        //else... save trainer details
+        if ($trainer->saveTrainerDetails($user_id, $firstName, $lastName, $NIC, $DOB_date, $DOB_month, $DOB_year, $address, $mobile_number, $years_of_experience, $specialties)) {
+            logMessage("Trainer details saved successfully with user ID: $user_id");
+            echo json_encode(["message" => "Trainer details saved successfully"]);
+        } else {
+            logMessage("Trainer details saving failed for user ID: $user_id");
+            echo json_encode(["error" => "Trainer details saving failed failed"]);
+        }
+    }else{
+        //user doesn;t exists
+        logMessage("User doesn't exists for the user_id : $user_id");
+        echo json_encode(["error"=> "user doesn't exist"]);
     }
 }
+
+// update trainer details
+if ($request_method == 'POST' && isset($_POST['update_trainerDetails'])) {
+
+    logMessage("Running Trainer Details Updating Process");
+
+    // Get the user data from the request
+    $user_id = $_POST['user_id'];
+    $firstName = filter_var($_POST['firstName'], FILTER_SANITIZE_STRING);
+    $lastName = filter_var($_POST['lastName'], FILTER_SANITIZE_STRING);
+    $NIC = $_POST['NIC']; 
+    $DOB_date = $_POST['DOB_date'];
+    $DOB_month = $_POST['DOB_month'];
+    $DOB_year = $_POST['DOB_year'];
+    $address = $_POST['address'];
+    $mobile_number = $_POST['mobile_number'];
+    $years_of_experience = $_POST['years_of_experience'];
+    $specialties = $_POST['specialties'];
+
+    //checknig whether user exists
+    $userData = $user->getUserByUserID($user_id);
+    if($userData){
+        //user exists
+        //Now, check whether trainer record already exists or nt
+        $trainerData = $trainer->checkTrainerExists($user_id);
+        if(!$trainerData){
+            //trainer record exists
+            logMessage("Trainer record doesn't exist");
+            echo json_encode(["error"=> "trainer record not found"]);
+            return;
+        }
+        //else... update trainer details
+        if ($trainer->updateTrainerDetails($user_id, $firstName, $lastName, $NIC, $DOB_date, $DOB_month, $DOB_year, $address, $mobile_number, $years_of_experience, $specialties)) {
+            logMessage("Trainer details updated successfully with user ID: $user_id");
+            echo json_encode(["message" => "Trainer details updated successfully"]);
+        } else {
+            logMessage("Trainer details updating failed for user ID: $user_id");
+            echo json_encode(["error" => "Trainer details updating failed"]);
+        }
+    }else{
+        //user doesn;t exists
+        logMessage("User doesn't exists for the user_id : $user_id");
+        echo json_encode(["error"=> "user doesn't exist"]);
+    }
+}
+
+// remove trainer details
+if ($request_method == 'POST' && isset($_POST['remove_trainerDetails'])) {
+
+    logMessage("Running Trainer Details removing Process");
+
+    // Get the user data from the request
+    $user_id = $_POST['user_id'];
+
+    //checknig whether user exists
+    $userData = $user->getUserByUserID($user_id);
+    if($userData){
+        //user exists
+        //Now, check whether trainer record already exists or nt
+        $trainerData = $trainer->checkTrainerExists($user_id);
+        if(!$trainerData){
+            //trainer record doesn't exist
+            logMessage("Trainer record not found");
+            echo json_encode(["error"=> "trainer record not found"]);
+            return;
+        }
+        //else... save trainer details
+        if ($trainer->removeTrainerDetails($user_id)) {
+            logMessage("Trainer details removed successfully for user ID: $user_id");
+            echo json_encode(["message" => "Trainer details removed successfully"]);
+        } else {
+            logMessage("Trainer details couldn't be deleted for user ID: $user_id");
+            echo json_encode(["error" => "Trainer details couldn't be deleted"]);
+        }
+    }else{
+        //user doesn;t exists
+        logMessage("User doesn't exists for the user_id : $user_id");
+        echo json_encode(["error"=> "user doesn't exist"]);
+    }
+}
+
+// get trainer details
+if ($request_method == 'POST' && isset($_POST['get_trainerDetails'])) {
+
+    logMessage("Running get Trainer Details Process");
+
+    // Get the user data from the request
+    $user_id = $_POST['user_id'];
+
+    //checknig whether user exists
+    $userData = $user->getUserByUserID($user_id);
+    if($userData){
+        //user exists
+        //Now, check whether trainer record already exists or nt
+        $trainerData = $trainer->checkTrainerExists($user_id);
+        if(!$trainerData){
+            //trainer record doesn't exist
+            logMessage("Trainer record not found");
+            echo json_encode(["error"=> "trainer record not found"]);
+            return;
+        }
+        //else... get trainer details
+        $trainerDetails = $trainer->getTrainerDetails($user_id);
+        if ($trainerDetails) {
+            logMessage("Trainer details retrieved successfully for user ID: $user_id");
+            echo json_encode(["trainerDetails" => $trainerDetails]);
+        } else {
+            logMessage("Trainer details couldn't be retrived for user ID: $user_id");
+            echo json_encode(["error" => "Trainer details couldn't be retrieved"]);
+        }
+    }else{
+        //user doesn;t exists
+        logMessage("User doesn't exists for the user_id : $user_id");
+        echo json_encode(["error"=> "user doesn't exist"]);
+    }
+}
+
+
 ?>

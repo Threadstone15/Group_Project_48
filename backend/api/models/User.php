@@ -109,6 +109,26 @@ class User {
             return false;
         }
     }
+
+    public function getUserByUserID($user_id){
+        logMessage("Fetching user by id : $user_id");
+
+        $query = "SELECT user_id FROM ". $this->table . " WHERE user_id = ? ";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing statement for getUserById". $this->conn->error);
+            return false;
+        }
+        $stmt->bind_param("s", $user_id);
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            return $result->fetch_assoc();
+        }else{
+            logMessage("Error executing getUserById". $stmt->error);
+            return false;
+        }
+    } 
     
 
 }
