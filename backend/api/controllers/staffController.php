@@ -12,6 +12,7 @@ include_once "../../config/database.php";
 include_once "equipmentHandler.php";
 include_once "equipmentMaintenanceHandler.php";
 include_once "noticeHandler.php";
+include_once "trainerCareerHandler.php"; // Include the new trainer career handler
 
 $conn = include_once "../../config/database.php";
 $request_method = $_SERVER['REQUEST_METHOD'];
@@ -30,7 +31,7 @@ switch ($action) {
     case 'delete_equipment':
         deleteEquipment($conn);
         break;
-    
+
     case 'add_maintenance':
         addMaintenance($conn);
         break;
@@ -43,7 +44,7 @@ switch ($action) {
     case 'delete_maintenance':
         deleteMaintenance($conn);
         break;
-    
+
     case 'add_notice':
         addNotice($conn);
         break;
@@ -55,6 +56,19 @@ switch ($action) {
         break;
     case 'delete_notice':
         deleteNotice($conn);
+        break;
+
+    case 'add_trainer_career':
+        addTrainerCareer($conn);
+        break;
+    case 'get_trainer_career':
+        getTrainerCareer($conn);
+        break;
+    case 'update_trainer_career':
+        updateTrainerCareer($conn);
+        break;
+    case 'delete_trainer_career':
+        deleteTrainerCareer($conn);
         break;
 
     default:
