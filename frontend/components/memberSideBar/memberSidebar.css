@@ -19,7 +19,7 @@
   
   .sidebar {
     flex-basis: 350px; /* Increase the width */
-    max-width: 300px; /* Ensure it doesn't exceed this width */
+    max-width: 350px; /* Ensure it doesn't exceed this width */
     flex-shrink: 0;
     height: 100vh; /* Full viewport height */
     background-color: var(--sidebar);

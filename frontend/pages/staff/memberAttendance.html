@@ -1,73 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Member Attendance</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../css/style.css">
-  <link rel="stylesheet" href="../../css/globals.css">
-
-   <!-- Add your script here -->
-   <script defer>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Load sidebar.html into the sidebar-container
-        fetch("../../../components/dashboard/staffSideBar.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("sidebar-container").innerHTML = data;
-
-                // Optional: Update logo path or other elements if needed
-                const logoImage = document.querySelector('.sidebar-logo-black');
-                if (logoImage) {
-                    logoImage.src = '../../../assets/images/logo-black-transparent.png';
-                }
-            })
-            .catch(error => console.error('Error loading sidebar:', error));
-
-        // Dynamically load stylesheets
-        function loadStylesheet(href) {
-            const link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = href;
-            document.head.appendChild(link);
-        }
-
-        // Paths to stylesheets (adjust as needed)
-        loadStylesheet('../../../css/style.css');
-        loadStylesheet('../../../css/globals.css');
-    });
-</script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff-Member-Dashboard</title>
+    <link rel="stylesheet" href="/frontend/css/memberAttendance.css">
+    <link rel="stylesheet" href="/frontend/css/globals.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    
-    <div class="memberAttendance-container">
-        <div id="sidebar-container"></div>
-       <div class="memberAttendance-content">
-            <div class="memberAttendance-content-header">
-                <!--Haeder Text-->
-                <h1 class="memberAttendance-content-headerText">Member Attendance</h1>
-                <!--Notifications Icon-->
-                <div class="notifications-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 448 512" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M224 0c-17.7 0-32 14.3-32 32l0 19.2C119 66 64 130.6 64 208l0 18.8c0 47-17.3 92.4-48.5 127.6l-7.4 8.3c-8.4 9.4-10.4 22.9-5.3 34.4S19.4 416 32 416l384 0c12.6 0 24-7.4 29.2-18.9s3.1-25-5.3-34.4l-7.4-8.3C401.3 319.2 384 273.9 384 226.8l0-18.8c0-77.4-55-142-128-156.8L256 32c0-17.7-14.3-32-32-32zm45.3 493.3c12-12 18.7-28.3 18.7-45.3l-64 0-64 0c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7z"/></svg>
-                </div>
-                <!--Avatar-->
-                <div class="avatar">
-                    <div class="avatar-image">
-                      <img src="https://images.unsplash.com/photo-1527736947477-2790e28f3443?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTE2fHx3b21hbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="Account">
-                    </div>
-                    <div class="avatar-name">Monica G.</div>
-                </div>
-                
-            </div>
-            <div class="memberAttendance-content-subheader">
-                <!--Add a member button-->
-                <button class="memberAttendance-content-headerButton">Add a Member</button> 
-            </div>
-    </div>
-    </div>
-    
+    <div class="content-wrapper">
+   
+    <div id="sidebar-container"></div>
 
+    <div class="content">
+
+    <div class="header">
+        <p class="heading">
+            Member Attendance
+        </p>
+    </div>
+
+    <div class="table-container">
+        <table id="attendanceTable">
+            <thead>
+                <tr>    
+                    <th>Member ID</th>
+                    <th>Name</th>
+                    <th>Arrival Time</th>
+                    <th>Departed Time</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <?php if (!empty($members)) : ?>
+            <tbody>
+                <?php foreach ($members as $member) : ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($member['Member ID']); ?></td>
+                        <td><?php echo htmlspecialchars($member['name']); ?></td>
+                        <td><?php echo htmlspecialchars($member['Arrival Time']); ?></td>
+                        <td><?php echo htmlspecialchars($member['Departed Time']); ?></td>
+                        <td><?php echo htmlspecialchars($member['Status']); ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        <?php else : ?>
+            <tbody>
+                <tr>
+                    <td colspan="5" style="text-align: center;">No members found</td>
+                </tr>
+            </tbody>
+        <?php endif; ?>
+        
+        </table>
+    </div>
+    </div>
+</div>
+    <script src="/frontend/js/memberAttendance.js"></script>
+    <script>
+        // JavaScript to load the sidebar
+        function loadSidebar() {
+            fetch("/frontend/components/staffsideBar/staffsideBar.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("sidebar-container").innerHTML = data;
+                })
+                .catch(error => console.error("Error loading sidebar:", error));
+        }
+
+        // Call loadSidebar function on page load
+        document.addEventListener("DOMContentLoaded", loadSidebar);
+    </script>
 </body>
