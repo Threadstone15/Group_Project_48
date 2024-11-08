@@ -6,9 +6,9 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
     // alert(email + password);
 
     const loginData = {
-        login : 1,
-        email: email,
-        password: password
+        "login": 1,
+        "email": email,
+        "password": password
     };
 
     fetch('http://localhost:8080/Group_Project_48/backend/api/controllers/authController.php', {

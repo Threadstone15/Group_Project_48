@@ -7,10 +7,18 @@ header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header('Content-Type: application/json'); // Set content type to JSON
 
+include_once "../../logs/save.php";
+
+// Handle preflight (OPTIONS) requests for CORS
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    logMessage("Handling preflight OPTIONS request.");
+    http_response_code(204);  // No Content
+    exit();
+}
+
 session_start();
 include_once "../models/User.php";
 include_once "../../middleware/authMiddleware.php";
-include_once "../../logs/save.php";
 
 $conn = include_once "../../config/database.php";  // Corrected line to include the connection
 $user = new User($conn);
@@ -31,7 +39,7 @@ if (is_array($input)) {
 
         $email = filter_var($input['email'], FILTER_SANITIZE_EMAIL);
         $password = $input['password'];
-        $role = filter_var($input['role'], FILTER_SANITIZE_STRING);  // trainer, owner, staff, member
+        $role = filter_var($input['role'], FILTER_SANITIZE_STRING);
 
         logMessage("Request received: $email with role: $role");
 
