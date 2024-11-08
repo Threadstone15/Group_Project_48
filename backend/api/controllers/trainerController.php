@@ -72,47 +72,57 @@ if ($request_method == 'POST' && isset($_POST['save_trainerDetails'])) {
 }
 
 // update trainer details
-if ($request_method == 'POST' && isset($_POST['update_trainerDetails'])) {
+// update trainer details
+if ($request_method == 'PUT') {
+    // Parse incoming data for PUT requests
+    parse_str(file_get_contents("php://input"), $put_vars);
+    
+    if (isset($put_vars['update_trainerDetails'])) {
+        logMessage("Running Trainer Details Updating Process");
 
-    logMessage("Running Trainer Details Updating Process");
-
-    // Get the user data from the request
-    $user_id = $_POST['user_id'];
-    $firstName = filter_var($_POST['firstName'], FILTER_SANITIZE_STRING);
-    $lastName = filter_var($_POST['lastName'], FILTER_SANITIZE_STRING);
-    $NIC = $_POST['NIC']; 
-    $DOB_date = $_POST['DOB_date'];
-    $DOB_month = $_POST['DOB_month'];
-    $DOB_year = $_POST['DOB_year'];
-    $address = $_POST['address'];
-    $mobile_number = $_POST['mobile_number'];
-    $years_of_experience = $_POST['years_of_experience'];
-    $specialties = $_POST['specialties'];
-
-    //checknig whether user exists
-    $userData = $user->getUserByUserID($user_id);
-    if($userData){
-        //user exists
-        //Now, check whether trainer record already exists or nt
-        $trainerData = $trainer->checkTrainerExists($user_id);
-        if(!$trainerData){
-            //trainer record exists
-            logMessage("Trainer record doesn't exist");
-            echo json_encode(["error"=> "trainer record not found"]);
+        // Ensure the data is correctly received
+        if (empty($put_vars)) {
+            logMessage("No data received in PUT request.");
+            echo json_encode(["error" => "No data received"]);
             return;
         }
-        //else... update trainer details
-        if ($trainer->updateTrainerDetails($user_id, $firstName, $lastName, $NIC, $DOB_date, $DOB_month, $DOB_year, $address, $mobile_number, $years_of_experience, $specialties)) {
-            logMessage("Trainer details updated successfully with user ID: $user_id");
-            echo json_encode(["message" => "Trainer details updated successfully"]);
+
+        // Retrieve and sanitize data from the PUT request
+        $user_id = isset($put_vars['user_id']) ? $put_vars['user_id'] : null;
+        $firstName = filter_var($put_vars['firstName'] ?? '', FILTER_SANITIZE_STRING);
+        $lastName = filter_var($put_vars['lastName'] ?? '', FILTER_SANITIZE_STRING);
+        $NIC = $put_vars['NIC'] ?? '';
+        $DOB_date = $put_vars['DOB_date'] ?? '';
+        $DOB_month = $put_vars['DOB_month'] ?? '';
+        $DOB_year = $put_vars['DOB_year'] ?? '';
+        $address = $put_vars['address'] ?? '';
+        $mobile_number = $put_vars['mobile_number'] ?? '';
+        $years_of_experience = $put_vars['years_of_experience'] ?? '';
+        $specialties = $put_vars['specialties'] ?? '';
+
+        // Check if user exists
+        $userData = $user->getUserByUserID($user_id);
+        if ($userData) {
+            // Check if trainer record exists
+            $trainerData = $trainer->checkTrainerExists($user_id);
+            if (!$trainerData) {
+                logMessage("Trainer record doesn't exist");
+                echo json_encode(["error" => "Trainer record not found"]);
+                return;
+            }
+
+            // Update trainer details
+            if ($trainer->updateTrainerDetails($user_id, $firstName, $lastName, $NIC, $DOB_date, $DOB_month, $DOB_year, $address, $mobile_number, $years_of_experience, $specialties)) {
+                logMessage("Trainer details updated successfully with user ID: $user_id");
+                echo json_encode(["message" => "Trainer details updated successfully"]);
+            } else {
+                logMessage("Trainer details updating failed for user ID: $user_id");
+                echo json_encode(["error" => "Trainer details updating failed"]);
+            }
         } else {
-            logMessage("Trainer details updating failed for user ID: $user_id");
-            echo json_encode(["error" => "Trainer details updating failed"]);
+            logMessage("User doesn't exist for the user_id: $user_id");
+            echo json_encode(["error" => "User doesn't exist"]);
         }
-    }else{
-        //user doesn;t exists
-        logMessage("User doesn't exists for the user_id : $user_id");
-        echo json_encode(["error"=> "user doesn't exist"]);
     }
 }
 
