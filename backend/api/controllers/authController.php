@@ -27,11 +27,21 @@ $request_method = $_SERVER['REQUEST_METHOD'];
 logMessage("Running: $request_method");
 logMessage("Running auth controller");
 
+
+
 // Read JSON input
 $input = json_decode(file_get_contents("php://input"), true);
 
+$rawInput = file_get_contents("php://input");
+logMessage("Raw input: $rawInput");
+
+
+logMessage("step...1");
+
 // Check if input is set and is an array
 if (is_array($input)) {
+
+    logMessage("step...2");
 
     // Register User
     if ($request_method == 'POST' && isset($input['signup'])) {

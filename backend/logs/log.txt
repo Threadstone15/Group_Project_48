@@ -1104,6 +1104,7 @@
 [2024-11-08 17:18:37] passed
 [2024-11-08 17:18:37] Running: OPTIONS
 [2024-11-08 17:18:37] Running auth controller
+<<<<<<< Updated upstream
 [2024-11-08 18:03:43] This is a test log entry.
 [2024-11-08 18:03:43] Connection established successfully to the database: rad_gymverse
 [2024-11-08 18:03:43] passed
@@ -1525,3 +1526,76 @@
 [2024-11-08 19:20:47] Query bound and ready to execute for login: dulan@gmail.com
 [2024-11-08 19:20:47] User login successful: dulan@gmail.com with role: trainer
 [2024-11-08 19:20:47] Login Successful: eyJ1c2VyX2lkIjo2MywiZXhwIjoxNzMxMDkyNDAwfQ==.f68419ec53ca0690711835e182754417874d7714ba900cc1029363272c301957 trainer
+=======
+[2024-11-08 18:05:16] This is a test log entry.
+[2024-11-08 18:05:17] Connection established successfully to the database: rad_gymverse
+[2024-11-08 18:05:17] passed
+[2024-11-08 18:05:17] Running: OPTIONS
+[2024-11-08 18:05:17] Running auth controller
+[2024-11-08 18:06:59] This is a test log entry.
+[2024-11-08 18:06:59] Connection established successfully to the database: rad_gymverse
+[2024-11-08 18:06:59] passed
+[2024-11-08 18:06:59] Running: POST
+[2024-11-08 18:06:59] Running auth controller
+[2024-11-08 18:06:59] Running log-in
+[2024-11-08 18:06:59] User Login model running for: dulan@gmail.com
+[2024-11-08 18:07:00] Query bound and ready to execute for login: dulan@gmail.com
+[2024-11-08 18:07:00] User login successful: dulan@gmail.com with role: trainer
+[2024-11-08 18:07:00] Login Successful: eyJ1c2VyX2lkIjo2MywiZXhwIjoxNzMxMDg4ODAwfQ==.96384bb19e5e461611d7e1eda62363913be1e31efd3037ea8af642e338d6668d trainer
+[2024-11-08 18:09:07] This is a test log entry.
+[2024-11-08 18:09:07] Connection established successfully to the database: rad_gymverse
+[2024-11-08 18:09:07] passed
+[2024-11-08 18:09:07] Running: OPTIONS
+[2024-11-08 18:09:07] Running auth controller
+[2024-11-08 18:10:26] This is a test log entry.
+[2024-11-08 18:10:27] Connection established successfully to the database: rad_gymverse
+[2024-11-08 18:10:27] passed
+[2024-11-08 18:10:27] Running: OPTIONS
+[2024-11-08 18:10:27] Running auth controller
+[2024-11-08 18:10:27] step...1
+[2024-11-08 18:17:23] This is a test log entry.
+[2024-11-08 18:17:24] Connection established successfully to the database: rad_gymverse
+[2024-11-08 18:17:24] passed
+[2024-11-08 18:17:24] Running: OPTIONS
+[2024-11-08 18:17:24] Running auth controller
+[2024-11-08 18:17:24] Raw input: 
+[2024-11-08 18:17:24] step...1
+[2024-11-08 18:17:36] This is a test log entry.
+[2024-11-08 18:17:37] Connection established successfully to the database: rad_gymverse
+[2024-11-08 18:17:37] passed
+[2024-11-08 18:17:37] Running: POST
+[2024-11-08 18:17:37] Running auth controller
+[2024-11-08 18:17:37] Raw input: {
+    "login": 1,
+    "email" : "dulan@gmail.com",
+    "password" : "dulan"
+}
+[2024-11-08 18:17:37] step...1
+[2024-11-08 18:17:37] step...2
+[2024-11-08 18:17:37] Running log-in
+[2024-11-08 18:17:37] User Login model running for: dulan@gmail.com
+[2024-11-08 18:17:37] Query bound and ready to execute for login: dulan@gmail.com
+[2024-11-08 18:17:37] User login successful: dulan@gmail.com with role: trainer
+[2024-11-08 18:17:37] Login Successful: eyJ1c2VyX2lkIjo2MywiZXhwIjoxNzMxMDg4ODAwfQ==.96384bb19e5e461611d7e1eda62363913be1e31efd3037ea8af642e338d6668d trainer
+[2024-11-08 18:19:59] This is a test log entry.
+[2024-11-08 18:20:00] Connection established successfully to the database: rad_gymverse
+[2024-11-08 18:20:00] passed
+[2024-11-08 18:20:00] Running: OPTIONS
+[2024-11-08 18:20:00] Running auth controller
+[2024-11-08 18:20:00] Raw input: 
+[2024-11-08 18:20:00] step...1
+[2024-11-08 18:23:14] This is a test log entry.
+[2024-11-08 18:23:15] Connection established successfully to the database: rad_gymverse
+[2024-11-08 18:23:15] passed
+[2024-11-08 18:23:15] Running: OPTIONS
+[2024-11-08 18:23:15] Running auth controller
+[2024-11-08 18:23:15] Raw input: 
+[2024-11-08 18:23:15] step...1
+[2024-11-08 18:23:32] This is a test log entry.
+[2024-11-08 18:23:32] Connection established successfully to the database: rad_gymverse
+[2024-11-08 18:23:32] passed
+[2024-11-08 18:23:32] Running: OPTIONS
+[2024-11-08 18:23:32] Running auth controller
+[2024-11-08 18:23:32] Raw input: 
+[2024-11-08 18:23:32] step...1
+>>>>>>> Stashed changes
