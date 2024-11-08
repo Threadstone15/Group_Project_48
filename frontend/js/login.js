@@ -1,15 +1,16 @@
 document.getElementById('loginForm').addEventListener('submit', function (event) {
-    event.preventDefault(); 
+    event.preventDefault(); // Prevent form submission
 
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    // alert(email + password);
 
     const loginData = {
         "login": 1,
         "email": email,
         "password": password
     };
+
+    console.log("Login data being sent:", loginData); // Log the data being sent
 
     fetch('http://localhost:8080/Group_Project_48/backend/api/controllers/authController.php', {
         method: 'POST',
@@ -18,22 +19,37 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
         },
         body: JSON.stringify(loginData)
     })
-        .then(response => response.json())
+        .then(response => {
+            // Log the full response status and headers
+            console.log("Response status:", response.status);
+            console.log("Response headers:", response.headers);
+
+            // Check if the response is OK (status code in the range 200-299)
+            if (!response.ok) {
+                return response.text().then(text => {
+                    console.error("Server response (error):", text); // Log the error message returned by the server
+                    throw new Error(`Server error: ${response.status} - ${text}`);
+                });
+            }
+            return response.json(); // Parse the response as JSON
+        })
         .then(data => {
+            console.log("Response data:", data);  // Log the parsed JSON data
+
+            // Check if the login was successful
             if (data.success) {
+                console.log("Login successful!");  // Log success message
                 alert('Login successful!');
-                //indow.location.href = 'dashboard.html';
+                // window.location.href = 'dashboard.html'; // Uncomment when redirecting is required
             } else {
+                // Log error message and show alert
+                console.error("Login failed:", data.error);
                 alert(data.error || 'Login failed. Please check your credentials.');
             }
         })
         .catch(error => {
-            console.error('Error:', error);
+            // Log the caught error and display an alert
+            console.error("Error caught:", error);
             alert('An error occurred. Please try again later.');
         });
 });
-
-// document.getElementById('loginForm').addEventListener('submit', function (event) {
-//     event.preventDefault();
-//     alert('Login button clicked!');
-//   });

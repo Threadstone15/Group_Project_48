@@ -55,26 +55,53 @@ if (is_array($input)) {
     // Login User
     if ($request_method == 'POST' && isset($input['login'])) {
         logMessage("Running log-in");
-
+    
         $email = filter_var($input['email'], FILTER_SANITIZE_EMAIL);
         $password = $input['password'];
-
+    
         // Get user data
         $userData = $user->login($email, $password);
-
+    
         if ($userData) {
             if (password_verify($password, $userData['password'])) {
                 $token = generateToken($userData['user_id']);
                 $role = $userData['role'];
                 logMessage("Login Successful: $token $role");
-                echo json_encode(["message" => "Login successful", "role" => $role, "token" => $token]);
+    
+                // Set the HTTP status code for successful login
+                http_response_code(200);
+    
+                // Respond with a success message and token
+                $response = [
+                    "success" => true,
+                    "message" => "Login successful",
+                    "role" => $role,
+                    "token" => $token
+                ];
             } else {
-                echo json_encode(["error" => "Invalid credentials"]);
+                // Incorrect password, return error response
+                http_response_code(401); // Unauthorized
+                $response = [
+                    "success" => false,
+                    "error" => "Invalid credentials"
+                ];
             }
         } else {
-            echo json_encode(["error" => "User not found"]);
+            // User not found, return error response
+            http_response_code(404); // Not Found
+            $response = [
+                "success" => false,
+                "error" => "User not found"
+            ];
         }
+    
+        // Send the response as JSON
+        echo json_encode($response);
+    
+        // Ensure that the script stops after sending the response
+        exit;
     }
+    
 
     // Logout User
     if ($request_method == 'POST' && isset($input['logout'])) {
