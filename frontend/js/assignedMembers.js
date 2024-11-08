@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const headers = table.querySelectorAll("th");
     const rows = Array.from(table.querySelectorAll("tbody tr"));
 
+    // Function to sort table by column
     function sortTable(columnIndex) {
         const sortedRows = rows.sort((a, b) => {
             const aText = a.cells[columnIndex].textContent.trim();
@@ -10,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
             return aText.localeCompare(bText, undefined, { numeric: true });
         });
-
         table.querySelector("tbody").innerHTML = "";
         sortedRows.forEach(row => table.querySelector("tbody").appendChild(row));
     }
@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function() {
         header.addEventListener("click", () => sortTable(index));
     });
 
-    // Function to filter table by status
     document.getElementById("filterStatus").addEventListener("change", function() {
         const filter = this.value;
 
