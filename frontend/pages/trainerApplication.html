@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trainer Application</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/frontend/css/trainerApplication.css" />
+  <link rel="stylesheet" href="/frontend/css/globals.css" />
+
+</head>
+<body>
+    <div class="header">
+        <p class="heading">
+            Join GymVerse as a Trainer !
+        </p>
+        <p class="subheading">
+          Fill the form below and apply to become a trainer.
+        </p>
+      </div>
+    <section class="trainer-registration-form">
+        <div class="name-fields">
+            <div class="input-group">
+                <label for="first-name">First name</label>
+                <input type="text" id="first-name" class="input-field" />
+            </div>
+            <div class="input-group">
+                <label for="last-name">Last name</label>
+                <input type="text" id="last-name" class="input-field" />
+            </div>
+        </div>
+        <div class="input-group">
+            <label for="nic">NIC</label>
+            <input type="text" id="nic" class="input-field" />
+        </div>
+        <div class="date-of-birth">
+            <label>Date of Birth</label>
+            <div class="date-inputs">
+                <div class="select-wrapper">
+                    <label for="day" class="visually-hidden">Day</label>
+                    <select id="day" class="date-select">
+                        <option value="">Day</option>
+                    </select>
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70633085ea60b800aba1e0b3fad863765a6d009a016c73a33a5d4e014263e295?placeholderIfAbsent=true&apiKey=015e1c54eb5347dfb8c175d60fbc5fdf" alt="" class="select-arrow" />
+                </div>
+                <div class="select-wrapper">
+                    <label for="month" class="visually-hidden">Month</label>
+                    <select id="month" class="date-select">
+                        <option value="">Month</option>
+                    </select>
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/70633085ea60b800aba1e0b3fad863765a6d009a016c73a33a5d4e014263e295?placeholderIfAbsent=true&apiKey=015e1c54eb5347dfb8c175d60fbc5fdf" alt="" class="select-arrow" />
+                </div>
+                <div class="select-wrapper">
+                    <label for="year" class="visually-hidden">Year</label>
+                    <select id="year" class="date-select">
+                        <option value="">Year</option>
+                    </select>
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ea7f935f66ca5e0f3d01bf3723c4859e3a22730af390869ce7a460e7ef7cca3e?placeholderIfAbsent=true&apiKey=015e1c54eb5347dfb8c175d60fbc5fdf" alt="" class="select-arrow" />
+                </div>
+            </div>
+        </div>
+        <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" class="input-field" value="abc123@gmail.com" />
+        </div>
+        <div class="input-group">
+            <label for="address">Address</label>
+            <input type="text" id="address" class="input-field" placeholder="Apartment / Street / City" />
+        </div>
+        <div class="input-group">
+            <label for="mobile">Mobile No</label>
+            <input type="tel" id="mobile" class="input-field" value="+94 x xxx xxx xxx" />
+        </div>
+        <div class="input-group">
+            <label for="experience">No of Years as a Trainer</label>
+            <input type="number" id="experience" class="input-field" />
+        </div>
+        <div class="input-group">
+            <label for="specialties">Specialties</label>
+            <textarea id="specialties" class="input-field textarea"></textarea>
+        </div>
+        <div class="cv-upload">
+            <label for="cv-file">CV</label>
+            <div class="upload-area">
+                <label for="cv-file" class="upload-label">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/6bd2ec04f85b14093a29c594f2e4c0e67dc0bbdb0f773ca597ace57d383ac420?placeholderIfAbsent=true&apiKey=015e1c54eb5347dfb8c175d60fbc5fdf" alt="" class="upload-icon" />
+                    <span>Include your CV here</span>
+                </label>
+                <input type="file" id="cv-file" class="visually-hidden" accept=".pdf,.doc,.docx" />
+            </div>
+        </div>
+    </section>
+
+    <button class="final-cta-button" tabindex="0">Submit Application</button>
+ 
+</body>
+
+</html>

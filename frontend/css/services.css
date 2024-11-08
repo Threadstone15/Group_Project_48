@@ -1,0 +1,80 @@
+.workout-plans-container {
+    border-radius: 30px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    color: #4f4f4f;
+    justify-content: center;
+    padding: 60px 90px;
+    font: 500 18px 'Poppins', sans-serif;
+    border: 3px solid #ff5f00;
+    max-width: 800px; /* Set a max-width */
+    margin: 0 auto; /* Center the container horizontally */
+    margin-top: 30px;
+}
+
+.workout-plans-content {
+    border-radius: 0;
+    display: flex;
+    max-width: 100%;
+    max-width: 771px;
+    flex-direction: column;
+    padding: 0px;
+    margin: 0px;
+}
+
+.workout-plans-title {
+    color: #000;
+    font-size: 30px;
+    font-weight: 600;
+    align-self: start;
+}
+
+.workout-plans-feature {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.workout-plans-feature:last-child {
+    margin-top: 15px;
+}
+
+.feature-highlight {
+    font-weight: 600;
+}
+
+@media (max-width: 991px) {
+    .workout-plans-container {
+        padding: 30px 20px;
+    }
+
+    .workout-plans-title,
+    .workout-plans-feature {
+        max-width: 100%;
+    }
+}
+
+.header {
+    text-align: center; /* Center the text content */
+    margin: 0 auto; /* Center the entire header block */
+    padding: 20px; /* Add some padding to the header for spacing */
+    margin-top: 30px;
+  }
+  
+  .heading {
+    font-size: 35px; /* Set font size for heading */
+    font-weight: 600; /* Set font weight to bold for emphasis */
+    font-family: 'Poppins', sans-serif; /* Use Poppins font */
+    color: #000; /* Set text color (black) */
+    margin-bottom: 10px; /* Add spacing between heading and subheading */
+  }
+  
+  .subheading {
+    font-size: 16px; /* Set font size for subheading */
+    font-family: 'Poppins', sans-serif; /* Use Poppins font */
+    color: #4F4F4F; /* Set a slightly lighter text color */
+    max-width: 800px; /* Restrict width to ensure readability */
+    margin: 0 auto; /* Center the subheading */
+    line-height: 1.5; /* Add some line spacing for better readability */
+  }
+  

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/globals.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="header">
+    <p class="heading">
+      LOG IN
+    </p>
+    <p class="subheading">
+      Fill out the details
+    </p>
+  </div>
+  <section class="login-form">
+    <form>
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" class="form-input" placeholder="Enter your email address" required>
+      </div>
+      <div class="form-group">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" id="password" class="form-input" required>
+      </div>
+      <div class="form-options">
+        <div class="remember-me">
+          <input type="checkbox" id="remember" class="checkbox">
+          <label for="remember" class="checkbox-label">Remember me</label>
+        </div>
+        <a href="#" class="forgot-password">Forgot password?</a>
+      </div>
+      <button class="final-cta-button" tabindex="0">Log In</button>
+    </form>
+  </section>
+</html>

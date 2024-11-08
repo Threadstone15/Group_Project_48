@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff-Member-Dashboard</title>
+    <link rel="stylesheet" href="/frontend/css/memberAttendance.css">
+    <link rel="stylesheet" href="/frontend/css/globals.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="content-wrapper">
+   
+    <div id="sidebar-container"></div>
+
+    <div class="content">
+
+    <div class="header">
+        <p class="heading">
+            Member Attendance
+        </p>
+    </div>
+
+    <div class="table-container">
+        <table id="attendanceTable">
+            <thead>
+                <tr>    
+                    <th>Member ID</th>
+                    <th>Name</th>
+                    <th>Arrival Time</th>
+                    <th>Departed Time</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <?php if (!empty($members)) : ?>
+            <tbody>
+                <?php foreach ($members as $member) : ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($member['Member ID']); ?></td>
+                        <td><?php echo htmlspecialchars($member['name']); ?></td>
+                        <td><?php echo htmlspecialchars($member['Arrival Time']); ?></td>
+                        <td><?php echo htmlspecialchars($member['Departed Time']); ?></td>
+                        <td><?php echo htmlspecialchars($member['Status']); ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        <?php else : ?>
+            <tbody>
+                <tr>
+                    <td colspan="5" style="text-align: center;">No members found</td>
+                </tr>
+            </tbody>
+        <?php endif; ?>
+        
+        </table>
+    </div>
+    </div>
+</div>
+    <script src="/frontend/js/memberAttendance.js"></script>
+    <script>
+        // JavaScript to load the sidebar
+        function loadSidebar() {
+            fetch("/frontend/components/staffsideBar/staffsideBar.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("sidebar-container").innerHTML = data;
+                })
+                .catch(error => console.error("Error loading sidebar:", error));
+        }
+
+        // Call loadSidebar function on page load
+        document.addEventListener("DOMContentLoaded", loadSidebar);
+    </script>
+</body>
