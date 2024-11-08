@@ -72,7 +72,7 @@ class Trainer {
     }
 
     public function checkTrainerExists($user_id){
-        $query = "SELECT user_id FROM ". $this->table . " WHERE user_id = ? ";
+        $query = "SELECT trainer_id FROM ". $this->table . " WHERE user_id = ? ";
         $stmt = $this->conn->prepare($query);
 
         if ($stmt === false) {

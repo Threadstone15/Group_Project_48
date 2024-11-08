@@ -12,10 +12,12 @@ include_once "../models/User.php";
 include_once "../models/Trainer.php"; // Include Trainer model
 include_once "../../middleware/authMiddleware.php";
 include_once "../../logs/save.php";
+include_once "../models/WorkoutPlan.php";
 
 $conn = include_once "../../config/database.php";
 $user = new User($conn);
 $trainer = new Trainer($conn);
+$workoutPlan = new WorkoutPlan($conn);
 
 $request_method = $_SERVER['REQUEST_METHOD'];
 logMessage("Running: $request_method");
@@ -185,5 +187,33 @@ if ($request_method == 'POST' && isset($_POST['get_trainerDetails'])) {
     }
 }
 
+// create workout plan
+if ($request_method == 'POST' && isset($_POST['create_workoutPlan'])) {
 
+    logMessage("Running workout plan creating process");
+
+    // Get the user data from the request
+    $user_id = $_POST['user_id'];
+    $name = $_POST['name'];
+    $description = $_POST['description'];
+
+    //getting trainer_id from the user_id
+    $trainer_id = $trainer->checkTrainerExists($user_id);
+
+    if(!$trainer_id){
+        echo json_encode(["error" => "Trainer doesn't exist"]);
+        return;
+    }
+
+    //ccreating workout plan record
+    $workout_plan_id = $workoutPlan->createWorkoutPlan($trainer_id,$name, $description);
+    if($workout_plan_id){
+        logMessage("Workout plan successfully created for the plan id : $workout_plan_id");
+        echo json_encode(["workoutPlanId"=> $workout_plan_id, "message" => "workout plan created successfuly"]);
+    }else{
+        logMessage("Workout plan couldn't be created");
+        echo json_encode(["error"=> "workut plan couldn't be created"]);
+    }
+
+}
 ?>

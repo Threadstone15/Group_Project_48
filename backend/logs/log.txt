@@ -1338,3 +1338,43 @@
 [2024-11-06 19:11:04] Running get Trainer Details Process
 [2024-11-06 19:11:04] Fetching user by id : 66
 [2024-11-06 19:11:05] Trainer details retrieved successfully for user ID: 66
+[2024-11-08 07:29:05] This is a test log entry.
+[2024-11-08 07:29:06] Connection established successfully to the database: rad_gymverse
+[2024-11-08 07:29:06] passed
+[2024-11-08 07:29:06] Running: POST
+[2024-11-08 07:29:06] Running Sign-up
+[2024-11-08 07:29:06] Request received: brucewayne@gmail.com with role: trainer
+[2024-11-08 07:29:06] User Register model running...
+[2024-11-08 07:29:06] Password hashed for user: brucewayne@gmail.com
+[2024-11-08 07:29:06] Query bound and ready to execute for user: brucewayne@gmail.com
+[2024-11-08 07:29:07] User registered successfully: brucewayne@gmail.com with role: trainer
+[2024-11-08 07:29:07] User registered: brucewayne@gmail.com with role: trainer
+[2024-11-08 07:30:38] This is a test log entry.
+[2024-11-08 07:30:39] Connection established successfully to the database: rad_gymverse
+[2024-11-08 07:30:39] passed
+[2024-11-08 07:30:39] Trainer model initialized
+[2024-11-08 07:30:39] wokrout plan model initialized
+[2024-11-08 07:30:39] Running: POST
+[2024-11-08 07:30:39] Running Trainer Details Saving Process
+[2024-11-08 07:30:39] Fetching user by id : 67
+[2024-11-08 07:30:40] Saving trainer details...
+[2024-11-08 07:30:40] Query bound for trainer details saving: Bruce Wayne with Trainer ID: T2
+[2024-11-08 07:30:40] Trainer details saved successfully with Trainer ID: T2
+[2024-11-08 07:30:40] Trainer details saved successfully with user ID: 67
+[2024-11-08 07:35:06] This is a test log entry.
+[2024-11-08 07:35:06] Connection established successfully to the database: rad_gymverse
+[2024-11-08 07:35:06] passed
+[2024-11-08 07:35:06] Trainer model initialized
+[2024-11-08 07:35:06] wokrout plan model initialized
+[2024-11-08 07:35:06] Running: PUT
+[2024-11-08 07:42:31] This is a test log entry.
+[2024-11-08 07:42:32] Connection established successfully to the database: rad_gymverse
+[2024-11-08 07:42:32] passed
+[2024-11-08 07:42:32] Trainer model initialized
+[2024-11-08 07:42:32] wokrout plan model initialized
+[2024-11-08 07:42:32] Running: POST
+[2024-11-08 07:42:32] Running Trainer Details Updating Process
+[2024-11-08 07:42:32] Fetching user by id : 66
+[2024-11-08 07:42:33] Updating trainer details for user ID: 66
+[2024-11-08 07:42:33] Trainer details updated successfully for user ID: 66
+[2024-11-08 07:42:33] Trainer details updated successfully with user ID: 66
