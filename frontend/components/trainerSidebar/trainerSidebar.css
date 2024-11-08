@@ -35,14 +35,14 @@ body {
   flex-basis: 350px; 
   max-width: 300px; 
   flex-shrink: 0;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
   background-color: var(--sidebar);
   display: flex;
   flex-direction: column;
-  font-family: 'Poppins', sans-serif; /* Font family Poppins */
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
-  border-right: 1px solid #dcdcdc; /* Adjust color and width as desired */
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Horizontal shadow for right side */
+  border-right: 1px solid #dcdcdc;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); 
 }
 
 .sidebar-header {
@@ -62,7 +62,7 @@ body {
 .sidebar-divider {
   border: 0; 
   height: 0.3px; 
-  background-color: #e0e0e0; 
+  background-color: #e0e0e0;
   margin-top: 3px; 
   margin-left: 20px;
   margin-right: 20px;
@@ -126,12 +126,13 @@ body {
   
   .content {
     flex-grow: 1;
+    padding: 20px;
     font-family: 'Poppins', sans-serif;
   }
   
   #content-area {
+    padding: 20px;
     background-color: #ffffff;
     border-radius: 5px;
-    margin-top: -30px;
   }
   

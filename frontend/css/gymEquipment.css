@@ -1,0 +1,195 @@
+/* style.css */
+.content-wrapper {
+    display:flex;
+
+}
+
+.content {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+.table-container {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0; /* Removes spacing between cells if needed */
+    border-radius: 10px; /* Adjust the radius as desired */
+    overflow: hidden; /* Ensures corners stay rounded if there’s content overflow */
+    box-shadow: 0px 4px 10px rgba(15, 15, 15, 0.1); /* Optional shadow for a softer look */
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ffffff;
+    text-align: left;
+    border-right: 1px solid #e0e0e0;
+}
+
+/* Remove the right border from the last cell in each row to avoid double border */
+.table-container tr th:last-child, .table-container tr td:last-child {
+    border-right: none;
+}
+
+/* Optional: Add a bottom border for row dividers */
+.table-container tr td {
+    border-bottom: 1px solid #e0e0e0; /* Light border between rows */
+}
+
+th {
+    background-color: #ffffff;
+    font-weight: 500;
+    text-align: center;
+}
+
+td {
+    text-align: center;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table-container tr {
+    border: 1px solid #e0e0e0; /* Light border around each row */
+    border-radius: 8px; /* Optional: rounded corners on each row */
+}
+
+tbody {
+    border-radius: 8px;
+}
+
+tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+#attendanceTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.header {
+    text-align: left; /* Center the text content */
+    margin: 0 auto; /* Center the entire header block */
+    padding: 20px; /* Add some padding to the header for spacing */
+    margin-top: 30px;
+  }
+  
+  .heading {
+    font-size: 35px; /* Set font size for heading */
+    font-weight: 600; /* Set font weight to bold for emphasis */
+    font-family: 'Poppins', sans-serif; /* Use Poppins font */
+    color:  #333;
+  }
+
+
+  .add-equipment-container {
+    max-width: 605px;
+    font: 600 18px Poppins, sans-serif;
+    letter-spacing: -0.36px;
+    margin: 0 auto;
+  }
+  
+  .add-equipment-content {
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #E5E5E5;
+    padding: 39px 49px;
+    display: flex;
+    flex-direction: column;
+    border-collapse: collapse;
+    overflow: hidden; /* Ensures corners stay rounded if there’s content overflow */
+    box-shadow: 0px 4px 10px rgba(15, 15, 15, 0.1); /* Optional shadow for a softer look */
+  }
+  
+  .equipment-icon {
+    width: 25px;
+    aspect-ratio: 1;
+    object-fit: contain;
+  }
+  
+  .section-title {
+    color: #FF5F00;
+    line-height: 2;
+    margin-top: 12px;
+    font-size: 18px;
+    margin-left: 15px;
+  }
+
+  .add-equipment-title {
+    display:flex;
+    margin-bottom: 0px;
+  }
+  
+  .equipment-form {
+    margin-top: 35px;
+    font-size: 16px;
+    color: #4F4F4F;
+    letter-spacing: -0.32px;
+  }
+  
+  .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-label {
+    flex: 0 0 auto;
+    margin-right: 10px;
+  }
+  
+  .form-input {
+    flex: 1;
+    min-width: 220px;
+    height: 36px;
+    border-radius: 10px;
+    background-color: rgba(79, 79, 79, 0.05);
+    border: 1px solid rgba(79, 79, 79, 0.05);
+    padding: 10px;
+    font-family: Poppins, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  /* Add pointer cursor on hover for the calendar icon */
+.form-input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer; /* Set pointer cursor for calendar icon */
+}
+
+
+  
+  .submit-button {
+    background-color: #FF5F00;
+    color: #fff;
+    border: 1px solid #FF5F00;
+    border-radius: 49px;
+    padding: 12px 42px;
+    font-weight: 400;
+    line-height: 1;
+    cursor: pointer;
+    font-family: Poppins, sans-serif;
+    margin-top: 20px;
+  }
+
+
+  @media (max-width: 991px) {
+    .add-equipment-content {
+      padding: 20px;
+    }
+  
+    .submit-button {
+      padding: 12px 20px;
+    }
+  }
+
+  .header, .table-container, .add-equipment-container {
+    width: 100%; /* Full width to prevent shifting */
+    margin-left: 50px; /* Remove any additional left margin */
+    padding-left: 0; /* Ensure no extra padding */
+}

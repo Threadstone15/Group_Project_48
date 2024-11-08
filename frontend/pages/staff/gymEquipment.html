@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff-Member-Dashboard</title>
+    <link rel="stylesheet" href="/frontend/css/gymEquipment.css">
+    <link rel="stylesheet" href="/frontend/css/globals.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="content-wrapper">
+   
+    <div id="sidebar-container"></div>
+
+    <div class="content">
+
+    <div class="header">
+        <p class="heading">
+            Gym Equipment
+        </p>
+    </div>
+
+    <div class="table-container">
+        <table id="equipmentsTable">
+            <thead>
+                <tr>    
+                    <th>Equipment ID</th>
+                    <th>Name</th>
+                    <th>Purchase Date</th>
+                    <th>Status</th>
+                    <th>Usable Duration</th>
+                </tr>
+            </thead>
+            <?php if (!empty($equipments)) : ?>
+            <tbody>
+                <?php foreach ($equipments as $equipment) : ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($equipment['Equipment ID']); ?></td>
+                        <td><?php echo htmlspecialchars($equipment['Name']); ?></td>
+                        <td><?php echo htmlspecialchars($equipment['Purchase Date']); ?></td>
+                        <td><?php echo htmlspecialchars($equipment['Status']); ?></td>
+                        <td><?php echo htmlspecialchars($equipment['Usable Duration']); ?></td>
+                        
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        <?php else : ?>
+            <tbody>
+                <tr>
+                    <td colspan="5" style="text-align: center;">No equipments added</td>
+                </tr>
+            </tbody>
+        <?php endif; ?>
+        
+        </table>
+    </div>
+    <section class="add-equipment-container">
+        <div class="add-equipment-content">
+        <div class="add-equipment-title">
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/243cdbd6c41af4b160198bf02cfde9796aa344695eff0a3830018a13b4d9e96b?placeholderIfAbsent=true&apiKey=015e1c54eb5347dfb8c175d60fbc5fdf" class="equipment-icon" alt="Equipment icon" />
+            <h2 class="section-title">Add a new equipment</h2>
+        </div>
+         
+          <form class="equipment-form">
+            <div class="form-group">
+              <label for="equipmentName" class="form-label">Name :</label>
+              <input type="text" id="equipmentName" class="form-input" aria-label="Enter equipment name" />
+            </div>
+            <div class="form-group">
+              <label for="purchaseDate" class="form-label">Purchase Date :</label>
+              <input type="date" id="purchaseDate" class="form-input" aria-label="Select purchase date" />
+            </div>
+            <div class="form-group">
+              <label for="maintenanceDuration" class="form-label">Maintenance Duration :</label>
+              <input type="text" id="maintenanceDuration" class="form-input" aria-label="Enter maintenance duration" />
+            </div>
+            <button type="submit" class="submit-button">Add Equipment</button>
+            </form>
+        </div>
+      </section>
+    </div>
+</div>
+    <script>
+        // JavaScript to load the sidebar
+        function loadSidebar() {
+            fetch("/frontend/components/staffsideBar/staffsideBar.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("sidebar-container").innerHTML = data;
+                })
+                .catch(error => console.error("Error loading sidebar:", error));
+        }
+
+        // Call loadSidebar function on page load
+        document.addEventListener("DOMContentLoaded", loadSidebar);
+    </script>
+</body>
