@@ -1,23 +1,22 @@
 // Function to load content based on sidebar clicks
-document.getElementById("member-attendance").addEventListener("click", function () {
-    setActive("member-attendance");
-    loadContent('/frontend/pages/staff/memberAttendance.html');
+document.getElementById("home").addEventListener("click", function () {
+    setActive("home");
+    loadContent('/frontend/pages/admin/adminHome.html');
   });
 
-  document.getElementById("gym-equipment").addEventListener("click", function () {
-    setActive("gym-equipment");
-    loadContent('/frontend/pages/staff/gymEquipment.html');
+  document.getElementById("assigned-members").addEventListener("click", function () {
+    setActive("assigned-members");
+    loadContent('/frontend/pages/admin/assignedMembers.html');
   });
 
-  document.getElementById("publish-notice").addEventListener("click", function () {
-    setActive("publish-notice");
-    loadContent('/frontend/pages/staff/publishNotices.html');
+  document.getElementById("meal-plans").addEventListener("click", function () {
+    setActive("meal-plans");
+    loadContent('/frontend/pages/admin/workoutMeals.html');
   });
 
   
-  // Function to set the active link in the sidebar
   function setActive(id) {
-
+  
     const links = document.querySelectorAll(".sidebar-menu a");
     links.forEach(link => link.classList.remove("active"));
     const activeLink = document.getElementById(id);
