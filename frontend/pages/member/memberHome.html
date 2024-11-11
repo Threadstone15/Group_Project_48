@@ -4,13 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Staff-Member-Dashboard</title>
+  <title>MemberHome</title>
   <link rel="stylesheet" href="/frontend/css/memberHome.css">
   <link rel="stylesheet" href="/frontend/css/globals.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
+
+    <div class="total-content">
     <div class="content">
     <div class="calendar-container">
         <header class="calendar-header">
@@ -56,9 +58,14 @@
         <p class="date" id="dateDisplay">Friday</p>
         <p class="member-count" id="memberCount">Members Present: 0</p>
     </div>
-
+    </div>
+    <div class="content-bottom">
+        <div id="calendar-placeholder"></div>
+    </div>
 </div>
-    <script src="/frontend/js/memberHome.js"></script>
+
+    
+    <script type="module"   src="/frontend/js/memberHome.js"></script>
 
 
 </body>

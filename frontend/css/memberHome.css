@@ -119,8 +119,37 @@ header .calendar-current-date {
 }
 
 .content {
-  padding: 20px;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.calendar-container,
+.notice-container,
+.gym-card{
+  flex-basis: 33.3%;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.content-bottom {
+  margin-top: 60px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+#calendar-placeholder {
+  width: 100%;
+
+}
+
+.total-content {
+  display: flex;
+  flex-direction: column;
 }
 
 .notice-container body {

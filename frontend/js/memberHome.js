@@ -145,3 +145,37 @@ fetch("get_gym_data.php")
             }
     })
     .catch(error => console.error("Error fetching gym data:", error));
+
+//loading task-calendar component
+function loadHTMLFile(url, targetElement) {
+    fetch(url)
+        .then(response => response.text())
+        .then(data => {
+            document.querySelector(targetElement).innerHTML = data;
+        })
+        .catch(error => console.error('Error loading HTML:', error));
+}
+
+// Function to load a CSS file dynamically
+function loadCSSFile(url) {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = url;
+    document.head.appendChild(link);
+}
+
+// Function to load a JS file dynamically
+function loadJSFile(url) {
+    const script = document.createElement('script');
+    script.type = 'module';
+    script.src = url;
+    document.body.appendChild(script);
+}
+
+// Loading the calendar component
+window.onload = function () {
+    loadHTMLFile('/frontend/components/calendar/calendar.html', '#calendar-placeholder'); // Load HTML into placeholder
+    loadCSSFile('/frontend/components/calendar/calendar.css'); // Load CSS for the calendar
+    loadJSFile('/frontend/components/calendar/calendar.js'); // Load JS for the calendar
+};
+
