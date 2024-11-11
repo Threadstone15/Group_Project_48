@@ -57,7 +57,9 @@ function attachNavbarListeners() {
 
   document.getElementById("member").addEventListener("click", function () {
     loadPage('becomeMember');
+    loadJSFile('becomeMember');
   });
+  
 }
 
 export function loadFooter() {
