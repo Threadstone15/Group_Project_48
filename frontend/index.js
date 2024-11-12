@@ -1,10 +1,12 @@
-import { loadNavbar, loadFooter, navigate } from './js/contentLoader.js';
+import { loadNavbar, loadFooter } from './js/contentLoader.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   loadNavbar();
   loadFooter();
 
-  // If no specific page is provided, default to the home page
-  const path = window.location.pathname === '/' ? 'home' : window.location.pathname.slice(1);
+  // Handle the current path
+  const path = window.location.pathname === '/Group_Project_48/' 
+    ? 'home' 
+    : window.location.pathname.replace('/Group_Project_48/', '');
   navigate(path);
 });

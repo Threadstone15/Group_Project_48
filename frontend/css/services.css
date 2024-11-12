@@ -1,3 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    justify-content: center; 
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    margin: auto;
+}
+
+
 .workout-plans-container {
     border-radius: 30px;
     background-color: #fff;

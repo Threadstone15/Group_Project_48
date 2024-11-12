@@ -3,6 +3,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
 
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
+    // alert(email+password);
 
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
