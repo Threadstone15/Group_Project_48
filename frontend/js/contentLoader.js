@@ -1,19 +1,19 @@
 export function loadNavbar() {
-  // Load navbar.html into the navbar-container
   fetch("/frontend/components/navbar/navbar.html")
     .then(response => response.text())
     .then(data => {
       document.getElementById("navbar-container").innerHTML = data;
 
-      // Change the logo path after inserting the HTML
+      // Set the logo path after navbar HTML is loaded
       const logoImage = document.querySelector('.logo-black');
       if (logoImage) {
         logoImage.src = '/frontend/assets/images/logo-black-transparent.png';
       }
 
-      // Attach event listeners after the navbar is loaded
-      attachNavbarListeners();
-
+      // Load navbar.js only after navbar HTML is inserted
+      const script = document.createElement('script');
+      script.src = "/frontend/components/navbar/navbar.js";
+      document.body.appendChild(script);
     })
     .catch(error => console.error('Error loading navbar:', error));
 
@@ -22,49 +22,6 @@ export function loadNavbar() {
   navbarLink.rel = 'stylesheet';
   navbarLink.href = '/frontend/components/navbar/navbar.css';
   document.head.appendChild(navbarLink);
-}
-
-// Function to attach navbar event listeners
-function attachNavbarListeners() {
-  document.getElementById("logo").addEventListener("click", function () {
-    loadPage('home');
-  });
-
-  document.getElementById("services").addEventListener("click", function () {
-    loadPage('services');
-  });
-
-  document.getElementById("about").addEventListener("click", function () {
-    loadPage('about');
-  });
-
-  document.getElementById("find-trainer").addEventListener("click", function () {
-    loadPage('findATrainer');
-  });
-
-  document.getElementById("pricing").addEventListener("click", function () {
-    loadPage('pricing');
-  });
-
-  document.getElementById("careers").addEventListener("click", function () {
-    loadPage('careers');
-  });
-
-  document.getElementById("login").addEventListener("click", function () {
-    loadPage('login');
-    loadJSFile('login');
-  });
-
-  document.getElementById("member").addEventListener("click", function () {
-    loadPage('becomeMember');
-    loadJSFile('becomeMember');
-  });
-
-  document.getElementById("gymEquipment").addEventListener("click", function () {
-    loadPage('gymEquipment');
-    loadJSFile('gymEquipment');
-  });
-  
 }
 
 export function loadFooter() {
@@ -87,39 +44,53 @@ export function loadFooter() {
 export function loadPage(page) {
   const pageUrl = `/frontend/pages/${page}.html`;
   const pageCssUrl = `/frontend/css/${page}.css`;
+  const pageJsUrl = `/frontend/js/${page}.js`;
 
-  // Load the page HTML
+  console.log(`Attempting to load page: ${pageUrl}`); // Debugging
+
+  // Fetch the HTML content of the page
   fetch(pageUrl)
-    .then(response => response.text())
+    .then(response => {
+      if (!response.ok) throw new Error('Page not found');
+      return response.text();
+    })
     .then(data => {
       document.getElementById("content-container").innerHTML = data;
 
-      // Load the corresponding CSS for the page
-      const pageCssLink = document.createElement('link');
-      pageCssLink.rel = 'stylesheet';
-      pageCssLink.href = pageCssUrl;
-      document.head.appendChild(pageCssLink);
+      // Load CSS if it exists for the page
+      if (!document.querySelector(`link[href="${pageCssUrl}"]`)) {
+        const pageCssLink = document.createElement('link');
+        pageCssLink.rel = 'stylesheet';
+        pageCssLink.href = pageCssUrl;
+        document.head.appendChild(pageCssLink);
+        console.log(`CSS loaded for page: ${pageCssUrl}`);
+      }
+
+      // Load JS if it exists for the page
+      if (!document.querySelector(`script[src="${pageJsUrl}"]`)) {
+        const script = document.createElement('script');
+        script.src = pageJsUrl;
+        document.body.appendChild(script);
+        console.log(`JS loaded for page: ${pageJsUrl}`);
+      }
     })
     .catch(error => {
       console.error('Error loading page:', error);
-      document.getElementById("content-container").innerHTML = `<p>Page not found.</p>`;
+      document.getElementById("content-container").innerHTML = `<p>404 - Page not found.</p>`;
     });
 }
 
-// //loading teh js file for each html file-> or linking the js file to html file
-export function loadJSFile(page) {
-  const pageUrl = `/frontend/pages/${page}.html`;
-  const pageJSUrl = `/frontend/js/${page}.js`;
-  
-  fetch(pageUrl)
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('content-container').innerHTML = data;
-
-      // Dynamically load the script for login page functionality
-      const script = document.createElement('script');
-      script.src = pageJSUrl;
-      document.body.appendChild(script);
-    })
-    .catch(error => console.error('Error loading login page:', error));
+// Unified navigation function
+export function navigate(page) {
+  loadPage(page);            // Load the specified page content
+  history.pushState({ page }, "", `/${page}`); // Update the URL without reloading
 }
+
+window.addEventListener('popstate', (event) => {
+  const page = event.state ? event.state.page : 'home';
+  loadPage(page); // Load page without pushing to history
+});
+
+// Make `navigate` available globally
+window.navigate = navigate;
+

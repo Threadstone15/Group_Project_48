@@ -1,9 +1,10 @@
-import {loadNavbar, loadFooter, loadPage, loadJSFile} from './js/contentLoader.js';
+import { loadNavbar, loadFooter, navigate } from './js/contentLoader.js';
 
 document.addEventListener("DOMContentLoaded", () => {
-
   loadNavbar();
   loadFooter();
-  loadPage('home');  
-  });
-  
+
+  // If no specific page is provided, default to the home page
+  const path = window.location.pathname === '/' ? 'home' : window.location.pathname.slice(1);
+  navigate(path);
+});
