@@ -7,6 +7,7 @@ document.getElementById("member-attendance").addEventListener("click", function 
   document.getElementById("gym-equipment").addEventListener("click", function () {
     setActive("gym-equipment");
     loadContent('/frontend/pages/staff/gymEquipment.html');
+    loadJSFile('gymEquipment');
   });
 
   document.getElementById("publish-notice").addEventListener("click", function () {
@@ -33,5 +34,22 @@ document.getElementById("member-attendance").addEventListener("click", function 
       .catch(error => {
         document.getElementById('content-area').innerHTML = `<p>Error loading content: ${error}</p>`;
       });
+  }
+
+  function loadJSFile(page) {
+    const pageUrl = `/frontend/pages/staff/${page}.html`;
+    const pageJSUrl = `/frontend/js/staff/${page}.js`;
+    
+    fetch(pageUrl)
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('content-area').innerHTML = data;
+  
+        // Dynamically load the script for login page functionality
+        const script = document.createElement('script');
+        script.src = pageJSUrl;
+        document.body.appendChild(script);
+      })
+      .catch(error => console.error('Error loading login page:', error));
   }
   
