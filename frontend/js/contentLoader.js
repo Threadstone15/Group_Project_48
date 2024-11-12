@@ -66,15 +66,3 @@ export function loadPage(page) {
       document.getElementById("content-container").innerHTML = `<p>404 - Page not found.</p>`;
     });
 }
-
-export function navigate(page) {
-  loadPage(page);
-  history.pushState({ page }, "", `/Group_Project_48/${page}`);
-}
-
-window.addEventListener('popstate', () => {
-  const page = history.state?.page || 'home';
-  loadPage(page);
-});
-
-window.navigate = navigate;

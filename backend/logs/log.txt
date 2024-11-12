@@ -2096,3 +2096,16 @@
 [2024-11-12 18:27:54] Query bound and ready to execute for login: anna@gmail.com
 [2024-11-12 18:27:54] User login successful: anna@gmail.com with role: staff
 [2024-11-12 18:27:54] Login Successful: eyJ1c2VyX2lkIjo2OSwiZXhwIjoxNzMxNDM0NDAwfQ==.e61efce4e32d38a769b24cbbadc3691212076647ef897c145c7799690f043ab3 staff
+[2024-11-12 18:55:22] This is a test log entry.
+[2024-11-12 18:55:23] Connection established successfully to the database: rad_gymverse
+[2024-11-12 18:55:23] passed
+[2024-11-12 18:55:23] Running: POST
+[2024-11-12 18:55:23] Running auth controller
+[2024-11-12 18:55:23] Raw input: {"login":1,"email":"anna@gmail.com","password":"anna"}
+[2024-11-12 18:55:23] step...1
+[2024-11-12 18:55:23] step...2
+[2024-11-12 18:55:23] Running log-in
+[2024-11-12 18:55:23] User Login model running for: anna@gmail.com
+[2024-11-12 18:55:23] Query bound and ready to execute for login: anna@gmail.com
+[2024-11-12 18:55:23] User login successful: anna@gmail.com with role: staff
+[2024-11-12 18:55:23] Login Successful: eyJ1c2VyX2lkIjo2OSwiZXhwIjoxNzMxNDM0NDAwfQ==.e61efce4e32d38a769b24cbbadc3691212076647ef897c145c7799690f043ab3 staff
