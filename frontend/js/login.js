@@ -38,7 +38,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
                         window.location.href = 'member-dashboard.html';
                         break;
                     case 'staff':
-                        window.location.href = 'staff-dashboard.html';
+                        window.location.href = 'components/staffSideBar/staffsideBar.html';
                         break;
                     case 'trainer':
                         window.location.href = 'components/staffSideBar/staffsideBar.html';

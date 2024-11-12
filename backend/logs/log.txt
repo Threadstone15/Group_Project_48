@@ -1719,3 +1719,300 @@
 [2024-11-11 02:41:52] Query bound and ready to execute for login: dulan@gmail.com
 [2024-11-11 02:41:53] User login successful: dulan@gmail.com with role: trainer
 [2024-11-11 02:41:53] Login Successful: eyJ1c2VyX2lkIjo2MywiZXhwIjoxNzMxMjkwNDAwfQ==.fa8a6d79bf684c2f7e13ad2e9ebb0d498b6bdf8c43fdc136546609fca01c8a5b trainer
+[2024-11-11 18:41:24] This is a test log entry.
+[2024-11-11 18:41:24] Handling preflight OPTIONS request.
+[2024-11-11 18:41:24] This is a test log entry.
+[2024-11-11 18:41:25] Connection established successfully to the database: rad_gymverse
+[2024-11-11 18:41:25] passed
+[2024-11-11 18:41:25] Running: POST
+[2024-11-11 18:41:25] Running auth controller
+[2024-11-11 18:41:25] Raw input: {"login":1,"email":"staff@gmail.com","password":"1234"}
+[2024-11-11 18:41:25] step...1
+[2024-11-11 18:41:25] step...2
+[2024-11-11 18:41:25] Running log-in
+[2024-11-11 18:41:25] User Login model running for: staff@gmail.com
+[2024-11-11 18:41:25] Query bound and ready to execute for login: staff@gmail.com
+[2024-11-11 18:41:25] User login successful: staff@gmail.com with role: staff
+[2024-11-11 18:41:25] Login Successful: eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzMxMzQ4MDAwfQ==.099bc1fa8ce7d6f9fc662f19c42a86b39f55b8cedef43cbaf22061c23069aa48 staff
+[2024-11-11 19:06:56] This is a test log entry.
+[2024-11-11 19:06:57] Connection established successfully to the database: rad_gymverse
+[2024-11-11 19:07:14] This is a test log entry.
+[2024-11-11 19:07:14] Connection established successfully to the database: rad_gymverse
+[2024-11-11 19:07:17] This is a test log entry.
+[2024-11-11 19:07:18] Connection established successfully to the database: rad_gymverse
+[2024-11-11 19:07:58] This is a test log entry.
+[2024-11-11 19:07:59] Connection established successfully to the database: rad_gymverse
+[2024-11-11 19:08:40] This is a test log entry.
+[2024-11-11 19:08:41] Connection established successfully to the database: rad_gymverse
+[2024-11-11 19:09:19] This is a test log entry.
+[2024-11-11 19:09:19] Connection established successfully to the database: rad_gymverse
+[2024-11-11 19:09:19] Running staff controller
+[2024-11-11 19:09:42] This is a test log entry.
+[2024-11-11 19:09:42] Connection established successfully to the database: rad_gymverse
+[2024-11-11 19:09:42] Running staff controller
+[2024-11-11 19:12:13] This is a test log entry.
+[2024-11-11 19:12:14] Connection established successfully to the database: rad_gymverse
+[2024-11-11 19:12:14] Running staff controller
+[2024-11-11 19:12:14] Running add eqip
+[2024-11-11 19:12:14] Equipment model initialized
+[2024-11-11 19:12:14] Adding new equipment...
+[2024-11-11 19:13:15] This is a test log entry.
+[2024-11-11 19:13:16] Connection established successfully to the database: rad_gymverse
+[2024-11-11 19:13:16] Running staff controller
+[2024-11-11 19:13:16] Running add eqip
+[2024-11-11 19:13:16] add equip function running...
+[2024-11-11 19:13:16] Equipment model initialized
+[2024-11-11 19:13:16] Adding new equipment...
+[2024-11-11 19:13:32] This is a test log entry.
+[2024-11-11 19:13:33] Connection established successfully to the database: rad_gymverse
+[2024-11-11 19:13:33] Running staff controller
+[2024-11-11 19:13:33] Running add eqip
+[2024-11-11 19:13:33] add equip function running...
+[2024-11-11 19:13:33] Equipment model initialized
+[2024-11-11 19:13:33] Adding new equipment...
+[2024-11-11 19:15:26] This is a test log entry.
+[2024-11-11 19:15:26] Connection established successfully to the database: rad_gymverse
+[2024-11-11 19:15:26] Running staff controller
+[2024-11-11 19:15:26] Running add eqip
+[2024-11-11 19:15:26] add equip function running...
+[2024-11-11 19:15:26] Equipment model initialized
+[2024-11-11 19:15:26] Adding new equipment...
+[2024-11-11 19:16:30] This is a test log entry.
+[2024-11-11 19:16:30] Connection established successfully to the database: rad_gymverse
+[2024-11-11 19:16:30] Running staff controller
+[2024-11-11 19:16:30] Running add eqip
+[2024-11-11 19:16:30] add equip function running...
+[2024-11-11 19:16:30] Equipment model initialized
+[2024-11-11 19:16:30] Adding new equipment...
+[2024-11-11 19:17:37] This is a test log entry.
+[2024-11-11 19:17:37] Connection established successfully to the database: rad_gymverse
+[2024-11-11 19:17:37] Running staff controller
+[2024-11-11 19:17:37] Running add eqip
+[2024-11-11 19:17:37] add equip function running...
+[2024-11-11 19:17:37] Equipment model initialized
+[2024-11-11 19:17:37] Adding new equipment...
+[2024-11-11 19:21:04] This is a test log entry.
+[2024-11-11 19:21:04] Connection established successfully to the database: rad_gymverse
+[2024-11-11 19:21:04] Running staff controller
+[2024-11-11 19:21:04] Running add eqip
+[2024-11-11 19:21:04] add equip function running...
+[2024-11-11 19:21:04] Equipment model initialized
+[2024-11-11 19:21:04] Adding new equipment...
+[2024-11-11 19:22:44] This is a test log entry.
+[2024-11-11 19:22:45] Connection established successfully to the database: rad_gymverse
+[2024-11-11 19:22:45] Running staff controller
+[2024-11-11 19:22:45] Running add eqip
+[2024-11-11 19:22:45] add equip function running...
+[2024-11-11 19:22:45] Equipment model initialized
+[2024-11-11 19:22:45] Adding new equipment...
+[2024-11-11 19:22:45] Adding new equipment...1
+[2024-11-11 19:35:46] This is a test log entry.
+[2024-11-11 19:35:46] Connection established successfully to the database: rad_gymverse
+[2024-11-11 19:35:46] Running staff controller
+[2024-11-11 19:35:46] Running add eqip
+[2024-11-11 19:35:46] add equip function running...
+[2024-11-11 19:35:46] Equipment model initialized
+[2024-11-11 19:35:46] Adding new equipment...
+[2024-11-11 19:35:46] Preparing query for adding equipment
+[2024-11-11 19:38:50] This is a test log entry.
+[2024-11-11 19:38:50] Connection established successfully to the database: rad_gymverse
+[2024-11-11 19:38:50] Running staff controller
+[2024-11-11 19:38:50] Running add eqip
+[2024-11-11 19:38:50] add equip function running...
+[2024-11-11 19:38:50] Equipment model initialized
+[2024-11-11 19:38:50] Adding new equipment...
+[2024-11-11 19:38:50] Preparing query for adding equipment
+[2024-11-11 19:38:50] Connection is: connected
+[2024-11-11 19:41:15] This is a test log entry.
+[2024-11-11 19:41:15] Connection established successfully to the database: rad_gymverse
+[2024-11-11 19:41:15] Running staff controller
+[2024-11-11 19:41:15] Running add eqip
+[2024-11-11 19:41:15] add equip function running...
+[2024-11-11 19:41:15] Equipment model initialized
+[2024-11-11 19:41:15] Adding new equipment...
+[2024-11-11 19:41:15] Preparing query for adding equipment
+[2024-11-11 19:41:15] Connection is: connected
+[2024-11-11 19:42:32] This is a test log entry.
+[2024-11-11 19:42:33] Connection established successfully to the database: rad_gymverse
+[2024-11-11 19:42:33] Running staff controller
+[2024-11-11 19:42:33] Running add eqip
+[2024-11-11 19:42:33] add equip function running...
+[2024-11-11 19:42:33] Equipment model initialized
+[2024-11-11 19:42:33] Adding new equipment...
+[2024-11-11 19:42:33] Preparing query for adding equipment
+[2024-11-11 19:42:33] Connection is: not connected
+[2024-11-11 19:42:47] This is a test log entry.
+[2024-11-11 19:42:47] Connection established successfully to the database: rad_gymverse
+[2024-11-11 19:42:47] Running staff controller
+[2024-11-11 19:42:47] Running add eqip
+[2024-11-11 19:42:47] add equip function running...
+[2024-11-11 19:42:47] Equipment model initialized
+[2024-11-11 19:42:47] Adding new equipment...
+[2024-11-11 19:42:47] Preparing query for adding equipment
+[2024-11-11 19:42:47] Connection is: not connected
+[2024-11-11 19:43:40] This is a test log entry.
+[2024-11-11 19:43:41] Connection established successfully to the database: rad_gymverse
+[2024-11-11 19:43:41] Running staff controller
+[2024-11-11 19:43:41] Running add eqip
+[2024-11-11 19:43:41] add equip function running...
+[2024-11-11 19:43:41] Equipment model initialized
+[2024-11-11 19:43:41] Adding new equipment...
+[2024-11-11 19:43:41] Preparing query for adding equipment
+[2024-11-11 19:43:41] Connection is: connected
+[2024-11-11 19:43:45] This is a test log entry.
+[2024-11-11 19:43:45] Connection established successfully to the database: rad_gymverse
+[2024-11-11 19:43:45] Running staff controller
+[2024-11-11 19:43:45] Running add eqip
+[2024-11-11 19:43:45] add equip function running...
+[2024-11-11 19:43:45] Equipment model initialized
+[2024-11-11 19:43:45] Adding new equipment...
+[2024-11-11 19:43:45] Preparing query for adding equipment
+[2024-11-11 19:43:45] Connection is: connected
+[2024-11-11 19:48:43] This is a test log entry.
+[2024-11-11 19:48:44] Connection established successfully to the database: rad_gymverse
+[2024-11-11 19:48:44] Running staff controller
+[2024-11-11 19:48:44] Running add eqip
+[2024-11-11 19:48:44] add equip function running...
+[2024-11-11 19:48:44] Equipment model initialized
+[2024-11-11 19:48:44] Adding new equipment...
+[2024-11-11 19:48:44] Preparing query for adding equipment INSERT INTO equipment (name, purchase_date, status, maintenance_frequency) 
+                  VALUES (?, ?, ?, ?)
+[2024-11-11 19:48:44] Connection is: connected
+[2024-11-11 19:50:12] This is a test log entry.
+[2024-11-11 19:50:13] Connection established successfully to the database: rad_gymverse
+[2024-11-11 19:50:13] Running staff controller
+[2024-11-11 19:50:13] Running add eqip
+[2024-11-11 19:50:13] add equip function running...
+[2024-11-11 19:50:13] Equipment model initialized
+[2024-11-11 19:50:13] Adding new equipment...
+[2024-11-11 19:51:38] This is a test log entry.
+[2024-11-11 19:51:38] Connection established successfully to the database: rad_gymverse
+[2024-11-11 19:51:38] Running staff controller
+[2024-11-11 19:51:38] Running add eqip
+[2024-11-11 19:51:38] add equip function running...
+[2024-11-11 19:51:38] Equipment model initialized
+[2024-11-11 19:51:38] Adding new equipment...
+[2024-11-11 19:51:38] Preparing query for adding equipment: INSERT INTO equipment (name, purchase_date, status, maintenance_frequency) 
+                  VALUES (:name, :purchase_date, :status, :maintenance_frequency)
+[2024-11-11 19:56:37] This is a test log entry.
+[2024-11-11 19:56:38] Connection established successfully to the database: rad_gymverse
+[2024-11-11 19:56:38] passed
+[2024-11-11 19:56:38] Running: POST
+[2024-11-11 19:56:38] Running auth controller
+[2024-11-11 19:56:38] Raw input: signup=&email=staff1%40gmail.com&password=1234&role=staff
+[2024-11-11 19:56:38] step...1
+[2024-11-11 19:58:13] This is a test log entry.
+[2024-11-11 19:58:13] Handling preflight OPTIONS request.
+[2024-11-11 19:58:13] This is a test log entry.
+[2024-11-11 19:58:14] Connection established successfully to the database: rad_gymverse
+[2024-11-11 19:58:14] passed
+[2024-11-11 19:58:14] Running: POST
+[2024-11-11 19:58:14] Running auth controller
+[2024-11-11 19:58:14] Raw input: {"login":1,"email":"staff@gmail.com","password":"1234"}
+[2024-11-11 19:58:14] step...1
+[2024-11-11 19:58:14] step...2
+[2024-11-11 19:58:14] Running log-in
+[2024-11-11 19:58:14] User Login model running for: staff@gmail.com
+[2024-11-11 19:58:14] Query bound and ready to execute for login: staff@gmail.com
+[2024-11-11 19:58:14] User login successful: staff@gmail.com with role: staff
+[2024-11-11 19:58:14] Login Successful: eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzMxMzUxNjAwfQ==.6deb526ce6458a9e9e143c9cbe73ffa572581fce31ecdce0a8bf32f1e540a93b staff
+[2024-11-11 20:04:26] This is a test log entry.
+[2024-11-11 20:04:27] Connection established successfully to the database: rad_gymverse
+[2024-11-11 20:04:27] Running staff controller
+[2024-11-11 20:04:27] Running add eqip
+[2024-11-11 20:04:27] add equip function running...
+[2024-11-11 20:04:27] Equipment model initialized
+[2024-11-11 20:04:27] Adding new equipment...
+[2024-11-11 20:04:27] Preparing query for adding equipment INSERT INTO equipment (name, purchase_date, status, maintenance_frequency) 
+                  VALUES (?, ?, ?, ?)
+[2024-11-11 20:04:27] Connection is: connected
+[2024-11-11 20:05:23] This is a test log entry.
+[2024-11-11 20:05:24] Connection established successfully to the database: rad_gymverse
+[2024-11-11 20:05:24] Running staff controller
+[2024-11-11 20:05:24] Running auth controller
+[2024-11-11 20:05:24] add equip function running...
+[2024-11-11 20:05:24] Equipment model initialized
+[2024-11-11 20:05:24] Adding new equipment...
+[2024-11-11 20:05:24] Preparing query for adding equipment INSERT INTO equipment (name, purchase_date, status, maintenance_frequency) 
+                  VALUES (?, ?, ?, ?)
+[2024-11-11 20:05:24] Connection is: connected
+[2024-11-11 20:09:04] This is a test log entry.
+[2024-11-11 20:09:05] Connection established successfully to the database: rad_gymverse
+[2024-11-11 20:09:05] Running staff controller
+[2024-11-11 20:09:05] Running auth controller
+[2024-11-11 20:09:05] add equip function running...
+[2024-11-11 20:09:05] Equipment model initialized
+[2024-11-11 20:09:05] Adding new equipment...
+[2024-11-11 20:09:05] Preparing query for adding equipment INSERT INTO equipment (name, purchase_date, status, maintenance_frequency) 
+                  VALUES (?, ?, ?, ?)
+[2024-11-11 20:09:05] Connection is: connected
+[2024-11-11 20:11:48] This is a test log entry.
+[2024-11-11 20:11:49] Connection established successfully to the database: rad_gymverse
+[2024-11-11 20:11:49] Running staff controller
+[2024-11-11 20:11:49] Running auth controller
+[2024-11-11 20:11:49] add equip function running...
+[2024-11-11 20:11:49] Equipment model initialized
+[2024-11-11 20:11:49] Adding new equipment...
+[2024-11-11 20:11:49] Preparing query for adding equipment INSERT INTO equipment (name, purchase_date, status, maintenance_frequency) 
+                  VALUES (?, ?, ?, ?)
+[2024-11-11 20:11:49] Connection is: connected
+[2024-11-11 20:13:20] This is a test log entry.
+[2024-11-11 20:14:20] This is a test log entry.
+[2024-11-11 20:14:41] This is a test log entry.
+[2024-11-11 20:15:40] This is a test log entry.
+[2024-11-11 20:15:40] Connection established successfully to the database: rad_gymverse
+[2024-11-11 20:15:40] Running staff controller
+[2024-11-11 20:15:40] Running auth controller
+[2024-11-11 20:15:40] add equip function running...
+[2024-11-11 20:15:40] Equipment model initialized
+[2024-11-11 20:15:40] Adding new equipment...
+[2024-11-11 20:15:40] Preparing query for adding equipment INSERT INTO equipment (name, purchase_date, status, maintenance_frequency) 
+                  VALUES (?, ?, ?, ?)
+[2024-11-11 20:15:40] Connection is: connected
+[2024-11-12 03:46:35] This is a test log entry.
+[2024-11-12 03:46:35] Connection established successfully to the database: rad_gymverse
+[2024-11-12 03:46:35] Running staff controller
+[2024-11-12 03:46:35] Running auth controller
+[2024-11-12 03:46:35] add equip function running...
+[2024-11-12 03:46:35] Equipment model initialized
+[2024-11-12 03:46:35] Adding new equipment...
+[2024-11-12 03:46:35] Preparing query for adding equipment INSERT INTO equipment (name, purchase_date, status, maintenance_frequency) 
+                  VALUES (?, ?, ?, ?)
+[2024-11-12 03:46:35] Connection is: connected
+[2024-11-12 03:46:56] This is a test log entry.
+[2024-11-12 03:46:56] Connection established successfully to the database: rad_gymverse
+[2024-11-12 03:46:56] passed
+[2024-11-12 03:46:56] Running: POST
+[2024-11-12 03:46:56] Running auth controller
+[2024-11-12 03:46:56] Raw input: signup=&email=staff2%40gmail.com&password=1234&role=staff
+[2024-11-12 03:46:56] step...1
+[2024-11-12 03:56:05] This is a test log entry.
+[2024-11-12 03:56:05] Handling preflight OPTIONS request.
+[2024-11-12 03:56:05] This is a test log entry.
+[2024-11-12 03:56:06] Connection established successfully to the database: rad_gymverse
+[2024-11-12 03:56:06] passed
+[2024-11-12 03:56:06] Running: POST
+[2024-11-12 03:56:06] Running auth controller
+[2024-11-12 03:56:06] Raw input: {"login":1,"email":"staff@gmail.com","password":"1234"}
+[2024-11-12 03:56:06] step...1
+[2024-11-12 03:56:06] step...2
+[2024-11-12 03:56:06] Running log-in
+[2024-11-12 03:56:06] User Login model running for: staff@gmail.com
+[2024-11-12 03:56:06] Query bound and ready to execute for login: staff@gmail.com
+[2024-11-12 03:56:07] User login successful: staff@gmail.com with role: staff
+[2024-11-12 03:56:07] Login Successful: eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzMxMzgwNDAwfQ==.11caadfc8d0cc7a352168fcb690dff2579fb9745e456c362081aa15c89f253e3 staff
+[2024-11-12 04:04:35] This is a test log entry.
+[2024-11-12 04:04:35] Handling preflight OPTIONS request.
+[2024-11-12 04:04:35] This is a test log entry.
+[2024-11-12 04:04:36] Connection established successfully to the database: rad_gymverse
+[2024-11-12 04:04:36] passed
+[2024-11-12 04:04:36] Running: POST
+[2024-11-12 04:04:36] Running auth controller
+[2024-11-12 04:04:36] Raw input: {"login":1,"email":"staff@gmail.com","password":"1234"}
+[2024-11-12 04:04:36] step...1
+[2024-11-12 04:04:36] step...2
+[2024-11-12 04:04:36] Running log-in
+[2024-11-12 04:04:36] User Login model running for: staff@gmail.com
+[2024-11-12 04:04:36] Query bound and ready to execute for login: staff@gmail.com
+[2024-11-12 04:04:36] User login successful: staff@gmail.com with role: staff
+[2024-11-12 04:04:36] Login Successful: eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzMxMzg0MDAwfQ==.828eb307c486ca04c0591188043786e6baa9235267b90706b778c0897ecf0161 staff

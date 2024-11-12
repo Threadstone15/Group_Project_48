@@ -59,6 +59,11 @@ function attachNavbarListeners() {
     loadPage('becomeMember');
     loadJSFile('becomeMember');
   });
+
+  document.getElementById("gymEquipment").addEventListener("click", function () {
+    loadPage('gymEquipment');
+    loadJSFile('gymEquipment');
+  });
   
 }
 

@@ -18,8 +18,11 @@ $conn = include_once "../../config/database.php";
 $request_method = $_SERVER['REQUEST_METHOD'];
 $action = $_POST['action'] ?? $_GET['action'] ?? null;
 
+logMessage("Running staff controller");
+
 switch ($action) {
     case 'add_equipment':
+        logMessage("Running auth controller");
         addEquipment($conn);
         break;
     case 'get_equipment':

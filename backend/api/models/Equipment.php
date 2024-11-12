@@ -1,14 +1,14 @@
 <?php
 // api/models/Equipment.php
 
-include_once "../../logs/save.php"; // Assuming logMessage is defined here
+// Assuming logMessage is defined here
 
 class Equipment {
     private $conn;
     private $table = "equipment";
 
     public function __construct($db) {
-        $this->conn = $db;
+        $this->conn = include_once "../../logs/save.php"; 
         logMessage("Equipment model initialized");
     }
 
@@ -19,15 +19,20 @@ class Equipment {
         // Prepare the query
         $query = "INSERT INTO " . $this->table . " (name, purchase_date, status, maintenance_frequency) 
                   VALUES (?, ?, ?, ?)";
-        $stmt = $this->conn->prepare($query);
+        logMessage("Preparing query for adding equipment $query");
+        logMessage("Connection is: " . ($this->conn ? "connected" : "not connected"));
 
+        $stmt = $this->conn->prepare($query);
         if ($stmt === false) {
             logMessage("Error preparing statement for equipment insertion: " . $this->conn->error);
             return false;
         }
 
         // Bind parameters
-        $stmt->bind_param("sssi", $name, $purchase_date, $status, $maintenance_frequency);
+        if (!$stmt->bind_param("sssi", $name, $purchase_date, $status, $maintenance_frequency)) {
+            logMessage("Error binding parameters for equipment insertion: " . $this->conn->error);
+            return false;
+        }
         logMessage("Query bound for adding equipment: $name");
 
         // Execute the query
@@ -69,9 +74,14 @@ class Equipment {
         // Execute the query
         if ($stmt->execute()) {
             $result = $stmt->get_result();
-            $equipment = $result->fetch_all(MYSQLI_ASSOC);
-            logMessage("Equipment fetched successfully");
-            return $equipment;
+            if ($result && $result->num_rows > 0) {
+                $equipment = $result->fetch_all(MYSQLI_ASSOC);
+                logMessage("Equipment fetched successfully");
+                return $equipment;
+            } else {
+                logMessage("No equipment found");
+                return [];
+            }
         } else {
             logMessage("Error fetching equipment: " . $stmt->error);
             return false;
@@ -92,7 +102,10 @@ class Equipment {
         }
 
         // Bind parameters
-        $stmt->bind_param("si", $status, $equipment_id);
+        if (!$stmt->bind_param("si", $status, $equipment_id)) {
+            logMessage("Error binding parameters for updating equipment status: " . $this->conn->error);
+            return false;
+        }
         logMessage("Query bound for updating equipment status: $equipment_id to $status");
 
         // Execute the query
@@ -119,7 +132,10 @@ class Equipment {
         }
 
         // Bind parameter
-        $stmt->bind_param("i", $equipment_id);
+        if (!$stmt->bind_param("i", $equipment_id)) {
+            logMessage("Error binding parameter for deleting equipment: " . $this->conn->error);
+            return false;
+        }
         logMessage("Query bound for deleting equipment: $equipment_id");
 
         // Execute the query

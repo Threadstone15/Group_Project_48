@@ -5,6 +5,9 @@ include_once "../models/Equipment.php";
 include_once "../../logs/save.php";
 
 function addEquipment($conn) {
+
+    logMessage("add equip function running...");
+
     $equipment = new Equipment($conn);
     $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
     $purchase_date = $_POST['purchase_date'];
