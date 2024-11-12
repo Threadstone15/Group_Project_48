@@ -1,4 +1,5 @@
 import { loadNavbar, loadFooter } from './js/contentLoader.js';
+import { navigate } from './js/router.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   loadNavbar();
