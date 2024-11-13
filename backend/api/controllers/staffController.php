@@ -12,18 +12,32 @@ include_once "../../config/database.php";
 include_once "equipmentHandler.php";
 include_once "equipmentMaintenanceHandler.php";
 include_once "noticeHandler.php";
-include_once "trainerCareerHandler.php"; // Include the new trainer career handler
+include_once "trainerCareerHandler.php";
+include_once "../models/User.php";
+
 
 $conn = include_once "../../config/database.php";
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    logMessage("Handling preflight OPTIONS request.");
+    http_response_code(204);  // No Content
+    exit();
+}
 $request_method = $_SERVER['REQUEST_METHOD'];
 $action = $_POST['action'] ?? $_GET['action'] ?? null;
 
-logMessage("Running staff controller");
+$token = getBearerToken();
+$requiredRole = "staff";
+verifyRequest($requiredRole,$token);
+
+
+logMessage("Running staff controller ,$action token - $token ");
+
+
 
 switch ($action) {
     case 'add_equipment':
-        logMessage("Running auth controller");
-        addEquipment($conn);
+        logMessage("Running add_equip....in controller");
+        addEquipment();
         break;
     case 'get_equipment':
         getEquipment($conn);

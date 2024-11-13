@@ -1,28 +1,34 @@
 <?php
 // api/models/Equipment.php
 
-// Assuming logMessage is defined here
+include_once "../../logs/save.php"; // Ensures logMessage is available
+require_once "../../config/database.php"; // Include the DatabaseConnection class
 
 class Equipment {
     private $conn;
     private $table = "equipment";
 
-    public function __construct($db) {
-        $this->conn = include_once "../../logs/save.php"; 
-        logMessage("Equipment model initialized");
+    public function __construct() {
+        // Get the database connection instance
+        $this->conn = DatabaseConnection::getInstance()->getConnection();
+        logMessage("Equipment model initialized with database connection.");
     }
 
     // Create Equipment
     public function addEquipment($name, $purchase_date, $status, $maintenance_frequency) {
         logMessage("Adding new equipment...");
 
+        // Check if the connection is valid
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
         // Prepare the query
         $query = "INSERT INTO " . $this->table . " (name, purchase_date, status, maintenance_frequency) 
                   VALUES (?, ?, ?, ?)";
-        logMessage("Preparing query for adding equipment $query");
-        logMessage("Connection is: " . ($this->conn ? "connected" : "not connected"));
-
         $stmt = $this->conn->prepare($query);
+
         if ($stmt === false) {
             logMessage("Error preparing statement for equipment insertion: " . $this->conn->error);
             return false;
@@ -30,7 +36,7 @@ class Equipment {
 
         // Bind parameters
         if (!$stmt->bind_param("sssi", $name, $purchase_date, $status, $maintenance_frequency)) {
-            logMessage("Error binding parameters for equipment insertion: " . $this->conn->error);
+            logMessage("Error binding parameters for equipment insertion: " . $stmt->error);
             return false;
         }
         logMessage("Query bound for adding equipment: $name");
@@ -90,7 +96,7 @@ class Equipment {
 
     // Update Equipment Status
     public function updateEquipmentStatus($equipment_id, $status) {
-        logMessage("Updating equipment status...");
+        logMessage("Updating status for equipment with ID: $equipment_id");
 
         // Prepare the query
         $query = "UPDATE " . $this->table . " SET status = ? WHERE equipment_id = ?";
@@ -102,25 +108,22 @@ class Equipment {
         }
 
         // Bind parameters
-        if (!$stmt->bind_param("si", $status, $equipment_id)) {
-            logMessage("Error binding parameters for updating equipment status: " . $this->conn->error);
-            return false;
-        }
-        logMessage("Query bound for updating equipment status: $equipment_id to $status");
+        $stmt->bind_param("si", $status, $equipment_id);
+        logMessage("Query bound for updating status of equipment ID: $equipment_id");
 
         // Execute the query
         if ($stmt->execute()) {
-            logMessage("Equipment status updated successfully: $equipment_id");
+            logMessage("Equipment status updated successfully for ID: $equipment_id");
             return true;
         } else {
-            logMessage("Equipment status update failed: " . $stmt->error);
+            logMessage("Error updating equipment status: " . $stmt->error);
             return false;
         }
     }
 
     // Delete Equipment
     public function deleteEquipment($equipment_id) {
-        logMessage("Deleting equipment...");
+        logMessage("Deleting equipment with ID: $equipment_id");
 
         // Prepare the query
         $query = "DELETE FROM " . $this->table . " WHERE equipment_id = ?";
@@ -131,19 +134,16 @@ class Equipment {
             return false;
         }
 
-        // Bind parameter
-        if (!$stmt->bind_param("i", $equipment_id)) {
-            logMessage("Error binding parameter for deleting equipment: " . $this->conn->error);
-            return false;
-        }
-        logMessage("Query bound for deleting equipment: $equipment_id");
+        // Bind parameters
+        $stmt->bind_param("i", $equipment_id);
+        logMessage("Query bound for deleting equipment ID: $equipment_id");
 
         // Execute the query
         if ($stmt->execute()) {
-            logMessage("Equipment deleted successfully: $equipment_id");
+            logMessage("Equipment deleted successfully with ID: $equipment_id");
             return true;
         } else {
-            logMessage("Equipment deletion failed: " . $stmt->error);
+            logMessage("Error deleting equipment: " . $stmt->error);
             return false;
         }
     }
