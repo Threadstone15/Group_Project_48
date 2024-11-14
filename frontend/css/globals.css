@@ -33,4 +33,22 @@
     --text-color: #000000;
     --bg-color: #ffffff;
   }
+
+  .dashboard-container {
+    display: flex;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .content {
+    flex-grow: 1;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  #content-area {
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin-top: -30px;
+  }
+  
   

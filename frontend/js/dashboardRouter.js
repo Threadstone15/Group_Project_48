@@ -10,13 +10,18 @@ export function navigateDashboard(role, page) {
 }
 
 // Handle browser back/forward navigation
-window.addEventListener("popstate", () => {
-  const state = history.state;
-  if (state?.page) {
-    const [role, page] = state.page.split('/');
-    loadDashboardPage(role, page);
-  }
-});
+// window.addEventListener("popstate", () => {
+//   const state = history.state;
+//   if (state?.page) {
+//     const [role, page] = state.page.split('/');
+
+//     if(initialNavigateDashboard()){
+//       clearNonDashboardComponents();
+//       loadSidebar(role);
+//     }
+//     loadDashboardPage(role, page);
+//   }
+// });
 
 window.navigateDashboard = navigateDashboard;
 
@@ -104,6 +109,7 @@ function loadSidebar(role) {
   const globalCssLink = document.createElement('link');
   globalCssLink.rel = 'stylesheet';
   globalCssLink.href = '/Group_Project_48/frontend/css/globals.css';
+  document.head.appendChild(globalCssLink);
 }
 
 function isInitialDashboardNavigate() {

@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Staff-Member-Dashboard</title>
-    <link rel="stylesheet" href="/frontend/css/assignedMembers.css">
-    <link rel="stylesheet" href="/frontend/css/globals.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -52,19 +50,4 @@
     </div>
     </div>
 </div>
-    <script src="/frontend/js/assignedMembers.js"></script>
-    <script>
-        // JavaScript to load the sidebar
-        function loadSidebar() {
-            fetch("/frontend/components/staffsideBar/staffsideBar.html")
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById("sidebar-container").innerHTML = data;
-                })
-                .catch(error => console.error("Error loading sidebar:", error));
-        }
-
-        // Call loadSidebar function on page load
-        document.addEventListener("DOMContentLoaded", loadSidebar);
-    </script>
 </body>

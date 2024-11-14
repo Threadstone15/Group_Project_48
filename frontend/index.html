@@ -3,21 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/Group_Project_48/frontend/css/globals.css"/>
   <title>GymVerse</title>
 </head>
 <body>
   <!-- Navbar will be loaded dynamically for non-dashboard pages here -->
   <div id="navbar-container"></div>
-  <div id="sidebar-container"></div> <!--side bar for dashboards-->
 
   <!-- Main content area where the pages will be dynamically loaded -->
   <div id="content-container">
     <!-- This is where the dynamic content of non-dashboard pages will appear -->
   </div>
 
-  <div class="content">
-    <div id="content-area">
-        <!-- This is where the dynamic content of dashboard pages will appear -->
+  <!-- for dashboard content -->
+  <div class="dashboard-container">
+    <div id="sidebar-container"></div> <!--side bar for dashboards-->
+    <div class="content">
+      <div id="content-area">
+          <!-- This is where the dynamic content of dashboard pages will appear -->
+      </div>
     </div>
   </div>
 
@@ -25,6 +29,6 @@
   <div id="footer-container"></div>
 
   <!-- Link to your JS files -->
-  <script type="module" src="./index.js"></script> <!-- Handles the main dynamic loading -->
+  <script type="module" src="/Group_Project_48/frontend/index.js"></script> <!-- Handles the main dynamic loading -->
 </body>
 </html>

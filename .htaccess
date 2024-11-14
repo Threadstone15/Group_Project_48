@@ -14,9 +14,3 @@
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^(.*)$ /Group_Project_48/frontend/index.html [L]
 </IfModule>
-
-
-
-
-
-

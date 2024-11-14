@@ -11,10 +11,33 @@ export function navigate(page) {
 }
 
 window.addEventListener("popstate", () => {
-  const page = history.state?.page || "home";
-  loadPage(page);
-});
+  // Get the page state from history.state
+  const state = history.state;
 
+  if (state?.page) {
+    const [pathPart1, pathPart2] = state.page.split('/'); // Split the state page into role and page
+
+    if (['member', 'staff', 'trainer', 'owner', 'admin'].includes(pathPart1)) {
+      // This is a dashboard route
+      const role = pathPart1;
+      const page = pathPart2;
+      if (IsNonDashboardContentExists()) {
+        clearNonDashboardComponents();
+        loadSidebar(role);
+      }
+      loadDashboardPage(role, page);
+    } else {
+      // This is a non-dashboard route
+      const page = pathPart1;
+      if (IsDashboardContentExists()) {
+        clearDashboardComponents();
+        loadNavbar();
+        loadFooter();
+      }
+      loadPage(page);
+    }
+  }
+});
 window.navigate = navigate;
 
 
@@ -29,7 +52,7 @@ export function initialNavigate(page){
 window.initialNavigate = initialNavigate;
 
 // Dynamic page loading for non-dashboard pages
-function loadPage(page) {
+export function loadPage(page) {
   const pageUrl = `/Group_Project_48/frontend/pages/${page}.html`;
   const pageCssUrl = `/Group_Project_48/frontend/css/${page}.css`;
   const pageCssUrl2 = '/Group_Project_48/frontend/css/globals.css';
@@ -71,12 +94,12 @@ function loadPage(page) {
     });
 }
 
-function clearDashboardComponents() {
+export function clearDashboardComponents() {
   document.getElementById("sidebar-container").innerHTML = '';
   document.getElementById("content-area").innerHTML = '';
 }
 
-function loadNavbar() {
+export function loadNavbar() {
   fetch("/Group_Project_48/frontend/components/navbar/navbar.html")
     .then(response => response.text())
     .then(data => {
@@ -104,7 +127,7 @@ function loadNavbar() {
   globalCssLink.href = '/Group_Project_48/frontend/css/globals.css';
 }
 
-function loadFooter() {
+export function loadFooter() {
   fetch("/Group_Project_48/frontend/components/footer/footer.html")
     .then(response => response.text())
     .then(data => {
@@ -122,7 +145,7 @@ function loadFooter() {
   globalCssLink.href = '/Group_Project_48/frontend/css/globals.css';
 }
 
-function isInitialNavigate() {
+export function isInitialNavigate() {
   const currentPath = window.location.pathname.replace('/Group_Project_48/', '');
   const role = currentPath.split('/')[0];
   if (['member', 'staff', 'trainer', 'owner', 'admin'].includes(role)) {
@@ -130,4 +153,123 @@ function isInitialNavigate() {
   }
   return false;
 }
+
+function IsDashboardContentExists() {
+  const sidebarContainer = document.getElementById('sidebar-container');
+  const contentContainer = document.getElementById('content-area');
+  
+  if (sidebarContainer && contentContainer) {
+    if (sidebarContainer.innerHTML.trim() !== '' && contentContainer.innerHTML.trim() !== '') {
+      return true; 
+    }
+  }
+  
+  return false; 
+}
+
+function IsNonDashboardContentExists() {
+  const navbarContainer = document.getElementById('navbar-container');
+  const footerContainer = document.getElementById('footer-container');
+  const contentContainer = document.getElementById('content-container');
+  
+  if (navbarContainer && contentContainer) {
+    if (navbarContainer.innerHTML.trim() !== '' && contentContainer.innerHTML.trim() !== '') {
+      return true; 
+    }
+  }
+  
+  return false; 
+}
+
+
+
+//non-dashbaord functions
+export function loadDashboardPage(role, page) {
+  const pageUrl = `/Group_Project_48/frontend/pages/${role}/${page}.html`;
+  const pageCssUrl = `/Group_Project_48/frontend/css/${role}/${page}.css`;
+  const globalCssUrl = '/Group_Project_48/frontend/css/globals.css';
+  const pageJsUrl = `/Group_Project_48/frontend/js/${role}/${page}.js`;
+
+  fetch(pageUrl)
+    .then((response) => {
+      if (!response.ok) throw new Error("Page not found");
+      return response.text();
+    })
+    .then((data) => {
+      document.getElementById("content-area").innerHTML = data;
+
+      loadCss(pageCssUrl);
+      loadJs(pageJsUrl);
+      loadGlobalCss(globalCssUrl);
+    })
+    .catch(() => {
+      document.getElementById("content-area").innerHTML = `<p>404 - Page not found.</p>`;
+    });
+}
+
+function loadCss(href) {
+  if (!document.querySelector(`link[href="${href}"]`)) {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = href;
+    document.head.appendChild(link);
+  }
+}
+
+function loadGlobalCss(href){
+  if (!document.querySelector(`link[href="${href}"]`)) {
+    const globalCssLink = document.createElement("link");
+    globalCssLink.rel = "stylesheet";
+    globalCssLink.href = href;
+    document.head.appendChild(globalCssLink);
+  }
+}
+
+function loadJs(src) {
+  if (!document.querySelector(`script[src="${src}"]`)) {
+    const script = document.createElement("script");
+    script.src = src;
+    document.body.appendChild(script);
+  }
+}
+
+function clearNonDashboardComponents() {
+  document.getElementById("navbar-container").innerHTML = '';
+  document.getElementById("footer-container").innerHTML = '';
+  document.getElementById("content-container").innerHTML = '';
+}
+
+function loadSidebar(role) {
+  fetch(`/Group_Project_48/frontend/components/${role}Sidebar/${role}sideBar.html`)
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("sidebar-container").innerHTML = data;
+
+      // Dynamically load staffSidebar.js for sidebar functionality
+      const script = document.createElement('script');
+      script.src = `/Group_Project_48/frontend/components/${role}Sidebar/${role}sideBar.js`;
+      document.body.appendChild(script);
+    })
+    .catch(error => console.error('Error loading sidebar:', error));
+
+  const navbarLink = document.createElement('link');
+  navbarLink.rel = 'stylesheet';
+  navbarLink.href = `/Group_Project_48/frontend/components/${role}Sidebar/${role}sideBar.css`;
+  document.head.appendChild(navbarLink);
+
+  const globalCssLink = document.createElement('link');
+  globalCssLink.rel = 'stylesheet';
+  globalCssLink.href = '/Group_Project_48/frontend/css/globals.css';
+}
+
+function isInitialDashboardNavigate() {
+  const currentPath = window.location.pathname.replace('/Group_Project_48/', '');
+  const role = currentPath.split('/')[0];
+  if (!['member', 'staff', 'trainer', 'owner', 'admin'].includes(role)) {
+    return true;
+  }
+  return false;
+}
+
+
 

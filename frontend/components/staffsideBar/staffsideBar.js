@@ -1,5 +1,3 @@
-// import { navigateDashboard } from "../../js/dashboardRouter";
-
 document.getElementById("sidebar-container").addEventListener("click", function (e) {
   if (e.target.tagName === "A" && e.target.dataset.page) {
     e.preventDefault();
