@@ -1,20 +1,28 @@
 <?php
 // api/models/Notice.php
 
-include_once "../../logs/save.php"; // Assuming logMessage is defined here
+include_once "../../logs/save.php"; // Ensures logMessage is available
+require_once "../../config/database.php"; // Include the DatabaseConnection class
 
 class Notice {
     private $conn;
     private $table = "notice";
 
-    public function __construct($db) {
-        $this->conn = $db;
-        logMessage("Notice model initialized");
+    public function __construct() {
+        // Get the database connection instance
+        $this->conn = DatabaseConnection::getInstance()->getConnection();
+        logMessage("Notice model initialized with database connection.");
     }
 
     // Create Notice
     public function addNotice($publisher_id, $title, $description) {
         logMessage("Adding new notice...");
+
+        // Check if the connection is valid
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
 
         // Prepare the query
         $query = "INSERT INTO " . $this->table . " (publisher_id, title, description) VALUES (?, ?, ?)";
@@ -26,7 +34,10 @@ class Notice {
         }
 
         // Bind parameters
-        $stmt->bind_param("iss", $publisher_id, $title, $description);
+        if (!$stmt->bind_param("iss", $publisher_id, $title, $description)) {
+            logMessage("Error binding parameters for notice insertion: " . $stmt->error);
+            return false;
+        }
         logMessage("Query bound for adding notice: $title");
 
         // Execute the query
@@ -68,9 +79,14 @@ class Notice {
         // Execute the query
         if ($stmt->execute()) {
             $result = $stmt->get_result();
-            $notices = $result->fetch_all(MYSQLI_ASSOC);
-            logMessage("Notices fetched successfully");
-            return $notices;
+            if ($result && $result->num_rows > 0) {
+                $notices = $result->fetch_all(MYSQLI_ASSOC);
+                logMessage("Notices fetched successfully");
+                return $notices;
+            } else {
+                logMessage("No notices found");
+                return [];
+            }
         } else {
             logMessage("Error fetching notices: " . $stmt->error);
             return false;
@@ -79,7 +95,7 @@ class Notice {
 
     // Update Notice
     public function updateNotice($notice_id, $title, $description) {
-        logMessage("Updating notice...");
+        logMessage("Updating notice with ID: $notice_id");
 
         // Prepare the query
         $query = "UPDATE " . $this->table . " SET title = ?, description = ? WHERE notice_id = ?";
@@ -91,12 +107,15 @@ class Notice {
         }
 
         // Bind parameters
-        $stmt->bind_param("ssi", $title, $description, $notice_id);
+        if (!$stmt->bind_param("ssi", $title, $description, $notice_id)) {
+            logMessage("Error binding parameters for updating notice: " . $stmt->error);
+            return false;
+        }
         logMessage("Query bound for updating notice: $notice_id");
 
         // Execute the query
         if ($stmt->execute()) {
-            logMessage("Notice updated successfully: $notice_id");
+            logMessage("Notice updated successfully for ID: $notice_id");
             return true;
         } else {
             logMessage("Notice update failed: " . $stmt->error);
@@ -106,7 +125,7 @@ class Notice {
 
     // Delete Notice
     public function deleteNotice($notice_id) {
-        logMessage("Deleting notice...");
+        logMessage("Deleting notice with ID: $notice_id");
 
         // Prepare the query
         $query = "DELETE FROM " . $this->table . " WHERE notice_id = ?";
@@ -117,13 +136,16 @@ class Notice {
             return false;
         }
 
-        // Bind parameter
-        $stmt->bind_param("i", $notice_id);
+        // Bind parameters
+        if (!$stmt->bind_param("i", $notice_id)) {
+            logMessage("Error binding parameters for deleting notice: " . $stmt->error);
+            return false;
+        }
         logMessage("Query bound for deleting notice: $notice_id");
 
         // Execute the query
         if ($stmt->execute()) {
-            logMessage("Notice deleted successfully: $notice_id");
+            logMessage("Notice deleted successfully for ID: $notice_id");
             return true;
         } else {
             logMessage("Notice deletion failed: " . $stmt->error);
