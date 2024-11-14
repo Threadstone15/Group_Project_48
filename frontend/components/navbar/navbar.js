@@ -6,4 +6,3 @@ document.getElementById("pricing").addEventListener("click", () => navigate('pri
 document.getElementById("careers").addEventListener("click", () => navigate('careers'));
 document.getElementById("login").addEventListener("click", () => navigate('login'));
 document.getElementById("member").addEventListener("click", () => navigate('becomeMember'));
-document.getElementById("gymEquipment").addEventListener("click", () => navigate('gymEquipment'));

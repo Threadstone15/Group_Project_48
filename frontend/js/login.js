@@ -1,3 +1,6 @@
+// import { navigateDashboard } from "./dashboardRouter.js";
+// import { clearNonDashboardComponents } from "../index.js";
+
 document.getElementById('loginForm').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent form submission
   
@@ -33,7 +36,21 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
           alert("Login successful!");
   
           // Redirect based on role
-          navigate(data.role);
+          if (data.role == 'staff') {
+            navigateDashboard('staff','memberAttendance');
+          }
+          if (data.role == 'admin') {
+            navigateDashboard('admin','adminHome');
+          }
+          if (data.role == 'member'){
+            navigateDashboard('member','memberHome');
+          }
+          if (data.role == 'owner'){
+            navigateDashboard('owner','ownerHome');
+          }
+          if (data.role == 'trainer'){
+            navigateDashboard('trainer','trainerHome');
+          }
         } else {
           // Display error message if login fails
           alert(data.error || "Login failed. Please check your credentials.");

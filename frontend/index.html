@@ -4,19 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GymVerse</title>
-  <link rel="stylesheet" href="/frontend/css/globals.css"> <!-- Link to your main stylesheet -->
 </head>
 <body>
-  <!-- Navbar will be loaded dynamically here -->
+  <!-- Navbar will be loaded dynamically for non-dashboard pages here -->
   <div id="navbar-container"></div>
+  <div id="sidebar-container"></div> <!--side bar for dashboards-->
 
   <!-- Main content area where the pages will be dynamically loaded -->
   <div id="content-container">
-    <!-- This is where the dynamic content will appear -->
-    <p>Loading content, please wait...</p>
+    <!-- This is where the dynamic content of non-dashboard pages will appear -->
   </div>
 
-  <!-- Footer will be loaded dynamically here -->
+  <div class="content">
+    <div id="content-area">
+        <!-- This is where the dynamic content of dashboard pages will appear -->
+    </div>
+  </div>
+
+  <!-- Footer will be loaded dynamically dashboard pages here -->
   <div id="footer-container"></div>
 
   <!-- Link to your JS files -->

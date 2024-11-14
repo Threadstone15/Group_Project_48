@@ -1,5 +1,5 @@
-// const imageElement = document.getElementById('img1');
+const imageElement1 = document.getElementById('img1');
+imageElement1.src = "/Group_Project_48/frontend/assets/images/home_img1.png";
 
-// // Set the 'src' attribute with the desired image URL
-// // imageElement.src = "../assets/images/home_img1.png"; // Replace with your image URL
-// imageElement.src = "'/Group_Project_48/frontend/assets/images/home_img1.png";
+const imageElement2 = document.getElementById('img2');
+imageElement2.src = "/Group_Project_48/frontend/assets/images/home_img2.png";
