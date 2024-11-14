@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MemberHome</title>
+  <link rel="stylesheet" href="/frontend/css/staffHome.css">
+  <link rel="stylesheet" href="/frontend/css/globals.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="total-content">
+        <div class="content">
+            <!--<div class="calendar-container">
+                <header class="calendar-header">
+                    <p class="calendar-current-date"></p>
+                    <div class="calendar-navigation">
+                        <span id="calendar-prev" class="material-symbols-rounded"> < </span>
+                        <span id="calendar-next" class="material-symbols-rounded"> > </span>
+                    </div>
+                </header>
+                <div class="calendar-body">
+                    <ul class="calendar-weekdays">
+                        <li>Sun</li>
+                        <li>Mon</li>
+                        <li>Tue</li>
+                        <li>Wed</li>
+                        <li>Thu</li>
+                        <li>Fri</li>
+                        <li>Sat</li>
+                    </ul>
+                    <ul class="calendar-dates"></ul>
+                </div>
+            </div>-->
+            
+            <div class="notice-container">
+                <h2>Notices</h2>
+                <div id="noticeContent"></div>
+                <label>
+                    <input type="checkbox" id="readCheckbox"> Mark as Read
+                </label>
+            </div>
+
+            <div class="gym-card">
+                <h2>Gym Crowd</h2>
+                <p class="date" id="dateDisplay">Friday</p>
+                <p class="member-count" id="memberCount">Members Present: 0</p>
+            </div>
+        </div>
+
+        <div class="content-bottom">
+            <iframe id="task-calendar-iframe" src="/frontend/components/calendar/calendar.html" style="width: 100%; height: 100%;" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <script type="module" src="/frontend/js/staffHome.js"></script>
+
+</body>
+</html>
