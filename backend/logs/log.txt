@@ -3292,3 +3292,16 @@
 [2024-11-14 22:39:24] Query bound and ready to execute for login: dulan@gmail.com
 [2024-11-14 22:39:24] User login successful: dulan@gmail.com with role: trainer
 [2024-11-14 22:39:24] Login Successful: eyJ1c2VyX2lkIjo2MywiZXhwIjoxNzMxNjIxNjAwfQ==.edf09a2ae21ff27e58f4d5c5790a4cb5de0848a2c7b1bcf9aec74dbccc2c0eef trainer
+[2024-11-14 23:02:01] This is a test log entry.
+[2024-11-14 23:02:01] Connection established successfully to the database: rad_gymverse
+[2024-11-14 23:02:01] passed
+[2024-11-14 23:02:01] Running: POST
+[2024-11-14 23:02:01] Running auth controller
+[2024-11-14 23:02:01] Raw input: {"login":1,"email":"anupa123@gmail.com","password":"anupa123"}
+[2024-11-14 23:02:01] step...1
+[2024-11-14 23:02:01] step...2
+[2024-11-14 23:02:01] Running log-in
+[2024-11-14 23:02:01] User Login model running for: anupa123@gmail.com
+[2024-11-14 23:02:01] Query bound and ready to execute for login: anupa123@gmail.com
+[2024-11-14 23:02:02] User login successful: anupa123@gmail.com with role: member
+[2024-11-14 23:02:02] Login Successful: eyJ1c2VyX2lkIjo2MiwiZXhwIjoxNzMxNjI1MjAwfQ==.84a2584eb3122a294417ce56ba84e6e921f2b205759628c9d1a7edf13a619ee0 member
