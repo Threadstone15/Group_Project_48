@@ -3082,3 +3082,45 @@
 [2024-11-14 03:24:42] Equipment fetched successfully
 [2024-11-14 03:24:42] Equipment data fetched
 [2024-11-14 03:24:42] Database connection closed.
+[2024-11-14 14:13:25] Handling preflight OPTIONS request.
+[2024-11-14 14:13:25] Running: POST
+[2024-11-14 14:13:25] Running auth controller
+[2024-11-14 14:13:25] Raw input: {"login":1,"email":"staff@gmail.com","password":"1234"}
+[2024-11-14 14:13:25] step...1
+[2024-11-14 14:13:25] step...2
+[2024-11-14 14:13:25] Running log-in
+[2024-11-14 14:13:26] Connection established successfully to the database: rad_gymverse
+[2024-11-14 14:13:26] User class instantiated with database connection.
+[2024-11-14 14:13:26] User Login model running for: staff@gmail.com
+[2024-11-14 14:13:26] Query bound and ready to execute for login: staff@gmail.com
+[2024-11-14 14:13:26] User login successful: staff@gmail.com with role: staff
+[2024-11-14 14:13:26] Login Successful: eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzMxNTkyODAwfQ==.a99a06566a16fd972a7ece4a448747e4abf968753e4179d2fb99844dd5183fdc staff
+[2024-11-14 14:13:26] Database connection closed.
+[2024-11-14 14:37:03] Handling preflight OPTIONS request.
+[2024-11-14 14:37:03] Running: POST
+[2024-11-14 14:37:03] Running auth controller
+[2024-11-14 14:37:03] Raw input: {"login":1,"email":"staff@gmail.com","password":"1234"}
+[2024-11-14 14:37:03] step...1
+[2024-11-14 14:37:03] step...2
+[2024-11-14 14:37:03] Running log-in
+[2024-11-14 14:37:04] Connection established successfully to the database: rad_gymverse
+[2024-11-14 14:37:04] User class instantiated with database connection.
+[2024-11-14 14:37:04] User Login model running for: staff@gmail.com
+[2024-11-14 14:37:04] Query bound and ready to execute for login: staff@gmail.com
+[2024-11-14 14:37:05] User login successful: staff@gmail.com with role: staff
+[2024-11-14 14:37:05] Login Successful: eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzMxNTkyODAwfQ==.a99a06566a16fd972a7ece4a448747e4abf968753e4179d2fb99844dd5183fdc staff
+[2024-11-14 14:37:05] Database connection closed.
+[2024-11-14 14:51:15] Handling preflight OPTIONS request.
+[2024-11-14 14:51:15] Running: POST
+[2024-11-14 14:51:15] Running auth controller
+[2024-11-14 14:51:15] Raw input: {"login":1,"email":"staff@gmail.com","password":"1234"}
+[2024-11-14 14:51:15] step...1
+[2024-11-14 14:51:15] step...2
+[2024-11-14 14:51:15] Running log-in
+[2024-11-14 14:51:16] Connection established successfully to the database: rad_gymverse
+[2024-11-14 14:51:16] User class instantiated with database connection.
+[2024-11-14 14:51:16] User Login model running for: staff@gmail.com
+[2024-11-14 14:51:17] Query bound and ready to execute for login: staff@gmail.com
+[2024-11-14 14:51:17] User login successful: staff@gmail.com with role: staff
+[2024-11-14 14:51:17] Login Successful: eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzMxNTkyODAwfQ==.a99a06566a16fd972a7ece4a448747e4abf968753e4179d2fb99844dd5183fdc staff
+[2024-11-14 14:51:17] Database connection closed.

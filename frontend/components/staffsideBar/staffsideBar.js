@@ -1,4 +1,6 @@
 // Function to load content based on sidebar clicks
+console.log("staff-sidebar-JS");
+
 document.getElementById("member-attendance").addEventListener("click", function () {
     setActive("member-attendance");
     loadContent('/frontend/pages/staff/memberAttendance.html');
@@ -38,7 +40,7 @@ document.getElementById("member-attendance").addEventListener("click", function 
 
   function loadJSFile(page) {
     const pageUrl = `/frontend/pages/staff/${page}.html`;
-    const pageJSUrl = `/frontend/js/staff/${page}.js`;
+    const pageJSUrl = `/frontend/js/${page}.js`;
     
     fetch(pageUrl)
       .then(response => response.text())

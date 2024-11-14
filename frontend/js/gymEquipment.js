@@ -1,64 +1,132 @@
-// Sample test data
-const equipments = [
-    { "Equipment ID": "EQ123", "Name": "Treadmill", "Purchase Date": "2023-01-15", "Status": "Active", "Usable Duration": "2 years" },
-    { "Equipment ID": "EQ124", "Name": "Dumbbell Set", "Purchase Date": "2022-07-10", "Status": "Inactive", "Usable Duration": "5 years" },
-    { "Equipment ID": "EQ125", "Name": "Stationary Bike", "Purchase Date": "2021-05-22", "Status": "Active", "Usable Duration": "3 years" }
-];
-console.log(equipments);
-// Function to populate the table with test data
-function populateTable() {
-    const tableBody = document.getElementById("equipmentsTable").querySelector("tbody");
-    tableBody.innerHTML = "";
-    equipments.forEach((equipment) => {
-        const row = document.createElement("tr");
+console.log("JS loaded");
 
-        row.innerHTML = `
-            <td>${equipment["Equipment ID"]}</td>
-            <td>${equipment["Name"]}</td>
-            <td>${equipment["Purchase Date"]}</td>
-            <td>${equipment["Status"]}</td>
-            <td>${equipment["Usable Duration"]}</td>
-            <td>
-                <a href="updateEquipment.php?id=${equipment['Equipment ID']}" class="button update-button">Update</a>
-                <button class="button delete-button" onclick="handleDelete('${equipment["Equipment ID"]}')">Delete</button>
-            </td>
-        `;
-        tableBody.appendChild(row);
-    });
-}
+const equipmentTable = document.getElementById("equipmentsTable");
 
-function handleDelete(equipmentId) {
-    const popup = document.getElementById("deletePopup");
-    const overlay = document.getElementById("overlay");
-    popup.style.display = "block";
-    overlay.style.display = "block";
-
-    document.getElementById("confirmDelete").onclick = function() {
-        deleteEquipment(equipmentId);
-        popup.style.display = "none";
-        overlay.style.display = "none";
-    };
-
-    document.getElementById("cancelDelete").onclick = function() {
-        popup.style.display = "none";
-        overlay.style.display = "none";
-    };
-
-    document.getElementById("closePopup").onclick = function() {
-        popup.style.display = "none";
-        overlay.style.display = "none";
-    };
-}
-
-
-// Function to delete equipment from the test data array and refresh the table
-function deleteEquipment(equipmentId) {
-    const index = equipments.findIndex(equipment => equipment["Equipment ID"] === equipmentId);
-    if (index > -1) {
-        equipments.splice(index, 1);
-        populateTable();
+    if (equipmentTable) {
+        // If the table exists, trigger fetching the equipment list
+        fetchEquipmentList();
+    } else {
+        console.warn("Equipment table not found. Skipping fetch.");
     }
-}
 
-// Populate the table on page load
-document.addEventListener("DOMContentLoaded", populateTable);
+    function fetchEquipmentList() {
+        console.log("Fetching Equipments");
+
+        // Retrieve auth token from local storage
+        const authToken = localStorage.getItem("authToken");
+
+        if (!authToken) {
+            console.error("Auth token not found. Please log in.");
+            return;
+        }
+
+        console.log("Auth Token:", authToken); // Debugging log
+
+        // Set up request options with headers
+        const requestOptions = {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${authToken}`
+            },
+            redirect: 'follow'
+        };
+
+        // Send GET request to backend to fetch equipment list
+        fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php?action=get_equipments", requestOptions)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Failed to fetch equipment list");
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Fetched equipment list:", data); // Debugging log
+
+                // Populate the equipment table in the DOM
+                const tableBody = equipmentTable.getElementsByTagName("tbody")[0];
+                tableBody.innerHTML = ""; // Clear existing table rows
+
+                if (data.length > 0) {
+                    data.forEach(equipment => {
+                        const row = document.createElement("tr");
+
+                        row.innerHTML = `
+                            <td>${equipment['equipment_id']}</td>
+                            <td>${equipment['name']}</td>
+                            <td>${equipment['purchase_date']}</td>
+                            <td>${equipment['status']}</td>
+                            <td>${equipment['maintenance_frequency']}</td>
+                        `;
+
+                        tableBody.appendChild(row);
+                    });
+                } else {
+                    const noDataRow = document.createElement("tr");
+                    noDataRow.innerHTML = `<td colspan="5" style="text-align: center;">No equipment found</td>`;
+                    tableBody.appendChild(noDataRow);
+                }
+            })
+            .catch(error => console.error("Error fetching equipment list:", error));
+    }
+
+document.getElementById('EquipmentForm').addEventListener('submit', (event) => {
+  event.preventDefault();
+  
+  console.log("Add equipment form submitted"); // Debugging log
+  
+  // Get form input values
+  const equipmentName = document.getElementById("equipmentName").value;
+  const purchaseDate = document.getElementById("purchaseDate").value;
+  const maintenanceDuration = document.getElementById("maintenanceDuration").value;
+  
+  console.log("Equipment Name:", equipmentName); // Debugging log
+  console.log("Purchase Date:", purchaseDate); // Debugging log
+  console.log("Maintenance Duration:", maintenanceDuration); // Debugging log
+  
+  // Prepare form data using FormData
+  const formData = new FormData();
+  formData.append("name", equipmentName);
+  formData.append("purchase_date", purchaseDate);
+  formData.append("maintenance_frequency", maintenanceDuration);
+  formData.append("status", "active"); // Assuming "status" is hard-coded as "active"
+  formData.append("action", "add_equipment"); // Set the action to match the backend case
+  
+  // Retrieve auth token from local storage
+  const authToken = localStorage.getItem("authToken");
+  
+  if (!authToken) {
+      console.error("Auth token not found. Please log in.");
+      return;
+  }
+  
+  console.log("Auth Token:", authToken); // Debugging log
+  
+  // Set up the request with headers and form data
+  const requestOptions = {
+      method: 'POST',
+      headers: {
+          'Authorization': `Bearer ${authToken}`
+      },
+      body: formData,
+      redirect: 'follow'
+  };
+  
+  // Send POST request to backend
+  fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php", requestOptions)
+      .then(response => {
+          if (!response.ok) {
+              throw new Error("Failed to add equipment");
+          }
+          return response.text();
+      })
+      .then(result => {
+          console.log("Equipment added successfully:", result); // Debugging log
+          fetchEquipmentList(); // Refresh equipment list after adding
+      })
+      .catch(error => console.error("Error adding equipment:", error));
+});
+
+
+
+
+
