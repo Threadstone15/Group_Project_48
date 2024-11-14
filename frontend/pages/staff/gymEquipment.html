@@ -36,7 +36,9 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- JavaScript will insert rows here -->
+                <tr>
+                    <td colspan="5" style="text-align: center;">Loading...</td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -65,7 +67,7 @@
             <h2 class="section-title">Add a new equipment</h2>
         </div>
          
-          <form class="equipment-form">
+          <form id="EquipmentForm" class="equipment-form">
             <div class="form-group">
               <label for="equipmentName" class="form-label">Name :</label>
               <input type="text" id="equipmentName" class="form-input" aria-label="Enter equipment name" />
@@ -84,5 +86,18 @@
       </section>
     </div>
 </div>
-<script src="/frontend/js/gymEquipment.js"></script>
+    <!-- <script>
+        // JavaScript to load the sidebar
+        function loadSidebar() {
+            fetch("/frontend/components/staffsideBar/staffsideBar.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("sidebar-container").innerHTML = data;
+                })
+                .catch(error => console.error("Error loading sidebar:", error));
+        }
+
+        // Call loadSidebar function on page load
+        document.addEventListener("DOMContentLoaded", loadSidebar);
+    </script> -->
 </body>

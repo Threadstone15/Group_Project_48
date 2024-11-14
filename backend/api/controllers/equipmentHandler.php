@@ -4,13 +4,19 @@
 include_once "../models/Equipment.php";
 include_once "../../logs/save.php";
 
-function addEquipment($conn) {
-    $equipment = new Equipment($conn);
+function addEquipment() {
+    logMessage("add equip function running...");
+
+    // Initialize the Equipment model
+    $equipment = new Equipment(); // No need for passing the $conn parameter
+
+    // Get the data from the request
     $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
     $purchase_date = $_POST['purchase_date'];
     $status = filter_var($_POST['status'], FILTER_SANITIZE_STRING);
     $maintenance_frequency = intval($_POST['maintenance_frequency']);
 
+    // Call the addEquipment method from the Equipment model
     if ($equipment->addEquipment($name, $purchase_date, $status, $maintenance_frequency)) {
         logMessage("Equipment added: $name");
         echo json_encode(["message" => "Equipment added successfully"]);
@@ -20,14 +26,13 @@ function addEquipment($conn) {
     }
 }
 
-function getEquipment($conn) {
-    $equipment = new Equipment($conn);
-    if (isset($_GET['equipment_id'])) {
-        $equipment_id = intval($_GET['equipment_id']);
-        $result = $equipment->getEquipment($equipment_id);
-    } else {
-        $result = $equipment->getEquipment();
-    }
+
+function getEquipment() {
+    logMessage("get equip function running...");
+    $equipment = new Equipment();
+
+    $result = $equipment->getEquipment();
+
 
     if ($result) {
         logMessage("Equipment data fetched");

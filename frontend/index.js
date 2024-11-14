@@ -1,4 +1,4 @@
-import {loadNavbar, loadFooter, loadPage} from './js/contentLoader.js';
+import {loadNavbar, loadFooter, loadPage, loadJSFile} from './js/contentLoader.js';
 
 document.addEventListener("DOMContentLoaded", () => {
 

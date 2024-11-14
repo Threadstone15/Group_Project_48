@@ -52,11 +52,19 @@ function attachNavbarListeners() {
 
   document.getElementById("login").addEventListener("click", function () {
     loadPage('login');
+    loadJSFile('login');
   });
 
   document.getElementById("member").addEventListener("click", function () {
     loadPage('becomeMember');
+    loadJSFile('becomeMember');
   });
+
+  document.getElementById("gymEquipment").addEventListener("click", function () {
+    loadPage('gymEquipment');
+    loadJSFile('gymEquipment');
+  });
+  
 }
 
 export function loadFooter() {
@@ -75,7 +83,7 @@ export function loadFooter() {
   document.head.appendChild(footerLink);
 }
 
-// Function to load other pages dynamically, including CSS
+// Function to load other pages dynamically, including CSS, and JS
 export function loadPage(page) {
   const pageUrl = `/frontend/pages/${page}.html`;
   const pageCssUrl = `/frontend/css/${page}.css`;
@@ -96,4 +104,22 @@ export function loadPage(page) {
       console.error('Error loading page:', error);
       document.getElementById("content-container").innerHTML = `<p>Page not found.</p>`;
     });
+}
+
+// //loading teh js file for each html file-> or linking the js file to html file
+export function loadJSFile(page) {
+  const pageUrl = `/frontend/pages/${page}.html`;
+  const pageJSUrl = `/frontend/js/${page}.js`;
+  
+  fetch(pageUrl)
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('content-container').innerHTML = data;
+
+      // Dynamically load the script for login page functionality
+      const script = document.createElement('script');
+      script.src = pageJSUrl;
+      document.body.appendChild(script);
+    })
+    .catch(error => console.error('Error loading login page:', error));
 }

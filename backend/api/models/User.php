@@ -2,14 +2,16 @@
 // api/models/User.php
 
 include_once "../../logs/save.php"; // Assuming this is where logMessage is defined
+require_once "../../config/database.php"; // Include the DatabaseConnection class
 
 class User {
     private $conn;
     private $table = "users";
 
-    public function __construct($db) {
-        $this->conn = $db;
-        logMessage("passed");
+    public function __construct() {
+        // Get the database connection instance
+        $this->conn = DatabaseConnection::getInstance()->getConnection();
+        logMessage("User class instantiated with database connection.");
     }
 
     public function register($email, $password, $role) {
@@ -23,7 +25,6 @@ class User {
         // Hash password
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
         logMessage("Password hashed for user: $email");
-    
     
         // Prepare the query
         $query = "INSERT INTO " . $this->table . " (email, password, role) VALUES (?, ?, ?)";
@@ -85,6 +86,8 @@ class User {
         }
     }
 
+
+
     public function getUserByEmail($email) {
         logMessage("Fetching user by email: $email");
     
@@ -109,7 +112,41 @@ class User {
             return false;
         }
     }
-    
 
+    public function getUserRoleById($user_id) {
+        logMessage("Fetching user role by user ID: $user_id");
+    
+        // Prepare the query
+        $query = "SELECT role FROM " . $this->table . " WHERE user_id = ?";
+        $stmt = $this->conn->prepare($query);
+    
+        // Check if statement preparation was successful
+        if ($stmt === false) {
+            logMessage("Error preparing statement for getUserRoleById: " . $this->conn->error);
+            return false;
+        }
+    
+        // Bind the user_id parameter
+        $stmt->bind_param("i", $user_id);
+    
+        // Execute the query
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            $userData = $result->fetch_assoc();
+    
+            // Check if user exists and return the role
+            if ($userData) {
+                logMessage("User role fetched successfully for user ID: $user_id");
+                return $userData['role'];
+            } else {
+                logMessage("No user found with ID: $user_id");
+                return false;
+            }
+        } else {
+            logMessage("Error executing getUserRoleById query for user ID: $user_id with error: " . $stmt->error);
+            return false;
+        }
+    }
+    
 }
 ?>
