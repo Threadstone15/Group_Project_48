@@ -32,27 +32,11 @@
                     <th>Usable Duration</th>
                 </tr>
             </thead>
-            <?php if (!empty($equipments)) : ?>
-            <tbody>
-                <?php foreach ($equipments as $equipment) : ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($equipment['Equipment ID']); ?></td>
-                        <td><?php echo htmlspecialchars($equipment['Name']); ?></td>
-                        <td><?php echo htmlspecialchars($equipment['Purchase Date']); ?></td>
-                        <td><?php echo htmlspecialchars($equipment['Status']); ?></td>
-                        <td><?php echo htmlspecialchars($equipment['Usable Duration']); ?></td>
-                        
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        <?php else : ?>
             <tbody>
                 <tr>
-                    <td colspan="5" style="text-align: center;">No equipments added</td>
+                    <td colspan="5" style="text-align: center;">Loading...</td>
                 </tr>
             </tbody>
-        <?php endif; ?>
-        
         </table>
     </div>
     <section class="add-equipment-container">

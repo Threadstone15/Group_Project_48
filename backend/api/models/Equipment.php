@@ -52,21 +52,9 @@ class Equipment {
     }
 
     // Read Equipment
-    public function getEquipment($equipment_id = null) {
+    public function getEquipment() {
         logMessage("Fetching equipment...");
 
-        if ($equipment_id) {
-            // Fetch specific equipment
-            $query = "SELECT * FROM " . $this->table . " WHERE equipment_id = ?";
-            $stmt = $this->conn->prepare($query);
-
-            if ($stmt === false) {
-                logMessage("Error preparing statement for fetching equipment: " . $this->conn->error);
-                return false;
-            }
-
-            $stmt->bind_param("i", $equipment_id);
-        } else {
             // Fetch all equipment
             $query = "SELECT * FROM " . $this->table;
             $stmt = $this->conn->prepare($query);
@@ -74,8 +62,7 @@ class Equipment {
             if ($stmt === false) {
                 logMessage("Error preparing statement for fetching all equipment: " . $this->conn->error);
                 return false;
-            }
-        }
+            }    
 
         // Execute the query
         if ($stmt->execute()) {

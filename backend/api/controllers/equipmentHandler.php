@@ -27,14 +27,12 @@ function addEquipment() {
 }
 
 
-function getEquipment($conn) {
-    $equipment = new Equipment($conn);
-    if (isset($_GET['equipment_id'])) {
-        $equipment_id = intval($_GET['equipment_id']);
-        $result = $equipment->getEquipment($equipment_id);
-    } else {
-        $result = $equipment->getEquipment();
-    }
+function getEquipment() {
+    logMessage("get equip function running...");
+    $equipment = new Equipment();
+
+    $result = $equipment->getEquipment();
+
 
     if ($result) {
         logMessage("Equipment data fetched");

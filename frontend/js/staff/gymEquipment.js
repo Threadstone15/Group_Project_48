@@ -1,3 +1,74 @@
+console.log("JS loaded");
+
+const equipmentTable = document.getElementById("equipmentsTable");
+
+    if (equipmentTable) {
+        // If the table exists, trigger fetching the equipment list
+        fetchEquipmentList();
+    } else {
+        console.warn("Equipment table not found. Skipping fetch.");
+    }
+
+    function fetchEquipmentList() {
+        console.log("Fetching Equipments");
+
+        // Retrieve auth token from local storage
+        const authToken = localStorage.getItem("authToken");
+
+        if (!authToken) {
+            console.error("Auth token not found. Please log in.");
+            return;
+        }
+
+        console.log("Auth Token:", authToken); // Debugging log
+
+        // Set up request options with headers
+        const requestOptions = {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${authToken}`
+            },
+            redirect: 'follow'
+        };
+
+        // Send GET request to backend to fetch equipment list
+        fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php?action=get_equipments", requestOptions)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Failed to fetch equipment list");
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Fetched equipment list:", data); // Debugging log
+
+                // Populate the equipment table in the DOM
+                const tableBody = equipmentTable.getElementsByTagName("tbody")[0];
+                tableBody.innerHTML = ""; // Clear existing table rows
+
+                if (data.length > 0) {
+                    data.forEach(equipment => {
+                        const row = document.createElement("tr");
+
+                        row.innerHTML = `
+                            <td>${equipment['equipment_id']}</td>
+                            <td>${equipment['name']}</td>
+                            <td>${equipment['purchase_date']}</td>
+                            <td>${equipment['status']}</td>
+                            <td>${equipment['maintenance_frequency']}</td>
+                        `;
+
+                        tableBody.appendChild(row);
+                    });
+                } else {
+                    const noDataRow = document.createElement("tr");
+                    noDataRow.innerHTML = `<td colspan="5" style="text-align: center;">No equipment found</td>`;
+                    tableBody.appendChild(noDataRow);
+                }
+            })
+            .catch(error => console.error("Error fetching equipment list:", error));
+    }
+
 document.getElementById('EquipmentForm').addEventListener('submit', (event) => {
   event.preventDefault();
   
@@ -54,3 +125,8 @@ document.getElementById('EquipmentForm').addEventListener('submit', (event) => {
       })
       .catch(error => console.error("Error adding equipment:", error));
 });
+
+
+
+
+
