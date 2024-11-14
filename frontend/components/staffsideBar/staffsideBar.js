@@ -38,7 +38,7 @@ document.getElementById("member-attendance").addEventListener("click", function 
 
   function loadJSFile(page) {
     const pageUrl = `/frontend/pages/staff/${page}.html`;
-    const pageJSUrl = `/frontend/js/staff/${page}.js`;
+    const pageJSUrl = `/frontend/js/${page}.js`;
     
     fetch(pageUrl)
       .then(response => response.text())
