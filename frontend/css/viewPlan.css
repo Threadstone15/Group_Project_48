@@ -1,0 +1,106 @@
+/* Global styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    margin-top: 30px;
+  }
+  
+  /* Container */
+  .container {
+    background-color: #fff;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 900px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+  }
+
+  /* Hover effect to add orange border */
+.container:hover {
+  border: 2px solid #FF5F00; /* Orange border on hover */
+}
+
+  
+  /* Plan title */
+  .plan-title {
+    text-align: center;
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Workout plan section */
+  .workout-plan {
+    padding: 20px;
+  }
+  
+  .plan-header {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* List of exercises */
+  .exercise-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .exercise-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .exercise-item:nth-child(even) {
+    background-color: #f1f1f1;
+  }
+  
+  .exercise-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .exercise-info .exercise-name {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .exercise-info .exercise-sets-reps {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  /* Button */
+  .show-more-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #FF5F00;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .show-more-btn:hover {
+    background-color: #ff4500;
+  }
+  

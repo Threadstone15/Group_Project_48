@@ -11,15 +11,14 @@
 </head>
 <body>
   <div class="dashboard-container">
-    <!-- Sidebar -->
     <div class="sidebar">
-    <img id="logo" class="sidebar-logo-black" src="/frontend/assets/images/logo-black-transparent.png" alt="GymVerse Logo" />
-    <div class="sidebar-header">
+      <img id="logo" class="sidebar-logo-black" src="/frontend/assets/images/logo-black-transparent.png" alt="GymVerse Logo" />
+      <div class="sidebar-header">
         <div class="app-icon">
           <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" /></svg>
         </div>
-    </div>
-    <hr class="sidebar-divider">
+      </div>
+      <hr class="sidebar-divider">
       <ul class="sidebar-menu">
         <li><a href="#" id="home"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="#" id="assigned-members"><i class="fas fa-user-friends"></i> Assigned Members</a></li>
@@ -27,13 +26,40 @@
       </ul>
     </div>
 
+    <!-- Content Area -->
     <div class="content">
-      <div id="content-area">
-        
-      </div>
+      <!-- Iframe for loading pages -->
+      <iframe id="content-frame" src="/frontend/pages/trainer/trainerHome.html" frameborder="0" style="width: 100%; height: 100%;"></iframe>
     </div>
   </div>
 
-  <script src="/frontend/components/trainerSidebar/trainerSidebar.js"></script>
+  <script>
+    // Function to load content by changing the iframe src
+    document.getElementById("home").addEventListener("click", function (e) {
+      e.preventDefault();
+      setActive("home");
+      document.getElementById("content-frame").src = '/frontend/pages/trainer/trainerHome.html';
+    });
+
+    document.getElementById("assigned-members").addEventListener("click", function (e) {
+      e.preventDefault();
+      setActive("assigned-members");
+      document.getElementById("content-frame").src = '/frontend/pages/trainer/assignedMembers.html';
+    });
+
+    document.getElementById("meal-plans").addEventListener("click", function (e) {
+      e.preventDefault();
+      setActive("meal-plans");
+      document.getElementById("content-frame").src = '/frontend/pages/trainer/workoutMeals.html';
+    });
+
+
+    // Function to handle active link styling
+    function setActive(id) {
+      const links = document.querySelectorAll(".sidebar-menu a");
+      links.forEach(link => link.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+    }
+  </script>
 </body>
 </html>

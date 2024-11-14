@@ -57,18 +57,4 @@
     </div>
 </div>
     <script src="/frontend/js/memberAttendance.js"></script>
-    <script>
-        // JavaScript to load the sidebar
-        function loadSidebar() {
-            fetch("/frontend/components/staffsideBar/staffsideBar.html")
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById("sidebar-container").innerHTML = data;
-                })
-                .catch(error => console.error("Error loading sidebar:", error));
-        }
-
-        // Call loadSidebar function on page load
-        document.addEventListener("DOMContentLoaded", loadSidebar);
-    </script>
 </body>
