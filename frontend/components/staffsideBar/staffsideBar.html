@@ -28,43 +28,64 @@
     </div>
 
     <!-- Content Area -->
-    <div class="content">
-      <!-- Iframe for loading pages -->
+    <div class="content" id="content-area">
       <iframe id="content-frame" src="/frontend/pages/staff/staffHome.html" frameborder="0" style="width: 100%; height: 100%;"></iframe>
     </div>
   </div>
 
   <script>
-    // Function to load content by changing the iframe src
+    // Load content by changing iframe source or dynamically fetching HTML content
     document.getElementById("home").addEventListener("click", function (e) {
       e.preventDefault();
       setActive("home");
-      document.getElementById("content-frame").src = '/frontend/pages/staff/staffHome.html';
+      loadContent('/frontend/pages/staff/staffHome.html');
     });
 
     document.getElementById("member-attendance").addEventListener("click", function (e) {
       e.preventDefault();
       setActive("member-attendance");
-      document.getElementById("content-frame").src = '/frontend/pages/staff/memberAttendance.html';
+      loadContent('/frontend/pages/staff/memberAttendance.html');
     });
 
     document.getElementById("gym-equipment").addEventListener("click", function (e) {
       e.preventDefault();
       setActive("gym-equipment");
-      document.getElementById("content-frame").src = '/frontend/pages/staff/gymEquipment.html';
+      loadContent('/frontend/pages/staff/gymEquipment.html');
+      loadJSFile('gymEquipment');
     });
 
     document.getElementById("publish-notice").addEventListener("click", function (e) {
       e.preventDefault();
       setActive("publish-notice");
-      document.getElementById("content-frame").src = '/frontend/pages/staff/publishNotices.html';
+      loadContent('/frontend/pages/staff/publishNotices.html');
     });
 
-    // Function to handle active link styling
+    // Function to set active link styling
     function setActive(id) {
       const links = document.querySelectorAll(".sidebar-menu a");
       links.forEach(link => link.classList.remove("active"));
       document.getElementById(id).classList.add("active");
+    }
+
+    // Function to load content into the content area by fetching HTML files
+    function loadContent(file) {
+      fetch(file)
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('content-area').innerHTML = data;
+        })
+        .catch(error => {
+          document.getElementById('content-area').innerHTML = `<p>Error loading content: ${error}</p>`;
+        });
+    }
+
+    // Function to dynamically load JavaScript files for specific pages
+    function loadJSFile(page) {
+      const pageJSUrl = `/frontend/js/${page}.js`;
+      
+      const script = document.createElement('script');
+      script.src = pageJSUrl;
+      document.body.appendChild(script);
     }
   </script>
 </body>
