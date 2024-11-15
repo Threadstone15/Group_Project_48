@@ -28,8 +28,9 @@ $action = $_POST['action'] ?? $_GET['action'] ?? null; // Get action from POST o
 $token = getBearerToken();
 $requiredRole = "staff";
 verifyRequest($requiredRole, $token);
+$user_id  =getUserIdFromToken($token);
 
-logMessage("Running staff controller ,$action token - $token ");
+logMessage("Running staff controller ,$action token - $token   id - $user_id ");
 
 switch ($action) {
     case 'add_equipment':
@@ -61,7 +62,8 @@ switch ($action) {
         break;
 
     case 'add_notice':
-        addNotice($conn);
+        logMessage("Running add_notice....in controller");
+        addNotice($user_id);
         break;
     case 'get_notice':
         getNotices($conn);

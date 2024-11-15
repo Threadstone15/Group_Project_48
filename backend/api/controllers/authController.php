@@ -128,6 +128,12 @@ if (is_array($input)) {
             echo json_encode(["error" => "Invalid or expired token"]);
         }
     }
+
+    
+
+
+
+
 } else {
     // If the input is not in the expected format
     http_response_code(400);  // Bad Request

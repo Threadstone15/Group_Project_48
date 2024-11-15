@@ -43,8 +43,10 @@ function getEquipment() {
     }
 }
 
-function updateEquipmentStatus($conn) {
-    $equipment = new Equipment($conn);
+function updateEquipmentStatus() {
+    logMessage("update equip status function running...");
+
+    $equipment = new Equipment();
     $data = json_decode(file_get_contents("php://input"), true);
 
     if (isset($data['equipment_id']) && isset($data['status'])) {
@@ -64,8 +66,10 @@ function updateEquipmentStatus($conn) {
     }
 }
 
-function deleteEquipment($conn) {
-    $equipment = new Equipment($conn);
+function deleteEquipment() {
+    logMessage("delete equip function running...");
+
+    $equipment = new Equipment();
     $input = json_decode(file_get_contents("php://input"), true);
 
     if (isset($input['equipment_id'])) {
