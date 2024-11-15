@@ -18,12 +18,12 @@ include_once "../models/User.php";
 $conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     logMessage("Handling preflight OPTIONS request.");
-    http_response_code(204);  // No Content
+    http_response_code(204);  
     exit();
 }
 
 $request_method = $_SERVER['REQUEST_METHOD'];
-$action = $_POST['action'] ?? $_GET['action'] ?? null; // Get action from POST or fallback to GET
+$action = $_POST['action'] ?? $_GET['action'] ?? null; 
 
 $token = getBearerToken();
 $requiredRole = "staff";
@@ -42,10 +42,12 @@ switch ($action) {
         getEquipment();
         break;
     case 'update_equipment_status':
-        updateEquipmentStatus($conn);
+        logMessage("Running update_equip....in controller");
+        updateEquipment();
         break;
     case 'delete_equipment':
-        deleteEquipment($conn);
+        logMessage("Running delete_equip....in controller");
+        deleteEquipment();
         break;
 
     case 'add_maintenance':
