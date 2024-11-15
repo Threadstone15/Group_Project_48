@@ -77,7 +77,7 @@ class EquipmentMaintenance {
             return false;
         }
 
-        $stmt->bind_param("sssi", $equipment_id, $maintenance_date, $details, $next_maintenance_date, $maintenance_id);
+        $stmt->bind_param("isssi", $equipment_id, $maintenance_date, $details, $next_maintenance_date, $maintenance_id);
         logMessage("Query bound for updating maintenance: $maintenance_id");
 
         if ($stmt->execute()) {

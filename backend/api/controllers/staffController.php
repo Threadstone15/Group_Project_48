@@ -74,14 +74,18 @@ switch ($action) {
         addNotice($user_id);
         break;
     case 'get_notice':
-        getNotices($conn);
+        logMessage("Running get_notice....in controller");
+        getNotices();
         break;
     case 'update_notice':
-        updateNotice($conn);
+        logMessage("Running update_notice....in controller");
+        updateNotice($user_id);
         break;
     case 'delete_notice':
-        deleteNotice($conn);
+        logMessage("Running delete_notice....in controller");
+        deleteNotice();
         break;
+
 
     case 'add_trainer_career':
         addTrainerCareer($conn);

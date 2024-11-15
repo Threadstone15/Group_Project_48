@@ -36,7 +36,7 @@ function getNotices() {
     }
 }
 
-function updateNotice() {
+function updateNotice($publisher_id) {
     logMessage("update notice function running...");
 
     $notice = new Notice();
@@ -44,7 +44,7 @@ function updateNotice() {
     $title = filter_var($_POST['title'], FILTER_SANITIZE_STRING);
     $description = filter_var($_POST['description'], FILTER_SANITIZE_STRING);
 
-    if ($notice->updateNotice($notice_id, $title, $description)) {
+    if ($notice->updateNotice($notice_id, $publisher_id, $title, $description)) {
         logMessage("Notice updated successfully: $notice_id");
         echo json_encode(["message" => "Notice updated successfully"]);
     } else {
