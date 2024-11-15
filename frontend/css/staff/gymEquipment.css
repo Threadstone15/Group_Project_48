@@ -1,377 +1,195 @@
 /* style.css */
 .content-wrapper {
-  display:flex;
-  flex-direction: column;
+    display:flex;
+
 }
 
 .content {
-  width: 80%;
-  border-collapse: collapse;
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
 }
 
 .table-container {
-  width: 90%;
-  margin: 20px auto;
-  border-collapse: collapse;
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
 }
 
 .table-container table {
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0; /* Removes spacing between cells if needed */
-  border-radius: 10px; /* Adjust the radius as desired */
-  overflow: hidden; /* Ensures corners stay rounded if there’s content overflow */
-  box-shadow: 0px 4px 10px rgba(15, 15, 15, 0.1); /* Optional shadow for a softer look */
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0; /* Removes spacing between cells if needed */
+    border-radius: 10px; /* Adjust the radius as desired */
+    overflow: hidden; /* Ensures corners stay rounded if there’s content overflow */
+    box-shadow: 0px 4px 10px rgba(15, 15, 15, 0.1); /* Optional shadow for a softer look */
 }
 
 th, td {
-  padding: 12px;
-  border: 1px solid #ffffff;
-  text-align: left;
-  border-right: 1px solid #e0e0e0;
+    padding: 12px;
+    border: 1px solid #ffffff;
+    text-align: left;
+    border-right: 1px solid #e0e0e0;
 }
 
 /* Remove the right border from the last cell in each row to avoid double border */
 .table-container tr th:last-child, .table-container tr td:last-child {
-  border-right: none;
+    border-right: none;
 }
 
 /* Optional: Add a bottom border for row dividers */
 .table-container tr td {
-  border-bottom: 1px solid #e0e0e0; /* Light border between rows */
+    border-bottom: 1px solid #e0e0e0; /* Light border between rows */
 }
 
 th {
-  background-color: #ffffff;
-  font-weight: 500;
-  text-align: center;
+    background-color: #ffffff;
+    font-weight: 500;
+    text-align: center;
 }
 
 td {
-  text-align: center;
+    text-align: center;
 }
 
 tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
+    background-color: #f9f9f9;
 }
 
 .table-container tr {
-  border: 1px solid #e0e0e0; /* Light border around each row */
-  border-radius: 8px; /* Optional: rounded corners on each row */
+    border: 1px solid #e0e0e0; /* Light border around each row */
+    border-radius: 8px; /* Optional: rounded corners on each row */
 }
 
 tbody {
-  border-radius: 8px;
+    border-radius: 8px;
 }
 
 tbody tr:hover {
-  background-color: #f2f2f2;
+    background-color: #f2f2f2;
 }
 
 #attendanceTable tr:nth-child(even) {
-  background-color: #f9f9f9;
+    background-color: #f9f9f9;
 }
 
 .header {
-  text-align: left; /* Center the text content */
-  margin: 0 auto; /* Center the entire header block */
-  padding: 20px; /* Add some padding to the header for spacing */
-  margin-top: 30px;
-}
-
-.heading {
-  font-size: 35px; /* Set font size for heading */
-  font-weight: 600; /* Set font weight to bold for emphasis */
-  font-family: 'Poppins', sans-serif; /* Use Poppins font */
-  color:  #333;
-}
-
-
-.add-equipment-container {
-  max-width: 605px;
-  font: 600 18px Poppins, sans-serif;
-  letter-spacing: -0.36px;
-  margin: 0 auto;
-  display: flex;
-}
-
-.add-equipment-content {
-  background-color: #fff;
-  border-radius: 10px;
-  border: 1px solid #E5E5E5;
-  padding: 39px 49px;
-  display: flex;
-  flex-direction: column;
-  border-collapse: collapse;
-  overflow: hidden; /* Ensures corners stay rounded if there’s content overflow */
-  box-shadow: 0px 4px 10px rgba(15, 15, 15, 0.1); /* Optional shadow for a softer look */
-}
-
-.equipment-icon {
-  width: 25px;
-  aspect-ratio: 1;
-  object-fit: contain;
-}
-
-.section-title {
-  color: #FF5F00;
-  line-height: 2;
-  margin-top: 12px;
-  font-size: 18px;
-  margin-left: 15px;
-}
-
-.add-equipment-title {
-  display:flex;
-  margin-bottom: 0px;
-}
-
-.equipment-form {
-  margin-top: 35px;
-  font-size: 16px;
-  color: #4F4F4F;
-  letter-spacing: -0.32px;
-}
-
-.form-group {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.form-label {
-  flex: 0 0 auto;
-  margin-right: 10px;
-}
-
-.form-input {
-  flex: 1;
-  min-width: 220px;
-  height: 36px;
-  border-radius: 10px;
-  background-color: rgba(79, 79, 79, 0.05);
-  border: 1px solid rgba(79, 79, 79, 0.05);
-  padding: 10px;
-  font-family: Poppins, sans-serif;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-/* Add pointer cursor on hover for the calendar icon */
-.form-input[type="date"]::-webkit-calendar-picker-indicator {
-  cursor: pointer; /* Set pointer cursor for calendar icon */
-}
+    text-align: left; /* Center the text content */
+    margin: 0 auto; /* Center the entire header block */
+    padding: 20px; /* Add some padding to the header for spacing */
+    margin-top: 30px;
+  }
+  
+  .heading {
+    font-size: 35px; /* Set font size for heading */
+    font-weight: 600; /* Set font weight to bold for emphasis */
+    font-family: 'Poppins', sans-serif; /* Use Poppins font */
+    color:  #333;
+  }
 
 
-
-.submit-button {
-  background-color: #FF5F00;
-  color: #fff;
-  border-radius: 30px;
-  border-color: transparent;
-  padding: 12px 42px;
-  font-weight: 400;
-  line-height: 1;
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 100px;
-  transition: all 0.3s ease; 
-}
-
-.submit-button:hover {
-  background-color: #d75001;
-  transform: scale(1.05);
-}
-
-
-@media (max-width: 991px) {
+  .add-equipment-container {
+    max-width: 605px;
+    font: 600 18px Poppins, sans-serif;
+    letter-spacing: -0.36px;
+    margin: 0 auto;
+  }
+  
   .add-equipment-content {
-    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #E5E5E5;
+    padding: 39px 49px;
+    display: flex;
+    flex-direction: column;
+    border-collapse: collapse;
+    overflow: hidden; /* Ensures corners stay rounded if there’s content overflow */
+    box-shadow: 0px 4px 10px rgba(15, 15, 15, 0.1); /* Optional shadow for a softer look */
+  }
+  
+  .equipment-icon {
+    width: 25px;
+    aspect-ratio: 1;
+    object-fit: contain;
+  }
+  
+  .section-title {
+    color: #FF5F00;
+    line-height: 2;
+    margin-top: 12px;
+    font-size: 18px;
+    margin-left: 15px;
   }
 
+  .add-equipment-title {
+    display:flex;
+    margin-bottom: 0px;
+  }
+  
+  .equipment-form {
+    margin-top: 35px;
+    font-size: 16px;
+    color: #4F4F4F;
+    letter-spacing: -0.32px;
+  }
+  
+  .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-label {
+    flex: 0 0 auto;
+    margin-right: 10px;
+  }
+  
+  .form-input {
+    flex: 1;
+    min-width: 220px;
+    height: 36px;
+    border-radius: 10px;
+    background-color: rgba(79, 79, 79, 0.05);
+    border: 1px solid rgba(79, 79, 79, 0.05);
+    padding: 10px;
+    font-family: Poppins, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  /* Add pointer cursor on hover for the calendar icon */
+.form-input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer; /* Set pointer cursor for calendar icon */
+}
+
+
+  
   .submit-button {
-    padding: 12px 20px;
+    background-color: #FF5F00;
+    color: #fff;
+    border: 1px solid #FF5F00;
+    border-radius: 49px;
+    padding: 12px 42px;
+    font-weight: 400;
+    line-height: 1;
+    cursor: pointer;
+    font-family: Poppins, sans-serif;
+    margin-top: 20px;
   }
-}
-
-.header, .table-container, .add-equipment-container {
-  width: 100%; 
-  margin-left: 50px; 
-  padding-left: 0;
-}
-
-.button {
-padding: 5px 10px;
-text-decoration: none;
-border-radius: 4px;
-font-size: 14px;
-color: #fff;
-border: none;
-transition: all 0.3s ease; 
-}
-
-.update-button {
-background-color: #4CAF50;
-margin-right: 5px;
-font-family: 'Poppins', sans-serif;
-}
-
-.update-button:hover {
-background-color: #163318; 
-color: #fff; 
-}
-
-.delete-button {
-background-color: #f44336;
-font-family: 'Poppins', sans-serif;
-}
-
-.delete-button:hover {
-background-color: #371010;
-color: #fff; 
-}
 
 
-/* Popup container styling */
-.popup {
-position: fixed;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-width: 400px; 
-padding: 30px;
-background-color: #fff;
-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-border-radius: 10px;
-z-index: 1000;
-display: flex;
-flex-direction: column;
-align-items: center;
-max-width: 90%; 
-}
+  @media (max-width: 991px) {
+    .add-equipment-content {
+      padding: 20px;
+    }
+  
+    .submit-button {
+      padding: 12px 20px;
+    }
+  }
 
-/* Close button styling */
-.close-button {
-position: absolute;
-top: 15px;
-right: 15px;
-background: none;
-border: none;
-font-size: 22px;
-font-weight: bold;
-color: #333;
-cursor: pointer;
-transition: color 0.3s ease;
-}
-
-.close-button:hover {
-color: #ff5f5f; 
-}
-
-/* Popup content styling */
-.popup-content {
-text-align: center;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-width: 100%; 
-padding: 20px;
-background-color: white;
-}
-
-/* Popup header styling */
-.popup h2 {
-font-size: 26px;
-color: #333;
-margin-bottom: 20px;
-font-weight: 600;
-text-align: center;
-}
-
-/* Popup paragraph styling */
-.popup p {
-font-size: 18px;
-color: #555;
-margin-bottom: 25px;
-line-height: 1.5;
-}
-
-
-.popup-buttons {
-display: flex;
-justify-content: center; 
-align-items: center;
-gap: 30px; 
-font-family: 'Poppins', sans-serif;
-}
-
-
-.popup-confirm {
-background-color: transparent;
-color: #FF5F00;
-border: 2px solid #FF5F00;
-padding: 12px 25px;
-border-radius: 6px;
-cursor: pointer;
-font-size: 18px;
-font-weight: 500;
-transition: background-color 0.3s ease, color 0.3s ease;
-width: 150px;
-font-family: 'Poppins', sans-serif;
-}
-
-.popup-confirm:hover {
-background-color: #FF5F00;
-color: white;
-}
-
-/* Popup cancel button (outlined) */
-.popup-cancel {
-background-color: transparent;
-color: #333;
-border: 2px solid #ccc;
-padding: 12px 25px;
-border-radius: 6px;
-cursor: pointer;
-font-size: 18px;
-font-weight: 500;
-transition: background-color 0.3s ease, color 0.3s ease;
-width: 150px;
-font-family: 'Poppins', sans-serif;
-}
-
-.popup-cancel:hover {
-background-color: #ccc;
-color: white;
-}
-
-/* Optional: dark overlay background */
-#overlay {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background: rgba(0, 0, 0, 0.5);
-z-index: 999;
-display: none;
-}
-
-
-@keyframes fadeIn {
-0% {
-  opacity: 0;
-}
-100% {
-  opacity: 1;
-}
-}
-
-.popup {
-animation: fadeIn 0.3s ease-in-out;
+  .header, .table-container, .add-equipment-container {
+    width: 100%; /* Full width to prevent shifting */
+    margin-left: 50px; /* Remove any additional left margin */
+    padding-left: 0; /* Ensure no extra padding */
 }
