@@ -50,19 +50,25 @@ switch ($action) {
         deleteEquipment();
         break;
 
+
     case 'add_maintenance':
-        addMaintenance($conn);
+        logMessage("Running add_maintenance....in controller");
+        addMaintenance();
         break;
-    case 'get_maintenance':
-        getMaintenance($conn);
+    case 'get_maintenances':
+        logMessage("Running get_maintenance....in controller");
+        getMaintenance();
         break;
-    case 'update_maintenance':
-        updateMaintenance($conn);
+    case 'update_maintenance_status':
+        logMessage("Running update_maintenance....in controller");
+        updateMaintenance();
         break;
     case 'delete_maintenance':
-        deleteMaintenance($conn);
+        logMessage("Running delete_maintenance....in controller");
+        deleteMaintenance();
         break;
 
+        
     case 'add_notice':
         logMessage("Running add_notice....in controller");
         addNotice($user_id);
