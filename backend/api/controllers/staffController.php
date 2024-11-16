@@ -12,7 +12,6 @@ include_once "../../config/database.php";
 include_once "equipmentHandler.php";
 include_once "equipmentMaintenanceHandler.php";
 include_once "noticeHandler.php";
-include_once "trainerCareerHandler.php";
 include_once "../models/User.php";
 
 $conn = include_once "../../config/database.php";
@@ -86,19 +85,6 @@ switch ($action) {
         deleteNotice();
         break;
 
-
-    case 'add_trainer_career':
-        addTrainerCareer($conn);
-        break;
-    case 'get_trainer_career':
-        getTrainerCareer($conn);
-        break;
-    case 'update_trainer_career':
-        updateTrainerCareer($conn);
-        break;
-    case 'delete_trainer_career':
-        deleteTrainerCareer($conn);
-        break;
 
     default:
         echo json_encode(["error" => "Invalid action"]);

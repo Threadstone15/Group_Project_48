@@ -1,72 +1,53 @@
 <?php
 
-// api/controllers/trainerController.php
-
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Methods: POST, GET, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
-header('Content-Type: application/json'); // Set content type to JSON
+header('Content-Type: application/json');
 
 session_start();
-include_once "../models/User.php";
-include_once "../models/Trainer.php"; // Include Trainer model
+
 include_once "../../middleware/authMiddleware.php";
-include_once "../../logs/save.php";
+include_once "../../config/database.php";
+include_once "workoutPlanHandler.php";
+include_once "../models/User.php";
 
 $conn = include_once "../../config/database.php";
-$user = new User($conn);
-$trainer = new Trainer($conn);
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    logMessage("Handling preflight OPTIONS request.");
+    http_response_code(204);  
+    exit();
+}
 
 $request_method = $_SERVER['REQUEST_METHOD'];
-logMessage("Running: $request_method");
+$action = $_POST['action'] ?? $_GET['action'] ?? null; 
 
-// Register User and Trainer
-if ($request_method == 'POST' && isset($_POST['signup'])) {
+/*$token = getBearerToken();
+$requiredRole = "trainer";
+verifyRequest($requiredRole, $token);
+$user_id  = getUserIdFromToken($token);*/
 
-    logMessage("Running Trainer Sign-up");
+logMessage("Running trainer controller, $action token - $token   id - $user_id ");
 
-    // Get the user data from the request
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    $password = $_POST['password'];
-    $firstName = filter_var($_POST['firstName'], FILTER_SANITIZE_STRING);
-    $lastName = filter_var($_POST['lastName'], FILTER_SANITIZE_STRING);
-    $NIC = $_POST['NIC']; 
-    $dob = $_POST['dob'];  // Assuming this is sent as yyyy-mm-dd
-    $address = $_POST['address'];
-    $mobile_number = $_POST['mobile_number'];
-    $years_of_experience = $_POST['years_of_experience'];
-    $specialties = $_POST['specialties'];
-    $cv_link = $_POST['cv_link'];
-    $role = 'trainer';  // Assuming the role is trainer for this example
-
-    logMessage("Details: $email , $password, $role");
-
-    // Register user
-    if ($user->register($email, $password, $role)) {
-        logMessage("User registered: $email");
-
-        // Get the user_id for the newly registered user
-        $userData = $user->getUserByEmail($email);
-        if ($userData) {
-            $user_id = $userData['user_id'];
-
-            logMessage("Entering to trainers: $user_id");
-
-            // Register the trainer using the user_id
-            if ($trainer->registerTrainer($user_id, $firstName, $lastName, $NIC, $dob, $address, $mobile_number, $years_of_experience, $specialties, $cv_link)) {
-                logMessage("Trainer registered successfully with user ID: $user_id");
-                echo json_encode(["message" => "User and Trainer registered successfully"]);
-            } else {
-                logMessage("Trainer registration failed for user ID: $user_id");
-                echo json_encode(["error" => "Trainer registration failed"]);
-            }
-        } else {
-            logMessage("User not found after registration: $email");
-            echo json_encode(["error" => "User registration successful, but user data not found"]);
-        }
-    } else {
-        logMessage("User registration failed: $email");
-        echo json_encode(["error" => "User registration failed"]);
-    }
+switch ($action) {
+    case 'add_workout_plan':
+        logMessage("Running add_workout_plan....in controller");
+        addWorkoutPlan();
+        break;
+    case 'get_workout_plans':
+        logMessage("Running get_workout_plans....in controller");
+        getWorkoutPlans();
+        break;
+    case 'update_workout_plan':
+        logMessage("Running update_workout_plan....in controller");
+        updateWorkoutPlan();
+        break;
+    case 'delete_workout_plan':
+        logMessage("Running delete_workout_plan....in controller");
+        deleteWorkoutPlan();
+        break;
+        
+    default:
+        echo json_encode(["error" => "Invalid action"]);
 }
 ?>

@@ -1,137 +1,72 @@
 <?php
 
-// api/controllers/authController.php
+// api/controllers/trainerController.php
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header('Content-Type: application/json'); // Set content type to JSON
 
+session_start();
+include_once "../models/User.php";
+include_once "../models/Trainer.php"; // Include Trainer model
+include_once "../../middleware/authMiddleware.php";
 include_once "../../logs/save.php";
 
-
-// Handle preflight (OPTIONS) requests for CORS
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    logMessage("Handling preflight OPTIONS request.");
-    http_response_code(204);  // No Content
-    exit();
-}
-
-session_start();
-include_once "../models/User.php"; // Include the User model
-include_once "../../middleware/authMiddleware.php"; // Include the authentication middleware if needed
+$conn = include_once "../../config/database.php";
+$user = new User($conn);
+$trainer = new Trainer($conn);
 
 $request_method = $_SERVER['REQUEST_METHOD'];
 logMessage("Running: $request_method");
-logMessage("Running auth controller");
 
-// Read JSON input
-$input = json_decode(file_get_contents("php://input"), true);
+// Register User and Trainer
+if ($request_method == 'POST' && isset($_POST['signup'])) {
 
-$rawInput = file_get_contents("php://input");
-logMessage("Raw input: $rawInput");
+    logMessage("Running Trainer Sign-up");
 
-logMessage("step...1");
+    // Get the user data from the request
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    $password = $_POST['password'];
+    $firstName = filter_var($_POST['firstName'], FILTER_SANITIZE_STRING);
+    $lastName = filter_var($_POST['lastName'], FILTER_SANITIZE_STRING);
+    $NIC = $_POST['NIC']; 
+    $dob = $_POST['dob'];  // Assuming this is sent as yyyy-mm-dd
+    $address = $_POST['address'];
+    $mobile_number = $_POST['mobile_number'];
+    $years_of_experience = $_POST['years_of_experience'];
+    $specialties = $_POST['specialties'];
+    $cv_link = $_POST['cv_link'];
+    $role = 'trainer';  // Assuming the role is trainer for this example
 
-// Check if input is set and is an array
-if (is_array($input)) {
-    logMessage("step...2");
+    logMessage("Details: $email , $password, $role");
 
-    // Register User
-    if ($request_method == 'POST' && isset($input['signup'])) {
-        logMessage("Running Sign-up");
+    // Register user
+    if ($user->register($email, $password, $role)) {
+        logMessage("User registered: $email");
 
-        $email = filter_var($input['email'], FILTER_SANITIZE_EMAIL);
-        $password = $input['password'];
-        $role = filter_var($input['role'], FILTER_SANITIZE_STRING);
-
-        logMessage("Request received: $email with role: $role");
-
-        // Instantiate User model and call register method
-        $user = new User();
-        if ($user->register($email, $password, $role)) {
-            logMessage("User registered: $email with role: $role");
-            echo json_encode(["message" => "User registered successfully"]);
-        } else {
-            logMessage("User registration failed: $email");
-            echo json_encode(["error" => "User registration failed"]);
-        }
-    }
-
-    // Login User
-    if ($request_method == 'POST' && isset($input['login'])) {
-        logMessage("Running log-in");
-
-        $email = filter_var($input['email'], FILTER_SANITIZE_EMAIL);
-        $password = $input['password'];
-
-        // Instantiate User model and call login method
-        $user = new User();
-        $userData = $user->login($email, $password);
-
+        // Get the user_id for the newly registered user
+        $userData = $user->getUserByEmail($email);
         if ($userData) {
-            if (password_verify($password, $userData['password'])) {
-                $token = generateToken($userData['user_id']);
-                $role = $userData['role'];
-                logMessage("Login Successful: $token $role");
+            $user_id = $userData['user_id'];
 
-                // Set the HTTP status code for successful login
-                http_response_code(200);
+            logMessage("Entering to trainers: $user_id");
 
-                // Respond with a success message and token
-                $response = [
-                    "success" => true,
-                    "message" => "Login successful",
-                    "role" => $role,
-                    "token" => $token
-                ];
+            // Register the trainer using the user_id
+            if ($trainer->registerTrainer($user_id, $firstName, $lastName, $NIC, $dob, $address, $mobile_number, $years_of_experience, $specialties, $cv_link)) {
+                logMessage("Trainer registered successfully with user ID: $user_id");
+                echo json_encode(["message" => "User and Trainer registered successfully"]);
             } else {
-                // Incorrect password, return error response
-                http_response_code(401); // Unauthorized
-                $response = [
-                    "success" => false,
-                    "error" => "Invalid credentials"
-                ];
+                logMessage("Trainer registration failed for user ID: $user_id");
+                echo json_encode(["error" => "Trainer registration failed"]);
             }
         } else {
-            // User not found, return error response
-            http_response_code(404); // Not Found
-            $response = [
-                "success" => false,
-                "error" => "User not found"
-            ];
+            logMessage("User not found after registration: $email");
+            echo json_encode(["error" => "User registration successful, but user data not found"]);
         }
-
-        // Send the response as JSON
-        echo json_encode($response);
-
-        // Ensure that the script stops after sending the response
-        exit;
+    } else {
+        logMessage("User registration failed: $email");
+        echo json_encode(["error" => "User registration failed"]);
     }
-
-    // Logout User
-    if ($request_method == 'POST' && isset($input['logout'])) {
-        $token = getBearerToken();  // Helper function to extract the token
-
-        if (!$token) {
-            echo json_encode(["error" => "Token missing"]);
-            exit();
-        }
-
-        $payload = verifyToken($token, $secretkey);  // Validate the token
-
-        if ($payload) {
-            $email = $payload['user_id'] ?? 'Unknown User';
-            logMessage("User logged out: $email");
-            echo json_encode(["message" => "Logged out successfully"]);
-        } else {
-            echo json_encode(["error" => "Invalid or expired token"]);
-        }
-    }
-} else {
-    // If the input is not in the expected format
-    http_response_code(400);  // Bad Request
-    echo json_encode(["error" => "Invalid input format"]);
 }
-
 ?>
