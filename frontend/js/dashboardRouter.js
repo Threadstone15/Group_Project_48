@@ -4,6 +4,10 @@ export function navigateDashboard(role, page) {
     clearNonDashboardComponents();
     //then load the sidebar
     loadSidebar(role);
+    loadDashboardPage(role, page);
+    history.pushState({ page: `${role}/${page}` }, "", `/Group_Project_48/${role}/${page}`);
+    location.reload();
+    return;
   }
   loadDashboardPage(role, page);
   history.pushState({ page: `${role}/${page}` }, "", `/Group_Project_48/${role}/${page}`);

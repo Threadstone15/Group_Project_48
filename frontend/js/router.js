@@ -33,6 +33,7 @@ window.addEventListener("popstate", () => {
         clearDashboardComponents();
         loadNavbar();
         loadFooter();
+        location.reload();
       }
       loadPage(page);
     }
