@@ -23,6 +23,7 @@
         <li><a href="#" id="home"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="#" id="member-attendance"><i class="fas fa-users"></i> Member Attendance</a></li>
         <li><a href="#" id="gym-equipment"><i class="fas fa-cogs"></i> Gym Equipment</a></li>
+        <li><a href="#" id="equipMaintain"><i class="fas fa-cogs"></i>Equipment Maintainence</a></li>
         <li><a href="#" id="publish-notice"><i class="fas fa-bullhorn"></i> Publish Notice</a></li>
       </ul>
     </div>
@@ -58,6 +59,12 @@
       e.preventDefault();
       setActive("publish-notice");
       document.getElementById("content-frame").src = '/frontend/pages/staff/publishNotices.html';
+    });
+
+    document.getElementById("equipMaintain").addEventListener("click", function (e) {
+      e.preventDefault();
+      setActive("equipMaintain");
+      document.getElementById("content-frame").src = '/frontend/pages/staff/equipMaintain.html';
     });
 
     // Function to handle active link styling

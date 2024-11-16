@@ -1,11 +1,11 @@
 /* style.css */
 .content-wrapper {
-    display:flex
+    display:flex;
+    flex-direction: column;
 }
 
 .content {
     width: 80%;
-    margin: 20px auto;
     border-collapse: collapse;
 }
 
