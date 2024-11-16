@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OwnerHome</title>
+  <link rel="stylesheet" href="/Group_Project_48/frontend/css/owner/ownerHome.css">
+  <link rel="stylesheet" href="/Group_Project_48/frontend/css/globals.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="total-content">
+        <div class="content">
+            <div class="total-members">
+                <h2>Total Members</h2>
+                <p class="date" id="dateDisplay">Friday</p>
+                <p class="total-count" id="totalCount">Total members:</p>
+            </div>
+            <div class="new-signups">
+                <h2>New Sign-ups</h2>
+                <p class="date" id="dateDisplay">Friday</p>
+                <p class="new-signups-count" id="newSignups">New Sign-ups:</p>
+            </div>
+
+            <div class="gym-card">
+                <h2>Gym Crowd</h2>
+                <p class="date" id="dateDisplay">Friday</p>
+                <p class="member-count" id="memberCount">Members Present:</p>
+            </div>
+        </div>
+
+        <div class="content-bottom">
+            <iframe id="task-calendar-iframe" src="/Group_Project_48/frontend/components/calendar/calendar.html" style="width: 100%; height: 100%;" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <script type="module" src="/Group_Project_48/frontend/js/owner/ownerHome.js"></script>
+
+</body>
+</html>

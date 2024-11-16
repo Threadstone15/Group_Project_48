@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workout and Meal Plans</title>
+  <link rel="stylesheet" href="/Group_Project_48/frontend/css/member/requestPlan.css">
+    <link rel="stylesheet" href="/Group_Project_48/frontend/css/globals.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="fitness-form">
+        <div class="form-container">
+          <h2 class="form-title">Fill out the following fields.</h2>
+          <p class="form-subtitle">These are necessary for determining the best plan for you.</p>
+          <form class="fitness-details-form">
+            <div class="form-group">
+              <label for="fitnessGoals">Fitness Goals:</label>
+              <textarea id="fitnessGoals" name="fitnessGoals" rows="5"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="medicalConditions">Medical Conditions:</label>
+              <textarea id="medicalConditions" name="medicalConditions" rows="5"></textarea>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="currentHeight">Current Height:</label>
+                <input type="text" id="currentHeight" name="currentHeight">
+              </div>
+              <div class="form-group">
+                <label for="currentWeight">Current Weight:</label>
+                <input type="text" id="currentWeight" name="currentWeight">
+              </div>
+            </div>
+            <button type="submit" class="submit-btn">Request a Plan</button>
+          </form>
+        </div>
+      </section>
+</body>
+</html>

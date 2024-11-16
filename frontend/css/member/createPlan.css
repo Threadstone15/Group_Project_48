@@ -1,0 +1,137 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    justify-items: center;
+    margin-top: 30px;
+    min-height: 100vh;
+  }
+  
+  .container {
+    background-color: #fff;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 1000px;
+    padding: 40px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+  }
+
+  .container:hover {
+    border: 2px solid #FF5F00; /* Orange border on hover */
+  }
+  
+  h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  /* Form Styling */
+  .workout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  label {
+    font-size: 16px;
+    color: #555;
+    font-weight: 600;
+  }
+  
+  input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+  }
+  
+  input:focus {
+    border-color: #FF5F00;
+  }
+  
+  .submit-btn {
+    padding: 12px;
+    background-color: #FF5F00;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .submit-btn:hover {
+    background-color: #e54b00;
+  }
+  
+  /* Workout List */
+  .workout-list {
+    margin-top: 30px;
+  }
+  
+  .workout-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+  }
+  
+  .workout-item:nth-child(even) {
+    background-color: #f1f1f1;
+  }
+  
+  .workout-item .workout-info {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .workout-item .workout-info strong {
+    color: #FF5F00;
+  }
+  
+input {
+    padding: 12px;  /* Add padding inside the input field */
+    border: 2px solid #ddd;  /* Set a light border */
+    border-radius: 8px;  /* Rounded corners */
+    font-size: 16px;  /* Make the font size larger */
+    color: #333;  /* Set a dark text color */
+    background-color: #fff;  /* White background */
+    outline: none;  /* Remove the default outline when the input is focused */
+    transition: all 0.3s ease;  /* Smooth transition for interactive changes */
+    font-style: 'Poppins', sans-serif;
+  }
+  
+  /* Focus state - changes when the input is focused */
+  input:focus {
+    border-color: #FF5F00;  /* Change border color to orange when focused */
+    box-shadow: 0 0 5px rgba(255, 95, 0, 0.5);  /* Add a subtle shadow for focus effect */
+  }
+  
+  /* Placeholder styling */
+  input::placeholder {
+    color: #aaa;  /* Lighter gray color for placeholder text */
+    font-style: 'Poppins', sans-serif;
+    font-size: 14px;
+  }
+  
+  /* Disabled state - for input fields that are disabled */
+  input:disabled {
+    background-color: #f0f0f0;  /* Light gray background when disabled */
+    border-color: #ddd;  /* Lighter border */
+    color: #999;  /* Lighter text color */
+  }
+  

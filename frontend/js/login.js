@@ -37,7 +37,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
   
           // Redirect based on role
           if (data.role == 'staff') {
-            navigateDashboard('staff','memberAttendance');
+            navigateDashboard('staff','staffHome');
           }
           if (data.role == 'admin') {
             navigateDashboard('admin','adminHome');

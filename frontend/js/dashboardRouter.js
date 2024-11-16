@@ -43,21 +43,26 @@ export function loadDashboardPage(role, page) {
   const globalCssUrl = '/Group_Project_48/frontend/css/globals.css';
   const pageJsUrl = `/Group_Project_48/frontend/js/${role}/${page}.js`;
 
-  fetch(pageUrl)
-    .then((response) => {
-      if (!response.ok) throw new Error("Page not found");
-      return response.text();
-    })
-    .then((data) => {
-      document.getElementById("content-area").innerHTML = data;
+  // Set the iframe src to the dashboard page URL
+  const contentFrame = document.getElementById("content-frame");
+  if (contentFrame) {
+    contentFrame.src = pageUrl;
 
-      loadCss(pageCssUrl);
-      loadJs(pageJsUrl);
-      loadGlobalCss(globalCssUrl);
-    })
-    .catch(() => {
-      document.getElementById("content-area").innerHTML = `<p>404 - Page not found.</p>`;
-    });
+    // Load the necessary CSS and JS files for the dashboard
+    loadCss(pageCssUrl);
+    loadJs(pageJsUrl);
+    loadGlobalCss(globalCssUrl);
+
+    // Optionally, listen for iframe load events (for logging or further actions)
+    contentFrame.onload = () => {
+      console.log(`Dashboard page ${pageUrl} loaded successfully.`);
+    };
+    contentFrame.onerror = () => {
+      console.error(`Failed to load dashboard page: ${pageUrl}`);
+    };
+  } else {
+    console.error("Content frame not found. Ensure #content-frame exists in the DOM.");
+  }
 }
 
 function loadCss(href) {
