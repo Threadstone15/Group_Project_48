@@ -171,7 +171,7 @@ function loadJSFile(url) {
 
 // Loading the calendar component
 window.onload = function () {
-    loadHTMLFile('/frontend/components/calendar/calendar.html', '#calendar-placeholder');
-    loadCSSFile('/frontend/components/calendar/calendar.css'); 
-    loadJSFile('/frontend/components/calendar/calendar.js');
+    loadHTMLFile('/Group_Project_48/frontend/components/calendar/calendar.html', '#calendar-placeholder');
+    loadCSSFile('/Group_Project_48/frontend/components/calendar/calendar.css'); 
+    loadJSFile('/Group_Project_48/frontend/components/calendar/calendar.js');
 };

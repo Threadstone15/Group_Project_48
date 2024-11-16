@@ -14,11 +14,8 @@ const memberCount = document.getElementById("memberCount");
 const crowdIndicator = document.getElementById("crowdIndicator");
 const dateDisplay = document.getElementById("dateDisplay");
 
-const currdate = document
-    .querySelector(".calendar-current-date");
-
-const prenexIcons = document
-    .querySelectorAll(".calendar-navigation span");
+const currdate = document.querySelector(".calendar-current-date");
+const prenexIcons = document.querySelectorAll(".calendar-navigation span");
 
 // Array of month names
 const months = [
@@ -44,7 +41,6 @@ const manipulate = () => {
     let dayend = new Date(year, month, lastdate).getDay();
     let monthlastdate = new Date(year, month, 0).getDate();
     let lit = "";
-
 
     for (let i = dayone; i > 0; i--) {
         lit +=
@@ -75,11 +71,10 @@ manipulate();
 prenexIcons.forEach(icon => {
 
     icon.addEventListener("click", () => {
+
         month = icon.id === "calendar-prev" ? month - 1 : month + 1;
 
- 
         if (month < 0 || month > 11) {
-
             date = new Date(year, month, new Date().getDate());
             year = date.getFullYear();
             month = date.getMonth();
@@ -93,7 +88,7 @@ prenexIcons.forEach(icon => {
     });
 });
 
-// Fetch unread notices from backend
+
 fetch("get_notices.php")
  .then(response => response.json())
  .then(data => {
@@ -101,7 +96,6 @@ fetch("get_notices.php")
      displayNotice();
  });
 
-// Display the current notice
 function displayNotice() {
  if (currentNoticeIndex < notices.length) {
      noticeContent.textContent = notices[currentNoticeIndex].content;
@@ -116,6 +110,7 @@ readCheckbox.addEventListener("change", function() {
  if (this.checked && currentNoticeIndex < notices.length) {
      const noticeId = notices[currentNoticeIndex].id;
 
+     // Mark the notice as read in the backend
      fetch("mark_notice_read.php", {
          method: "POST",
          headers: { "Content-Type": "application/json" },
@@ -134,7 +129,6 @@ readCheckbox.addEventListener("change", function() {
 fetch("get_gym_data.php")
         .then(response => response.json())
         .then(gymData => {
- 
             dateDisplay.textContent = gymData.date;
             memberCount.textContent = `Members Present: ${gymData.members_present}`;
             crowdStatus.textContent = `Crowd Level: ${gymData.crowd_level}`;
@@ -148,3 +142,36 @@ fetch("get_gym_data.php")
             }
     })
     .catch(error => console.error("Error fetching gym data:", error));
+
+//loading task-calendar component
+function loadHTMLFile(url, targetElement) {
+    fetch(url)
+        .then(response => response.text())
+        .then(data => {
+            document.querySelector(targetElement).innerHTML = data;
+        })
+        .catch(error => console.error('Error loading HTML:', error));
+}
+
+// Function to load a CSS file dynamically
+function loadCSSFile(url) {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = url;
+    document.head.appendChild(link);
+}
+
+// Function to load a JS file dynamically
+function loadJSFile(url) {
+    const script = document.createElement('script');
+    script.type = 'module';
+    script.src = url;
+    document.body.appendChild(script);
+}
+
+// Loading the calendar component
+window.onload = function () {
+    loadHTMLFile('/Group_Project_48/frontend/components/calendar/calendar.html', '#calendar-placeholder');
+    loadCSSFile('/Group_Project_48/frontend/components/calendar/calendar.css'); 
+    loadJSFile('/Group_Project_48/frontend/components/calendar/calendar.js');
+};

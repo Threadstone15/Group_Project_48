@@ -198,9 +198,9 @@ export function loadDashboardPage(role, page) {
     contentFrame.src = pageUrl;
 
     // Load the necessary CSS and JS files for the dashboard
-    loadCss(pageCssUrl);
-    loadJs(pageJsUrl);
-    loadGlobalCss(globalCssUrl);
+    // loadCss(pageCssUrl);
+    // loadJs(pageJsUrl);
+    // loadGlobalCss(globalCssUrl);
 
     // Optionally, listen for iframe load events (for logging or further actions)
     contentFrame.onload = () => {
