@@ -1,38 +1,37 @@
 // Sample test data
-const plans = [
-    { "Plan ID": "001", "Name": "free", "Monthly Price": "Rs.500", "Yearly Price": "Rs.5600", "Benefits": "free" },
+const notices = [
+    { "Notice ID": "EQ123", "Publisher ID": "67", "Title": "blahhh", "Description": "jcbuebeuhrufbeu"},
 ];
 
 // Function to populate the table with test data
 function populateTable() {
-    const tableBody = document.getElementById("plansTable").querySelector("tbody");
+    const tableBody = document.getElementById("noticesTable").querySelector("tbody");
     tableBody.innerHTML = "";
-    plans.forEach((plan) => {
+    notices.forEach((notice) => {
         const row = document.createElement("tr");
 
         row.innerHTML = `
-            <td>${plan["Plan ID"]}</td>
-            <td>${plan["Name"]}</td>
-            <td>${plan["Monthly Price"]}</td>
-            <td>${plan["Yearly Price"]}</td>
-            <td>${plan["Benefits"]}</td>
+            <td>${notice["Notice ID"]}</td>
+            <td>${notice["Publisher ID"]}</td>
+            <td>${notice["Title"]}</td>
+            <td>${notice["Description"]}</td>
             <td>
-                <a href="updateEquipment.php?id=${plan['Equipment ID']}" class="button update-button">Update</a>
-                <button class="button delete-button" onclick="handleDelete('${plan["Equipment ID"]}')">Delete</button>
+                <a href="updateEquipment.php?id=${notice['Equipment ID']}" class="button update-button">Update</a>
+                <button class="button delete-button" onclick="handleDelete('${notice["Equipment ID"]}')">Delete</button>
             </td>
         `;
         tableBody.appendChild(row);
     });
 }
 
-function handleDelete(planId) {
+function handleDelete(equipmentId) {
     const popup = document.getElementById("deletePopup");
     const overlay = document.getElementById("overlay");
     popup.style.display = "block";
     overlay.style.display = "block";
 
     document.getElementById("confirmDelete").onclick = function() {
-        deleteEquipment(planId);
+        deleteEquipment(equipmentId);
         popup.style.display = "none";
         overlay.style.display = "none";
     };
@@ -50,8 +49,8 @@ function handleDelete(planId) {
 
 
 // Function to delete equipment from the test data array and refresh the table
-function deleteEquipment(planId) {
-    const index = equipments.findIndex(plan => plan["Equipment ID"] === planId);
+function deleteEquipment(equipmentId) {
+    const index = equipments.findIndex(equipment => equipment["Equipment ID"] === equipmentId);
     if (index > -1) {
         equipments.splice(index, 1);
         populateTable();

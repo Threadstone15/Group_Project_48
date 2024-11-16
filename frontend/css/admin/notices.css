@@ -2,7 +2,6 @@
 .content-wrapper {
     display:flex;
     flex-direction: column;
-    justify-content: start;
 }
 
 .content {
@@ -79,15 +78,6 @@ tbody tr:hover {
     padding: 20px; /* Add some padding to the header for spacing */
     margin-top: 30px;
   }
-
-  .signup-form-heading {
-    font-size: 18px; /* Set font size for heading */
-    font-weight: 600; /* Set font weight to bold for emphasis */
-    font-family: 'Poppins', sans-serif; /* Use Poppins font */
-    color: #FF5F00; /* Set text color (black) */
-    margin-bottom: 10px; /* Add spacing between heading and subheading */
-    justify-content: center;
-  }
   
   .heading {
     font-size: 35px; /* Set font size for heading */
@@ -97,140 +87,116 @@ tbody tr:hover {
   }
 
 
-  .signup-form {
-    max-width: 800px; /* Reduced size of the container */
-    font-family: Poppins, sans-serif;
-    margin: 0 auto; /* Center the container horizontally */
-    margin-top: 20px;
-    padding: 20px; /* Add padding inside the container */
-    border: 1px solid rgba(79, 79, 79, 0.1); /* Add a subtle border */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-    background-color: #FFF; /* White background for contrast */
+  .add-equipment-container {
+    max-width: 605px;
+    font: 600 18px Poppins, sans-serif;
+    letter-spacing: -0.36px;
+    margin: 0 auto;
+    display: flex;
   }
   
-  .input-group {
+  .add-equipment-content {
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #E5E5E5;
+    padding: 39px 49px;
     display: flex;
     flex-direction: column;
-    margin-top: 20px; /* Reduced spacing between input groups */
+    border-collapse: collapse;
+    overflow: hidden; /* Ensures corners stay rounded if there’s content overflow */
+    box-shadow: 0px 4px 10px rgba(15, 15, 15, 0.1); /* Optional shadow for a softer look */
   }
   
-  .name-fields {
-    display: flex;
-    gap: 10px; /* Reduced gap between fields */
-    flex-wrap: wrap;
+  .equipment-icon {
+    width: 25px;
+    aspect-ratio: 1;
+    object-fit: contain;
   }
   
-  .name-fields .input-group {
-    flex: 1;
-    min-width: 0;
+  .section-title {
+    color: #FF5F00;
+    line-height: 2;
+    margin-top: 12px;
+    font-size: 18px;
+    margin-left: 15px;
   }
-  
-  label {
-    color: #000000;
-    font-size: 14px; /* Reduced font size for labels */
-    font-weight: 500;
-    line-height: 1.5;
-    margin-bottom: 8px; /* Reduced spacing below labels */
-  }
-  
-  .input-field,
-  .select-field {
-    border-radius: 10px; /* Slightly smaller corners */
-    background-color: #FFFFFF;
-    border: 1px solid #4F4F4F;
-    padding: 15px; /* Reduced padding */
-    font-size: 14px;
-    color: rgba(79, 79, 79, 0.7);
-    width: 100%;
-    height: 50px; /* Reduced height of input fields */
-    font-family: Poppins, sans-serif;
-  }
-  
-  .date-of-birth {
-    border: none;
-    padding: 0;
-    margin-top: 20px; /* Reduced spacing for date-of-birth group */
-  }
-  
-  .date-of-birth legend {
-    color: #000000;
-    font-size: 16px; /* Reduced font size */
-    font-weight: 500;
-    line-height: 1.5;
-    margin-bottom: 8px;
-  }
-  
-  .dob-fields {
-    display: flex;
-    gap: 15px; /* Reduced gap between date-of-birth fields */
-    flex-wrap: wrap;
-  }
-  
-  .select-wrapper {
-    flex: 1;
-    min-width: 120px; /* Reduced width for dropdowns */
-  }
-  
-  .select-field {
-    appearance: none;
-    background-image: url('https://cdn.builder.io/api/v1/image/assets/TEMP/1513a20edf14c2d7bfe04899b58850da43fe757932dcc40685c91510e7031487?placeholderIfAbsent=true&apiKey=015e1c54eb5347dfb8c175d60fbc5fdf');
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    padding-right: 25px;
-  }
-  
-  .final-cta-button {
-    border-radius: 25px;
-    background-color: #FF5F00;
-    color: #FFF;
-    gap: 10px;
-    font-size: 16px; /* Reduced button font size */
-    font-weight: 500;
-    padding: 10px 30px; /* Reduced padding for the button */
-    text-decoration: none;
-    margin: 0 auto;
-    margin-top: 50px; /* Reduced top margin for the button */
-    display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
-    border: none;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  .final-cta-button:hover {
-    background-color: #E43700;
-  }
-  
-  .final-cta-button:active {
-    background-color: #B83200;
-  }
-  
-  .header {
-    text-align: center; /* Center the text content */
-    margin: 0 auto; /* Center the entire header block */
-    padding: 20px; /* Add some padding to the header for spacing */
-    margin-top: 20px;
-  }
-  
-  .heading {
-    font-size: 35px; /* Set font size for heading */
-    font-weight: 600; /* Set font weight to bold for emphasis */
-    font-family: 'Poppins', sans-serif; /* Use Poppins font */
-    color: #000; /* Set text color (black) */
-    margin-bottom: 10px; /* Add spacing between heading and subheading */
-  }
-  
-  .subheading {
-    font-size: 16px; /* Set font size for subheading */
-    font-family: 'Poppins', sans-serif; /* Use Poppins font */
-    color: #4F4F4F; /* Set a slightly lighter text color */
-    max-width: 600px; /* Restrict width to ensure readability */
-    margin: 0 auto; /* Center the subheading */
-    line-height: 1.5; /* Add some line spacing for better readability */
-  }
-  
 
+  .add-equipment-title {
+    display:flex;
+    margin-bottom: 0px;
+  }
+  
+  .equipment-form {
+    margin-top: 35px;
+    font-size: 16px;
+    color: #4F4F4F;
+    letter-spacing: -0.32px;
+  }
+  
+  .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-label {
+    flex: 0 0 auto;
+    margin-right: 10px;
+  }
+  
+  .form-input {
+    flex: 1;
+    min-width: 220px;
+    height: 36px;
+    border-radius: 10px;
+    background-color: rgba(79, 79, 79, 0.05);
+    border: 1px solid rgba(79, 79, 79, 0.05);
+    padding: 10px;
+    font-family: Poppins, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  /* Add pointer cursor on hover for the calendar icon */
+.form-input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer; /* Set pointer cursor for calendar icon */
+}
+
+
+  
+  .submit-button {
+    background-color: #FF5F00;
+    color: #fff;
+    border-radius: 30px;
+    border-color: transparent;
+    padding: 12px 42px;
+    font-weight: 400;
+    line-height: 1;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 100px;
+    transition: all 0.3s ease; 
+  }
+
+  .submit-button:hover {
+    background-color: #d75001;
+    transform: scale(1.05);
+  }
+
+
+  @media (max-width: 991px) {
+    .add-equipment-content {
+      padding: 20px;
+    }
+  
+    .submit-button {
+      padding: 12px 20px;
+    }
+  }
 
   .header, .table-container, .add-equipment-container {
     width: 100%; 

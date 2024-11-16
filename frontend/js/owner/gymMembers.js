@@ -2,7 +2,7 @@
 const members = [
     { "Member ID": "EQ123", "Name": "James", "Membership Plan": "Free", "Status": "Active", "Contact Number": "077322223", "Assigned Trainer": "Bond" },
 ];
-console.log(equipments);
+
 // Function to populate the table with test data
 function populateTable() {
     const tableBody = document.getElementById("memberTable").querySelector("tbody");

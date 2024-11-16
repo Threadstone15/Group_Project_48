@@ -22,7 +22,7 @@
       <ul class="sidebar-menu">
         <li><a href="#" id="home"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="#" id="accounts"><i class="fas fa-book"></i> Accounts</a></li>
-        <li><a href="#" id="publish-jobs"><i class="fas fa-briefcase"></i> Publish Jobs</a></li>
+        <li><a href="#" id="notices"><i class="fas fa-briefcase"></i>Notices and Jobs</a></li>
         <li><a href="#" id="payment-status"><i class="fas fa-receipt"></i> Payment Status</a></li>
       </ul>
     </div>
@@ -48,10 +48,10 @@
       document.getElementById("content-frame").src = '/frontend/pages/admin/accounts.html';
     });
 
-    document.getElementById("publish-jobs").addEventListener("click", function (e) {
+    document.getElementById("notices").addEventListener("click", function (e) {
       e.preventDefault();
-      setActive("publish-jobs");
-      document.getElementById("content-frame").src = '/frontend/pages/admin/publishJobs.html';
+      setActive("notices");
+      document.getElementById("content-frame").src = '/frontend/pages/admin/notices.html';
     });
 
     document.getElementById("payment-status").addEventListener("click", function (e) {

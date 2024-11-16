@@ -2,7 +2,7 @@
 const trainers = [
     { "Trainer ID": "EQ123", "Name": "James", "Specialties": "cdhbch", "Members Assigned": "csb" },
 ];
-console.log(equipments);
+
 // Function to populate the table with test data
 function populateTable() {
     const tableBody = document.getElementById("trainerTable").querySelector("tbody");
