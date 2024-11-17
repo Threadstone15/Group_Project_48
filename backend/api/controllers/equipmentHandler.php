@@ -4,11 +4,11 @@
 include_once "../models/Equipment.php";
 include_once "../../logs/save.php";
 
-function addEquipment() {
+function addEquipment($conn) {
+
     logMessage("add equip function running...");
 
-    $equipment = new Equipment(); 
-
+    $equipment = new Equipment($conn);
     $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
     $purchase_date = $_POST['purchase_date'];
     $status = filter_var($_POST['status'], FILTER_SANITIZE_STRING);
@@ -23,13 +23,14 @@ function addEquipment() {
     }
 }
 
-
-function getEquipment() {
-    logMessage("get equip function running...");
-    $equipment = new Equipment();
-
-    $result = $equipment->getEquipment();
-
+function getEquipment($conn) {
+    $equipment = new Equipment($conn);
+    if (isset($_GET['equipment_id'])) {
+        $equipment_id = intval($_GET['equipment_id']);
+        $result = $equipment->getEquipment($equipment_id);
+    } else {
+        $result = $equipment->getEquipment();
+    }
 
     if ($result) {
         logMessage("Equipment data fetched");
@@ -40,32 +41,20 @@ function getEquipment() {
     }
 }
 
-function updateEquipment() {
-    logMessage("updateEquipment function running...");
-
-    $equipment = new Equipment();
+function updateEquipmentStatus($conn) {
+    $equipment = new Equipment($conn);
     $data = json_decode(file_get_contents("php://input"), true);
 
-    if (
-        isset($data['equipment_id']) &&
-        isset($data['name']) &&
-        isset($data['purchase_date']) &&
-        isset($data['status']) &&
-        isset($data['maintenance_frequency'])
-    ) {
-
+    if (isset($data['equipment_id']) && isset($data['status'])) {
         $equipment_id = intval($data['equipment_id']);
-        $name = filter_var($data['name'], FILTER_SANITIZE_STRING);
-        $purchase_date = filter_var($data['purchase_date'], FILTER_SANITIZE_STRING);
         $status = filter_var($data['status'], FILTER_SANITIZE_STRING);
-        $maintenance_frequency = intval($data['maintenance_frequency']);
 
-        if ($equipment->updateEquipment($equipment_id, $name, $purchase_date, $status, $maintenance_frequency)) {
-            logMessage("Equipment updated successfully: ID $equipment_id");
-            echo json_encode(["message" => "Equipment updated successfully"]);
+        if ($equipment->updateEquipmentStatus($equipment_id, $status)) {
+            logMessage("Equipment status updated: $equipment_id to $status");
+            echo json_encode(["message" => "Equipment status updated successfully"]);
         } else {
-            logMessage("Failed to update equipment: ID $equipment_id");
-            echo json_encode(["error" => "Equipment update failed"]);
+            logMessage("Failed to update equipment status: $equipment_id");
+            echo json_encode(["error" => "Equipment status update failed"]);
         }
     } else {
         logMessage("Invalid input for equipment update");
@@ -73,11 +62,8 @@ function updateEquipment() {
     }
 }
 
-
-function deleteEquipment() {
-    logMessage("delete equip function running...");
-
-    $equipment = new Equipment();
+function deleteEquipment($conn) {
+    $equipment = new Equipment($conn);
     $input = json_decode(file_get_contents("php://input"), true);
 
     if (isset($input['equipment_id'])) {

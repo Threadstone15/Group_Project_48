@@ -21,4 +21,6 @@ function logMessage($message) {
     file_put_contents($logFile, $formattedMessage, FILE_APPEND);
 }
 
+// Example usage
+logMessage("This is a test log entry.");
 ?>

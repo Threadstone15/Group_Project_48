@@ -12,81 +12,68 @@ include_once "../../config/database.php";
 include_once "equipmentHandler.php";
 include_once "equipmentMaintenanceHandler.php";
 include_once "noticeHandler.php";
-include_once "../models/User.php";
+include_once "trainerCareerHandler.php"; // Include the new trainer career handler
 
 $conn = include_once "../../config/database.php";
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    logMessage("Handling preflight OPTIONS request.");
-    http_response_code(204);  
-    exit();
-}
-
 $request_method = $_SERVER['REQUEST_METHOD'];
-$action = $_POST['action'] ?? $_GET['action'] ?? null; 
+$action = $_POST['action'] ?? $_GET['action'] ?? null;
 
-$token = getBearerToken();
-$requiredRole = "staff";
-verifyRequest($requiredRole, $token);
-$user_id  =getUserIdFromToken($token);
-
-logMessage("Running staff controller ,$action token - $token   id - $user_id ");
+logMessage("Running staff controller");
 
 switch ($action) {
     case 'add_equipment':
-        logMessage("Running add_equip....in controller");
-        addEquipment();
+        logMessage("Running auth controller");
+        addEquipment($conn);
         break;
-    case 'get_equipments':
-        logMessage("Running get_equip....in controller");
-        getEquipment();
+    case 'get_equipment':
+        getEquipment($conn);
         break;
     case 'update_equipment_status':
-        logMessage("Running update_equip....in controller");
-        updateEquipment();
+        updateEquipmentStatus($conn);
         break;
     case 'delete_equipment':
-        logMessage("Running delete_equip....in controller");
-        deleteEquipment();
+        deleteEquipment($conn);
         break;
-
 
     case 'add_maintenance':
-        logMessage("Running add_maintenance....in controller");
-        addMaintenance();
+        addMaintenance($conn);
         break;
-    case 'get_maintenances':
-        logMessage("Running get_maintenance....in controller");
-        getMaintenance();
+    case 'get_maintenance':
+        getMaintenance($conn);
         break;
-    case 'update_maintenance_status':
-        logMessage("Running update_maintenance....in controller");
-        updateMaintenance();
+    case 'update_maintenance':
+        updateMaintenance($conn);
         break;
     case 'delete_maintenance':
-        logMessage("Running delete_maintenance....in controller");
-        deleteMaintenance();
+        deleteMaintenance($conn);
         break;
 
-        
     case 'add_notice':
-        logMessage("Running add_notice....in controller");
-        addNotice($user_id);
+        addNotice($conn);
         break;
     case 'get_notice':
-        logMessage("Running get_notice....in controller");
-        getNotices();
+        getNotices($conn);
         break;
     case 'update_notice':
-        logMessage("Running update_notice....in controller");
-        updateNotice($user_id);
+        updateNotice($conn);
         break;
     case 'delete_notice':
-        logMessage("Running delete_notice....in controller");
-        deleteNotice();
+        deleteNotice($conn);
         break;
 
+    case 'add_trainer_career':
+        addTrainerCareer($conn);
+        break;
+    case 'get_trainer_career':
+        getTrainerCareer($conn);
+        break;
+    case 'update_trainer_career':
+        updateTrainerCareer($conn);
+        break;
+    case 'delete_trainer_career':
+        deleteTrainerCareer($conn);
+        break;
 
     default:
         echo json_encode(["error" => "Invalid action"]);
 }
-?>

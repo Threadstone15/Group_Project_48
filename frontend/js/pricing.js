@@ -14,8 +14,10 @@ document.addEventListener('DOMContentLoaded', function() {
             price.classList.toggle('active', isAnnual);
         });
     }
-    
+
+    // Add event listener to the switch
     pricingSwitch.addEventListener('change', togglePricing);
 
+    // Initialize pricing display
     togglePricing();
 });

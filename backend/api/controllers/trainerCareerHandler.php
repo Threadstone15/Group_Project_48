@@ -4,9 +4,8 @@
 include_once "../models/TrainerCareer.php";
 include_once "../../logs/save.php";
 
-function addTrainerCareer() {
-    $trainerCareer = new TrainerCareer();
-
+function addTrainerCareer($conn) {
+    $trainerCareer = new TrainerCareer($conn);
     $job_role = filter_var($_POST['job_role'], FILTER_SANITIZE_STRING);
     $requirements = filter_var($_POST['requirements'], FILTER_SANITIZE_STRING);
 
@@ -19,20 +18,20 @@ function addTrainerCareer() {
     }
 }
 
-function getTrainerCareer() {
-    $trainerCareer = new TrainerCareer();
-    $careers = $trainerCareer->getCareer();
+function getTrainerCareer($conn) {
+    $trainerCareer = new TrainerCareer($conn);
+    $career_id = isset($_GET['career_id']) ? intval($_GET['career_id']) : null;
 
-    if ($careers !== false) {
+    $careers = $trainerCareer->getCareer($career_id);
+    if ($careers) {
         echo json_encode($careers);
     } else {
         echo json_encode(["error" => "No trainer careers found"]);
     }
 }
 
-function updateTrainerCareer() {
-    $trainerCareer = new TrainerCareer();
-
+function updateTrainerCareer($conn) {
+    $trainerCareer = new TrainerCareer($conn);
     $career_id = intval($_POST['career_id']);
     $job_role = filter_var($_POST['job_role'], FILTER_SANITIZE_STRING);
     $requirements = filter_var($_POST['requirements'], FILTER_SANITIZE_STRING);
@@ -46,9 +45,8 @@ function updateTrainerCareer() {
     }
 }
 
-function deleteTrainerCareer() {
-    $trainerCareer = new TrainerCareer();
-
+function deleteTrainerCareer($conn) {
+    $trainerCareer = new TrainerCareer($conn);
     $career_id = intval($_POST['career_id']);
 
     if ($trainerCareer->deleteCareer($career_id)) {
