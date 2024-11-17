@@ -9,7 +9,7 @@ session_start();
 
 include_once "../../middleware/authMiddleware.php";
 include_once "../../config/database.php";
-include_once "workoutPlanHandler.php";
+include_once "trainerCareerHandler.php";
 include_once "../models/User.php";
 
 $conn = include_once "../../config/database.php";
@@ -22,31 +22,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 $request_method = $_SERVER['REQUEST_METHOD'];
 $action = $_POST['action'] ?? $_GET['action'] ?? null; 
 
-/*$token = getBearerToken();
-$requiredRole = "trainer";
+$token = getBearerToken();
+$requiredRole = "admin";
 verifyRequest($requiredRole, $token);
-$user_id  = getUserIdFromToken($token);*/
+$user_id  =getUserIdFromToken($token);
 
-logMessage("Running trainer controller, $action token - $token   id - $user_id ");
+logMessage("Running admin controller ,$action token - $token   id - $user_id ");
 
 switch ($action) {
-    case 'add_workout_plan':
-        logMessage("Running add_workout_plan....in controller");
-        addWorkoutPlan();
+
+    case 'add_trainer_career':
+        logMessage("Running add_trainer_career....in controller");
+        addTrainerCareer();
         break;
-    case 'get_workout_plans':
-        logMessage("Running get_workout_plans....in controller");
-        getWorkoutPlans();
+    case 'get_trainer_career':
+        logMessage("Running get_trainer_career....in controller");
+        getTrainerCareer();
         break;
-    case 'update_workout_plan':
-        logMessage("Running update_workout_plan....in controller");
-        updateWorkoutPlan();
+    case 'update_trainer_career':
+        logMessage("Running update_trainer_career....in controller");
+        updateTrainerCareer();
         break;
-    case 'delete_workout_plan':
-        logMessage("Running delete_workout_plan....in controller");
-        deleteWorkoutPlan();
+    case 'delete_trainer_career':
+        logMessage("Running delete_trainer_career....in controller");
+        deleteTrainerCareer();
         break;
-        
+    
+
     default:
         echo json_encode(["error" => "Invalid action"]);
 }

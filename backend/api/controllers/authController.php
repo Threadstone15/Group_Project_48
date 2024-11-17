@@ -9,6 +9,7 @@ header('Content-Type: application/json'); // Set content type to JSON
 
 include_once "../../logs/save.php";
 
+
 // Handle preflight (OPTIONS) requests for CORS
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     logMessage("Handling preflight OPTIONS request.");
@@ -17,17 +18,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 session_start();
-include_once "../models/User.php";
-include_once "../../middleware/authMiddleware.php";
-
-$conn = include_once "../../config/database.php";  // Corrected line to include the connection
-$user = new User($conn);
+include_once "../models/User.php"; // Include the User model
+include_once "../../middleware/authMiddleware.php"; // Include the authentication middleware if needed
 
 $request_method = $_SERVER['REQUEST_METHOD'];
 logMessage("Running: $request_method");
 logMessage("Running auth controller");
-
-
 
 // Read JSON input
 $input = json_decode(file_get_contents("php://input"), true);
@@ -35,12 +31,10 @@ $input = json_decode(file_get_contents("php://input"), true);
 $rawInput = file_get_contents("php://input");
 logMessage("Raw input: $rawInput");
 
-
 logMessage("step...1");
 
 // Check if input is set and is an array
 if (is_array($input)) {
-
     logMessage("step...2");
 
     // Register User
@@ -53,6 +47,8 @@ if (is_array($input)) {
 
         logMessage("Request received: $email with role: $role");
 
+        // Instantiate User model and call register method
+        $user = new User();
         if ($user->register($email, $password, $role)) {
             logMessage("User registered: $email with role: $role");
             echo json_encode(["message" => "User registered successfully"]);
@@ -65,22 +61,23 @@ if (is_array($input)) {
     // Login User
     if ($request_method == 'POST' && isset($input['login'])) {
         logMessage("Running log-in");
-    
+
         $email = filter_var($input['email'], FILTER_SANITIZE_EMAIL);
         $password = $input['password'];
-    
-        // Get user data
+
+        // Instantiate User model and call login method
+        $user = new User();
         $userData = $user->login($email, $password);
-    
+
         if ($userData) {
             if (password_verify($password, $userData['password'])) {
                 $token = generateToken($userData['user_id']);
                 $role = $userData['role'];
                 logMessage("Login Successful: $token $role");
-    
+
                 // Set the HTTP status code for successful login
                 http_response_code(200);
-    
+
                 // Respond with a success message and token
                 $response = [
                     "success" => true,
@@ -104,14 +101,13 @@ if (is_array($input)) {
                 "error" => "User not found"
             ];
         }
-    
+
         // Send the response as JSON
         echo json_encode($response);
-    
+
         // Ensure that the script stops after sending the response
         exit;
     }
-    
 
     // Logout User
     if ($request_method == 'POST' && isset($input['logout'])) {
@@ -132,5 +128,16 @@ if (is_array($input)) {
             echo json_encode(["error" => "Invalid or expired token"]);
         }
     }
+
+    
+
+
+
+
+} else {
+    // If the input is not in the expected format
+    http_response_code(400);  // Bad Request
+    echo json_encode(["error" => "Invalid input format"]);
 }
+
 ?>

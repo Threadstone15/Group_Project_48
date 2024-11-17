@@ -1,22 +1,26 @@
 <?php
 // api/models/Notice.php
 
-include_once "../../logs/save.php"; // Assuming logMessage is defined here
+include_once "../../logs/save.php"; 
+require_once "../../config/database.php"; 
 
 class Notice {
     private $conn;
     private $table = "notice";
 
-    public function __construct($db) {
-        $this->conn = $db;
-        logMessage("Notice model initialized");
+    public function __construct() {
+        $this->conn = DatabaseConnection::getInstance()->getConnection();
+        logMessage("Notice model initialized with database connection.");
     }
 
-    // Create Notice
     public function addNotice($publisher_id, $title, $description) {
         logMessage("Adding new notice...");
 
-        // Prepare the query
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
         $query = "INSERT INTO " . $this->table . " (publisher_id, title, description) VALUES (?, ?, ?)";
         $stmt = $this->conn->prepare($query);
 
@@ -25,11 +29,12 @@ class Notice {
             return false;
         }
 
-        // Bind parameters
-        $stmt->bind_param("iss", $publisher_id, $title, $description);
+        if (!$stmt->bind_param("iss", $publisher_id, $title, $description)) {
+            logMessage("Error binding parameters for notice insertion: " . $stmt->error);
+            return false;
+        }
         logMessage("Query bound for adding notice: $title");
 
-        // Execute the query
         if ($stmt->execute()) {
             logMessage("Notice added successfully: $title");
             return true;
@@ -39,50 +44,37 @@ class Notice {
         }
     }
 
-    // Read Notices
-    public function getNotices($notice_id = null) {
+    public function getNotices() {
         logMessage("Fetching notices...");
 
-        if ($notice_id) {
-            // Fetch specific notice
-            $query = "SELECT * FROM " . $this->table . " WHERE notice_id = ?";
-            $stmt = $this->conn->prepare($query);
+        $query = "SELECT * FROM " . $this->table;
+        $stmt = $this->conn->prepare($query);
 
-            if ($stmt === false) {
-                logMessage("Error preparing statement for fetching notice: " . $this->conn->error);
-                return false;
-            }
-
-            $stmt->bind_param("i", $notice_id);
-        } else {
-            // Fetch all notices
-            $query = "SELECT * FROM " . $this->table;
-            $stmt = $this->conn->prepare($query);
-
-            if ($stmt === false) {
-                logMessage("Error preparing statement for fetching all notices: " . $this->conn->error);
-                return false;
-            }
+        if ($stmt === false) {
+            logMessage("Error preparing statement for fetching notice: " . $this->conn->error);
+            return false;
         }
 
-        // Execute the query
         if ($stmt->execute()) {
             $result = $stmt->get_result();
-            $notices = $result->fetch_all(MYSQLI_ASSOC);
-            logMessage("Notices fetched successfully");
-            return $notices;
+            if ($result && $result->num_rows > 0) {
+                $notices = $result->fetch_all(MYSQLI_ASSOC);
+                logMessage("Notices fetched successfully");
+                return $notices;
+            } else {
+                logMessage("No notices found");
+                return [];
+            }
         } else {
             logMessage("Error fetching notices: " . $stmt->error);
             return false;
         }
     }
 
-    // Update Notice
-    public function updateNotice($notice_id, $title, $description) {
-        logMessage("Updating notice...");
+    public function updateNotice($notice_id, $publisher_id, $title, $description) {
+        logMessage("Updating notice with ID: $notice_id");
 
-        // Prepare the query
-        $query = "UPDATE " . $this->table . " SET title = ?, description = ? WHERE notice_id = ?";
+        $query = "UPDATE " . $this->table . " SET publisher_id = ?,title = ?, description = ? WHERE notice_id = ?";
         $stmt = $this->conn->prepare($query);
 
         if ($stmt === false) {
@@ -90,13 +82,14 @@ class Notice {
             return false;
         }
 
-        // Bind parameters
-        $stmt->bind_param("ssi", $title, $description, $notice_id);
+        if (!$stmt->bind_param("issi",$publisher_id, $title, $description, $notice_id)) {
+            logMessage("Error binding parameters for updating notice: " . $stmt->error);
+            return false;
+        }
         logMessage("Query bound for updating notice: $notice_id");
 
-        // Execute the query
         if ($stmt->execute()) {
-            logMessage("Notice updated successfully: $notice_id");
+            logMessage("Notice updated successfully for ID: $notice_id");
             return true;
         } else {
             logMessage("Notice update failed: " . $stmt->error);
@@ -104,11 +97,9 @@ class Notice {
         }
     }
 
-    // Delete Notice
     public function deleteNotice($notice_id) {
-        logMessage("Deleting notice...");
+        logMessage("Deleting notice with ID: $notice_id");
 
-        // Prepare the query
         $query = "DELETE FROM " . $this->table . " WHERE notice_id = ?";
         $stmt = $this->conn->prepare($query);
 
@@ -117,13 +108,14 @@ class Notice {
             return false;
         }
 
-        // Bind parameter
-        $stmt->bind_param("i", $notice_id);
+        if (!$stmt->bind_param("i", $notice_id)) {
+            logMessage("Error binding parameters for deleting notice: " . $stmt->error);
+            return false;
+        }
         logMessage("Query bound for deleting notice: $notice_id");
 
-        // Execute the query
         if ($stmt->execute()) {
-            logMessage("Notice deleted successfully: $notice_id");
+            logMessage("Notice deleted successfully for ID: $notice_id");
             return true;
         } else {
             logMessage("Notice deletion failed: " . $stmt->error);
