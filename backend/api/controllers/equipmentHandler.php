@@ -78,10 +78,9 @@ function deleteEquipment() {
     logMessage("delete equip function running...");
 
     $equipment = new Equipment();
-    $input = json_decode(file_get_contents("php://input"), true);
 
-    if (isset($input['equipment_id'])) {
-        $equipment_id = intval($input['equipment_id']);
+    if (isset($_GET['equipment_id'])) {
+        $equipment_id = intval($_GET['equipment_id']);
 
         if ($equipment->deleteEquipment($equipment_id)) {
             logMessage("Equipment deleted: $equipment_id");
