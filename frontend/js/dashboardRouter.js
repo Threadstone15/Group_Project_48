@@ -53,7 +53,6 @@ export function loadDashboardPage(role, page) {
     // loadJs(pageJsUrl);
     // loadGlobalCss(globalCssUrl);
 
-    // Optionally, listen for iframe load events (for logging or further actions)
     contentFrame.onload = () => {
       console.log(`Dashboard page ${pageUrl} loaded successfully.`);
     };
