@@ -1,0 +1,118 @@
+/* findATrainer.css */
+/* about.css */
+.profile-container {
+    border-radius: 30px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    color: #4f4f4f;
+    justify-content: center;
+    padding: 60px 90px;
+    border: 3px solid #ff5f00;
+    max-width: 1000px; /* Set a max-width */
+    margin: 0 auto; /* Center the container horizontally */
+    margin-top: 30px;
+}
+
+.profile-content {
+    display: flex;
+    gap: 20px;
+    font-size: 16px;
+}
+
+.trainer-info {
+    display: flex;
+    flex-direction: column;
+    width: 21%;
+    color: #FF5F00;
+    text-align: center;
+    font-size: 16px;
+    margin-right: 60px;
+}
+
+.trainer-image {
+    width: 150px; /* Adjust this value as needed */
+    height: 150px; /* Ensure height matches width for square aspect ratio */
+    object-fit: contain; /* Ensures the image fits within the specified dimensions */
+    object-position: center; /* Centers the image within its container */
+    margin-right: 100px;
+}
+
+.trainer-name {
+    margin-top: 15px;
+    color: #4F4F4F;
+    font-size: 18px;
+    font-weight: 600;
+    margin-right: 15px;
+}
+
+.trainer-description {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    color: #4F4F4F;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.connect-section {
+    margin-top: 30px;
+}
+
+.connect-title {
+    font-weight: 600;
+}
+
+.connect-text {
+    margin-top: 12px;
+}
+
+.email-link {
+    color: #549BCF;
+}
+
+@media (max-width: 991px) {
+    .profile-container {
+        padding: 20px;
+    }
+
+    .profile-content {
+        flex-direction: column;
+    }
+
+    .trainer-info {
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    .trainer-description {
+        width: 100%;
+        margin-top: 40px;
+    }
+}
+
+.header {
+    text-align: center; /* Center the text content */
+    margin: 0 auto; /* Center the entire header block */
+    padding: 20px; /* Add some padding to the header for spacing */
+    margin-top: 30px;
+  }
+  
+  .heading {
+    font-size: 35px; /* Set font size for heading */
+    font-weight: 600; /* Set font weight to bold for emphasis */
+    font-family: 'Poppins', sans-serif; /* Use Poppins font */
+    color: #000; /* Set text color (black) */
+    margin-bottom: 10px; /* Add spacing between heading and subheading */
+  }
+  
+  .subheading {
+    font-size: 16px; /* Set font size for subheading */
+    font-family: 'Poppins', sans-serif; /* Use Poppins font */
+    color: #4F4F4F; /* Set a slightly lighter text color */
+    max-width: 800px; /* Restrict width to ensure readability */
+    margin: 0 auto; /* Center the subheading */
+    line-height: 1.5; /* Add some line spacing for better readability */
+  }
+  
+ 

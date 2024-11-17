@@ -1,0 +1,411 @@
+/* style.css */
+.content-wrapper {
+    display:flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.content {
+    width: 80%;
+    border-collapse: collapse;
+}
+
+.table-container {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0; /* Removes spacing between cells if needed */
+    border-radius: 10px; /* Adjust the radius as desired */
+    overflow: hidden; /* Ensures corners stay rounded if there’s content overflow */
+    box-shadow: 0px 4px 10px rgba(15, 15, 15, 0.1); /* Optional shadow for a softer look */
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ffffff;
+    text-align: left;
+    border-right: 1px solid #e0e0e0;
+}
+
+/* Remove the right border from the last cell in each row to avoid double border */
+.table-container tr th:last-child, .table-container tr td:last-child {
+    border-right: none;
+}
+
+/* Optional: Add a bottom border for row dividers */
+.table-container tr td {
+    border-bottom: 1px solid #e0e0e0; /* Light border between rows */
+}
+
+th {
+    background-color: #ffffff;
+    font-weight: 500;
+    text-align: center;
+}
+
+td {
+    text-align: center;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table-container tr {
+    border: 1px solid #e0e0e0; /* Light border around each row */
+    border-radius: 8px; /* Optional: rounded corners on each row */
+}
+
+tbody {
+    border-radius: 8px;
+}
+
+tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+#attendanceTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.header {
+    text-align: left; /* Center the text content */
+    margin: 0 auto; /* Center the entire header block */
+    padding: 20px; /* Add some padding to the header for spacing */
+    margin-top: 30px;
+  }
+
+  .signup-form-heading {
+    font-size: 18px; /* Set font size for heading */
+    font-weight: 600; /* Set font weight to bold for emphasis */
+    font-family: 'Poppins', sans-serif; /* Use Poppins font */
+    color: #FF5F00; /* Set text color (black) */
+    margin-bottom: 10px; /* Add spacing between heading and subheading */
+    justify-content: center;
+  }
+  
+  .heading {
+    font-size: 35px; /* Set font size for heading */
+    font-weight: 600; /* Set font weight to bold for emphasis */
+    font-family: 'Poppins', sans-serif; /* Use Poppins font */
+    color:  #333;
+  }
+
+
+  .signup-form {
+    max-width: 800px; /* Reduced size of the container */
+    font-family: Poppins, sans-serif;
+    margin: 0 auto; /* Center the container horizontally */
+    margin-top: 20px;
+    padding: 20px; /* Add padding inside the container */
+    border: 1px solid rgba(79, 79, 79, 0.1); /* Add a subtle border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    background-color: #FFF; /* White background for contrast */
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px; /* Reduced spacing between input groups */
+  }
+  
+  .name-fields {
+    display: flex;
+    gap: 10px; /* Reduced gap between fields */
+    flex-wrap: wrap;
+  }
+  
+  .name-fields .input-group {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  label {
+    color: #000000;
+    font-size: 14px; /* Reduced font size for labels */
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: 8px; /* Reduced spacing below labels */
+  }
+  
+  .input-field,
+  .select-field {
+    border-radius: 10px; /* Slightly smaller corners */
+    background-color: #FFFFFF;
+    border: 1px solid #4F4F4F;
+    padding: 15px; /* Reduced padding */
+    font-size: 14px;
+    color: rgba(79, 79, 79, 0.7);
+    width: 100%;
+    height: 50px; /* Reduced height of input fields */
+    font-family: Poppins, sans-serif;
+  }
+  
+  .date-of-birth {
+    border: none;
+    padding: 0;
+    margin-top: 20px; /* Reduced spacing for date-of-birth group */
+  }
+  
+  .date-of-birth legend {
+    color: #000000;
+    font-size: 16px; /* Reduced font size */
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+  
+  .dob-fields {
+    display: flex;
+    gap: 15px; /* Reduced gap between date-of-birth fields */
+    flex-wrap: wrap;
+  }
+  
+  .select-wrapper {
+    flex: 1;
+    min-width: 120px; /* Reduced width for dropdowns */
+  }
+  
+  .select-field {
+    appearance: none;
+    background-image: url('https://cdn.builder.io/api/v1/image/assets/TEMP/1513a20edf14c2d7bfe04899b58850da43fe757932dcc40685c91510e7031487?placeholderIfAbsent=true&apiKey=015e1c54eb5347dfb8c175d60fbc5fdf');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 25px;
+  }
+  
+  .final-cta-button {
+    border-radius: 25px;
+    background-color: #FF5F00;
+    color: #FFF;
+    gap: 10px;
+    font-size: 16px; /* Reduced button font size */
+    font-weight: 500;
+    padding: 10px 30px; /* Reduced padding for the button */
+    text-decoration: none;
+    margin: 0 auto;
+    margin-top: 50px; /* Reduced top margin for the button */
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    border: none;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .final-cta-button:hover {
+    background-color: #E43700;
+  }
+  
+  .final-cta-button:active {
+    background-color: #B83200;
+  }
+  
+  .header {
+    text-align: center; /* Center the text content */
+    margin: 0 auto; /* Center the entire header block */
+    padding: 20px; /* Add some padding to the header for spacing */
+    margin-top: 20px;
+  }
+  
+  .heading {
+    font-size: 35px; /* Set font size for heading */
+    font-weight: 600; /* Set font weight to bold for emphasis */
+    font-family: 'Poppins', sans-serif; /* Use Poppins font */
+    color: #000; /* Set text color (black) */
+    margin-bottom: 10px; /* Add spacing between heading and subheading */
+  }
+  
+  .subheading {
+    font-size: 16px; /* Set font size for subheading */
+    font-family: 'Poppins', sans-serif; /* Use Poppins font */
+    color: #4F4F4F; /* Set a slightly lighter text color */
+    max-width: 600px; /* Restrict width to ensure readability */
+    margin: 0 auto; /* Center the subheading */
+    line-height: 1.5; /* Add some line spacing for better readability */
+  }
+  
+
+
+  .header, .table-container, .add-equipment-container {
+    width: 100%; 
+    margin-left: 50px; 
+    padding-left: 0;
+}
+
+.button {
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #fff;
+  border: none;
+  transition: all 0.3s ease; 
+}
+
+.update-button {
+  background-color: #4CAF50;
+  margin-right: 5px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.update-button:hover {
+  background-color: #163318; 
+  color: #fff; 
+}
+
+.delete-button {
+  background-color: #f44336;
+  font-family: 'Poppins', sans-serif;
+}
+
+.delete-button:hover {
+  background-color: #371010;
+  color: #fff; 
+}
+
+
+/* Popup container styling */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px; 
+  padding: 30px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90%; 
+}
+
+/* Close button styling */
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-button:hover {
+  color: #ff5f5f; 
+}
+
+/* Popup content styling */
+.popup-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%; 
+  padding: 20px;
+  background-color: white;
+}
+
+/* Popup header styling */
+.popup h2 {
+  font-size: 26px;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Popup paragraph styling */
+.popup p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+
+.popup-buttons {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  gap: 30px; 
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.popup-confirm {
+  background-color: transparent;
+  color: #FF5F00;
+  border: 2px solid #FF5F00;
+  padding: 12px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 150px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.popup-confirm:hover {
+  background-color: #FF5F00;
+  color: white;
+}
+
+/* Popup cancel button (outlined) */
+.popup-cancel {
+  background-color: transparent;
+  color: #333;
+  border: 2px solid #ccc;
+  padding: 12px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 150px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.popup-cancel:hover {
+  background-color: #ccc;
+  color: white;
+}
+
+/* Optional: dark overlay background */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+}
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.popup {
+  animation: fadeIn 0.3s ease-in-out;
+}

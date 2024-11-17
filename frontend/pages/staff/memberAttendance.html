@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff-Member-Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Group_Project_48/frontend/css/staff/memberAttendance.css">
+    <link rel="stylesheet" href="/Group_Project_48/frontend/css/globals.css">
+</head>
+<body>
+    <div class="content-wrapper">
+
+    <div id="sidebar-container"></div>
+
+    <div class="content">
+
+    <div class="header">
+        <p class="heading">
+            Member Attendance
+        </p>
+    </div>
+
+    <div class="table-container">
+        <table id="attendanceTable">
+            <thead>
+                <tr>    
+                    <th>Member ID</th>
+                    <th>Name</th>
+                    <th>Arrival Time</th>
+                    <th>Departed Time</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <?php if (!empty($members)) : ?>
+            <tbody>
+                <?php foreach ($members as $member) : ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($member['Member ID']); ?></td>
+                        <td><?php echo htmlspecialchars($member['name']); ?></td>
+                        <td><?php echo htmlspecialchars($member['Arrival Time']); ?></td>
+                        <td><?php echo htmlspecialchars($member['Departed Time']); ?></td>
+                        <td><?php echo htmlspecialchars($member['Status']); ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        <?php else : ?>
+            <tbody>
+                <tr>
+                    <td colspan="5" style="text-align: center;">No members found</td>
+                </tr>
+            </tbody>
+        <?php endif; ?>
+        
+        </table>
+    </div>
+    </div>
+</div>
+<script src="/Group_Project_48/frontend/js/staff/memberAttendance.js"></script>
+</body>

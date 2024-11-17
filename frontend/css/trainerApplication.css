@@ -1,0 +1,197 @@
+.trainer-registration-form {
+    max-width: 650px;
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 0 auto; /* Center the container horizontally */
+    margin-bottom: 90px;
+}
+
+.name-fields {
+    display: flex;
+    gap: 17px;
+    flex-wrap: wrap;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.name-fields .input-group {
+    flex: 1;
+    min-width: 0;
+}
+
+label {
+    font-size: 18px;
+    color: #000000;
+    margin-bottom: 11px;
+}
+
+.input-field {
+    border-radius: 10px;
+    background-color: #fff;
+    height: 55px;
+    border: 1px solid #4f4f4f;
+    padding: 0 15px;
+    font-size: 14px;
+    color: #4f4f4f;
+    font-family: Poppins, sans-serif;
+}
+
+.date-of-birth {
+    margin-bottom: 30px;
+}
+
+.date-inputs {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-family: Poppins, sans-serif;
+}
+
+.select-wrapper {
+    position: relative;
+    flex: 1;
+}
+
+.date-select {
+    width: 100%;
+    height: 55px;
+    border-radius: 10px;
+    border: 1px solid #4f4f4f;
+    background-color: #fff;
+    padding: 0 15px;
+    appearance: none;
+    font-size: 14px;
+    color: rgba(79, 79, 79, 0.7);
+    font-family: Poppins, sans-serif;
+}
+
+.select-arrow {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    pointer-events: none;
+}
+
+.textarea {
+    min-height: 132px;
+    resize: vertical;
+    padding: 15px;
+}
+
+.cv-upload {
+    margin-top: 30px;
+}
+
+.upload-area {
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #4f4f4f;
+    padding: 28px;
+    text-align: center;
+}
+
+.upload-label {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.upload-icon {
+    width: 50px;
+    margin-bottom: 12px;
+}
+
+.visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}
+
+@media (max-width: 991px) {
+    .trainer-registration-form,
+    .input-group,
+    .input-field,
+    .date-inputs,
+    .select-wrapper,
+    .date-select,
+    .textarea,
+    .upload-area {
+        max-width: 100%;
+    }
+}
+
+.header {
+    text-align: center; /* Center the text content */
+    margin: 0 auto; /* Center the entire header block */
+    padding: 20px; /* Add some padding to the header for spacing */
+    margin-top: 30px;
+  }
+  
+  .heading {
+    font-size: 35px; /* Set font size for heading */
+    font-weight: 600; /* Set font weight to bold for emphasis */
+    font-family: 'Poppins', sans-serif; /* Use Poppins font */
+    color: #FF5F00;
+    margin-bottom: -5px;
+  }
+  
+  .subheading {
+    font-size: 16px; /* Set font size for subheading */
+    font-family: 'Poppins', sans-serif; /* Use Poppins font */
+    color: #4F4F4F; /* Set a slightly lighter text color */
+    max-width: 800px; /* Restrict width to ensure readability */
+    margin: 0 auto; /* Center the subheading */
+    line-height: 1.5; /* Add some line spacing for better readability */
+    margin-top: 10px;
+    margin-bottom: 60px;
+  }
+
+  .final-cta-button {
+    border-radius: 30px;
+    background-color: #FF5F00;
+    color: #FFF;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 40px;
+    text-decoration: none;
+    margin: 0 auto;
+    margin-top: 90px;
+    flex: 0 0 auto;
+    font-family: Poppins, sans-serif;
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    max-width: 650px;
+    margin-bottom: 90px;
+  }
+  
+  .final-cta-button {
+    border: none;
+    outline: none;
+  }
+  
+  /* Hover state for the button */
+  .final-cta-button:hover {
+    background-color: #E43700;
+  }
+  
+  /* Active (clicked) state for the button */
+  .final-cta-button:active {
+    background-color: #B83200;
+  }
+  
+  

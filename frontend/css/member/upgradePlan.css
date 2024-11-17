@@ -1,0 +1,90 @@
+.content {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+
+.plan-change {
+    border-radius: 30px;
+    background-color: #fff;
+    display: flex;
+    max-width: 350px;
+    flex-direction: column;
+    align-items: center;
+    color: #000;
+    padding: 40px;
+    font: 600 18px Poppins, sans-serif;
+    border: 1px solid #e2e2e2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+.plan-title {
+    font-size: 30px;
+}
+
+.plan-price {
+    font-size: 50px;
+    margin-top: 30px;
+}
+
+.benefit-list {
+    display: flex;
+    margin-top: 40px;
+    width: 100%;
+    max-width: 264px;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #4f4f4f;
+    font-weight: 400;
+    list-style-type: none;
+    padding: 0;
+}
+
+.benefit-item {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 15px;
+}
+
+.benefit-item:first-child {
+    margin-top: 0;
+}
+
+.benefit-icon {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 24px;
+    margin-top: 5px;
+}
+
+.benefit-description {
+    flex-grow: 1;
+    width: 222px;
+    margin: 0;
+    font-size: 16px;
+}
+
+.upgrade-button {
+    align-self: stretch;
+    border-radius: 30px;
+    background-color: #ff5f00;
+    margin-top: 40px;
+    color: #fff;
+    font-weight: 500;
+    padding: 10px; /* Increased padding for a bigger button */
+    font-size: 14px; /* Increased font size */
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.upgrade-button:hover {
+    background-color: #e55400; /* Darker orange on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
