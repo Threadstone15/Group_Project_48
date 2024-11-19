@@ -69,13 +69,18 @@ document.getElementById('plansForm').addEventListener('submit', (event) => {
 
     const planName = document.getElementById("name").value;
     const benefits = document.getElementById("benefits").value;
-    const monthlyPrice = document.getElementById("monthlyPrice").value;
-    const discount = document.getElementById("discount").value;
+    const monthlyPrice = parseFloat(document.getElementById("monthlyPrice").value);
+    const discount = parseFloat(document.getElementById("discount").value);
 
-    console.log("plan Name:", planName);
-    console.log("benefits:", benefits);
-    console.log("monthlyPrice:", monthlyPrice);
-    console.log("discount:", discount);
+    // console.log("plan Name:", planName);
+    // console.log("benefits:", benefits);
+    // console.log("monthlyPrice:", monthlyPrice);
+    // console.log("discount:", discount);
+
+    if(planName == '' || benefits == '' || monthlyPrice == '' || discount == ''){
+        showFormResponse("addFormResponse", "Fields cannot be empty", "error");
+        return;
+    }
 
     const yearlyPrice = monthlyPrice * 12 * (100 - discount) / 100;
     console.log("yearlyPrice:", yearlyPrice);
@@ -83,8 +88,8 @@ document.getElementById('plansForm').addEventListener('submit', (event) => {
     const payload = {
         "name": planName,
         "benefits": benefits,
-        "monthlyPrice": parseFloat(monthlyPrice),
-        "yearlyPrice": parseFloat(yearlyPrice)
+        "monthlyPrice": monthlyPrice,
+        "yearlyPrice": yearlyPrice
     };
 
     console.log("Payload:", JSON.stringify(payload)); // Debugging log
@@ -118,10 +123,13 @@ document.getElementById('plansForm').addEventListener('submit', (event) => {
             return response.json();
         })
         .then(result => {
-            console.log("Membership plan added successfully:", result);
+            showFormResponse("addFormResponse", result.message, "success");
             fetchMemberPlans();
         })
-        .catch(error => console.error("Error adding membership plan:", error));
+        .catch(error => {
+            const errorMsg = error.error || "Failed to add membership plan.";
+            showFormResponse("addFormResponse", errorMsg, "error");
+        });
 });
 
 
@@ -212,6 +220,11 @@ document.getElementById("updateForm").addEventListener("submit", function (event
     const monthlyPrice = document.getElementById("updateMonthlyPrice").value;
     const discount = document.getElementById("updateDiscount").value;
 
+    if(planName == '' || benefits == '' || monthlyPrice == '' || discount == ''){
+        showFormResponse("updateFormResponse", "Fields cannot be empty", "error");
+        return;
+    }
+
 
     const yearlyPrice = monthlyPrice * 12 * (100 - discount) / 100;
     console.log("yearlyPrice:", yearlyPrice);
@@ -244,13 +257,35 @@ document.getElementById("updateForm").addEventListener("submit", function (event
         .then(data => {
             if (data.message) {
                 // alert("Equipment updated successfully!");
-                document.getElementById("updatePopup").style.display = "none"; // Close the popup
+                showFormResponse("updateFormResponse", data.message, "success");
+                // document.getElementById("updatePopup").style.display = "none"; // Close the popup
+                setTimeout(() => {
+                    document.getElementById("updatePopup").style.display = "none";
+                }, 3000);
                 fetchMemberPlans(); // Refresh the equipment list
             } else {
-                alert("Failed to update membership plan");
+                const errorMsg = data.error || "Failed to update membership plan.";
+                showFormResponse("updateFormResponse", errorMsg, "error");
             }
         })
         .catch(error => console.error("Error updating membership plan:", error));
 });
+
+
+function showFormResponse(formType, message, type) {
+    console.log("Displaying message:", message, "Type:", type); // Debugging log
+    const responseContainer = document.getElementById(formType);
+    responseContainer.textContent = message;
+    responseContainer.className = `form-response ${type}`;
+    responseContainer.style.display = "block";
+
+    // console.log("Form response style:", responseContainer.style.display); // Check display style
+
+
+    // Hide the message after 3 seconds
+    setTimeout(() => {
+        responseContainer.style.display = "none";
+    }, 3000);
+}
 
 

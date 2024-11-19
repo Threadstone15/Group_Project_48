@@ -13,7 +13,11 @@ class MembershipPlan {
     }
 
     private function generatePlanID() {
-        $query = "SELECT membership_plan_id FROM " . $this->table . " ORDER BY membership_plan_id DESC LIMIT 1";
+        // Use SUBSTRING to extract the numeric part and ORDER BY it as an integer
+        $query = "SELECT membership_plan_id 
+                  FROM " . $this->table . " 
+                  ORDER BY CAST(SUBSTRING(membership_plan_id, 3) AS UNSIGNED) DESC 
+                  LIMIT 1";
         $result = $this->conn->query($query);
     
         if ($result && $row = $result->fetch_assoc()) {
@@ -27,6 +31,7 @@ class MembershipPlan {
             return 'MP1';
         }
     }
+    
     
 
 
@@ -54,7 +59,7 @@ class MembershipPlan {
             return false;
         }
 
-        if (!$stmt->bind_param("sssii",$membership_plan_id, $name,$benefits, $monthlyPrice, $yearlyPrice)) {
+        if (!$stmt->bind_param("sssdd",$membership_plan_id, $name,$benefits, $monthlyPrice, $yearlyPrice)) {
             logMessage("Error binding parameters for membership plan insertion: " . $stmt->error);
             return false;
         }
@@ -109,7 +114,7 @@ class MembershipPlan {
             return false;
         }
 
-        if (!$stmt->bind_param("ssiis", $name, $benefits, $monthlyPrice, $yearlyPrice, $membership_plan_id)) {
+        if (!$stmt->bind_param("ssdds", $name, $benefits, $monthlyPrice, $yearlyPrice, $membership_plan_id)) {
             logMessage("Error binding parameters for updating membership plan: " . $stmt->error);
             return false;
         }

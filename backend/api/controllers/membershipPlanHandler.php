@@ -21,8 +21,9 @@ function addMembershipPlan() {
     ) {
         $name = $data['name'];
         $benefits = $data['benefits'];
-        $monthlyPrice = intval($data['monthlyPrice']);
-        $yearlyPrice = intval($data['yearlyPrice']);
+        $monthlyPrice = floatval($data['monthlyPrice']);
+        $yearlyPrice = floatval($data['yearlyPrice']);
+        logMessage("yearly price issss :  $yearlyPrice");
 
         if ($membershipPlan->addMembershipPlan($name, $benefits, $monthlyPrice, $yearlyPrice)) {
             logMessage("Membership plan added: $name");

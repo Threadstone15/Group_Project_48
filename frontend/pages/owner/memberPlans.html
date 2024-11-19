@@ -72,13 +72,15 @@
                         </div>
                         <div class="form-group">
                             <label for="updateMonthlyPrice">Monthly Price:</label>
-                            <input type="number" id="updateMonthlyPrice" class="form-input" />
+                            <input type="number" id="updateMonthlyPrice" class="form-input" step="0.01"/>
                         </div>
                         <div class="form-group">
                             <label for="updateDiscount">Discount for yearly plan:</label>
-                            <input type="number" id="updateDiscount" class="form-input" />
+                            <input type="number" id="updateDiscount" class="form-input" step="0.01"/>
                         </div>
                         <button type="submit" class="submit-button">Update Membership Plan</button>
+                        <!-- Response Message Container -->
+                        <div id="updateFormResponse" class="form-response" style="display: none;"></div>
                     </form>
                 </div>
             </div>
@@ -105,15 +107,17 @@
                     </div>
                     <div class="form-group">
                         <label for="monthlyPrice" class="form-label">Monthly Price :</label>
-                        <input type="number" id="monthlyPrice" class="form-input" aria-label="monthlyPrice" />
+                        <input type="number" id="monthlyPrice" class="form-input" aria-label="monthlyPrice" step="0.01"/>
                     </div>
                     <div class="form-group">
                         <label for="discount" class="form-label">Discount for yearly plan :</label>
-                        <input type="number" id="discount" class="form-input" aria-label="discount" />
+                        <input type="number" id="discount" class="form-input" aria-label="discount" step="0.01"/>
                     </div>
 
                     <button type="submit" class="submit-button">Add plan</button>
                 </form>
+                <!-- Response Message Container -->
+                <div id="addFormResponse" class="form-response" style="display: none;"></div>
             </div>
         </section>
     </div>
