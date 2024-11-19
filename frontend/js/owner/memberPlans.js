@@ -69,15 +69,13 @@ document.getElementById('plansForm').addEventListener('submit', (event) => {
 
     const planName = document.getElementById("name").value;
     const benefits = document.getElementById("benefits").value;
-    const monthlyPrice = parseFloat(document.getElementById("monthlyPrice").value);
-    const discount = parseFloat(document.getElementById("discount").value);
+    const monthlyPriceValue = document.getElementById("monthlyPrice").value;
+    const discountValue = document.getElementById("discount").value;
 
-    // console.log("plan Name:", planName);
-    // console.log("benefits:", benefits);
-    // console.log("monthlyPrice:", monthlyPrice);
-    // console.log("discount:", discount);
+    const monthlyPrice = parseFloat(monthlyPriceValue);
+    const discount = parseFloat(discountValue);
 
-    if(planName == '' || benefits == '' || monthlyPrice == '' || discount == ''){
+    if (!planName || !benefits || monthlyPriceValue === '' || discountValue === '') {
         showFormResponse("addFormResponse", "Fields cannot be empty", "error");
         return;
     }
@@ -220,7 +218,7 @@ document.getElementById("updateForm").addEventListener("submit", function (event
     const monthlyPrice = document.getElementById("updateMonthlyPrice").value;
     const discount = document.getElementById("updateDiscount").value;
 
-    if(planName == '' || benefits == '' || monthlyPrice == '' || discount == ''){
+    if (!planName || !benefits || monthlyPrice === '' || discount === '') {
         showFormResponse("updateFormResponse", "Fields cannot be empty", "error");
         return;
     }

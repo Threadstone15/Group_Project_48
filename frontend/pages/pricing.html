@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="pricing-container">
+    <!-- <div class="pricing-container">
         <div class="pricing-toggle">
             <span class="toggle-label">Monthly</span>
             <label class="switch">
@@ -63,6 +63,20 @@
                 <button class="select-plan">Select Plan</button>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- <script src="/frontend/js/pricing.js"></script> -->
+    <div class="pricing-container">
+        <div class="pricing-toggle">
+            <span class="toggle-label">Monthly</span>
+            <label class="switch">
+                <input type="checkbox" id="pricing-switch">
+                <span class="slider"></span>
+            </label>
+            <span class="toggle-label">Annual</span>
+        </div>
+
+        <div class="pricing-cards" id="pricing-cards">
+            <!-- Cards will be dynamically inserted here -->
+        </div>
+    </div>
 </body>

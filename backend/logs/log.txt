@@ -3620,3 +3620,429 @@
 [2024-11-19 06:57:48] Membership Plans fetched successfully
 [2024-11-19 06:57:48] Membership plans fetched
 [2024-11-19 06:57:48] Database connection closed.
+[2024-11-19 07:08:45] Running: POST
+[2024-11-19 07:08:45] Running auth controller
+[2024-11-19 07:08:45] Raw input: {"login":1,"email":"owner@gmail.com","password":"owner"}
+[2024-11-19 07:08:45] step...1
+[2024-11-19 07:08:45] step...2
+[2024-11-19 07:08:45] Running log-in
+[2024-11-19 07:08:46] Connection established successfully to the database: rad_gymverse
+[2024-11-19 07:08:46] User class instantiated with database connection.
+[2024-11-19 07:08:46] User Login model running for: owner@gmail.com
+[2024-11-19 07:08:46] Query bound and ready to execute for login: owner@gmail.com
+[2024-11-19 07:08:47] User login successful: owner@gmail.com with role: owner
+[2024-11-19 07:08:47] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzMxOTk5NjAwfQ==.bd30e850fe8eb3abb39e3a0c9f3da4733f2e521bd5609937129519291a7e978c owner
+[2024-11-19 07:08:47] Database connection closed.
+[2024-11-19 07:08:58] Connection established successfully to the database: rad_gymverse
+[2024-11-19 07:08:58] User class instantiated with database connection.
+[2024-11-19 07:08:58] Fetching user role by user ID: 72
+[2024-11-19 07:08:59] User role fetched successfully for user ID: 72
+[2024-11-19 07:08:59] Running owner controller ,get_membershipPlans token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzMxOTk5NjAwfQ==.bd30e850fe8eb3abb39e3a0c9f3da4733f2e521bd5609937129519291a7e978c   id - 72 
+[2024-11-19 07:08:59] Running get_membership plan....in controller
+[2024-11-19 07:08:59] get membership plans running running...
+[2024-11-19 07:08:59] Membership plan model initialized with database connection.
+[2024-11-19 07:08:59] Fetching membership plan...
+[2024-11-19 07:08:59] Membership Plans fetched successfully
+[2024-11-19 07:08:59] Membership plans fetched
+[2024-11-19 07:08:59] Database connection closed.
+[2024-11-19 07:09:22] Connection established successfully to the database: rad_gymverse
+[2024-11-19 07:09:22] User class instantiated with database connection.
+[2024-11-19 07:09:22] Fetching user role by user ID: 72
+[2024-11-19 07:09:23] User role fetched successfully for user ID: 72
+[2024-11-19 07:09:23] Running owner controller ,get_membershipPlans token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzMxOTk5NjAwfQ==.bd30e850fe8eb3abb39e3a0c9f3da4733f2e521bd5609937129519291a7e978c   id - 72 
+[2024-11-19 07:09:23] Running get_membership plan....in controller
+[2024-11-19 07:09:23] get membership plans running running...
+[2024-11-19 07:09:23] Membership plan model initialized with database connection.
+[2024-11-19 07:09:23] Fetching membership plan...
+[2024-11-19 07:09:23] Membership Plans fetched successfully
+[2024-11-19 07:09:23] Membership plans fetched
+[2024-11-19 07:09:23] Database connection closed.
+[2024-11-19 07:12:15] Connection established successfully to the database: rad_gymverse
+[2024-11-19 07:12:15] User class instantiated with database connection.
+[2024-11-19 07:12:15] Fetching user role by user ID: 72
+[2024-11-19 07:12:16] User role fetched successfully for user ID: 72
+[2024-11-19 07:12:16] Running owner controller ,get_membershipPlans token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzMxOTk5NjAwfQ==.bd30e850fe8eb3abb39e3a0c9f3da4733f2e521bd5609937129519291a7e978c   id - 72 
+[2024-11-19 07:12:16] Running get_membership plan....in controller
+[2024-11-19 07:12:16] get membership plans running running...
+[2024-11-19 07:12:16] Membership plan model initialized with database connection.
+[2024-11-19 07:12:16] Fetching membership plan...
+[2024-11-19 07:12:16] Membership Plans fetched successfully
+[2024-11-19 07:12:16] Membership plans fetched
+[2024-11-19 07:12:16] Database connection closed.
+[2024-11-19 07:12:34] Connection established successfully to the database: rad_gymverse
+[2024-11-19 07:12:34] User class instantiated with database connection.
+[2024-11-19 07:12:34] Fetching user role by user ID: 72
+[2024-11-19 07:12:34] User role fetched successfully for user ID: 72
+[2024-11-19 07:12:34] Running owner controller ,get_membershipPlans token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzMxOTk5NjAwfQ==.bd30e850fe8eb3abb39e3a0c9f3da4733f2e521bd5609937129519291a7e978c   id - 72 
+[2024-11-19 07:12:34] Running get_membership plan....in controller
+[2024-11-19 07:12:34] get membership plans running running...
+[2024-11-19 07:12:34] Membership plan model initialized with database connection.
+[2024-11-19 07:12:34] Fetching membership plan...
+[2024-11-19 07:12:35] Membership Plans fetched successfully
+[2024-11-19 07:12:35] Membership plans fetched
+[2024-11-19 07:12:35] Database connection closed.
+[2024-11-19 07:12:35] Connection established successfully to the database: rad_gymverse
+[2024-11-19 07:12:35] User class instantiated with database connection.
+[2024-11-19 07:12:35] Fetching user role by user ID: 72
+[2024-11-19 07:12:36] User role fetched successfully for user ID: 72
+[2024-11-19 07:12:36] Running owner controller ,get_membershipPlans token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzMxOTk5NjAwfQ==.bd30e850fe8eb3abb39e3a0c9f3da4733f2e521bd5609937129519291a7e978c   id - 72 
+[2024-11-19 07:12:36] Running get_membership plan....in controller
+[2024-11-19 07:12:36] get membership plans running running...
+[2024-11-19 07:12:36] Membership plan model initialized with database connection.
+[2024-11-19 07:12:36] Fetching membership plan...
+[2024-11-19 07:12:36] Membership Plans fetched successfully
+[2024-11-19 07:12:36] Membership plans fetched
+[2024-11-19 07:12:36] Database connection closed.
+[2024-11-19 09:15:33] Running: POST
+[2024-11-19 09:15:33] Running auth controller
+[2024-11-19 09:15:33] Raw input: {"login":1,"email":"owner@gmail.com","password":"owner"}
+[2024-11-19 09:15:33] step...1
+[2024-11-19 09:15:33] step...2
+[2024-11-19 09:15:33] Running log-in
+[2024-11-19 09:15:34] Connection established successfully to the database: rad_gymverse
+[2024-11-19 09:15:34] User class instantiated with database connection.
+[2024-11-19 09:15:34] User Login model running for: owner@gmail.com
+[2024-11-19 09:15:34] Query bound and ready to execute for login: owner@gmail.com
+[2024-11-19 09:15:34] User login successful: owner@gmail.com with role: owner
+[2024-11-19 09:15:35] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzMyMDA2ODAwfQ==.a8fe2d9bbcbbd80d2598aa0cbf05bd05b97c68f39bffc9643b32da10efeb6f6f owner
+[2024-11-19 09:15:35] Database connection closed.
+[2024-11-19 09:15:41] Connection established successfully to the database: rad_gymverse
+[2024-11-19 09:15:41] User class instantiated with database connection.
+[2024-11-19 09:15:41] Fetching user role by user ID: 72
+[2024-11-19 09:15:41] User role fetched successfully for user ID: 72
+[2024-11-19 09:15:41] Running owner controller ,get_membershipPlans token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzMyMDA2ODAwfQ==.a8fe2d9bbcbbd80d2598aa0cbf05bd05b97c68f39bffc9643b32da10efeb6f6f   id - 72 
+[2024-11-19 09:15:41] Running get_membership plan....in controller
+[2024-11-19 09:15:41] get membership plans running running...
+[2024-11-19 09:15:41] Membership plan model initialized with database connection.
+[2024-11-19 09:15:41] Fetching membership plan...
+[2024-11-19 09:15:41] Membership Plans fetched successfully
+[2024-11-19 09:15:41] Membership plans fetched
+[2024-11-19 09:15:41] Database connection closed.
+[2024-11-19 09:30:07] Running: POST
+[2024-11-19 09:30:07] Running auth controller
+[2024-11-19 09:30:07] Raw input: {"login":1,"email":"anna@gmail.com","password":"anna"}
+[2024-11-19 09:30:07] step...1
+[2024-11-19 09:30:07] step...2
+[2024-11-19 09:30:07] Running log-in
+[2024-11-19 09:30:07] Connection established successfully to the database: rad_gymverse
+[2024-11-19 09:30:07] User class instantiated with database connection.
+[2024-11-19 09:30:07] User Login model running for: anna@gmail.com
+[2024-11-19 09:30:08] Query bound and ready to execute for login: anna@gmail.com
+[2024-11-19 09:30:08] User login successful: anna@gmail.com with role: staff
+[2024-11-19 09:30:08] Login Successful: eyJ1c2VyX2lkIjo2OSwiZXhwIjoxNzMyMDA2ODAwfQ==.e748a7adb4bd1d14e48cd219abd321b4b30e8ce97907ce4c5ad40e0559e847c7 staff
+[2024-11-19 09:30:08] Database connection closed.
+[2024-11-19 09:36:20] Running: POST
+[2024-11-19 09:36:20] Running auth controller
+[2024-11-19 09:36:20] Raw input: {"login":1,"email":"anna@gmail.com","password":"anna"}
+[2024-11-19 09:36:20] step...1
+[2024-11-19 09:36:20] step...2
+[2024-11-19 09:36:20] Running log-in
+[2024-11-19 09:36:20] Connection established successfully to the database: rad_gymverse
+[2024-11-19 09:36:20] User class instantiated with database connection.
+[2024-11-19 09:36:20] User Login model running for: anna@gmail.com
+[2024-11-19 09:36:21] Query bound and ready to execute for login: anna@gmail.com
+[2024-11-19 09:36:21] User login successful: anna@gmail.com with role: staff
+[2024-11-19 09:36:21] Login Successful: eyJ1c2VyX2lkIjo2OSwiZXhwIjoxNzMyMDA2ODAwfQ==.e748a7adb4bd1d14e48cd219abd321b4b30e8ce97907ce4c5ad40e0559e847c7 staff
+[2024-11-19 09:36:21] Database connection closed.
+[2024-11-19 10:30:04] Running landing page controller ,get_membershipPlans 
+[2024-11-19 10:30:04] Running get_membership plan....in controller
+[2024-11-19 10:30:04] get membership plans running running...
+[2024-11-19 10:30:05] Connection established successfully to the database: rad_gymverse
+[2024-11-19 10:30:05] Membership plan model initialized with database connection.
+[2024-11-19 10:30:05] Fetching membership plan...
+[2024-11-19 10:30:05] Membership Plans fetched successfully
+[2024-11-19 10:30:05] Membership plans fetched
+[2024-11-19 10:30:05] Database connection closed.
+[2024-11-19 10:31:37] Running landing page controller ,get_membershipPlans 
+[2024-11-19 10:31:37] Running get_membership plan....in controller
+[2024-11-19 10:31:37] get membership plans running running...
+[2024-11-19 10:31:37] Connection established successfully to the database: rad_gymverse
+[2024-11-19 10:31:37] Membership plan model initialized with database connection.
+[2024-11-19 10:31:37] Fetching membership plan...
+[2024-11-19 10:31:38] Membership Plans fetched successfully
+[2024-11-19 10:31:38] Membership plans fetched
+[2024-11-19 10:31:38] Database connection closed.
+[2024-11-19 10:38:49] Running landing page controller ,get_membershipPlans 
+[2024-11-19 10:38:49] Running get_membership plan....in controller
+[2024-11-19 10:38:49] get membership plans running running...
+[2024-11-19 10:38:50] Connection established successfully to the database: rad_gymverse
+[2024-11-19 10:38:50] Membership plan model initialized with database connection.
+[2024-11-19 10:38:50] Fetching membership plan...
+[2024-11-19 10:38:50] Membership Plans fetched successfully
+[2024-11-19 10:38:50] Membership plans fetched
+[2024-11-19 10:38:50] Database connection closed.
+[2024-11-19 10:39:35] Running landing page controller ,get_membershipPlans 
+[2024-11-19 10:39:35] Running get_membership plan....in controller
+[2024-11-19 10:39:35] get membership plans running running...
+[2024-11-19 10:39:35] Connection established successfully to the database: rad_gymverse
+[2024-11-19 10:39:35] Membership plan model initialized with database connection.
+[2024-11-19 10:39:35] Fetching membership plan...
+[2024-11-19 10:39:35] Membership Plans fetched successfully
+[2024-11-19 10:39:35] Membership plans fetched
+[2024-11-19 10:39:35] Database connection closed.
+[2024-11-19 10:43:23] Running landing page controller ,get_membershipPlans 
+[2024-11-19 10:43:23] Running get_membership plan....in controller
+[2024-11-19 10:43:23] get membership plans running running...
+[2024-11-19 10:43:24] Connection established successfully to the database: rad_gymverse
+[2024-11-19 10:43:24] Membership plan model initialized with database connection.
+[2024-11-19 10:43:24] Fetching membership plan...
+[2024-11-19 10:43:24] Membership Plans fetched successfully
+[2024-11-19 10:43:24] Membership plans fetched
+[2024-11-19 10:43:24] Database connection closed.
+[2024-11-19 14:14:58] Running landing page controller ,get_membershipPlans 
+[2024-11-19 14:14:58] Running get_membership plan....in controller
+[2024-11-19 14:14:58] get membership plans running running...
+[2024-11-19 14:14:59] Connection established successfully to the database: rad_gymverse
+[2024-11-19 14:14:59] Membership plan model initialized with database connection.
+[2024-11-19 14:14:59] Fetching membership plan...
+[2024-11-19 14:14:59] Membership Plans fetched successfully
+[2024-11-19 14:14:59] Membership plans fetched
+[2024-11-19 14:14:59] Database connection closed.
+[2024-11-19 14:15:43] Running landing page controller ,get_membershipPlans 
+[2024-11-19 14:15:43] Running get_membership plan....in controller
+[2024-11-19 14:15:43] get membership plans running running...
+[2024-11-19 14:15:44] Connection established successfully to the database: rad_gymverse
+[2024-11-19 14:15:44] Membership plan model initialized with database connection.
+[2024-11-19 14:15:44] Fetching membership plan...
+[2024-11-19 14:15:44] Membership Plans fetched successfully
+[2024-11-19 14:15:44] Membership plans fetched
+[2024-11-19 14:15:44] Database connection closed.
+[2024-11-19 14:16:15] Running: POST
+[2024-11-19 14:16:15] Running auth controller
+[2024-11-19 14:16:15] Raw input: {"login":1,"email":"owner@gmail.com","password":"owner"}
+[2024-11-19 14:16:15] step...1
+[2024-11-19 14:16:15] step...2
+[2024-11-19 14:16:15] Running log-in
+[2024-11-19 14:16:15] Connection established successfully to the database: rad_gymverse
+[2024-11-19 14:16:15] User class instantiated with database connection.
+[2024-11-19 14:16:15] User Login model running for: owner@gmail.com
+[2024-11-19 14:16:16] Query bound and ready to execute for login: owner@gmail.com
+[2024-11-19 14:16:16] User login successful: owner@gmail.com with role: owner
+[2024-11-19 14:16:16] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzMyMDI0ODAwfQ==.5ea548777f9739d990d0a1b0406b2242249b203a26f3f18f6f0e4bbfdc46e7f7 owner
+[2024-11-19 14:16:16] Database connection closed.
+[2024-11-19 14:16:22] Connection established successfully to the database: rad_gymverse
+[2024-11-19 14:16:22] User class instantiated with database connection.
+[2024-11-19 14:16:22] Fetching user role by user ID: 72
+[2024-11-19 14:16:22] User role fetched successfully for user ID: 72
+[2024-11-19 14:16:22] Running owner controller ,get_membershipPlans token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzMyMDI0ODAwfQ==.5ea548777f9739d990d0a1b0406b2242249b203a26f3f18f6f0e4bbfdc46e7f7   id - 72 
+[2024-11-19 14:16:22] Running get_membership plan....in controller
+[2024-11-19 14:16:22] get membership plans running running...
+[2024-11-19 14:16:22] Membership plan model initialized with database connection.
+[2024-11-19 14:16:22] Fetching membership plan...
+[2024-11-19 14:16:23] Membership Plans fetched successfully
+[2024-11-19 14:16:23] Membership plans fetched
+[2024-11-19 14:16:23] Database connection closed.
+[2024-11-19 14:16:36] Connection established successfully to the database: rad_gymverse
+[2024-11-19 14:16:36] User class instantiated with database connection.
+[2024-11-19 14:16:36] Fetching user role by user ID: 72
+[2024-11-19 14:16:36] User role fetched successfully for user ID: 72
+[2024-11-19 14:16:36] Running owner controller ,delete_membershipPlan token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzMyMDI0ODAwfQ==.5ea548777f9739d990d0a1b0406b2242249b203a26f3f18f6f0e4bbfdc46e7f7   id - 72 
+[2024-11-19 14:16:36] Running delete_membership plan....in controller
+[2024-11-19 14:16:36] delete membership plan function running...
+[2024-11-19 14:16:36] Membership plan model initialized with database connection.
+[2024-11-19 14:16:36] Deleting membership plan with ID: MP2
+[2024-11-19 14:16:36] Query bound for deleting membership ID: MP2
+[2024-11-19 14:16:37] Membership plan deleted successfully with ID: MP2
+[2024-11-19 14:16:37] Membership plan deleted: MP2
+[2024-11-19 14:16:37] Database connection closed.
+[2024-11-19 14:16:37] Connection established successfully to the database: rad_gymverse
+[2024-11-19 14:16:37] User class instantiated with database connection.
+[2024-11-19 14:16:37] Fetching user role by user ID: 72
+[2024-11-19 14:16:37] User role fetched successfully for user ID: 72
+[2024-11-19 14:16:37] Running owner controller ,get_membershipPlans token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzMyMDI0ODAwfQ==.5ea548777f9739d990d0a1b0406b2242249b203a26f3f18f6f0e4bbfdc46e7f7   id - 72 
+[2024-11-19 14:16:37] Running get_membership plan....in controller
+[2024-11-19 14:16:37] get membership plans running running...
+[2024-11-19 14:16:37] Membership plan model initialized with database connection.
+[2024-11-19 14:16:37] Fetching membership plan...
+[2024-11-19 14:16:38] Membership Plans fetched successfully
+[2024-11-19 14:16:38] Membership plans fetched
+[2024-11-19 14:16:38] Database connection closed.
+[2024-11-19 14:16:41] Connection established successfully to the database: rad_gymverse
+[2024-11-19 14:16:41] User class instantiated with database connection.
+[2024-11-19 14:16:41] Fetching user role by user ID: 72
+[2024-11-19 14:16:41] User role fetched successfully for user ID: 72
+[2024-11-19 14:16:41] Running owner controller ,delete_membershipPlan token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzMyMDI0ODAwfQ==.5ea548777f9739d990d0a1b0406b2242249b203a26f3f18f6f0e4bbfdc46e7f7   id - 72 
+[2024-11-19 14:16:41] Running delete_membership plan....in controller
+[2024-11-19 14:16:41] delete membership plan function running...
+[2024-11-19 14:16:41] Membership plan model initialized with database connection.
+[2024-11-19 14:16:41] Deleting membership plan with ID: MP3
+[2024-11-19 14:16:41] Query bound for deleting membership ID: MP3
+[2024-11-19 14:16:41] Membership plan deleted successfully with ID: MP3
+[2024-11-19 14:16:41] Membership plan deleted: MP3
+[2024-11-19 14:16:41] Database connection closed.
+[2024-11-19 14:16:42] Connection established successfully to the database: rad_gymverse
+[2024-11-19 14:16:42] User class instantiated with database connection.
+[2024-11-19 14:16:42] Fetching user role by user ID: 72
+[2024-11-19 14:16:42] User role fetched successfully for user ID: 72
+[2024-11-19 14:16:42] Running owner controller ,get_membershipPlans token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzMyMDI0ODAwfQ==.5ea548777f9739d990d0a1b0406b2242249b203a26f3f18f6f0e4bbfdc46e7f7   id - 72 
+[2024-11-19 14:16:42] Running get_membership plan....in controller
+[2024-11-19 14:16:42] get membership plans running running...
+[2024-11-19 14:16:42] Membership plan model initialized with database connection.
+[2024-11-19 14:16:42] Fetching membership plan...
+[2024-11-19 14:16:42] Membership Plans fetched successfully
+[2024-11-19 14:16:42] Membership plans fetched
+[2024-11-19 14:16:42] Database connection closed.
+[2024-11-19 14:16:48] Running landing page controller ,get_membershipPlans 
+[2024-11-19 14:16:48] Running get_membership plan....in controller
+[2024-11-19 14:16:48] get membership plans running running...
+[2024-11-19 14:16:49] Connection established successfully to the database: rad_gymverse
+[2024-11-19 14:16:49] Membership plan model initialized with database connection.
+[2024-11-19 14:16:49] Fetching membership plan...
+[2024-11-19 14:16:49] Membership Plans fetched successfully
+[2024-11-19 14:16:49] Membership plans fetched
+[2024-11-19 14:16:49] Database connection closed.
+[2024-11-19 14:17:01] Connection established successfully to the database: rad_gymverse
+[2024-11-19 14:17:01] User class instantiated with database connection.
+[2024-11-19 14:17:01] Fetching user role by user ID: 72
+[2024-11-19 14:17:01] User role fetched successfully for user ID: 72
+[2024-11-19 14:17:01] Running owner controller ,delete_membershipPlan token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzMyMDI0ODAwfQ==.5ea548777f9739d990d0a1b0406b2242249b203a26f3f18f6f0e4bbfdc46e7f7   id - 72 
+[2024-11-19 14:17:01] Running delete_membership plan....in controller
+[2024-11-19 14:17:01] delete membership plan function running...
+[2024-11-19 14:17:01] Membership plan model initialized with database connection.
+[2024-11-19 14:17:01] Deleting membership plan with ID: MP5
+[2024-11-19 14:17:01] Query bound for deleting membership ID: MP5
+[2024-11-19 14:17:01] Membership plan deleted successfully with ID: MP5
+[2024-11-19 14:17:01] Membership plan deleted: MP5
+[2024-11-19 14:17:01] Database connection closed.
+[2024-11-19 14:17:02] Connection established successfully to the database: rad_gymverse
+[2024-11-19 14:17:02] User class instantiated with database connection.
+[2024-11-19 14:17:02] Fetching user role by user ID: 72
+[2024-11-19 14:17:02] User role fetched successfully for user ID: 72
+[2024-11-19 14:17:02] Running owner controller ,get_membershipPlans token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzMyMDI0ODAwfQ==.5ea548777f9739d990d0a1b0406b2242249b203a26f3f18f6f0e4bbfdc46e7f7   id - 72 
+[2024-11-19 14:17:02] Running get_membership plan....in controller
+[2024-11-19 14:17:02] get membership plans running running...
+[2024-11-19 14:17:02] Membership plan model initialized with database connection.
+[2024-11-19 14:17:02] Fetching membership plan...
+[2024-11-19 14:17:02] No membership plans found
+[2024-11-19 14:17:02] No membership plans found
+[2024-11-19 14:17:02] Database connection closed.
+[2024-11-19 14:23:14] Running landing page controller ,get_membershipPlans 
+[2024-11-19 14:23:14] Running get_membership plan....in controller
+[2024-11-19 14:23:14] get membership plans running running...
+[2024-11-19 14:23:15] Connection established successfully to the database: rad_gymverse
+[2024-11-19 14:23:15] Membership plan model initialized with database connection.
+[2024-11-19 14:23:15] Fetching membership plan...
+[2024-11-19 14:23:15] No membership plans found
+[2024-11-19 14:23:15] No membership plans found
+[2024-11-19 14:23:15] Database connection closed.
+[2024-11-19 14:25:02] Connection established successfully to the database: rad_gymverse
+[2024-11-19 14:25:02] User class instantiated with database connection.
+[2024-11-19 14:25:02] Fetching user role by user ID: 72
+[2024-11-19 14:25:03] User role fetched successfully for user ID: 72
+[2024-11-19 14:25:03] Running owner controller ,get_membershipPlans token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzMyMDI0ODAwfQ==.5ea548777f9739d990d0a1b0406b2242249b203a26f3f18f6f0e4bbfdc46e7f7   id - 72 
+[2024-11-19 14:25:03] Running get_membership plan....in controller
+[2024-11-19 14:25:03] get membership plans running running...
+[2024-11-19 14:25:03] Membership plan model initialized with database connection.
+[2024-11-19 14:25:03] Fetching membership plan...
+[2024-11-19 14:25:03] No membership plans found
+[2024-11-19 14:25:03] No membership plans found
+[2024-11-19 14:25:03] Database connection closed.
+[2024-11-19 14:25:32] Connection established successfully to the database: rad_gymverse
+[2024-11-19 14:25:32] User class instantiated with database connection.
+[2024-11-19 14:25:32] Fetching user role by user ID: 72
+[2024-11-19 14:25:33] User role fetched successfully for user ID: 72
+[2024-11-19 14:25:33] Running owner controller ,add_membershipPlan token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzMyMDI0ODAwfQ==.5ea548777f9739d990d0a1b0406b2242249b203a26f3f18f6f0e4bbfdc46e7f7   id - 72 
+[2024-11-19 14:25:33] Running add_membership plan....in controller
+[2024-11-19 14:25:33] add membership plan function running...
+[2024-11-19 14:25:33] Membership plan model initialized with database connection.
+[2024-11-19 14:25:33] yearly price issss :  0
+[2024-11-19 14:25:33] Adding new membership plan...
+[2024-11-19 14:25:33] No existing membership plans found, starting ID from MP1.
+[2024-11-19 14:25:33] Query bound for adding membership plan : Free
+[2024-11-19 14:25:33] Memberhsip plan added successfully: Free
+[2024-11-19 14:25:33] Membership plan added: Free
+[2024-11-19 14:25:33] Database connection closed.
+[2024-11-19 14:25:34] Connection established successfully to the database: rad_gymverse
+[2024-11-19 14:25:34] User class instantiated with database connection.
+[2024-11-19 14:25:34] Fetching user role by user ID: 72
+[2024-11-19 14:25:34] User role fetched successfully for user ID: 72
+[2024-11-19 14:25:34] Running owner controller ,get_membershipPlans token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzMyMDI0ODAwfQ==.5ea548777f9739d990d0a1b0406b2242249b203a26f3f18f6f0e4bbfdc46e7f7   id - 72 
+[2024-11-19 14:25:34] Running get_membership plan....in controller
+[2024-11-19 14:25:34] get membership plans running running...
+[2024-11-19 14:25:34] Membership plan model initialized with database connection.
+[2024-11-19 14:25:34] Fetching membership plan...
+[2024-11-19 14:25:34] Membership Plans fetched successfully
+[2024-11-19 14:25:34] Membership plans fetched
+[2024-11-19 14:25:34] Database connection closed.
+[2024-11-19 14:26:58] Running landing page controller ,get_membershipPlans 
+[2024-11-19 14:26:58] Running get_membership plan....in controller
+[2024-11-19 14:26:58] get membership plans running running...
+[2024-11-19 14:26:59] Connection established successfully to the database: rad_gymverse
+[2024-11-19 14:26:59] Membership plan model initialized with database connection.
+[2024-11-19 14:26:59] Fetching membership plan...
+[2024-11-19 14:26:59] Membership Plans fetched successfully
+[2024-11-19 14:26:59] Membership plans fetched
+[2024-11-19 14:26:59] Database connection closed.
+[2024-11-19 14:27:06] Connection established successfully to the database: rad_gymverse
+[2024-11-19 14:27:06] User class instantiated with database connection.
+[2024-11-19 14:27:06] Fetching user role by user ID: 72
+[2024-11-19 14:27:07] User role fetched successfully for user ID: 72
+[2024-11-19 14:27:07] Running owner controller ,get_membershipPlans token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzMyMDI0ODAwfQ==.5ea548777f9739d990d0a1b0406b2242249b203a26f3f18f6f0e4bbfdc46e7f7   id - 72 
+[2024-11-19 14:27:07] Running get_membership plan....in controller
+[2024-11-19 14:27:07] get membership plans running running...
+[2024-11-19 14:27:07] Membership plan model initialized with database connection.
+[2024-11-19 14:27:07] Fetching membership plan...
+[2024-11-19 14:27:07] Membership Plans fetched successfully
+[2024-11-19 14:27:07] Membership plans fetched
+[2024-11-19 14:27:07] Database connection closed.
+[2024-11-19 14:28:45] Connection established successfully to the database: rad_gymverse
+[2024-11-19 14:28:45] User class instantiated with database connection.
+[2024-11-19 14:28:45] Fetching user role by user ID: 72
+[2024-11-19 14:28:45] User role fetched successfully for user ID: 72
+[2024-11-19 14:28:45] Running owner controller ,add_membershipPlan token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzMyMDI0ODAwfQ==.5ea548777f9739d990d0a1b0406b2242249b203a26f3f18f6f0e4bbfdc46e7f7   id - 72 
+[2024-11-19 14:28:45] Running add_membership plan....in controller
+[2024-11-19 14:28:45] add membership plan function running...
+[2024-11-19 14:28:45] Membership plan model initialized with database connection.
+[2024-11-19 14:28:45] yearly price issss :  378
+[2024-11-19 14:28:45] Adding new membership plan...
+[2024-11-19 14:28:45] Query bound for adding membership plan : Standard
+[2024-11-19 14:28:46] Memberhsip plan added successfully: Standard
+[2024-11-19 14:28:46] Membership plan added: Standard
+[2024-11-19 14:28:46] Database connection closed.
+[2024-11-19 14:28:46] Connection established successfully to the database: rad_gymverse
+[2024-11-19 14:28:46] User class instantiated with database connection.
+[2024-11-19 14:28:46] Fetching user role by user ID: 72
+[2024-11-19 14:28:46] User role fetched successfully for user ID: 72
+[2024-11-19 14:28:46] Running owner controller ,get_membershipPlans token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzMyMDI0ODAwfQ==.5ea548777f9739d990d0a1b0406b2242249b203a26f3f18f6f0e4bbfdc46e7f7   id - 72 
+[2024-11-19 14:28:46] Running get_membership plan....in controller
+[2024-11-19 14:28:46] get membership plans running running...
+[2024-11-19 14:28:46] Membership plan model initialized with database connection.
+[2024-11-19 14:28:46] Fetching membership plan...
+[2024-11-19 14:28:47] Membership Plans fetched successfully
+[2024-11-19 14:28:47] Membership plans fetched
+[2024-11-19 14:28:47] Database connection closed.
+[2024-11-19 14:31:08] Connection established successfully to the database: rad_gymverse
+[2024-11-19 14:31:08] User class instantiated with database connection.
+[2024-11-19 14:31:08] Fetching user role by user ID: 72
+[2024-11-19 14:31:08] User role fetched successfully for user ID: 72
+[2024-11-19 14:31:08] Running owner controller ,add_membershipPlan token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzMyMDI0ODAwfQ==.5ea548777f9739d990d0a1b0406b2242249b203a26f3f18f6f0e4bbfdc46e7f7   id - 72 
+[2024-11-19 14:31:08] Running add_membership plan....in controller
+[2024-11-19 14:31:08] add membership plan function running...
+[2024-11-19 14:31:08] Membership plan model initialized with database connection.
+[2024-11-19 14:31:08] yearly price issss :  612
+[2024-11-19 14:31:08] Adding new membership plan...
+[2024-11-19 14:31:09] Query bound for adding membership plan : Premium
+[2024-11-19 14:31:10] Memberhsip plan added successfully: Premium
+[2024-11-19 14:31:10] Membership plan added: Premium
+[2024-11-19 14:31:10] Database connection closed.
+[2024-11-19 14:31:10] Connection established successfully to the database: rad_gymverse
+[2024-11-19 14:31:10] User class instantiated with database connection.
+[2024-11-19 14:31:10] Fetching user role by user ID: 72
+[2024-11-19 14:31:10] User role fetched successfully for user ID: 72
+[2024-11-19 14:31:10] Running owner controller ,get_membershipPlans token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzMyMDI0ODAwfQ==.5ea548777f9739d990d0a1b0406b2242249b203a26f3f18f6f0e4bbfdc46e7f7   id - 72 
+[2024-11-19 14:31:10] Running get_membership plan....in controller
+[2024-11-19 14:31:10] get membership plans running running...
+[2024-11-19 14:31:10] Membership plan model initialized with database connection.
+[2024-11-19 14:31:10] Fetching membership plan...
+[2024-11-19 14:31:11] Membership Plans fetched successfully
+[2024-11-19 14:31:11] Membership plans fetched
+[2024-11-19 14:31:11] Database connection closed.
+[2024-11-19 14:31:17] Running landing page controller ,get_membershipPlans 
+[2024-11-19 14:31:17] Running get_membership plan....in controller
+[2024-11-19 14:31:17] get membership plans running running...
+[2024-11-19 14:31:17] Connection established successfully to the database: rad_gymverse
+[2024-11-19 14:31:17] Membership plan model initialized with database connection.
+[2024-11-19 14:31:17] Fetching membership plan...
+[2024-11-19 14:31:17] Membership Plans fetched successfully
+[2024-11-19 14:31:17] Membership plans fetched
+[2024-11-19 14:31:17] Database connection closed.
