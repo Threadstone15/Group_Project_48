@@ -23,6 +23,62 @@
             <textarea id="noticeInput" placeholder="Enter your notice here..." rows="5"></textarea>
             <button id="publishBtn">Publish Notice</button>
         </div>
+
+        <!-- Notices Table -->
+        <div class="table-container">
+            <table id="equipmentsTable">
+                <thead>
+                    <tr>
+                        <th>Notice ID</th>
+                        <th>Publisher ID</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- JavaScript will insert rows here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Delete confirmation popup -->
+        <div id="deletePopup" class="popup" style="display: none;">
+            <button id="closePopup" class="close-button">&times;</button> <!-- Close button -->
+            <div class="popup-content">
+                <h2>Confirm Delete</h2>
+                <p>Are you sure you want to delete this equipment?</p>
+                <div class="popup-buttons">
+                    <button id="confirmDelete" class="popup-confirm">Yes</button>
+                    <button id="cancelDelete" class="popup-cancel">No</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Update equipment popup -->
+        <div id="updatePopup" class="popup" style="display: none;">
+            <button id="closeUpdatePopup" class="close-button">&times;</button> <!-- Close button -->
+            <div class="popup-content">
+                <h2>Update Equipment</h2>
+                <form id="updateForm">
+                    <input type="hidden" id="updateEquipmentId">
+                    <div class="form-group">
+                        <label for="updateEquipmentName">Name:</label>
+                        <input type="text" id="updateEquipmentName" class="form-input" />
+                    </div>
+                    <div class="form-group">
+                        <label for="updatePurchaseDate">Purchase Date:</label>
+                        <input type="date" id="updatePurchaseDate" class="form-input" />
+                    </div>
+                    <div class="form-group">
+                        <label for="updateMaintenanceDuration">Maintenance Duration:</label>
+                        <input type="text" id="updateMaintenanceDuration" class="form-input" />
+                    </div>
+                    <button type="submit" class="submit-button">Update Equipment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
         
         
     </div>
