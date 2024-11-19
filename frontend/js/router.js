@@ -1,3 +1,12 @@
+import { initabout } from "./about.js";
+import { initbecomeMember } from "./becomeMember.js";
+import { initcareers } from "./careers.js";
+import { initfindATrainer } from "./findATrainer.js";
+import { inithome } from "./home.js";
+import { initlogin } from "./login.js";
+import { initpricing } from "./pricing.js";
+import { initservices } from "./services.js";
+
 export function navigate(page) {
   if(isInitialNavigate()){
     //clearing dashbaord components if present
@@ -86,8 +95,23 @@ export function loadPage(page) {
       // Append page-specific JavaScript
       if (!document.querySelector(`script[src="${pageJsUrl}"]`)) {
         const script = document.createElement("script");
+        console.log("appended yakow");
         script.src = pageJsUrl;
+        script.type = "module";
         document.body.appendChild(script);
+      }
+
+      //executing page specific js functions
+      switch(page){
+        case 'home' : inithome(); break;
+        case 'login' : initlogin(); break;
+        case 'pricing' : initpricing(); break;
+        case 'about' : initabout(); break;
+        case 'becomeMember' : initbecomeMember(); break;
+        case 'findATrainer' : initfindATrainer(); break;
+        case 'careers' : initcareers(); break;
+        case 'services' : initservices(); break;
+        default : console.log("page not defined within router");
       }
     })
     .catch(() => {
