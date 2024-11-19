@@ -375,3 +375,61 @@ tbody tr:hover {
 .popup {
   animation: fadeIn 0.3s ease-in-out;
 }
+
+
+/* add notice form */
+.notice-form {
+  background-color: #fff;
+  padding: 30px;
+  width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 90px;
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+textarea {
+  padding: 10px;
+  font-size: 16px;
+  resize: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #FF5F00;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font: 'Poppins', sans-serif;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #FF5F00;
+}
+
+.published-notices {
+  margin-top: 0px;
+}
+
+#noticesList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.notice-item {
+  background-color: #e0f7fa;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #FF5F00;
+}

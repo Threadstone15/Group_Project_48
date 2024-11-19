@@ -5,7 +5,7 @@ const notices = [
 
 // Function to populate the table with test data
 function populateTable() {
-    const tableBody = document.getElementById("noticesTable").querySelector("tbody");
+    const tableBody = document.getElementById("jobsTable").querySelector("tbody");
     tableBody.innerHTML = "";
     notices.forEach((notice) => {
         const row = document.createElement("tr");
