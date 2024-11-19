@@ -241,3 +241,9 @@ document.getElementById('equipmentForm').addEventListener('submit', (event) => {
       })
       .catch(error => console.error("Error adding equipment:", error));
 });
+
+// Close the delete popup when the close button is clicked
+document.getElementById("closePopup").addEventListener("click", function () {
+    const popup = document.getElementById("deletePopup");
+    popup.style.display = "none";
+});

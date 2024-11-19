@@ -204,37 +204,42 @@ tbody tr:hover {
   padding-left: 0;
 }
 
-.button {
-padding: 5px 10px;
-text-decoration: none;
-border-radius: 4px;
-font-size: 14px;
-color: #fff;
-border: none;
-transition: all 0.3s ease; 
-}
-
+/* Update Button Styles */
 .update-button {
-background-color: #4CAF50;
-margin-right: 5px;
-font-family: 'Poppins', sans-serif;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 11px;
+  color: #fff;
+  background-color: #4CAF50; /* Green */
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-right: 5px;
 }
 
 .update-button:hover {
-background-color: #163318; 
-color: #fff; 
+  background-color: #163318; /* Darker Green */
+  color: #fff; /* Keep text white */
 }
 
+/* Delete Button Styles */
 .delete-button {
-background-color: #f44336;
-font-family: 'Poppins', sans-serif;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 11px;
+  color: #fff;
+  background-color: #f44336; /* Red */
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .delete-button:hover {
-background-color: #371010;
-color: #fff; 
+  background-color: #371010; /* Darker Red */
+  color: #fff; /* Keep text white */
 }
-
 
 /* Popup container styling */
 .popup {
