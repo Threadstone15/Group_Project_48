@@ -24,7 +24,7 @@ function populateTable() {
     });
 }
 
-function handleDelete(equipmentId) {
+function handleDelete(noticeId) {
     const popup = document.getElementById("deletePopup");
     const overlay = document.getElementById("overlay");
     popup.style.display = "block";
@@ -52,7 +52,7 @@ function handleDelete(equipmentId) {
 function deleteEquipment(equipmentId) {
     const index = equipments.findIndex(equipment => equipment["Equipment ID"] === equipmentId);
     if (index > -1) {
-        equipments.splice(index, 1);
+        notices.splice(index, 1);
         populateTable();
     }
 }
