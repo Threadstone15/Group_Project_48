@@ -1,6 +1,6 @@
 console.log("JS loaded");
 
-const equipmentTable = document.getElementById("equipmentsTable");
+const equipmentTable = document.getElementById("equipmentsMaintainceTable");
 
 if (equipmentTable) {
     fetchEquipmentList(); // Trigger fetching the equipment list if the table exists
@@ -23,7 +23,7 @@ function fetchEquipmentList() {
         redirect: 'follow'
     };
 
-    fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php?action=get_equipments", requestOptions)
+    fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php?action=get_maintenances", requestOptions)
         .then(response => {
             if (!response.ok) throw new Error("Failed to fetch equipment list");
             return response.json();
@@ -39,11 +39,11 @@ function fetchEquipmentList() {
                     const row = document.createElement("tr");
 
                     row.innerHTML = `
+                        <td>${equipment['maintaince_id']}</td>
                         <td>${equipment['equipment_id']}</td>
-                        <td>${equipment['name']}</td>
-                        <td>${equipment['purchase_date']}</td>
-                        <td>${equipment['status']}</td>
-                        <td>${equipment['maintenance_frequency']}</td>
+                        <td>${equipment['maintenance_date']}</td>
+                        <td>${equipment['details']}</td>
+                        <td>${equipment['next_maintenance_date']}</td>
                         <td>
                             <button class="update-button" onclick="openUpdatePopup(this)">Update</button>
                             <button class="delete-button" onclick="deleteEquipment('${equipment['equipment_id']}')">Delete</button>
