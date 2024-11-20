@@ -40,7 +40,7 @@
                 <button id="closePopup" class="close-button">&times;</button> <!-- Close button -->
                 <div class="popup-content">
                     <h2>Confirm Delete</h2>
-                    <p>Are you sure you want to delete this equipment?</p>
+                    <p>Are you sure you want to delete this record?</p>
                     <div class="popup-buttons">
                         <button id="confirmDelete" class="popup-confirm">Yes</button>
                         <button id="cancelDelete" class="popup-cancel">No</button>
@@ -52,26 +52,59 @@
             <div id="updatePopup" class="popup" style="display: none;">
                 <button id="closeUpdatePopup" class="close-button">&times;</button> <!-- Close button -->
                 <div class="popup-content">
-                    <h2>Update Equipment</h2>
+                    <h2>Update Maintainance Record</h2>
                     <form id="updateForm">
-                        <input type="hidden" id="updateEquipmentId">
+                        <input type="hidden" id="updateMaintenanceID">
                         <div class="form-group">
-                            <label for="updateEquipmentName">Name:</label>
-                            <input type="text" id="updateEquipmentName" class="form-input" />
+                            <label for="updateEquipmentID">Eqipment ID:</label>
+                            <input type="text" id="updateEquipmentID" class="form-input" />
                         </div>
                         <div class="form-group">
-                            <label for="updatePurchaseDate">Purchase Date:</label>
-                            <input type="date" id="updatePurchaseDate" class="form-input" />
+                            <label for="updateMaintainanceDate">Maintainance Date:</label>
+                            <input type="date" id="updateMaintainanceDate" class="form-input" />
                         </div>
                         <div class="form-group">
-                            <label for="updateMaintenanceDuration">Maintenance Duration:</label>
-                            <input type="text" id="updateMaintenanceDuration" class="form-input" />
+                            <label for="updateMaintainceDetails">Details:</label>
+                            <input type="text" id="updateMaintainceDetails" class="form-input" />
                         </div>
-                        <button type="submit" class="submit-button">Update Equipment</button>
+                        <div class="form-group">
+                            <label for="updateNextMaintenanceDate">Next Maintainance Date:</label>
+                            <input type="date" id="updateNextMaintenanceDate" class="form-input" />
+                        </div>
+                        <button type="submit" class="submit-button">Update Maintaince Record</button>
                     </form>
                 </div>
             </div>
         </div>
+
+        <section class="add-equipment-container">
+            <div class="add-equipment-content">
+                <div class="add-equipment-title">
+                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/243cdbd6c41af4b160198bf02cfde9796aa344695eff0a3830018a13b4d9e96b?placeholderIfAbsent=true&apiKey=015e1c54eb5347dfb8c175d60fbc5fdf" class="equipment-icon" alt="Equipment icon" />
+                    <h2 class="section-title">Add a new record</h2>
+                </div>
+                
+                <form class="equipment-form" id="equipmentForm">
+                    <div class="form-group">
+                        <label for="equipmentID">Eqipment ID:</label>
+                        <input type="text" id="equipmentID" class="form-input" />
+                    </div>
+                    <div class="form-group">
+                        <label for="maintainanceDate">Maintainance Date:</label>
+                        <input type="date" id="maintainanceDate" class="form-input" />
+                    </div>
+                    <div class="form-group">
+                        <label for="maintainceDetails">Details:</label>
+                        <input type="text" id="maintainceDetails" class="form-input" />
+                    </div>
+                    <div class="form-group">
+                        <label for="nextMaintenanceDate">Next Maintainance Date:</label>
+                        <input type="date" id="nextMaintenanceDate" class="form-input" />
+                    </div>
+                    <button type="submit" class="submit-button">Add Record</button>
+                </form>
+            </div>
+        </section>
 
     </div>
     <script src="/Group_Project_48/frontend/js/staff/equipMaintainance.js"></script>
