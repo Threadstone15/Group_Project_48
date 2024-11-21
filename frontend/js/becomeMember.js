@@ -1,34 +1,28 @@
 export function initbecomeMember() {
 
     document.getElementById('memberRegistration').addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent form submission
+        event.preventDefault();
 
-        // Capture form data
         const firstName = document.getElementById('firstName').value;
         const lastName = document.getElementById('lastName').value;
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
-        const day = document.getElementById('day').value;
-        const month = document.getElementById('month').value;
-        const year = document.getElementById('year').value;
-        const dateOfBirth = `${year}-${month}-${day}`; // Format DOB as YYYY-MM-DD
+        const dob = document.getElementById('dob').value;
         const address = document.getElementById('address').value;
         const mobile = document.getElementById('mobile').value;
         const gender = document.getElementById('gender').value;
 
-        // Create headers and payload for registration
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
         const registrationData = JSON.stringify({
-            "register": 1,  // Assuming your backend expects this key to initiate registration
             "firstName": firstName,
             "lastName": lastName,
             "email": email,
             "password": password,
-            "dateOfBirth": dateOfBirth,
+            "dob": dob,
             "address": address,
-            "mobile": mobile,
+            "phone": mobile,
             "gender": gender
         });
 
@@ -40,25 +34,29 @@ export function initbecomeMember() {
         };
 
         // Fetch API to send registration data to backend
-        fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php", requestOptions)
-            .then(response => response.json())
+        fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/authController.php?action=register_member", requestOptions)
+            .then(response => {
+                if (!response.ok) throw new Error("Failed to register member");
+                return response.json();
+            })
             .then(data => {
                 console.log("Response data:", data);  // Log the parsed JSON data
 
-                if (data.success) {
-                    alert("Registration successful! Please log in.");
-
-                    // Redirect to login page after registration
-                    window.location.href = 'pages/login.html';
+                if (data.error) {
+                    alert(data.error);
+                } else if (data.message) {
+                    alert(data.message);
+                    navigate('login');
                 } else {
-                    // Display error message if registration fails
-                    alert(data.error || "Registration failed. Please check your details.");
+                    // Fallback in case response structure is unexpected
+                    alert("Unexpected response. Please try again.");
                 }
             })
             .catch(error => {
                 console.error("Error:", error);
                 alert("An error occurred. Please try again later.");
             });
+
     });
 
 }

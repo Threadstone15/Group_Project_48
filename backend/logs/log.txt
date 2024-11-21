@@ -3680,3 +3680,307 @@
 [2024-11-19 17:56:46] Equipment fetched successfully
 [2024-11-19 17:56:46] Equipment data fetched
 [2024-11-19 17:56:46] Database connection closed.
+[2024-11-21 05:06:08] Running landing page controller ,get_membershipPlans 
+[2024-11-21 05:06:08] Running get_membership plan....in controller
+[2024-11-21 05:06:08] get membership plans running running...
+[2024-11-21 05:07:12] Running landing page controller ,get_membershipPlans 
+[2024-11-21 05:07:12] Running get_membership plan....in controller
+[2024-11-21 05:07:12] get membership plans running running...
+[2024-11-21 05:07:13] Connection established successfully to the database: rad_gymverse
+[2024-11-21 05:07:13] Membership plan model initialized with database connection.
+[2024-11-21 05:07:13] Fetching membership plan...
+[2024-11-21 05:07:14] Membership Plans fetched successfully
+[2024-11-21 05:07:14] Membership plans fetched
+[2024-11-21 05:07:14] Database connection closed.
+[2024-11-21 05:07:16] Running landing page controller ,get_membershipPlans 
+[2024-11-21 05:07:16] Running get_membership plan....in controller
+[2024-11-21 05:07:16] get membership plans running running...
+[2024-11-21 05:07:17] Connection established successfully to the database: rad_gymverse
+[2024-11-21 05:07:17] Membership plan model initialized with database connection.
+[2024-11-21 05:07:17] Fetching membership plan...
+[2024-11-21 05:07:17] Membership Plans fetched successfully
+[2024-11-21 05:07:17] Membership plans fetched
+[2024-11-21 05:07:17] Database connection closed.
+[2024-11-21 05:07:19] Running landing page controller ,get_membershipPlans 
+[2024-11-21 05:07:19] Running get_membership plan....in controller
+[2024-11-21 05:07:19] get membership plans running running...
+[2024-11-21 05:07:20] Connection established successfully to the database: rad_gymverse
+[2024-11-21 05:07:20] Membership plan model initialized with database connection.
+[2024-11-21 05:07:20] Fetching membership plan...
+[2024-11-21 05:07:20] Membership Plans fetched successfully
+[2024-11-21 05:07:20] Membership plans fetched
+[2024-11-21 05:07:20] Database connection closed.
+[2024-11-21 06:58:16] Running landing page controller ,get_membershipPlans 
+[2024-11-21 06:58:16] Running get_membership plan....in controller
+[2024-11-21 06:58:16] get membership plans running running...
+[2024-11-21 06:58:16] Connection established successfully to the database: rad_gymverse
+[2024-11-21 06:58:16] Membership plan model initialized with database connection.
+[2024-11-21 06:58:16] Fetching membership plan...
+[2024-11-21 06:58:17] Membership Plans fetched successfully
+[2024-11-21 06:58:17] Membership plans fetched
+[2024-11-21 06:58:17] Database connection closed.
+[2024-11-21 06:58:46] Running: POST
+[2024-11-21 06:58:46] Running auth controller
+[2024-11-21 06:58:46] Raw input: {"login":1,"email":"anna@gmail.com","password":"anna"}
+[2024-11-21 06:58:46] step...1
+[2024-11-21 06:58:46] step...2
+[2024-11-21 06:58:46] Running log-in
+[2024-11-21 06:58:46] Connection established successfully to the database: rad_gymverse
+[2024-11-21 06:58:46] User class instantiated with database connection.
+[2024-11-21 06:58:46] User Login model running for: anna@gmail.com
+[2024-11-21 06:58:47] Query bound and ready to execute for login: anna@gmail.com
+[2024-11-21 06:58:47] User login successful: anna@gmail.com with role: staff
+[2024-11-21 06:58:47] Login Successful: eyJ1c2VyX2lkIjo2OSwiZXhwIjoxNzMyMTY4ODAwfQ==.ad405059fd810c8432161502e7e81e6252a3f34fcd03701a72a5fbb3d16408e3 staff
+[2024-11-21 06:58:47] Database connection closed.
+[2024-11-21 07:02:34] Running: POST
+[2024-11-21 07:02:34] Running auth controller
+[2024-11-21 07:02:34] Raw input: {"login":1,"email":"owner@gmail.com","password":"owner"}
+[2024-11-21 07:02:34] step...1
+[2024-11-21 07:02:34] step...2
+[2024-11-21 07:02:34] Running log-in
+[2024-11-21 07:02:34] Connection established successfully to the database: rad_gymverse
+[2024-11-21 07:02:34] User class instantiated with database connection.
+[2024-11-21 07:02:34] User Login model running for: owner@gmail.com
+[2024-11-21 07:02:34] Query bound and ready to execute for login: owner@gmail.com
+[2024-11-21 07:02:35] User login successful: owner@gmail.com with role: owner
+[2024-11-21 07:02:35] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzMyMTcyNDAwfQ==.902b21bb7dda24eddd569be579686c061cf609e7fbe4eb7e217e83b67ba3397b owner
+[2024-11-21 07:02:35] Database connection closed.
+[2024-11-21 07:02:42] Connection established successfully to the database: rad_gymverse
+[2024-11-21 07:02:42] User class instantiated with database connection.
+[2024-11-21 07:02:42] Fetching user role by user ID: 72
+[2024-11-21 07:02:42] User role fetched successfully for user ID: 72
+[2024-11-21 07:02:42] Running owner controller ,get_membershipPlans token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzMyMTcyNDAwfQ==.902b21bb7dda24eddd569be579686c061cf609e7fbe4eb7e217e83b67ba3397b   id - 72 
+[2024-11-21 07:02:42] Running get_membership plan....in controller
+[2024-11-21 07:02:42] get membership plans running running...
+[2024-11-21 07:02:42] Membership plan model initialized with database connection.
+[2024-11-21 07:02:42] Fetching membership plan...
+[2024-11-21 07:02:42] Membership Plans fetched successfully
+[2024-11-21 07:02:42] Membership plans fetched
+[2024-11-21 07:02:42] Database connection closed.
+[2024-11-21 07:03:34] Running: POST
+[2024-11-21 07:03:34] Running auth controller
+[2024-11-21 07:03:34] Raw input: {"login":1,"email":"staff@gmail.com","password":"1234"}
+[2024-11-21 07:03:34] step...1
+[2024-11-21 07:03:34] step...2
+[2024-11-21 07:03:34] Running log-in
+[2024-11-21 07:03:34] Connection established successfully to the database: rad_gymverse
+[2024-11-21 07:03:34] User class instantiated with database connection.
+[2024-11-21 07:03:34] User Login model running for: staff@gmail.com
+[2024-11-21 07:03:35] Query bound and ready to execute for login: staff@gmail.com
+[2024-11-21 07:03:35] User login successful: staff@gmail.com with role: staff
+[2024-11-21 07:03:35] Login Successful: eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzMyMTcyNDAwfQ==.2359c77a970b781ffdc1fbb91f93e34d0db7355750915532533a4d021ab85120 staff
+[2024-11-21 07:03:35] Database connection closed.
+[2024-11-21 07:03:42] Connection established successfully to the database: rad_gymverse
+[2024-11-21 07:03:42] User class instantiated with database connection.
+[2024-11-21 07:03:42] Fetching user role by user ID: 68
+[2024-11-21 07:03:42] User role fetched successfully for user ID: 68
+[2024-11-21 07:03:42] Running staff controller ,get_equipments token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzMyMTcyNDAwfQ==.2359c77a970b781ffdc1fbb91f93e34d0db7355750915532533a4d021ab85120   id - 68 
+[2024-11-21 07:03:42] Running get_equip....in controller
+[2024-11-21 07:03:42] get equip function running...
+[2024-11-21 07:03:42] Equipment model initialized with database connection.
+[2024-11-21 07:03:42] Fetching equipment...
+[2024-11-21 07:03:42] Equipment fetched successfully
+[2024-11-21 07:03:42] Equipment data fetched
+[2024-11-21 07:03:42] Database connection closed.
+[2024-11-21 18:13:42] Running auth controller ,signup 
+[2024-11-21 18:13:42] Running signup....in auth controller
+[2024-11-21 18:13:42] signup function running...
+[2024-11-21 18:13:43] Connection established successfully to the database: rad_gymverse
+[2024-11-21 18:13:43] User class instantiated with database connection.
+[2024-11-21 18:13:43] User Register model running...
+[2024-11-21 18:13:43] Password hashed for user: alex@gmail.com
+[2024-11-21 18:13:43] Query bound and ready to execute for user: alex@gmail.com
+[2024-11-21 18:13:43] User registered successfully: alex@gmail.com with role: alex
+[2024-11-21 18:13:43] User registered: alex@gmail.com with role: alex
+[2024-11-21 18:13:43] Database connection closed.
+[2024-11-21 18:15:02] Running auth controller ,login 
+[2024-11-21 18:15:02] running login...in auth controller
+[2024-11-21 18:15:02] login function running...
+[2024-11-21 18:15:03] Connection established successfully to the database: rad_gymverse
+[2024-11-21 18:15:03] User class instantiated with database connection.
+[2024-11-21 18:15:03] User Login model running for: owner@gmail.com
+[2024-11-21 18:15:03] Query bound and ready to execute for login: owner@gmail.com
+[2024-11-21 18:15:04] User login successful: owner@gmail.com with role: owner
+[2024-11-21 18:15:04] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzMyMjEyMDAwfQ==.222edc8d415c5964e049bd92c7fbefc7196826d6952e2a4cb4ab0e97aedec69d owner
+[2024-11-21 18:15:04] Database connection closed.
+[2024-11-21 18:15:21] Running auth controller ,login 
+[2024-11-21 18:15:21] running login...in auth controller
+[2024-11-21 18:15:21] login function running...
+[2024-11-21 18:15:21] Connection established successfully to the database: rad_gymverse
+[2024-11-21 18:15:21] User class instantiated with database connection.
+[2024-11-21 18:15:22] User Login model running for: alex@gmail.com
+[2024-11-21 18:15:22] Query bound and ready to execute for login: alex@gmail.com
+[2024-11-21 18:15:22] User login successful: alex@gmail.com with role: 
+[2024-11-21 18:15:22] Login Successful: eyJ1c2VyX2lkIjo3OCwiZXhwIjoxNzMyMjEyMDAwfQ==.e6531adb682a2c6f80e4c730dc42861f048cb27b2edc129e1c62c284e72a40e5 
+[2024-11-21 18:15:22] Database connection closed.
+[2024-11-21 18:16:13] Running auth controller ,signup 
+[2024-11-21 18:16:13] Running signup....in auth controller
+[2024-11-21 18:16:13] signup function running...
+[2024-11-21 18:16:13] Connection established successfully to the database: rad_gymverse
+[2024-11-21 18:16:13] User class instantiated with database connection.
+[2024-11-21 18:16:13] User Register model running...
+[2024-11-21 18:16:14] Password hashed for user: moana@gmail.com
+[2024-11-21 18:16:14] Query bound and ready to execute for user: moana@gmail.com
+[2024-11-21 18:16:14] User registered successfully: moana@gmail.com with role: member
+[2024-11-21 18:16:14] User registered: moana@gmail.com with role: member
+[2024-11-21 18:16:14] Database connection closed.
+[2024-11-21 18:16:30] Running auth controller ,login 
+[2024-11-21 18:16:30] running login...in auth controller
+[2024-11-21 18:16:30] login function running...
+[2024-11-21 18:16:31] Connection established successfully to the database: rad_gymverse
+[2024-11-21 18:16:31] User class instantiated with database connection.
+[2024-11-21 18:16:31] User Login model running for: moana@gmail.com
+[2024-11-21 18:16:31] Query bound and ready to execute for login: moana@gmail.com
+[2024-11-21 18:16:32] User login successful: moana@gmail.com with role: member
+[2024-11-21 18:16:32] Login Successful: eyJ1c2VyX2lkIjo3OSwiZXhwIjoxNzMyMjEyMDAwfQ==.b023b3e58f093d977e092feaafd289d773372a831a5d69bd8117e185ddda9697 member
+[2024-11-21 18:16:32] Database connection closed.
+[2024-11-21 18:20:37] Running auth controller ,login 
+[2024-11-21 18:20:37] running login...in auth controller
+[2024-11-21 18:20:37] login function running...
+[2024-11-21 18:20:38] Connection established successfully to the database: rad_gymverse
+[2024-11-21 18:20:38] User class instantiated with database connection.
+[2024-11-21 18:20:38] User Login model running for: staff@gmail.com
+[2024-11-21 18:20:38] Query bound and ready to execute for login: staff@gmail.com
+[2024-11-21 18:20:38] User login successful: staff@gmail.com with role: staff
+[2024-11-21 18:20:38] Login Successful: eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzMyMjEyMDAwfQ==.54ad2619ca66b06500d7f798e31440be2035b9a8ffb2f3c8043f6a9e9a99ee0f staff
+[2024-11-21 18:20:39] Database connection closed.
+[2024-11-21 18:44:17] Running auth controller ,signup 
+[2024-11-21 18:44:17] Running signup....in auth controller
+[2024-11-21 18:44:17] signup function running...
+[2024-11-21 18:44:17] Connection established successfully to the database: rad_gymverse
+[2024-11-21 18:44:17] User class instantiated with database connection.
+[2024-11-21 18:44:17] Fetching user by email: moana@gmail.com
+[2024-11-21 18:44:17] Email already exists in the db
+[2024-11-21 18:44:17] Database connection closed.
+[2024-11-21 18:55:27] Running auth controller ,register_member 
+[2024-11-21 18:55:27] running member register...in auth controller
+[2024-11-21 18:55:27] register member function running...
+[2024-11-21 18:55:28] Connection established successfully to the database: rad_gymverse
+[2024-11-21 18:55:28] User class instantiated with database connection.
+[2024-11-21 18:55:28] Member model initialized with database connection.
+[2024-11-21 18:55:28] Fetching user by email: conor@gmail.com
+[2024-11-21 18:55:29] User Register model running...
+[2024-11-21 18:55:29] Password hashed for user: conor@gmail.com
+[2024-11-21 18:55:30] Query bound and ready to execute for user: conor@gmail.com
+[2024-11-21 18:55:30] User registered successfully: conor@gmail.com with role: member
+[2024-11-21 18:55:30] User registered: conor@gmail.com
+[2024-11-21 18:55:30] Fetching user by email: conor@gmail.com
+[2024-11-21 18:55:30] Entering to members: 80
+[2024-11-21 18:55:30] Registering member...
+[2024-11-21 18:55:31] No existing members found, starting ID from M1.
+[2024-11-21 18:55:31] Query bound for member registration: Conor McGregor
+[2024-11-21 18:55:31] Member registered successfully: Conor McGregor
+[2024-11-21 18:55:31] Member registered successfully with user ID: 80
+[2024-11-21 18:55:31] Database connection closed.
+[2024-11-21 18:59:57] Running landing page controller ,get_membershipPlans 
+[2024-11-21 18:59:57] Running get_membership plan....in controller
+[2024-11-21 18:59:57] get membership plans running running...
+[2024-11-21 18:59:58] Connection established successfully to the database: rad_gymverse
+[2024-11-21 18:59:58] Membership plan model initialized with database connection.
+[2024-11-21 18:59:58] Fetching membership plan...
+[2024-11-21 18:59:58] Membership Plans fetched successfully
+[2024-11-21 18:59:58] Membership plans fetched
+[2024-11-21 18:59:58] Database connection closed.
+[2024-11-21 19:00:00] Running landing page controller ,get_membershipPlans 
+[2024-11-21 19:00:00] Running get_membership plan....in controller
+[2024-11-21 19:00:00] get membership plans running running...
+[2024-11-21 19:00:01] Connection established successfully to the database: rad_gymverse
+[2024-11-21 19:00:01] Membership plan model initialized with database connection.
+[2024-11-21 19:00:01] Fetching membership plan...
+[2024-11-21 19:00:01] Membership Plans fetched successfully
+[2024-11-21 19:00:01] Membership plans fetched
+[2024-11-21 19:00:01] Database connection closed.
+[2024-11-21 20:13:54] Running auth controller ,register_member 
+[2024-11-21 20:13:54] running member register...in auth controller
+[2024-11-21 20:13:54] register member function running...
+[2024-11-21 20:13:54] Connection established successfully to the database: rad_gymverse
+[2024-11-21 20:13:54] User class instantiated with database connection.
+[2024-11-21 20:13:54] Member model initialized with database connection.
+[2024-11-21 20:13:54] Fetching user by email: nipuni@gmail.com
+[2024-11-21 20:13:54] User Register model running...
+[2024-11-21 20:13:55] Password hashed for user: nipuni@gmail.com
+[2024-11-21 20:13:55] Query bound and ready to execute for user: nipuni@gmail.com
+[2024-11-21 20:13:55] User registered successfully: nipuni@gmail.com with role: member
+[2024-11-21 20:13:55] User registered: nipuni@gmail.com
+[2024-11-21 20:13:55] Fetching user by email: nipuni@gmail.com
+[2024-11-21 20:13:55] Entering to members: 81
+[2024-11-21 20:13:55] Registering member...
+[2024-11-21 20:13:56] Query bound for member registration: nipuni kulathunga
+[2024-11-21 20:13:56] Member registered successfully: nipuni kulathunga
+[2024-11-21 20:13:56] Member registered successfully with user ID: 81
+[2024-11-21 20:13:56] Database connection closed.
+[2024-11-21 20:23:18] Running auth controller ,register_member 
+[2024-11-21 20:23:18] running member register...in auth controller
+[2024-11-21 20:23:18] register member function running...
+[2024-11-21 20:23:18] Connection established successfully to the database: rad_gymverse
+[2024-11-21 20:23:18] User class instantiated with database connection.
+[2024-11-21 20:23:18] Member model initialized with database connection.
+[2024-11-21 20:23:18] Fetching user by email: nipuni@gmail.com
+[2024-11-21 20:23:19] Email already exists in the db
+[2024-11-21 20:23:19] Database connection closed.
+[2024-11-21 20:23:28] Running auth controller ,register_member 
+[2024-11-21 20:23:28] running member register...in auth controller
+[2024-11-21 20:23:28] register member function running...
+[2024-11-21 20:23:29] Connection established successfully to the database: rad_gymverse
+[2024-11-21 20:23:29] User class instantiated with database connection.
+[2024-11-21 20:23:29] Member model initialized with database connection.
+[2024-11-21 20:23:29] Fetching user by email: nipuni123@gmail.com
+[2024-11-21 20:23:29] User Register model running...
+[2024-11-21 20:23:29] Password hashed for user: nipuni123@gmail.com
+[2024-11-21 20:23:29] Query bound and ready to execute for user: nipuni123@gmail.com
+[2024-11-21 20:23:30] User registered successfully: nipuni123@gmail.com with role: member
+[2024-11-21 20:23:30] User registered: nipuni123@gmail.com
+[2024-11-21 20:23:30] Fetching user by email: nipuni123@gmail.com
+[2024-11-21 20:23:30] Entering to members: 82
+[2024-11-21 20:23:30] Registering member...
+[2024-11-21 20:23:30] Query bound for member registration: nipuni kulathunga
+[2024-11-21 20:23:30] Member registered successfully: nipuni kulathunga
+[2024-11-21 20:23:30] Member registered successfully with user ID: 82
+[2024-11-21 20:23:30] Database connection closed.
+[2024-11-21 20:25:35] Running auth controller ,register_member 
+[2024-11-21 20:25:35] running member register...in auth controller
+[2024-11-21 20:25:35] register member function running...
+[2024-11-21 20:25:35] Connection established successfully to the database: rad_gymverse
+[2024-11-21 20:25:35] User class instantiated with database connection.
+[2024-11-21 20:25:35] Member model initialized with database connection.
+[2024-11-21 20:25:35] Fetching user by email: nipuni123@gmail.com
+[2024-11-21 20:25:35] Email already exists in the db
+[2024-11-21 20:25:35] Database connection closed.
+[2024-11-21 20:25:43] Running auth controller ,register_member 
+[2024-11-21 20:25:43] running member register...in auth controller
+[2024-11-21 20:25:43] register member function running...
+[2024-11-21 20:25:44] Connection established successfully to the database: rad_gymverse
+[2024-11-21 20:25:44] User class instantiated with database connection.
+[2024-11-21 20:25:44] Member model initialized with database connection.
+[2024-11-21 20:25:44] Fetching user by email: nipuni1234@gmail.com
+[2024-11-21 20:25:44] User Register model running...
+[2024-11-21 20:25:44] Password hashed for user: nipuni1234@gmail.com
+[2024-11-21 20:25:44] Query bound and ready to execute for user: nipuni1234@gmail.com
+[2024-11-21 20:25:44] User registered successfully: nipuni1234@gmail.com with role: member
+[2024-11-21 20:25:44] User registered: nipuni1234@gmail.com
+[2024-11-21 20:25:44] Fetching user by email: nipuni1234@gmail.com
+[2024-11-21 20:25:45] Entering to members: 83
+[2024-11-21 20:25:45] Registering member...
+[2024-11-21 20:25:45] Query bound for member registration: nipuni kulathunga
+[2024-11-21 20:25:45] Member registered successfully: nipuni kulathunga
+[2024-11-21 20:25:45] Member registered successfully with user ID: 83
+[2024-11-21 20:25:45] Database connection closed.
+[2024-11-21 20:31:12] Running auth controller ,register_member 
+[2024-11-21 20:31:12] running member register...in auth controller
+[2024-11-21 20:31:12] register member function running...
+[2024-11-21 20:31:12] Connection established successfully to the database: rad_gymverse
+[2024-11-21 20:31:12] User class instantiated with database connection.
+[2024-11-21 20:31:12] Member model initialized with database connection.
+[2024-11-21 20:31:12] Fetching user by email: bla@gmail.com
+[2024-11-21 20:31:13] User Register model running...
+[2024-11-21 20:31:13] Password hashed for user: bla@gmail.com
+[2024-11-21 20:31:13] Query bound and ready to execute for user: bla@gmail.com
+[2024-11-21 20:31:13] User registered successfully: bla@gmail.com with role: member
+[2024-11-21 20:31:13] User registered: bla@gmail.com
+[2024-11-21 20:31:13] Fetching user by email: bla@gmail.com
+[2024-11-21 20:31:13] Entering to members: 84
+[2024-11-21 20:31:13] Registering member...
+[2024-11-21 20:31:14] Query bound for member registration: jaokdj nandk
+[2024-11-21 20:31:14] Member registered successfully: jaokdj nandk
+[2024-11-21 20:31:14] Member registered successfully with user ID: 84
+[2024-11-21 20:31:14] Database connection closed.

@@ -95,7 +95,6 @@ export function loadPage(page) {
       // Append page-specific JavaScript
       if (!document.querySelector(`script[src="${pageJsUrl}"]`)) {
         const script = document.createElement("script");
-        console.log("appended yakow");
         script.src = pageJsUrl;
         script.type = "module";
         document.body.appendChild(script);
