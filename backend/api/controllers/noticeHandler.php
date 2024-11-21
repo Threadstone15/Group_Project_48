@@ -40,9 +40,10 @@ function updateNotice($publisher_id) {
     logMessage("update notice function running...");
 
     $notice = new Notice();
-    $notice_id = intval($_POST['notice_id']);
-    $title = filter_var($_POST['title'], FILTER_SANITIZE_STRING);
-    $description = filter_var($_POST['description'], FILTER_SANITIZE_STRING);
+    $data = json_decode(file_get_contents("php://input"), true);
+    $notice_id = intval($data['notice_id']);
+    $title = filter_var($data['title'], FILTER_SANITIZE_STRING);
+    $description = filter_var($data['description'], FILTER_SANITIZE_STRING);
 
     if ($notice->updateNotice($notice_id, $publisher_id, $title, $description)) {
         logMessage("Notice updated successfully: $notice_id");

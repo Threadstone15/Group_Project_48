@@ -154,10 +154,12 @@ function deleteNotice(noticeId) {
 function openUpdatePopup(button) {
     const row = button.closest("tr");
     const noticeId = row.cells[0].textContent;
+    //const publisherId = row.cells[1].textContent;
     const title = row.cells[2].textContent;
     const description = row.cells[3].textContent;
 
     document.getElementById("updateNoticeId").value = noticeId;
+    //document.getElementById("updatePublisherId").value = publisherId;
     document.getElementById("updateNoticeTitle").value = title;
     document.getElementById("updateNoticeDescription").value = description;
 
