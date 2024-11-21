@@ -1,8 +1,8 @@
 console.log("JS loaded");
 
-const equipmentTable = document.getElementById("equipmentsTable");
+const equipmentTable = document.getElementById("equipmentsMaintainceTable");
 
-if (equipmentTable) {
+if (equipmentsMaintainceTable) {
     fetchEquipmentList(); // Trigger fetching the equipment list if the table exists
 } else {
     console.warn("Equipment table not found. Skipping fetch.");
@@ -23,7 +23,7 @@ function fetchEquipmentList() {
         redirect: 'follow'
     };
 
-    fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php?action=get_equipments", requestOptions)
+    fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php?action=get_maintenances", requestOptions)
         .then(response => {
             if (!response.ok) throw new Error("Failed to fetch equipment list");
             return response.json();
@@ -39,14 +39,14 @@ function fetchEquipmentList() {
                     const row = document.createElement("tr");
 
                     row.innerHTML = `
+                        <td>${equipment['maintenance_id']}</td>
                         <td>${equipment['equipment_id']}</td>
-                        <td>${equipment['name']}</td>
-                        <td>${equipment['purchase_date']}</td>
-                        <td>${equipment['status']}</td>
-                        <td>${equipment['maintenance_frequency']}</td>
+                        <td>${equipment['maintenance_date']}</td>
+                        <td>${equipment['details']}</td>
+                        <td>${equipment['next_maintenance_date']}</td>
                         <td>
                             <button class="update-button" onclick="openUpdatePopup(this)">Update</button>
-                            <button class="delete-button" onclick="deleteEquipment('${equipment['equipment_id']}')">Delete</button>
+                            <button class="delete-button" onclick="deleteEquipment('${equipment['maintenance_id']}')">Delete</button>
                         </td>
                     `;
 
@@ -61,8 +61,8 @@ function fetchEquipmentList() {
         .catch(error => console.error("Error fetching equipment list:", error));
 }
 
-function deleteEquipment(equipmentId) {
-  console.log(`Delete button clicked for equipment ID: ${equipmentId}`);
+function deleteEquipment(maintenanceId) {
+  console.log(`Delete button clicked for maintenance ID: ${maintenanceId}`);
   
   // Show confirmation popup
   const deletePopup = document.getElementById("deletePopup");
@@ -87,8 +87,8 @@ function deleteEquipment(equipmentId) {
           redirect: 'follow'
       };
 
-      // Send DELETE request to the backend with the equipmentId in the URL
-      fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php?action=delete_equipment&equipment_id=${equipmentId}`, requestOptions)
+      // Send DELETE request to the backend with the maintenanceId in the URL
+      fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php?action=delete_maintenance&maintenance_id=${maintenanceId}`, requestOptions)
           .then(response => {
               if (!response.ok) {
                   throw new Error("Failed to delete equipment");
@@ -113,17 +113,19 @@ function deleteEquipment(equipmentId) {
 
 
 function openUpdatePopup(button) {
-  const row = button.closest('tr'); // Get the row containing the clicked button
-  const equipmentId = row.cells[0].textContent; // Equipment ID
-  const name = row.cells[1].textContent; // Name
-  const purchaseDate = row.cells[2].textContent; // Purchase Date
-  const maintenanceDuration = row.cells[4].textContent; // Maintenance Frequency
-
-  // Fill the update form with the selected row's data
-  document.getElementById("updateEquipmentId").value = equipmentId;
-  document.getElementById("updateEquipmentName").value = name;
-  document.getElementById("updatePurchaseDate").value = purchaseDate;
-  document.getElementById("updateMaintenanceDuration").value = maintenanceDuration;
+    const row = button.closest('tr');
+    const maintenanceId = row.cells[0].textContent;
+    const equipmentId = row.cells[1].textContent; // Equipment ID
+    const maintenanceDate = row.cells[2].textContent; // Maintenance Date
+    const details = row.cells[3].textContent; // Details
+    const nextMaintenanceDate = row.cells[4].textContent; // Next Maintenance Date
+    
+    document.getElementById("updateMaintenanceID").value = maintenanceId;
+    document.getElementById("updateEquipmentID").value = equipmentId;
+    document.getElementById("updateMaintainanceDate").value = maintenanceDate;
+    document.getElementById("updateMaintainceDetails").value = details;
+    document.getElementById("updateNextMaintenanceDate").value = nextMaintenanceDate;
+    
 
   // Show the update popup
   document.getElementById("updatePopup").style.display = "block";
@@ -138,17 +140,18 @@ document.getElementById("updateForm").addEventListener("submit", function (event
 
   console.log("Update equipment form submitted");
 
-  const equipmentId = document.getElementById("updateEquipmentId").value;
-  const equipmentName = document.getElementById("updateEquipmentName").value;
-  const purchaseDate = document.getElementById("updatePurchaseDate").value;
-  const maintenanceDuration = document.getElementById("updateMaintenanceDuration").value;
+  const maintenanceId = document.getElementById("updateMaintenanceID").value;
+  const equipmentId = document.getElementById("updateEquipmentID").value;
+  const maintenanceDate = document.getElementById("updateMaintainanceDate").value;
+  const details = document.getElementById("updateMaintainceDetails").value;
+  const nextMaintenanceDate = document.getElementById("updateNextMaintenanceDate").value;
 
   const formData = {
+    maintenance_id: maintenanceId,
     equipment_id: equipmentId,
-    name: equipmentName,
-    purchase_date: purchaseDate,
-    status: "active",  // Assuming status is 'active' by default. Update if needed.
-    maintenance_frequency: maintenanceDuration
+    maintenance_date: maintenanceDate,
+    details: details, 
+    next_maintenance_date: nextMaintenanceDate
   };
 
   const authToken = localStorage.getItem("authToken");
@@ -163,7 +166,7 @@ document.getElementById("updateForm").addEventListener("submit", function (event
     redirect: 'follow'
   };
 
-  fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php?action=update_equipment_status", requestOptions)
+  fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php?action=update_maintenance_status", requestOptions)
     .then(response => {
       if (!response.ok) throw new Error("Failed to update equipment");
       return response.json();
@@ -186,61 +189,64 @@ document.getElementById("updateForm").addEventListener("submit", function (event
 
 
 document.getElementById('equipmentForm').addEventListener('submit', (event) => {
-  event.preventDefault();
+    event.preventDefault();
+    
+    console.log("Add maintenance record form submitted"); // Debugging log
+    
+    // Get form input values
+    const equipmentID = document.getElementById("equipmentID").value;
+    const maintainanceDate = document.getElementById("maintainanceDate").value;
+    const maintainceDetails = document.getElementById("maintainceDetails").value;
+    const nextMaintenanceDate = document.getElementById("nextMaintenanceDate").value;
+    
+    console.log("Equipment ID:", equipmentID); // Debugging log
+    console.log("Maintainance Date:", maintainanceDate); // Debugging log
+    console.log("Details:", maintainceDetails); // Debugging log
+    console.log("Next Maintenance Date:", nextMaintenanceDate); // Debugging log
+    
+    // Prepare form data using FormData
+    const formData = new FormData();
+    formData.append("equipment_id", equipmentID);
+    formData.append("maintainance_date", maintainanceDate);
+    formData.append("details", maintainceDetails);
+    formData.append("next_maintenance_date", nextMaintenanceDate);
+    formData.append("action", "add_maintenance"); // Set the action to match the backend case
+    
+    // Retrieve auth token from local storage
+    const authToken = localStorage.getItem("authToken");
+    
+    if (!authToken) {
+        console.error("Auth token not found. Please log in.");
+        return;
+    }
+    
+    console.log("Auth Token:", authToken); // Debugging log
+    
+    // Set up the request with headers and form data
+    const requestOptions = {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${authToken}`
+        },
+        body: formData,
+        redirect: 'follow'
+    };
+    
+    // Send POST request to backend
+    fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php", requestOptions)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Failed to add maintenance record");
+            }
+            return response.text();
+        })
+        .then(result => {
+            console.log("Maintenance record added successfully:", result); // Debugging log
+            fetchEquipmentList(); // Refresh equipment list after adding
+        })
+        .catch(error => console.error("Error adding maintenance record:", error));
+  });
   
-  console.log("Add equipment form submitted"); // Debugging log
-  
-  // Get form input values
-  const equipmentName = document.getElementById("equipmentName").value;
-  const purchaseDate = document.getElementById("purchaseDate").value;
-  const maintenanceDuration = document.getElementById("maintenanceDuration").value;
-  
-  console.log("Equipment Name:", equipmentName); // Debugging log
-  console.log("Purchase Date:", purchaseDate); // Debugging log
-  console.log("Maintenance Duration:", maintenanceDuration); // Debugging log
-  
-  // Prepare form data using FormData
-  const formData = new FormData();
-  formData.append("name", equipmentName);
-  formData.append("purchase_date", purchaseDate);
-  formData.append("maintenance_frequency", maintenanceDuration);
-  formData.append("status", "active"); // Assuming "status" is hard-coded as "active"
-  formData.append("action", "add_equipment"); // Set the action to match the backend case
-  
-  // Retrieve auth token from local storage
-  const authToken = localStorage.getItem("authToken");
-  
-  if (!authToken) {
-      console.error("Auth token not found. Please log in.");
-      return;
-  }
-  
-  console.log("Auth Token:", authToken); // Debugging log
-  
-  // Set up the request with headers and form data
-  const requestOptions = {
-      method: 'POST',
-      headers: {
-          'Authorization': `Bearer ${authToken}`
-      },
-      body: formData,
-      redirect: 'follow'
-  };
-  
-  // Send POST request to backend
-  fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php", requestOptions)
-      .then(response => {
-          if (!response.ok) {
-              throw new Error("Failed to add equipment");
-          }
-          return response.text();
-      })
-      .then(result => {
-          console.log("Equipment added successfully:", result); // Debugging log
-          fetchEquipmentList(); // Refresh equipment list after adding
-      })
-      .catch(error => console.error("Error adding equipment:", error));
-});
 
 // Close the delete popup when the close button is clicked
 document.getElementById("closePopup").addEventListener("click", function () {

@@ -72,7 +72,7 @@ switch ($action) {
         logMessage("Running add_notice....in controller");
         addNotice($user_id);
         break;
-    case 'get_notice':
+    case 'get_notices':
         logMessage("Running get_notice....in controller");
         getNotices();
         break;

@@ -6,15 +6,22 @@ include_once "../../logs/save.php";
 
 // Add Maintenance
 function addMaintenance() {
+    logMessage("addMaintenance function running...");
+
     $equipmentMaintenance = new EquipmentMaintenance();
-    $data = json_decode(file_get_contents("php://input"), true);
 
-    if (isset($data['equipment_id'], $data['maintenance_date'], $data['details'], $data['next_maintenance_date'])) {
-        $equipment_id = intval($data['equipment_id']);
-        $maintenance_date = $data['maintenance_date'];
-        $details = filter_var($data['details'], FILTER_SANITIZE_STRING);
-        $next_maintenance_date = $data['next_maintenance_date'];
+    // Retrieve and sanitize POST data
+    $equipment_id = intval($_POST['equipment_id']);
+    $maintenance_date = $_POST['maintainance_date'];
+    $details = filter_var($_POST['details'], FILTER_SANITIZE_STRING);
+    $next_maintenance_date = $_POST['next_maintenance_date'];
 
+    // Log received data
+    logMessage("Received data: equipment_id = $equipment_id, maintenance_date = $maintenance_date, details = $details, next_maintenance_date = $next_maintenance_date");
+
+    // Validate input
+    if (!empty($equipment_id) && !empty($maintenance_date) && !empty($details) && !empty($next_maintenance_date)) {
+        // Attempt to add maintenance record
         if ($equipmentMaintenance->addMaintenance($equipment_id, $maintenance_date, $details, $next_maintenance_date)) {
             logMessage("Maintenance added for equipment: $equipment_id");
             echo json_encode(["message" => "Maintenance record added successfully"]);
@@ -27,6 +34,8 @@ function addMaintenance() {
         echo json_encode(["error" => "Invalid input data"]);
     }
 }
+
+
 
 // Get Maintenance Records
 function getMaintenance() {
@@ -70,11 +79,13 @@ function updateMaintenance() {
 
 // Delete Maintenance Record
 function deleteMaintenance() {
-    $equipmentMaintenance = new EquipmentMaintenance();
-    $input = json_decode(file_get_contents("php://input"), true);
 
-    if (isset($input['maintenance_id'])) {
-        $maintenance_id = intval($input['maintenance_id']);
+    logMessage("delete equipMaintaince function running...");
+
+    $equipmentMaintenance = new EquipmentMaintenance();
+
+    if (isset($_GET['maintenance_id'])) {
+        $maintenance_id = intval($_GET['maintenance_id']);
 
         if ($equipmentMaintenance->deleteMaintenance($maintenance_id)) {
             logMessage("Maintenance record deleted: $maintenance_id");
