@@ -57,7 +57,7 @@ function deleteNotice() {
     logMessage("delete notice function running...");
 
     $notice = new Notice();
-    $notice_id = intval($_POST['notice_id']);
+    $notice_id = intval($_GET['notice_id']);
 
     if ($notice->deleteNotice($notice_id)) {
         logMessage("Notice deleted successfully: $notice_id");

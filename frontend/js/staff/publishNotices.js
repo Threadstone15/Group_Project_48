@@ -1,58 +1,214 @@
 console.log("JS loaded");
 
-// Select the button, input, and list elements
-const publishBtn = document.getElementById("publishBtn");
-const noticeInput = document.getElementById("noticeInput");
-const noticesList = document.getElementById("noticesList");
+const noticeTable = document.getElementById("equipmentsTable");
 
-// Function to publish a notice
-publishBtn.addEventListener("click", () => {
-    const noticeText = noticeInput.value.trim();
-    
-    // Check if notice text is empty
-    if (noticeText === "") {
-        alert("Please enter a notice!");
+// Initialize notice data if the table exists
+if (noticeTable) {
+    fetchNoticeList();
+} else {
+    console.warn("Notice table not found. Skipping fetch.");
+}
+
+// Fetch the list of notices from the backend
+function fetchNoticeList() {
+    console.log("Fetching Notices");
+
+    const authToken = localStorage.getItem("authToken");
+    if (!authToken) {
+        console.error("Auth token not found. Please log in.");
         return;
     }
 
-    // Prepare the data to send to the backend
-    const noticeData = {
-        title: "New Notice", // You can customize the title or make it dynamic if needed
-        description: noticeText,
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Authorization': `Bearer ${authToken}` },
+        redirect: 'follow'
     };
 
-    const authToken = localStorage.getItem("authToken");
+    fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php?action=get_notices", requestOptions)
+        .then(response => {
+            if (!response.ok) throw new Error("Failed to fetch notice list");
+            return response.json();
+        })
+        .then(data => {
+            console.log("Fetched notice list:", data);
 
-    // Prepare request options
+            const tableBody = noticeTable.getElementsByTagName("tbody")[0];
+            tableBody.innerHTML = "";
+
+            if (data.length > 0) {
+                data.forEach(notice => {
+                    const row = document.createElement("tr");
+
+                    row.innerHTML = `
+                        <td>${notice['notice_id']}</td>
+                        <td>${notice['publisher_id']}</td>
+                        <td>${notice['title']}</td>
+                        <td>${notice['description']}</td>
+                        <td>
+                            <button class="update-button" onclick="openUpdatePopup(this)">Update</button>
+                            <button class="delete-button" onclick="deleteNotice('${notice['notice_id']}')">Delete</button>
+                        </td>
+                    `;
+
+                    tableBody.appendChild(row);
+                });
+            } else {
+                const noDataRow = document.createElement("tr");
+                noDataRow.innerHTML = `<td colspan="5" style="text-align: center;">No notices found</td>`;
+                tableBody.appendChild(noDataRow);
+            }
+        })
+        .catch(error => console.error("Error fetching notice list:", error));
+}
+
+// Add a new notice
+document.getElementById("publishBtn").addEventListener("click", function () {
+    const noticeInput = document.getElementById("noticeInput").value;
+    const noticeInputTopic = document.getElementById("noticeInputTopic").value;
+
+    if (!noticeInput.trim()) {
+        alert("Notice content cannot be empty!");
+        return;
+    }
+    if (!noticeInputTopic.trim()) {
+        alert("Notice title cannot be empty!");
+        return;
+    }
+
+    const authToken = localStorage.getItem("authToken");
+    if (!authToken) {
+        console.error("Auth token not found. Please log in.");
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("title", noticeInputTopic);
+    formData.append("description", noticeInput);
+    formData.append("action", "add_notice");
+
     const requestOptions = {
         method: 'POST',
         headers: {
-            'Authorization': `Bearer ${authToken}`,
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': `Bearer ${authToken}`
         },
-        body: new URLSearchParams(noticeData),
+        body: formData,
+        redirect: 'follow'
     };
 
-    // Send the request to the backend
-    fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php?action=add_notice", requestOptions)
-        .then(response => response.json())
-        .then(data => {
-            if (data.message) {
-                alert("Notice published successfully!");
-                
-                // Create a new list item element for the notice
-                const noticeItem = document.createElement("li");
-                noticeItem.classList.add("notice-item");
-                noticeItem.textContent = noticeText;
-                
-                // Add the new notice to the top of the list
-                noticesList.prepend(noticeItem);
-                
-                // Clear the input field
-                noticeInput.value = "";
-            } else {
-                alert("Failed to publish notice.");
-            }
+    fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php", requestOptions)
+        .then(response => {
+            if (!response.ok) throw new Error("Failed to add notice");
+            return response.text();
         })
-        .catch(error => console.error("Error publishing notice:", error));
+        .then(result => {
+            console.log("Notice added successfully:", result);
+            fetchNoticeList(); // Refresh the notice list
+            document.getElementById("noticeInput").value = ""; // Clear the input field
+        })
+        .catch(error => console.error("Error adding notice:", error));
+});
+
+// Delete a notice
+function deleteNotice(noticeId) {
+    console.log(`Delete button clicked for notice ID: ${noticeId}`);
+    
+    const deletePopup = document.getElementById("deletePopup");
+    deletePopup.style.display = "block";
+
+    document.getElementById("confirmDelete").onclick = () => {
+        const authToken = localStorage.getItem("authToken");
+        if (!authToken) {
+            console.error("Auth token not found. Please log in.");
+            return;
+        }
+
+        const requestOptions = {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${authToken}`,
+                'Content-Type': 'application/json'
+            },
+            redirect: 'follow'
+        };
+
+        fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php?action=delete_notice&notice_id=${noticeId}`, requestOptions)
+            .then(response => {
+                if (!response.ok) throw new Error("Failed to delete notice");
+                return response.json();
+            })
+            .then(result => {
+                console.log("Notice deleted successfully:", result);
+                fetchNoticeList(); // Refresh the notice list
+                deletePopup.style.display = "none";
+            })
+            .catch(error => console.error("Error deleting notice:", error));
+    };
+
+    document.getElementById("cancelDelete").onclick = () => {
+        deletePopup.style.display = "none";
+    };
+}
+
+// Open the update popup for editing a notice
+function openUpdatePopup(button) {
+    const row = button.closest("tr");
+    const noticeId = row.cells[0].textContent;
+    const title = row.cells[2].textContent;
+    const description = row.cells[3].textContent;
+
+    document.getElementById("updateNoticeId").value = noticeId;
+    document.getElementById("updateNoticeTitle").value = title;
+    document.getElementById("updateNoticeDescription").value = description;
+
+    document.getElementById("updatePopup").style.display = "block";
+}
+
+// Update a notice
+document.getElementById("updateForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const noticeId = document.getElementById("updateNoticeId").value;
+    const title = document.getElementById("updateNoticeTitle").value;
+    const description = document.getElementById("updateNoticeDescription").value;
+
+    const authToken = localStorage.getItem("authToken");
+    if (!authToken) {
+        console.error("Auth token not found. Please log in.");
+        return;
+    }
+
+    const formData = JSON.stringify({
+        notice_id: noticeId,
+        title: title,
+        description: description
+    });
+
+    const requestOptions = {
+        method: 'PUT',
+        headers: {
+            'Authorization': `Bearer ${authToken}`,
+            'Content-Type': 'application/json'
+        },
+        body: formData,
+        redirect: 'follow'
+    };
+
+    fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php?action=update_notice", requestOptions)
+        .then(response => {
+            if (!response.ok) throw new Error("Failed to update notice");
+            return response.json();
+        })
+        .then(result => {
+            console.log("Notice updated successfully:", result);
+            fetchNoticeList(); // Refresh the notice list
+            document.getElementById("updatePopup").style.display = "none";
+        })
+        .catch(error => console.error("Error updating notice:", error));
+});
+
+// Close the delete popup
+document.getElementById("closePopup").addEventListener("click", function () {
+    const popup = document.getElementById("deletePopup");
+    popup.style.display = "none";
 });
