@@ -557,3 +557,66 @@
 [2024-11-21 17:21:44] Notices fetched successfully
 [2024-11-21 17:21:44] Notices fetched successfully
 [2024-11-21 17:21:44] Database connection closed.
+[2024-11-21 17:39:12] Connection established successfully to the database: rad_gymverse
+[2024-11-21 17:39:12] User class instantiated with database connection.
+[2024-11-21 17:39:12] Fetching user role by user ID: 68
+[2024-11-21 17:39:12] User role fetched successfully for user ID: 68
+[2024-11-21 17:39:12] Running staff controller ,get_notices token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzMyMjA4NDAwfQ==.25e49fd2b86bb5a8a3428ee00643d73e6e5b580f615744ec0c59167018d20997   id - 68 
+[2024-11-21 17:39:12] Running get_notice....in controller
+[2024-11-21 17:39:12] get notices function running...
+[2024-11-21 17:39:12] Notice model initialized with database connection.
+[2024-11-21 17:39:12] Fetching notices...
+[2024-11-21 17:39:12] Notices fetched successfully
+[2024-11-21 17:39:12] Notices fetched successfully
+[2024-11-21 17:39:12] Database connection closed.
+[2024-11-21 17:44:40] Running: POST
+[2024-11-21 17:44:40] Running auth controller
+[2024-11-21 17:44:40] Raw input: {"login":1,"email":"admin@gmail.com","password":"admin"}
+[2024-11-21 17:44:40] step...1
+[2024-11-21 17:44:40] step...2
+[2024-11-21 17:44:40] Running log-in
+[2024-11-21 17:44:40] Connection established successfully to the database: rad_gymverse
+[2024-11-21 17:44:40] User class instantiated with database connection.
+[2024-11-21 17:44:40] User Login model running for: admin@gmail.com
+[2024-11-21 17:44:40] Query bound and ready to execute for login: admin@gmail.com
+[2024-11-21 17:44:41] User login successful: admin@gmail.com with role: admin
+[2024-11-21 17:44:41] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyMjA4NDAwfQ==.ae521a77718e10c550bb915537d538d33be27004e8daf8e462ca670339fc5516 admin
+[2024-11-21 17:44:41] Database connection closed.
+[2024-11-21 17:49:24] Running: POST
+[2024-11-21 17:49:24] Running auth controller
+[2024-11-21 17:49:24] Raw input: {"login":1,"email":"trainer@gmail.com","password":"admin"}
+[2024-11-21 17:49:24] step...1
+[2024-11-21 17:49:24] step...2
+[2024-11-21 17:49:24] Running log-in
+[2024-11-21 17:49:24] Connection established successfully to the database: rad_gymverse
+[2024-11-21 17:49:24] User class instantiated with database connection.
+[2024-11-21 17:49:24] User Login model running for: trainer@gmail.com
+[2024-11-21 17:49:25] Query bound and ready to execute for login: trainer@gmail.com
+[2024-11-21 17:49:25] Invalid credentials for user: trainer@gmail.com
+[2024-11-21 17:49:25] Database connection closed.
+[2024-11-21 17:49:36] Running: POST
+[2024-11-21 17:49:36] Running auth controller
+[2024-11-21 17:49:36] Raw input: {"login":1,"email":"trainer@gmail.com","password":"trainer"}
+[2024-11-21 17:49:36] step...1
+[2024-11-21 17:49:36] step...2
+[2024-11-21 17:49:36] Running log-in
+[2024-11-21 17:49:37] Connection established successfully to the database: rad_gymverse
+[2024-11-21 17:49:37] User class instantiated with database connection.
+[2024-11-21 17:49:37] User Login model running for: trainer@gmail.com
+[2024-11-21 17:49:37] Query bound and ready to execute for login: trainer@gmail.com
+[2024-11-21 17:49:37] User login successful: trainer@gmail.com with role: trainer
+[2024-11-21 17:49:37] Login Successful: eyJ1c2VyX2lkIjo3NiwiZXhwIjoxNzMyMjA4NDAwfQ==.6aef9095f45cf30e404f508be2626ff2a868e6f4a97c47cbbddad3fec04a29e0 trainer
+[2024-11-21 17:49:37] Database connection closed.
+[2024-11-22 05:27:19] Running: POST
+[2024-11-22 05:27:19] Running auth controller
+[2024-11-22 05:27:19] Raw input: {"login":1,"email":"admin@gmail.com","password":"admin"}
+[2024-11-22 05:27:19] step...1
+[2024-11-22 05:27:19] step...2
+[2024-11-22 05:27:19] Running log-in
+[2024-11-22 05:27:20] Connection established successfully to the database: rad_gymverse
+[2024-11-22 05:27:20] User class instantiated with database connection.
+[2024-11-22 05:27:20] User Login model running for: admin@gmail.com
+[2024-11-22 05:27:21] Query bound and ready to execute for login: admin@gmail.com
+[2024-11-22 05:27:21] User login successful: admin@gmail.com with role: admin
+[2024-11-22 05:27:21] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyMjUxNjAwfQ==.a976ace89684903e9486a277e589c10207345632ec3eab57aac4d48734be6c7d admin
+[2024-11-22 05:27:21] Database connection closed.

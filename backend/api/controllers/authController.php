@@ -58,6 +58,41 @@ if (is_array($input)) {
         }
     }
 
+    if ($request_method == 'POST' && isset($input['password_reset_mail_check'])) {
+        logMessage("Running password reset");
+    
+        $email = filter_var($input['email'], FILTER_SANITIZE_EMAIL);
+        $user = new User();
+    
+        // Check if the user exists
+        if ($user->userExists($email)) {
+            // Generate a password reset token
+            $token = bin2hex(random_bytes(32));
+            $reset_link = "https://yourwebsite.com/reset-password?token=$token";
+    
+            // Send the email
+            $subject = "Password Reset Request";
+            $message = "Hello,\n\nWe received a request to reset your password. Click the link below to reset it:\n\n$reset_link\n\nIf you didn't request this, you can safely ignore this email.\n\nBest Regards,\nYour Team";
+            $headers = "From: no-reply@yourwebsite.com";
+    
+            if (mail($email, $subject, $message, $headers)) {
+                logMessage("Password reset email sent successfully to: $email");
+                echo json_encode(["success" => true, "message" => "Password reset email sent."]);
+            } else {
+                logMessage("Failed to send password reset email to: $email");
+                echo json_encode(["success" => false, "message" => "Failed to send email."]);
+            }
+    
+            // Optionally, save the token to the database for validation later
+            // $user->saveResetToken($email, $token);
+    
+        } else {
+            logMessage("No account found for email: $email");
+            echo json_encode(["success" => false, "message" => "No account found for this email."]);
+        }
+    }
+    
+
     // Login User
     if ($request_method == 'POST' && isset($input['login'])) {
         logMessage("Running log-in");
