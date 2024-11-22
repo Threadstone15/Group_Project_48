@@ -3769,3 +3769,40 @@
 [2024-11-22 08:44:52] User login successful: anna@gmail.com with role: staff
 [2024-11-22 08:44:52] Login Successful: eyJ1c2VyX2lkIjo2OSwiZXhwIjoxNzMyMjYyNDAwfQ==.bb74d4687b3a41ecb612de24709e903107249a05507580460de1316af3a7d17d staff
 [2024-11-22 08:44:52] Database connection closed.
+[2024-11-22 14:49:10] Running auth controller ,register_member 
+[2024-11-22 14:49:10] running member register...in auth controller
+[2024-11-22 14:49:10] register member function running...
+[2024-11-22 14:49:11] Connection established successfully to the database: rad_gymverse
+[2024-11-22 14:49:11] User class instantiated with database connection.
+[2024-11-22 14:49:11] Member model initialized with database connection.
+[2024-11-22 14:49:11] Fetching user by email: member@gmail.com
+[2024-11-22 14:49:11] Email already exists in the db
+[2024-11-22 14:49:11] Database connection closed.
+[2024-11-22 14:52:49] Running auth controller ,register_member 
+[2024-11-22 14:52:49] running member register...in auth controller
+[2024-11-22 14:52:49] register member function running...
+[2024-11-22 14:52:50] Connection established successfully to the database: rad_gymverse
+[2024-11-22 14:52:50] User class instantiated with database connection.
+[2024-11-22 14:52:50] Member model initialized with database connection.
+[2024-11-22 14:52:50] Fetching user by email: member@gmail.com
+[2024-11-22 14:52:50] Email already exists in the db
+[2024-11-22 14:52:50] Database connection closed.
+[2024-11-22 14:52:58] Running auth controller ,register_member 
+[2024-11-22 14:52:58] running member register...in auth controller
+[2024-11-22 14:52:58] register member function running...
+[2024-11-22 14:52:58] Connection established successfully to the database: rad_gymverse
+[2024-11-22 14:52:58] User class instantiated with database connection.
+[2024-11-22 14:52:58] Member model initialized with database connection.
+[2024-11-22 14:52:58] Fetching user by email: member@gmail.com
+[2024-11-22 14:52:59] Email already exists in the db
+[2024-11-22 14:52:59] Database connection closed.
+[2024-11-22 14:53:15] Running auth controller ,login 
+[2024-11-22 14:53:15] running login...in auth controller
+[2024-11-22 14:53:15] login function running...
+[2024-11-22 14:53:15] Connection established successfully to the database: rad_gymverse
+[2024-11-22 14:53:15] User class instantiated with database connection.
+[2024-11-22 14:53:15] User Login model running for: member@gmail.com
+[2024-11-22 14:53:15] Query bound and ready to execute for login: member@gmail.com
+[2024-11-22 14:53:16] User login successful: member@gmail.com with role: member
+[2024-11-22 14:53:16] Login Successful: eyJ1c2VyX2lkIjo3MywiZXhwIjoxNzMyMjg0MDAwfQ==.531999bed6643ccc6d014786fe91b1cdd8886e828b375728f65f50ff22959232 member
+[2024-11-22 14:53:16] Database connection closed.
