@@ -20,6 +20,7 @@
         
         <!-- Notice Form -->
         <div class="notice-form">
+            <textarea id="noticeInputTopic" placeholder="Enter the Title" rows="1"></textarea>
             <textarea id="noticeInput" placeholder="Enter your notice here..." rows="5"></textarea>
             <button id="publishBtn">Publish Notice</button>
         </div>
@@ -33,6 +34,7 @@
                         <th>Publisher ID</th>
                         <th>Title</th>
                         <th>Description</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -58,22 +60,19 @@
         <div id="updatePopup" class="popup" style="display: none;">
             <button id="closeUpdatePopup" class="close-button">&times;</button> <!-- Close button -->
             <div class="popup-content">
-                <h2>Update Equipment</h2>
+                <h2>Update Notice</h2>
                 <form id="updateForm">
-                    <input type="hidden" id="updateEquipmentId">
+                    <input type="hidden" id="updateNoticeId">
+                    <input type="hidden" id="uupdatePublisherId">
                     <div class="form-group">
-                        <label for="updateEquipmentName">Name:</label>
-                        <input type="text" id="updateEquipmentName" class="form-input" />
+                        <label for="updateNoticeTitle">Title:</label>
+                        <input type="text" id="updateNoticeTitle" rows="1" class="form-input" />
                     </div>
                     <div class="form-group">
-                        <label for="updatePurchaseDate">Purchase Date:</label>
-                        <input type="date" id="updatePurchaseDate" class="form-input" />
+                        <label for="updateNoticeDescription">Description:</label>
+                        <input type="text" id="updateNoticeDescription" rows="5" class="form-input" />
                     </div>
-                    <div class="form-group">
-                        <label for="updateMaintenanceDuration">Maintenance Duration:</label>
-                        <input type="text" id="updateMaintenanceDuration" class="form-input" />
-                    </div>
-                    <button type="submit" class="submit-button">Update Equipment</button>
+                    <button type="submit" class="submit-button">Update Notice</button>
                 </form>
             </div>
         </div>

@@ -116,13 +116,15 @@ function openUpdatePopup(button) {
   const row = button.closest('tr'); // Get the row containing the clicked button
   const equipmentId = row.cells[0].textContent; // Equipment ID
   const name = row.cells[1].textContent; // Name
-  const purchaseDate = row.cells[2].textContent; // Purchase Date
+  const purchaseDate = row.cells[2].textContent;
+  const status = row.cells[3].textContent;
   const maintenanceDuration = row.cells[4].textContent; // Maintenance Frequency
 
   // Fill the update form with the selected row's data
   document.getElementById("updateEquipmentId").value = equipmentId;
   document.getElementById("updateEquipmentName").value = name;
   document.getElementById("updatePurchaseDate").value = purchaseDate;
+  document.getElementById("updateStatus").value = status;
   document.getElementById("updateMaintenanceDuration").value = maintenanceDuration;
 
   // Show the update popup
@@ -141,13 +143,14 @@ document.getElementById("updateForm").addEventListener("submit", function (event
   const equipmentId = document.getElementById("updateEquipmentId").value;
   const equipmentName = document.getElementById("updateEquipmentName").value;
   const purchaseDate = document.getElementById("updatePurchaseDate").value;
+  const status = document.getElementById("updateStatus").value;
   const maintenanceDuration = document.getElementById("updateMaintenanceDuration").value;
 
   const formData = {
     equipment_id: equipmentId,
     name: equipmentName,
     purchase_date: purchaseDate,
-    status: "active",  // Assuming status is 'active' by default. Update if needed.
+    status: status,  // Assuming status is 'active' by default. Update if needed.
     maintenance_frequency: maintenanceDuration
   };
 
