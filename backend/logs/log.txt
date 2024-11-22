@@ -3680,3 +3680,92 @@
 [2024-11-19 17:56:46] Equipment fetched successfully
 [2024-11-19 17:56:46] Equipment data fetched
 [2024-11-19 17:56:46] Database connection closed.
+[2024-11-22 06:13:33] Running auth controller ,login 
+[2024-11-22 06:13:33] running login...in auth controller
+[2024-11-22 06:13:33] login function running...
+[2024-11-22 06:13:34] Connection established successfully to the database: rad_gymverse
+[2024-11-22 06:13:34] User class instantiated with database connection.
+[2024-11-22 06:13:34] User Login model running for: anna@gmail.com
+[2024-11-22 06:13:34] Query bound and ready to execute for login: anna@gmail.com
+[2024-11-22 06:13:34] User login successful: anna@gmail.com with role: staff
+[2024-11-22 06:13:34] Login Successful: eyJ1c2VyX2lkIjo2OSwiZXhwIjoxNzMyMjU1MjAwfQ==.347e77af0bb4349a7af209518a048cd7d7f134be09fa7d35abfb8b4559726e0b staff
+[2024-11-22 06:13:34] Database connection closed.
+[2024-11-22 06:13:40] Connection established successfully to the database: rad_gymverse
+[2024-11-22 06:13:40] User class instantiated with database connection.
+[2024-11-22 06:13:40] Fetching user role by user ID: 69
+[2024-11-22 06:13:40] User role fetched successfully for user ID: 69
+[2024-11-22 06:13:40] Running staff controller ,get_equipments token - eyJ1c2VyX2lkIjo2OSwiZXhwIjoxNzMyMjU1MjAwfQ==.347e77af0bb4349a7af209518a048cd7d7f134be09fa7d35abfb8b4559726e0b   id - 69 
+[2024-11-22 06:13:40] Running get_equip....in controller
+[2024-11-22 06:13:40] get equip function running...
+[2024-11-22 06:13:40] Equipment model initialized with database connection.
+[2024-11-22 06:13:40] Fetching equipment...
+[2024-11-22 06:13:41] Equipment fetched successfully
+[2024-11-22 06:13:41] Equipment data fetched
+[2024-11-22 06:13:41] Database connection closed.
+[2024-11-22 06:13:44] Connection established successfully to the database: rad_gymverse
+[2024-11-22 06:13:44] User class instantiated with database connection.
+[2024-11-22 06:13:44] Fetching user role by user ID: 69
+[2024-11-22 06:13:44] User role fetched successfully for user ID: 69
+[2024-11-22 06:13:44] Running staff controller ,get_maintenances token - eyJ1c2VyX2lkIjo2OSwiZXhwIjoxNzMyMjU1MjAwfQ==.347e77af0bb4349a7af209518a048cd7d7f134be09fa7d35abfb8b4559726e0b   id - 69 
+[2024-11-22 06:13:44] Running get_maintenance....in controller
+[2024-11-22 06:13:44] EquipmentMaintenance model initialized
+[2024-11-22 06:13:44] Fetching maintenance data...
+[2024-11-22 06:13:45] Maintenance data fetched successfully
+[2024-11-22 06:13:45] Maintenance data fetched successfully
+[2024-11-22 06:13:45] Database connection closed.
+[2024-11-22 06:20:08] Connection established successfully to the database: rad_gymverse
+[2024-11-22 06:20:08] User class instantiated with database connection.
+[2024-11-22 06:20:08] Fetching user role by user ID: 69
+[2024-11-22 06:20:09] User role fetched successfully for user ID: 69
+[2024-11-22 06:20:09] Running staff controller ,get_equipments token - eyJ1c2VyX2lkIjo2OSwiZXhwIjoxNzMyMjU1MjAwfQ==.347e77af0bb4349a7af209518a048cd7d7f134be09fa7d35abfb8b4559726e0b   id - 69 
+[2024-11-22 06:20:09] Running get_equip....in controller
+[2024-11-22 06:20:09] get equip function running...
+[2024-11-22 06:20:09] Equipment model initialized with database connection.
+[2024-11-22 06:20:09] Fetching equipment...
+[2024-11-22 06:20:09] Equipment fetched successfully
+[2024-11-22 06:20:09] Equipment data fetched
+[2024-11-22 06:20:09] Database connection closed.
+[2024-11-22 06:20:11] Connection established successfully to the database: rad_gymverse
+[2024-11-22 06:20:11] User class instantiated with database connection.
+[2024-11-22 06:20:11] Fetching user role by user ID: 69
+[2024-11-22 06:20:11] User role fetched successfully for user ID: 69
+[2024-11-22 06:20:11] Running staff controller ,get_maintenances token - eyJ1c2VyX2lkIjo2OSwiZXhwIjoxNzMyMjU1MjAwfQ==.347e77af0bb4349a7af209518a048cd7d7f134be09fa7d35abfb8b4559726e0b   id - 69 
+[2024-11-22 06:20:11] Running get_maintenance....in controller
+[2024-11-22 06:20:11] EquipmentMaintenance model initialized
+[2024-11-22 06:20:11] Fetching maintenance data...
+[2024-11-22 06:20:12] Maintenance data fetched successfully
+[2024-11-22 06:20:12] Maintenance data fetched successfully
+[2024-11-22 06:20:12] Database connection closed.
+[2024-11-22 06:20:21] Connection established successfully to the database: rad_gymverse
+[2024-11-22 06:20:21] User class instantiated with database connection.
+[2024-11-22 06:20:21] Fetching user role by user ID: 69
+[2024-11-22 06:20:21] User role fetched successfully for user ID: 69
+[2024-11-22 06:20:21] Running staff controller ,get_equipments token - eyJ1c2VyX2lkIjo2OSwiZXhwIjoxNzMyMjU1MjAwfQ==.347e77af0bb4349a7af209518a048cd7d7f134be09fa7d35abfb8b4559726e0b   id - 69 
+[2024-11-22 06:20:21] Running get_equip....in controller
+[2024-11-22 06:20:21] get equip function running...
+[2024-11-22 06:20:21] Equipment model initialized with database connection.
+[2024-11-22 06:20:21] Fetching equipment...
+[2024-11-22 06:20:22] Equipment fetched successfully
+[2024-11-22 06:20:22] Equipment data fetched
+[2024-11-22 06:20:22] Database connection closed.
+[2024-11-22 06:20:23] Connection established successfully to the database: rad_gymverse
+[2024-11-22 06:20:23] User class instantiated with database connection.
+[2024-11-22 06:20:23] Fetching user role by user ID: 69
+[2024-11-22 06:20:23] User role fetched successfully for user ID: 69
+[2024-11-22 06:20:23] Running staff controller ,get_maintenances token - eyJ1c2VyX2lkIjo2OSwiZXhwIjoxNzMyMjU1MjAwfQ==.347e77af0bb4349a7af209518a048cd7d7f134be09fa7d35abfb8b4559726e0b   id - 69 
+[2024-11-22 06:20:23] Running get_maintenance....in controller
+[2024-11-22 06:20:23] EquipmentMaintenance model initialized
+[2024-11-22 06:20:23] Fetching maintenance data...
+[2024-11-22 06:20:23] Maintenance data fetched successfully
+[2024-11-22 06:20:23] Maintenance data fetched successfully
+[2024-11-22 06:20:23] Database connection closed.
+[2024-11-22 08:44:51] Running auth controller ,login 
+[2024-11-22 08:44:51] running login...in auth controller
+[2024-11-22 08:44:51] login function running...
+[2024-11-22 08:44:52] Connection established successfully to the database: rad_gymverse
+[2024-11-22 08:44:52] User class instantiated with database connection.
+[2024-11-22 08:44:52] User Login model running for: anna@gmail.com
+[2024-11-22 08:44:52] Query bound and ready to execute for login: anna@gmail.com
+[2024-11-22 08:44:52] User login successful: anna@gmail.com with role: staff
+[2024-11-22 08:44:52] Login Successful: eyJ1c2VyX2lkIjo2OSwiZXhwIjoxNzMyMjYyNDAwfQ==.bb74d4687b3a41ecb612de24709e903107249a05507580460de1316af3a7d17d staff
+[2024-11-22 08:44:52] Database connection closed.
