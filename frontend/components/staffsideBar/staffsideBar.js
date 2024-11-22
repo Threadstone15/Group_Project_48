@@ -8,6 +8,12 @@ document.getElementById("sidebar-container").addEventListener("click", function 
 });
 
 document.querySelector('.sidebar-logo-black').src = '/Group_Project_48/frontend/assets/images/logo-black-transparent.png';
+document.getElementById("logo").addEventListener("click", () => navigate('home'));
+
+const path = window.location.pathname.replace('/Group_Project_48/', '');
+
+const dashboardTab = path.split('/')[1];
+setActive(dashboardTab);
 
 function setActive(id) {
   const links = document.querySelectorAll(".sidebar-menu a");
