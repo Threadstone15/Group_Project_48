@@ -54,6 +54,16 @@
     <h1 class="signup-form-heading">
         Add a member account
     <form>
+      <div class="role-select-wrapper">
+        <label for="month" class=visually-hidden">Select user role</label>
+        <select id="month" name="month" class="select-field" aria-required="true">
+          <option value="">Member</option>
+          <option value="1">Trainer</option>
+          <option value="2">Owner</option>
+          <option value="3">Staff member</option>
+        </select>
+      </div>
+      
       <div class="name-fields">
         <div class="input-group">
           <label for="firstName">First name</label>

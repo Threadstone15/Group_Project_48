@@ -127,13 +127,13 @@ tbody tr:hover {
   }
   
   label {
-    color: #000000;
+    color: #000000; 
     font-size: 14px; /* Reduced font size for labels */
     font-weight: 500;
     line-height: 1.5;
     margin-bottom: 8px; /* Reduced spacing below labels */
   }
-  
+
   .input-field,
   .select-field {
     border-radius: 10px; /* Slightly smaller corners */
@@ -170,6 +170,12 @@ tbody tr:hover {
   .select-wrapper {
     flex: 1;
     min-width: 120px; /* Reduced width for dropdowns */
+  }
+
+  .role-select-wrapper {
+    flex: 1;
+    min-width: 120px; /* Reduced width for dropdowns */
+    margin-top: 20px;
   }
   
   .select-field {
