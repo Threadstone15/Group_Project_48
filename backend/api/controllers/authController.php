@@ -10,47 +10,50 @@ header("Access-Control-Allow-Methods: POST, GET, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header('Content-Type: application/json');
 
-session_start();
+include_once "../../logs/save.php";
 
-include_once "../../middleware/authMiddleware.php";
-include_once "../../config/database.php";
-
-// models
-include_once "../models/User.php";
-include_once "../models/Member.php";
-
-$conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     logMessage("Handling preflight OPTIONS request.");
     http_response_code(204);
     exit();
 }
 
+session_start();
+
+include_once "../../middleware/authMiddleware.php";
+include_once "../models/User.php";
+include_once "../models/Member.php";
+
+
 $request_method = $_SERVER['REQUEST_METHOD'];
-$action = $_POST['action'] ?? $_GET['action'] ?? null;
 
-logMessage("Running auth controller ,$action ");
 
-switch ($action) {
-    case 'signup':
-        logMessage("Running signup....in auth controller");
-        signup();
-        break;
-    case 'login':
-        logMessage('running login...in auth controller');
-        login();
-        break;
-    case 'password_reset_mail_check':
-        logMessage("Running password reset....in auth controller");
-        pass_reset();
-        break;
-    case 'register_member':
-        logMessage('running member register...in auth controller');
-        registerMember();
-        break;
-    default:
-        echo json_encode(["error" => "Invalid action"]);
+logMessage("Running auth in $request_method controller ");
+$input = json_decode(file_get_contents("php://input"), true);
+$rawInput = file_get_contents("php://input");
+logMessage("Raw input: $rawInput");
+
+if (isset($input['signup'])) {
+    logMessage("Running signup....in auth controller");
+    signup();
 }
+elseif (isset($input['login'])) {
+    logMessage('running login...in auth controller');
+    login();
+}
+elseif (isset($input['password_reset_mail_check'])) {
+    logMessage("Running password reset....in auth controller");
+    pass_reset();
+}
+elseif (isset($input['register_member'])) {
+    logMessage('running member register...in auth controller');
+    registerMember();
+}
+ else {
+    echo json_encode(["error" => "Invalid action"]);
+}
+
+
 
 
 function signup()
