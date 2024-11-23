@@ -147,6 +147,41 @@ class User {
             return false;
         }
     }
+
+    public function userExists($email) {
+        logMessage("Checking if user exists for email: $email");
+    
+        // Prepare the query
+        $query = "SELECT 1 FROM " . $this->table . " WHERE email = ? LIMIT 1";
+        $stmt = $this->conn->prepare($query);
+    
+        // Check if statement preparation was successful
+        if ($stmt === false) {
+            logMessage("Error preparing statement for userExists: " . $this->conn->error);
+            return false;
+        }
+    
+        // Bind the email parameter
+        $stmt->bind_param("s", $email);
+    
+        // Execute the query
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+    
+            // Check if the result contains a row
+            if ($result->num_rows > 0) {
+                logMessage("User exists for email: $email");
+                return true;
+            } else {
+                logMessage("No user found for email: $email");
+                return false;
+            }
+        } else {
+            logMessage("Error executing userExists query for email: $email with error: " . $stmt->error);
+            return false;
+        }
+    }
+    
     
 }
 ?>
