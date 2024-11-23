@@ -43,22 +43,8 @@
       <legend>Date of Birth</legend>
       <div class="dob-fields">
         <div class="select-wrapper">
-          <label for="day" class="visually-hidden">Day</label>
-          <select id="day" name="day" class="select-field" aria-required="true">
-            <option value="">Day</option>
-          </select>
-        </div>
-        <div class="select-wrapper">
-          <label for="month" class="visually-hidden">Month</label>
-          <select id="month" name="month" class="select-field" aria-required="true">
-            <option value="">Month</option>
-          </select>
-        </div>
-        <div class="select-wrapper">
-          <label for="year" class="visually-hidden">Year</label>
-          <select id="year" name="year" class="select-field" aria-required="true">
-            <option value="">Year</option>
-          </select>
+          <label for="dob" class="visually-hidden">DOB</label>
+          <input type="date" id="dob" name="dob" class="input-field" >
         </div>
       </div>
     </fieldset>
@@ -73,14 +59,16 @@
     <div class="input-group">
       <label for="gender">Gender</label>
       <select id="gender" name="gender" class="select-field" aria-required="true">
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-        <option value="prefer-not-to-say">Prefer not to say</option>
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+        <option value="O">Prefer not to say</option>
       </select>
     </div>
+    <button class="final-cta-button" tabindex="0">Become a Member</button>
   </form>
+  <!-- Response Message Container -->
+  <div id="formResponse" class="form-response" style="display: none;"></div>
 </section>
-<button class="final-cta-button" tabindex="0">Become a Member</button>
 </body>
 
 </html>

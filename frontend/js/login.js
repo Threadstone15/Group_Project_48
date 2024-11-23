@@ -1,5 +1,11 @@
 export function initlogin() {
 
+  document.body.addEventListener("click", (event) => {
+    if (event.target && event.target.id === "forgotPw") {
+      navigate('forgotPassword');
+    }
+  });
+
   document.getElementById('loginForm').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent form submission
 
@@ -10,7 +16,6 @@ export function initlogin() {
     myHeaders.append("Content-Type", "application/json");
 
     const loginData = JSON.stringify({
-      login: 1,
       email: email,
       password: password
     });
@@ -22,7 +27,7 @@ export function initlogin() {
       redirect: "follow"
     };
 
-    fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/authController.php", requestOptions)
+    fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/authController.php?action=login", requestOptions)
       .then(response => response.json())
       .then(data => {
         console.log("Response data:", data);  // Log the parsed JSON data
@@ -31,8 +36,6 @@ export function initlogin() {
           // Save token and role in browser storage
           localStorage.setItem('authToken', data.token);
           localStorage.setItem('role', data.role);
-
-          alert("Login successful!");
 
           // Redirect based on role
           if (data.role == 'staff') {

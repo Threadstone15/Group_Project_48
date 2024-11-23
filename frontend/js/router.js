@@ -2,9 +2,11 @@ import { initabout } from "./about.js";
 import { initbecomeMember } from "./becomeMember.js";
 import { initcareers } from "./careers.js";
 import { initfindATrainer } from "./findATrainer.js";
+import { initforgotPassword } from "./forgotPassword.js";
 import { inithome } from "./home.js";
 import { initlogin } from "./login.js";
 import { initpricing } from "./pricing.js";
+import { initresetPw } from "./resetPw.js";
 import { initservices } from "./services.js";
 
 export function navigate(page) {
@@ -95,7 +97,6 @@ export function loadPage(page) {
       // Append page-specific JavaScript
       if (!document.querySelector(`script[src="${pageJsUrl}"]`)) {
         const script = document.createElement("script");
-        console.log("appended yakow");
         script.src = pageJsUrl;
         script.type = "module";
         document.body.appendChild(script);
@@ -111,6 +112,8 @@ export function loadPage(page) {
         case 'findATrainer' : initfindATrainer(); break;
         case 'careers' : initcareers(); break;
         case 'services' : initservices(); break;
+        case 'forgotPassword' : initforgotPassword(); break;
+        case 'resetPw' : initresetPw(); break;
         default : console.log("page not defined within router");
       }
     })

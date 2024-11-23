@@ -1,60 +1,75 @@
 <?php
 
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require_once __DIR__ . '/../../vendor/autoload.php'; // Adjust path to the vendor directory
-
-// api/controllers/authController.php
-
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Methods: POST, GET, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
-header('Content-Type: application/json'); // Set content type to JSON
+header('Content-Type: application/json');
 
-include_once "../../logs/save.php";
+session_start();
 
+include_once "../../middleware/authMiddleware.php";
+include_once "../../config/database.php";
 
-// Handle preflight (OPTIONS) requests for CORS
+// models
+include_once "../models/User.php";
+include_once "../models/Member.php";
+
+$conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     logMessage("Handling preflight OPTIONS request.");
-    http_response_code(204);  // No Content
+    http_response_code(204);
     exit();
 }
 
-session_start();
-include_once "../models/User.php"; // Include the User model
-include_once "../../middleware/authMiddleware.php"; // Include the authentication middleware if needed
-
 $request_method = $_SERVER['REQUEST_METHOD'];
-logMessage("Running: $request_method");
-logMessage("Running auth controller");
+$action = $_POST['action'] ?? $_GET['action'] ?? null;
 
-// Read JSON input
-$input = json_decode(file_get_contents("php://input"), true);
+logMessage("Running auth controller ,$action ");
 
-$rawInput = file_get_contents("php://input");
-logMessage("Raw input: $rawInput");
+switch ($action) {
+    case 'signup':
+        logMessage("Running signup....in auth controller");
+        signup();
+        break;
+    case 'login':
+        logMessage('running login...in auth controller');
+        login();
+        break;
+    case 'register_member':
+        logMessage('running member register...in auth controller');
+        registerMember();
+        break;
+    default:
+        echo json_encode(["error" => "Invalid action"]);
+}
 
-logMessage("step...1");
 
-// Check if input is set and is an array
-if (is_array($input)) {
-    logMessage("step...2");
+function signup()
+{
+    logMessage("signup function running...");
 
-    // Register User
-    if ($request_method == 'POST' && isset($input['signup'])) {
-        logMessage("Running Sign-up");
+    $user = new User();
 
-        $email = filter_var($input['email'], FILTER_SANITIZE_EMAIL);
-        $password = $input['password'];
-        $role = filter_var($input['role'], FILTER_SANITIZE_STRING);
+    // Get the raw input data and decode JSON
+    $data = json_decode(file_get_contents("php://input"), true);
 
-        logMessage("Request received: $email with role: $role");
+    // Validate that required fields exist
+    if (
+        isset($data['email']) &&
+        isset($data['password']) &&
+        isset($data['role'])
+    ) {
+        $email = filter_var($data['email'], FILTER_SANITIZE_EMAIL);
+        $password = $data['password'];
+        $role = filter_var($data['role'], FILTER_SANITIZE_STRING);
 
-        // Instantiate User model and call register method
-        $user = new User();
+        $userData = $user->getUserByEmail($email);
+        if ($userData){
+            logMessage('Email already exists in the db');
+            echo json_encode(["error" => "Email is already in use"]);
+            exit();
+        }
+
         if ($user->register($email, $password, $role)) {
             logMessage("User registered: $email with role: $role");
             echo json_encode(["message" => "User registered successfully"]);
@@ -62,72 +77,31 @@ if (is_array($input)) {
             logMessage("User registration failed: $email");
             echo json_encode(["error" => "User registration failed"]);
         }
-    }
-
-
-
-if ($request_method == 'POST' && isset($input['password_reset_mail_check'])) {
-    logMessage("Running password reset");
-
-    $email = filter_var($input['email'], FILTER_SANITIZE_EMAIL);
-    $user = new User();
-
-    // Check if the user exists
-    if ($user->userExists($email)) {
-        // Generate a password reset token
-        $token = bin2hex(random_bytes(32));
-        $reset_link = "https://yourwebsite.com/reset-password?token=$token";
-
-        // Send the email using PHPMailer
-        require __DIR__ . '/vendor/autoload.php'; // Include Composer's autoloader
-
-        $mail = new PHPMailer(true);
-
-        try {
-            // SMTP configuration
-            $mail->isSMTP();
-            $mail->Host = 'smtp.example.com'; // Replace with your SMTP server
-            $mail->SMTPAuth = true;
-            $mail->Username = 'your-email@example.com'; // Replace with your SMTP username
-            $mail->Password = 'your-email-password'; // Replace with your SMTP password
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-            $mail->Port = 587;
-
-            // Email settings
-            $mail->setFrom('no-reply@yourwebsite.com', 'Your Team');
-            $mail->addAddress($email);
-            $mail->Subject = "Password Reset Request";
-            $mail->Body = "Hello,\n\nWe received a request to reset your password. Click the link below to reset it:\n\n$reset_link\n\nIf you didn't request this, you can safely ignore this email.\n\nBest Regards,\nYour Team";
-
-            $mail->send();
-            logMessage("Password reset email sent successfully to: $email");
-            echo json_encode(["success" => true, "message" => "Password reset email sent."]);
-
-            // Optionally, save the token to the database for validation later
-            // $user->saveResetToken($email, $token);
-
-        } catch (Exception $e) {
-            logMessage("Failed to send password reset email to: $email. Error: " . $mail->ErrorInfo);
-            echo json_encode(["success" => false, "message" => "Failed to send email."]);
-        }
-
     } else {
-        logMessage("No account found for email: $email");
-        echo json_encode(["success" => false, "message" => "No account found for this email."]);
+        logMessage("Invalid input data for user signup");
+        http_response_code(400);  // Bad Request
+        echo json_encode(["error" => "Invalid input data"]);
     }
 }
 
-    
 
-    // Login User
-    if ($request_method == 'POST' && isset($input['login'])) {
-        logMessage("Running log-in");
+function login()
+{
+    logMessage("login function running...");
 
-        $email = filter_var($input['email'], FILTER_SANITIZE_EMAIL);
-        $password = $input['password'];
+    $user = new User();
 
-        // Instantiate User model and call login method
-        $user = new User();
+    // Get the raw input data and decode JSON
+    $data = json_decode(file_get_contents("php://input"), true);
+
+    // Validate that required fields exist
+    if (
+        isset($data['email']) &&
+        isset($data['password'])
+    ) {
+        $email = filter_var($data['email'], FILTER_SANITIZE_EMAIL);
+        $password = $data['password'];
+
         $userData = $user->login($email, $password);
 
         if ($userData) {
@@ -168,37 +142,107 @@ if ($request_method == 'POST' && isset($input['password_reset_mail_check'])) {
 
         // Ensure that the script stops after sending the response
         exit;
+    } else {
+        logMessage("Invalid input data for user login");
+        http_response_code(400);  // Bad Request
+        echo json_encode(["error" => "Invalid input data"]);
+    }
+}
+
+
+function logout()
+{
+    logMessage("logout function running...");
+
+    $token = getBearerToken();  // Helper function to extract the token
+
+    if (!$token) {
+        echo json_encode(["error" => "Token missing"]);
+        exit();
     }
 
-    // Logout User
-    if ($request_method == 'POST' && isset($input['logout'])) {
-        $token = getBearerToken();  // Helper function to extract the token
+    $payload = verifyToken($token);  // Validate the token
 
-        if (!$token) {
-            echo json_encode(["error" => "Token missing"]);
+    if ($payload) {
+        $email = $payload['user_id'] ?? 'Unknown User';
+        logMessage("User logged out: $email");
+        echo json_encode(["message" => "Logged out successfully"]);
+    } else {
+        echo json_encode(["error" => "Invalid or expired token"]);
+    }
+}
+
+function registerMember()
+{
+    logMessage("register member function running...");
+
+    $user = new User();
+    $member = new Member();
+
+    // Get the raw input data and decode JSON
+    $data = json_decode(file_get_contents("php://input"), true);
+
+    // Validate that required fields exist
+    if (
+        isset($data['firstName']) &&
+        isset($data['lastName']) &&
+        isset($data['email']) &&
+        isset($data['password']) &&
+        isset($data['dob']) &&
+        isset($data['address']) &&
+        isset($data['phone']) &&
+        isset($data['gender'])
+    ) {
+        $firstName = filter_var($data['firstName'], FILTER_SANITIZE_STRING);
+        $lastName = filter_var($data['lastName'], FILTER_SANITIZE_STRING);
+        $dob = $data['dob'];  
+        $phone = $data['phone'];
+        $address = $data['address'];
+        $gender = $data['gender'];
+
+        $email = filter_var($data['email'], FILTER_SANITIZE_EMAIL);
+        $password = $data['password'];
+        $role = 'member';
+
+        $userData = $user->getUserByEmail($email);
+        if ($userData){
+            logMessage('Email already exists in the db');
+            echo json_encode(["error" => "Email is already in use"]);
             exit();
         }
 
-        $payload = verifyToken($token, $secretkey);  // Validate the token
-
-        if ($payload) {
-            $email = $payload['user_id'] ?? 'Unknown User';
-            logMessage("User logged out: $email");
-            echo json_encode(["message" => "Logged out successfully"]);
-        } else {
-            echo json_encode(["error" => "Invalid or expired token"]);
-        }
-    }
-
+        if ($user->register($email, $password, $role)) {
+            logMessage("User registered: $email");
     
-
-
-
-
-} else {
-    // If the input is not in the expected format
-    http_response_code(400);  // Bad Request
-    echo json_encode(["error" => "Invalid input format"]);
+            // Get the user_id for the newly registered user
+            $userData = $user->getUserByEmail($email);
+            if ($userData) {
+                $user_id = $userData['user_id'];
+    
+                logMessage("Entering to members: $user_id");
+    
+                // Register the member using the user_id
+                if ($member->registerMember($user_id, $firstName, $lastName, $dob, $phone, $address, $gender)) {
+                    logMessage("Member registered successfully with user ID: $user_id");
+                    echo json_encode(["message" => "User and Member registered successfully"]);
+                } else {
+                    logMessage("Member registration failed for user ID: $user_id");
+                    echo json_encode(["error" => "Member registration failed"]);
+                }
+            } else {
+                logMessage("User not found after registration: $email");
+                echo json_encode(["error" => "User registration successful, but user data not found"]);
+            }
+        } else {
+            logMessage("User registration failed: $email");
+            echo json_encode(["error" => "User registration failed"]);
+        }
+    } else {
+        logMessage("Invalid input data for member registration");
+        http_response_code(400);  // Bad Request
+        echo json_encode(["error" => "Invalid input data"]);
+    }
 }
+
 
 ?>

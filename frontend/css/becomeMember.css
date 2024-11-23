@@ -155,4 +155,25 @@
     margin: 0 auto; /* Center the subheading */
     line-height: 1.5; /* Add some line spacing for better readability */
   }
+
+  .form-response {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .form-response.success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+  }
+  
+  .form-response.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+  }
+  
   

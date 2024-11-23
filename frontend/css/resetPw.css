@@ -1,0 +1,85 @@
+/* Importing the Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f8f8;
+}
+
+.reset-password-container {
+  text-align: center;
+  background: white;
+  padding: 60px 50px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  min-height: 450px;
+}
+
+.illustration img {
+  width: 100%;
+  max-width: 200px;
+}
+
+h1 {
+  color: #333;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: -15px;
+}
+
+p {
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+input[type="password"] {
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+  transition: border-color 0.3s;
+  font-family: 'Poppins', sans-serif;
+}
+
+input[type="password"]:focus {
+  outline: none;
+  border-color: #ff5f00;
+}
+
+button {
+  padding: 12px;
+  background-color: #ff5f00;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: 'Poppins', sans-serif;
+}
+
+button:hover {
+  background-color: #e65400;
+}
+
+button:active {
+  background-color: #cc4a00;
+}

@@ -37,7 +37,6 @@ export function initpricing(){
                     <div class="price annual">$${parseFloat(plan.yearlyPrice).toFixed(2)}<span>/year</span></div>
                 </div>
                 <ul class="features">${benefitsList}</ul>
-                <button class="select-plan">Select Plan</button>
             `;
     
             pricingCardsContainer.appendChild(card);
