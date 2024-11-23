@@ -6,85 +6,156 @@
 }
 
 
-.plan-change {
-    border-radius: 30px;
-    background-color: #fff;
-    display: flex;
-    max-width: 350px;
-    flex-direction: column;
+.pricing-container {
+    max-width: 1200px;
+    padding: 2rem;
     align-items: center;
-    color: #000;
-    padding: 40px;
-    font: 600 18px Poppins, sans-serif;
-    border: 1px solid #e2e2e2;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    justify-content: center;
 }
 
-.plan-title {
-    font-size: 30px;
-}
-
-.plan-price {
-    font-size: 50px;
-    margin-top: 30px;
-}
-
-.benefit-list {
+.pricing-toggle {
     display: flex;
-    margin-top: 40px;
-    width: 100%;
-    max-width: 264px;
-    flex-direction: column;
-    align-items: flex-start;
-    color: #4f4f4f;
-    font-weight: 400;
-    list-style-type: none;
-    padding: 0;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
 }
 
-.benefit-item {
-    display: flex;
-    width: 100%;
-    align-items: flex-start;
-    gap: 28px;
-    margin-top: 15px;
+.toggle-label {
+    font-size: 1rem;
+    color: #666;
 }
 
-.benefit-item:first-child {
-    margin-top: 0;
+/* Toggle Switch Styles */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
 }
 
-.benefit-icon {
-    aspect-ratio: 1;
-    object-fit: contain;
-    object-position: center;
-    width: 24px;
-    margin-top: 5px;
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
-.benefit-description {
-    flex-grow: 1;
-    width: 222px;
-    margin: 0;
-    font-size: 16px;
-}
-
-.upgrade-button {
-    align-self: stretch;
-    border-radius: 30px;
-    background-color: #ff5f00;
-    margin-top: 40px;
-    color: #fff;
-    font-weight: 500;
-    padding: 10px; /* Increased padding for a bigger button */
-    font-size: 14px; /* Increased font size */
-    border: none;
+.slider {
+    position: absolute;
     cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    transition: background-color 0.4s ease-in-out, transform 0.4s ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
 }
 
-.upgrade-button:hover {
-    background-color: #e55400; /* Darker orange on hover */
-    transform: scale(1.05); /* Slightly enlarge on hover */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #FF5F00;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Pricing Cards Styles */
+.pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.pricing-card {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+}
+
+.pricing-card.popular {
+    border: 2px solid #FF5F00;
+}
+
+.popular-badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: #FF5F00;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.pricing-card h3 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.price-container {
+    margin-bottom: 2rem;
+}
+
+.price {
+    display: none;
+    font-size: 2.5rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.price.active {
+    display: block;
+}
+
+.price span {
+    font-size: 1rem;
+    color: #666;
+}
+
+.features {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.features li {
+    margin-bottom: 0.8rem;
+    color: #666;
+}
+
+.select-plan {
+    background: #FF5F00;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+    font: 'Poppins', sans-serif;
+}
+
+.select-plan:hover {
+    background: #FF5F00;
+    font: 'Poppins', sans-serif;
 }
