@@ -66,56 +66,75 @@ if (is_array($input)) {
 
 
 
-if ($request_method == 'POST' && isset($input['password_reset_mail_check'])) {
-    logMessage("Running password reset");
-
-    $email = filter_var($input['email'], FILTER_SANITIZE_EMAIL);
-    $user = new User();
-
-    // Check if the user exists
-    if ($user->userExists($email)) {
-        // Generate a password reset token
-        $token = bin2hex(random_bytes(32));
-        $reset_link = "https://yourwebsite.com/reset-password?token=$token";
-
-        // Send the email using PHPMailer
-        require __DIR__ . '/vendor/autoload.php'; // Include Composer's autoloader
-
-        $mail = new PHPMailer(true);
-
-        try {
-            // SMTP configuration
-            $mail->isSMTP();
-            $mail->Host = 'smtp.example.com'; // Replace with your SMTP server
-            $mail->SMTPAuth = true;
-            $mail->Username = 'your-email@example.com'; // Replace with your SMTP username
-            $mail->Password = 'your-email-password'; // Replace with your SMTP password
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-            $mail->Port = 587;
-
-            // Email settings
-            $mail->setFrom('no-reply@yourwebsite.com', 'Your Team');
-            $mail->addAddress($email);
-            $mail->Subject = "Password Reset Request";
-            $mail->Body = "Hello,\n\nWe received a request to reset your password. Click the link below to reset it:\n\n$reset_link\n\nIf you didn't request this, you can safely ignore this email.\n\nBest Regards,\nYour Team";
-
-            $mail->send();
-            logMessage("Password reset email sent successfully to: $email");
-            echo json_encode(["success" => true, "message" => "Password reset email sent."]);
-
-            // Optionally, save the token to the database for validation later
-            // $user->saveResetToken($email, $token);
-
-        } catch (Exception $e) {
-            logMessage("Failed to send password reset email to: $email. Error: " . $mail->ErrorInfo);
-            echo json_encode(["success" => false, "message" => "Failed to send email."]);
+    if ($request_method == 'POST' && isset($input['password_reset_mail_check'])) {
+        logMessage("Received POST request for password reset.");
+    
+        $email = filter_var($input['email'], FILTER_SANITIZE_EMAIL);
+        logMessage("Sanitized email: $email");
+    
+        $user = new User();
+    
+        // Check if the user exists
+        if ($user->userExists($email)) {
+            logMessage("User exists for email: $email");
+    
+            // Generate a password reset token
+            try {
+                $token = bin2hex(random_bytes(32));
+                logMessage("Generated password reset token for email: $email");
+    
+                $reset_link = "https://yourwebsite.com/reset-password?token=$token";
+                logMessage("Generated reset link: $reset_link");
+    
+                // Send the email using PHPMailer
+                $mail = new PHPMailer(true);
+    
+                try {
+                    // SMTP configuration
+                    logMessage("Configuring PHPMailer for email sending.");
+                    $mail->isSMTP();
+                    $mail->Host = 'smtp.gmail.com'; // Gmail SMTP server
+                    $mail->SMTPAuth = true;
+                    $mail->Username = 'gymverse.services@gmail.com'; // Replace with your SMTP username
+                    $mail->Password = 'tizz sjfn wrwl gayt'; // Replace with your SMTP password
+                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                    $mail->Port = 587;
+    
+                    // Email settings
+                    $mail->setFrom('no-reply@yourwebsite.com', 'Your Team');
+                    $mail->addAddress($email);
+                    $mail->Subject = "Password Reset Request";
+                    $mail->Body = "Hello,\n\nWe received a request to reset your password. Click the link below to reset it:\n\n$reset_link\n\nIf you didn't request this, you can safely ignore this email.\n\nBest Regards,\nYour Team";
+    
+                    logMessage("Attempting to send email to: $email");
+                    $mail->send();
+                    logMessage("Password reset email sent successfully to: $email");
+                    
+                    echo json_encode(["success" => true, "message" => "Password reset email sent."]);
+    
+                    // Optionally, save the token to the database for validation later
+                    // $user->saveResetToken($email, $token);
+                    logMessage("Reset token saved for email: $email");
+    
+                } catch (Exception $e) {
+                    logMessage("Failed to send password reset email to: $email. PHPMailer Error: " . $mail->ErrorInfo);
+                    echo json_encode(["success" => false, "message" => "Failed to send email."]);
+                }
+    
+            } catch (Exception $e) {
+                logMessage("Failed to generate token for email: $email. Error: " . $e->getMessage());
+                echo json_encode(["success" => false, "message" => "An error occurred while processing your request."]);
+            }
+    
+        } else {
+            logMessage("No account found for email: $email");
+            echo json_encode(["success" => false, "message" => "No account found for this email."]);
         }
-
     } else {
-        logMessage("No account found for email: $email");
-        echo json_encode(["success" => false, "message" => "No account found for this email."]);
+        logMessage("Invalid request method or missing parameter: password_reset_mail_check");
+        echo json_encode(["success" => false, "message" => "Invalid request."]);
     }
-}
+    
 
     
 

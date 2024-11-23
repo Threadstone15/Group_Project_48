@@ -686,3 +686,120 @@
 [2024-11-22 06:05:36] User exists for email: udeepagallage@gmail.com
 [2024-11-22 06:05:38] Failed to send password reset email to: udeepagallage@gmail.com
 [2024-11-22 06:05:38] Database connection closed.
+[2024-11-23 03:40:19] Running: POST
+[2024-11-23 03:40:19] Running auth controller
+[2024-11-23 03:40:19] Raw input: {
+  "password_reset_mail_check": true,
+  "email": "udeepagallage@gmail.com"
+}
+
+[2024-11-23 03:40:19] step...1
+[2024-11-23 03:40:19] step...2
+[2024-11-23 03:40:19] Running password reset
+[2024-11-23 03:40:20] Connection established successfully to the database: rad_gymverse
+[2024-11-23 03:40:20] User class instantiated with database connection.
+[2024-11-23 03:40:20] Checking if user exists for email: udeepagallage@gmail.com
+[2024-11-23 03:40:20] User exists for email: udeepagallage@gmail.com
+[2024-11-23 03:40:20] Database connection closed.
+[2024-11-23 03:41:25] Running: POST
+[2024-11-23 03:41:25] Running auth controller
+[2024-11-23 03:41:25] Raw input: {
+  "password_reset_mail_check": true,
+  "email": "udeepagallage@gmail.com"
+}
+
+[2024-11-23 03:41:25] step...1
+[2024-11-23 03:41:25] step...2
+[2024-11-23 03:41:25] Running password reset
+[2024-11-23 03:41:26] Connection established successfully to the database: rad_gymverse
+[2024-11-23 03:41:26] User class instantiated with database connection.
+[2024-11-23 03:41:26] Checking if user exists for email: udeepagallage@gmail.com
+[2024-11-23 03:41:26] User exists for email: udeepagallage@gmail.com
+[2024-11-23 03:44:15] Running: POST
+[2024-11-23 03:44:15] Running auth controller
+[2024-11-23 03:44:15] Raw input: {
+  "password_reset_mail_check": true,
+  "email": "udeepagallage@gmail.com"
+}
+
+[2024-11-23 03:44:15] step...1
+[2024-11-23 03:44:15] step...2
+[2024-11-23 03:44:15] Received POST request for password reset.
+[2024-11-23 03:44:15] Sanitized email: udeepagallage@gmail.com
+[2024-11-23 03:44:15] Connection established successfully to the database: rad_gymverse
+[2024-11-23 03:44:15] User class instantiated with database connection.
+[2024-11-23 03:44:15] Checking if user exists for email: udeepagallage@gmail.com
+[2024-11-23 03:44:16] User exists for email: udeepagallage@gmail.com
+[2024-11-23 03:44:16] User exists for email: udeepagallage@gmail.com
+[2024-11-23 03:44:16] Generated password reset token for email: udeepagallage@gmail.com
+[2024-11-23 03:44:16] Generated reset link: https://yourwebsite.com/reset-password?token=dc518117785165066a2ea3d0fb384cce9073aa9d94798fd4cce3f143711943ec
+[2024-11-23 03:44:16] Configuring PHPMailer for email sending.
+[2024-11-23 03:44:16] Attempting to send email to: udeepagallage@gmail.com
+[2024-11-23 03:44:20] Password reset email sent successfully to: udeepagallage@gmail.com
+[2024-11-23 03:44:20] Reset token saved for email: udeepagallage@gmail.com
+[2024-11-23 03:44:20] Database connection closed.
+[2024-11-23 03:44:21] Running: POST
+[2024-11-23 03:44:21] Running auth controller
+[2024-11-23 03:44:21] Raw input: {"login":1,"email":"staff@gmail.com","password":"1234"}
+[2024-11-23 03:44:21] step...1
+[2024-11-23 03:44:21] step...2
+[2024-11-23 03:44:21] Invalid request method or missing parameter: password_reset_mail_check
+[2024-11-23 03:44:21] Running log-in
+[2024-11-23 03:44:22] Connection established successfully to the database: rad_gymverse
+[2024-11-23 03:44:22] User class instantiated with database connection.
+[2024-11-23 03:44:22] User Login model running for: staff@gmail.com
+[2024-11-23 03:44:22] Query bound and ready to execute for login: staff@gmail.com
+[2024-11-23 03:44:22] User login successful: staff@gmail.com with role: staff
+[2024-11-23 03:44:22] Login Successful: eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzMyMzMwODAwfQ==.839f6000c07bb4143cc06db29ead0d3fa4a11d687c6fcbc71f92d13ee0059dff staff
+[2024-11-23 03:44:22] Database connection closed.
+[2024-11-23 03:44:32] Running: POST
+[2024-11-23 03:44:32] Running auth controller
+[2024-11-23 03:44:32] Raw input: {"login":1,"email":"staff@gmail.com","password":"1234"}
+[2024-11-23 03:44:32] step...1
+[2024-11-23 03:44:32] step...2
+[2024-11-23 03:44:32] Invalid request method or missing parameter: password_reset_mail_check
+[2024-11-23 03:44:32] Running log-in
+[2024-11-23 03:44:32] Connection established successfully to the database: rad_gymverse
+[2024-11-23 03:44:32] User class instantiated with database connection.
+[2024-11-23 03:44:32] User Login model running for: staff@gmail.com
+[2024-11-23 03:44:32] Query bound and ready to execute for login: staff@gmail.com
+[2024-11-23 03:44:33] User login successful: staff@gmail.com with role: staff
+[2024-11-23 03:44:33] Login Successful: eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzMyMzMwODAwfQ==.839f6000c07bb4143cc06db29ead0d3fa4a11d687c6fcbc71f92d13ee0059dff staff
+[2024-11-23 03:44:33] Database connection closed.
+[2024-11-23 03:44:45] Running: POST
+[2024-11-23 03:44:45] Running auth controller
+[2024-11-23 03:44:45] Raw input: {"login":1,"email":"staff@gmail.com","password":"1234"}
+[2024-11-23 03:44:45] step...1
+[2024-11-23 03:44:45] step...2
+[2024-11-23 03:44:45] Invalid request method or missing parameter: password_reset_mail_check
+[2024-11-23 03:44:45] Running log-in
+[2024-11-23 03:44:46] Connection established successfully to the database: rad_gymverse
+[2024-11-23 03:44:46] User class instantiated with database connection.
+[2024-11-23 03:44:46] User Login model running for: staff@gmail.com
+[2024-11-23 03:44:46] Query bound and ready to execute for login: staff@gmail.com
+[2024-11-23 03:44:46] User login successful: staff@gmail.com with role: staff
+[2024-11-23 03:44:46] Login Successful: eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzMyMzMwODAwfQ==.839f6000c07bb4143cc06db29ead0d3fa4a11d687c6fcbc71f92d13ee0059dff staff
+[2024-11-23 03:44:46] Database connection closed.
+[2024-11-23 03:45:24] Running: POST
+[2024-11-23 03:45:24] Running auth controller
+[2024-11-23 03:45:24] Raw input: {
+  "password_reset_mail_check": true,
+  "email": "udeepagallage@gmail.com"
+}
+
+[2024-11-23 03:45:24] step...1
+[2024-11-23 03:45:24] step...2
+[2024-11-23 03:45:24] Received POST request for password reset.
+[2024-11-23 03:45:24] Sanitized email: udeepagallage@gmail.com
+[2024-11-23 03:45:25] Connection established successfully to the database: rad_gymverse
+[2024-11-23 03:45:25] User class instantiated with database connection.
+[2024-11-23 03:45:25] Checking if user exists for email: udeepagallage@gmail.com
+[2024-11-23 03:45:25] User exists for email: udeepagallage@gmail.com
+[2024-11-23 03:45:25] User exists for email: udeepagallage@gmail.com
+[2024-11-23 03:45:25] Generated password reset token for email: udeepagallage@gmail.com
+[2024-11-23 03:45:25] Generated reset link: https://yourwebsite.com/reset-password?token=2e938e8af9d0517f1af915f274347a791896096ab33ca81db95813a4cf2ff301
+[2024-11-23 03:45:25] Configuring PHPMailer for email sending.
+[2024-11-23 03:45:25] Attempting to send email to: udeepagallage@gmail.com
+[2024-11-23 03:45:30] Password reset email sent successfully to: udeepagallage@gmail.com
+[2024-11-23 03:45:30] Reset token saved for email: udeepagallage@gmail.com
+[2024-11-23 03:45:30] Database connection closed.
