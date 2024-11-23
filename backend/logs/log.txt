@@ -620,3 +620,69 @@
 [2024-11-22 05:27:21] User login successful: admin@gmail.com with role: admin
 [2024-11-22 05:27:21] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyMjUxNjAwfQ==.a976ace89684903e9486a277e589c10207345632ec3eab57aac4d48734be6c7d admin
 [2024-11-22 05:27:21] Database connection closed.
+[2024-11-22 05:33:30] Running: POST
+[2024-11-22 05:33:30] Running auth controller
+[2024-11-22 05:33:30] Raw input: {"login":1,"email":"staff@gmail.com","password":"1234"}
+[2024-11-22 05:33:30] step...1
+[2024-11-22 05:33:30] step...2
+[2024-11-22 05:33:30] Running log-in
+[2024-11-22 05:33:34] Connection established successfully to the database: rad_gymverse
+[2024-11-22 05:33:34] User class instantiated with database connection.
+[2024-11-22 05:33:34] User Login model running for: staff@gmail.com
+[2024-11-22 05:33:35] Query bound and ready to execute for login: staff@gmail.com
+[2024-11-22 05:33:36] User login successful: staff@gmail.com with role: staff
+[2024-11-22 05:33:36] Login Successful: eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzMyMjUxNjAwfQ==.0c33dbeefe3146e9df5d12b89dc87daeb86c24fefe8bf0f44e3623c7ec55b61f staff
+[2024-11-22 05:33:36] Database connection closed.
+[2024-11-22 06:03:17] Running: POST
+[2024-11-22 06:03:17] Running auth controller
+[2024-11-22 06:03:17] Raw input: {
+    "signup": true,
+    "email": "udeepagallage@gmail.com",
+    "password": "udeepa",
+    "role": "staff"
+}
+
+[2024-11-22 06:03:17] step...1
+[2024-11-22 06:03:17] step...2
+[2024-11-22 06:03:17] Running Sign-up
+[2024-11-22 06:03:17] Request received: udeepagallage@gmail.com with role: staff
+[2024-11-22 06:03:18] Connection established successfully to the database: rad_gymverse
+[2024-11-22 06:03:18] User class instantiated with database connection.
+[2024-11-22 06:03:18] User Register model running...
+[2024-11-22 06:03:18] Password hashed for user: udeepagallage@gmail.com
+[2024-11-22 06:03:18] Query bound and ready to execute for user: udeepagallage@gmail.com
+[2024-11-22 06:03:18] User registered successfully: udeepagallage@gmail.com with role: staff
+[2024-11-22 06:03:18] User registered: udeepagallage@gmail.com with role: staff
+[2024-11-22 06:03:18] Database connection closed.
+[2024-11-22 06:04:42] Running: POST
+[2024-11-22 06:04:42] Running auth controller
+[2024-11-22 06:04:42] Raw input: {
+  "password_reset_mail_check": true,
+  "email": "udeepagallage@gmail.com.com"
+}
+
+[2024-11-22 06:04:42] step...1
+[2024-11-22 06:04:42] step...2
+[2024-11-22 06:04:42] Running password reset
+[2024-11-22 06:04:50] Connection established successfully to the database: rad_gymverse
+[2024-11-22 06:04:50] User class instantiated with database connection.
+[2024-11-22 06:04:50] Checking if user exists for email: udeepagallage@gmail.com.com
+[2024-11-22 06:05:01] No user found for email: udeepagallage@gmail.com.com
+[2024-11-22 06:05:01] No account found for email: udeepagallage@gmail.com.com
+[2024-11-22 06:05:01] Database connection closed.
+[2024-11-22 06:05:17] Running: POST
+[2024-11-22 06:05:17] Running auth controller
+[2024-11-22 06:05:17] Raw input: {
+  "password_reset_mail_check": true,
+  "email": "udeepagallage@gmail.com"
+}
+
+[2024-11-22 06:05:17] step...1
+[2024-11-22 06:05:17] step...2
+[2024-11-22 06:05:17] Running password reset
+[2024-11-22 06:05:25] Connection established successfully to the database: rad_gymverse
+[2024-11-22 06:05:25] User class instantiated with database connection.
+[2024-11-22 06:05:25] Checking if user exists for email: udeepagallage@gmail.com
+[2024-11-22 06:05:36] User exists for email: udeepagallage@gmail.com
+[2024-11-22 06:05:38] Failed to send password reset email to: udeepagallage@gmail.com
+[2024-11-22 06:05:38] Database connection closed.

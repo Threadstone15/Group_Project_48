@@ -1,5 +1,11 @@
 <?php
 
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require_once __DIR__ . '/../../vendor/autoload.php'; // Adjust path to the vendor directory
+
 // api/controllers/authController.php
 
 header("Access-Control-Allow-Origin: *");
@@ -58,39 +64,59 @@ if (is_array($input)) {
         }
     }
 
-    if ($request_method == 'POST' && isset($input['password_reset_mail_check'])) {
-        logMessage("Running password reset");
-    
-        $email = filter_var($input['email'], FILTER_SANITIZE_EMAIL);
-        $user = new User();
-    
-        // Check if the user exists
-        if ($user->userExists($email)) {
-            // Generate a password reset token
-            $token = bin2hex(random_bytes(32));
-            $reset_link = "https://yourwebsite.com/reset-password?token=$token";
-    
-            // Send the email
-            $subject = "Password Reset Request";
-            $message = "Hello,\n\nWe received a request to reset your password. Click the link below to reset it:\n\n$reset_link\n\nIf you didn't request this, you can safely ignore this email.\n\nBest Regards,\nYour Team";
-            $headers = "From: no-reply@yourwebsite.com";
-    
-            if (mail($email, $subject, $message, $headers)) {
-                logMessage("Password reset email sent successfully to: $email");
-                echo json_encode(["success" => true, "message" => "Password reset email sent."]);
-            } else {
-                logMessage("Failed to send password reset email to: $email");
-                echo json_encode(["success" => false, "message" => "Failed to send email."]);
-            }
-    
+
+
+if ($request_method == 'POST' && isset($input['password_reset_mail_check'])) {
+    logMessage("Running password reset");
+
+    $email = filter_var($input['email'], FILTER_SANITIZE_EMAIL);
+    $user = new User();
+
+    // Check if the user exists
+    if ($user->userExists($email)) {
+        // Generate a password reset token
+        $token = bin2hex(random_bytes(32));
+        $reset_link = "https://yourwebsite.com/reset-password?token=$token";
+
+        // Send the email using PHPMailer
+        require __DIR__ . '/vendor/autoload.php'; // Include Composer's autoloader
+
+        $mail = new PHPMailer(true);
+
+        try {
+            // SMTP configuration
+            $mail->isSMTP();
+            $mail->Host = 'smtp.example.com'; // Replace with your SMTP server
+            $mail->SMTPAuth = true;
+            $mail->Username = 'your-email@example.com'; // Replace with your SMTP username
+            $mail->Password = 'your-email-password'; // Replace with your SMTP password
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port = 587;
+
+            // Email settings
+            $mail->setFrom('no-reply@yourwebsite.com', 'Your Team');
+            $mail->addAddress($email);
+            $mail->Subject = "Password Reset Request";
+            $mail->Body = "Hello,\n\nWe received a request to reset your password. Click the link below to reset it:\n\n$reset_link\n\nIf you didn't request this, you can safely ignore this email.\n\nBest Regards,\nYour Team";
+
+            $mail->send();
+            logMessage("Password reset email sent successfully to: $email");
+            echo json_encode(["success" => true, "message" => "Password reset email sent."]);
+
             // Optionally, save the token to the database for validation later
             // $user->saveResetToken($email, $token);
-    
-        } else {
-            logMessage("No account found for email: $email");
-            echo json_encode(["success" => false, "message" => "No account found for this email."]);
+
+        } catch (Exception $e) {
+            logMessage("Failed to send password reset email to: $email. Error: " . $mail->ErrorInfo);
+            echo json_encode(["success" => false, "message" => "Failed to send email."]);
         }
+
+    } else {
+        logMessage("No account found for email: $email");
+        echo json_encode(["success" => false, "message" => "No account found for this email."]);
     }
+}
+
     
 
     // Login User
