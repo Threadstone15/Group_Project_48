@@ -64,3 +64,186 @@
 [2024-11-23 08:54:42] Password reset email sent successfully to: udeepagallage@gmail.com
 [2024-11-23 08:54:42] Reset token saved for email: udeepagallage@gmail.com
 [2024-11-23 08:54:42] Database connection closed.
+[2024-11-23 10:35:44] Running auth controller ,password_reset_mail_check 
+[2024-11-23 10:35:44] Running password reset....in auth controller
+[2024-11-23 10:35:44] Sanitized email: we@gnail.com
+[2024-11-23 10:35:45] Connection established successfully to the database: rad_gymverse
+[2024-11-23 10:35:45] User class instantiated with database connection.
+[2024-11-23 10:35:45] Checking if user exists for email: we@gnail.com
+[2024-11-23 10:35:45] No user found for email: we@gnail.com
+[2024-11-23 10:35:45] No account found for email: we@gnail.com
+[2024-11-23 10:35:45] Database connection closed.
+[2024-11-23 10:42:05] Running auth controller ,password_reset_mail_check 
+[2024-11-23 10:42:05] Running password reset....in auth controller
+[2024-11-23 10:42:05] Sanitized email: udeepagallage@gmail.com
+[2024-11-23 10:42:06] Connection established successfully to the database: rad_gymverse
+[2024-11-23 10:42:06] User class instantiated with database connection.
+[2024-11-23 10:42:06] Checking if user exists for email: udeepagallage@gmail.com
+[2024-11-23 10:42:06] User exists for email: udeepagallage@gmail.com
+[2024-11-23 10:42:06] User exists for email: udeepagallage@gmail.com
+[2024-11-23 10:42:06] Generated password reset token for email: udeepagallage@gmail.com
+[2024-11-23 10:42:06] Generated reset link: https://yourwebsite.com/reset-password?token=a0b4700a5ace54535d4a00d8f488092afa1a607a6aeaded25ec7f56f98f19c17
+[2024-11-23 10:42:06] Configuring PHPMailer for email sending.
+[2024-11-23 10:42:06] Attempting to send email to: udeepagallage@gmail.com
+[2024-11-23 10:42:10] Password reset email sent successfully to: udeepagallage@gmail.com
+[2024-11-23 10:42:10] Reset token saved for email: udeepagallage@gmail.com
+[2024-11-23 10:42:10] Database connection closed.
+[2024-11-23 10:50:19] Running auth controller ,password_reset_mail_check 
+[2024-11-23 10:50:19] Running password reset....in auth controller
+[2024-11-23 10:50:19] Sanitized email: udeepagallage@gmail.com
+[2024-11-23 10:50:20] Connection established successfully to the database: rad_gymverse
+[2024-11-23 10:50:20] User class instantiated with database connection.
+[2024-11-23 10:50:20] Checking if user exists for email: udeepagallage@gmail.com
+[2024-11-23 10:50:20] User exists for email: udeepagallage@gmail.com
+[2024-11-23 10:50:20] User exists for email: udeepagallage@gmail.com
+[2024-11-23 10:50:20] Generated password reset token for email: udeepagallage@gmail.com
+[2024-11-23 10:50:20] Generated reset link: http://localhost:8080/Group_Project_48/resetPw?token=4c6d4cf0a86d6f50da5c2d084bf53ea7135d351a5182aade4a2a9a99e3f9568b
+[2024-11-23 10:50:20] Configuring PHPMailer for email sending.
+[2024-11-23 10:50:20] Attempting to send email to: udeepagallage@gmail.com
+[2024-11-23 10:50:24] Password reset email sent successfully to: udeepagallage@gmail.com
+[2024-11-23 10:50:24] Reset token saved for email: udeepagallage@gmail.com
+[2024-11-23 10:50:24] Database connection closed.
+[2024-11-23 10:56:28] Running auth controller ,password_reset_mail_check 
+[2024-11-23 10:56:28] Running password reset....in auth controller
+[2024-11-23 10:56:28] Sanitized email: udeepagallage@gmail.com
+[2024-11-23 10:56:28] Connection established successfully to the database: rad_gymverse
+[2024-11-23 10:56:28] User class instantiated with database connection.
+[2024-11-23 10:56:28] Checking if user exists for email: udeepagallage@gmail.com
+[2024-11-23 10:56:29] User exists for email: udeepagallage@gmail.com
+[2024-11-23 10:56:29] User exists for email: udeepagallage@gmail.com
+[2024-11-23 10:56:29] Generated password reset token for email: udeepagallage@gmail.com
+[2024-11-23 10:56:29] Generated reset link: http://localhost:8080/Group_Project_48/resetPw?token=28faf513cbd2bfca7188d415621fabab03ee129baf9164b61cad5f6dfe72daa8
+[2024-11-23 10:56:29] Configuring PHPMailer for email sending.
+[2024-11-23 10:56:29] Attempting to send email to: udeepagallage@gmail.com
+[2024-11-23 10:56:33] Password reset email sent successfully to: udeepagallage@gmail.com
+[2024-11-23 10:56:33] Reset token saved for email: udeepagallage@gmail.com
+[2024-11-23 10:56:33] Database connection closed.
+[2024-11-23 13:41:43] Running auth controller ,password_reset_mail_check 
+[2024-11-23 13:41:43] Running password reset....in auth controller
+[2024-11-23 13:41:43] Sanitized email: udeepagallage@gmail.com
+[2024-11-23 13:41:43] Connection established successfully to the database: rad_gymverse
+[2024-11-23 13:41:43] User class instantiated with database connection.
+[2024-11-23 13:41:43] Checking if user exists for email: udeepagallage@gmail.com
+[2024-11-23 13:41:44] User exists for email: udeepagallage@gmail.com with user_id: 85
+[2024-11-23 13:41:44] User exists for email: udeepagallage@gmail.com ID 85
+[2024-11-23 13:41:44] Generated password reset token for email: udeepagallage@gmail.com
+[2024-11-23 13:41:44] Generated reset link: http://localhost:8080/Group_Project_48/resetPw?token=5e8c6dcf7ea51f10df6de6adf780541324d71415706cbfc66f6b9b73cd1b361e
+[2024-11-23 13:41:44] Configuring PHPMailer for email sending.
+[2024-11-23 13:41:44] Attempting to send email to: udeepagallage@gmail.com
+[2024-11-23 13:41:48] Password reset email sent successfully to: udeepagallage@gmail.com
+[2024-11-23 13:41:48] Reset token saved for email: udeepagallage@gmail.com
+[2024-11-23 13:41:48] Database connection closed.
+[2024-11-23 13:49:35] Running auth controller ,password_reset_mail_check 
+[2024-11-23 13:49:35] Running password reset....in auth controller
+[2024-11-23 13:49:35] Sanitized email: udeepagallage@gmail.com
+[2024-11-23 13:49:36] Connection established successfully to the database: rad_gymverse
+[2024-11-23 13:49:36] User class instantiated with database connection.
+[2024-11-23 13:49:36] Checking if user exists for email: udeepagallage@gmail.com
+[2024-11-23 13:49:36] User exists for email: udeepagallage@gmail.com with user_id: 85
+[2024-11-23 13:49:36] User exists for email: udeepagallage@gmail.com ID 85
+[2024-11-23 13:49:36] Generated password reset token for email: udeepagallage@gmail.com
+[2024-11-23 13:49:36] Generated reset link: http://localhost:8080/Group_Project_48/resetPw?token=eyJ1c2VyX2lkIjo4NSwiZXhwIjoxNzMyMzYzNTAwfQ==.3f440226939375afbb7b39dcd81475683f4d7b1eb0aaeec63c8b47149f861a6d
+[2024-11-23 13:49:36] Configuring PHPMailer for email sending.
+[2024-11-23 13:49:36] Attempting to send email to: udeepagallage@gmail.com
+[2024-11-23 13:49:40] Password reset email sent successfully to: udeepagallage@gmail.com
+[2024-11-23 13:49:40] Reset token saved for email: udeepagallage@gmail.com
+[2024-11-23 13:49:40] Database connection closed.
+[2024-11-23 13:51:56] Running auth controller ,password_reset_mail_check 
+[2024-11-23 13:51:56] Running password reset....in auth controller
+[2024-11-23 13:51:56] Sanitized email: udeepagallage@gmail.com
+[2024-11-23 13:51:56] Connection established successfully to the database: rad_gymverse
+[2024-11-23 13:51:56] User class instantiated with database connection.
+[2024-11-23 13:51:56] Checking if user exists for email: udeepagallage@gmail.com
+[2024-11-23 13:51:56] User exists for email: udeepagallage@gmail.com with user_id: 85
+[2024-11-23 13:51:56] User exists for email: udeepagallage@gmail.com ID 85
+[2024-11-23 13:51:56] Generated password reset token for email: udeepagallage@gmail.com
+[2024-11-23 13:51:56] Generated reset link: http://localhost:8080/Group_Project_48/resetPw?token=eyJ1c2VyX2lkIjo4NSwiZXhwIjoxNzMyMzYzNTAwfQ==.3f440226939375afbb7b39dcd81475683f4d7b1eb0aaeec63c8b47149f861a6d
+[2024-11-23 13:51:56] Configuring PHPMailer for email sending.
+[2024-11-23 13:51:56] Attempting to send email to: udeepagallage@gmail.com
+[2024-11-23 13:52:02] Password reset email sent successfully to: udeepagallage@gmail.com
+[2024-11-23 13:52:02] Reset token saved for email: udeepagallage@gmail.com
+[2024-11-23 13:52:02] Database connection closed.
+[2024-11-23 13:55:31] Running auth controller ,password_reset_mail_check 
+[2024-11-23 13:55:31] Running password reset....in auth controller
+[2024-11-23 13:55:31] Sanitized email: udeepagallage@gmail.com
+[2024-11-23 13:55:32] Connection established successfully to the database: rad_gymverse
+[2024-11-23 13:55:32] User class instantiated with database connection.
+[2024-11-23 13:55:32] Checking if user exists for email: udeepagallage@gmail.com
+[2024-11-23 13:55:32] User exists for email: udeepagallage@gmail.com with user_id: 85
+[2024-11-23 13:55:32] User exists for email: udeepagallage@gmail.com ID 85
+[2024-11-23 13:55:32] Generated password reset token for email: udeepagallage@gmail.com
+[2024-11-23 13:55:32] Generated reset link: http://localhost:8080/Group_Project_48/resetPw?token=Y+ce35Sh6GZtcSdGv0d86WV1ZXMyNTRFM0xRKzdEZ2tOc0xiODNKZm5xMzE2cnRwV256elo5N09rOUU9
+[2024-11-23 13:55:32] Configuring PHPMailer for email sending.
+[2024-11-23 13:55:32] Attempting to send email to: udeepagallage@gmail.com
+[2024-11-23 13:55:36] Password reset email sent successfully to: udeepagallage@gmail.com
+[2024-11-23 13:55:36] Reset token saved for email: udeepagallage@gmail.com
+[2024-11-23 13:55:36] Database connection closed.
+[2024-11-23 14:08:55] Running auth controller ,password_reset 
+[2024-11-23 14:08:55] Running password reset....in auth controller
+[2024-11-23 14:08:55] Sanitized email: 
+[2024-11-23 14:08:55] Connection established successfully to the database: rad_gymverse
+[2024-11-23 14:08:55] User class instantiated with database connection.
+[2024-11-23 14:08:55] Checking if user exists for email: 
+[2024-11-23 14:08:56] No user found for email: 
+[2024-11-23 14:08:56] No account found for email: 
+[2024-11-23 14:08:56] Database connection closed.
+[2024-11-23 14:09:16] Running auth controller ,password_reset 
+[2024-11-23 14:09:16] Running password reset....in auth controller
+[2024-11-23 14:09:16] Sanitized email: 
+[2024-11-23 14:09:17] Connection established successfully to the database: rad_gymverse
+[2024-11-23 14:09:17] User class instantiated with database connection.
+[2024-11-23 14:09:17] Checking if user exists for email: 
+[2024-11-23 14:09:18] No user found for email: 
+[2024-11-23 14:09:18] No account found for email: 
+[2024-11-23 14:09:18] Database connection closed.
+[2024-11-23 14:12:22] Running auth controller ,password_reset 
+[2024-11-23 14:12:22] Running password reset....in auth controller
+[2024-11-23 14:12:22] Data: Array
+[2024-11-23 14:12:28] Running auth controller ,password_reset 
+[2024-11-23 14:12:28] Running password reset....in auth controller
+[2024-11-23 14:12:28] Data: Array
+[2024-11-23 14:15:52] Running auth controller ,password_reset 
+[2024-11-23 14:15:52] Running password reset....in auth controller
+[2024-11-23 14:15:52] Data: Y+ce35Sh6GZtcSdGv0d86WV1ZXMyNTRFM0xRKzdEZ2tOc0xiODNKZm5xMzE2cnRwV256elo5N09rOUU9,  1234
+[2024-11-23 14:44:39] Running auth controller ,password_reset_mail_check 
+[2024-11-23 14:44:39] Running password reset mail check....in auth controller
+[2024-11-23 14:44:39] Password reset function invoked.
+[2024-11-23 14:44:39] Invalid input: Token or password missing.
+[2024-11-23 14:48:21] Running auth controller ,password_reset_mail_check 
+[2024-11-23 14:48:21] Running password reset mail check....in auth controller
+[2024-11-23 14:48:21] Password reset mail check function invoked.
+[2024-11-23 14:48:21] Sanitized email: udeepagallage@gmail.com
+[2024-11-23 14:48:22] Connection established successfully to the database: rad_gymverse
+[2024-11-23 14:48:22] User class instantiated with database connection.
+[2024-11-23 14:48:22] Checking if user exists for email: udeepagallage@gmail.com
+[2024-11-23 14:48:22] User exists for email: udeepagallage@gmail.com with user_id: 85
+[2024-11-23 14:48:22] User exists for email: udeepagallage@gmail.com ID 85
+[2024-11-23 14:48:22] Generated password reset token for email: udeepagallage@gmail.com
+[2024-11-23 14:48:22] Generated reset link: http://localhost:8080/Group_Project_48/resetPw?token=eSsdzY4SmPWSnBNkYjxG4UlxN2p4TGRKWmFyYnhkL25PVDNCWEs5MUN4aE5wcHFhZjA2VHh6bVYvcW89
+[2024-11-23 14:48:22] Configuring PHPMailer for email sending.
+[2024-11-23 14:48:22] Attempting to send email to: udeepagallage@gmail.com
+[2024-11-23 14:48:27] Password reset email sent successfully to: udeepagallage@gmail.com
+[2024-11-23 14:48:27] Reset token saved for email: udeepagallage@gmail.com
+[2024-11-23 14:48:27] Database connection closed.
+[2024-11-23 14:49:19] Running auth controller ,password_reset 
+[2024-11-23 14:49:19] Running password reset....in auth controller
+[2024-11-23 14:49:19] Password reset function invoked.
+[2024-11-23 14:49:19] Sanitized inputs: token = eSsdzY4SmPWSnBNkYjxG4UlxN2p4TGRKWmFyYnhkL25PVDNCWEs5MUN4aE5wcHFhZjA2VHh6bVYvcW89, password = (hidden for security)
+[2024-11-23 14:49:19] Token verified. User ID retrieved: 85
+[2024-11-23 14:49:20] Connection established successfully to the database: rad_gymverse
+[2024-11-23 14:49:20] User class instantiated with database connection.
+[2024-11-23 14:49:20] Resetting password for user ID: 85
+[2024-11-23 14:49:20] New password hashed for user ID: 85
+[2024-11-23 14:49:20] Password reset successfully for user ID: 85
+[2024-11-23 14:49:20] Password reset successfully for user ID: 85
+[2024-11-23 14:49:20] Database connection closed.
+[2024-11-23 14:49:40] Running auth controller ,login 
+[2024-11-23 14:49:40] running login...in auth controller
+[2024-11-23 14:49:40] login function running...
+[2024-11-23 14:49:41] Connection established successfully to the database: rad_gymverse
+[2024-11-23 14:49:41] User class instantiated with database connection.
+[2024-11-23 14:49:41] User Login model running for: udeepagallage@gmail.com
+[2024-11-23 14:49:41] Query bound and ready to execute for login: udeepagallage@gmail.com
+[2024-11-23 14:49:41] User login successful: udeepagallage@gmail.com with role: staff
+[2024-11-23 14:49:41] Login Successful: eyJ1c2VyX2lkIjo4NSwiZXhwIjoxNzMyMzcwNDAwfQ==.31c93350ce7be2fd9a8e13ab4b392f3ab1c064b9cb737e8d0a4331d700b0e28a staff
+[2024-11-23 14:49:41] Database connection closed.

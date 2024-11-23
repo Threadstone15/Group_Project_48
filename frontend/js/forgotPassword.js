@@ -53,7 +53,12 @@ export function initforgotPassword() {
         console.log("Password reset response:", result);
 
         if (result.success) {
+            
           alert("Password reset email sent successfully! Check your inbox.");
+          if (result.resetToken) {
+            localStorage.setItem("resetToken", result.resetToken);
+            console.log("Reset token saved to local storage:", result.resetToken);
+          }
           navigate("login"); // Navigate to reset password page
         } else {
           alert(result.message || "Failed to send password reset email. Please try again.");

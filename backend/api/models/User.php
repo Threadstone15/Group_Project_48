@@ -152,7 +152,7 @@ class User {
         logMessage("Checking if user exists for email: $email");
     
         // Prepare the query
-        $query = "SELECT 1 FROM " . $this->table . " WHERE email = ? LIMIT 1";
+        $query = "SELECT user_id FROM " . $this->table . " WHERE email = ? LIMIT 1";
         $stmt = $this->conn->prepare($query);
     
         // Check if statement preparation was successful
@@ -170,17 +170,56 @@ class User {
     
             // Check if the result contains a row
             if ($result->num_rows > 0) {
-                logMessage("User exists for email: $email");
-                return true;
+                $row = $result->fetch_assoc();
+                $user_id = $row['user_id'];
+                logMessage("User exists for email: $email with user_id: $user_id");
+                return $user_id; // Return user_id if the user exists
             } else {
                 logMessage("No user found for email: $email");
-                return false;
+                return false; // Return false if no user is found
             }
         } else {
             logMessage("Error executing userExists query for email: $email with error: " . $stmt->error);
             return false;
         }
     }
+
+    public function resetPassword($user_id, $new_password) {
+        logMessage("Resetting password for user ID: $user_id");
+    
+        // Hash the new password
+        $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
+        logMessage("New password hashed for user ID: $user_id");
+    
+        // Prepare the query
+        $query = "UPDATE " . $this->table . " SET password = ? WHERE user_id = ?";
+        $stmt = $this->conn->prepare($query);
+    
+        // Check if statement preparation was successful
+        if ($stmt === false) {
+            logMessage("Error preparing statement for resetPassword: " . $this->conn->error);
+            return false;
+        }
+    
+        // Bind parameters
+        $stmt->bind_param("si", $hashed_password, $user_id);
+    
+        // Execute the query
+        if ($stmt->execute()) {
+            if ($stmt->affected_rows > 0) {
+                logMessage("Password reset successfully for user ID: $user_id");
+                return true;
+            } else {
+                logMessage("No rows updated. Possibly invalid user ID: $user_id");
+                return false;
+            }
+        } else {
+            logMessage("Error executing resetPassword query for user ID: $user_id with error: " . $stmt->error);
+            return false;
+        }
+    }
+    
+    
     
     
 }
