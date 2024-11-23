@@ -1,5 +1,10 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require_once __DIR__ . '/../../vendor/autoload.php';
+
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, GET, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
@@ -34,6 +39,10 @@ switch ($action) {
     case 'login':
         logMessage('running login...in auth controller');
         login();
+        break;
+    case 'password_reset_mail_check':
+        logMessage("Running password reset....in auth controller");
+        pass_reset();
         break;
     case 'register_member':
         logMessage('running member register...in auth controller');
@@ -149,6 +158,75 @@ function login()
     }
 }
 
+function pass_reset()
+{
+
+    $data = json_decode(file_get_contents("php://input"), true);
+
+    $email = filter_var($data['email'], FILTER_SANITIZE_EMAIL);
+        logMessage("Sanitized email: $email");
+    
+        $user = new User();
+    
+        // Check if the user exists
+        if ($user->userExists($email)) {
+            logMessage("User exists for email: $email");
+    
+            // Generate a password reset token
+            try {
+                $token = bin2hex(random_bytes(32));
+                logMessage("Generated password reset token for email: $email");
+    
+                $reset_link = "https://yourwebsite.com/reset-password?token=$token";
+                logMessage("Generated reset link: $reset_link");
+    
+                // Send the email using PHPMailer
+                $mail = new PHPMailer(true);
+    
+                try {
+                    // SMTP configuration
+                    logMessage("Configuring PHPMailer for email sending.");
+                    $mail->isSMTP();
+                    $mail->Host = 'smtp.gmail.com'; // Gmail SMTP server
+                    $mail->SMTPAuth = true;
+                    $mail->Username = 'gymverse.services@gmail.com'; // Replace with your SMTP username
+                    $mail->Password = 'tizz sjfn wrwl gayt'; // Replace with your SMTP password
+                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                    $mail->Port = 587;
+    
+                    // Email settings
+                    $mail->setFrom('no-reply@yourwebsite.com', 'Your Team');
+                    $mail->addAddress($email);
+                    $mail->Subject = "Password Reset Request";
+                    $mail->Body = "Hello,\n\nWe received a request to reset your password. Click the link below to reset it:\n\n$reset_link\n\nIf you didn't request this, you can safely ignore this email.\n\nBest Regards,\nYour Team";
+    
+                    logMessage("Attempting to send email to: $email");
+                    $mail->send();
+                    logMessage("Password reset email sent successfully to: $email");
+                    
+                    echo json_encode(["success" => true, "message" => "Password reset email sent."]);
+    
+                    // Optionally, save the token to the database for validation later
+                    // $user->saveResetToken($email, $token);
+                    logMessage("Reset token saved for email: $email");
+    
+                } catch (Exception $e) {
+                    logMessage("Failed to send password reset email to: $email. PHPMailer Error: " . $mail->ErrorInfo);
+                    echo json_encode(["success" => false, "message" => "Failed to send email."]);
+                }
+    
+            } catch (Exception $e) {
+                logMessage("Failed to generate token for email: $email. Error: " . $e->getMessage());
+                echo json_encode(["success" => false, "message" => "An error occurred while processing your request."]);
+            }
+    
+        } else {
+            logMessage("No account found for email: $email");
+            echo json_encode(["success" => false, "message" => "No account found for this email."]);
+        }
+    
+
+}
 
 function logout()
 {
@@ -243,6 +321,8 @@ function registerMember()
         echo json_encode(["error" => "Invalid input data"]);
     }
 }
+
+
 
 
 ?>
