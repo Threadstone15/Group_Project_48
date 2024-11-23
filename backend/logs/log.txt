@@ -3806,3 +3806,13 @@
 [2024-11-22 14:53:16] User login successful: member@gmail.com with role: member
 [2024-11-22 14:53:16] Login Successful: eyJ1c2VyX2lkIjo3MywiZXhwIjoxNzMyMjg0MDAwfQ==.531999bed6643ccc6d014786fe91b1cdd8886e828b375728f65f50ff22959232 member
 [2024-11-22 14:53:16] Database connection closed.
+[2024-11-23 03:33:26] Running auth controller ,login 
+[2024-11-23 03:33:26] running login...in auth controller
+[2024-11-23 03:33:26] login function running...
+[2024-11-23 03:33:27] Connection established successfully to the database: rad_gymverse
+[2024-11-23 03:33:27] User class instantiated with database connection.
+[2024-11-23 03:33:27] User Login model running for: anna@gmail.com
+[2024-11-23 03:33:27] Query bound and ready to execute for login: anna@gmail.com
+[2024-11-23 03:33:27] User login successful: anna@gmail.com with role: staff
+[2024-11-23 03:33:27] Login Successful: eyJ1c2VyX2lkIjo2OSwiZXhwIjoxNzMyMzMwODAwfQ==.7eae325da4f4a6cb5690ce87a0b52edfc6954c9147cc69c711902237b5bfb221 staff
+[2024-11-23 03:33:27] Database connection closed.
