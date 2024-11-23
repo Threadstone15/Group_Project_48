@@ -247,3 +247,186 @@
 [2024-11-23 14:49:41] User login successful: udeepagallage@gmail.com with role: staff
 [2024-11-23 14:49:41] Login Successful: eyJ1c2VyX2lkIjo4NSwiZXhwIjoxNzMyMzcwNDAwfQ==.31c93350ce7be2fd9a8e13ab4b392f3ab1c064b9cb737e8d0a4331d700b0e28a staff
 [2024-11-23 14:49:41] Database connection closed.
+[2024-11-23 17:07:02] Running auth controller ,login 
+[2024-11-23 17:07:02] running login...in auth controller
+[2024-11-23 17:07:02] login function running...
+[2024-11-23 17:07:03] Connection established successfully to the database: rad_gymverse
+[2024-11-23 17:07:03] User class instantiated with database connection.
+[2024-11-23 17:07:03] User Login model running for: staff@gmail.com
+[2024-11-23 17:07:03] Query bound and ready to execute for login: staff@gmail.com
+[2024-11-23 17:07:04] User login successful: staff@gmail.com with role: staff
+[2024-11-23 17:07:04] Login Successful: eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzMyMzgxMjAwfQ==.22ceebc4e3f986fabf464801627ccd36310ca6e9b5bb6efb69c16de228094552 staff
+[2024-11-23 17:07:04] Database connection closed.
+[2024-11-23 17:08:46] Running auth controller ,login 
+[2024-11-23 17:08:46] running login...in auth controller
+[2024-11-23 17:08:46] login function running...
+[2024-11-23 17:08:46] Connection established successfully to the database: rad_gymverse
+[2024-11-23 17:08:46] User class instantiated with database connection.
+[2024-11-23 17:08:46] User Login model running for: staff@gmail.com
+[2024-11-23 17:08:46] Query bound and ready to execute for login: staff@gmail.com
+[2024-11-23 17:08:46] User login successful: staff@gmail.com with role: staff
+[2024-11-23 17:08:47] Login Successful: eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzMyMzgxMjAwfQ==.22ceebc4e3f986fabf464801627ccd36310ca6e9b5bb6efb69c16de228094552 staff
+[2024-11-23 17:08:47] Database connection closed.
+[2024-11-23 17:08:50] Connection established successfully to the database: rad_gymverse
+[2024-11-23 17:08:50] User class instantiated with database connection.
+[2024-11-23 17:08:50] Fetching user role by user ID: 68
+[2024-11-23 17:08:50] User role fetched successfully for user ID: 68
+[2024-11-23 17:08:50] Running staff controller ,get_notices token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzMyMzgxMjAwfQ==.22ceebc4e3f986fabf464801627ccd36310ca6e9b5bb6efb69c16de228094552   id - 68 
+[2024-11-23 17:08:50] Running get_notice....in controller
+[2024-11-23 17:08:50] get notices function running...
+[2024-11-23 17:08:50] Notice model initialized with database connection.
+[2024-11-23 17:08:50] Fetching notices...
+[2024-11-23 17:08:50] Notices fetched successfully
+[2024-11-23 17:08:50] Notices fetched successfully
+[2024-11-23 17:08:50] Database connection closed.
+[2024-11-23 17:08:51] Connection established successfully to the database: rad_gymverse
+[2024-11-23 17:08:51] User class instantiated with database connection.
+[2024-11-23 17:08:51] Fetching user role by user ID: 68
+[2024-11-23 17:08:52] User role fetched successfully for user ID: 68
+[2024-11-23 17:08:52] Running staff controller ,get_maintenances token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzMyMzgxMjAwfQ==.22ceebc4e3f986fabf464801627ccd36310ca6e9b5bb6efb69c16de228094552   id - 68 
+[2024-11-23 17:08:52] Running get_maintenance....in controller
+[2024-11-23 17:08:52] EquipmentMaintenance model initialized
+[2024-11-23 17:08:52] Fetching maintenance data...
+[2024-11-23 17:08:52] Maintenance data fetched successfully
+[2024-11-23 17:08:52] Maintenance data fetched successfully
+[2024-11-23 17:08:52] Database connection closed.
+[2024-11-23 17:08:53] Connection established successfully to the database: rad_gymverse
+[2024-11-23 17:08:53] User class instantiated with database connection.
+[2024-11-23 17:08:53] Fetching user role by user ID: 68
+[2024-11-23 17:08:53] User role fetched successfully for user ID: 68
+[2024-11-23 17:08:53] Running staff controller ,get_equipments token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzMyMzgxMjAwfQ==.22ceebc4e3f986fabf464801627ccd36310ca6e9b5bb6efb69c16de228094552   id - 68 
+[2024-11-23 17:08:53] Running get_equip....in controller
+[2024-11-23 17:08:53] get equip function running...
+[2024-11-23 17:08:53] Equipment model initialized with database connection.
+[2024-11-23 17:08:53] Fetching equipment...
+[2024-11-23 17:08:53] Equipment fetched successfully
+[2024-11-23 17:08:53] Equipment data fetched
+[2024-11-23 17:08:53] Database connection closed.
+[2024-11-23 17:09:08] Connection established successfully to the database: rad_gymverse
+[2024-11-23 17:09:08] User class instantiated with database connection.
+[2024-11-23 17:09:08] Fetching user role by user ID: 68
+[2024-11-23 17:09:09] User role fetched successfully for user ID: 68
+[2024-11-23 17:09:09] Running staff controller ,get_equipments token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzMyMzgxMjAwfQ==.22ceebc4e3f986fabf464801627ccd36310ca6e9b5bb6efb69c16de228094552   id - 68 
+[2024-11-23 17:09:09] Running get_equip....in controller
+[2024-11-23 17:09:09] get equip function running...
+[2024-11-23 17:09:09] Equipment model initialized with database connection.
+[2024-11-23 17:09:09] Fetching equipment...
+[2024-11-23 17:09:09] Equipment fetched successfully
+[2024-11-23 17:09:09] Equipment data fetched
+[2024-11-23 17:09:09] Database connection closed.
+[2024-11-23 17:09:24] Running auth controller ,login 
+[2024-11-23 17:09:24] running login...in auth controller
+[2024-11-23 17:09:24] login function running...
+[2024-11-23 17:09:24] Connection established successfully to the database: rad_gymverse
+[2024-11-23 17:09:24] User class instantiated with database connection.
+[2024-11-23 17:09:24] User Login model running for: admin@gmail.com
+[2024-11-23 17:09:24] Query bound and ready to execute for login: admin@gmail.com
+[2024-11-23 17:09:25] User login successful: admin@gmail.com with role: admin
+[2024-11-23 17:09:25] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyMzgxMjAwfQ==.0a7ff4d46299b9c7ebdfac76cf30d2b771351411b2319ddde0da4a299128bd21 admin
+[2024-11-23 17:09:25] Database connection closed.
+[2024-11-23 17:10:26] Running auth controller ,login 
+[2024-11-23 17:10:26] running login...in auth controller
+[2024-11-23 17:10:26] login function running...
+[2024-11-23 17:10:27] Connection established successfully to the database: rad_gymverse
+[2024-11-23 17:10:27] User class instantiated with database connection.
+[2024-11-23 17:10:27] User Login model running for: member@gmail.com
+[2024-11-23 17:10:27] Query bound and ready to execute for login: member@gmail.com
+[2024-11-23 17:10:27] User login successful: member@gmail.com with role: member
+[2024-11-23 17:10:27] Login Successful: eyJ1c2VyX2lkIjo3MywiZXhwIjoxNzMyMzgxMjAwfQ==.fcef61dbf35a6ff24f44a66d93f4a11d8c4d929adbf73fc9d6a3248f2c513c44 member
+[2024-11-23 17:10:27] Database connection closed.
+[2024-11-23 17:13:50] Running auth controller ,login 
+[2024-11-23 17:13:50] running login...in auth controller
+[2024-11-23 17:13:50] login function running...
+[2024-11-23 17:13:50] Connection established successfully to the database: rad_gymverse
+[2024-11-23 17:13:50] User class instantiated with database connection.
+[2024-11-23 17:13:50] User Login model running for: admin@gmail.com
+[2024-11-23 17:13:50] Query bound and ready to execute for login: admin@gmail.com
+[2024-11-23 17:13:51] User login successful: admin@gmail.com with role: admin
+[2024-11-23 17:13:51] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyMzgxMjAwfQ==.0a7ff4d46299b9c7ebdfac76cf30d2b771351411b2319ddde0da4a299128bd21 admin
+[2024-11-23 17:13:51] Database connection closed.
+[2024-11-23 17:35:14] Running auth controller ,login 
+[2024-11-23 17:35:14] running login...in auth controller
+[2024-11-23 17:35:14] login function running...
+[2024-11-23 17:35:15] Connection established successfully to the database: rad_gymverse
+[2024-11-23 17:35:15] User class instantiated with database connection.
+[2024-11-23 17:35:15] User Login model running for: member@gmail.com
+[2024-11-23 17:35:15] Query bound and ready to execute for login: member@gmail.com
+[2024-11-23 17:35:15] User login successful: member@gmail.com with role: member
+[2024-11-23 17:35:15] Login Successful: eyJ1c2VyX2lkIjo3MywiZXhwIjoxNzMyMzgxMjAwfQ==.fcef61dbf35a6ff24f44a66d93f4a11d8c4d929adbf73fc9d6a3248f2c513c44 member
+[2024-11-23 17:35:15] Database connection closed.
+[2024-11-23 17:36:22] Connection established successfully to the database: rad_gymverse
+[2024-11-23 17:36:22] User class instantiated with database connection.
+[2024-11-23 17:36:22] Fetching user role by user ID: 73
+[2024-11-23 17:36:22] User role fetched successfully for user ID: 73
+[2024-11-23 17:36:22] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjo3MywiZXhwIjoxNzMyMzgxMjAwfQ==.fcef61dbf35a6ff24f44a66d93f4a11d8c4d929adbf73fc9d6a3248f2c513c44   id - 73 
+[2024-11-23 17:36:22] Running get_membership plan....in controller
+[2024-11-23 17:36:22] get membership plans running running...
+[2024-11-23 17:36:22] Membership plan model initialized with database connection.
+[2024-11-23 17:36:22] Fetching membership plan...
+[2024-11-23 17:36:22] Membership Plans fetched successfully
+[2024-11-23 17:36:22] Membership plans fetched
+[2024-11-23 17:36:22] Database connection closed.
+[2024-11-23 17:36:44] Connection established successfully to the database: rad_gymverse
+[2024-11-23 17:36:44] User class instantiated with database connection.
+[2024-11-23 17:36:44] Fetching user role by user ID: 73
+[2024-11-23 17:36:44] User role fetched successfully for user ID: 73
+[2024-11-23 17:36:44] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjo3MywiZXhwIjoxNzMyMzgxMjAwfQ==.fcef61dbf35a6ff24f44a66d93f4a11d8c4d929adbf73fc9d6a3248f2c513c44   id - 73 
+[2024-11-23 17:36:44] Running get_membership plan....in controller
+[2024-11-23 17:36:44] get membership plans running running...
+[2024-11-23 17:36:44] Membership plan model initialized with database connection.
+[2024-11-23 17:36:44] Fetching membership plan...
+[2024-11-23 17:36:45] Membership Plans fetched successfully
+[2024-11-23 17:36:45] Membership plans fetched
+[2024-11-23 17:36:45] Database connection closed.
+[2024-11-23 17:37:38] Running auth controller ,login 
+[2024-11-23 17:37:38] running login...in auth controller
+[2024-11-23 17:37:38] login function running...
+[2024-11-23 17:37:38] Connection established successfully to the database: rad_gymverse
+[2024-11-23 17:37:38] User class instantiated with database connection.
+[2024-11-23 17:37:38] User Login model running for: admin@gmail.com
+[2024-11-23 17:37:38] Query bound and ready to execute for login: admin@gmail.com
+[2024-11-23 17:37:39] User login successful: admin@gmail.com with role: admin
+[2024-11-23 17:37:39] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyMzgxMjAwfQ==.0a7ff4d46299b9c7ebdfac76cf30d2b771351411b2319ddde0da4a299128bd21 admin
+[2024-11-23 17:37:39] Database connection closed.
+[2024-11-23 17:42:59] Running auth controller ,login 
+[2024-11-23 17:42:59] running login...in auth controller
+[2024-11-23 17:42:59] login function running...
+[2024-11-23 17:42:59] Connection established successfully to the database: rad_gymverse
+[2024-11-23 17:42:59] User class instantiated with database connection.
+[2024-11-23 17:42:59] User Login model running for: admin@gmail.com
+[2024-11-23 17:43:00] Query bound and ready to execute for login: admin@gmail.com
+[2024-11-23 17:43:00] User login successful: admin@gmail.com with role: admin
+[2024-11-23 17:43:00] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyMzgxMjAwfQ==.0a7ff4d46299b9c7ebdfac76cf30d2b771351411b2319ddde0da4a299128bd21 admin
+[2024-11-23 17:43:00] Database connection closed.
+[2024-11-23 18:51:54] Running auth controller ,login 
+[2024-11-23 18:51:54] running login...in auth controller
+[2024-11-23 18:51:54] login function running...
+[2024-11-23 18:51:55] Connection established successfully to the database: rad_gymverse
+[2024-11-23 18:51:55] User class instantiated with database connection.
+[2024-11-23 18:51:55] User Login model running for: admin@gmail.com
+[2024-11-23 18:51:55] Query bound and ready to execute for login: admin@gmail.com
+[2024-11-23 18:51:55] User login successful: admin@gmail.com with role: admin
+[2024-11-23 18:51:55] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyMzg0ODAwfQ==.78b90cbc1b15be151343a08b8a39f715b5a3373f692d1c83b61687dd105c6bd6 admin
+[2024-11-23 18:51:55] Database connection closed.
+[2024-11-23 19:01:19] Running auth controller ,login 
+[2024-11-23 19:01:19] running login...in auth controller
+[2024-11-23 19:01:19] login function running...
+[2024-11-23 19:01:19] Connection established successfully to the database: rad_gymverse
+[2024-11-23 19:01:19] User class instantiated with database connection.
+[2024-11-23 19:01:19] User Login model running for: admin@gmail.com
+[2024-11-23 19:01:20] Query bound and ready to execute for login: admin@gmail.com
+[2024-11-23 19:01:20] User login successful: admin@gmail.com with role: admin
+[2024-11-23 19:01:20] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyMzg4NDAwfQ==.6a6694fab3180e8c3a4f8d46b41d6591a8233fcc8875e7603bb09b2daeffb7c8 admin
+[2024-11-23 19:01:20] Database connection closed.
+[2024-11-23 19:01:26] Connection established successfully to the database: rad_gymverse
+[2024-11-23 19:01:26] User class instantiated with database connection.
+[2024-11-23 19:01:26] Fetching user role by user ID: 75
+[2024-11-23 19:01:26] User role fetched successfully for user ID: 75
+[2024-11-23 19:01:26] Running admin controller ,get_all_emails token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyMzg4NDAwfQ==.6a6694fab3180e8c3a4f8d46b41d6591a8233fcc8875e7603bb09b2daeffb7c8   id - 75 
+[2024-11-23 19:01:26] Running get_all_emails....in controller
+[2024-11-23 19:01:26] Fetching all emails from the users table.
+[2024-11-23 19:01:26] User class instantiated with database connection.
+[2024-11-23 19:01:26] Fetching all emails from the users table.
+[2024-11-23 19:01:27] Emails fetched successfully. Total: 20
+[2024-11-23 19:01:27] Emails fetched successfully. Total: 20
+[2024-11-23 19:01:27] Database connection closed.

@@ -218,6 +218,38 @@ class User {
             return false;
         }
     }
+
+    public function getAllEmails() {
+        logMessage("Fetching all emails from the users table.");
+        
+        // Prepare the query
+        $query = "SELECT email FROM " . $this->table;
+        $stmt = $this->conn->prepare($query);
+        
+        // Check if statement preparation was successful
+        if ($stmt === false) {
+            logMessage("Error preparing statement for getAllEmails: " . $this->conn->error);
+            return false;
+        }
+        
+        // Execute the query
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            $emails = [];
+            
+            // Fetch all email addresses
+            while ($row = $result->fetch_assoc()) {
+                $emails[] = $row['email'];
+            }
+            
+            logMessage("Emails fetched successfully. Total: " . count($emails));
+            return $emails;
+        } else {
+            logMessage("Error executing getAllEmails query with error: " . $stmt->error);
+            return false;
+        }
+    }
+    
     
     
     

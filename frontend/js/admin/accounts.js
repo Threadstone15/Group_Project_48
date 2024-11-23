@@ -1,4 +1,54 @@
 // Sample test data
+let allEmails = [];
+
+    // Fetch all emails from the backend on page load
+    async function fetchEmails() {
+        try {
+            // Make a GET request to the backend to fetch emails
+            const response = await fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=get_all_emails", {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    // Add Authorization header if required (JWT token)
+                    'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+                }
+            });
+            
+            if (response.ok) {
+                // Parse the JSON response and store the emails
+                const result = await response.json();
+                
+                if (result && Array.isArray(result)) {
+                    allEmails = result;
+                } else {
+                    console.error('Failed to fetch emails:', result);
+                }
+            } else {
+                console.error('Failed to fetch emails');
+            }
+        } catch (error) {
+            console.error('Error fetching emails:', error);
+        }
+    }
+
+    // Call the function to fetch emails on page load
+    document.addEventListener('DOMContentLoaded', fetchEmails);
+
+    // Function to check if email is already used
+    function checkEmail() {
+        const email = document.getElementById("email").value;
+        const emailError = document.getElementById("email-error");
+
+        // Check if the email exists in the array
+        if (allEmails.includes(email)) {
+            emailError.style.display = "inline";
+        } else {
+            emailError.style.display = "none";
+        }
+    }
+
+    // Add event listener to the email input to check as user types
+    document.getElementById("email").addEventListener('input', checkEmail);
 const equipments = [
     { "Equipment ID": "EQ123", "Name": "Treadmill", "Purchase Date": "2023-01-15", "Status": "Active", "Usable Duration": "2 years" },
     { "Equipment ID": "EQ124", "Name": "Dumbbell Set", "Purchase Date": "2022-07-10", "Status": "Inactive", "Usable Duration": "5 years" },
@@ -61,4 +111,4 @@ function deleteEquipment(equipmentId) {
 }
 
 // Populate the table on page load
-document.addEventListener("DOMContentLoaded", populateTable);
+document.addEventListener("DOMContentLoaded", populateTable,fetchEmails);
