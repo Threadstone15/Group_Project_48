@@ -10,7 +10,9 @@ session_start();
 include_once "../../middleware/authMiddleware.php";
 include_once "../../config/database.php";
 include_once "trainerCareerHandler.php";
+include_once "staffHandler.php";
 include_once "../models/User.php";
+include_once "../models/Staff.php";
 
 $conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -46,6 +48,30 @@ switch ($action) {
     case 'delete_trainer_career':
         logMessage("Running delete_trainer_career....in controller");
         deleteTrainerCareer();
+        break;
+
+
+    case 'add_staff':
+        logMessage("Running add_trainer_career....in controller");
+        addStaff($user_id);
+        break;
+    case 'get_staff':
+        logMessage("Running get_trainer_career....in controller");
+        getStaff();
+        break;
+    case 'update_staff':
+        logMessage("Running update_trainer_career....in controller");
+        updateStaff();
+        break;
+    case 'delete_staff':
+        logMessage("Running delete_trainer_career....in controller");
+        deleteStaff();
+        break;
+
+
+    case 'get_all_emails':
+        logMessage("Running get_all_emails....in controller");
+        getAllEmails();
         break;
     
 

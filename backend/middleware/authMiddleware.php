@@ -18,6 +18,71 @@ function generateToken($user_id) {
     return $base64Payload . '.' . $signature;
 }
 
+function generateTokenPassReset($user_id) {
+    global $secretkey;
+
+    $timestamp = time();
+    $expiration = $timestamp + 300; 
+
+    $payload = json_encode([
+        'user_id' => $user_id,
+        'exp' => $expiration
+    ]);
+
+    $cipherMethod = 'AES-256-CBC';
+    $ivLength = openssl_cipher_iv_length($cipherMethod);
+    $iv = openssl_random_pseudo_bytes($ivLength);
+
+    $encryptedPayload = openssl_encrypt(
+        $payload,
+        $cipherMethod,
+        $secretkey,
+        0,
+        $iv
+    );
+
+    $token = base64_encode($iv . $encryptedPayload);
+
+    return $token;
+}
+
+function getUserIDFromTokenPassReset($token) {
+    global $secretkey;
+
+    $cipherMethod = 'AES-256-CBC';
+    $ivLength = openssl_cipher_iv_length($cipherMethod);
+
+    $decoded = base64_decode($token);
+
+    $iv = substr($decoded, 0, $ivLength);
+    $encryptedPayload = substr($decoded, $ivLength);
+
+    $decryptedPayload = openssl_decrypt(
+        $encryptedPayload,
+        $cipherMethod,
+        $secretkey,
+        0,
+        $iv
+    );
+
+    if ($decryptedPayload === false) {
+
+        return null;
+    }
+
+    // Convert the decrypted payload to an array
+    $payload = json_decode($decryptedPayload, true);
+
+    if (isset($payload['user_id']) && isset($payload['exp']) && time() <= $payload['exp']) {
+        return $payload['user_id'];
+    }
+
+    // Return null if the token is expired or invalid
+    return null;
+}
+
+
+
 function getBearerToken() {
     $headers = getallheaders();
     if (isset($headers['Authorization'])) {
