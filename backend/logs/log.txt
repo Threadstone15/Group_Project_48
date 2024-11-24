@@ -34,3 +34,418 @@
 [2024-11-24 06:25:16] User login successful: udeepagallage@gmail.com with role: owner
 [2024-11-24 06:25:17] Login Successful: eyJ1c2VyX2lkIjo5NiwiZXhwIjoxNzMyNDI4MDAwfQ==.21875fd34c9f7344b7e7c40a55b52988fffd784efc702f81a5836c181dcf3205 owner
 [2024-11-24 06:25:17] Database connection closed.
+[2024-11-24 14:22:28] Running auth controller ,login 
+[2024-11-24 14:22:28] running login...in auth controller
+[2024-11-24 14:22:28] login function running...
+[2024-11-24 14:22:29] Connection established successfully to the database: rad_gymverse
+[2024-11-24 14:22:29] User class instantiated with database connection.
+[2024-11-24 14:22:29] User Login model running for: admin@gmail.com
+[2024-11-24 14:22:30] Query bound and ready to execute for login: admin@gmail.com
+[2024-11-24 14:22:30] User login successful: admin@gmail.com with role: admin
+[2024-11-24 14:22:30] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyNDU2ODAwfQ==.56f0df70567a24d2c462c9469850a391a2023ef9810f67da73c1ae56200f03b8 admin
+[2024-11-24 14:22:30] Database connection closed.
+[2024-11-24 14:22:32] Connection established successfully to the database: rad_gymverse
+[2024-11-24 14:22:32] User class instantiated with database connection.
+[2024-11-24 14:22:32] Fetching user role by user ID: 75
+[2024-11-24 14:22:33] User role fetched successfully for user ID: 75
+[2024-11-24 14:22:33] Running admin controller ,get_all_emails token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyNDU2ODAwfQ==.56f0df70567a24d2c462c9469850a391a2023ef9810f67da73c1ae56200f03b8   id - 75 
+[2024-11-24 14:22:33] Running get_all_emails....in controller
+[2024-11-24 14:22:33] Fetching all emails from the users table.
+[2024-11-24 14:22:33] User class instantiated with database connection.
+[2024-11-24 14:22:33] Fetching all emails from the users table.
+[2024-11-24 14:22:33] Emails fetched successfully. Total: 24
+[2024-11-24 14:22:33] Emails fetched successfully. Total: 24
+[2024-11-24 14:22:33] Database connection closed.
+[2024-11-24 14:22:44] Connection established successfully to the database: rad_gymverse
+[2024-11-24 14:22:44] User class instantiated with database connection.
+[2024-11-24 14:22:44] Fetching user role by user ID: 75
+[2024-11-24 14:22:44] User role fetched successfully for user ID: 75
+[2024-11-24 14:22:44] Running admin controller ,add_staff token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyNDU2ODAwfQ==.56f0df70567a24d2c462c9469850a391a2023ef9810f67da73c1ae56200f03b8   id - 75 
+[2024-11-24 14:22:44] Running add_staff....in controller
+[2024-11-24 14:22:44] Starting 'addStaff' function...
+[2024-11-24 14:22:44] User class instantiated with database connection.
+[2024-11-24 14:22:44] Processing user registration: role=member, email=udeepagallge@gmail.com.
+[2024-11-24 14:22:44] Member model initialized with database connection.
+[2024-11-24 14:22:44] User Register model running...
+[2024-11-24 14:22:44] Password hashed for user: udeepagallge@gmail.com
+[2024-11-24 14:22:44] Query bound and ready to execute for user: udeepagallge@gmail.com
+[2024-11-24 14:22:44] User registered successfully: udeepagallge@gmail.com with role: member
+[2024-11-24 14:22:44] Checking if user exists for email: udeepagallge@gmail.com
+[2024-11-24 14:22:45] User exists for email: udeepagallge@gmail.com with user_id: 98
+[2024-11-24 14:22:45] User registered successfully. User ID: 98.
+[2024-11-24 14:22:45] Adding member details for user ID: 98.
+[2024-11-24 14:22:45] Registering member...
+[2024-11-24 14:22:45] Query bound for member registration: Rowing Machine
+[2024-11-24 14:22:46] Member registered successfully: Rowing Machine
+[2024-11-24 14:22:46] Member added successfully: Rowing Machine.
+[2024-11-24 14:22:46] Account creation email function invoked.
+[2024-11-24 14:22:46] Configuring PHPMailer.
+[2024-11-24 14:22:46] Sending account creation email to: udeepagallge@gmail.com
+[2024-11-24 14:22:50] Account creation email sent successfully to: udeepagallge@gmail.com
+[2024-11-24 14:22:50] Database connection closed.
+[2024-11-24 14:23:12] Connection established successfully to the database: rad_gymverse
+[2024-11-24 14:23:12] User class instantiated with database connection.
+[2024-11-24 14:23:12] Fetching user role by user ID: 75
+[2024-11-24 14:23:13] User role fetched successfully for user ID: 75
+[2024-11-24 14:23:13] Running admin controller ,add_staff token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyNDU2ODAwfQ==.56f0df70567a24d2c462c9469850a391a2023ef9810f67da73c1ae56200f03b8   id - 75 
+[2024-11-24 14:23:13] Running add_staff....in controller
+[2024-11-24 14:23:13] Starting 'addStaff' function...
+[2024-11-24 14:23:13] User class instantiated with database connection.
+[2024-11-24 14:23:13] Processing user registration: role=trainer, email=udeeagallge@gmail.com.
+[2024-11-24 14:23:13] Trainer model initialized with database connection.
+[2024-11-24 14:23:13] User Register model running...
+[2024-11-24 14:23:13] Password hashed for user: udeeagallge@gmail.com
+[2024-11-24 14:23:13] Query bound and ready to execute for user: udeeagallge@gmail.com
+[2024-11-24 14:23:13] User registered successfully: udeeagallge@gmail.com with role: trainer
+[2024-11-24 14:23:13] Checking if user exists for email: udeeagallge@gmail.com
+[2024-11-24 14:23:14] User exists for email: udeeagallge@gmail.com with user_id: 99
+[2024-11-24 14:23:14] User registered successfully. User ID: 99.
+[2024-11-24 14:23:14] Adding trainer details for user ID: 99.
+[2024-11-24 14:23:14] Registering trainer...
+[2024-11-24 14:23:14] Error in 'addStaff': Table 'rad_gymverse.trainers' doesn't exist
+[2024-11-24 14:23:14] Database connection closed.
+[2024-11-24 14:23:42] Connection established successfully to the database: rad_gymverse
+[2024-11-24 14:23:42] User class instantiated with database connection.
+[2024-11-24 14:23:42] Fetching user role by user ID: 75
+[2024-11-24 14:23:43] User role fetched successfully for user ID: 75
+[2024-11-24 14:23:43] Running admin controller ,add_staff token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyNDU2ODAwfQ==.56f0df70567a24d2c462c9469850a391a2023ef9810f67da73c1ae56200f03b8   id - 75 
+[2024-11-24 14:23:43] Running add_staff....in controller
+[2024-11-24 14:23:43] Starting 'addStaff' function...
+[2024-11-24 14:23:43] User class instantiated with database connection.
+[2024-11-24 14:23:43] Processing user registration: role=trainer, email=udeeagallge@gmail.com.
+[2024-11-24 14:23:43] Trainer model initialized with database connection.
+[2024-11-24 14:23:43] User Register model running...
+[2024-11-24 14:23:43] Password hashed for user: udeeagallge@gmail.com
+[2024-11-24 14:23:43] Query bound and ready to execute for user: udeeagallge@gmail.com
+[2024-11-24 14:23:43] Error in 'addStaff': Duplicate entry 'udeeagallge@gmail.com' for key 'email'
+[2024-11-24 14:23:43] Database connection closed.
+[2024-11-24 14:23:56] Connection established successfully to the database: rad_gymverse
+[2024-11-24 14:23:56] User class instantiated with database connection.
+[2024-11-24 14:23:56] Fetching user role by user ID: 75
+[2024-11-24 14:23:56] User role fetched successfully for user ID: 75
+[2024-11-24 14:23:56] Running admin controller ,add_staff token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyNDU2ODAwfQ==.56f0df70567a24d2c462c9469850a391a2023ef9810f67da73c1ae56200f03b8   id - 75 
+[2024-11-24 14:23:56] Running add_staff....in controller
+[2024-11-24 14:23:56] Starting 'addStaff' function...
+[2024-11-24 14:23:56] User class instantiated with database connection.
+[2024-11-24 14:23:56] Processing user registration: role=trainer, email=udeeallge@gmail.com.
+[2024-11-24 14:23:56] Trainer model initialized with database connection.
+[2024-11-24 14:23:56] User Register model running...
+[2024-11-24 14:23:56] Password hashed for user: udeeallge@gmail.com
+[2024-11-24 14:23:57] Query bound and ready to execute for user: udeeallge@gmail.com
+[2024-11-24 14:23:57] User registered successfully: udeeallge@gmail.com with role: trainer
+[2024-11-24 14:23:57] Checking if user exists for email: udeeallge@gmail.com
+[2024-11-24 14:23:57] User exists for email: udeeallge@gmail.com with user_id: 101
+[2024-11-24 14:23:57] User registered successfully. User ID: 101.
+[2024-11-24 14:23:57] Adding trainer details for user ID: 101.
+[2024-11-24 14:23:57] Registering trainer...
+[2024-11-24 14:23:57] Error in 'addStaff': Column count doesn't match value count at row 1
+[2024-11-24 14:23:57] Database connection closed.
+[2024-11-24 14:31:53] Connection established successfully to the database: rad_gymverse
+[2024-11-24 14:31:53] User class instantiated with database connection.
+[2024-11-24 14:31:53] Fetching user role by user ID: 75
+[2024-11-24 14:31:53] User role fetched successfully for user ID: 75
+[2024-11-24 14:31:53] Running admin controller ,add_staff token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyNDU2ODAwfQ==.56f0df70567a24d2c462c9469850a391a2023ef9810f67da73c1ae56200f03b8   id - 75 
+[2024-11-24 14:31:53] Running add_staff....in controller
+[2024-11-24 14:31:53] Starting 'addStaff' function...
+[2024-11-24 14:31:53] User class instantiated with database connection.
+[2024-11-24 14:31:53] Processing user registration: role=trainer, email=udeeallgetty@gmail.com.
+[2024-11-24 14:31:53] Trainer model initialized with database connection.
+[2024-11-24 14:31:53] User Register model running...
+[2024-11-24 14:31:54] Password hashed for user: udeeallgetty@gmail.com
+[2024-11-24 14:31:54] Query bound and ready to execute for user: udeeallgetty@gmail.com
+[2024-11-24 14:31:54] User registered successfully: udeeallgetty@gmail.com with role: trainer
+[2024-11-24 14:31:54] Checking if user exists for email: udeeallgetty@gmail.com
+[2024-11-24 14:31:54] User exists for email: udeeallgetty@gmail.com with user_id: 102
+[2024-11-24 14:31:54] User registered successfully. User ID: 102.
+[2024-11-24 14:31:54] Adding trainer details for user ID: 102.
+[2024-11-24 14:31:54] Registering trainer...
+[2024-11-24 14:31:55] Error in 'addStaff': Column count doesn't match value count at row 1
+[2024-11-24 14:31:55] Database connection closed.
+[2024-11-24 14:33:26] Connection established successfully to the database: rad_gymverse
+[2024-11-24 14:33:26] User class instantiated with database connection.
+[2024-11-24 14:33:26] Fetching user role by user ID: 75
+[2024-11-24 14:33:26] User role fetched successfully for user ID: 75
+[2024-11-24 14:33:26] Running admin controller ,add_staff token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyNDU2ODAwfQ==.56f0df70567a24d2c462c9469850a391a2023ef9810f67da73c1ae56200f03b8   id - 75 
+[2024-11-24 14:33:26] Running add_staff....in controller
+[2024-11-24 14:33:26] Starting 'addStaff' function...
+[2024-11-24 14:33:26] User class instantiated with database connection.
+[2024-11-24 14:33:26] Processing user registration: role=trainer, email=udeeallgetty@gmail.com.
+[2024-11-24 14:33:26] Trainer model initialized with database connection.
+[2024-11-24 14:33:26] User Register model running...
+[2024-11-24 14:33:26] Password hashed for user: udeeallgetty@gmail.com
+[2024-11-24 14:33:26] Query bound and ready to execute for user: udeeallgetty@gmail.com
+[2024-11-24 14:33:26] Error in 'addStaff': Duplicate entry 'udeeallgetty@gmail.com' for key 'email'
+[2024-11-24 14:33:27] Database connection closed.
+[2024-11-24 14:33:37] Connection established successfully to the database: rad_gymverse
+[2024-11-24 14:33:37] User class instantiated with database connection.
+[2024-11-24 14:33:37] Fetching user role by user ID: 75
+[2024-11-24 14:33:38] User role fetched successfully for user ID: 75
+[2024-11-24 14:33:38] Running admin controller ,add_staff token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyNDU2ODAwfQ==.56f0df70567a24d2c462c9469850a391a2023ef9810f67da73c1ae56200f03b8   id - 75 
+[2024-11-24 14:33:38] Running add_staff....in controller
+[2024-11-24 14:33:38] Starting 'addStaff' function...
+[2024-11-24 14:33:38] User class instantiated with database connection.
+[2024-11-24 14:33:38] Processing user registration: role=trainer, email=udeealletty@gmail.com.
+[2024-11-24 14:33:38] Trainer model initialized with database connection.
+[2024-11-24 14:33:38] User Register model running...
+[2024-11-24 14:33:38] Password hashed for user: udeealletty@gmail.com
+[2024-11-24 14:33:38] Query bound and ready to execute for user: udeealletty@gmail.com
+[2024-11-24 14:33:38] User registered successfully: udeealletty@gmail.com with role: trainer
+[2024-11-24 14:33:38] Checking if user exists for email: udeealletty@gmail.com
+[2024-11-24 14:33:39] User exists for email: udeealletty@gmail.com with user_id: 104
+[2024-11-24 14:33:39] User registered successfully. User ID: 104.
+[2024-11-24 14:33:39] Adding trainer details for user ID: 104.
+[2024-11-24 14:33:39] Registering trainer...
+[2024-11-24 14:33:39] Error in 'addStaff': Column count doesn't match value count at row 1
+[2024-11-24 14:33:39] Database connection closed.
+[2024-11-24 14:41:47] Connection established successfully to the database: rad_gymverse
+[2024-11-24 14:41:47] User class instantiated with database connection.
+[2024-11-24 14:41:47] Fetching user role by user ID: 75
+[2024-11-24 14:41:48] User role fetched successfully for user ID: 75
+[2024-11-24 14:41:48] Running admin controller ,add_staff token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyNDU2ODAwfQ==.56f0df70567a24d2c462c9469850a391a2023ef9810f67da73c1ae56200f03b8   id - 75 
+[2024-11-24 14:41:48] Running add_staff....in controller
+[2024-11-24 14:41:48] Starting 'addStaff' function...
+[2024-11-24 14:41:48] User class instantiated with database connection.
+[2024-11-24 14:41:48] Processing user registration: role=trainer, email=udeealletgty@gmail.com.
+[2024-11-24 14:41:48] Trainer model initialized with database connection.
+[2024-11-24 14:41:48] User Register model running...
+[2024-11-24 14:41:48] Password hashed for user: udeealletgty@gmail.com
+[2024-11-24 14:41:48] Query bound and ready to execute for user: udeealletgty@gmail.com
+[2024-11-24 14:41:48] User registered successfully: udeealletgty@gmail.com with role: trainer
+[2024-11-24 14:41:48] Checking if user exists for email: udeealletgty@gmail.com
+[2024-11-24 14:41:49] User exists for email: udeealletgty@gmail.com with user_id: 105
+[2024-11-24 14:41:49] User registered successfully. User ID: 105.
+[2024-11-24 14:41:49] Adding trainer details for user ID: 105.
+[2024-11-24 14:41:49] Registering trainer...
+[2024-11-24 14:41:49] Error in 'addStaff': Column count doesn't match value count at row 1
+[2024-11-24 14:41:49] Database connection closed.
+[2024-11-24 14:42:50] Connection established successfully to the database: rad_gymverse
+[2024-11-24 14:42:50] User class instantiated with database connection.
+[2024-11-24 14:42:50] Fetching user role by user ID: 75
+[2024-11-24 14:42:51] User role fetched successfully for user ID: 75
+[2024-11-24 14:42:51] Running admin controller ,add_staff token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyNDU2ODAwfQ==.56f0df70567a24d2c462c9469850a391a2023ef9810f67da73c1ae56200f03b8   id - 75 
+[2024-11-24 14:42:51] Running add_staff....in controller
+[2024-11-24 14:42:51] Starting 'addStaff' function...
+[2024-11-24 14:42:51] User class instantiated with database connection.
+[2024-11-24 14:42:51] Processing user registration: role=trainer, email=udeeallegtgty@gmail.com.
+[2024-11-24 14:42:51] Trainer model initialized with database connection.
+[2024-11-24 14:42:51] User Register model running...
+[2024-11-24 14:42:51] Password hashed for user: udeeallegtgty@gmail.com
+[2024-11-24 14:42:51] Query bound and ready to execute for user: udeeallegtgty@gmail.com
+[2024-11-24 14:42:51] User registered successfully: udeeallegtgty@gmail.com with role: trainer
+[2024-11-24 14:42:51] Checking if user exists for email: udeeallegtgty@gmail.com
+[2024-11-24 14:42:52] User exists for email: udeeallegtgty@gmail.com with user_id: 106
+[2024-11-24 14:42:52] User registered successfully. User ID: 106.
+[2024-11-24 14:42:52] Adding trainer details for user ID: 106.
+[2024-11-24 14:42:52] Registering trainer...
+[2024-11-24 14:42:52] Error in 'addStaff': Column count doesn't match value count at row 1
+[2024-11-24 14:42:52] Database connection closed.
+[2024-11-24 14:49:13] Connection established successfully to the database: rad_gymverse
+[2024-11-24 14:49:13] User class instantiated with database connection.
+[2024-11-24 14:49:13] Fetching user role by user ID: 75
+[2024-11-24 14:49:13] User role fetched successfully for user ID: 75
+[2024-11-24 14:49:13] Running admin controller ,add_staff token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyNDU2ODAwfQ==.56f0df70567a24d2c462c9469850a391a2023ef9810f67da73c1ae56200f03b8   id - 75 
+[2024-11-24 14:49:13] Running add_staff....in controller
+[2024-11-24 14:49:13] Starting 'addStaff' function...
+[2024-11-24 14:49:13] User class instantiated with database connection.
+[2024-11-24 14:49:13] Processing user registration: role=trainer, email=udeeallpegtgty@gmail.com.
+[2024-11-24 14:49:13] Trainer model initialized with database connection.
+[2024-11-24 14:49:13] User Register model running...
+[2024-11-24 14:49:13] Password hashed for user: udeeallpegtgty@gmail.com
+[2024-11-24 14:49:13] Query bound and ready to execute for user: udeeallpegtgty@gmail.com
+[2024-11-24 14:49:14] User registered successfully: udeeallpegtgty@gmail.com with role: trainer
+[2024-11-24 14:49:14] Checking if user exists for email: udeeallpegtgty@gmail.com
+[2024-11-24 14:49:14] User exists for email: udeeallpegtgty@gmail.com with user_id: 107
+[2024-11-24 14:49:14] User registered successfully. User ID: 107.
+[2024-11-24 14:49:14] Adding trainer details for user ID: 107.
+[2024-11-24 14:49:14] Registering trainer...
+[2024-11-24 14:49:14] Error in 'addStaff': Column count doesn't match value count at row 1
+[2024-11-24 14:49:14] Database connection closed.
+[2024-11-24 14:53:59] Connection established successfully to the database: rad_gymverse
+[2024-11-24 14:53:59] User class instantiated with database connection.
+[2024-11-24 14:53:59] Fetching user role by user ID: 75
+[2024-11-24 14:54:00] User role fetched successfully for user ID: 75
+[2024-11-24 14:54:00] Running admin controller ,add_staff token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyNDU2ODAwfQ==.56f0df70567a24d2c462c9469850a391a2023ef9810f67da73c1ae56200f03b8   id - 75 
+[2024-11-24 14:54:00] Running add_staff....in controller
+[2024-11-24 14:54:00] Starting 'addStaff' function...
+[2024-11-24 14:54:00] User class instantiated with database connection.
+[2024-11-24 14:54:00] Processing user registration: role=trainer, email=udeeallpejjgtgty@gmail.com.
+[2024-11-24 14:54:00] Trainer model initialized with database connection.
+[2024-11-24 14:54:00] User Register model running...
+[2024-11-24 14:54:00] Password hashed for user: udeeallpejjgtgty@gmail.com
+[2024-11-24 14:54:00] Query bound and ready to execute for user: udeeallpejjgtgty@gmail.com
+[2024-11-24 14:54:00] User registered successfully: udeeallpejjgtgty@gmail.com with role: trainer
+[2024-11-24 14:54:00] Checking if user exists for email: udeeallpejjgtgty@gmail.com
+[2024-11-24 14:54:00] User exists for email: udeeallpejjgtgty@gmail.com with user_id: 108
+[2024-11-24 14:54:00] User registered successfully. User ID: 108.
+[2024-11-24 14:54:00] Adding trainer details for user ID: 108.
+[2024-11-24 14:54:00] Registering trainer...
+[2024-11-24 14:54:01] Error in 'addStaff': Column count doesn't match value count at row 1
+[2024-11-24 14:54:01] Database connection closed.
+[2024-11-24 14:54:06] Connection established successfully to the database: rad_gymverse
+[2024-11-24 14:54:06] User class instantiated with database connection.
+[2024-11-24 14:54:06] Fetching user role by user ID: 75
+[2024-11-24 14:54:06] User role fetched successfully for user ID: 75
+[2024-11-24 14:54:06] Running admin controller ,add_staff token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyNDU2ODAwfQ==.56f0df70567a24d2c462c9469850a391a2023ef9810f67da73c1ae56200f03b8   id - 75 
+[2024-11-24 14:54:06] Running add_staff....in controller
+[2024-11-24 14:54:06] Starting 'addStaff' function...
+[2024-11-24 14:54:06] User class instantiated with database connection.
+[2024-11-24 14:54:06] Processing user registration: role=trainer, email=udeeallpejjgtgty@gmail.com.
+[2024-11-24 14:54:06] Trainer model initialized with database connection.
+[2024-11-24 14:54:06] User Register model running...
+[2024-11-24 14:54:06] Password hashed for user: udeeallpejjgtgty@gmail.com
+[2024-11-24 14:54:06] Query bound and ready to execute for user: udeeallpejjgtgty@gmail.com
+[2024-11-24 14:54:07] Error in 'addStaff': Duplicate entry 'udeeallpejjgtgty@gmail.com' for key 'email'
+[2024-11-24 14:54:07] Database connection closed.
+[2024-11-24 14:54:14] Connection established successfully to the database: rad_gymverse
+[2024-11-24 14:54:14] User class instantiated with database connection.
+[2024-11-24 14:54:14] Fetching user role by user ID: 75
+[2024-11-24 14:54:15] User role fetched successfully for user ID: 75
+[2024-11-24 14:54:15] Running admin controller ,add_staff token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyNDU2ODAwfQ==.56f0df70567a24d2c462c9469850a391a2023ef9810f67da73c1ae56200f03b8   id - 75 
+[2024-11-24 14:54:15] Running add_staff....in controller
+[2024-11-24 14:54:15] Starting 'addStaff' function...
+[2024-11-24 14:54:15] User class instantiated with database connection.
+[2024-11-24 14:54:15] Processing user registration: role=trainer, email=udeeallpejjgtjjgty@gmail.com.
+[2024-11-24 14:54:15] Trainer model initialized with database connection.
+[2024-11-24 14:54:15] User Register model running...
+[2024-11-24 14:54:15] Password hashed for user: udeeallpejjgtjjgty@gmail.com
+[2024-11-24 14:54:15] Query bound and ready to execute for user: udeeallpejjgtjjgty@gmail.com
+[2024-11-24 14:54:15] User registered successfully: udeeallpejjgtjjgty@gmail.com with role: trainer
+[2024-11-24 14:54:15] Checking if user exists for email: udeeallpejjgtjjgty@gmail.com
+[2024-11-24 14:54:15] User exists for email: udeeallpejjgtjjgty@gmail.com with user_id: 110
+[2024-11-24 14:54:15] User registered successfully. User ID: 110.
+[2024-11-24 14:54:15] Adding trainer details for user ID: 110.
+[2024-11-24 14:54:15] Registering trainer...
+[2024-11-24 14:54:16] Error in 'addStaff': Column count doesn't match value count at row 1
+[2024-11-24 14:54:16] Database connection closed.
+[2024-11-24 15:01:27] Running auth controller ,login 
+[2024-11-24 15:01:27] running login...in auth controller
+[2024-11-24 15:01:27] login function running...
+[2024-11-24 15:01:28] Connection established successfully to the database: rad_gymverse
+[2024-11-24 15:01:28] User class instantiated with database connection.
+[2024-11-24 15:01:28] User Login model running for: admin@gmail.com
+[2024-11-24 15:01:28] Query bound and ready to execute for login: admin@gmail.com
+[2024-11-24 15:01:29] User login successful: admin@gmail.com with role: admin
+[2024-11-24 15:01:29] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyNDYwNDAwfQ==.f7b152a7e84bf34a98cc045a45982ae6d72ff7287cbf39d0c4a256035b972cff admin
+[2024-11-24 15:01:29] Database connection closed.
+[2024-11-24 15:01:31] Connection established successfully to the database: rad_gymverse
+[2024-11-24 15:01:31] User class instantiated with database connection.
+[2024-11-24 15:01:31] Fetching user role by user ID: 75
+[2024-11-24 15:01:32] User role fetched successfully for user ID: 75
+[2024-11-24 15:01:32] Running admin controller ,get_all_emails token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyNDYwNDAwfQ==.f7b152a7e84bf34a98cc045a45982ae6d72ff7287cbf39d0c4a256035b972cff   id - 75 
+[2024-11-24 15:01:32] Running get_all_emails....in controller
+[2024-11-24 15:01:32] Fetching all emails from the users table.
+[2024-11-24 15:01:32] User class instantiated with database connection.
+[2024-11-24 15:01:32] Fetching all emails from the users table.
+[2024-11-24 15:01:32] Emails fetched successfully. Total: 34
+[2024-11-24 15:01:32] Emails fetched successfully. Total: 34
+[2024-11-24 15:01:32] Database connection closed.
+[2024-11-24 15:01:43] Connection established successfully to the database: rad_gymverse
+[2024-11-24 15:01:43] User class instantiated with database connection.
+[2024-11-24 15:01:43] Fetching user role by user ID: 75
+[2024-11-24 15:01:44] User role fetched successfully for user ID: 75
+[2024-11-24 15:01:44] Running admin controller ,add_staff token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyNDYwNDAwfQ==.f7b152a7e84bf34a98cc045a45982ae6d72ff7287cbf39d0c4a256035b972cff   id - 75 
+[2024-11-24 15:01:44] Running add_staff....in controller
+[2024-11-24 15:01:44] Starting 'addStaff' function...
+[2024-11-24 15:01:44] User class instantiated with database connection.
+[2024-11-24 15:01:44] Processing user registration: role=trainer, email=udeepagallooage@gmail.com.
+[2024-11-24 15:01:44] Trainer model initialized with database connection.
+[2024-11-24 15:01:44] User Register model running...
+[2024-11-24 15:01:44] Password hashed for user: udeepagallooage@gmail.com
+[2024-11-24 15:01:44] Query bound and ready to execute for user: udeepagallooage@gmail.com
+[2024-11-24 15:01:44] User registered successfully: udeepagallooage@gmail.com with role: trainer
+[2024-11-24 15:01:44] Checking if user exists for email: udeepagallooage@gmail.com
+[2024-11-24 15:01:45] User exists for email: udeepagallooage@gmail.com with user_id: 111
+[2024-11-24 15:01:45] User registered successfully. User ID: 111.
+[2024-11-24 15:01:45] Adding trainer details for user ID: 111.
+[2024-11-24 15:01:45] Registering trainer...
+[2024-11-24 15:01:45] Error in 'addStaff': Column count doesn't match value count at row 1
+[2024-11-24 15:01:45] Database connection closed.
+[2024-11-24 15:03:47] Connection established successfully to the database: rad_gymverse
+[2024-11-24 15:03:47] User class instantiated with database connection.
+[2024-11-24 15:03:47] Fetching user role by user ID: 75
+[2024-11-24 15:03:48] User role fetched successfully for user ID: 75
+[2024-11-24 15:03:48] Running admin controller ,add_staff token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyNDYwNDAwfQ==.f7b152a7e84bf34a98cc045a45982ae6d72ff7287cbf39d0c4a256035b972cff   id - 75 
+[2024-11-24 15:03:48] Running add_staff....in controller
+[2024-11-24 15:03:48] Starting 'addStaff' function...
+[2024-11-24 15:03:48] User class instantiated with database connection.
+[2024-11-24 15:03:48] Processing user registration: role=trainer, email=udeepagallooage@gmail.com.
+[2024-11-24 15:03:48] Trainer model initialized with database connection.
+[2024-11-24 15:03:48] User Register model running...
+[2024-11-24 15:03:48] Password hashed for user: udeepagallooage@gmail.com
+[2024-11-24 15:03:48] Query bound and ready to execute for user: udeepagallooage@gmail.com
+[2024-11-24 15:03:48] Error in 'addStaff': Duplicate entry 'udeepagallooage@gmail.com' for key 'email'
+[2024-11-24 15:03:48] Database connection closed.
+[2024-11-24 15:04:00] Connection established successfully to the database: rad_gymverse
+[2024-11-24 15:04:00] User class instantiated with database connection.
+[2024-11-24 15:04:00] Fetching user role by user ID: 75
+[2024-11-24 15:04:00] User role fetched successfully for user ID: 75
+[2024-11-24 15:04:00] Running admin controller ,add_staff token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyNDYwNDAwfQ==.f7b152a7e84bf34a98cc045a45982ae6d72ff7287cbf39d0c4a256035b972cff   id - 75 
+[2024-11-24 15:04:00] Running add_staff....in controller
+[2024-11-24 15:04:00] Starting 'addStaff' function...
+[2024-11-24 15:04:00] User class instantiated with database connection.
+[2024-11-24 15:04:00] Processing user registration: role=trainer, email=udeepagalloage@gmail.com.
+[2024-11-24 15:04:00] Trainer model initialized with database connection.
+[2024-11-24 15:04:00] User Register model running...
+[2024-11-24 15:04:00] Password hashed for user: udeepagalloage@gmail.com
+[2024-11-24 15:04:01] Query bound and ready to execute for user: udeepagalloage@gmail.com
+[2024-11-24 15:04:01] User registered successfully: udeepagalloage@gmail.com with role: trainer
+[2024-11-24 15:04:01] Checking if user exists for email: udeepagalloage@gmail.com
+[2024-11-24 15:04:01] User exists for email: udeepagalloage@gmail.com with user_id: 113
+[2024-11-24 15:04:01] User registered successfully. User ID: 113.
+[2024-11-24 15:04:01] Adding trainer details for user ID: 113.
+[2024-11-24 15:04:01] Registering trainer...
+[2024-11-24 15:04:01] Running..
+[2024-11-24 15:04:01] Error in 'addStaff': Column count doesn't match value count at row 1
+[2024-11-24 15:04:01] Database connection closed.
+[2024-11-24 15:52:30] Connection established successfully to the database: rad_gymverse
+[2024-11-24 15:52:30] User class instantiated with database connection.
+[2024-11-24 15:52:30] Fetching user role by user ID: 75
+[2024-11-24 15:52:30] User role fetched successfully for user ID: 75
+[2024-11-24 15:52:30] Running admin controller ,add_staff token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyNDYwNDAwfQ==.f7b152a7e84bf34a98cc045a45982ae6d72ff7287cbf39d0c4a256035b972cff   id - 75 
+[2024-11-24 15:52:30] Running add_staff....in controller
+[2024-11-24 15:52:30] Starting 'addStaff' function...
+[2024-11-24 15:52:30] User class instantiated with database connection.
+[2024-11-24 15:52:30] Processing user registration: role=trainer, email=udeepagallioage@gmail.com.
+[2024-11-24 15:52:30] Trainer model initialized with database connection.
+[2024-11-24 15:52:30] User Register model running...
+[2024-11-24 15:52:30] Password hashed for user: udeepagallioage@gmail.com
+[2024-11-24 15:52:31] Query bound and ready to execute for user: udeepagallioage@gmail.com
+[2024-11-24 15:52:31] User registered successfully: udeepagallioage@gmail.com with role: trainer
+[2024-11-24 15:52:31] Checking if user exists for email: udeepagallioage@gmail.com
+[2024-11-24 15:52:31] User exists for email: udeepagallioage@gmail.com with user_id: 114
+[2024-11-24 15:52:31] User registered successfully. User ID: 114.
+[2024-11-24 15:52:31] Adding trainer details for user ID: 114.
+[2024-11-24 15:52:31] Registering trainer...
+[2024-11-24 15:52:31] Running..
+[2024-11-24 15:52:31] Error in 'addStaff': Column count doesn't match value count at row 1
+[2024-11-24 15:52:31] Database connection closed.
+[2024-11-24 15:56:25] Connection established successfully to the database: rad_gymverse
+[2024-11-24 15:56:25] User class instantiated with database connection.
+[2024-11-24 15:56:25] Fetching user role by user ID: 75
+[2024-11-24 15:56:25] User role fetched successfully for user ID: 75
+[2024-11-24 15:56:25] Running admin controller ,add_staff token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyNDYwNDAwfQ==.f7b152a7e84bf34a98cc045a45982ae6d72ff7287cbf39d0c4a256035b972cff   id - 75 
+[2024-11-24 15:56:25] Running add_staff....in controller
+[2024-11-24 15:56:25] Starting 'addStaff' function...
+[2024-11-24 15:56:25] User class instantiated with database connection.
+[2024-11-24 15:56:25] Processing user registration: role=trainer, email=udeepagallioagej@gmail.com.
+[2024-11-24 15:56:25] Trainer model initialized with database connection.
+[2024-11-24 15:56:25] User Register model running...
+[2024-11-24 15:56:25] Password hashed for user: udeepagallioagej@gmail.com
+[2024-11-24 15:56:25] Query bound and ready to execute for user: udeepagallioagej@gmail.com
+[2024-11-24 15:56:26] User registered successfully: udeepagallioagej@gmail.com with role: trainer
+[2024-11-24 15:56:26] Checking if user exists for email: udeepagallioagej@gmail.com
+[2024-11-24 15:56:26] User exists for email: udeepagallioagej@gmail.com with user_id: 115
+[2024-11-24 15:56:26] User registered successfully. User ID: 115.
+[2024-11-24 15:56:26] Adding trainer details for user ID: 115.
+[2024-11-24 15:56:26] Registering trainer...
+[2024-11-24 15:56:26] Running..
+[2024-11-24 15:56:26] Running..1
+[2024-11-24 15:56:27] No existing trainers found, starting ID from T1.
+[2024-11-24 15:56:27] generated ID - T1
+[2024-11-24 15:56:27] Trainer registered successfully: Rowing Machine
+[2024-11-24 15:56:27] Trainer added successfully: Rowing Machine.
+[2024-11-24 15:56:27] Account creation email function invoked.
+[2024-11-24 15:56:27] Configuring PHPMailer.
+[2024-11-24 15:56:27] Sending account creation email to: udeepagallioagej@gmail.com
+[2024-11-24 15:56:31] Account creation email sent successfully to: udeepagallioagej@gmail.com
+[2024-11-24 15:56:31] Database connection closed.

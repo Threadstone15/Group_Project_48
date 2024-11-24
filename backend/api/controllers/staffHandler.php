@@ -3,6 +3,8 @@
 
 include_once "../models/Staff.php";
 include_once "../models/User.php";
+include_once "../models/Member.php";
+include_once "../models/Trainer.php";
 include_once "../../logs/save.php";
 include_once "accountMail.php";
 
@@ -33,7 +35,7 @@ function addStaff() {
     logMessage("Starting 'addStaff' function...");
 
     // Include necessary classes
-    $staff = new Staff();
+
     $user = new User();
     $user_id = null;
 
@@ -72,6 +74,7 @@ function addStaff() {
 
         // Add user to User table
         if ($role === "staff" || $role === "owner") {
+            $staff = new Staff();
             if ($user->register($email, $password, $role)) {
                 $user_id = $user->userExists($email);
                 if ($user_id) {
@@ -93,7 +96,60 @@ function addStaff() {
             } else {
                 throw new Exception("Failed to add staff details for user ID: $user_id.");
             }
-        } else {
+        }
+        elseif($role === "member"){
+            $member = new Member();
+            if ($user->register($email, $password, $role)) {
+                $user_id = $user->userExists($email);
+                if ($user_id) {
+                    logMessage("User registered successfully. User ID: $user_id.");
+                } else {
+                    throw new Exception("Failed to retrieve user ID after registration.");
+                }
+            } else {
+                throw new Exception("User registration failed for email: $email.");
+            }
+
+            // Add details to member table
+            logMessage("Adding member details for user ID: $user_id.");
+            if ($member->registerMember($user_id, $firstName, $lastName, $dob, $phone, $address, $gender)) {
+                logMessage("Member added successfully: $firstName $lastName.");
+                account_creation($email, $password); // Send account creation email
+                http_response_code(201); // Resource created
+                echo json_encode(["message" => "Member added successfully."]);
+            } else {
+                throw new Exception("Failed to add member details for user ID: $user_id.");
+            }
+        }
+        elseif($role === "trainer"){
+            $trainer = new Trainer();
+            if ($user->register($email, $password, $role)) {
+                $user_id = $user->userExists($email);
+                if ($user_id) {
+                    logMessage("User registered successfully. User ID: $user_id.");
+                } else {
+                    throw new Exception("Failed to retrieve user ID after registration.");
+                }
+            } else {
+                throw new Exception("User registration failed for email: $email.");
+            }
+
+            $NIC = "123";
+            $years_of_experience = 5;
+            $specialties = "none";
+            $cv_link = "http";
+            // Add details to trainer table
+            logMessage("Adding trainer details for user ID: $user_id.");
+            if ($trainer->registerTrainer($user_id, $firstName, $lastName, $NIC, $dob, $address, $phone, $years_of_experience, $specialties, $cv_link)) {
+                logMessage("Trainer added successfully: $firstName $lastName.");
+                account_creation($email, $password); // Send account creation email
+                http_response_code(201); // Resource created
+                echo json_encode(["message" => "Trainer added successfully."]);
+            } else {
+                throw new Exception("Failed to add trainer details for user ID: $user_id.");
+            }
+        }
+        else {
             logMessage("Invalid role provided: $role.");
             http_response_code(400);
             echo json_encode(["error" => "Invalid role."]);
