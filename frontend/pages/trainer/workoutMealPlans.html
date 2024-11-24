@@ -1,36 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>workout plans</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Workout Planner</title>
   <link rel="stylesheet" href="/Group_Project_48/frontend/css/trainer/workoutMealPlans.css">
   <link rel="stylesheet" href="/Group_Project_48/frontend/css/globals.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
-
   <div class="container">
-    <h1>Create A Workout Plan</h1>
+    <!-- Number of Workout Days Section -->
+    <div class="workout-days-container">
+      <h1>Plan Your Workout</h1>
+      <div class="input-row">
+        <label for="workout-days">How many workout days?</label>
+        <input type="number" id="workout-days" min="1" max="7" placeholder="Enter number of days">
+      </div>
+      <button id="generate-planner">Generate Planner</button>
+    </div>
 
-    <form id="workout-form" class="workout-form">
-      <label for="workout-name">Workout Name</label>
-      <input type="text" id="workout-name" name="workout-name" placeholder="Enter workout name" required />
-
-      <label for="sets">Sets</label>
-      <input type="number" id="sets" name="sets" placeholder="Enter number of sets" min="1" required />
-
-      <label for="reps">Reps</label>
-      <input type="number" id="reps" name="reps" placeholder="Enter number of reps" min="1" required />
-
-      <button type="submit" class="submit-btn">Create Plan</button>
-    </form>
-
-    <div id="workout-list" class="workout-list">
-      <!-- Dynamic workout list will appear here -->
+    <!-- Workout Planner Section -->
+    <div class="workout-table-wrapper">
+      <div id="workout-planner" class="workout-planner"></div>
     </div>
   </div>
 
   <script src="/Group_Project_48/frontend/js/trainer/workoutMealPlans.js"></script>
 </body>
+
 </html>
