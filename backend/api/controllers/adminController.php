@@ -52,19 +52,19 @@ switch ($action) {
 
 
     case 'add_staff':
-        logMessage("Running add_trainer_career....in controller");
-        addStaff($user_id);
+        logMessage("Running add_staff....in controller");
+        addStaff();
         break;
     case 'get_staff':
-        logMessage("Running get_trainer_career....in controller");
+        logMessage("Running get_staff....in controller");
         getStaff();
         break;
     case 'update_staff':
-        logMessage("Running update_trainer_career....in controller");
+        logMessage("Running update_staff....in controller");
         updateStaff();
         break;
     case 'delete_staff':
-        logMessage("Running delete_trainer_career....in controller");
+        logMessage("Running delete_staff....in controller");
         deleteStaff();
         break;
 

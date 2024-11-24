@@ -32,7 +32,7 @@ class Staff {
     }
 
     // Create staff record
-    public function createStaff($role, $user_id, $firstName, $lastName, $dob, $phone, $address, $gender) {
+    public function createStaff( $user_id, $firstName, $lastName, $dob, $phone, $address, $gender) {
         logMessage("Creating staff...");
 
         $query = "INSERT INTO " . $this->table . " (staff_id, user_id, first_name, last_name, DOB, phone, address, gender, join_date)

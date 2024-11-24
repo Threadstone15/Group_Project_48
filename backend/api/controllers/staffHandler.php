@@ -29,32 +29,82 @@ function generateRandomPassword($length = 8) {
 
 
 // Add new staff
-function addStaff($user_id) {
-    logMessage("Add staff function running...");
+function addStaff() {
+    logMessage("Starting 'addStaff' function...");
 
+    // Include necessary classes
     $staff = new Staff();
+    $user = new User();
+    $user_id = null;
 
-    $role = filter_var($_POST['role'], FILTER_SANITIZE_STRING);
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
+    // Parse incoming JSON data
+    $data = json_decode(file_get_contents("php://input"), true);
+
+    if (!$data) {
+        logMessage("No input data provided.");
+        http_response_code(400);
+        echo json_encode(["error" => "Invalid input. No data received."]);
+        return;
+    }
+
+    // Sanitize and validate input data
+    $role = filter_var($data['role'] ?? null, FILTER_SANITIZE_STRING);
+    $email = filter_var($data['email'] ?? null, FILTER_SANITIZE_EMAIL);
     $password = generateRandomPassword();
+    $firstName = filter_var($data['firstName'] ?? null, FILTER_SANITIZE_STRING);
+    $lastName = filter_var($data['lastName'] ?? null, FILTER_SANITIZE_STRING);
+    $dob = filter_var($data['dob'] ?? null, FILTER_SANITIZE_STRING);
+    $phone = filter_var($data['mobile'] ?? null, FILTER_SANITIZE_STRING);
+    $address = filter_var($data['address'] ?? null, FILTER_SANITIZE_STRING);
+    $gender = filter_var($data['gender'] ?? null, FILTER_SANITIZE_STRING);
 
+    // Validate required fields
+    if (!$role || !$email || !$firstName || !$lastName || !$dob || !$phone || !$address || !$gender) {
+        logMessage("Missing required fields: role=$role, email=$email, firstName=$firstName, lastName=$lastName.");
+        http_response_code(400);
+        echo json_encode(["error" => "Missing required fields."]);
+        return;
+    }
 
-    $firstName = filter_var($_POST['first_name'], FILTER_SANITIZE_STRING);
-    $lastName = filter_var($_POST['last_name'], FILTER_SANITIZE_STRING);
-    $dob = filter_var($_POST['DOB'], FILTER_SANITIZE_STRING);
-    $phone = filter_var($_POST['phone'], FILTER_SANITIZE_STRING);
-    $address = filter_var($_POST['address'], FILTER_SANITIZE_STRING);
-    $gender = filter_var($_POST['gender'], FILTER_SANITIZE_STRING);
+    // Begin adding staff
+    try {
+        logMessage("Processing user registration: role=$role, email=$email.");
 
-    if ($staff->createStaff($role, $user_id, $firstName, $lastName, $dob, $phone, $address, $gender)) {
-        logMessage("Staff added successfully: $firstName $lastName");
-        account_creation($email, $password);
-        echo json_encode(["message" => "Staff added successfully"]);
-    } else {
-        logMessage("Failed to add staff: $firstName $lastName");
-        echo json_encode(["error" => "Staff addition failed"]);
+        // Add user to User table
+        if ($role === "staff" || $role === "owner") {
+            if ($user->register($email, $password, $role)) {
+                $user_id = $user->userExists($email);
+                if ($user_id) {
+                    logMessage("User registered successfully. User ID: $user_id.");
+                } else {
+                    throw new Exception("Failed to retrieve user ID after registration.");
+                }
+            } else {
+                throw new Exception("User registration failed for email: $email.");
+            }
+
+            // Add details to Staff table
+            logMessage("Adding staff details for user ID: $user_id.");
+            if ($staff->createStaff($user_id, $firstName, $lastName, $dob, $phone, $address, $gender)) {
+                logMessage("Staff added successfully: $firstName $lastName.");
+                account_creation($email, $password); // Send account creation email
+                http_response_code(201); // Resource created
+                echo json_encode(["message" => "Staff added successfully."]);
+            } else {
+                throw new Exception("Failed to add staff details for user ID: $user_id.");
+            }
+        } else {
+            logMessage("Invalid role provided: $role.");
+            http_response_code(400);
+            echo json_encode(["error" => "Invalid role."]);
+        }
+    } catch (Exception $e) {
+        logMessage("Error in 'addStaff': " . $e->getMessage());
+        http_response_code(500);
+        echo json_encode(["error" => "An error occurred while adding staff. Please try again later."]);
     }
 }
+
 
 // Get all staff or a specific staff by ID
 function getStaff() {
