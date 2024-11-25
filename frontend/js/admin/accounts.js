@@ -77,25 +77,30 @@ function populateTable(members) {
                 <td>${member.phone}</td>
                 <td>
                     <button class="delete-button" data-id="${member.user_id}">Delete</button>
-                    <button class="update-button" data-id="${member.userID}">Update</button>
+                    <button class="update-button" data-id="${member.user_id}">Update</button>
                     
                 </td>
             `;
             tbody.appendChild(row);
         });
-        attachDeleteEventHandlers();
+        attachEventHandlers(); 
     } else {
         tbody.innerHTML = '<tr><td colspan="5">No members found for the selected role.</td></tr>';
     }
 }
 
-// Add delete functionality to buttons
-function attachDeleteEventHandlers() {
-    const deleteButtons = document.querySelectorAll('.delete-button');
-    deleteButtons.forEach(button => {
+function attachEventHandlers() {
+    document.querySelectorAll('.delete-button').forEach(button => {
         button.addEventListener('click', event => {
             const userId = event.target.dataset.id;
             confirmDelete(userId);
+        });
+    });
+
+    document.querySelectorAll('.update-button').forEach(button => {
+        button.addEventListener('click', event => {
+            const userId = event.target.dataset.id;
+            fetchMemberDetails(userId);
         });
     });
 }
@@ -265,3 +270,84 @@ function initAddMember() {
 
 // Initialize form actions
 document.addEventListener('DOMContentLoaded', initAddMember);
+
+// Attach update functionality to buttons
+
+
+async function fetchMemberDetails(userId) {
+    try {
+        const response = await fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=get_member_details&userID=${userId}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+            }
+        });
+
+        if (response.ok) {
+            const member = await response.json();
+            populateUpdateForm(member);
+        } else {
+            console.error('Failed to fetch member details, HTTP status:', response.status);
+        }
+    } catch (error) {
+        console.error('Error fetching member details:', error);
+    }
+}
+
+function populateUpdateForm(member) {
+    document.getElementById('updateFirstName').value = member.firstName;
+    document.getElementById('updateLastName').value = member.lastName;
+    document.getElementById('updateEmail').value = member.email;
+    document.getElementById('updateMobile').value = member.phone;
+
+    const updatePopup = document.getElementById('updatePopup');
+    updatePopup.style.display = 'block';
+
+    document.getElementById('updateForm').onsubmit = event => {
+        event.preventDefault();
+        updateMember(member.userID);
+    };
+
+    document.getElementById('cancelUpdate').onclick = () => {
+        updatePopup.style.display = 'none';
+    };
+
+    document.getElementById('closeUpdatePopup').onclick = () => {
+        updatePopup.style.display = 'none';
+    };
+}
+
+
+async function updateMember(userId) {
+    const updatedDetails = {
+        userID: userId,
+        firstName: document.getElementById('updateFirstName').value.trim(),
+        lastName: document.getElementById('updateLastName').value.trim(),
+        email: document.getElementById('updateEmail').value.trim(),
+        phone: document.getElementById('updateMobile').value.trim()
+    };
+
+    try {
+        const response = await fetch('http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=update_member', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+            },
+            body: JSON.stringify(updatedDetails)
+        });
+
+        if (response.ok) {
+            const updatePopup = document.getElementById('updatePopup');
+            updatePopup.style.display = 'none';
+
+            // Refresh table after successful update
+            fetchMembersByRole(document.querySelector('.role-filter.active').dataset.role);
+        } else {
+            console.error('Failed to update member, HTTP status:', response.status);
+        }
+    } catch (error) {
+        console.error('Error updating member:', error);
+    }
+}
+

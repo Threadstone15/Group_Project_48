@@ -129,6 +129,35 @@
         </form>
     </section>
 </div>
+
+<!-- Update confirmation popup -->
+<div id="updatePopup" class="popup" style="display: none;">
+    <button id="closeUpdatePopup" class="close-button">&times;</button>
+    <div class="popup-content">
+        <h2>Update Member</h2>
+        <form id="updateForm">
+            <div class="input-group">
+                <label for="updateFirstName">First Name</label>
+                <input type="text" id="updateFirstName" name="firstName" class="input-field" required>
+            </div>
+            <div class="input-group">
+                <label for="updateLastName">Last Name</label>
+                <input type="text" id="updateLastName" name="lastName" class="input-field" required>
+            </div>
+            <div class="input-group">
+                <label for="updateEmail">Email</label>
+                <input type="email" id="updateEmail" name="email" class="input-field" required>
+            </div>
+            <div class="input-group">
+                <label for="updateMobile">Mobile</label>
+                <input type="tel" id="updateMobile" name="mobile" class="input-field" required>
+            </div>
+            <button type="submit" class="popup-confirm">Save Changes</button>
+            <button type="button" id="cancelUpdate" class="popup-cancel">Cancel</button>
+        </form>
+    </div>
+</div>
+
 <script src="/Group_Project_48/frontend/js/admin/accounts.js"></script>
 </body>
 </html>
