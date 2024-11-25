@@ -1,4 +1,5 @@
 // Sample test data
+let temp_role;
 let allEmails = [];
 
 // Fetch all emails from the backend on page load
@@ -42,6 +43,7 @@ function checkEmail() {
 async function fetchMembersByRole(role) {
     try {
         console.log("Selected role: ",role);
+        temp_role = role;
         const response = await fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=get_members_by_role&role=${role}`, {
             method: 'GET',
             headers: {
@@ -77,7 +79,7 @@ function populateTable(members) {
                 <td>${member.phone}</td>
                 <td>
                     <button class="delete-button" data-id="${member.user_id}">Delete</button>
-                    <button class="update-button" data-id="${member.user_id}">Update</button>
+                    <button class="update-button" onclick="openUpdatePopup(this)">Update</button>
                     
                 </td>
             `;
@@ -89,6 +91,76 @@ function populateTable(members) {
     }
 }
 
+function openUpdatePopup(button) {
+    console.log("pop...");
+    const row = button.closest('tr'); // Get the row containing the clicked button
+    const userId = row.cells[0].textContent; // Equipment ID
+    const name = row.cells[1].textContent; // Name
+    const email = row.cells[2].textContent;
+    const contactNo = row.cells[3].textContent;
+
+  
+    // Fill the update form with the selected row's data
+    document.getElementById("updateFirstName").value = userId;
+    document.getElementById("updateLastName").value = name;
+    document.getElementById("updateEmail").value = email;
+    document.getElementById("updateMobile").value = contactNo;
+
+  
+    // Show the update popup
+    document.getElementById("updatePopup").style.display = "block";
+  }
+  
+  document.getElementById("cancelUpdate").onclick = () => {
+    document.getElementById("updatePopup").style.display = "none"; // Close the update popup
+  };
+  
+  document.getElementById("updateForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+  
+    console.log("Update user form submitted");
+  
+    const userId = document.getElementById("updateFirstName").value;
+    const name = document.getElementById("updateLastName").value;
+    const email = document.getElementById("updateEmail").value;
+    const contactNo = document.getElementById("updateMobile").value;
+  
+    const formData = {
+        user_id: userId,
+        name: name,
+        email: email,
+        contact_no: contactNo,
+    };
+  
+    const authToken = localStorage.getItem("authToken");
+  
+    const requestOptions = {
+      method: 'PUT', // Using PUT method for update
+      headers: {
+        'Authorization': `Bearer ${authToken}`,
+        'Content-Type': 'application/json', // Sending JSON data
+      },
+      body: JSON.stringify(formData), // Stringify the data
+      redirect: 'follow'
+    };
+  
+    fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php?action=update_equipment_status", requestOptions)
+      .then(response => {
+        if (!response.ok) throw new Error("Failed to update user");
+        return response.json();
+      })
+      .then(data => {
+        if (data.message) {
+          alert("User updated successfully!");
+          document.getElementById("updatePopup").style.display = "none"; // Close the popup
+          fetchMembersByRole(defaultRole); // Refresh the equipment list
+        } else {
+          alert("Failed to update user");
+        }
+      })
+      .catch(error => console.error("Error updating user:", error));
+  });
+
 function attachEventHandlers() {
     document.querySelectorAll('.delete-button').forEach(button => {
         button.addEventListener('click', event => {
@@ -97,12 +169,6 @@ function attachEventHandlers() {
         });
     });
 
-    document.querySelectorAll('.update-button').forEach(button => {
-        button.addEventListener('click', event => {
-            const userId = event.target.dataset.id;
-            fetchMemberDetails(userId);
-        });
-    });
 }
 
 // Confirm delete action
@@ -274,80 +340,5 @@ document.addEventListener('DOMContentLoaded', initAddMember);
 // Attach update functionality to buttons
 
 
-async function fetchMemberDetails(userId) {
-    try {
-        const response = await fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=get_member_details&userID=${userId}`, {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${localStorage.getItem('authToken')}`
-            }
-        });
 
-        if (response.ok) {
-            const member = await response.json();
-            populateUpdateForm(member);
-        } else {
-            console.error('Failed to fetch member details, HTTP status:', response.status);
-        }
-    } catch (error) {
-        console.error('Error fetching member details:', error);
-    }
-}
-
-function populateUpdateForm(member) {
-    document.getElementById('updateFirstName').value = member.firstName;
-    document.getElementById('updateLastName').value = member.lastName;
-    document.getElementById('updateEmail').value = member.email;
-    document.getElementById('updateMobile').value = member.phone;
-
-    const updatePopup = document.getElementById('updatePopup');
-    updatePopup.style.display = 'block';
-
-    document.getElementById('updateForm').onsubmit = event => {
-        event.preventDefault();
-        updateMember(member.userID);
-    };
-
-    document.getElementById('cancelUpdate').onclick = () => {
-        updatePopup.style.display = 'none';
-    };
-
-    document.getElementById('closeUpdatePopup').onclick = () => {
-        updatePopup.style.display = 'none';
-    };
-}
-
-
-async function updateMember(userId) {
-    const updatedDetails = {
-        userID: userId,
-        firstName: document.getElementById('updateFirstName').value.trim(),
-        lastName: document.getElementById('updateLastName').value.trim(),
-        email: document.getElementById('updateEmail').value.trim(),
-        phone: document.getElementById('updateMobile').value.trim()
-    };
-
-    try {
-        const response = await fetch('http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=update_member', {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('authToken')}`
-            },
-            body: JSON.stringify(updatedDetails)
-        });
-
-        if (response.ok) {
-            const updatePopup = document.getElementById('updatePopup');
-            updatePopup.style.display = 'none';
-
-            // Refresh table after successful update
-            fetchMembersByRole(document.querySelector('.role-filter.active').dataset.role);
-        } else {
-            console.error('Failed to update member, HTTP status:', response.status);
-        }
-    } catch (error) {
-        console.error('Error updating member:', error);
-    }
-}
 
