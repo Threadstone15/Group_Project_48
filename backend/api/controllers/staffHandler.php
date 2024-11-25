@@ -163,21 +163,64 @@ function addStaff() {
 
 
 // Get all staff or a specific staff by ID
-function getStaff() {
-    logMessage("Get staff function running...");
+function getStaff($role) {
+    logMessage("Get staff function running for role: $role");
 
-    $staff = new Staff();
-    $staff_id = isset($_GET['staff_id']) ? filter_var($_GET['staff_id'], FILTER_SANITIZE_STRING) : null;
+    try {
+        // Validate role
+        $validRoles = ['member', 'staff', 'owner', 'trainer'];
+        if (!in_array($role, $validRoles)) {
+            logMessage("Invalid role provided: $role");
+            echo json_encode(["error" => "Invalid role provided"]);
+            return;
+        }
 
-    $staffRecords = $staff_id ? [$staff->getStaffById($staff_id)] : $staff->getAllStaff();
-    if ($staffRecords) {
-        logMessage("Staff fetched successfully");
-        echo json_encode($staffRecords);
-    } else {
-        logMessage("No staff found");
-        echo json_encode(["error" => "No staff found"]);
+        if ($role === "member") {
+            logMessage("Fetching details for members...");
+            $member = new Member();
+            $members = $member->getMemberDetails();
+
+            if (!empty($members)) {
+                logMessage("Member details fetched successfully.");
+                echo json_encode($members);
+            } else {
+                logMessage("No members found.");
+                echo json_encode(["error" => "No members found"]);
+            }
+        } elseif ($role === "staff" || $role === "owner") {
+            logMessage("Fetching details for $role...");
+            $staff = new Staff();
+            $staffDetails = $staff->getStaffDetails($role); // Assuming getStaffDetails handles roles
+
+            if (!empty($staffDetails)) {
+                logMessage(ucfirst($role) . " details fetched successfully.");
+                echo json_encode($staffDetails);
+            } else {
+                logMessage("No $role found.");
+                echo json_encode(["error" => "No $role found"]);
+            }
+        } elseif ($role === "trainer") {
+            logMessage("Fetching details for trainers...");
+            $trainer = new Trainer();
+            $trainerDetails = $trainer->getTrainerDetails();
+
+            if (!empty($trainerDetails)) {
+                logMessage("Trainer details fetched successfully.");
+                echo json_encode($trainerDetails);
+            } else {
+                logMessage("No trainers found.");
+                echo json_encode(["error" => "No trainers found"]);
+            }
+        } else {
+            logMessage("Unhandled role: $role");
+            echo json_encode(["error" => "Unhandled role"]);
+        }
+    } catch (Exception $e) {
+        logMessage("An error occurred in getStaff function: " . $e->getMessage());
+        echo json_encode(["error" => "An internal server error occurred"]);
     }
 }
+
 
 // Update existing staff
 function updateStaff() {

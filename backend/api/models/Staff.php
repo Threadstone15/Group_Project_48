@@ -160,5 +160,39 @@ public function getStaffByID($staff_id) {
             return false;
         }
     }
+
+    public function getStaffDetails($role) {
+        logMessage("Fetching member details...");
+
+        $query = "SELECT 
+                    s.staff_id as userID, 
+                    s.first_name as firstName, 
+                    s.last_name as lastName, 
+                    s.phone, 
+                    u.user_id,
+                    u.email
+                  FROM 
+                    " . $this->table . " s
+                  JOIN 
+                    users u 
+                  ON 
+                    s.user_id = u.user_id
+                  WHERE 
+                    u.role = '$role'";
+
+        $result = $this->conn->query($query);
+
+        if ($result && $result->num_rows > 0) {
+            $members = [];
+            while ($row = $result->fetch_assoc()) {
+                $members[] = $row;
+            }
+            logMessage("Member details fetched successfully.");
+            return $members;
+        } else {
+            logMessage("No members found.");
+            return [];
+        }
+    }
 }
 ?>

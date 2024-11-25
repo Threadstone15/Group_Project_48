@@ -65,5 +65,39 @@ class Member {
             return false;
         }
     }
+
+    public function getMemberDetails() {
+        logMessage("Fetching member details...");
+
+        $query = "SELECT 
+                    m.member_id as userID, 
+                    m.firstName, 
+                    m.lastName, 
+                    m.phone, 
+                    u.user_id,
+                    u.email
+                  FROM 
+                    " . $this->table . " m
+                  JOIN 
+                    users u 
+                  ON 
+                    m.user_id = u.user_id
+                  WHERE 
+                    u.role = 'member'";
+
+        $result = $this->conn->query($query);
+
+        if ($result && $result->num_rows > 0) {
+            $members = [];
+            while ($row = $result->fetch_assoc()) {
+                $members[] = $row;
+            }
+            logMessage("Member details fetched successfully.");
+            return $members;
+        } else {
+            logMessage("No members found.");
+            return [];
+        }
+    }
 }
 ?>

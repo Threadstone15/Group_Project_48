@@ -39,74 +39,124 @@ function checkEmail() {
     }
 }
 
+async function fetchMembersByRole(role) {
+    try {
+        console.log("Selected role: ",role);
+        const response = await fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=get_members_by_role&role=${role}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+            }
+        });
+
+        if (response.ok) {
+            const members = await response.json();
+            console.log("response: ",members);
+            populateTable(members);
+        } else {
+            console.error('Failed to fetch members by role, HTTP status:', response.status);
+        }
+    } catch (error) {
+        console.error('Error fetching members by role:', error);
+    }
+}
+
+// Populate table with members
+function populateTable(members) {
+    const tbody = document.querySelector("#equipmentsTable tbody");
+    tbody.innerHTML = ''; // Clear existing rows
+
+    if (members && members.length > 0) {
+        members.forEach(member => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${member.userID}</td>
+                <td>${member.firstName} ${member.lastName}</td>
+                <td>${member.email}</td>
+                <td>${member.phone}</td>
+                <td>
+                    <button class="delete-button" data-id="${member.userID}">Delete</button>
+                    <button class="update-button" data-id="${member.userID}">Update</button>
+                    
+                </td>
+            `;
+            tbody.appendChild(row);
+        });
+        attachDeleteEventHandlers();
+    } else {
+        tbody.innerHTML = '<tr><td colspan="5">No members found for the selected role.</td></tr>';
+    }
+}
+
+// Add delete functionality to buttons
+function attachDeleteEventHandlers() {
+    const deleteButtons = document.querySelectorAll('.delete-button');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', event => {
+            const userId = event.target.dataset.id;
+            confirmDelete(userId);
+        });
+    });
+}
+
+// Confirm delete action
+function confirmDelete(userId) {
+    const deletePopup = document.getElementById("deletePopup");
+    deletePopup.style.display = "block";
+
+    document.getElementById("confirmDelete").onclick = () => {
+        deleteMember(userId);
+        deletePopup.style.display = "none";
+    };
+
+    document.getElementById("cancelDelete").onclick = () => {
+        deletePopup.style.display = "none";
+    };
+}
+
+// Delete member
+async function deleteMember(userId) {
+    try {
+        const response = await fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=delete_member&userID=${userId}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+            }
+        });
+
+        if (response.ok) {
+            fetchMembersByRole(document.querySelector('.role-filter.active').dataset.role); // Refresh table
+        } else {
+            console.error('Failed to delete member, HTTP status:', response.status);
+        }
+    } catch (error) {
+        console.error('Error deleting member:', error);
+    }
+}
+
+
+document.querySelectorAll('.role-filter').forEach(button => {
+    button.addEventListener('click', event => {
+        document.querySelectorAll('.role-filter').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+
+        const role = event.target.dataset.role;
+        fetchMembersByRole(role);
+    });
+});
+
 // Add event listener to fetch emails and monitor email input
 document.addEventListener('DOMContentLoaded', () => {
     fetchEmails();
     document.getElementById("email").addEventListener('input', checkEmail);
+
+    const defaultRole = 'member';
+    document.querySelector(`.role-filter[data-role="${defaultRole}"]`).classList.add('active');
+    fetchMembersByRole(defaultRole);
 });
 
-// Test data for equipment
-const equipments = [
-    { "Equipment ID": "EQ123", "Name": "Treadmill", "Purchase Date": "2023-01-15", "Status": "Active", "Usable Duration": "2 years" },
-    { "Equipment ID": "EQ124", "Name": "Dumbbell Set", "Purchase Date": "2022-07-10", "Status": "Inactive", "Usable Duration": "5 years" },
-    { "Equipment ID": "EQ125", "Name": "Stationary Bike", "Purchase Date": "2021-05-22", "Status": "Active", "Usable Duration": "3 years" }
-];
 
-// Function to populate the equipment table
-function populateTable() {
-    const tableBody = document.getElementById("equipmentsTable").querySelector("tbody");
-    tableBody.innerHTML = "";
-    equipments.forEach(equipment => {
-        const row = document.createElement("tr");
-
-        row.innerHTML = `
-            <td>${equipment["Equipment ID"]}</td>
-            <td>${equipment["Name"]}</td>
-            <td>${equipment["Purchase Date"]}</td>
-            <td>${equipment["Status"]}</td>
-            <td>${equipment["Usable Duration"]}</td>
-            <td>
-                <a href="updateEquipment.php?id=${equipment['Equipment ID']}" class="button update-button">Update</a>
-                <button class="button delete-button" onclick="handleDelete('${equipment["Equipment ID"]}')">Delete</button>
-            </td>
-        `;
-        tableBody.appendChild(row);
-    });
-}
-
-// Function to handle equipment deletion
-function handleDelete(equipmentId) {
-    const popup = document.getElementById("deletePopup");
-    const overlay = document.getElementById("overlay");
-    popup.style.display = "block";
-    overlay.style.display = "block";
-
-    document.getElementById("confirmDelete").onclick = function() {
-        deleteEquipment(equipmentId);
-        popup.style.display = "none";
-        overlay.style.display = "none";
-    };
-
-    document.getElementById("cancelDelete").onclick = closePopup;
-    document.getElementById("closePopup").onclick = closePopup;
-}
-
-function closePopup() {
-    document.getElementById("deletePopup").style.display = "none";
-    document.getElementById("overlay").style.display = "none";
-}
-
-// Delete equipment and refresh the table
-function deleteEquipment(equipmentId) {
-    const index = equipments.findIndex(equipment => equipment["Equipment ID"] === equipmentId);
-    if (index > -1) {
-        equipments.splice(index, 1);
-        populateTable();
-    }
-}
-
-// Call populateTable on page load
-document.addEventListener("DOMContentLoaded", populateTable);
 
 // Add member functionality
 function initAddMember() {

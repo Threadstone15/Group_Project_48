@@ -79,6 +79,40 @@ class Trainer {
             return false;
         }
     }
+
+    public function getTrainerDetails() {
+        logMessage("Fetching trainer details...");
+
+        $query = "SELECT 
+                    t.trainer_id as userID, 
+                    t.firstName, 
+                    t.lastName, 
+                    t.mobile_number as phone, 
+                    u.user_id,
+                    u.email
+                  FROM 
+                    " . $this->table . " t
+                  JOIN 
+                    users u 
+                  ON 
+                    t.user_id = u.user_id
+                  WHERE 
+                    u.role = 'trainer'";
+
+        $result = $this->conn->query($query);
+
+        if ($result && $result->num_rows > 0) {
+            $members = [];
+            while ($row = $result->fetch_assoc()) {
+                $members[] = $row;
+            }
+            logMessage("Member details fetched successfully.");
+            return $members;
+        } else {
+            logMessage("No members found.");
+            return [];
+        }
+    }
     
 }
 ?>

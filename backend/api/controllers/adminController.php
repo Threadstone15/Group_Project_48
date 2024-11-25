@@ -55,9 +55,10 @@ switch ($action) {
         logMessage("Running add_staff....in controller");
         addStaff();
         break;
-    case 'get_staff':
-        logMessage("Running get_staff....in controller");
-        getStaff();
+    case 'get_members_by_role':
+        $role = $_POST['role'] ?? $_GET['role'] ?? null; 
+        logMessage("Running get_members_by_role....in controller");
+        getStaff($role);
         break;
     case 'update_staff':
         logMessage("Running update_staff....in controller");
