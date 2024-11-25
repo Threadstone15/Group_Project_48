@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workout Planner</title>
+  <link rel="stylesheet" href="/Group_Project_48/frontend/css/member/workoutMealPlans.css">
+  <link rel="stylesheet" href="/Group_Project_48/frontend/css/globals.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <!-- Number of Workout Days Section -->
+    <div class="workout-days-container">
+      <h1>Create your own workout plan</h1>
+      <div class="input-row">
+        <label for="workout-days">How many workout days?</label>
+        <input type="number" id="workout-days" min="1" max="7" placeholder="Enter number of days">
+      </div>
+      <button id="generate-planner">Generate Planner</button>
+    </div>
+
+    <!-- Workout Planner Section -->
+    <div class="workout-table-wrapper">
+      <div id="workout-planner" class="workout-planner"></div>
+    </div>
+  </div>
+
+  <script src="/Group_Project_48/frontend/js/member/workoutMealPlans.js"></script>
+</body>
+
+</html>

@@ -77,6 +77,7 @@ tbody tr:hover {
   margin: 0 auto; /* Center the entire header block */
   padding: 20px; /* Add some padding to the header for spacing */
   margin-top: 30px;
+  cursor: default;
 }
 
 .heading {
@@ -84,6 +85,7 @@ tbody tr:hover {
   font-weight: 600; /* Set font weight to bold for emphasis */
   font-family: 'Poppins', sans-serif; /* Use Poppins font */
   color:  #333;
+  cursor: default;
 }
 
 
@@ -119,11 +121,13 @@ tbody tr:hover {
   margin-top: 12px;
   font-size: 18px;
   margin-left: 15px;
+  cursor: default;
 }
 
 .add-equipment-title {
   display:flex;
   margin-bottom: 0px;
+  cursor: default;
 }
 
 .equipment-form {
@@ -167,7 +171,7 @@ tbody tr:hover {
 .submit-button {
   background-color: #FF5F00;
   color: #fff;
-  border-radius: 30px;
+  border-radius: 10px;
   border-color: transparent;
   padding: 12px 42px;
   font-weight: 400;
@@ -178,13 +182,16 @@ tbody tr:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 100px;
+  margin-left: 110px;
   transition: all 0.3s ease; 
 }
 
 .submit-button:hover {
-  background-color: #d75001;
-  transform: scale(1.05);
+  background-color: #ff7733;
+}
+
+.submit-button:active {
+  background-color: #e04e00;
 }
 
 

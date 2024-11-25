@@ -32,7 +32,7 @@ body {
 
 .sidebar {
   flex-basis: 350px;
-  max-width: 300px; 
+  width: 300px; 
   flex-shrink: 0;
   height: 100vh; 
   background-color: var(--sidebar);
@@ -74,6 +74,7 @@ body {
     margin-left: 20px;
     margin-top: 10px;
     font-family: 'Poppins', sans-serif;
+    cursor: pointer;
   }
   
   .sidebar-menu li {

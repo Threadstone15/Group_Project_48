@@ -3,6 +3,7 @@
 /* home page */
 .fitness-management {
     font-family: Poppins, sans-serif;
+    cursor: default;
   }
   
   .content-wrapper {
@@ -55,6 +56,7 @@
     margin-top: 61px;
     flex: 0 0 auto;
     font-family: Poppins, sans-serif;
+    cursor: pointer;
   }
   
   .cta-button {
@@ -64,12 +66,12 @@
   
   /* Hover state for the button */
   .cta-button:hover {
-    background-color: #E43700; /* Change to hover color */
+    background-color: #ff7733;
   }
   
   /* Active (clicked) state for the button */
   .cta-button:active {
-    background-color: #B83200; /* Darker shade for active state */
+    background-color: #e04e00; /* Darker shade for active state */
   }
   
   .creative-image {
@@ -80,8 +82,8 @@
     display: block; /* Ensure the image is a block-level element (useful for margin adjustments) */
     margin: 0 auto; /* Center the image horizontally (if needed) */
     padding-top: 90px; /* Add space above the image */
-    padding-right: 80px; /* Add space to the right of the image */
-    padding-left: -30px;
+    padding-right: 130px; /* Add space to the right of the image */
+    padding-left: -10px;
   }
   
   
@@ -169,46 +171,35 @@
     margin-top: 20px;
   }
   
-  .seeMore-cta-container {
-    position: relative;
-    display: flex;
-    justify-content: center;  /* Center the button horizontally */
-    align-items: center;      /* Center the button vertically */
-    margin-top: 20px;
-    min-height: 50px;
-    width: 200px;
-    max-width: 100%;
-    flex-direction: column;
-    padding: 13px 48px;
-    margin-bottom: 30px;
-  }
-  
   .seeMore-cta-button {
     border-radius: 30px;
-    background-color: transparent;
+    background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
     gap: 5px;
     height: 50px;
     width: 200px;
     border: 1px solid #fff;
-    color: #fff;
+    color: #FF5F00;
     font: 500 16px Poppins, sans-serif;
     cursor: pointer;
   }
-  
-  
-  .button-text {
-    width: 74px;
+
+  .seeMore-cta-button:hover{
+    background-color: #FF5F00;
+    color: #fff;
+    border: 2px solid #ffffff;
+  }
+
+  .seeMore-cta-button:active{
+    background-color: #e04e00;
+    color: #fff;
+    border: 2px solid #ffffff;
   }
   
-  .button-icon {
-    aspect-ratio: 1;
-    object-fit: contain;
-    object-position: center;
-    width: 24px;
-  }
   
   @media (max-width: 991px) {
     .aboutUs-content-wrapper {
@@ -246,6 +237,7 @@
     font-family: Poppins, sans-serif;
     padding: 0 100px;
     margin-left: 80px;
+    cursor: default;
   }
   
   .facilities-info {
@@ -257,6 +249,7 @@
     font-size: 35px;
     font-weight: 600;
     margin-bottom: 20px;
+    cursor: default;
   }
   
   .facilities-description {
@@ -277,21 +270,19 @@
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 10px;
+    cursor: default;
   }
   
-  .see-more-wrapper {
-    position: relative;
-    width: 200px;
-  }
   
-  .see-more-btn {
+  .facilities-cta-button {
+    width: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: Poppins, sans-serif;
-    width: 100%;
+    width: 40%;
     height: 50px;
-    border: 1px solid #ff5f00;
+    border: 2px solid #ff5f00;
     border-radius: 30px;
     background-color: transparent;
     color: #ff5f00;
@@ -301,9 +292,16 @@
     transition: background-color 0.3s ease;
   }
   
-  .see-more-btn:hover,
-  .see-more-btn:focus {
-    background-color: rgba(255, 95, 0, 0.1);
+  .facilities-cta-button:hover,
+  .facilities-cta-button:focus {
+    background-color: #ff5f00;
+    color: #fff;
+   
+  }
+
+  .facilities-cta-button:active {
+    background-color: #e04e00;
+    color: #fff;
   }
   
   .arrow-icon {
@@ -361,6 +359,7 @@
     margin: 0 auto;
     margin-top: 100px;
     margin-bottom: 100px;
+    cursor: default;
   }
   
   .section-title {
@@ -368,6 +367,7 @@
     text-align: center;
     font: 600 35px Poppins, sans-serif;
     margin-top: -12px;
+    cursor: default;
   }
   
   .highlight {
@@ -380,6 +380,7 @@
     gap: 30px;
     margin-top: 75px;
     width: 100%;
+    margin-bottom: 50px;
   }
   
   .trainer-card {
@@ -394,28 +395,34 @@
   }
   
   .trainer-image {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
+    width: 150px; /* Set desired width */
+    height: 150px; /* Set desired height */
+    border-radius: 50%; /* Makes the image round */
+    object-fit: cover; /* Ensures the image scales properly without distortion */
+    border: 2px solid #FF5F00; /* Optional: Add a border for styling */
   }
   
   .trainer-info {
     display: flex;
     flex-direction: column;
+    margin-top: 30px;
+    cursor: default;
   }
   
   .trainer-name {
-    font-size: 35px;
+    font-size: 28px;
     font-weight: 600;
     color: #FFF;
     margin: 0;
+    cursor: default;
   }
   
   .trainer-specialty {
-    font-size: 18px;
+    font-size: 12px;
     font-weight: 500;
     color: #FFF;
     margin-top: 0px;
+    cursor: default;
   }
   
   .trainer-icon {
@@ -493,6 +500,7 @@
     font: 600 65px Poppins, sans-serif;
     margin-bottom: 30px;
     margin-top: 150px;
+    cursor: default;
   }
   
   @media (max-width: 991px) {
@@ -521,6 +529,7 @@
   
   .final-highlighted-text {
     color: rgba(255, 95, 0, 1);
+    cursor: default;
   }
   
   .final-info-text {
@@ -531,6 +540,7 @@
     margin-top: 19px;
     width: 100%;
     max-width: 924px;
+    cursor: default;
   }
   
   @media (max-width: 991px) {
@@ -553,6 +563,7 @@
     margin-top: 61px;
     flex: 0 0 auto;
     font-family: Poppins, sans-serif;
+    cursor: pointer;
     
   }
   
@@ -563,12 +574,12 @@
   
   /* Hover state for the button */
   .final-cta-button:hover {
-    background-color: #E43700;
+    background-color: #ff7733;
   }
   
   /* Active (clicked) state for the button */
   .final-cta-button:active {
-    background-color: #B83200;
+    background-color: #e04e00;
   }
   
   /* End of styles for home page */

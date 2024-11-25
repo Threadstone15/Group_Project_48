@@ -7,17 +7,29 @@ export function inithome() {
     const imageElement2 = document.getElementById('img2');
     imageElement2.src = "/Group_Project_48/frontend/assets/images/home_img2.png";
 
+    const imageElement3 = document.getElementById('trainer1');
+    imageElement3.src = "/Group_Project_48/frontend/assets/images/trainer1.jpeg";
+
+    const imageElement4 = document.getElementById('trainer2');
+    imageElement4.src = "/Group_Project_48/frontend/assets/images/trainer2.jpg";
+
+    const imageElement5= document.getElementById('trainer3');
+    imageElement5.src = "/Group_Project_48/frontend/assets/images/trainer3.jpg";
+
+    const imageElement6 = document.getElementById('trainer4');
+    imageElement6.src = "/Group_Project_48/frontend/assets/images/trainer4.jpg";
+
     document.body.addEventListener("click", (event) => {
         if (event.target && (event.target.id === "member" || event.target.id === "member2")) {
             navigate('becomeMember');
         }
-        if (event.target && event.target.id === "see-more") {
+        if (event.target && event.target.id === "about-seeMore") {
             navigate('about');
         }
-        if (event.target && event.target.id === "more-services") {
+        if (event.target && event.target.id === "facilities-seeMore") {
             navigate('services');
         }
-        if (event.target && event.target.id === "trainers") {
+        if (event.target && event.target.id === "trainers-seeMore") {
             navigate('findATrainer');
         }
     });
