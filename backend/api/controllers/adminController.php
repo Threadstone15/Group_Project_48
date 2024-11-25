@@ -66,7 +66,8 @@ switch ($action) {
         break;
     case 'delete_staff':
         logMessage("Running delete_staff....in controller");
-        deleteStaff();
+        $user_id = $_POST['userID'] ?? $_GET['userID'] ?? null;
+        deleteStaff($user_id);
         break;
 
 

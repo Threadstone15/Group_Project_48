@@ -76,7 +76,7 @@ function populateTable(members) {
                 <td>${member.email}</td>
                 <td>${member.phone}</td>
                 <td>
-                    <button class="delete-button" data-id="${member.userID}">Delete</button>
+                    <button class="delete-button" data-id="${member.user_id}">Delete</button>
                     <button class="update-button" data-id="${member.userID}">Update</button>
                     
                 </td>
@@ -118,7 +118,8 @@ function confirmDelete(userId) {
 // Delete member
 async function deleteMember(userId) {
     try {
-        const response = await fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=delete_member&userID=${userId}`, {
+        console.log("Deleting... - ",userId);
+        const response = await fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=delete_staff&userID=${userId}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('authToken')}`

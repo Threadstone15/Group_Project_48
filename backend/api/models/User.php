@@ -249,6 +249,38 @@ class User {
             return false;
         }
     }
+
+    public function deleteUser($user_id) {
+        logMessage("Attempting to delete user with ID: $user_id");
+    
+        // Prepare the query
+        $query = "DELETE FROM " . $this->table . " WHERE user_id = ?";
+        $stmt = $this->conn->prepare($query);
+    
+        // Check if statement preparation was successful
+        if ($stmt === false) {
+            logMessage("Error preparing statement for deleteUser: " . $this->conn->error);
+            return false;
+        }
+    
+        // Bind the user_id parameter
+        $stmt->bind_param("i", $user_id);
+    
+        // Execute the query
+        if ($stmt->execute()) {
+            if ($stmt->affected_rows > 0) {
+                logMessage("User deleted successfully with ID: $user_id");
+                return true;
+            } else {
+                logMessage("No user found with ID: $user_id to delete.");
+                return false;
+            }
+        } else {
+            logMessage("Error executing deleteUser query for user ID: $user_id with error: " . $stmt->error);
+            return false;
+        }
+    }
+    
     
     
     

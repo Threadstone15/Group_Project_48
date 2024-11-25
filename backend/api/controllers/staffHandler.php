@@ -249,18 +249,17 @@ function updateStaff() {
 }
 
 // Delete staff
-function deleteStaff() {
-    logMessage("Delete staff function running...");
+function deleteStaff($user_id) {
+    logMessage("Delete staff function running...ID - $user_id");
 
-    $staff = new Staff();
-    $staff_id = filter_var($_GET['staff_id'], FILTER_SANITIZE_STRING);
+    $user = new User();
 
-    if ($staff->deleteStaff($staff_id)) {
-        logMessage("Staff deleted successfully: $staff_id");
-        echo json_encode(["message" => "Staff deleted successfully"]);
+    if ($user->deleteUser($user_id)) {
+        logMessage("Staff deleted successfully:");
+        echo json_encode(["message" => "User deleted successfully"]);
     } else {
-        logMessage("Failed to delete staff: $staff_id");
-        echo json_encode(["error" => "Staff deletion failed"]);
+        logMessage("Failed to delete staff:");
+        echo json_encode(["error" => "User deletion failed"]);
     }
 }
 
