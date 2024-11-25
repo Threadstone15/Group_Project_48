@@ -1,4 +1,4 @@
-export async function loadCalendar() {
+
 
   const calendar = document.querySelector(".calendar"),
   date = document.querySelector(".date"),
@@ -457,6 +457,5 @@ function convertTime(time) {
   return time;
 }
 
-}
 
-loadCalendar();
+
