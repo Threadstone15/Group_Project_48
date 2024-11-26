@@ -10,8 +10,7 @@ session_start();
 include_once "../../middleware/authMiddleware.php";
 include_once "../../config/database.php";
 include_once "./membershipPlanHandler.php";
-// include_once "equipmentMaintenanceHandler.php";
-// include_once "noticeHandler.php";
+include_once "./trainerApplicationHandler.php";
 include_once "../models/User.php";
 
 $conn = include_once "../../config/database.php";
@@ -24,17 +23,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 $request_method = $_SERVER['REQUEST_METHOD'];
 $action = $_POST['action'] ?? $_GET['action'] ?? null; 
 
-// $token = getBearerToken();
-// $requiredRole = "owner";
-// verifyRequest($requiredRole, $token);
-// $user_id  =getUserIdFromToken($token);
-
 logMessage("Running landing page controller ,$action ");
 
 switch ($action) {
     case 'get_membershipPlans':
         logMessage("Running get_membership plan....in controller");
         getMembershipPlans();
+        break;
+    case 'add_trainer_application':
+        logMessage("Running add trainer application....in controller");
+        addTrainerApplication();
         break;
     default:
         echo json_encode(["error" => "Invalid action"]);

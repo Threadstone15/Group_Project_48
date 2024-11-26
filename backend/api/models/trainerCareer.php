@@ -13,6 +13,26 @@ class TrainerCareer {
         logMessage("TrainerCareer model initialized with database connection.");
     }
 
+    private function generateCareerID() {
+        // Use SUBSTRING to extract the numeric part and ORDER BY it as an integer
+        $query = "SELECT career_id 
+                  FROM " . $this->table . " 
+                  ORDER BY CAST(SUBSTRING(career_id, 2) AS UNSIGNED) DESC 
+                  LIMIT 1";
+        $result = $this->conn->query($query);
+    
+        if ($result && $row = $result->fetch_assoc()) {
+            // Extract the numeric part of the last ID and increment it
+            $lastID = (int)substr($row['career_id'], 1); // Remove 'C' and convert to integer
+            $newID = $lastID + 1;
+            return 'C' . $newID; // Format as CX where X is the incremented value
+        } else {
+            // If no records exist, start from 1
+            logMessage("No existing careers found, starting ID from C1.");
+            return 'C1';
+        }
+    }
+
     public function addCareer($job_role, $requirements) {
         logMessage("Adding new trainer career...");
 
@@ -21,7 +41,14 @@ class TrainerCareer {
             return false;
         }
 
-        $query = "INSERT INTO " . $this->table . " (job_role, requirements) VALUES (?, ?)";
+        // generate carere_id
+        $career_id = $this->generateCareerID();
+        if (!$career_id) {
+            logMessage("Career ID generation failed");
+            return false;
+        }
+
+        $query = "INSERT INTO " . $this->table . " (career_id, job_role, requirements) VALUES (?, ?, ?)";
         $stmt = $this->conn->prepare($query);
 
         if ($stmt === false) {
@@ -29,7 +56,7 @@ class TrainerCareer {
             return false;
         }
 
-        if (!$stmt->bind_param("ss", $job_role, $requirements)) {
+        if (!$stmt->bind_param("sss",$career_id,  $job_role, $requirements)) {
             logMessage("Error binding parameters for trainer career insertion: " . $stmt->error);
             return false;
         }
@@ -95,7 +122,7 @@ class TrainerCareer {
             return false;
         }
 
-        if (!$stmt->bind_param("ssi", $job_role, $requirements, $career_id)) {
+        if (!$stmt->bind_param("sss", $job_role, $requirements, $career_id)) {
             logMessage("Error binding parameters for updating trainer career: " . $stmt->error);
             return false;
         }
@@ -126,7 +153,7 @@ class TrainerCareer {
             return false;
         }
 
-        if (!$stmt->bind_param("i", $career_id)) {
+        if (!$stmt->bind_param("s", $career_id)) {
             logMessage("Error binding parameters for deleting trainer career: " . $stmt->error);
             return false;
         }

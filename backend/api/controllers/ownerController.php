@@ -10,8 +10,7 @@ session_start();
 include_once "../../middleware/authMiddleware.php";
 include_once "../../config/database.php";
 include_once "./membershipPlanHandler.php";
-// include_once "equipmentMaintenanceHandler.php";
-// include_once "noticeHandler.php";
+include_once "./trainerApplicationHandler.php";
 include_once "../models/User.php";
 
 $conn = include_once "../../config/database.php";
@@ -47,6 +46,19 @@ switch ($action) {
     case 'delete_membershipPlan':
         logMessage("Running delete_membership plan....in controller");
         deleteMembershipPlan();
+        break;
+    
+    case 'get_trainerApplications' :
+        logMessage("Running get_trainer_applications....in controller");
+        getTrainerApplications();
+        break;
+    case 'update_trainerApplicationStatus':
+        logMessage("Running update_trainer_application_status....in controller");
+        updateTrainerApplicationStatus();
+        break;
+    case 'delete_trainerApplication' : 
+        logMessage("Running delete_trainer_application....in controller");
+        deleteTrainerApplication();
         break;
     default:
         echo json_encode(["error" => "Invalid action"]);
