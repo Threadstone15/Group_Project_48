@@ -15,7 +15,7 @@ include_once "../models/User.php";
 $conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     logMessage("Handling preflight OPTIONS request.");
-    http_response_code(204);  
+    http_response_code(204);
     exit();
 }
 
@@ -26,6 +26,7 @@ $token = getBearerToken();
 $requiredRole = "member";
 verifyRequest($requiredRole, $token);
 $user_id  =getUserIdFromToken($token);
+$data_id = $_POST['data_id'];
 
 logMessage("Running member controller ,$action token - $token   id - $user_id ");
 
@@ -53,15 +54,15 @@ switch ($action) {
         break;
     case 'get_Subscription':
         logMessage("Running get_Subscription....in controller");
-        getSubscription();
+        getSubscription($data_id);
         break;
     case 'updateSubscription':
         logMessage("Running update_Subscription....in controller");
-        updateSubscription();
+        updateSubscription($data_id);
         break;
     case 'delete_Subscription':
         logMessage("Running delete_Subscription....in controller");
-        deleteSubscription();
+        deleteSubscription($data_id);
         break;
 
 
