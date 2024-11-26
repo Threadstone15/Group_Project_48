@@ -14,11 +14,13 @@ body {
     margin: auto;
 }
 
+
 .pricing-container {
     max-width: 1200px;
     padding: 2rem;
     align-items: center;
     justify-content: center;
+    margin-left: 180px;
 }
 
 .pricing-toggle {
@@ -95,6 +97,7 @@ input:checked + .slider:before {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
     transition: transform 0.3s ease;
+    height: 450px;
 }
 
 .pricing-card:hover {
@@ -144,12 +147,22 @@ input:checked + .slider:before {
 .features {
     list-style: none;
     margin-bottom: 2rem;
+    margin-left: 30px;
 }
 
 .features li {
     margin-bottom: 0.8rem;
-    color: #666;
+    text-align: left;
+    color: #000;
+    font-weight: 500;
 }
+
+.features li::before {
+    content: "•"; /* Add a dot */
+    color: black; /* Set dot color */
+    margin-right: 8px; /* Add space between dot and text */
+    font-size: 1.2em; /* Adjust dot size */
+  }
 
 .select-plan {
     background: #FF5F00;
