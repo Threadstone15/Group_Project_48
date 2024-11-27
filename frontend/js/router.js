@@ -17,9 +17,13 @@ export function navigate(page) {
     //then load navbar and footer
     loadNavbar();
     loadFooter();
+    loadPage(page);
+    history.pushState({ page }, "", `/Group_Project_48/${page}`);
+    location.reload();
+  }else{
+    loadPage(page);
+    history.pushState({ page }, "", `/Group_Project_48/${page}`);
   }
-  loadPage(page);
-  history.pushState({ page }, "", `/Group_Project_48/${page}`);
 }
 
 window.addEventListener("popstate", () => {
