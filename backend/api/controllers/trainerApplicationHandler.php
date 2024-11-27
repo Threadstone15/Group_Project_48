@@ -2,11 +2,13 @@
 // trainerCareerHandler.php
 
 include_once "../models/trainerApplication.php";
+include_once "../models/User.php";
 include_once "../../logs/save.php";
 function addTrainerApplication() {
     logMessage("add trainer application function running...");
 
     $trainerApplication = new TrainerApplication();
+    $user = new User();
 
     // Get the raw input data and decode JSON
     $data = json_decode(file_get_contents("php://input"), true);
@@ -17,6 +19,7 @@ function addTrainerApplication() {
         isset($data['lastName']) &&
         isset($data['NIC']) &&
         isset($data['dob']) &&
+        isset($data['email']) &&
         isset($data['address']) &&
         isset($data['mobile_number']) &&
         isset($data['years_of_experience']) &&
@@ -28,6 +31,7 @@ function addTrainerApplication() {
         $lastName = $data['lastName'];
         $NIC = $data['NIC'];
         $dob = $data['dob'];
+        $email = $data['email'];
         $address = $data['address'];
         $mobile_number = $data['mobile_number'];
         $years_of_experience = $data['years_of_experience'];
@@ -35,12 +39,26 @@ function addTrainerApplication() {
         $cv = $data['cv'];
         $approved_by_owner = FALSE;
 
+        $userData = $user->getUserByEmail($email);
+        if ($userData){
+            logMessage('Email already exists in the db');
+            echo json_encode(["error" => "Email is already in use"]);
+            exit();
+        }
+        $ApplicationData = $trainerApplication->getApplicationByEmail($email);
+        if($ApplicationData){
+            logMessage('Email already exists in the db');
+            echo json_encode(["error" => "An application has been already submitted using this email"]);
+            exit();
+        }
+
         if ($trainerApplication->addApplication(
             $career_id,
             $firstName,
             $lastName, 
             $NIC, 
             $dob, 
+            $email, 
             $address, 
             $mobile_number,
             $years_of_experience,
@@ -49,7 +67,7 @@ function addTrainerApplication() {
             $approved_by_owner
             )) {
             logMessage("Trainer application added successfully: $career_id");
-            echo json_encode(["message" => "Trainer appplication added successfully"]);
+            echo json_encode(["message" => "Appplication submitted successfully"]);
         } else {
             logMessage("Failed to add trainer appplication: $career_id");
             echo json_encode(["error" => "Trainer appplication addition failed"]);

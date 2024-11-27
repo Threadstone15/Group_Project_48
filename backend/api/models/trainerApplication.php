@@ -33,7 +33,7 @@ class TrainerApplication {
         }
     }
 
-    public function addApplication($career_id, $firstName, $lastName, $NIC, $dob, $address, $mobile_number, $years_of_experience, $specialties,$cv, $approved_by_owner) {
+    public function addApplication($career_id, $firstName, $lastName, $NIC, $dob, $email,  $address, $mobile_number, $years_of_experience, $specialties,$cv, $approved_by_owner) {
         logMessage("Adding new application...");
 
         if (!$this->conn) {
@@ -48,8 +48,8 @@ class TrainerApplication {
             return false;
         }
 
-        $query = "INSERT INTO " . $this->table . " (application_id, career_id, firstName, lastName, NIC, DOB, address, mobile_number, years_of_experience, specialties, cv, approved_by_owner) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO " . $this->table . " (application_id, career_id, firstName, lastName, NIC, DOB, email, address, mobile_number, years_of_experience, specialties, cv, approved_by_owner) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
 
         if ($stmt === false) {
@@ -58,13 +58,14 @@ class TrainerApplication {
         }
 
         if (!$stmt->bind_param(
-            "ssssssssisss",
+            "sssssssssisss",
             $application_id,
             $career_id,
             $firstName,
             $lastName,
             $NIC,
             $dob,
+            $email,
             $address,
             $mobile_number,
             $years_of_experience,
@@ -178,6 +179,31 @@ class TrainerApplication {
             return true;
         } else {
             logMessage("Trainer application deletion failed: " . $stmt->error);
+            return false;
+        }
+    }
+
+    public function getApplicationByEmail($email) {
+        logMessage("Fetching application by email: $email");
+    
+        // Prepare the query
+        $query = "SELECT * FROM " . $this->table . " WHERE email = ?";
+        $stmt = $this->conn->prepare($query);
+    
+        if ($stmt === false) {
+            logMessage("Error preparing statement for getApplicationByEmail: " . $this->conn->error);
+            return false;
+        }
+    
+        // Bind the email parameter
+        $stmt->bind_param("s", $email);
+    
+        // Execute the query
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            return $result->fetch_assoc();
+        } else {
+            logMessage("Error executing getApplicationByEmail query: " . $stmt->error);
             return false;
         }
     }
