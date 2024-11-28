@@ -55,7 +55,7 @@ export function initlogin() {
           }
         } else {
           // Display error message if login fails
-          alert(data.error || "Login failed. Please check your credentials.");
+          showFormResponse(data.error || "Login failed. Please check your credentials.", "error");
         }
       })
       .catch(error => {
@@ -64,4 +64,15 @@ export function initlogin() {
       });
   });
 
+  function showFormResponse(message, type) {
+    const responseContainer = document.getElementById("formResponse");
+    responseContainer.textContent = "";
+    responseContainer.textContent = message;
+    responseContainer.className = `form-response ${type}`;
+    responseContainer.style.display = "block";
+
+    setTimeout(() => {
+        responseContainer.style.display = "none";
+    }, 3000);
+}
 }
