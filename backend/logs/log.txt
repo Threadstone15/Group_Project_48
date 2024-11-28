@@ -3490,3 +3490,68 @@
 [2024-11-28 15:27:45] Member details fetched successfully.
 [2024-11-28 15:27:45] Member details fetched successfully.
 [2024-11-28 15:27:45] Database connection closed.
+[2024-11-28 16:14:15] Connection established successfully to the database: rad_gymverse
+[2024-11-28 16:14:15] User class instantiated with database connection.
+[2024-11-28 16:14:15] Fetching user role by user ID: 75
+[2024-11-28 16:14:15] User role fetched successfully for user ID: 75
+[2024-11-28 16:14:15] Running admin controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyODA5NjAwfQ==.701f77cfc97bbc3be918f0913d362792670ff0adac87cfc2cf74141b775ef6e6   id - 75 
+[2024-11-28 16:14:15] Running get_members_by_role....in controller
+[2024-11-28 16:14:15] Get staff function running for role: member
+[2024-11-28 16:14:15] Fetching details for members...
+[2024-11-28 16:14:15] Member model initialized with database connection.
+[2024-11-28 16:14:15] Fetching member details...
+[2024-11-28 16:14:16] Member details fetched successfully.
+[2024-11-28 16:14:16] Member details fetched successfully.
+[2024-11-28 16:14:16] Database connection closed.
+[2024-11-28 16:14:16] Connection established successfully to the database: rad_gymverse
+[2024-11-28 16:14:16] User class instantiated with database connection.
+[2024-11-28 16:14:16] Fetching user role by user ID: 75
+[2024-11-28 16:14:16] User role fetched successfully for user ID: 75
+[2024-11-28 16:14:16] Running admin controller ,get_all_emails token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyODA5NjAwfQ==.701f77cfc97bbc3be918f0913d362792670ff0adac87cfc2cf74141b775ef6e6   id - 75 
+[2024-11-28 16:14:16] Running get_all_emails....in controller
+[2024-11-28 16:14:16] Fetching all emails from the users table.
+[2024-11-28 16:14:16] User class instantiated with database connection.
+[2024-11-28 16:14:16] Fetching all emails from the users table.
+[2024-11-28 16:14:17] Emails fetched successfully. Total: 39
+[2024-11-28 16:14:17] Emails fetched successfully. Total: 39
+[2024-11-28 16:14:17] Database connection closed.
+[2024-11-28 16:14:29] Connection established successfully to the database: rad_gymverse
+[2024-11-28 16:14:29] User class instantiated with database connection.
+[2024-11-28 16:14:29] Fetching user role by user ID: 75
+[2024-11-28 16:14:29] User role fetched successfully for user ID: 75
+[2024-11-28 16:14:29] Running admin controller ,update_staff token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyODA5NjAwfQ==.701f77cfc97bbc3be918f0913d362792670ff0adac87cfc2cf74141b775ef6e6   id - 75 
+[2024-11-28 16:14:29] Running update_staff....in controller
+[2024-11-28 16:14:29] Update staff function running...
+[2024-11-28 16:14:29] User class instantiated with database connection.
+[2024-11-28 16:14:29] Updating user details for user ID: 80
+[2024-11-28 16:14:30] User table updated successfully for user ID: 80
+[2024-11-28 16:14:30] Fetching user role by user ID: 80
+[2024-11-28 16:14:30] User role fetched successfully for user ID: 80
+[2024-11-28 16:14:30] Role-specific table `member` updated successfully for user ID: 80.
+[2024-11-28 16:14:30] User updated successfully: 80
+[2024-11-28 16:14:30] Database connection closed.
+[2024-11-28 16:14:36] Connection established successfully to the database: rad_gymverse
+[2024-11-28 16:14:36] User class instantiated with database connection.
+[2024-11-28 16:14:36] Fetching user role by user ID: 75
+[2024-11-28 16:14:37] User role fetched successfully for user ID: 75
+[2024-11-28 16:14:37] Running admin controller ,get_all_emails token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyODA5NjAwfQ==.701f77cfc97bbc3be918f0913d362792670ff0adac87cfc2cf74141b775ef6e6   id - 75 
+[2024-11-28 16:14:37] Running get_all_emails....in controller
+[2024-11-28 16:14:37] Fetching all emails from the users table.
+[2024-11-28 16:14:37] User class instantiated with database connection.
+[2024-11-28 16:14:37] Fetching all emails from the users table.
+[2024-11-28 16:14:37] Emails fetched successfully. Total: 39
+[2024-11-28 16:14:37] Emails fetched successfully. Total: 39
+[2024-11-28 16:14:37] Database connection closed.
+[2024-11-28 16:14:38] Connection established successfully to the database: rad_gymverse
+[2024-11-28 16:14:38] User class instantiated with database connection.
+[2024-11-28 16:14:38] Fetching user role by user ID: 75
+[2024-11-28 16:14:38] User role fetched successfully for user ID: 75
+[2024-11-28 16:14:38] Running admin controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyODA5NjAwfQ==.701f77cfc97bbc3be918f0913d362792670ff0adac87cfc2cf74141b775ef6e6   id - 75 
+[2024-11-28 16:14:38] Running get_members_by_role....in controller
+[2024-11-28 16:14:38] Get staff function running for role: member
+[2024-11-28 16:14:38] Fetching details for members...
+[2024-11-28 16:14:38] Member model initialized with database connection.
+[2024-11-28 16:14:38] Fetching member details...
+[2024-11-28 16:14:38] Member details fetched successfully.
+[2024-11-28 16:14:38] Member details fetched successfully.
+[2024-11-28 16:14:38] Database connection closed.

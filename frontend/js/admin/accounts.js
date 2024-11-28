@@ -353,7 +353,3 @@ function initAddMember() {
 document.addEventListener('DOMContentLoaded', initAddMember);
 
 // Attach update functionality to buttons
-
-
-
-
