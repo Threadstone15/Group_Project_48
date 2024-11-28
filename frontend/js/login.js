@@ -1,5 +1,17 @@
 export function initlogin() {
 
+  const storedRole = localStorage.getItem('role');
+  if (storedRole) {
+    switch(storedRole){
+      case 'staff': navigateDashboard('staff', 'staffHome'); break;
+      case 'admin': navigateDashboard('admin', 'adminHome'); break;
+      case 'member' : navigateDashboard('member', 'memberHome'); break;
+      case 'owner' : navigateDashboard('owner', 'ownerHome'); break;
+      case 'trainer' : navigateDashboard('trainer', 'trainerHome'); break;
+    }
+    return;
+  }
+
   document.body.addEventListener("click", (event) => {
     if (event.target && event.target.id === "forgotPw") {
       navigate('forgotPassword');
