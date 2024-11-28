@@ -1,0 +1,134 @@
+.trainer-registration-form {
+    max-width: 650px;
+    margin: 0 auto;
+    margin-bottom: 90px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: #ffffff; /* White background for the card */
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.input-field, .textarea {
+    border-radius: 10px;
+    background-color: #fff;
+    height: 50px;
+    border: 1px solid #4f4f4f;
+    padding: 0 15px;
+    font-size: 14px;
+    color: #4f4f4f;
+    font-family: Poppins, sans-serif;
+}
+
+.textarea {
+    min-height: 100px;
+    resize: vertical;
+    padding: 15px;
+}
+
+label {
+    font-size: 16px;
+    color: #4f4f4f;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.final-cta-button {
+    border-radius: 30px;
+    background-color: #FF5F00;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.final-cta-button:hover {
+    background-color: #E43700;
+    transform: translateY(-2px);
+}
+
+.final-cta-button:active {
+    background-color: #B83200;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .trainer-registration-form {
+        padding: 20px;
+    }
+
+    .input-field, .textarea {
+        height: 45px;
+        font-size: 13px;
+    }
+
+    .final-cta-button {
+        font-size: 14px;
+    }
+}
+
+.header {
+    text-align: center; /* Center the text content */
+    margin: 0 auto; /* Center the entire header block */
+    padding: 20px; /* Add some padding to the header for spacing */
+    margin-top: 30px;
+}
+
+.heading {
+    font-size: 36px; /* Set font size for the main heading */
+    font-weight: 600; /* Set font weight to bold for emphasis */
+    font-family: 'Poppins', sans-serif; /* Use Poppins font */
+    color: #FF5F00; /* Brand orange color for the heading */
+    margin-bottom: 10px; /* Add some space below the heading */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+}
+
+.subheading {
+    font-size: 16px; /* Set font size for subheading */
+    font-family: 'Poppins', sans-serif; /* Use Poppins font */
+    color: #4F4F4F; /* Set a slightly lighter text color */
+    max-width: 800px; /* Restrict width to ensure readability */
+    margin: 0 auto; /* Center the subheading */
+    line-height: 1.5; /* Add some line spacing for better readability */
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+/* Button Styling */
+.final-cta-button {
+    display: inline-block;
+    border-radius: 30px;
+    background-color: #FF5F00; /* Brand orange */
+    color: #FFF; /* White text color */
+    font-size: 18px; /* Slightly larger text for prominence */
+    font-weight: 600; /* Bolder font weight */
+    padding: 12px 40px; /* Adjust padding for a balanced look */
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    border: none;
+    font-family: 'Poppins', sans-serif; /* Use Poppins font */
+}
+
+.final-cta-button:hover {
+    background-color: #ff7733; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+.final-cta-button:active {
+    background-color: #e04e00; /* Even darker shade on click */
+    transform: translateY(0); /* Remove lift effect */
+}

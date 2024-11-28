@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trainer Application</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/Group_Project_48/frontend/css/trainer/classSchedule.css">
+  <link rel="stylesheet" href="/Group_Project_48/frontend/css/globals.css">
+
+</head>
+
+<body>
+    <div class="header">
+        <p class="heading">
+            Schedule a class
+        </p
+    </div>
+    <section class="trainer-registration-form">
+        <form id="trainerApplication">
+            <div class="input-group">
+                <label for="classDate">Class Date</label>
+                <input type="date" id="clasDate" class="input-field" />
+            </div>
+            <div class="input-group">
+                <label for="membersCount">Number of members</label>
+                <input type="text" id="membersCount" class="input-field" />
+            </div>
+           <div class="input-group">
+                <label for="time">Starting Time</label>
+                <input type="text" id="timeDur" class="input-field" />
+            </div>
+            <div class="input-group">
+                <label for="time">Ending Time</label>
+                <input type="text" id="timeDur" class="input-field" />
+            </div>
+            <div class="input-group">
+                <label for="lesson">Lesson Name</label>
+                <input type="text" id="lessonName" class="input-field" />
+            </div>
+            <div class="input-group">
+                <label for="notes">Notes</label>
+                <textarea id="notes" class="input-field textarea" ></textarea>
+            </div>
+
+            <button class="final-cta-button" tabindex="0">Schedule</button>
+        </form>
+        <!-- Response Message Container -->
+        <div id="formResponse" class="form-response" style="display: none;"></div>
+    </section>
+    <script src="/Group_Project_48/frontend/js/trainer/classSchedule.js"></script>
+</body>
+
+</html>

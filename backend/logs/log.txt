@@ -2587,3 +2587,13 @@
 [2024-11-27 16:10:31] Maintenance data fetched successfully
 [2024-11-27 16:10:31] Maintenance data fetched successfully
 [2024-11-27 16:10:31] Database connection closed.
+[2024-11-28 14:20:12] Running auth controller ,login 
+[2024-11-28 14:20:12] running login...in auth controller
+[2024-11-28 14:20:12] login function running...
+[2024-11-28 14:20:12] Connection established successfully to the database: rad_gymverse
+[2024-11-28 14:20:12] User class instantiated with database connection.
+[2024-11-28 14:20:12] User Login model running for: trainer@gmail.com
+[2024-11-28 14:20:13] Query bound and ready to execute for login: trainer@gmail.com
+[2024-11-28 14:20:13] User login successful: trainer@gmail.com with role: trainer
+[2024-11-28 14:20:13] Login Successful: eyJ1c2VyX2lkIjo3NiwiZXhwIjoxNzMyODAyNDAwfQ==.cb58d5b0189eae461cbb4f1a882326b5cf11b603b29ce55128721cb2d5862c5b trainer
+[2024-11-28 14:20:13] Database connection closed.
