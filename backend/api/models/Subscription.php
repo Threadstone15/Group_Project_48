@@ -175,5 +175,30 @@ class Subscription {
             return false;
         }
     }
+
+    public function getSubscriptionByMembershipPlanID($membership_plan_id) {
+        logMessage("Fetching subscriptions of membership plan: $membership_plan_id");
+    
+        // Prepare the query
+        $query = "SELECT * FROM " . $this->table . " WHERE membership_plan_id = ?";
+        $stmt = $this->conn->prepare($query);
+    
+        if ($stmt === false) {
+            logMessage("Error preparing statement for getSubscriptionByMembershipPlanID: " . $this->conn->error);
+            return false;
+        }
+    
+        // Bind the email parameter
+        $stmt->bind_param("s", $membership_plan_id);
+    
+        // Execute the query
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            return $result->fetch_assoc();
+        } else {
+            logMessage("Error executing getSubscriptionByMembershipPlanID query: " . $stmt->error);
+            return false;
+        }
+    }
 }
 ?>
