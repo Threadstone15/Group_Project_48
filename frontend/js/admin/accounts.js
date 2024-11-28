@@ -113,6 +113,11 @@ function confirmDelete(userId) {
     document.getElementById("cancelDelete").onclick = () => {
         deletePopup.style.display = "none";
     };
+
+    document.getElementById('closePopup').addEventListener('click', function() {
+        document.getElementById('deletePopup').style.display = 'none';
+    });
+    
 }
 
 // Delete member
@@ -265,3 +270,5 @@ function initAddMember() {
 
 // Initialize form actions
 document.addEventListener('DOMContentLoaded', initAddMember);
+
+

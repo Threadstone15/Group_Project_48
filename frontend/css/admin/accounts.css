@@ -7,7 +7,6 @@
 
 .content {
     width: 80%;
-    border-collapse: collapse;
 }
 
 .table-container {
@@ -211,6 +210,38 @@ tbody tr:hover {
   .final-cta-button:active {
     background-color: #B83200;
   }
+
+  .filter-buttons { 
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin-left: 50px;
+  }
+
+  .role-filter {
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    color: #FF5F00;
+    font-size: 14px; /* Reduced button font size */
+    font-weight: 500;
+    padding: 10px 30px; /* Reduced padding for the button */
+    text-decoration: none;
+    margin: 5px ;
+    border: 2px solid #FF5F00;
+    font-family: 'Poppins', sans-serif; 
+  }
+
+  .role-filter:hover {
+    background-color: #FF5F00;
+    color: #FFF;
+    border: none;
+  }
+
+  .role-filter:active {
+    background-color: #E04E00;
+    color: #FFF;
+    border: none;
+  }
   
   .header {
     text-align: center; /* Center the text content */
@@ -258,6 +289,10 @@ tbody tr:hover {
   background-color: #4CAF50;
   margin-right: 5px;
   font-family: 'Poppins', sans-serif;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #fff;
 }
 
 .update-button:hover {
@@ -265,13 +300,27 @@ tbody tr:hover {
   color: #fff; 
 }
 
+.update-button:active {
+  background-color: #0d0d0d; 
+  color: #fff; 
+}
+
 .delete-button {
   background-color: #f44336;
   font-family: 'Poppins', sans-serif;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #fff;
 }
 
 .delete-button:hover {
   background-color: #371010;
+  color: #fff; 
+}
+
+.delete-button:active {
+  background-color: #0d0d0d; 
   color: #fff; 
 }
 
