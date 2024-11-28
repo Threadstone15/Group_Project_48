@@ -131,6 +131,7 @@ tbody tr:hover {
     font-weight: 500;
     line-height: 1.5;
     margin-bottom: 8px; /* Reduced spacing below labels */
+    text-align: left; /* Align labels to the left */
   }
 
   .input-field,
@@ -331,7 +332,7 @@ tbody tr:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px; 
+  width: 500px; 
   padding: 30px;
   background-color: #fff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -407,11 +408,13 @@ tbody tr:hover {
   padding: 12px 25px;
   border-radius: 6px;
   cursor: pointer;
+  width: 50%;
   font-size: 18px;
   font-weight: 500;
   transition: background-color 0.3s ease, color 0.3s ease;
-  width: 150px;
+  width: 200px;
   font-family: 'Poppins', sans-serif;
+  margin-top: 15px;
 }
 
 .popup-confirm:hover {
@@ -430,14 +433,17 @@ tbody tr:hover {
   font-size: 18px;
   font-weight: 500;
   transition: background-color 0.3s ease, color 0.3s ease;
-  width: 150px;
+  width: 200px;
   font-family: 'Poppins', sans-serif;
+  margin-top: 20px;
 }
 
 .popup-cancel:hover {
   background-color: #ccc;
   color: white;
 }
+
+
 
 /* Optional: dark overlay background */
 #overlay {

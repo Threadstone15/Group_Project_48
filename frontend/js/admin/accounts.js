@@ -118,7 +118,7 @@ function openUpdatePopup(button) {
     popup.style.display = "block";
   }
   
-  document.getElementById("cancelUpdate").onclick = () => {
+  document.getElementById("closeUpdatePopup").onclick = () => {
     document.getElementById("updatePopup").style.display = "none"; // Close the update popup
   };
   
@@ -189,6 +189,7 @@ function attachEventHandlers() {
 // Confirm delete action
 function confirmDelete(userId) {
     const deletePopup = document.getElementById("deletePopup");
+    const overlay = document.getElementById("overlay");
     deletePopup.style.display = "block";
 
     document.getElementById("confirmDelete").onclick = () => {
@@ -199,6 +200,13 @@ function confirmDelete(userId) {
     document.getElementById("cancelDelete").onclick = () => {
         deletePopup.style.display = "none";
     };
+
+    document.getElementById("closePopup").onclick = () => {
+        deletePopup.style.display = "none";
+    };
+    document.getElementById("overlay").onclick = () => {
+        overlay.style.display = "block";
+    }
 }
 
 // Delete member
@@ -352,4 +360,3 @@ function initAddMember() {
 // Initialize form actions
 document.addEventListener('DOMContentLoaded', initAddMember);
 
-// Attach update functionality to buttons

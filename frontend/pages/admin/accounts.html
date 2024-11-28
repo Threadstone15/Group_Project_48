@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+<div class="overlay" id="overlay"></div>
  <div class="content-wrapper">
     <div class="content"> 
         <div class="header">
@@ -152,8 +153,11 @@
                 <label for="updateMobile">Mobile</label>
                 <input type="tel" id="updateMobile" name="mobile" class="input-field" required>
             </div>
-            <button type="submit" class="popup-confirm">Save Changes</button>
-            <button type="button" id="cancelUpdate" class="popup-cancel">Cancel</button>
+            <div class="popup-buttons">
+                <button type="submit" class="popup-confirm">Save Changes</button>
+                <button type="button" id="cancelUpdate" class="popup-cancel">Cancel</button>
+            </div>
+           
         </form>
     </div>
 </div>
