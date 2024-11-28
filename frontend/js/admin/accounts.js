@@ -124,17 +124,42 @@ function openUpdatePopup(button) {
   document.getElementById("updateForm").addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const popup = document.getElementById("updatePopup");
-    const userId = popup.getAttribute("data-user-id");
-    const roleId = popup.getAttribute("data-role-id");
-  
-    
-  
-    const firstName = document.getElementById("updateFirstName").value;
-    const lastName = document.getElementById("updateLastName").value;
-    const email = document.getElementById("updateEmail").value;
-    const contactNo = document.getElementById("updateMobile").value;
-  
+    const firstName = document.getElementById("updateFirstName").value.trim();
+    const lastName = document.getElementById("updateLastName").value.trim();
+    const email = document.getElementById("updateEmail").value.trim();
+    const contactNo = document.getElementById("updateMobile").value.trim();
+    const dob = document.getElementById("updateDOB").value; // Assuming there is a DOB field for update
+
+    const errors = [];
+
+    // Validate First Name
+    if (!firstName || !/^[A-Za-z]+$/.test(firstName)) errors.push("First name is required and should contain only letters.");
+
+    // Validate Last Name
+    if (!lastName || !/^[A-Za-z]+$/.test(lastName)) errors.push("Last name is required and should contain only letters.");
+
+    // Validate Email
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push("Invalid email address.");
+
+    // Validate Date of Birth (Optional check if DOB exists)
+    if (dob) {
+        const dobDate = new Date(dob);
+        const age = calculateAge(dobDate);
+        if (age < 12 || age > 100) errors.push("Age must be between 12 and 100.");
+    }
+
+    // Validate Mobile Number
+    if (!contactNo || !/^07\d{8}$/.test(contactNo)) errors.push("Mobile number must be 10 digits and start with '07'.");
+
+    // If there are errors, display them and return early
+    if (errors.length > 0) {
+        showFormResponse(errors.join('<br>'), "error");
+        return;
+    }
+
+    const userId = document.getElementById("updatePopup").getAttribute("data-user-id");
+    const roleId = document.getElementById("updatePopup").getAttribute("data-role-id");
+
     const formData = {
         user_id: userId,
         role_id: roleId,
@@ -144,36 +169,63 @@ function openUpdatePopup(button) {
         contact_no: contactNo,
     };
 
-    console.log("Update user form submitted: ",formData);
-  
+    console.log("Update user form submitted: ", formData);
+
     const authToken = localStorage.getItem("authToken");
-  
+
     const requestOptions = {
-      method: 'PUT', // Using PUT method for update
-      headers: {
-        'Authorization': `Bearer ${authToken}`,
-        'Content-Type': 'application/json', // Sending JSON data
-      },
-      body: JSON.stringify(formData), // Stringify the data
-      redirect: 'follow'
+        method: 'PUT', // Using PUT method for update
+        headers: {
+            'Authorization': `Bearer ${authToken}`,
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData), // Stringify the data
+        redirect: 'follow',
     };
-  
+
     fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=update_staff", requestOptions)
-      .then(response => {
-        if (!response.ok) throw new Error("Failed to update user");
-        return response.json();
-      })
-      .then(data => {
-        if (data.message) {
-          alert("User updated successfully!");
-          document.getElementById("updatePopup").style.display = "none"; // Close the popup
-          fetchMembersByRole(defaultRole); // Refresh the equipment list
-        } else {
-          alert("Failed to update user");
-        }
-      })
-      .catch(error => console.error("Error updating user:", error));
-  });
+        .then(response => {
+            if (!response.ok) throw new Error("Failed to update user");
+            return response.json();
+        })
+        .then(data => {
+            if (data.message) {
+                alert("User updated successfully!");
+                document.getElementById("updatePopup").style.display = "none"; // Close the popup
+                fetchMembersByRole(temp_role); // Refresh the members list by role
+            } else {
+                alert("Failed to update user");
+            }
+        })
+        .catch(error => console.error("Error updating user:", error));
+});
+
+// Calculate Age (Helper function for DOB validation)
+function calculateAge(dob) {
+    const diff = Date.now() - dob.getTime();
+    const ageDate = new Date(diff);
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
+
+// Show form validation response
+function showFormResponse(message, type) {
+    const responseContainer = document.getElementById("formResponse") || createResponseContainer();
+    responseContainer.innerHTML = message;
+    responseContainer.className = `form-response ${type}`;
+    responseContainer.style.display = "block";
+
+    setTimeout(() => {
+        responseContainer.style.display = "none";
+    }, 3000);
+}
+
+function createResponseContainer() {
+    const responseContainer = document.createElement('div');
+    responseContainer.id = "formResponse";
+    document.querySelector('.signup-form').appendChild(responseContainer);
+    return responseContainer;
+}
+
 
 function attachEventHandlers() {
     document.querySelectorAll('.delete-button').forEach(button => {
@@ -301,22 +353,22 @@ function initAddMember() {
             },
             body: registrationData
         })
-            .then(response => {
-                if (!response.ok) throw new Error("Failed to add member");
-                return response.json();
-            })
+            .then(response => response.json())
             .then(data => {
-                if (data.error) {
-                    showFormResponse(data.error, "error");
-                } else {
-                    showFormResponse(data.message, "success");
-                    resetForm();
-                }
+                // Log the response to the console
+                console.log("Response data:", data);
+        
+                // Directly display the message from the response
+                showFormResponse(data.message, "success");
+                resetForm();
+                fetchMembersByRole(role);
             })
             .catch(error => {
                 console.error("Error:", error);
                 showFormResponse("An error occurred. Please try again later.", "error");
             });
+        
+        
     });
 
     function calculateAge(dob) {
