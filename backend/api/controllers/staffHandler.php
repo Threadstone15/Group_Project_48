@@ -226,27 +226,33 @@ function getStaff($role) {
 function updateStaff() {
     logMessage("Update staff function running...");
 
-    $staff = new Staff();
+    $user = new User();
     $data = json_decode(file_get_contents("php://input"), true);
 
-
-    $staff_id = filter_var($data['staff_id'], FILTER_SANITIZE_STRING);
+    // Sanitize and validate input data
     $user_id = filter_var($data['user_id'], FILTER_VALIDATE_INT);
-    $firstName = filter_var($data['first_name'], FILTER_SANITIZE_STRING);
-    $lastName = filter_var($data['last_name'], FILTER_SANITIZE_STRING);
-    $dob = filter_var($data['DOB'], FILTER_SANITIZE_STRING);
-    $phone = filter_var($data['phone'], FILTER_SANITIZE_STRING);
-    $address = filter_var($data['address'], FILTER_SANITIZE_STRING);
-    $gender = filter_var($data['gender'], FILTER_SANITIZE_STRING);
+    $email = filter_var($data['email'], FILTER_SANITIZE_EMAIL);
+    $firstname = filter_var($data['first_name'], FILTER_SANITIZE_STRING);
+    $lastname = filter_var($data['last_name'], FILTER_SANITIZE_STRING);
+    $contact_no = filter_var($data['contact_no'], FILTER_SANITIZE_STRING);
 
-    if ($staff->updateStaff($staff_id, $user_id, $firstName, $lastName, $dob, $phone, $address, $gender)) {
-        logMessage("Staff updated successfully: $staff_id");
-        echo json_encode(["message" => "Staff updated successfully"]);
+    // Check if required fields are valid
+    if (!$user_id || !$email || !$firstname || !$lastname || !$contact_no) {
+        logMessage("Invalid input data provided for updating staff: " . json_encode($data));
+        echo json_encode(["error" => "Invalid input data"]);
+        return;
+    }
+
+    // Call updateUser to update user details
+    if ($user->updateUser($user_id, $email, $firstname, $lastname, $contact_no)) {
+        logMessage("User updated successfully: $user_id");
+        echo json_encode(["message" => "User updated successfully"]);
     } else {
-        logMessage("Failed to update staff: $staff_id");
-        echo json_encode(["error" => "Staff update failed"]);
+        logMessage("Failed to update user: $user_id");
+        echo json_encode(["error" => "User update failed"]);
     }
 }
+
 
 // Delete staff
 function deleteStaff($user_id) {

@@ -280,6 +280,74 @@ class User {
             return false;
         }
     }
+
+    public function updateUser($user_id, $email, $firstname, $lastname, $contact_no) {
+        logMessage("Updating user details for user ID: $user_id");
+
+        $userUpdateQuery = "UPDATE " . $this->table . " SET email = ? WHERE user_id = ?";
+        $stmt = $this->conn->prepare($userUpdateQuery);
+    
+        if ($stmt === false) {
+            logMessage("Error preparing user update query: " . $this->conn->error);
+            return false;
+        }
+
+        $stmt->bind_param("si", $email, $user_id);
+    
+        if (!$stmt->execute()) {
+            logMessage("Error executing user update query for user ID: $user_id with error: " . $stmt->error);
+            return false;
+        }
+    
+        logMessage("User table updated successfully for user ID: $user_id");
+
+        $role = $this->getUserRoleById($user_id);
+        if (!$role) {
+            logMessage("Role not found for user ID: $user_id. Aborting role-specific update.");
+            return false;
+        }
+    
+        // Update the role-specific table
+        $roleTableMap = [
+            "member" => "member",
+            "trainer" => "trainer",
+            "owner" => "staff",
+            "staff" => "staff",
+        ];
+    
+        if (!isset($roleTableMap[$role])) {
+            logMessage("Invalid role `$role` for user ID: $user_id.");
+            return false;
+        }
+    
+        $roleTable = $roleTableMap[$role];
+        if ($roleTable=="member") {
+            $roleUpdateQuery = "UPDATE $roleTable SET firstName = ?, lastName = ?, phone = ? WHERE user_id = ?";
+        } else if ($roleTable=="trainer") {
+            $roleUpdateQuery = "UPDATE $roleTable SET firstName = ?, lastName = ?, mobile_number = ? WHERE user_id = ?";
+        } else if ($roleTable=="staff") {
+            $roleUpdateQuery = "UPDATE $roleTable SET first_name = ?, last_name = ?, phone = ? WHERE user_id = ?";
+        }
+
+        $roleStmt = $this->conn->prepare($roleUpdateQuery);
+    
+        if ($roleStmt === false) {
+            logMessage("Error preparing role-specific update query for table `$roleTable`: " . $this->conn->error);
+            return false;
+        }
+    
+
+        $roleStmt->bind_param("sssi", $firstname, $lastname, $contact_no, $user_id);
+    
+        if ($roleStmt->execute()) {
+            logMessage("Role-specific table `$roleTable` updated successfully for user ID: $user_id.");
+            return true;
+        } else {
+            logMessage("Error updating `$roleTable` for user ID: $user_id with error: " . $roleStmt->error);
+            return false;
+        }
+    }
+    
     
     
     

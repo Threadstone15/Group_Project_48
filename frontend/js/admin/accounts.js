@@ -73,6 +73,7 @@ function populateTable(members) {
         members.forEach(member => {
             const row = document.createElement('tr');
             row.innerHTML = `
+                <td>${member.user_id}</td>
                 <td>${member.userID}</td>
                 <td>${member.firstName} ${member.lastName}</td>
                 <td>${member.email}</td>
@@ -93,22 +94,28 @@ function populateTable(members) {
 
 function openUpdatePopup(button) {
     console.log("pop...");
-    const row = button.closest('tr'); // Get the row containing the clicked button
-    const userId = row.cells[0].textContent; // Equipment ID
-    const name = row.cells[1].textContent; // Name
-    const email = row.cells[2].textContent;
-    const contactNo = row.cells[3].textContent;
+    const row = button.closest('tr'); 
+    const userId = row.cells[0].textContent; 
+    const roleId = row.cells[1].textContent;
+    const fullName = row.cells[2].textContent.trim();
+    const [firstName, lastName] = fullName.split(' ');
+    const email = row.cells[3].textContent;
+    const contactNo = row.cells[4].textContent;
 
   
-    // Fill the update form with the selected row's data
-    document.getElementById("updateFirstName").value = userId;
-    document.getElementById("updateLastName").value = name;
+
+    document.getElementById("updateFirstName").value = firstName;
+    document.getElementById("updateLastName").value = lastName;
     document.getElementById("updateEmail").value = email;
     document.getElementById("updateMobile").value = contactNo;
 
   
-    // Show the update popup
-    document.getElementById("updatePopup").style.display = "block";
+
+    const popup = document.getElementById("updatePopup");
+    popup.setAttribute("data-user-id", userId);
+    popup.setAttribute("data-role-id", roleId);
+
+    popup.style.display = "block";
   }
   
   document.getElementById("cancelUpdate").onclick = () => {
@@ -117,20 +124,28 @@ function openUpdatePopup(button) {
   
   document.getElementById("updateForm").addEventListener("submit", function (event) {
     event.preventDefault();
+
+    const popup = document.getElementById("updatePopup");
+    const userId = popup.getAttribute("data-user-id");
+    const roleId = popup.getAttribute("data-role-id");
   
-    console.log("Update user form submitted");
+    
   
-    const userId = document.getElementById("updateFirstName").value;
-    const name = document.getElementById("updateLastName").value;
+    const firstName = document.getElementById("updateFirstName").value;
+    const lastName = document.getElementById("updateLastName").value;
     const email = document.getElementById("updateEmail").value;
     const contactNo = document.getElementById("updateMobile").value;
   
     const formData = {
         user_id: userId,
-        name: name,
+        role_id: roleId,
+        first_name: firstName,
+        last_name: lastName,
         email: email,
         contact_no: contactNo,
     };
+
+    console.log("Update user form submitted: ",formData);
   
     const authToken = localStorage.getItem("authToken");
   
@@ -144,7 +159,7 @@ function openUpdatePopup(button) {
       redirect: 'follow'
     };
   
-    fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php?action=update_equipment_status", requestOptions)
+    fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=update_staff", requestOptions)
       .then(response => {
         if (!response.ok) throw new Error("Failed to update user");
         return response.json();
