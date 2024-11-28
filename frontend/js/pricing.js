@@ -14,17 +14,29 @@ export function initpricing(){
     
             const plans = await response.json();
             console.log(plans);
-            displayMembershipPlans(plans);
+            displayMembershipPlans(plans, plans.slice(0, 3));
         } catch (error) {
             console.error("Error fetching membership plans:", error);
         }
     }
 
-    function displayMembershipPlans(plans) {
+    function displayMembershipPlans(plans, basicPlans) {
         pricingCardsContainer.innerHTML = ''; // Clear existing cards
     
         plans.forEach((plan, index) => {
-            const benefitsList = plan.benefits.split(',').map(benefit => `<li>${benefit.trim()}</li>`).join('');
+            let benefitsList = '';
+    
+            if (plan.base_plan_id != plan.membership_plan_id) {
+                // Find the base plan name from the basicPlans array
+                const basePlan = basicPlans.find(basicPlan => basicPlan.membership_plan_id === plan.base_plan_id);
+    
+                // Construct the benefits string for custom plans
+                benefitsList = `<li><strong>${basePlan ? basePlan.plan_name + ' plan features <br>' : 'Base Plan features'}</strong></li>` + `<b>+</b>` +
+                    plan.benefits.split(',').map(benefit => `<li>${benefit.trim()}</li>`).join('');
+            } else {
+                // For basic plans, show only their benefits
+                benefitsList = plan.benefits.split(',').map(benefit => `<li>${benefit.trim()}</li>`).join('');
+            }
     
             const card = document.createElement('div');
             card.className = 'pricing-card';
@@ -44,6 +56,7 @@ export function initpricing(){
     
         togglePricing(); // Ensure the correct prices are shown based on the toggle state
     }
+    
     
     function togglePricing() {
         const isAnnual = pricingSwitch.checked;
