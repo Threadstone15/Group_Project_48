@@ -32,10 +32,7 @@ class MembershipPlan {
         }
     }
     
-    
-
-
-    public function addMembershipPlan($name, $benefits, $monthlyPrice, $yearlyPrice) {
+    public function addMembershipPlan($name, $benefits, $monthlyPrice, $yearlyPrice, $basePlanID) {
         logMessage("Adding new membership plan...");
 
         if (!$this->conn) {
@@ -50,8 +47,8 @@ class MembershipPlan {
             return false;
         }
 
-        $query = "INSERT INTO " . $this->table . " (membership_plan_id, plan_name, benefits, monthlyPrice, yearlyPrice)
-                  VALUES (?, ?, ?, ?, ?)";
+        $query = "INSERT INTO " . $this->table . " (membership_plan_id, plan_name, benefits, monthlyPrice, yearlyPrice, base_plan_id)
+                  VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
 
         if ($stmt === false) {
@@ -59,7 +56,7 @@ class MembershipPlan {
             return false;
         }
 
-        if (!$stmt->bind_param("sssdd",$membership_plan_id, $name,$benefits, $monthlyPrice, $yearlyPrice)) {
+        if (!$stmt->bind_param("sssdds",$membership_plan_id, $name,$benefits, $monthlyPrice, $yearlyPrice, $basePlanID)) {
             logMessage("Error binding parameters for membership plan insertion: " . $stmt->error);
             return false;
         }
@@ -101,11 +98,11 @@ class MembershipPlan {
         }
     }
 
-    public function updateMembershipPlan($membership_plan_id, $name, $benefits, $monthlyPrice, $yearlyPrice) {
+    public function updateMembershipPlan($membership_plan_id, $name, $benefits, $monthlyPrice, $yearlyPrice, $basePlanID) {
         logMessage("Updating membership plan with ID: $membership_plan_id");
 
         $query = "UPDATE " . $this->table . " 
-                  SET plan_name = ?, benefits = ?, monthlyPrice = ?, yearlyPrice = ? 
+                  SET plan_name = ?, benefits = ?, monthlyPrice = ?, yearlyPrice = ? , base_plan_id = ?
                   WHERE membership_plan_id = ?";
         $stmt = $this->conn->prepare($query);
     
@@ -114,7 +111,7 @@ class MembershipPlan {
             return false;
         }
 
-        if (!$stmt->bind_param("ssdds", $name, $benefits, $monthlyPrice, $yearlyPrice, $membership_plan_id)) {
+        if (!$stmt->bind_param("ssddss", $name, $benefits, $monthlyPrice, $yearlyPrice, $basePlanID, $membership_plan_id)) {
             logMessage("Error binding parameters for updating membership plan: " . $stmt->error);
             return false;
         }
