@@ -31,7 +31,7 @@ async function fetchMembershipPlans() {
         const planIDofMember = subscription.membership_plan_id;
         const planPeriodofMember = subscription.period;
         displayCurrentPlan(plans, planIDofMember, planPeriodofMember);
-        displayMembershipPlans(plans);
+        displayMembershipPlans(plans, plans.slice(0, 3));
     } catch (error) {
         console.error("Error fetching membership plans:", error);
     }
@@ -63,11 +63,22 @@ async function getSubscriptionOfMember() {
     }
 }
 
-function displayMembershipPlans(plans) {
+function displayMembershipPlans(plans, basicPlans) {
     pricingCardsContainer.innerHTML = ''; // Clear existing cards
 
     plans.forEach(plan => {
-        const benefitsList = plan.benefits.split(',').map(benefit => `<li>${benefit.trim()}</li>`).join('');
+        let benefitsList = '';
+        if (plan.base_plan_id != plan.membership_plan_id) {
+            // Find the base plan name from the basicPlans array
+            const basePlan = basicPlans.find(basicPlan => basicPlan.membership_plan_id === plan.base_plan_id);
+
+            // Construct the benefits string for custom plans
+            benefitsList = `<li><strong>${basePlan ? basePlan.plan_name + ' plan features <br>' : 'Base Plan features'}</strong></li>` + `<b>+</b>` +
+                plan.benefits.split(',').map(benefit => `<li>${benefit.trim()}</li>`).join('');
+        } else {
+            // For basic plans, show only their benefits
+            benefitsList = plan.benefits.split(',').map(benefit => `<li>${benefit.trim()}</li>`).join('');
+        }
 
         const card = document.createElement('div');
         card.className = 'pricing-card';
@@ -101,7 +112,17 @@ function displayCurrentPlan(plans, planIDofMember, planPeriodofMember) {
         if (plan.membership_plan_id != planIDofMember) {
             return; 
         }
-        const benefitsList = plan.benefits.split(',').map(benefit => `<li class="benefit-item"><p class="benefit-description">${benefit.trim()}</pi></li>`).join('');
+        if (plan.base_plan_id != plan.membership_plan_id) {
+            // Find the base plan name from the basicPlans array
+            const basePlan = plans.slice(0,3).find(basicPlan => basicPlan.membership_plan_id === plan.base_plan_id);
+
+            // Construct the benefits string for custom plans
+            benefitsList = `<li><strong>${basePlan ? basePlan.plan_name + ' plan features <br>' : 'Base Plan features'}</strong></li>` + `<b>+</b>` +
+                plan.benefits.split(',').map(benefit => `<li>${benefit.trim()}</li>`).join('');
+        } else {
+            // For basic plans, show only their benefits
+            benefitsList = plan.benefits.split(',').map(benefit => `<li>${benefit.trim()}</li>`).join('');
+        }
 
         const card = document.createElement('div');
         card.className = 'pricing-card';

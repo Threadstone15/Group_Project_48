@@ -24,7 +24,7 @@
                     Membership Plans
                 </p>
             </div>
-
+            <h3>Basic Plans</h3>
             <div class="table-container">
                 <table id="plansTable">
                     <thead>
@@ -34,6 +34,24 @@
                             <th>Benefits</th>
                             <th>Monthly Price</th>
                             <th>Yearly Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- JavaScript will insert rows here -->
+                    </tbody>
+                </table>
+            </div>
+            <h3>Custom Plans</h3>
+            <div class="table-container">
+                <table id="CustomPlansTable">
+                    <thead>
+                        <tr>
+                            <th>Plan ID</th>
+                            <th>Name</th>
+                            <th>Benefits</th>
+                            <th>Monthly Price</th>
+                            <th>Yearly Price</th>
+                            <th>Base Plan ID</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -52,31 +70,70 @@
                         <button id="confirmDelete" class="popup-confirm">Yes</button>
                         <button id="cancelDelete" class="popup-cancel">No</button>
                     </div>
+                    <!-- Response Message Container -->
+                    <div id="deleteResponse" class="form-response" style="display: none;"></div>
                 </div>
             </div>
 
-            <!-- Update equipment popup -->
+            <!-- Update basic plan popup -->
+            <div id="updateBasicPopup" class="popup" style="display: none;">
+                <button id="closeBasicUpdatePopup" class="close-button">&times;</button> <!-- Close button -->
+                <div class="popup-content">
+                    <h2>Update Membership Plan</h2>
+                    <form id="updateBasicForm">
+                        <input type="hidden" id="updateBasicPlanId">
+                        <div class="form-group">
+                            <label for="updatePlanName">Name:</label>
+                            <input type="text" id="updateBasicPlanName" class="form-input" />
+                        </div>
+                        <div class="form-group">
+                            <label for="updateBenefits">Benefits:</label>
+                            <input type="text" id="updateBasicBenefits" class="form-input" disabled/>
+                        </div>
+                        <div class="form-group">
+                            <label for="updateMonthlyPrice">Monthly Price:</label>
+                            <input type="number" id="updateBasicMonthlyPrice" class="form-input"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="updateDiscount">Discount for yearly plan:</label>
+                            <input type="number" id="updateBasicDiscount" class="form-input"/>
+                        </div>
+                        <button type="submit" class="submit-button">Update Membership Plan</button>
+                        <!-- Response Message Container -->
+                        <div id="updateBasicFormResponse" class="form-response" style="display: none;"></div>
+                    </form>
+                </div>
+            </div>
+            <!-- Update custom plan popup -->
             <div id="updatePopup" class="popup" style="display: none;">
                 <button id="closeUpdatePopup" class="close-button">&times;</button> <!-- Close button -->
                 <div class="popup-content">
                     <h2>Update Membership Plan</h2>
                     <form id="updateForm">
                         <input type="hidden" id="updatePlanId">
+                        <div class="form-group" id="updateBasePlanIDDiv">
+                            <label for="basePlanID" class="form-label">Base Plan ID :</label>
+                            <select id="updateBasePlanID" class="form-input" aria-label="basePlanID">
+                                <option value="MP1">MP1</option>
+                                <option value="MP2">MP2</option>
+                                <option value="MP3">MP3</option>
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label for="updatePlanName">Name:</label>
                             <input type="text" id="updatePlanName" class="form-input" />
                         </div>
                         <div class="form-group">
-                            <label for="updateBenefits">Benefits:</label>
+                            <label for="updateBenefits">Additional Benefits:</label>
                             <input type="text" id="updateBenefits" class="form-input" />
                         </div>
                         <div class="form-group">
                             <label for="updateMonthlyPrice">Monthly Price:</label>
-                            <input type="number" id="updateMonthlyPrice" class="form-input" step="0.01"/>
+                            <input type="number" id="updateMonthlyPrice" class="form-input"/>
                         </div>
                         <div class="form-group">
                             <label for="updateDiscount">Discount for yearly plan:</label>
-                            <input type="number" id="updateDiscount" class="form-input" step="0.01"/>
+                            <input type="number" id="updateDiscount" class="form-input"/>
                         </div>
                         <button type="submit" class="submit-button">Update Membership Plan</button>
                         <!-- Response Message Container -->
@@ -98,20 +155,28 @@
 
                 <form class="equipment-form" id="plansForm">
                     <div class="form-group">
-                        <label for="name" class="form-label">Name :</label>
-                        <input type="text" id="name" class="form-input" aria-label="Enter name" />
+                        <label for="basePlanID" class="form-label">Select the basic plan to extend:</label><br/>
+                        <select id="basePlanID" class="form-input" aria-label="basePlanID">
+                            <option value="MP1">MP1</option>
+                            <option value="MP2">MP2</option>
+                            <option value="MP3">MP3</option>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label for="benefits" class="form-label">Benefits :</label>
-                        <input type="text" id="benefits" class="form-input" aria-label="benefits" />
+                        <label for="name" class="form-label">Name :</label>
+                        <input type="text" id="name" class="form-input" aria-label="Enter name" placeholder="Platinum" />
+                    </div>
+                    <div class="form-group">
+                        <label for="benefits" class="form-label">Additional Benefits :</label>
+                        <input type="text" id="benefits" class="form-input" aria-label="benefits" placeholder="supplements, massage therapy"/>
                     </div>
                     <div class="form-group">
                         <label for="monthlyPrice" class="form-label">Monthly Price :</label>
-                        <input type="number" id="monthlyPrice" class="form-input" aria-label="monthlyPrice" step="0.01"/>
+                        <input type="number" id="monthlyPrice" class="form-input" aria-label="monthlyPrice"/>
                     </div>
                     <div class="form-group">
                         <label for="discount" class="form-label">Discount for yearly plan :</label>
-                        <input type="number" id="discount" class="form-input" aria-label="discount" step="0.01"/>
+                        <input type="number" id="discount" class="form-input" aria-label="discount"/>
                     </div>
 
                     <button type="submit" class="submit-button">Add plan</button>

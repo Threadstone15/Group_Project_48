@@ -1,5 +1,17 @@
 export function initlogin() {
 
+  const storedRole = localStorage.getItem('role');
+  if (storedRole) {
+    switch(storedRole){
+      case 'staff': navigateDashboard('staff', 'staffHome'); break;
+      case 'admin': navigateDashboard('admin', 'adminHome'); break;
+      case 'member' : navigateDashboard('member', 'memberHome'); break;
+      case 'owner' : navigateDashboard('owner', 'ownerHome'); break;
+      case 'trainer' : navigateDashboard('trainer', 'trainerHome'); break;
+    }
+    return;
+  }
+
   document.body.addEventListener("click", (event) => {
     if (event.target && event.target.id === "forgotPw") {
       navigate('forgotPassword');
@@ -55,7 +67,7 @@ export function initlogin() {
           }
         } else {
           // Display error message if login fails
-          alert(data.error || "Login failed. Please check your credentials.");
+          showFormResponse(data.error || "Login failed. Please check your credentials.", "error");
         }
       })
       .catch(error => {
@@ -64,4 +76,15 @@ export function initlogin() {
       });
   });
 
+  function showFormResponse(message, type) {
+    const responseContainer = document.getElementById("formResponse");
+    responseContainer.textContent = "";
+    responseContainer.textContent = message;
+    responseContainer.className = `form-response ${type}`;
+    responseContainer.style.display = "block";
+
+    setTimeout(() => {
+        responseContainer.style.display = "none";
+    }, 3000);
+}
 }

@@ -1,5 +1,10 @@
 export function navigateDashboard(role, page) {
-  if(isInitialDashboardNavigate()){
+  const storedRole = localStorage.getItem('role');
+  if (!storedRole || storedRole !== role) {
+    navigate('login');
+    return;
+  }
+  if (isInitialDashboardNavigate()) {
     //removing non-dashboard navbar, footer, page content if presents
     clearNonDashboardComponents();
     //then load the sidebar
@@ -29,7 +34,12 @@ export function navigateDashboard(role, page) {
 
 window.navigateDashboard = navigateDashboard;
 
-export function initialNavigateDashboard(role, page){
+export function initialNavigateDashboard(role, page) {
+  const storedRole = localStorage.getItem('role');
+  if (!storedRole || storedRole !== role) {
+    navigate('login');
+    return;
+  }
   clearNonDashboardComponents();
   loadSidebar(role);
   navigateDashboard(role, page);
@@ -74,7 +84,7 @@ function loadCss(href) {
   }
 }
 
-function loadGlobalCss(href){
+function loadGlobalCss(href) {
   if (!document.querySelector(`link[href="${href}"]`)) {
     const globalCssLink = document.createElement("link");
     globalCssLink.rel = "stylesheet";
