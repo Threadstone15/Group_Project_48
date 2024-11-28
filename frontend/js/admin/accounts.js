@@ -1,4 +1,3 @@
-// Sample test data
 let temp_role;
 let allEmails = [];
 
@@ -118,7 +117,7 @@ function openUpdatePopup(button) {
     popup.style.display = "block";
   }
   
-  document.getElementById("closeUpdatePopup").onclick = () => {
+  document.getElementById("cancelUpdate").onclick = () => {
     document.getElementById("updatePopup").style.display = "none"; // Close the update popup
   };
   
@@ -189,7 +188,6 @@ function attachEventHandlers() {
 // Confirm delete action
 function confirmDelete(userId) {
     const deletePopup = document.getElementById("deletePopup");
-    const overlay = document.getElementById("overlay");
     deletePopup.style.display = "block";
 
     document.getElementById("confirmDelete").onclick = () => {
@@ -200,13 +198,6 @@ function confirmDelete(userId) {
     document.getElementById("cancelDelete").onclick = () => {
         deletePopup.style.display = "none";
     };
-
-    document.getElementById("closePopup").onclick = () => {
-        deletePopup.style.display = "none";
-    };
-    document.getElementById("overlay").onclick = () => {
-        overlay.style.display = "block";
-    }
 }
 
 // Delete member
@@ -271,9 +262,8 @@ function initAddMember() {
 
         const errors = [];
 
-        // Validate inputs
-        if (!firstName) errors.push("First name is required.");
-        if (!lastName) errors.push("Last name is required.");
+        if (!firstName || !/^[A-Za-z]+$/.test(firstName)) errors.push("First name is required and should contain only letters.");
+        if (!lastName || !/^[A-Za-z]+$/.test(lastName)) errors.push("Last name is required and should contain only letters.");
         if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push("Invalid email address.");
         if (!day || !month || !year || isNaN(Date.parse(`${year}-${month}-${day}`))) {
             errors.push("Invalid Date of Birth.");
@@ -282,7 +272,7 @@ function initAddMember() {
             const age = calculateAge(dob);
             if (age < 12 || age > 100) errors.push("Age must be between 12 and 100.");
         }
-        if (!address) errors.push("Address is required.");
+        if (!address || !/^[A-Za-z0-9\s=,.\/|-]+$/.test(address) || address.split(' ').length <= 1) errors.push("Address is required and should be valid");
         if (!mobile || !/^07\d{8}$/.test(mobile)) errors.push("Mobile number must be 10 digits and start with '07'.");
         if (!gender) errors.push("Gender is required.");
 
@@ -290,6 +280,7 @@ function initAddMember() {
             showFormResponse(errors.join('<br>'), "error");
             return;
         }
+
 
         const registrationData = JSON.stringify({
             role,
@@ -360,3 +351,4 @@ function initAddMember() {
 // Initialize form actions
 document.addEventListener('DOMContentLoaded', initAddMember);
 
+// Attach update functionality to buttons
