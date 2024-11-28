@@ -10,6 +10,12 @@ document.getElementById("sidebar-container").addEventListener("click", function 
 document.querySelector('.sidebar-logo-black').src = '/Group_Project_48/frontend/assets/images/logo-black-transparent.png';
 document.getElementById("logo").addEventListener("click", () => navigate('home'));
 
+document.getElementById("sign-out").addEventListener("click", () => {
+  localStorage.removeItem('authToken');
+  localStorage.removeItem('role');
+  navigate('login');
+});
+
 const path = window.location.pathname.replace('/Group_Project_48/', '');
 
 const dashboardTab = path.split('/')[1];

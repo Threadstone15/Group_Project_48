@@ -23,7 +23,7 @@
 .trainer-info {
     display: flex;
     flex-direction: column;
-    width: 21%;
+    width: 30%;
     color: #FF5F00;
     text-align: center;
     font-size: 16px;
@@ -31,12 +31,12 @@
 }
 
 .trainer-image {
-    width: 150px; /* Adjust this value as needed */
-    height: 150px; /* Ensure height matches width for square aspect ratio */
-    object-fit: contain; /* Ensures the image fits within the specified dimensions */
-    object-position: center; /* Centers the image within its container */
-    margin-right: 100px;
-}
+    width: 150px; /* Set desired width */
+    height: 150px; /* Set desired height */
+    border-radius: 50%; /* Makes the image round */
+    object-fit: cover; /* Ensures the image scales properly without distortion */
+    border: 2px solid #FF5F00; /* Optional: Add a border for styling */
+  }
 
 .trainer-name {
     margin-top: 15px;
@@ -109,7 +109,7 @@
   .subheading {
     font-size: 16px; /* Set font size for subheading */
     font-family: 'Poppins', sans-serif; /* Use Poppins font */
-    color: #4F4F4F; /* Set a slightly lighter text color */
+    color: #000; /* Set a slightly lighter text color */
     max-width: 800px; /* Restrict width to ensure readability */
     margin: 0 auto; /* Center the subheading */
     line-height: 1.5; /* Add some line spacing for better readability */

@@ -11,6 +11,7 @@ include_once "../../middleware/authMiddleware.php";
 include_once "../../config/database.php";
 include_once "./membershipPlanHandler.php";
 include_once "../models/User.php";
+include_once "./subscriptionHandler.php";
 
 $conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -33,6 +34,14 @@ switch ($action) {
     case 'get_membershipPlans':
         logMessage("Running get_membership plan....in controller");
         getMembershipPlans();
+        break;
+    case 'get_subscription':
+        logMessage("Running get_subscription....in controller");
+        getSubscriptionOfAMember($user_id);
+        break;
+    case 'update_subscription':
+        logMessage("Running update_subscription....in controller");
+        updateSubscription($user_id);
         break;
     default:
         echo json_encode(["error" => "Invalid action"]);

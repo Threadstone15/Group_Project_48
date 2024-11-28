@@ -59,7 +59,7 @@ class Member {
         // Execute the query
         if ($stmt->execute()) {
             logMessage("Member registered successfully: $firstName $lastName");
-            return true;
+            return $member_id;
         } else {
             logMessage("Member registration failed: " . $stmt->error);
             return false;
@@ -97,6 +97,31 @@ class Member {
         } else {
             logMessage("No members found.");
             return [];
+        }
+    }
+
+    public function getMemberIDbyUserID($user_id) {
+        logMessage("Fetching member_id of a member by user id: $user_id");
+    
+        // Prepare the query
+        $query = "SELECT member_id FROM " . $this->table . " WHERE user_id = ?";
+        $stmt = $this->conn->prepare($query);
+    
+        if ($stmt === false) {
+            logMessage("Error preparing statement for getMemberIDbyUserID: " . $this->conn->error);
+            return false;
+        }
+    
+        // Bind the email parameter
+        $stmt->bind_param("i", $user_id);
+    
+        // Execute the query
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            return $result->fetch_assoc();
+        } else {
+            logMessage("Error executing getMemberIDbyUserID query: " . $stmt->error);
+            return false;
         }
     }
 }

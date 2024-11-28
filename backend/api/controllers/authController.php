@@ -11,6 +11,7 @@ session_start();
 include_once "../../middleware/authMiddleware.php";
 include_once "../models/User.php";
 include_once "../models/Member.php";
+include_once "../models/Subscription.php";
 include_once "../../logs/save.php";
 include_once "./passwordReset.php";
 
@@ -186,6 +187,7 @@ function registerMember()
 
     $user = new User();
     $member = new Member();
+    $subscription = new Subscription();
 
     // Get the raw input data and decode JSON
     $data = json_decode(file_get_contents("php://input"), true);
@@ -230,9 +232,22 @@ function registerMember()
                 logMessage("Entering to members: $user_id");
     
                 // Register the member using the user_id
-                if ($member->registerMember($user_id, $firstName, $lastName, $dob, $phone, $address, $gender)) {
+                $member_id = $member->registerMember($user_id, $firstName, $lastName, $dob, $phone, $address, $gender);
+                if ($member_id) {
                     logMessage("Member registered successfully with user ID: $user_id");
-                    echo json_encode(["message" => "User and Member registered successfully"]);
+
+                    //add free suscription for every new member
+                    $membership_plan_id = 'MP1';
+                    $startDate = NULL;
+                    $endDate = NULL;
+                    $paymentDue_date = NULL;
+                    $status = 'active';
+                    $period = 'monthly';
+                    if($subscription->addSubscription($member_id, $membership_plan_id, $startDate, $endDate, $paymentDue_date, $status, $period)){
+                        logMessage("Subscription added successfully for member ID: $member_id");
+                        echo json_encode(["message" => "User and Member registered successfully, with a free subscription"]);
+                    }
+
                 } else {
                     logMessage("Member registration failed for user ID: $user_id");
                     echo json_encode(["error" => "Member registration failed"]);

@@ -8,6 +8,7 @@ import { initlogin } from "./login.js";
 import { initpricing } from "./pricing.js";
 import { initresetPw } from "./resetPw.js";
 import { initservices } from "./services.js";
+import { inittrainerApplication } from "./trainerApplication.js";
 
 export function navigate(page) {
   if(isInitialNavigate()){
@@ -16,9 +17,13 @@ export function navigate(page) {
     //then load navbar and footer
     loadNavbar();
     loadFooter();
+    loadPage(page);
+    history.pushState({ page }, "", `/Group_Project_48/${page}`);
+    location.reload();
+  }else{
+    loadPage(page);
+    history.pushState({ page }, "", `/Group_Project_48/${page}`);
   }
-  loadPage(page);
-  history.pushState({ page }, "", `/Group_Project_48/${page}`);
 }
 
 window.addEventListener("popstate", () => {
@@ -114,6 +119,7 @@ export function loadPage(page) {
         case 'services' : initservices(); break;
         case 'forgotPassword' : initforgotPassword(); break;
         case 'resetPw' : initresetPw(); break;
+        case 'trainerApplication' : inittrainerApplication(); break;
         default : console.log("page not defined within router");
       }
     })
