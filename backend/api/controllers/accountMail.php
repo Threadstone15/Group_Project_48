@@ -20,7 +20,7 @@ function configureMailer()
     $mail->Password = 'tizz sjfn wrwl gayt'; // Replace with your SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
-    $mail->setFrom('no-reply@yourwebsite.com', 'GymVerse Services');
+    $mail->setFrom('services@gymverse.com', 'GymVerse Services');
 
     return $mail;
 }

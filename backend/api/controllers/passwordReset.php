@@ -45,7 +45,7 @@ function pass_reset_mail()
                     $mail->Port = 587;
     
                     // Email settings
-                    $mail->setFrom('no-reply@yourwebsite.com', 'Your Team');
+                    $mail->setFrom('services@gymverse.com', 'GymVerse');
                     $mail->addAddress($email);
                     $mail->Subject = "Password Reset Request";
                     $mail->Body = "Hello,\n\nWe received a request to reset your password. Click the link below to reset it:\n\n$reset_link\n\nIf you didn't request this, you can safely ignore this email.\n\nBest Regards,\nYour Team";
