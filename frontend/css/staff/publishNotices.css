@@ -319,6 +319,12 @@ button:hover {
   
   .close-button:hover {
   color: #ff5f5f; 
+  background-color: transparent;
+  }
+
+  .close-button:active {
+    transform: scale(0.9);
+    color: #e04e00;
   }
   
   /* Popup content styling */
@@ -400,7 +406,7 @@ button:hover {
   }
   
   /* Optional: dark overlay background */
-  #overlay {
+  .overlay {
   position: fixed;
   top: 0;
   left: 0;

@@ -311,9 +311,7 @@ function initAddMember() {
         const firstName = document.getElementById('firstName').value.trim();
         const lastName = document.getElementById('lastName').value.trim();
         const email = document.getElementById('email').value.trim();
-        const day = document.getElementById('day').value;
-        const month = document.getElementById('month').value;
-        const year = document.getElementById('year').value;
+        const dob = document.getElementById('dob').value;
         const address = document.getElementById('address').value.trim();
         const mobile = document.getElementById('mobile').value.trim();
         const gender = document.getElementById('gender').value;
@@ -323,16 +321,15 @@ function initAddMember() {
         if (!firstName || !/^[A-Za-z]+$/.test(firstName)) errors.push("First name is required and should contain only letters.");
         if (!lastName || !/^[A-Za-z]+$/.test(lastName)) errors.push("Last name is required and should contain only letters.");
         if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push("Invalid email address.");
-        if (!day || !month || !year || isNaN(Date.parse(`${year}-${month}-${day}`))) {
-            errors.push("Invalid Date of Birth.");
-        } else {
-            const dob = new Date(`${year}-${month}-${day}`);
-            const age = calculateAge(dob);
-            if (age < 12 || age > 100) errors.push("Age must be between 12 and 100.");
-        }
         if (!address || !/^[A-Za-z0-9\s=,.\/|-]+$/.test(address) || address.split(' ').length <= 1) errors.push("Address is required and should be valid");
         if (!mobile || !/^07\d{8}$/.test(mobile)) errors.push("Mobile number must be 10 digits and start with '07'.");
         if (!gender) errors.push("Gender is required.");
+        if (!dob) {
+            errors.push("Date of Birth is required.");
+        } else {
+            const age = calculateAge(new Date(dob));
+            if (age < 12 || age > 100) errors.push("Age must be between 12 and 100.");
+        }
 
         if (errors.length > 0) {
             showFormResponse("addFormResponse", errors.join(','), "error");
@@ -345,7 +342,7 @@ function initAddMember() {
             firstName,
             lastName,
             email,
-            dob: `${year}-${month}-${day}`,
+            dob,
             address,
             mobile,
             gender

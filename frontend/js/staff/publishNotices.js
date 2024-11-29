@@ -2,6 +2,8 @@ console.log("JS loaded");
 
 const noticeTable = document.getElementById("equipmentsTable");
 
+
+
 // Initialize notice data if the table exists
 if (noticeTable) {
     fetchNoticeList();
@@ -47,7 +49,7 @@ function fetchNoticeList() {
                         <td>${notice['description']}</td>
                         <td>
                             <button class="update-button" onclick="openUpdatePopup(this)">Update</button>
-                            <button class="delete-button" onclick="deleteNotice('${notice['notice_id']}')">Delete</button>
+                            <button class="delete-button" onclick="deleteNotice('${notice['notice_id']}')">Remove</button>
                         </td>
                     `;
 
@@ -105,6 +107,7 @@ document.getElementById("publishBtn").addEventListener("click", function () {
             console.log("Notice added successfully:", result);
             fetchNoticeList(); // Refresh the notice list
             document.getElementById("noticeInput").value = ""; // Clear the input field
+            location.reload();
         })
         .catch(error => console.error("Error adding notice:", error));
 });
@@ -115,6 +118,8 @@ function deleteNotice(noticeId) {
     
     const deletePopup = document.getElementById("deletePopup");
     deletePopup.style.display = "block";
+
+    document.getElementById("overlay").style.display = "block";
 
     document.getElementById("confirmDelete").onclick = () => {
         const authToken = localStorage.getItem("authToken");
@@ -140,6 +145,7 @@ function deleteNotice(noticeId) {
             .then(result => {
                 console.log("Notice deleted successfully:", result);
                 fetchNoticeList(); // Refresh the notice list
+                document.getElementById("overlay").style.display = "none";
                 deletePopup.style.display = "none";
             })
             .catch(error => console.error("Error deleting notice:", error));
@@ -147,6 +153,7 @@ function deleteNotice(noticeId) {
 
     document.getElementById("cancelDelete").onclick = () => {
         deletePopup.style.display = "none";
+        document.getElementById("overlay").style.display = "none";
     };
 }
 
@@ -158,12 +165,21 @@ function openUpdatePopup(button) {
     const title = row.cells[2].textContent;
     const description = row.cells[3].textContent;
 
+    
+    document.getElementById("overlay").style.display = "block";
+
+
     document.getElementById("updateNoticeId").value = noticeId;
     //document.getElementById("updatePublisherId").value = publisherId;
     document.getElementById("updateNoticeTitle").value = title;
     document.getElementById("updateNoticeDescription").value = description;
 
     document.getElementById("updatePopup").style.display = "block";
+    document.getElementById("closeUpdatePopup").onclick = () => {
+        document.getElementById("updatePopup").style.display = "none"; // Close the update popup
+        document.getElementById("overlay").style.display = "none";
+      };
+      
 }
 
 // Update a notice
@@ -213,4 +229,5 @@ document.getElementById("updateForm").addEventListener("submit", function (event
 document.getElementById("closePopup").addEventListener("click", function () {
     const popup = document.getElementById("deletePopup");
     popup.style.display = "none";
+    document.getElementById("overlay").style.display = "none";
 });
