@@ -40,11 +40,9 @@ function account_creation($email, $password)
         logMessage("Sending account creation email to: $email");
         $mail->send();
         logMessage("Account creation email sent successfully to: $email");
-        echo json_encode(["success" => true, "message" => "Account creation email sent."]);
 
     } catch (Exception $e) {
         logMessage("Failed to send account creation email to: $email. PHPMailer Error: " . $e->getMessage());
-        echo json_encode(["success" => false, "message" => "Failed to send email."]);
     }
 }
 
@@ -63,11 +61,9 @@ function account_update($email)
         logMessage("Sending account update email to: $email");
         $mail->send();
         logMessage("Account update email sent successfully to: $email");
-        echo json_encode(["success" => true, "message" => "Account update email sent."]);
 
     } catch (Exception $e) {
         logMessage("Failed to send account update email to: $email. PHPMailer Error: " . $e->getMessage());
-        echo json_encode(["success" => false, "message" => "Failed to send email."]);
     }
 }
 
@@ -86,11 +82,9 @@ function account_deletion($email)
         logMessage("Sending account deletion email to: $email");
         $mail->send();
         logMessage("Account deletion email sent successfully to: $email");
-        echo json_encode(["success" => true, "message" => "Account deletion email sent."]);
 
     } catch (Exception $e) {
         logMessage("Failed to send account deletion email to: $email. PHPMailer Error: " . $e->getMessage());
-        echo json_encode(["success" => false, "message" => "Failed to send email."]);
     }
 }
 

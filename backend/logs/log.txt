@@ -4070,13 +4070,39 @@
 [2024-11-28 17:10:47] Emails fetched successfully. Total: 39
 [2024-11-28 17:10:47] Emails fetched successfully. Total: 39
 [2024-11-28 17:10:47] Database connection closed.
-[2024-11-29 04:05:11] Running auth controller ,login 
-[2024-11-29 04:05:11] running login...in auth controller
-[2024-11-29 04:05:11] login function running...
-[2024-11-29 04:05:11] Connection established successfully to the database: rad_gymverse
-[2024-11-29 04:05:11] User class instantiated with database connection.
-[2024-11-29 04:05:11] User Login model running for: admin@gmail.com
-[2024-11-29 04:05:11] Query bound and ready to execute for login: admin@gmail.com
-[2024-11-29 04:05:12] User login successful: admin@gmail.com with role: admin
-[2024-11-29 04:05:13] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzMyODUyODAwfQ==.4cb234bbca103de34ce97b27015c811ee2153478ef886cd8d6b8adcad9d0b117 admin
-[2024-11-29 04:05:13] Database connection closed.
+[2024-11-29 04:26:58] Connection established successfully to the database: rad_gymverse
+[2024-11-29 04:26:58] User class instantiated with database connection.
+[2024-11-29 04:26:58] Fetching user role by user ID: 69
+[2024-11-29 04:26:58] User role fetched successfully for user ID: 69
+[2024-11-29 04:26:58] Running staff controller ,get_notices token - eyJ1c2VyX2lkIjo2OSwiZXhwIjoxNzMyODUyODAwfQ==.f3a40a6d2f214519a374c58edf74cf5cc3c9fe37551ed0d9ad26a2a9f305dfc5   id - 69 
+[2024-11-29 04:26:58] Running get_notice....in controller
+[2024-11-29 04:26:58] get notices function running...
+[2024-11-29 04:26:58] Notice model initialized with database connection.
+[2024-11-29 04:26:58] Fetching notices...
+[2024-11-29 04:26:58] Notices fetched successfully
+[2024-11-29 04:26:58] Notices fetched successfully
+[2024-11-29 04:26:58] Database connection closed.
+[2024-11-29 04:27:05] Connection established successfully to the database: rad_gymverse
+[2024-11-29 04:27:05] User class instantiated with database connection.
+[2024-11-29 04:27:05] Fetching user role by user ID: 69
+[2024-11-29 04:27:05] User role fetched successfully for user ID: 69
+[2024-11-29 04:27:05] Running staff controller ,get_notices token - eyJ1c2VyX2lkIjo2OSwiZXhwIjoxNzMyODUyODAwfQ==.f3a40a6d2f214519a374c58edf74cf5cc3c9fe37551ed0d9ad26a2a9f305dfc5   id - 69 
+[2024-11-29 04:27:05] Running get_notice....in controller
+[2024-11-29 04:27:05] get notices function running...
+[2024-11-29 04:27:05] Notice model initialized with database connection.
+[2024-11-29 04:27:05] Fetching notices...
+[2024-11-29 04:27:05] Notices fetched successfully
+[2024-11-29 04:27:05] Notices fetched successfully
+[2024-11-29 04:27:05] Database connection closed.
+[2024-11-29 04:27:33] Connection established successfully to the database: rad_gymverse
+[2024-11-29 04:27:33] User class instantiated with database connection.
+[2024-11-29 04:27:33] Fetching user role by user ID: 69
+[2024-11-29 04:27:33] User role fetched successfully for user ID: 69
+[2024-11-29 04:27:33] Running staff controller ,get_equipments token - eyJ1c2VyX2lkIjo2OSwiZXhwIjoxNzMyODUyODAwfQ==.f3a40a6d2f214519a374c58edf74cf5cc3c9fe37551ed0d9ad26a2a9f305dfc5   id - 69 
+[2024-11-29 04:27:33] Running get_equip....in controller
+[2024-11-29 04:27:33] get equip function running...
+[2024-11-29 04:27:33] Equipment model initialized with database connection.
+[2024-11-29 04:27:33] Fetching equipment...
+[2024-11-29 04:27:33] Equipment fetched successfully
+[2024-11-29 04:27:33] Equipment data fetched
+[2024-11-29 04:27:33] Database connection closed.
