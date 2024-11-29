@@ -3,10 +3,43 @@ console.log("JS loaded");
 const equipmentTable = document.getElementById("equipmentsMaintainceTable");
 
 if (equipmentsMaintainceTable) {
-    fetchEquipmentList(); // Trigger fetching the equipment list if the table exists
+    fetchEquipmentList();
+    fetchEquipmentIdList(); // Trigger fetching the equipment list if the table exists
 } else {
     console.warn("Equipment table not found. Skipping fetch.");
 }
+
+function fetchEquipmentIdList() {
+    console.log("Fetching Equipment IDs");
+
+    const authToken = localStorage.getItem("authToken");
+    if (!authToken) {
+        console.error("Auth token not found. Please log in.");
+        return;
+    }
+
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Authorization': `Bearer ${authToken}` },
+        redirect: 'follow'
+    };
+
+    fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php?action=get_equipments", requestOptions)
+        .then(response => {
+            if (!response.ok) throw new Error("Failed to fetch equipment list");
+            return response.json();
+        })
+        .then(data => {
+            console.log("Fetched equipment ID list:", data);
+
+            // Extract equipment IDs and save them to localStorage
+            const equipmentIds = data.map(equipment => equipment['equipment_id']);
+            localStorage.setItem("equipmentIds", JSON.stringify(equipmentIds));
+            console.log("Saved Equipment IDs in localStorage:", equipmentIds);
+        })
+        .catch(error => console.error("Error fetching equipment list:", error));
+}
+
 
 function fetchEquipmentList() {
     console.log("Fetching Equipments");
@@ -46,7 +79,7 @@ function fetchEquipmentList() {
                         <td>${equipment['next_maintenance_date']}</td>
                         <td>
                             <button class="update-button" onclick="openUpdatePopup(this)">Update</button>
-                            <button class="delete-button" onclick="deleteEquipment('${equipment['maintenance_id']}')">Delete</button>
+                            <button class="delete-button" onclick="deleteEquipment('${equipment['maintenance_id']}')">Remove</button>
                         </td>
                     `;
 
@@ -136,52 +169,88 @@ document.getElementById("closeUpdatePopup").onclick = () => {
 };
 
 document.getElementById("updateForm").addEventListener("submit", function (event) {
-  event.preventDefault();
+    event.preventDefault();
 
-  console.log("Update equipment form submitted");
+    console.log("Update equipment form submitted");
 
-  const maintenanceId = document.getElementById("updateMaintenanceID").value;
-  const equipmentId = document.getElementById("updateEquipmentID").value;
-  const maintenanceDate = document.getElementById("updateMaintainanceDate").value;
-  const details = document.getElementById("updateMaintainceDetails").value;
-  const nextMaintenanceDate = document.getElementById("updateNextMaintenanceDate").value;
+    const maintenanceId = document.getElementById("updateMaintenanceID").value;
+    const equipmentId = document.getElementById("updateEquipmentID").value;
+    const maintenanceDate = document.getElementById("updateMaintainanceDate").value;
+    const details = document.getElementById("updateMaintainceDetails").value;
+    const nextMaintenanceDate = document.getElementById("updateNextMaintenanceDate").value;
 
-  const formData = {
-    maintenance_id: maintenanceId,
-    equipment_id: equipmentId,
-    maintenance_date: maintenanceDate,
-    details: details, 
-    next_maintenance_date: nextMaintenanceDate
-  };
+    // Validate the form inputs
+    if (!equipmentId || isNaN(equipmentId)) {
+        alert("Please enter a valid Equipment ID.");
+        return;
+    }
+    if (!maintenanceDate || !details || !nextMaintenanceDate) {
+        alert("Please fill in all fields.");
+        return;
+    }
 
-  const authToken = localStorage.getItem("authToken");
+    // Ensure next maintenance date is after maintenance date
+    const maintenanceDateObj = new Date(maintenanceDate);
+    const nextMaintenanceDateObj = new Date(nextMaintenanceDate);
 
-  const requestOptions = {
-    method: 'PUT', // Using PUT method for update
-    headers: {
-      'Authorization': `Bearer ${authToken}`,
-      'Content-Type': 'application/json', // Sending JSON data
-    },
-    body: JSON.stringify(formData), // Stringify the data
-    redirect: 'follow'
-  };
+    if (nextMaintenanceDateObj <= maintenanceDateObj) {
+        alert("Next Maintenance Date must be later than the Maintenance Date.");
+        return;
+    }
 
-  fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php?action=update_maintenance_status", requestOptions)
-    .then(response => {
-      if (!response.ok) throw new Error("Failed to update equipment");
-      return response.json();
-    })
-    .then(data => {
-      if (data.message) {
-        alert("Equipment updated successfully!");
-        document.getElementById("updatePopup").style.display = "none"; // Close the popup
-        fetchEquipmentList(); // Refresh the equipment list
-      } else {
-        alert("Failed to update equipment");
-      }
-    })
-    .catch(error => console.error("Error updating equipment:", error));
+    // Retrieve saved equipment IDs from localStorage
+    const savedEquipmentIds = JSON.parse(localStorage.getItem("equipmentIds")) || [];
+    console.log("Retrieved Equipment IDs from localStorage:", savedEquipmentIds);
+
+    // Check if the entered equipment ID exists in the saved list
+    if (savedEquipmentIds.length === 0) {
+        alert("No equipment IDs available. Please fetch the equipment list first.");
+        return;
+    }
+
+    if (!savedEquipmentIds.some(id => id == String(equipmentId))) {
+        alert(`Invalid Equipment ID: ${equipmentId}. Please enter a valid ID. Available IDs: ${savedEquipmentIds.join(', ')}`);
+        return;
+    }
+
+    // Prepare the form data for update
+    const formData = {
+        maintenance_id: maintenanceId,
+        equipment_id: equipmentId,
+        maintenance_date: maintenanceDate,
+        details: details,
+        next_maintenance_date: nextMaintenanceDate
+    };
+
+    const authToken = localStorage.getItem("authToken");
+
+    const requestOptions = {
+        method: 'PUT', // Using PUT method for update
+        headers: {
+            'Authorization': `Bearer ${authToken}`,
+            'Content-Type': 'application/json', // Sending JSON data
+        },
+        body: JSON.stringify(formData), // Stringify the data
+        redirect: 'follow'
+    };
+
+    fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php?action=update_maintenance_status", requestOptions)
+        .then(response => {
+            if (!response.ok) throw new Error("Failed to update equipment");
+            return response.json();
+        })
+        .then(data => {
+            if (data.message) {
+                alert("Equipment updated successfully!");
+                document.getElementById("updatePopup").style.display = "none"; // Close the popup
+                fetchEquipmentList(); // Refresh the equipment list
+            } else {
+                alert("Failed to update equipment");
+            }
+        })
+        .catch(error => console.error("Error updating equipment:", error));
 });
+
 
 
 
@@ -190,38 +259,67 @@ document.getElementById("updateForm").addEventListener("submit", function (event
 
 document.getElementById('equipmentForm').addEventListener('submit', (event) => {
     event.preventDefault();
-    
-    console.log("Add maintenance record form submitted"); // Debugging log
-    
+
+    console.log("Add maintenance record form submitted");
+
     // Get form input values
     const equipmentID = document.getElementById("equipmentID").value;
     const maintainanceDate = document.getElementById("maintainanceDate").value;
-    const maintainceDetails = document.getElementById("maintainceDetails").value;
+    const maintenanceDetails = document.getElementById("maintainceDetails").value;
     const nextMaintenanceDate = document.getElementById("nextMaintenanceDate").value;
-    
-    console.log("Equipment ID:", equipmentID); // Debugging log
-    console.log("Maintainance Date:", maintainanceDate); // Debugging log
-    console.log("Details:", maintainceDetails); // Debugging log
-    console.log("Next Maintenance Date:", nextMaintenanceDate); // Debugging log
-    
+
+    // Validate the form inputs
+    if (!equipmentID || isNaN(equipmentID)) {
+        alert("Please enter a valid Equipment ID.");
+        return;
+    }
+    if (!maintainanceDate || !maintenanceDetails || !nextMaintenanceDate) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    // Ensure next maintenance date is after maintenance date
+    const maintenanceDateObj = new Date(maintainanceDate);
+    const nextMaintenanceDateObj = new Date(nextMaintenanceDate);
+
+    if (nextMaintenanceDateObj <= maintenanceDateObj) {
+        alert("Next Maintenance Date must be later than the Maintenance Date.");
+        return;
+    }
+
+    // Retrieve saved equipment IDs from localStorage
+    const savedEquipmentIds = JSON.parse(localStorage.getItem("equipmentIds")) || [];
+    console.log("Retrieved Equipment IDs from localStorage:", savedEquipmentIds);
+
+    // Check if the entered equipment ID exists in the saved list
+    if (savedEquipmentIds.length === 0) {
+        alert("No equipment IDs available. Please fetch the equipment list first.");
+        return;
+    }
+
+    if (!savedEquipmentIds.some(id => id == String(equipmentID))) {
+        alert(`Invalid Equipment ID: ${equipmentID}. Please enter a valid ID. Available IDs: ${savedEquipmentIds.join(', ')}`);
+        return;
+    }
+
     // Prepare form data using FormData
     const formData = new FormData();
     formData.append("equipment_id", equipmentID);
     formData.append("maintainance_date", maintainanceDate);
-    formData.append("details", maintainceDetails);
+    formData.append("details", maintenanceDetails);
     formData.append("next_maintenance_date", nextMaintenanceDate);
-    formData.append("action", "add_maintenance"); // Set the action to match the backend case
-    
+    formData.append("action", "add_maintenance");
+
     // Retrieve auth token from local storage
     const authToken = localStorage.getItem("authToken");
-    
+
     if (!authToken) {
         console.error("Auth token not found. Please log in.");
         return;
     }
-    
-    console.log("Auth Token:", authToken); // Debugging log
-    
+
+    console.log("Auth Token:", authToken);
+
     // Set up the request with headers and form data
     const requestOptions = {
         method: 'POST',
@@ -231,21 +329,25 @@ document.getElementById('equipmentForm').addEventListener('submit', (event) => {
         body: formData,
         redirect: 'follow'
     };
-    
+
     // Send POST request to backend
     fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php", requestOptions)
         .then(response => {
             if (!response.ok) {
-                throw new Error("Failed to add maintenance record");
+                return response.json().then(err => { throw new Error(err.message); });
             }
-            return response.text();
+            return response.json();
         })
         .then(result => {
-            console.log("Maintenance record added successfully:", result); // Debugging log
+            console.log("Maintenance record added successfully:", result);
             fetchEquipmentList(); // Refresh equipment list after adding
         })
         .catch(error => console.error("Error adding maintenance record:", error));
-  });
+});
+
+
+
+
   
 
 // Close the delete popup when the close button is clicked

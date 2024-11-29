@@ -39,9 +39,17 @@ function checkEmail() {
     }
 }
 
+function checkEmailinUpdate(email) {
+    if (allEmails.includes(email)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 async function fetchMembersByRole(role) {
     try {
-        console.log("Selected role: ",role);
+        console.log("Selected role: ", role);
         temp_role = role;
         const response = await fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=get_members_by_role&role=${role}`, {
             method: 'GET',
@@ -53,7 +61,7 @@ async function fetchMembersByRole(role) {
 
         if (response.ok) {
             const members = await response.json();
-            console.log("response: ",members);
+            console.log("response: ", members);
             populateTable(members);
         } else {
             console.error('Failed to fetch members by role, HTTP status:', response.status);
@@ -85,7 +93,7 @@ function populateTable(members) {
             `;
             tbody.appendChild(row);
         });
-        attachEventHandlers(); 
+        attachEventHandlers();
     } else {
         tbody.innerHTML = '<tr><td colspan="5">No members found for the selected role.</td></tr>';
     }
@@ -93,42 +101,42 @@ function populateTable(members) {
 
 function openUpdatePopup(button) {
     console.log("pop...");
-    const row = button.closest('tr'); 
-    const userId = row.cells[0].textContent; 
+    const row = button.closest('tr');
+    const userId = row.cells[0].textContent;
     const roleId = row.cells[1].textContent;
     const fullName = row.cells[2].textContent.trim();
     const [firstName, lastName] = fullName.split(' ');
     const email = row.cells[3].textContent;
     const contactNo = row.cells[4].textContent;
 
-  
+
 
     document.getElementById("updateFirstName").value = firstName;
     document.getElementById("updateLastName").value = lastName;
     document.getElementById("updateEmail").value = email;
     document.getElementById("updateMobile").value = contactNo;
 
-  
+
 
     const popup = document.getElementById("updatePopup");
     popup.setAttribute("data-user-id", userId);
     popup.setAttribute("data-role-id", roleId);
 
     popup.style.display = "block";
-  }
-  
-  document.getElementById("cancelUpdate").onclick = () => {
+}
+
+document.getElementById("cancelUpdate").onclick = () => {
     document.getElementById("updatePopup").style.display = "none"; // Close the update popup
-  };
-  
-  document.getElementById("updateForm").addEventListener("submit", function (event) {
+};
+
+document.getElementById("updateForm").addEventListener("submit", function (event) {
     event.preventDefault();
 
     const firstName = document.getElementById("updateFirstName").value.trim();
     const lastName = document.getElementById("updateLastName").value.trim();
     const email = document.getElementById("updateEmail").value.trim();
     const contactNo = document.getElementById("updateMobile").value.trim();
-    const dob = document.getElementById("updateDOB").value; // Assuming there is a DOB field for update
+    // const dob = document.getElementById("updateDOB").value; // Assuming there is a DOB field for update
 
     const errors = [];
 
@@ -141,19 +149,22 @@ function openUpdatePopup(button) {
     // Validate Email
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push("Invalid email address.");
 
-    // Validate Date of Birth (Optional check if DOB exists)
-    if (dob) {
-        const dobDate = new Date(dob);
-        const age = calculateAge(dobDate);
-        if (age < 12 || age > 100) errors.push("Age must be between 12 and 100.");
-    }
+    // // Validate Date of Birth (Optional check if DOB exists)
+    // if (dob) {
+    //     const dobDate = new Date(dob);
+    //     const age = calculateAge(dobDate);
+    //     if (age < 12 || age > 100) errors.push("Age must be between 12 and 100.");
+    // }
+    // if (checkEmailinUpdate(email) == true) {
+    //     errors.push("Email already in use");
+    // }
 
     // Validate Mobile Number
     if (!contactNo || !/^07\d{8}$/.test(contactNo)) errors.push("Mobile number must be 10 digits and start with '07'.");
 
     // If there are errors, display them and return early
     if (errors.length > 0) {
-        showFormResponse(errors.join('<br>'), "error");
+        showFormResponse("updateFormResponse", errors.join(','), "error");
         return;
     }
 
@@ -190,11 +201,13 @@ function openUpdatePopup(button) {
         })
         .then(data => {
             if (data.message) {
-                alert("User updated successfully!");
-                document.getElementById("updatePopup").style.display = "none"; // Close the popup
+                showFormResponse("updateFormResponse", data.message, "success");
+                setTimeout(() => {
+                    document.getElementById("updatePopup").style.display = "none"; // Close the popup
+                }, 3000);
                 fetchMembersByRole(temp_role); // Refresh the members list by role
             } else {
-                alert("Failed to update user");
+                showFormResponse("updateFormResponse", data.error, "error");
             }
         })
         .catch(error => console.error("Error updating user:", error));
@@ -208,22 +221,15 @@ function calculateAge(dob) {
 }
 
 // Show form validation response
-function showFormResponse(message, type) {
-    const responseContainer = document.getElementById("formResponse") || createResponseContainer();
-    responseContainer.innerHTML = message;
+function showFormResponse(responeContainerID, message, type) {
+    const responseContainer = document.getElementById(responeContainerID);
+    responseContainer.textContent = message;
     responseContainer.className = `form-response ${type}`;
     responseContainer.style.display = "block";
 
     setTimeout(() => {
         responseContainer.style.display = "none";
     }, 3000);
-}
-
-function createResponseContainer() {
-    const responseContainer = document.createElement('div');
-    responseContainer.id = "formResponse";
-    document.querySelector('.signup-form').appendChild(responseContainer);
-    return responseContainer;
 }
 
 
@@ -255,7 +261,7 @@ function confirmDelete(userId) {
 // Delete member
 async function deleteMember(userId) {
     try {
-        console.log("Deleting... - ",userId);
+        console.log("Deleting... - ", userId);
         const response = await fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=delete_staff&userID=${userId}`, {
             method: 'DELETE',
             headers: {
@@ -329,7 +335,7 @@ function initAddMember() {
         if (!gender) errors.push("Gender is required.");
 
         if (errors.length > 0) {
-            showFormResponse(errors.join('<br>'), "error");
+            showFormResponse("addFormResponse", errors.join(','), "error");
             return;
         }
 
@@ -357,42 +363,28 @@ function initAddMember() {
             .then(data => {
                 // Log the response to the console
                 console.log("Response data:", data);
-        
+
                 // Directly display the message from the response
-                showFormResponse(data.message, "success");
-                resetForm();
-                fetchMembersByRole(role);
+                if (data.message) {
+                    showFormResponse("addFormResponse", data.message, "success");
+                    resetForm();
+                    fetchMembersByRole(role);
+                }else{
+                    showFormResponse("addFormResponse", data.error, "error");
+                }
             })
             .catch(error => {
                 console.error("Error:", error);
-                showFormResponse("An error occurred. Please try again later.", "error");
+                showFormResponse("addFormResponse", "An error occurred. Please try again later.", "error");
             });
-        
-        
+
+
     });
 
     function calculateAge(dob) {
         const diff = Date.now() - dob.getTime();
         const ageDate = new Date(diff);
         return Math.abs(ageDate.getUTCFullYear() - 1970);
-    }
-
-    function showFormResponse(message, type) {
-        const responseContainer = document.getElementById("formResponse") || createResponseContainer();
-        responseContainer.innerHTML = message;
-        responseContainer.className = `form-response ${type}`;
-        responseContainer.style.display = "block";
-
-        setTimeout(() => {
-            responseContainer.style.display = "none";
-        }, 3000);
-    }
-
-    function createResponseContainer() {
-        const responseContainer = document.createElement('div');
-        responseContainer.id = "formResponse";
-        document.querySelector('.signup-form').appendChild(responseContainer);
-        return responseContainer;
     }
 
     function resetForm() {
