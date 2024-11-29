@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,161 +9,170 @@
     <link rel="stylesheet" href="/Group_Project_48/frontend/css/globals.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
-<div class="overlay" id="overlay"></div>
- <div class="content-wrapper">
-    <div class="content"> 
-        <div class="header">
-            <p class="heading">Accounts</p>
-        </div>
-        <div class="filter-buttons">
-            <button class="role-filter" data-role="member">Member</butto  n>
-            <button class="role-filter" data-role="trainer">Trainer</button>
-            <button class="role-filter" data-role="owner">Owner</button>
-            <button class="role-filter" data-role="staff">Staff</button>
-        </div>
-        <div class="table-container">
-            <table id="equipmentsTable">
-                <thead>
-                    <tr>
-                        <th>User ID</th>
-                        <th>Role ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Contact No</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- JavaScript will insert rows here -->
-                </tbody>
-            </table>
+    <div class="overlay" id="overlay"></div>
+    <div class="content-wrapper">
+        <div class="content">
+            <div class="header">
+                <p class="heading">Accounts</p>
+            </div>
+            <div class="filter-buttons">
+                <button class="role-filter" data-role="member">Member</butto n>
+                    <button class="role-filter" data-role="trainer">Trainer</button>
+                    <button class="role-filter" data-role="owner">Owner</button>
+                    <button class="role-filter" data-role="staff">Staff</button>
+            </div>
+            <div class="table-container">
+                <table id="equipmentsTable">
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Role ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Contact No</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- JavaScript will insert rows here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Delete confirmation popup -->
+            <div id="deletePopup" class="popup" style="display: none;">
+                <button id="closePopup" class="close-button">&times;</button>
+                <div class="popup-content">
+                    <h2>Confirm Delete</h2>
+                    <p>Are you sure you want to delete this account?</p>
+                    <div class="popup-buttons">
+                        <button id="confirmDelete" class="popup-confirm">Yes</button>
+                        <button id="cancelDelete" class="popup-cancel">No</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Delete confirmation popup -->
-        <div id="deletePopup" class="popup" style="display: none;">
-            <button id="closePopup" class="close-button">&times;</button>
-            <div class="popup-content">
-                <h2>Confirm Delete</h2>
-                <p>Are you sure you want to delete this account?</p>
+        <section class="signup-form">
+            <h1 class="signup-form-heading">Add a user account</h1>
+            <form>
+                <div class="role-select-wrapper">
+                    <label for="role" class="visually-hidden">Select user role</label>
+                    <select id="role" name="role" class="select-field" aria-required="true">
+                        <option value="member">Member</option>
+                        <option value="trainer">Trainer</option>
+                        <option value="owner">Owner</option>
+                        <option value="staff">Staff member</option>
+                    </select>
+                </div>
+                <div class="name-fields">
+                    <div class="input-group">
+                        <label for="firstName">First name</label>
+                        <input type="text" id="firstName" name="firstName" class="input-field" aria-required="true">
+                    </div>
+                    <div class="input-group">
+                        <label for="lastName">Last name</label>
+                        <input type="text" id="lastName" name="lastName" class="input-field" aria-required="true">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" class="input-field" placeholder="abc123@gmail.com"
+                        aria-required="true">
+                    <span id="email-error" style="color: red; display: none;">This email is already in use.</span>
+                </div>
+                <fieldset class="date-of-birth">
+                    <legend>Date of Birth</legend>
+                    <div class="dob-fields">
+                        <div class="select-wrapper">
+                            <label for="day" class="visually-hidden">Day</label>
+                            <input type="number" id="day" name="day" class="input-field" aria-required="true">
+                        </div>
+                        <div class="select-wrapper">
+                            <label for="month" class="visually-hidden">Month</label>
+                            <select id="month" name="month" class="select-field" aria-required="true">
+                                <option value="">Month</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                        </div>
+                        <div class="select-wrapper">
+                            <label for="year" class="visually-hidden">Year</label>
+                            <input type="number" id="year" name="year" class="input-field" aria-required="true">
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="input-group">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" name="address" class="input-field"
+                        placeholder="Apartment / Street / City" aria-required="true">
+                </div>
+                <div class="input-group">
+                    <label for="mobile">Mobile No</label>
+                    <input type="tel" id="mobile" name="mobile" class="input-field" placeholder="07x xxx xxxx"
+                        aria-required="true">
+                </div>
+                <div class="input-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" class="select-field" aria-required="true">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="prefer-not-to-say">Prefer not to say</option>
+                    </select>
+                </div>
+                <button type="submit" class="final-cta-button" tabindex="0">Add a new user</button>
+                <!-- Response Message Container -->
+                <div id="addFormResponse" class="form-response" style="display: none;"></div>
+            </form>
+        </section>
+    </div>
+
+    <!-- Update confirmation popup -->
+    <div id="updatePopup" class="popup" style="display: none;">
+        <button id="closeUpdatePopup" class="close-button">&times;</button>
+        <div class="popup-content">
+            <h2>Update User</h2>
+            <form id="updateForm">
+                <div class="input-group">
+                    <label for="updateFirstName">First Name</label>
+                    <input type="text" id="updateFirstName" name="firstName" class="input-field" required>
+                </div>
+                <div class="input-group">
+                    <label for="updateLastName">Last Name</label>
+                    <input type="text" id="updateLastName" name="lastName" class="input-field" required>
+                </div>
+                <div class="input-group">
+                    <label for="updateEmail">Email</label>
+                    <input type="email" id="updateEmail" name="email" class="input-field" required>
+                </div>
+                <div class="input-group">
+                    <label for="updateMobile">Mobile</label>
+                    <input type="tel" id="updateMobile" name="mobile" class="input-field" required>
+                </div>
                 <div class="popup-buttons">
-                    <button id="confirmDelete" class="popup-confirm">Yes</button>
-                    <button id="cancelDelete" class="popup-cancel">No</button>
+                    <button type="submit" class="popup-confirm">Save Changes</button>
+                    <button type="button" id="cancelUpdate" class="popup-cancel">Cancel</button>
                 </div>
-            </div>
+
+            </form>
+            <!-- Response Message Container -->
+            <div id="updateFormResponse" class="form-response" style="display: none;"></div>
         </div>
     </div>
 
-    <section class="signup-form">
-        <h1 class="signup-form-heading">Add a user account</h1>
-        <form>
-            <div class="role-select-wrapper">
-                <label for="role" class="visually-hidden">Select user role</label>
-                <select id="role" name="role" class="select-field" aria-required="true">
-                    <option value="member">Member</option>
-                    <option value="trainer">Trainer</option>
-                    <option value="owner">Owner</option>
-                    <option value="staff">Staff member</option>
-                </select>
-            </div>
-            <div class="name-fields">
-                <div class="input-group">
-                    <label for="firstName">First name</label>
-                    <input type="text" id="firstName" name="firstName" class="input-field" aria-required="true">
-                </div>
-                <div class="input-group">
-                    <label for="lastName">Last name</label>
-                    <input type="text" id="lastName" name="lastName" class="input-field" aria-required="true">
-                </div>
-            </div>
-            <div class="input-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" class="input-field" placeholder="abc123@gmail.com" aria-required="true">
-                <span id="email-error" style="color: red; display: none;">This email is already in use.</span>
-            </div>
-            <fieldset class="date-of-birth">
-                <legend>Date of Birth</legend>
-                <div class="dob-fields">
-                    <div class="select-wrapper">
-                        <label for="day" class="visually-hidden">Day</label>
-                        <input type="number" id="day" name="day" class="input-field" aria-required="true">
-                    </div>
-                    <div class="select-wrapper">
-                        <label for="month" class="visually-hidden">Month</label>
-                        <select id="month" name="month" class="select-field" aria-required="true">
-                            <option value="">Month</option>
-                            <option value="1">January</option>
-                            <option value="2">February</option>
-                            <option value="3">March</option>
-                            <option value="4">April</option>
-                            <option value="5">May</option>
-                            <option value="6">June</option>
-                            <option value="7">July</option>
-                            <option value="8">August</option>
-                            <option value="9">September</option>
-                            <option value="10">October</option>
-                            <option value="11">November</option>
-                            <option value="12">December</option>
-                        </select>
-                    </div>
-                    <div class="select-wrapper">
-                        <label for="year" class="visually-hidden">Year</label>
-                        <input type="number" id="year" name="year" class="input-field" aria-required="true">
-                    </div>
-                </div>
-            </fieldset>
-            <div class="input-group">
-                <label for="address">Address</label>
-                <input type="text" id="address" name="address" class="input-field" placeholder="Apartment / Street / City" aria-required="true">
-            </div>
-            <div class="input-group">
-                <label for="mobile">Mobile No</label>
-                <input type="tel" id="mobile" name="mobile" class="input-field" placeholder="+94 x xxx xxx xxx" aria-required="true">
-            </div>
-            <div class="input-group">
-                <label for="gender">Gender</label>
-                <select id="gender" name="gender" class="select-field" aria-required="true">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="prefer-not-to-say">Prefer not to say</option>
-                </select>
-            </div>
-            <button type="submit" class="final-cta-button" tabindex="0">Add a new user</button>
-        </form>
-    </section>
-</div>
-
-<!-- Update confirmation popup -->
-<div id="updatePopup" class="popup" style="display: none;">
-    <button id="closeUpdatePopup" class="close-button">&times;</button>
-    <div class="popup-content">
-        <h2>Update User</h2>
-        <form id="updateForm">
-            <div class="input-group">
-                <label for="updateFirstName">First Name</label>
-                <input type="text" id="updateFirstName" name="firstName" class="input-field" required>
-            </div>
-            <div class="input-group">
-                <label for="updateLastName">Last Name</label>
-                <input type="text" id="updateLastName" name="lastName" class="input-field" required>
-            </div>
-            <div class="input-group">
-                <label for="updateEmail">Email</label>
-                <input type="email" id="updateEmail" name="email" class="input-field" required>
-            </div>
-            <div class="input-group">
-                <label for="updateMobile">Mobile</label>
-                <input type="tel" id="updateMobile" name="mobile" class="input-field" required>
-            </div>
-            <div class="popup-buttons">
-                <button type="submit" class="popup-confirm">Save Changes</button>
-                <button type="button" id="cancelUpdate" class="popup-cancel">Cancel</button>
-            </div>
-           
-        </form>
-    </div>
-</div>
-
-<script src="/Group_Project_48/frontend/js/admin/accounts.js"></script>
+    <script src="/Group_Project_48/frontend/js/admin/accounts.js"></script>
 </body>
+
 </html>
