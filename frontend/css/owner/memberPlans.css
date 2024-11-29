@@ -218,6 +218,10 @@ tbody tr:hover {
   background-color: #4CAF50;
   margin-right: 5px;
   font-family: 'Poppins', sans-serif;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #ffffff;
 }
 
 .update-button:hover {
@@ -225,9 +229,18 @@ tbody tr:hover {
   color: #fff; 
 }
 
+.update-button:active {
+  background-color: #000; 
+  color: #fff; 
+}
+
 .delete-button {
   background-color: #f44336;
   font-family: 'Poppins', sans-serif;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #fff;
 }
 
 .delete-button:hover {
@@ -235,6 +248,10 @@ tbody tr:hover {
   color: #fff; 
 }
 
+.delete-button:active {
+  background-color: #000;
+  color: #fff; 
+}
 
 /* Popup container styling */
 .popup {
@@ -395,4 +412,11 @@ tbody tr:hover {
   color: #721c24;
   background-color: #f8d7da;
   border: 1px solid #f5c6cb;
+}
+
+h3 {
+  margin-left: 80px;
+  font-size: 24px;
+  color: #FF5F00;
+  margin-top: 20px;
 }

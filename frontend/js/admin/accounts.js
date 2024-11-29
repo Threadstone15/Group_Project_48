@@ -316,6 +316,7 @@ function initAddMember() {
         const mobile = document.getElementById('mobile').value.trim();
         const gender = document.getElementById('gender').value;
 
+        console.log("DoB",dob);
         const errors = [];
 
         if (!firstName || !/^[A-Za-z]+$/.test(firstName)) errors.push("First name is required and should contain only letters.");
