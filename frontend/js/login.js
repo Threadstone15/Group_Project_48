@@ -1,5 +1,21 @@
 export function initlogin() {
 
+  const togglePassword = document.getElementById('togglePassword');
+  const passwordField = document.getElementById('password');
+
+  
+  if (togglePassword && passwordField) {
+    togglePassword.addEventListener('click', function() {
+      const type = passwordField.type === 'password' ? 'text' : 'password';
+      passwordField.type = type;
+
+      this.classList.toggle('fa-eye');
+      this.classList.toggle('fa-eye-slash');
+    });
+  } else {
+    console.error('Password field or togglePassword icon not found.');
+  }
+
   const storedRole = localStorage.getItem('role');
   if (storedRole) {
     switch(storedRole){
@@ -18,6 +34,7 @@ export function initlogin() {
     }
   });
 
+  
   document.getElementById('loginForm').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent form submission
 
@@ -88,3 +105,4 @@ export function initlogin() {
     }, 3000);
 }
 }
+

@@ -161,3 +161,15 @@
     border: 1px solid #f5c6cb;
   }
   
+  .password-container {
+    position: relative;
+  }
+  
+  #togglePassword {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
