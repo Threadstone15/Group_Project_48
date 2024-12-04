@@ -5,10 +5,12 @@ include_once "../models/Staff.php";
 include_once "../models/User.php";
 include_once "../models/Member.php";
 include_once "../models/Trainer.php";
+include_once "../models/equipmentTypes.php";
 include_once "../../logs/save.php";
 include_once "accountMail.php";
 
-function generateRandomPassword($length = 8) {
+function generateRandomPassword($length = 8)
+{
     $lowercase = 'abcdefghijklmnopqrstuvwxyz';
     $uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $digits = '0123456789';
@@ -18,9 +20,9 @@ function generateRandomPassword($length = 8) {
     $allChars = $lowercase . $uppercase . $digits . $specialChars;
 
     $password = $lowercase[random_int(0, strlen($lowercase) - 1)] .
-                $uppercase[random_int(0, strlen($uppercase) - 1)] .
-                $digits[random_int(0, strlen($digits) - 1)] .
-                $specialChars[random_int(0, strlen($specialChars) - 1)];
+        $uppercase[random_int(0, strlen($uppercase) - 1)] .
+        $digits[random_int(0, strlen($digits) - 1)] .
+        $specialChars[random_int(0, strlen($specialChars) - 1)];
 
     for ($i = 4; $i < $length; $i++) {
         $password .= $allChars[random_int(0, strlen($allChars) - 1)];
@@ -31,7 +33,8 @@ function generateRandomPassword($length = 8) {
 
 
 // Add new staff
-function addStaff() {
+function addStaff()
+{
     logMessage("Starting 'addStaff' function...");
 
     // Include necessary classes
@@ -96,8 +99,7 @@ function addStaff() {
             } else {
                 throw new Exception("Failed to add staff details for user ID: $user_id.");
             }
-        }
-        elseif($role === "member"){
+        } elseif ($role === "member") {
             $member = new Member();
             if ($user->register($email, $password, $role)) {
                 $user_id = $user->userExists($email);
@@ -120,8 +122,7 @@ function addStaff() {
             } else {
                 throw new Exception("Failed to add member details for user ID: $user_id.");
             }
-        }
-        elseif($role === "trainer"){
+        } elseif ($role === "trainer") {
             $trainer = new Trainer();
             if ($user->register($email, $password, $role)) {
                 $user_id = $user->userExists($email);
@@ -148,8 +149,7 @@ function addStaff() {
             } else {
                 throw new Exception("Failed to add trainer details for user ID: $user_id.");
             }
-        }
-        else {
+        } else {
             logMessage("Invalid role provided: $role.");
             http_response_code(400);
             echo json_encode(["error" => "Invalid role."]);
@@ -163,7 +163,8 @@ function addStaff() {
 
 
 // Get all staff or a specific staff by ID
-function getStaff($role) {
+function getStaff($role)
+{
     logMessage("Get staff function running for role: $role");
 
     try {
@@ -223,7 +224,8 @@ function getStaff($role) {
 
 
 // Update existing staff
-function updateStaff() {
+function updateStaff()
+{
     logMessage("Update staff function running...");
 
     $user = new User();
@@ -255,7 +257,8 @@ function updateStaff() {
 
 
 // Delete staff
-function deleteStaff($user_id) {
+function deleteStaff($user_id)
+{
     logMessage("Delete staff function running...ID - $user_id");
 
     $user = new User();
@@ -270,9 +273,10 @@ function deleteStaff($user_id) {
 }
 
 // Get all emails
-function getAllEmails() {
+function getAllEmails()
+{
     logMessage("Fetching all emails from the users table.");
-    
+
     $user = new User();
 
     // Fetch all emails
@@ -287,4 +291,19 @@ function getAllEmails() {
     }
 }
 
-?>
+function getEquipmentTypes()
+{
+    logMessage("Fetching equipment types...");
+
+    $EquipmentTypes = new EquipmentTypes();
+
+    $types = $EquipmentTypes->getEquipmentTypes();
+
+    if ($types !== false) {
+        logMessage("Equipment types fetched successfully. Total: " . count($types));
+        echo json_encode($types);
+    } else {
+        logMessage("Failed to fetch equipment types.");
+        echo json_encode(["error" => "Failed to fetch equipment types"]);
+    }
+}

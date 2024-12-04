@@ -17,17 +17,17 @@ include_once "../models/User.php";
 $conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     logMessage("Handling preflight OPTIONS request.");
-    http_response_code(204);  
+    http_response_code(204);
     exit();
 }
 
 $request_method = $_SERVER['REQUEST_METHOD'];
-$action = $_POST['action'] ?? $_GET['action'] ?? null; 
+$action = $_POST['action'] ?? $_GET['action'] ?? null;
 
 $token = getBearerToken();
 $requiredRole = "staff";
 verifyRequest($requiredRole, $token);
-$user_id  =getUserIdFromToken($token);
+$user_id  = getUserIdFromToken($token);
 
 logMessage("Running staff controller ,$action token - $token   id - $user_id ");
 
@@ -39,6 +39,10 @@ switch ($action) {
     case 'get_equipments':
         logMessage("Running get_equip....in controller");
         getEquipment();
+        break;
+    case 'get_equipment_types':
+        logMessage("Running get_equip_types....in controller");
+        getEquipmentTypes();
         break;
     case 'update_equipment_status':
         logMessage("Running update_equip....in controller");
@@ -67,7 +71,7 @@ switch ($action) {
         deleteMaintenance();
         break;
 
-        
+
     case 'add_notice':
         logMessage("Running add_notice....in controller");
         addNotice($user_id);
@@ -89,4 +93,3 @@ switch ($action) {
     default:
         echo json_encode(["error" => "Invalid action"]);
 }
-?>

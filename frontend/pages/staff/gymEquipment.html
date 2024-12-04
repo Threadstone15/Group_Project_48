@@ -21,7 +21,6 @@
                 <table id="equipmentsTable">
                     <thead>
                         <tr>
-                            <th>Equipment ID</th>
                             <th>Name</th>
                             <th>Purchase Date</th>
                             <th>Status</th>
@@ -91,9 +90,13 @@
                 
                 <form class="equipment-form" id="equipmentForm">
                     <div class="form-group">
-                        <label for="equipmentName" class="form-label">Name :</label>
-                        <input type="text" id="equipmentName" class="form-input" aria-label="Enter equipment name" />
-                    </div>
+                        <label for="equipmentType" class="form-label">Type:</label>
+                        <select id="equipmentType" class="form-input" aria-label="Select equipment type">
+                            <option value="" disabled selected>Select an equipment type</option>
+                            <option value="other">Other (please type)</option>
+                        </select>
+                        <input type="text" id="otherEquipmentType" class="form-input" aria-label="Enter custom equipment type" placeholder="Type equipment type" style="display: none;" />
+                    </div>                    
                     <div class="form-group">
                         <label for="purchaseDate" class="form-label">Purchase Date :</label>
                         <input type="date" id="purchaseDate" class="form-input" aria-label="Select purchase date" />
@@ -104,8 +107,25 @@
                     </div>
                     <button type="submit" class="submit-button">Add Equipment</button>
                 </form>
+                
             </div>
+
+            <!-- Confirmation popup -->
+            <div id="confirmationPopup" class="popup" style="display: none;">
+                <button id="closeConfirmationPopup" class="close-button">&times;</button> <!-- Close button -->
+                <div class="popup-content">
+                    <h2>Confirm Add Equipment</h2>
+                    <div id="confirmationMessage"></div> <!-- Display the confirmation message here -->
+                    <div class="popup-buttons">
+                        <button id="confirmAdd" class="popup-confirm">Yes, Add Equipment</button>
+                        <button id="cancelAdd" class="popup-cancel">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+
         </section>
+        
     </div>
     <script src="/Group_Project_48/frontend/js/staff/gymEquipment.js"></script>
 </body>

@@ -2,17 +2,22 @@
 // equipmentHandler.php
 
 include_once "../models/Equipment.php";
+include_once "../models/equipmentTypes.php";
 include_once "../../logs/save.php";
 
-function addEquipment() {
+function addEquipment()
+{
     logMessage("add equip function running...");
 
-    $equipment = new Equipment(); 
+    $equipment = new Equipment();
+    $EquipmentTypes = new EquipmentTypes();
 
-    $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
+    $type = filter_var($_POST['type'], FILTER_SANITIZE_STRING);
     $purchase_date = $_POST['purchase_date'];
     $status = filter_var($_POST['status'], FILTER_SANITIZE_STRING);
     $maintenance_frequency = intval($_POST['maintenance_frequency']);
+
+    $name = $EquipmentTypes->getEquipmentName($type);
 
     if ($equipment->addEquipment($name, $purchase_date, $status, $maintenance_frequency)) {
         logMessage("Equipment added: $name");
@@ -24,7 +29,8 @@ function addEquipment() {
 }
 
 
-function getEquipment() {
+function getEquipment()
+{
     logMessage("get equip function running...");
     $equipment = new Equipment();
 
@@ -40,7 +46,8 @@ function getEquipment() {
     }
 }
 
-function updateEquipment() {
+function updateEquipment()
+{
     logMessage("updateEquipment function running...");
 
     $equipment = new Equipment();
@@ -74,7 +81,8 @@ function updateEquipment() {
 }
 
 
-function deleteEquipment() {
+function deleteEquipment()
+{
     logMessage("delete equip function running...");
 
     $equipment = new Equipment();
@@ -94,4 +102,20 @@ function deleteEquipment() {
         echo json_encode(["error" => "Invalid input data"]);
     }
 }
-?>
+
+function getEquipmentTypes()
+{
+    logMessage("Fetching equipment types...");
+
+    $EquipmentTypes = new EquipmentTypes();
+
+    $types = $EquipmentTypes->getEquipmentTypes();
+
+    if ($types !== false) {
+        logMessage("Equipment types fetched successfully. Total: " . count($types));
+        echo json_encode($types);
+    } else {
+        logMessage("Failed to fetch equipment types.");
+        echo json_encode(["error" => "Failed to fetch equipment types"]);
+    }
+}

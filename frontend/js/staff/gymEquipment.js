@@ -1,11 +1,14 @@
 console.log("JS loaded");
 
+initializePage();
+
 const equipmentTable = document.getElementById("equipmentsTable");
 const deletePopup = document.getElementById("deletePopup");
 const updatePopup = document.getElementById("updatePopup");
 
 if (equipmentTable) {
-    fetchEquipmentList(); // Trigger fetching the equipment list if the table exists
+    fetchEquipmentList(); 
+
 } else {
     console.warn("Equipment table not found. Skipping fetch.");
 }
@@ -41,7 +44,6 @@ function fetchEquipmentList() {
                     const row = document.createElement("tr");
 
                     row.innerHTML = `
-                        <td>${equipment['equipment_id']}</td>
                         <td>${equipment['name']}</td>
                         <td>${equipment['purchase_date']}</td>
                         <td>${equipment['status']}</td>
@@ -225,161 +227,226 @@ function openUpdatePopup(button) {
   });
   
 
+  document.getElementById('equipmentForm').addEventListener('submit', handleFormSubmit);
 
-
-/*
-
-
-document.getElementById('equipmentForm').addEventListener('submit', (event) => {
-  event.preventDefault();
+  // Handle the form submission logic
+  function handleFormSubmit(event) {
+      event.preventDefault();
+      console.log("Add equipment form submitted"); // Debugging log
+      
+      // Get form input values
+      const equipmentType = getEquipmentType();
+      const purchaseDate = document.getElementById("purchaseDate").value;
+      const maintenanceDuration = document.getElementById("maintenanceDuration").value;
   
-  console.log("Add equipment form submitted"); // Debugging log
+      // Validate maintenance duration
+      if (!validateMaintenanceDuration(maintenanceDuration)) {
+          alert("Please enter a valid maintenance duration (1-365 days).");
+          return;
+      }
   
-  // Get form input values
-  const equipmentName = document.getElementById("equipmentName").value;
-  const purchaseDate = document.getElementById("purchaseDate").value;
-  const maintenanceDuration = document.getElementById("maintenanceDuration").value;
-  
-  console.log("Equipment Name:", equipmentName); // Debugging log
-  console.log("Purchase Date:", purchaseDate); // Debugging log
-  console.log("Maintenance Duration:", maintenanceDuration); // Debugging log
-  
-  // Prepare form data using FormData
-  const formData = new FormData();
-  formData.append("name", equipmentName);
-  formData.append("purchase_date", purchaseDate);
-  formData.append("maintenance_frequency", maintenanceDuration);
-  formData.append("status", "active"); // Assuming "status" is hard-coded as "active"
-  formData.append("action", "add_equipment"); // Set the action to match the backend case
-  
-  // Retrieve auth token from local storage
-  const authToken = localStorage.getItem("authToken");
-  
-  if (!authToken) {
-      console.error("Auth token not found. Please log in.");
-      return;
+      console.log("Equipment Type:", equipmentType); // Debugging log
+      console.log("Purchase Date:", purchaseDate); // Debugging log
+      console.log("Maintenance Duration:", maintenanceDuration); // Debugging log
+      
+      // Show confirmation popup with the filled details
+      showConfirmationPopup(equipmentType, purchaseDate, maintenanceDuration);
   }
   
-  console.log("Auth Token:", authToken); // Debugging log
+  // Get the selected equipment type or custom input
+  function getEquipmentType() {
+      const equipmentTypeSelect = document.getElementById("equipmentType");
+      const otherEquipmentTypeInput = document.getElementById("otherEquipmentType");
+      
+      return equipmentTypeSelect.value === "Other (Please Type)"
+          ? otherEquipmentTypeInput.value.trim()
+          : equipmentTypeSelect.value;
+  }
   
-  // Set up the request with headers and form data
-  const requestOptions = {
-      method: 'POST',
-      headers: {
-          'Authorization': `Bearer ${authToken}`
-      },
-      body: formData,
-      redirect: 'follow'
-  };
+  // Validate the maintenance duration (1-365 days)
+  function validateMaintenanceDuration(maintenanceDuration) {
+      return maintenanceDuration && !isNaN(maintenanceDuration) && maintenanceDuration >= 1 && maintenanceDuration <= 365;
+  }
   
-  // Send POST request to backend
-  fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php", requestOptions)
-      .then(response => {
-          if (!response.ok) {
-              throw new Error("Failed to add equipment");
-          }
-          return response.text();
-      })
-      .then(result => {
-          console.log("Equipment added successfully:", result); // Debugging log
-          fetchEquipmentList(); 
-          alert("Equipment added successfully!");
-      })
-      .catch(error => {
-        console.error("Error adding equipment:", error)
-        alert("Failed to add Euipment");
-      });
-});
+  // Show confirmation popup with the equipment details
+  function showConfirmationPopup(equipmentType, purchaseDate, maintenanceDuration) {
+    const confirmationPopup = document.getElementById('confirmationPopup');
+    const confirmationMessage = document.getElementById('confirmationMessage');
 
-// Close the delete popup when the close button is clicked
-document.getElementById("closePopup").addEventListener("click", function () {
-    const popup = document.getElementById("deletePopup");
-    popup.style.display = "none";
-});*/
+    // Display the equipment details in the confirmation popup
+    confirmationMessage.innerHTML = `
+        <p><strong>Equipment Type:</strong> ${equipmentType}</p>
+        <p><strong>Purchase Date:</strong> ${purchaseDate}</p>
+        <p><strong>Maintenance Duration (Days):</strong> ${maintenanceDuration}</p>
+    `;
 
-// Maintenance duration input validation (numbers only, range 1-365)
-document.getElementById("maintenanceDuration").addEventListener("input", function (event) {
-    const input = event.target;
-    let value = input.value;
+    // Show the confirmation popup
+    confirmationPopup.style.display = 'block';
 
-    // Remove any non-numeric characters
-    value = value.replace(/[^0-9]/g, "");
+    // Get confirmation buttons
+    const confirmButton = document.getElementById('confirmAdd');
+    const cancelButton = document.getElementById('cancelAdd');
 
-    // Ensure the value stays within the range 1-365
-    if (value > 365) {
-        value = "365";
-    } else if (value < 1 && value !== "") {
-        value = "1";
-    }
+    // Remove existing event listeners to prevent multiple submissions
+    confirmButton.replaceWith(confirmButton.cloneNode(true));
+    cancelButton.replaceWith(cancelButton.cloneNode(true));
 
-    // Update the input value
-    input.value = value;
-});
+    // Add event listeners again
+    document.getElementById('confirmAdd').addEventListener('click', function () {
+        addEquipmentToDatabase(equipmentType, purchaseDate, maintenanceDuration);
+        confirmationPopup.style.display = 'none'; // Hide the popup after confirming
+    });
 
-document.getElementById('equipmentForm').addEventListener('submit', (event) => {
-    event.preventDefault();
-    
-    console.log("Add equipment form submitted"); // Debugging log
-    
-    // Get form input values
-    const equipmentName = document.getElementById("equipmentName").value;
-    const purchaseDate = document.getElementById("purchaseDate").value;
-    const maintenanceDuration = document.getElementById("maintenanceDuration").value;
+    document.getElementById('cancelAdd').addEventListener('click', function () {
+        confirmationPopup.style.display = 'none'; // Hide the popup if canceled
+    });
+}
 
-    // Validate maintenance duration
-    if (!maintenanceDuration || isNaN(maintenanceDuration) || maintenanceDuration < 1 || maintenanceDuration > 365) {
-        alert("Please enter a valid maintenance duration (1-365 days).");
-        return;
-    }
-    
-    console.log("Equipment Name:", equipmentName); // Debugging log
-    console.log("Purchase Date:", purchaseDate); // Debugging log
-    console.log("Maintenance Duration:", maintenanceDuration); // Debugging log
-    
-    // Prepare form data using FormData
+  
+  // Add the equipment to the database
+  function addEquipmentToDatabase(equipmentType, purchaseDate, maintenanceDuration) {
     const formData = new FormData();
-    formData.append("name", equipmentName);
+    formData.append("type", equipmentType);
     formData.append("purchase_date", purchaseDate);
     formData.append("maintenance_frequency", maintenanceDuration);
-    formData.append("status", "active"); // Assuming "status" is hard-coded as "active"
-    formData.append("action", "add_equipment"); // Set the action to match the backend case
-    
-    // Retrieve auth token from local storage
+    formData.append("status", "active");
+    formData.append("action", "add_equipment");
+
     const authToken = localStorage.getItem("authToken");
-    
+
     if (!authToken) {
         console.error("Auth token not found. Please log in.");
         return;
     }
-    
-    console.log("Auth Token:", authToken); // Debugging log
-    
-    // Set up the request with headers and form data
+
     const requestOptions = {
         method: 'POST',
-        headers: {
-            'Authorization': `Bearer ${authToken}`
-        },
+        headers: { 'Authorization': `Bearer ${authToken}` },
         body: formData,
         redirect: 'follow'
     };
-    
-    // Send POST request to backend
+
     fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php", requestOptions)
         .then(response => {
-            if (!response.ok) {
-                throw new Error("Failed to add equipment");
-            }
-            return response.text();
+            if (!response.ok) throw new Error("Failed to add equipment");
+            return response.json(); // Parse JSON response
         })
         .then(result => {
-            console.log("Equipment added successfully:", result); // Debugging log
-            fetchEquipmentList(); 
+            console.log("Equipment added successfully:", result);
+
+            // Generate QR code and download it
+            const qrData = `Equipment Type: ${equipmentType}\nPurchase Date: ${purchaseDate}\nMaintenance Duration: ${maintenanceDuration} days`;
+            generateAndDownloadQRCode(qrData);
+
             alert("Equipment added successfully!");
+            fetchEquipmentList();
         })
         .catch(error => {
             console.error("Error adding equipment:", error);
             alert("Failed to add Equipment");
         });
-});
+}
+
+// Function to generate QR code and trigger download
+function generateAndDownloadQRCode(data) {
+    const qrCodeElement = document.createElement("div");
+    const qrCode = new QRCode(qrCodeElement, {
+        text: data,
+        width: 200,
+        height: 200
+    });
+
+    setTimeout(() => {
+        // Get the QR code as a data URL
+        const qrImage = qrCodeElement.querySelector("img").src;
+
+        // Create a download link
+        const downloadLink = document.createElement("a");
+        downloadLink.href = qrImage;
+        downloadLink.download = "Equipment_QR_Code.png"; // File name for the downloaded QR code
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+
+        console.log("QR Code downloaded successfully");
+    }, 500); // Wait briefly for QR code generation
+}
+
+  
+  // Fetch the available equipment types from the API
+  function fetchEquipmentTypes() {
+      console.log("Fetching Equipment Types from API");
+  
+      const authToken = localStorage.getItem("authToken");
+      if (!authToken) {
+          console.error("Auth token not found. Please log in.");
+          return;
+      }
+  
+      const requestOptions = {
+          method: 'GET',
+          headers: { 'Authorization': `Bearer ${authToken}` },
+          redirect: 'follow'
+      };
+  
+      // Replace with the actual backend endpoint for equipment types
+      const apiUrl = "http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php?action=get_equipment_types";
+  
+      fetch(apiUrl, requestOptions)
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error("Failed to fetch equipment types");
+              }
+              return response.json();
+          })
+          .then(data => {
+              console.log("Fetched equipment types:", data);
+              data.push({ type_name: "Other (Please Type)", no_items: 0 });
+              localStorage.setItem("equipmentTypes", JSON.stringify(data));
+              populateEquipmentTypes(data);
+          })
+          .catch(error => {
+              console.error("Error fetching equipment types:", error);
+          });
+  }
+  
+  // Populate the equipment type dropdown with fetched data
+  function populateEquipmentTypes(data) {
+      console.log("Populating equipment types dropdown");
+      const equipmentTypeSelect = document.getElementById("equipmentType");
+      equipmentTypeSelect.innerHTML = `<option value="" disabled selected>Select an equipment type</option>`; // Clear existing options
+  
+      if (data.length > 0) {
+          data.forEach(equipment => {
+              const option = document.createElement("option");
+              option.value = equipment['type_name']; // Use unique ID
+              option.textContent = equipment['type_name']; // Use name as display text
+              equipmentTypeSelect.appendChild(option);
+          });
+      } else {
+          console.log("No equipment types available");
+      }
+  }
+  
+  // Initialize the page (optional)
+  function initializePage() {
+      fetchEquipmentTypes();
+      setupEquipmentTypeDropdown();
+  }
+  
+  // Setup event listener for changing equipment type selection
+  function setupEquipmentTypeDropdown() {
+      const equipmentTypeSelect = document.getElementById("equipmentType");
+      const otherEquipmentTypeInput = document.getElementById("otherEquipmentType");
+  
+      equipmentTypeSelect.addEventListener("change", function() {
+          if (this.value === "Other (Please Type)") {
+              otherEquipmentTypeInput.style.display = "block"; // Show input for custom equipment type
+          } else {
+              otherEquipmentTypeInput.style.display = "none"; // Hide input if not selecting 'Other'
+          }
+      });
+  }
+  
+
 
