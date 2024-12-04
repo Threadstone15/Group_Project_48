@@ -70,6 +70,8 @@ function deleteEquipment(equipmentId) {
   const deletePopup = document.getElementById("deletePopup");
   deletePopup.style.display = "block";
 
+  document.getElementById("overlay").style.display = "block";
+
   document.getElementById("confirmDelete").onclick = () => {
       const authToken = localStorage.getItem("authToken");
       if (!authToken) {
@@ -102,6 +104,7 @@ function deleteEquipment(equipmentId) {
               alert("Equipment removed successfully!"); // Debugging log
               fetchEquipmentList(); // Refresh the equipment list after deletion
               deletePopup.style.display = "none"; // Close the confirmation popup
+              document.getElementById("overlay").style.display = "none";
           })
           .catch(error => {
               console.error("Error deleting equipment:", error)
@@ -112,6 +115,14 @@ function deleteEquipment(equipmentId) {
   document.getElementById("cancelDelete").onclick = () => {
       deletePopup.style.display = "none"; // Close the confirmation popup if canceled
   };
+
+  // Close the delete popup
+document.getElementById("closePopup").addEventListener("click", function () {
+    const popup = document.getElementById("deletePopup");
+    popup.style.display = "none";
+    document.getElementById("overlay").style.display = "none";
+});
+
 }
 
 
@@ -125,6 +136,8 @@ function openUpdatePopup(button) {
     const purchaseDate = row.cells[2].textContent;
     const status = row.cells[3].textContent;
     const maintenanceDuration = row.cells[4].textContent; // Maintenance Frequency
+
+    document.getElementById("overlay").style.display = "block";
   
     // Fill the update form with the selected row's data
     document.getElementById("updateEquipmentId").value = equipmentId;
@@ -140,6 +153,7 @@ function openUpdatePopup(button) {
   // Close the Update Popup
   document.getElementById("closeUpdatePopup").onclick = () => {
     document.getElementById("updatePopup").style.display = "none";
+    document.getElementById("overlay").style.display = "none";
   };
   
   // Real-time validation for Maintenance Duration
