@@ -49,8 +49,9 @@ function fetchEquipmentList() {
                         <td>${equipment['status']}</td>
                         <td>${equipment['maintenance_frequency']}</td>
                         <td>
+                            <input type="hidden" value="${equipment['equipment_id']}" class="equipment-id" />
                             <button class="update-button" onclick="openUpdatePopup(this)">Update</button>
-                            <button class="delete-button" onclick="deleteEquipment('${equipment['equipment_id']}')">Remove</button>
+                            <button class="delete-button" onclick="deleteEquipment('${equipment['equipment_id']}    ', '${equipment['name']}')">Remove</button>
                         </td>
                     `;
 
@@ -65,8 +66,10 @@ function fetchEquipmentList() {
         .catch(error => console.error("Error fetching equipment list:", error));
 }
 
-function deleteEquipment(equipmentId) {
-  console.log(`Delete button clicked for equipment ID: ${equipmentId}`);
+function deleteEquipment(equipmentId, type) {
+  const typeName = type.split('_')[0];
+  console.log(`Delete button clicked for equipment ID: ${equipmentId}  ${typeName}`);
+
   
   // Show confirmation popup
   const deletePopup = document.getElementById("deletePopup");
@@ -94,7 +97,7 @@ function deleteEquipment(equipmentId) {
       };
 
       // Send DELETE request to the backend with the equipmentId in the URL
-      fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php?action=delete_equipment&equipment_id=${equipmentId}`, requestOptions)
+      fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php?action=delete_equipment&equipment_id=${equipmentId}&type=${typeName}`, requestOptions)
           .then(response => {
               if (!response.ok) {
                   throw new Error("Failed to delete equipment");
@@ -133,11 +136,12 @@ document.getElementById("closePopup").addEventListener("click", function () {
 
 function openUpdatePopup(button) {
     const row = button.closest('tr'); // Get the row containing the clicked button
-    const equipmentId = row.cells[0].textContent; // Equipment ID
-    const name = row.cells[1].textContent; // Name
-    const purchaseDate = row.cells[2].textContent;
-    const status = row.cells[3].textContent;
-    const maintenanceDuration = row.cells[4].textContent; // Maintenance Frequency
+    const name = row.cells[0].textContent; // Name
+    const purchaseDate = row.cells[1].textContent;
+    const status = row.cells[2].textContent;
+    const maintenanceDuration = row.cells[3].textContent; // Maintenance Frequency
+
+    const equipmentId = row.querySelector('.equipment-id').value;
 
     document.getElementById("overlay").style.display = "block";
   
@@ -333,11 +337,6 @@ function openUpdatePopup(button) {
         })
         .then(result => {
             console.log("Equipment added successfully:", result);
-
-            // Generate QR code and download it
-            const qrData = `Equipment Type: ${equipmentType}\nPurchase Date: ${purchaseDate}\nMaintenance Duration: ${maintenanceDuration} days`;
-            generateAndDownloadQRCode(qrData);
-
             alert("Equipment added successfully!");
             fetchEquipmentList();
         })
@@ -347,30 +346,7 @@ function openUpdatePopup(button) {
         });
 }
 
-// Function to generate QR code and trigger download
-function generateAndDownloadQRCode(data) {
-    const qrCodeElement = document.createElement("div");
-    const qrCode = new QRCode(qrCodeElement, {
-        text: data,
-        width: 200,
-        height: 200
-    });
 
-    setTimeout(() => {
-        // Get the QR code as a data URL
-        const qrImage = qrCodeElement.querySelector("img").src;
-
-        // Create a download link
-        const downloadLink = document.createElement("a");
-        downloadLink.href = qrImage;
-        downloadLink.download = "Equipment_QR_Code.png"; // File name for the downloaded QR code
-        document.body.appendChild(downloadLink);
-        downloadLink.click();
-        document.body.removeChild(downloadLink);
-
-        console.log("QR Code downloaded successfully");
-    }, 500); // Wait briefly for QR code generation
-}
 
   
   // Fetch the available equipment types from the API
@@ -447,6 +423,7 @@ function generateAndDownloadQRCode(data) {
           }
       });
   }
+  
   
 
 

@@ -4,6 +4,7 @@
 include_once "../models/Equipment.php";
 include_once "../models/equipmentTypes.php";
 include_once "../../logs/save.php";
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 function addEquipment()
 {
@@ -86,13 +87,16 @@ function deleteEquipment()
     logMessage("delete equip function running...");
 
     $equipment = new Equipment();
+    $EquipmentTypes = new EquipmentTypes();
 
     if (isset($_GET['equipment_id'])) {
         $equipment_id = intval($_GET['equipment_id']);
+        $type = filter_var($_GET['type']);
 
         if ($equipment->deleteEquipment($equipment_id)) {
-            logMessage("Equipment deleted: $equipment_id");
+            logMessage("Equipment deleted: $equipment_id $type");
             echo json_encode(["message" => "Equipment deleted successfully"]);
+            $EquipmentTypes->updateEquipmentCount($type, false);
         } else {
             logMessage("Failed to delete equipment: $equipment_id");
             echo json_encode(["error" => "Equipment deletion failed"]);
