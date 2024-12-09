@@ -69,7 +69,8 @@ export function initialNavigate(page) {
 
 window.initialNavigate = initialNavigate;
 
-export function loadPage(page) {
+// Dynamic page loading for non-dashboard pages
+export async function loadPage(page) {
   const pageUrl = `/Group_Project_48/frontend/pages/${page}.html`;
   const pageCssUrl = `/Group_Project_48/frontend/css/${page}.css`;
   const globalCssUrl = '/Group_Project_48/frontend/css/globals.css';
@@ -77,89 +78,69 @@ export function loadPage(page) {
 
   const contentContainer = document.getElementById("content-container");
   const footerContainer = document.getElementById("footer-container");
+  contentContainer.innerHTML = "";
 
   // Hide the footer while loading
   if (footerContainer) {
     footerContainer.style.visibility = "hidden";
   }
 
-  // Show a loading message while resources are being loaded
-  contentContainer.innerHTML = ``;
+  // Append global CSS
+  const globalCssLink = document.createElement("link");
+  globalCssLink.rel = "stylesheet";
+  globalCssLink.href = globalCssUrl;
+  document.head.appendChild(globalCssLink);
+  
+  // Attach page-specific CSS
+  const pageCssLink = document.createElement("link");
+  pageCssLink.rel = "stylesheet";
+  pageCssLink.href = pageCssUrl;
+  document.head.appendChild(pageCssLink);
 
-  // Helper function to load a CSS file and return a Promise
-  function loadCss(href) {
-    return new Promise((resolve, reject) => {
-      const link = document.createElement("link");
-      link.rel = "stylesheet";
-      link.href = href;
-      link.onload = resolve;
-      link.onerror = () => reject(new Error(`Failed to load CSS: ${href}`));
-      document.head.appendChild(link);
-    });
-  }
+  // Attach page-specific JavaScript
+  const script = document.createElement("script");
+  script.src = pageJsUrl;
+  script.type = "module";
+  document.body.appendChild(script);
 
-  // Helper function to load a JavaScript file and return a Promise
-  function loadJs(src) {
-    return new Promise((resolve, reject) => {
-      const script = document.createElement("script");
-      script.src = src;
-      script.type = "module";
-      script.onload = resolve;
-      script.onerror = () => reject(new Error(`Failed to load JavaScript: ${src}`));
-      document.body.appendChild(script);
-    });
-  }
 
-  // Fetch the HTML content
+  // Fetch and load the new page content
   fetch(pageUrl)
     .then((response) => {
       if (!response.ok) throw new Error("Page not found");
       return response.text();
     })
-    .then((htmlContent) => {
-      // Load CSS and JS resources in parallel
-      Promise.all([
-        loadCss(globalCssUrl),
-        loadCss(pageCssUrl),
-        loadJs(pageJsUrl),
-      ])
-        .then(() => {
-          // Replace the loading message with the actual content
-          contentContainer.innerHTML = htmlContent;
+    .then((data) => {
+      document.getElementById("content-container").innerHTML = data;
 
-          // Show the footer after all resources are loaded
-          if (footerContainer) {
-            footerContainer.style.visibility = "visible";
-          }
+      // Show the footer after all resources are loaded
+      if (footerContainer) {
+        footerContainer.style.visibility = "visible";
+      }
 
-          // Execute page-specific initialization functions
-          switch (page) {
-            case 'home': inithome(); break;
-            case 'login': initlogin(); break;
-            case 'pricing': initpricing(); break;
-            case 'about': initabout(); break;
-            case 'becomeMember': initbecomeMember(); break;
-            case 'findATrainer': initfindATrainer(); break;
-            case 'careers': initcareers(); break;
-            case 'services': initservices(); break;
-            case 'forgotPassword': initforgotPassword(); break;
-            case 'resetPw': initresetPw(); break;
-            case 'trainerApplication': inittrainerApplication(); break;
-            default: console.log("Page not defined within router");
-          }
-        })
-        .catch((error) => {
-          // Handle resource loading errors
-          console.error(error);
-          contentContainer.innerHTML = `<p>Error loading resources. Please try again later.</p>`;
-        });
+      // Execute page-specific initialization functions
+      switch (page) {
+        case 'home': inithome(); break;
+        case 'login': initlogin(); break;
+        case 'pricing': initpricing(); break;
+        case 'about': initabout(); break;
+        case 'becomeMember': initbecomeMember(); break;
+        case 'findATrainer': initfindATrainer(); break;
+        case 'careers': initcareers(); break;
+        case 'services': initservices(); break;
+        case 'forgotPassword': initforgotPassword(); break;
+        case 'resetPw': initresetPw(); break;
+        case 'trainerApplication': inittrainerApplication(); break;
+        default: console.log("Page not defined within router");
+      }
     })
     .catch(() => {
-      // Handle HTML fetch errors
-      contentContainer.innerHTML = `<p>404 - Page not found.</p>`;
+      document.getElementById("content-container").innerHTML = `<p>404 - Page not found.</p>`;
+      if (footerContainer) {
+        footerContainer.style.visibility = "visible";
+      }
     });
 }
-
 
 export function clearDashboardComponents() {
   document.getElementById("sidebar-container").innerHTML = '';
@@ -334,7 +315,7 @@ function removeExistingCSSJS() {
 
   // Remove existing CSS and JS related to the page
   removeExistingTags(`link[href="${pageCssUrl}"]`);
-  removeExistingTags(`link[href="${globalCssUrl}"]`);
+  // removeExistingTags(`link[href="${globalCssUrl}"]`);
   removeExistingTags(`script[src="${pageJsUrl}"]`);
 }
 
