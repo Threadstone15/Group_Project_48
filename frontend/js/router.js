@@ -11,7 +11,8 @@ import { initservices } from "./services.js";
 import { inittrainerApplication } from "./trainerApplication.js";
 
 export function navigate(page) {
-  if(isInitialNavigate()){
+  removeExistingCSSJS();
+  if (isInitialNavigate()) {
     //clearing dashbaord components if present
     clearDashboardComponents();
     //then load navbar and footer
@@ -20,7 +21,7 @@ export function navigate(page) {
     loadPage(page);
     history.pushState({ page }, "", `/Group_Project_48/${page}`);
     location.reload();
-  }else{
+  } else {
     loadPage(page);
     history.pushState({ page }, "", `/Group_Project_48/${page}`);
   }
@@ -59,7 +60,7 @@ window.navigate = navigate;
 
 
 //initialNavigate func
-export function initialNavigate(page){
+export function initialNavigate(page) {
   clearDashboardComponents();
   loadNavbar();
   loadFooter();
@@ -68,65 +69,97 @@ export function initialNavigate(page){
 
 window.initialNavigate = initialNavigate;
 
-// Dynamic page loading for non-dashboard pages
 export function loadPage(page) {
   const pageUrl = `/Group_Project_48/frontend/pages/${page}.html`;
   const pageCssUrl = `/Group_Project_48/frontend/css/${page}.css`;
-  const pageCssUrl2 = '/Group_Project_48/frontend/css/globals.css';
+  const globalCssUrl = '/Group_Project_48/frontend/css/globals.css';
   const pageJsUrl = `/Group_Project_48/frontend/js/${page}.js`;
 
+  const contentContainer = document.getElementById("content-container");
+  const footerContainer = document.getElementById("footer-container");
+
+  // Hide the footer while loading
+  if (footerContainer) {
+    footerContainer.style.visibility = "hidden";
+  }
+
+  // Show a loading message while resources are being loaded
+  contentContainer.innerHTML = ``;
+
+  // Helper function to load a CSS file and return a Promise
+  function loadCss(href) {
+    return new Promise((resolve, reject) => {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = href;
+      link.onload = resolve;
+      link.onerror = () => reject(new Error(`Failed to load CSS: ${href}`));
+      document.head.appendChild(link);
+    });
+  }
+
+  // Helper function to load a JavaScript file and return a Promise
+  function loadJs(src) {
+    return new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src = src;
+      script.type = "module";
+      script.onload = resolve;
+      script.onerror = () => reject(new Error(`Failed to load JavaScript: ${src}`));
+      document.body.appendChild(script);
+    });
+  }
+
+  // Fetch the HTML content
   fetch(pageUrl)
     .then((response) => {
       if (!response.ok) throw new Error("Page not found");
       return response.text();
     })
-    .then((data) => {
-      document.getElementById("content-container").innerHTML = data;
+    .then((htmlContent) => {
+      // Load CSS and JS resources in parallel
+      Promise.all([
+        loadCss(globalCssUrl),
+        loadCss(pageCssUrl),
+        loadJs(pageJsUrl),
+      ])
+        .then(() => {
+          // Replace the loading message with the actual content
+          contentContainer.innerHTML = htmlContent;
 
-      // Append page-specific CSS
-      if (!document.querySelector(`link[href="${pageCssUrl}"]`)) {
-        const pageCssLink = document.createElement("link");
-        pageCssLink.rel = "stylesheet";
-        pageCssLink.href = pageCssUrl;
-        document.head.appendChild(pageCssLink);
-      }
+          // Show the footer after all resources are loaded
+          if (footerContainer) {
+            footerContainer.style.visibility = "visible";
+          }
 
-      // Append global CSS
-      if (!document.querySelector(`link[href="${pageCssUrl2}"]`)) {
-        const globalCssLink = document.createElement("link");
-        globalCssLink.rel = "stylesheet";
-        globalCssLink.href = pageCssUrl2;
-        document.head.appendChild(globalCssLink);
-      }
-
-      // Append page-specific JavaScript
-      if (!document.querySelector(`script[src="${pageJsUrl}"]`)) {
-        const script = document.createElement("script");
-        script.src = pageJsUrl;
-        script.type = "module";
-        document.body.appendChild(script);
-      }
-
-      //executing page specific js functions
-      switch(page){
-        case 'home' : inithome(); break;
-        case 'login' : initlogin(); break;
-        case 'pricing' : initpricing(); break;
-        case 'about' : initabout(); break;
-        case 'becomeMember' : initbecomeMember(); break;
-        case 'findATrainer' : initfindATrainer(); break;
-        case 'careers' : initcareers(); break;
-        case 'services' : initservices(); break;
-        case 'forgotPassword' : initforgotPassword(); break;
-        case 'resetPw' : initresetPw(); break;
-        case 'trainerApplication' : inittrainerApplication(); break;
-        default : console.log("page not defined within router");
-      }
+          // Execute page-specific initialization functions
+          switch (page) {
+            case 'home': inithome(); break;
+            case 'login': initlogin(); break;
+            case 'pricing': initpricing(); break;
+            case 'about': initabout(); break;
+            case 'becomeMember': initbecomeMember(); break;
+            case 'findATrainer': initfindATrainer(); break;
+            case 'careers': initcareers(); break;
+            case 'services': initservices(); break;
+            case 'forgotPassword': initforgotPassword(); break;
+            case 'resetPw': initresetPw(); break;
+            case 'trainerApplication': inittrainerApplication(); break;
+            default: console.log("Page not defined within router");
+          }
+        })
+        .catch((error) => {
+          // Handle resource loading errors
+          console.error(error);
+          contentContainer.innerHTML = `<p>Error loading resources. Please try again later.</p>`;
+        });
     })
     .catch(() => {
-      document.getElementById("content-container").innerHTML = `<p>404 - Page not found.</p>`;
+      // Handle HTML fetch errors
+      contentContainer.innerHTML = `<p>404 - Page not found.</p>`;
     });
 }
+
 
 export function clearDashboardComponents() {
   document.getElementById("sidebar-container").innerHTML = '';
@@ -190,15 +223,15 @@ export function isInitialNavigate() {
 
 function IsDashboardContentExists() {
   const sidebarContainer = document.getElementById('sidebar-container');
-  const contentFrame = document.getElementById('content-frame'); 
-  
+  const contentFrame = document.getElementById('content-frame');
+
   if (sidebarContainer && contentFrame) {
     if (sidebarContainer.innerHTML.trim() !== '' && contentFrame.src.trim() !== '') {
-      return true; 
+      return true;
     }
   }
-  
-  return false; 
+
+  return false;
 }
 
 
@@ -206,14 +239,14 @@ function IsNonDashboardContentExists() {
   const navbarContainer = document.getElementById('navbar-container');
   const footerContainer = document.getElementById('footer-container');
   const contentContainer = document.getElementById('content-container');
-  
+
   if (navbarContainer && contentContainer) {
     if (navbarContainer.innerHTML.trim() !== '' && contentContainer.innerHTML.trim() !== '') {
-      return true; 
+      return true;
     }
   }
-  
-  return false; 
+
+  return false;
 }
 
 
@@ -244,32 +277,6 @@ export function loadDashboardPage(role, page) {
     };
   } else {
     console.error("Content frame not found. Ensure #content-frame exists in the DOM.");
-  }
-}
-
-function loadCss(href) {
-  if (!document.querySelector(`link[href="${href}"]`)) {
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = href;
-    document.head.appendChild(link);
-  }
-}
-
-function loadGlobalCss(href){
-  if (!document.querySelector(`link[href="${href}"]`)) {
-    const globalCssLink = document.createElement("link");
-    globalCssLink.rel = "stylesheet";
-    globalCssLink.href = href;
-    document.head.appendChild(globalCssLink);
-  }
-}
-
-function loadJs(src) {
-  if (!document.querySelector(`script[src="${src}"]`)) {
-    const script = document.createElement("script");
-    script.src = src;
-    document.body.appendChild(script);
   }
 }
 
@@ -311,5 +318,24 @@ function isInitialDashboardNavigate() {
   return false;
 }
 
+function removeExistingCSSJS() {
+  const currentPath = window.location.pathname.replace('/Group_Project_48/', '');
+  const page = currentPath.split('/')[0];
+
+  const pageCssUrl = `/Group_Project_48/frontend/css/${page}.css`;
+  const pageJsUrl = `/Group_Project_48/frontend/js/${page}.js`;
+  const globalCssUrl = '/Group_Project_48/frontend/css/globals.css';
+
+  // Helper function to remove existing tags
+  function removeExistingTags(selector) {
+    const existingTags = document.querySelectorAll(selector);
+    existingTags.forEach(tag => tag.remove());
+  }
+
+  // Remove existing CSS and JS related to the page
+  removeExistingTags(`link[href="${pageCssUrl}"]`);
+  removeExistingTags(`link[href="${globalCssUrl}"]`);
+  removeExistingTags(`script[src="${pageJsUrl}"]`);
+}
 
 

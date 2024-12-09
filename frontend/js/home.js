@@ -1,5 +1,17 @@
 export function inithome() {
-    console.log("Initializing home.js")
+    console.log("Initializing home.js");
+
+    // const pageCssUrl = `/Group_Project_48/frontend/css/home.css`;
+    // const pageCssLink = document.createElement("link");
+    // pageCssLink.rel = "stylesheet";
+    // pageCssLink.href = pageCssUrl;
+    // document.head.appendChild(pageCssLink);
+
+    // const globalCssUrl = '/Group_Project_48/frontend/css/globals.css';
+    // const globalCssLink = document.createElement("link");
+    // globalCssLink.rel = "stylesheet";
+    // globalCssLink.href = globalCssLink;
+    // document.head.appendChild(globalCssLink);
 
     const imageElement1 = document.getElementById('img1');
     imageElement1.src = "/Group_Project_48/frontend/assets/images/home_img1.png";
