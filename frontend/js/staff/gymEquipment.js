@@ -13,6 +13,25 @@ if (equipmentTable) {
     console.warn("Equipment table not found. Skipping fetch.");
 }
 
+function filterEquipment() {
+    const searchInput = document.getElementById('equipmentSearch');
+    const filter = searchInput.value.toLowerCase().trim();
+    const tableBody = document.getElementById("equipmentsTable").getElementsByTagName("tbody")[0];
+    const rows = tableBody.getElementsByTagName('tr');
+
+    for (let i = 0; i < rows.length; i++) {
+        const nameCell = rows[i].getElementsByTagName('td')[0];
+        if (nameCell) {
+            const textValue = nameCell.textContent || nameCell.innerText;
+            if (textValue.toLowerCase().indexOf(filter) > -1) {
+                rows[i].style.display = '';
+            } else {
+                rows[i].style.display = 'none';
+            }
+        }
+    }
+}
+
 function fetchEquipmentList() {
     console.log("Fetching Equipments");
 
@@ -51,12 +70,18 @@ function fetchEquipmentList() {
                         <td>
                             <input type="hidden" value="${equipment['equipment_id']}" class="equipment-id" />
                             <button class="update-button" onclick="openUpdatePopup(this)">Update</button>
-                            <button class="delete-button" onclick="deleteEquipment('${equipment['equipment_id']}    ', '${equipment['name']}')">Remove</button>
+                            <button class="delete-button" onclick="deleteEquipment('${equipment['equipment_id']}', '${equipment['name']}')">Remove</button>
                         </td>
                     `;
 
                     tableBody.appendChild(row);
                 });
+
+                // Set up search input event listener after populating the table
+                const searchInput = document.getElementById('equipmentSearch');
+                if (searchInput) {
+                    searchInput.addEventListener('keyup', filterEquipment);
+                }
             } else {
                 const noDataRow = document.createElement("tr");
                 noDataRow.innerHTML = `<td colspan="6" style="text-align: center;">No equipment found</td>`;
