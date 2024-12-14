@@ -1,19 +1,22 @@
 <?php
 
 
-include_once "../../logs/save.php"; 
-require_once "../../config/database.php"; 
+include_once "../../logs/save.php";
+require_once "../../config/database.php";
 
-class EquipmentMaintenance {
+class EquipmentMaintenance
+{
     private $conn;
     private $table = "equipment_maintenance";
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->conn = DatabaseConnection::getInstance()->getConnection();
         logMessage("EquipmentMaintenance model initialized");
     }
 
-    public function addMaintenance($equipment_id, $maintenance_date, $details, $next_maintenance_date) {
+    public function addMaintenance($equipment_id, $maintenance_date, $details, $next_maintenance_date)
+    {
         logMessage("Adding new maintenance record...");
 
         if (!$this->conn) {
@@ -42,10 +45,13 @@ class EquipmentMaintenance {
         }
     }
 
-    public function getMaintenance() {
+    public function getMaintenance()
+    {
         logMessage("Fetching maintenance data...");
 
-        $query = "SELECT * FROM " . $this->table;
+        $query = "SELECT m.*, e.name 
+                  FROM " . $this->table . " AS m
+                  JOIN equipment AS e ON m.equipment_id = e.equipment_id";
         $stmt = $this->conn->prepare($query);
 
         if ($stmt === false) {
@@ -57,6 +63,7 @@ class EquipmentMaintenance {
             $result = $stmt->get_result();
             $maintenance = $result->fetch_all(MYSQLI_ASSOC);
             logMessage("Maintenance data fetched successfully");
+            logMessage(json_encode($maintenance));
             return $maintenance;
         } else {
             logMessage("Error fetching maintenance data: " . $stmt->error);
@@ -64,12 +71,15 @@ class EquipmentMaintenance {
         }
     }
 
-    public function updateMaintenance($maintenance_id, $equipment_id, $maintenance_date, $details, $next_maintenance_date) {
+
+    public function updateMaintenance($maintenance_id, $maintenance_date, $details, $next_maintenance_date)
+    {
         logMessage("Updating maintenance record: $maintenance_id");
 
+        // Update only the details, maintenance date, and next maintenance date
         $query = "UPDATE " . $this->table . " 
-                  SET equipment_id = ?, maintenance_date = ?, details = ?, next_maintenance_date = ? 
-                  WHERE maintenance_id = ?";
+              SET maintenance_date = ?, details = ?, next_maintenance_date = ? 
+              WHERE maintenance_id = ?";
         $stmt = $this->conn->prepare($query);
 
         if ($stmt === false) {
@@ -77,7 +87,8 @@ class EquipmentMaintenance {
             return false;
         }
 
-        $stmt->bind_param("isssi", $equipment_id, $maintenance_date, $details, $next_maintenance_date, $maintenance_id);
+        // Binding parameters: s = string, i = integer
+        $stmt->bind_param("sssi", $maintenance_date, $details, $next_maintenance_date, $maintenance_id);
         logMessage("Query bound for updating maintenance: $maintenance_id");
 
         if ($stmt->execute()) {
@@ -89,7 +100,9 @@ class EquipmentMaintenance {
         }
     }
 
-    public function deleteMaintenance($maintenance_id) {
+
+    public function deleteMaintenance($maintenance_id)
+    {
         logMessage("Deleting maintenance record...");
 
         $query = "DELETE FROM " . $this->table . " WHERE maintenance_id = ?";
@@ -112,5 +125,3 @@ class EquipmentMaintenance {
         }
     }
 }
-
-?>

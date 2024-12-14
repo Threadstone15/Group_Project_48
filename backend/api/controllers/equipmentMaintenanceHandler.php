@@ -5,7 +5,8 @@ include_once "../models/EquipmentMaintenance.php";
 include_once "../../logs/save.php";
 
 // Add Maintenance
-function addMaintenance() {
+function addMaintenance()
+{
     logMessage("addMaintenance function running...");
 
     $equipmentMaintenance = new EquipmentMaintenance();
@@ -38,7 +39,8 @@ function addMaintenance() {
 
 
 // Get Maintenance Records
-function getMaintenance() {
+function getMaintenance()
+{
     $equipmentMaintenance = new EquipmentMaintenance();
 
     $result = $equipmentMaintenance->getMaintenance();
@@ -53,7 +55,8 @@ function getMaintenance() {
 }
 
 // Update Maintenance Record
-function updateMaintenance() {
+function updateMaintenance()
+{
     $equipmentMaintenance = new EquipmentMaintenance();
     $data = json_decode(file_get_contents("php://input"), true);
 
@@ -64,7 +67,7 @@ function updateMaintenance() {
         $details = filter_var($data['details'], FILTER_SANITIZE_STRING);
         $next_maintenance_date = $data['next_maintenance_date'];
 
-        if ($equipmentMaintenance->updateMaintenance($maintenance_id, $equipment_id, $maintenance_date, $details, $next_maintenance_date)) {
+        if ($equipmentMaintenance->updateMaintenance($maintenance_id, $maintenance_date, $details, $next_maintenance_date)) {
             logMessage("Maintenance record updated: $maintenance_id");
             echo json_encode(["message" => "Maintenance record updated successfully"]);
         } else {
@@ -78,7 +81,8 @@ function updateMaintenance() {
 }
 
 // Delete Maintenance Record
-function deleteMaintenance() {
+function deleteMaintenance()
+{
 
     logMessage("delete equipMaintaince function running...");
 
@@ -99,4 +103,3 @@ function deleteMaintenance() {
         echo json_encode(["error" => "Invalid input data"]);
     }
 }
-?>

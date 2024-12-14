@@ -33,9 +33,12 @@ function fetchEquipmentIdList() {
             console.log("Fetched equipment ID list:", data);
 
             // Extract equipment IDs and save them to localStorage
-            const equipmentIds = data.map(equipment => equipment['equipment_id']);
-            localStorage.setItem("equipmentIds", JSON.stringify(equipmentIds));
-            console.log("Saved Equipment IDs in localStorage:", equipmentIds);
+            const equipmentData = data.map(equipment => ({
+                equipment_id: equipment['equipment_id'],
+                name: equipment['name']
+            }));
+            localStorage.setItem("equipmentData", JSON.stringify(equipmentData));
+            console.log("Saved Equipment IDs in localStorage:", equipmentData);
         })
         .catch(error => console.error("Error fetching equipment list:", error));
 }
@@ -72,13 +75,12 @@ function fetchEquipmentList() {
                     const row = document.createElement("tr");
 
                     row.innerHTML = `
-                        <td>${equipment['maintenance_id']}</td>
-                        <td>${equipment['equipment_id']}</td>
+                        <td>${equipment['name']}</td>
                         <td>${equipment['maintenance_date']}</td>
                         <td>${equipment['details']}</td>
                         <td>${equipment['next_maintenance_date']}</td>
                         <td>
-                            <button class="update-button" onclick="openUpdatePopup(this)">Update</button>
+                            <button class="update-button" onclick="openUpdatePopup('${equipment['maintenance_id']}', '${equipment['name']}', '${equipment['maintenance_date']}', '${equipment['details']}', '${equipment['next_maintenance_date']}')">Update</button>
                             <button class="delete-button" onclick="deleteEquipment('${equipment['maintenance_id']}')">Remove</button>
                         </td>
                     `;
@@ -145,13 +147,14 @@ function deleteEquipment(maintenanceId) {
 
 
 
-function openUpdatePopup(button) {
-    const row = button.closest('tr');
-    const maintenanceId = row.cells[0].textContent;
-    const equipmentId = row.cells[1].textContent; // Equipment ID
-    const maintenanceDate = row.cells[2].textContent; // Maintenance Date
-    const details = row.cells[3].textContent; // Details
-    const nextMaintenanceDate = row.cells[4].textContent; // Next Maintenance Date
+function openUpdatePopup(
+    maintenanceId,
+    equipmentId,
+    maintenanceDate,
+    details,
+    nextMaintenanceDate
+) {
+    console.log("Update button clicked for maintenance ID:", maintenanceId);
     
     document.getElementById("updateMaintenanceID").value = maintenanceId;
     document.getElementById("updateEquipmentID").value = equipmentId;
@@ -179,11 +182,13 @@ document.getElementById("updateForm").addEventListener("submit", function (event
     const details = document.getElementById("updateMaintainceDetails").value;
     const nextMaintenanceDate = document.getElementById("updateNextMaintenanceDate").value;
 
-    // Validate the form inputs
-    if (!equipmentId || isNaN(equipmentId)) {
-        alert("Please enter a valid Equipment ID.");
-        return;
-    }
+    console.log("Maintenance ID:", maintenanceId);
+    console.log("Equipment ID:", equipmentId);
+    console.log("Maintenance Date:", maintenanceDate);
+    console.log("Details:", details);
+    console.log("Next Maintenance Date:", nextMaintenanceDate);
+
+
     if (!maintenanceDate || !details || !nextMaintenanceDate) {
         alert("Please fill in all fields.");
         return;
@@ -198,20 +203,7 @@ document.getElementById("updateForm").addEventListener("submit", function (event
         return;
     }
 
-    // Retrieve saved equipment IDs from localStorage
-    const savedEquipmentIds = JSON.parse(localStorage.getItem("equipmentIds")) || [];
-    console.log("Retrieved Equipment IDs from localStorage:", savedEquipmentIds);
 
-    // Check if the entered equipment ID exists in the saved list
-    if (savedEquipmentIds.length === 0) {
-        alert("No equipment IDs available. Please fetch the equipment list first.");
-        return;
-    }
-
-    if (!savedEquipmentIds.some(id => id == String(equipmentId))) {
-        alert(`Invalid Equipment ID: ${equipmentId}. Please enter a valid ID. Available IDs: ${savedEquipmentIds.join(', ')}`);
-        return;
-    }
 
     // Prepare the form data for update
     const formData = {
@@ -252,8 +244,89 @@ document.getElementById("updateForm").addEventListener("submit", function (event
 });
 
 
+// Attach event listener for search input
+document.getElementById("equipmentName").addEventListener("focus", handleSearchInput);
+document.getElementById("equipmentName").addEventListener("input", handleSearchInput);
+
+function handleSearchInput(event) {
+    const query = event.target.value.toLowerCase();
+    const suggestionsList = document.getElementById("equipmentSuggestions");
+
+    // Clear previous suggestions
+    suggestionsList.innerHTML = "";
+
+    // Retrieve equipment data from local storage
+    const savedEquipmentData = JSON.parse(localStorage.getItem("equipmentData")) || [];
+    if (savedEquipmentData.length === 0) {
+        console.error("No equipment data available. Fetch the equipment list first.");
+        return;
+    }
+
+    // Filter equipment names based on input
+    const filteredEquipments = savedEquipmentData.filter(equipment =>
+        equipment.name.toLowerCase().includes(query)
+    );
+
+    // Display filtered equipment names as suggestions
+    filteredEquipments.forEach(equipment => {
+        const li = document.createElement("li");
+        li.textContent = equipment.name;
+        li.classList.add("suggestion-item");
+
+        // Autofill input fields on selecting an option
+        li.addEventListener("click", () => {
+            document.getElementById("equipmentName").value = equipment.name;
+            document.getElementById("equipmentID").value = equipment.equipment_id;
+            suggestionsList.innerHTML = ""; // Clear suggestions
+        });
+
+        suggestionsList.appendChild(li);
+    });
+
+    // Show "No matches found" message if no equipment matches
+    if (filteredEquipments.length === 0 && query.trim()) {
+        const li = document.createElement("li");
+        li.textContent = "No matches found";
+        li.classList.add("no-match");
+        suggestionsList.appendChild(li);
+    }
+}
+
+// Prevent manual input by clearing the input field if the user types anything manually
+document.getElementById("equipmentName").addEventListener("blur", () => {
+    const equipmentNameInput = document.getElementById("equipmentName");
+    const equipmentIDInput = document.getElementById("equipmentID");
+
+    const savedEquipmentData = JSON.parse(localStorage.getItem("equipmentData")) || [];
+    const isValidEquipment = savedEquipmentData.some(equipment => equipment.name === equipmentNameInput.value);
+
+    if (!isValidEquipment) {
+        // Clear the input field if the entered value is invalid
+        equipmentNameInput.value = "";
+        equipmentIDInput.value = "";
+    }
+});
+
+// Hide suggestions when clicking outside
+document.addEventListener("click", (event) => {
+    const equipmentNameInput = document.getElementById("equipmentName");
+    const suggestionsList = document.getElementById("equipmentSuggestions");
+
+    if (!equipmentNameInput.contains(event.target) && !suggestionsList.contains(event.target)) {
+        suggestionsList.innerHTML = ""; // Clear suggestions
+    }
+});
 
 
+// Hide suggestions dropdown when user clicks outside
+document.addEventListener("click", (event) => {
+    const equipmentNameInput = document.getElementById("equipmentName");
+    const suggestionsList = document.getElementById("equipmentSuggestions");
+
+    if (!equipmentNameInput.contains(event.target) && !suggestionsList.contains(event.target)) {
+        suggestionsList.innerHTML = ""; // Clear suggestions
+    }
+});
 
 
 
@@ -264,9 +337,12 @@ document.getElementById('equipmentForm').addEventListener('submit', (event) => {
 
     // Get form input values
     const equipmentID = document.getElementById("equipmentID").value;
+    const equipmentName = document.getElementById("equipmentName").value;
     const maintainanceDate = document.getElementById("maintainanceDate").value;
     const maintenanceDetails = document.getElementById("maintainceDetails").value;
     const nextMaintenanceDate = document.getElementById("nextMaintenanceDate").value;
+
+    console.log("Form Data:", { equipmentID, equipmentName, maintainanceDate, maintenanceDetails, nextMaintenanceDate });
 
     // Validate the form inputs
     if (!equipmentID || isNaN(equipmentID)) {
@@ -287,24 +363,9 @@ document.getElementById('equipmentForm').addEventListener('submit', (event) => {
         return;
     }
 
-    // Retrieve saved equipment IDs from localStorage
-    const savedEquipmentIds = JSON.parse(localStorage.getItem("equipmentIds")) || [];
-    console.log("Retrieved Equipment IDs from localStorage:", savedEquipmentIds);
-
-    // Check if the entered equipment ID exists in the saved list
-    if (savedEquipmentIds.length === 0) {
-        alert("No equipment IDs available. Please fetch the equipment list first.");
-        return;
-    }
-
-    if (!savedEquipmentIds.some(id => id == String(equipmentID))) {
-        alert(`Invalid Equipment ID: ${equipmentID}. Please enter a valid ID. Available IDs: ${savedEquipmentIds.join(', ')}`);
-        return;
-    }
-
-    // Prepare form data using FormData
     const formData = new FormData();
     formData.append("equipment_id", equipmentID);
+    formData.append("equipment_name", equipmentName);
     formData.append("maintainance_date", maintainanceDate);
     formData.append("details", maintenanceDetails);
     formData.append("next_maintenance_date", nextMaintenanceDate);

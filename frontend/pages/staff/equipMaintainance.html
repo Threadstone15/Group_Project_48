@@ -21,8 +21,7 @@
                 <table id="equipmentsMaintainceTable">
                     <thead>
                         <tr>
-                            <th>Maintainance ID</th>
-                            <th>Equipment ID</th>
+                            <th>Equipment Name</th>
                             <th>Maintainance Date</th>
                             <th>Details</th>
                             <th>Next Maintainance Date</th>
@@ -56,8 +55,8 @@
                     <form id="updateForm">
                         <input type="hidden" id="updateMaintenanceID">
                         <div class="form-group">
-                            <label for="updateEquipmentID">Eqipment ID:</label>
-                            <input type="text" id="updateEquipmentID" class="form-input" />
+                            <label for="updateEquipmentID">Eqipment Name:</label>
+                            <input type="text" id="updateEquipmentID" readonly />
                         </div>
                         <div class="form-group">
                             <label for="updateMaintainanceDate">Maintainance Date:</label>
@@ -86,8 +85,10 @@
                 
                 <form class="equipment-form" id="equipmentForm">
                     <div class="form-group">
-                        <label for="equipmentID">Eqipment ID:</label>
-                        <input type="number" id="equipmentID" class="form-input" />
+                        <label for="equipmentName">Equipment Name:</label>
+                        <input type="text" id="equipmentName" class="form-input" placeholder="Search Equipment...">
+                        <ul id="equipmentSuggestions" class="suggestions-list"></ul>
+                        <input type="hidden" id="equipmentID">
                     </div>
                     <div class="form-group">
                         <label for="maintainanceDate">Maintainance Date:</label>
