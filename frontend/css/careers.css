@@ -13,6 +13,10 @@
     color: #000; /* Set text color (black) */
     margin-bottom: -5px;
   }
+
+  .dashboard-container{
+    display: none;
+  }
   
   .subheading {
     font-size: 16px; /* Set font size for subheading */
