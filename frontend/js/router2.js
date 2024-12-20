@@ -433,6 +433,9 @@ function clearAndHideLandingPgComponents() {
 function loadDashboardPgComponents(role) {
     const sidebarContainer = document.getElementById("sidebar-container");
     sidebarContainer.style.visibility = "visible";
+
+    const dashboardContent = document.getElementById("dashboard-content");
+    dashboardContent.style.visibility = "visible";
     loadSidebar(role);
 }
 
