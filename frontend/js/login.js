@@ -1,4 +1,4 @@
-import { navigate } from "./router2.js";
+import { navigate } from "./router.js";
 
 export function initlogin() {
 

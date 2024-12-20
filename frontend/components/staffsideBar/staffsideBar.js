@@ -3,7 +3,7 @@ document.getElementById("sidebar-container").addEventListener("click", function 
     e.preventDefault();
     const page = e.target.dataset.page;
     setActive(page);
-    navigateDashboard('staff', page);
+    navigate(`staff/${page}`);
   }
 });
 
