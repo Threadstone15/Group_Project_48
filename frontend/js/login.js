@@ -1,3 +1,5 @@
+import { navigate } from "./router2.js";
+
 export function initlogin() {
 
   const togglePassword = document.getElementById('togglePassword');
@@ -19,11 +21,11 @@ export function initlogin() {
   const storedRole = localStorage.getItem('role');
   if (storedRole) {
     switch(storedRole){
-      case 'staff': navigateDashboard('staff', 'staffHome'); break;
-      case 'admin': navigateDashboard('admin', 'adminHome'); break;
-      case 'member' : navigateDashboard('member', 'memberHome'); break;
-      case 'owner' : navigateDashboard('owner', 'ownerHome'); break;
-      case 'trainer' : navigateDashboard('trainer', 'trainerHome'); break;
+      case 'staff': navigate('staff/staffHome'); break;
+      case 'admin': navigate('admin/adminHome'); break;
+      case 'member' : navigate('member/memberHome'); break;
+      case 'owner' : navigate('owner/ownerHome'); break;
+      case 'trainer' : navigate('trainer/trainerHome'); break;
     }
     return;
   }
@@ -68,19 +70,19 @@ export function initlogin() {
 
           // Redirect based on role
           if (data.role == 'staff') {
-            navigateDashboard('staff', 'staffHome');
+            navigate('staff/staffHome');
           }
           if (data.role == 'admin') {
-            navigateDashboard('admin', 'adminHome');
+            navigate('admin/adminHome');
           }
           if (data.role == 'member') {
-            navigateDashboard('member', 'memberHome');
+            navigate('member/memberHome');
           }
           if (data.role == 'owner') {
-            navigateDashboard('owner', 'ownerHome');
+            navigate('owner/ownerHome');
           }
           if (data.role == 'trainer') {
-            navigateDashboard('trainer', 'trainerHome');
+            navigate('trainer/trainerHome');
           }
         } else {
           // Display error message if login fails
