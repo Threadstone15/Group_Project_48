@@ -10,6 +10,18 @@ import { initresetPw } from "./resetPw.js";
 import { initservices } from "./services.js";
 import { inittrainerApplication } from "./trainerApplication.js";
 
+//import owner dashboardPg js funcs
+import { initOwner_home } from "./owner/ownerHome.js";
+import { initOwner_gymMembers } from "./owner/gymMembers.js";
+import { initOwner_trainers } from "./owner/trainers.js";
+import { initOwner_memberPlans } from "./owner/memberPlans.js";
+import { initOwner_staff } from "./owner/staff.js";
+import { initOwner_financialOver } from "./owner/financialOver.js";
+import { initOwner_analytics } from "./owner/analytics.js";
+import { initOwner_myAcnt } from "./owner/myAcnt.js";
+
+//importing admin dashboardPg js funcs
+
 const validRoutes = {
     landingPages: [
         "careers",
@@ -100,11 +112,11 @@ export function navigate(path) {
             navigate('login');
             return;
         }
-        if (isInitialDashboardPgNavigate()) { 
+        if (isInitialDashboardPgNavigate()) {
             //this is the first time navigating to this dashboard pg
             console.log("first stime navigating dashboard pg");
             clearAndHideLandingPgComponents();
-            loadDashboardPgComponents(role); 
+            loadDashboardPgComponents(role);
             loadDashboardPage(role, page);
             history.pushState({ path }, "", `/Group_Project_48/${path}`);
         } else {
@@ -126,8 +138,8 @@ window.addEventListener("popstate", () => {
     if (isLandingPg(path)) {
         //this is a landing pg
         console.log("Landing Page path" + path);
-        removeExistingCSSJS(); 
-        if (isInitialLandingPgNavigate()) { 
+        removeExistingCSSJS();
+        if (isInitialLandingPgNavigate()) {
             //this is the first time navigating to this landing pg
             console.log("first time landing pg navigate");
             clearAndHideDashboardComponents();
@@ -153,7 +165,7 @@ window.addEventListener("popstate", () => {
             navigate('login');
             return;
         }
-        if (isInitialDashboardPgNavigate()) { 
+        if (isInitialDashboardPgNavigate()) {
             //this is the first time navigating to this dashboard pg
             clearAndHideLandingPgComponents();
             loadDashboardPgComponents(role);
@@ -252,7 +264,7 @@ function clearAndHideDashboardComponents() {
     sidebarContainer.style.visibility = "hidden";
 
     const dashboardPgContent = document.getElementById("content-area");
-    dashboardPgContent.innerHTML = ''; 
+    dashboardPgContent.innerHTML = '';
 
     const dashbaordContainer = document.getElementById("dashboard-content");
     dashbaordContainer.style.visibility = "hidden";
@@ -449,6 +461,7 @@ function loadSidebar(role) {
             // Dynamically load staffSidebar.js for sidebar functionality
             const script = document.createElement('script');
             script.src = `/Group_Project_48/frontend/components/${role}Sidebar/${role}sideBar.js`;
+            script.type = "module";
             document.body.appendChild(script);
         })
         .catch(error => console.error('Error loading sidebar:', error));
@@ -501,12 +514,13 @@ function loadDashboardPage(role, page) {
     fetch(pageUrl)
         .then((response) => {
             if (!response.ok) throw new Error("Page not found");
-            console.error(`Failed to load dashboard page: ${pageUrl}`);
             return response.text();
         })
         .then((data) => {
             dashboardPgContainer.innerHTML = data;
             console.log(`Dashboard page ${pageUrl} loaded successfully.`);
+            //run JS of each dashboard page
+            runDashboardPgJS(role, page);
         })
         .catch(() => {
             dashboardPgContainer.innerHTML = `<p>404 - Page not found.</p>`;
@@ -514,8 +528,25 @@ function loadDashboardPage(role, page) {
         });
 }
 
-export function runSessionTimedOut(){
+export function runSessionTimedOut() {
     // Session timed out, redirect to login page
     navigate('login');
     notifySessionTimedOut();
+}
+
+function runDashboardPgJS(role, page) {
+    //run JS of each dashboard page
+    if (role == 'owner') {
+        switch (page) {
+            case 'ownerHome': initOwner_home(); break;
+            case 'gymMembers': initOwner_gymMembers(); break;
+            case 'trainers': initOwner_trainers(); break;
+            case 'staff': initOwner_staff(); break;
+            case 'financialOver': initOwner_financialOver(); break;
+            case 'memberPlans': initOwner_memberPlans(); break;
+            case 'analytics': initOwner_analytics(); break;
+            case 'myAcnt': initOwner_myAcnt(); break;
+            default: console.log("Unndefined owner dashboard pageJS func"); break;
+        }
+    }
 }

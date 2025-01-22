@@ -1,4 +1,5 @@
-document.addEventListener("DOMContentLoaded", function () {
+export function initOwner_analytics() {
+  document.addEventListener("DOMContentLoaded", function () {
     // Fetch data from PHP backend
     fetch("getMonthlySignups.php")
       .then((response) => {
@@ -11,13 +12,13 @@ document.addEventListener("DOMContentLoaded", function () {
         // Process data into labels and values
         const labels = data.map((item) => item.month);
         const values = data.map((item) => item.signups);
-  
+
         // Render the chart
         renderChart(labels, values);
       })
       .catch((error) => {
         console.error("Error fetching signup data:", error);
-  
+
         // Use dummy data if the fetch fails
         const dummyLabels = [
           "January",
@@ -34,12 +35,12 @@ document.addEventListener("DOMContentLoaded", function () {
           "December",
         ];
         const dummyValues = [12, 19, 3, 5, 2, 3, 8, 15, 9, 7, 6, 4];
-  
+
         // Render the chart with dummy data
         renderChart(dummyLabels, dummyValues);
       });
   });
-  
+
   function renderChart(labels, values) {
     const ctx = document.getElementById("signupChart").getContext("2d");
     new Chart(ctx, {
@@ -53,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
             backgroundColor: "rgba(255, 95, 0, 0.2)",
             borderColor: "rgba(255, 95, 0, 1)",
             borderWidth: 1,
-            
+
           },
         ],
       },
@@ -67,4 +68,5 @@ document.addEventListener("DOMContentLoaded", function () {
       },
     });
   }
-  
+
+}
