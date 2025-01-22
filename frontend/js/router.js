@@ -4,7 +4,7 @@ import { initcareers } from "./careers.js";
 import { initfindATrainer } from "./findATrainer.js";
 import { initforgotPassword } from "./forgotPassword.js";
 import { inithome } from "./home.js";
-import { initlogin } from "./login.js";
+import { initlogin, notifySessionTimedOut } from "./login.js";
 import { initpricing } from "./pricing.js";
 import { initresetPw } from "./resetPw.js";
 import { initservices } from "./services.js";
@@ -100,11 +100,11 @@ export function navigate(path) {
             navigate('login');
             return;
         }
-        if (isInitialDashboardPgNavigate()) {
+        if (isInitialDashboardPgNavigate()) { 
             //this is the first time navigating to this dashboard pg
             console.log("first stime navigating dashboard pg");
             clearAndHideLandingPgComponents();
-            loadDashboardPgComponents(role);
+            loadDashboardPgComponents(role); 
             loadDashboardPage(role, page);
             history.pushState({ path }, "", `/Group_Project_48/${path}`);
         } else {
@@ -126,8 +126,8 @@ window.addEventListener("popstate", () => {
     if (isLandingPg(path)) {
         //this is a landing pg
         console.log("Landing Page path" + path);
-        removeExistingCSSJS();
-        if (isInitialLandingPgNavigate()) {
+        removeExistingCSSJS(); 
+        if (isInitialLandingPgNavigate()) { 
             //this is the first time navigating to this landing pg
             console.log("first time landing pg navigate");
             clearAndHideDashboardComponents();
@@ -153,7 +153,7 @@ window.addEventListener("popstate", () => {
             navigate('login');
             return;
         }
-        if (isInitialDashboardPgNavigate()) {
+        if (isInitialDashboardPgNavigate()) { 
             //this is the first time navigating to this dashboard pg
             clearAndHideLandingPgComponents();
             loadDashboardPgComponents(role);
@@ -251,8 +251,8 @@ function clearAndHideDashboardComponents() {
     sidebarContainer.innerHTML = '';
     sidebarContainer.style.visibility = "hidden";
 
-    const dashboardContent = document.getElementById("content-frame");
-    dashboardContent.src = ''; //iframe elemnt
+    const dashboardPgContent = document.getElementById("content-area");
+    dashboardPgContent.innerHTML = ''; 
 
     const dashbaordContainer = document.getElementById("dashboard-content");
     dashbaordContainer.style.visibility = "hidden";
@@ -403,10 +403,10 @@ function loadFooter() {
 //dashboard pg related functions
 function isInitialDashboardPgNavigate() {
     const sidebarContainer = document.getElementById('sidebar-container');
-    const contentFrame = document.getElementById('content-frame');
+    const dashboardPgContainer = document.getElementById('content-area');
 
-    if (sidebarContainer && contentFrame) {
-        if (sidebarContainer.innerHTML.trim() !== '' && contentFrame.src.trim() !== '') {
+    if (sidebarContainer && dashboardPgContainer) {
+        if (sidebarContainer.innerHTML.trim() !== '' && dashboardPgContainer.innerHTML.trim() !== '') {
             return false;
         }
         return true;
@@ -418,7 +418,7 @@ function isInitialDashboardPgNavigate() {
 function clearAndHideLandingPgComponents() {
     const navbarContainer = document.getElementById("navbar-container");
     navbarContainer.innerHTML = '';
-    navbarContainer.style.visibility = "hideen";
+    navbarContainer.style.visibility = "hidden";
 
 
     const footerContainer = document.getElementById("footer-container");
@@ -465,22 +465,57 @@ function loadSidebar(role) {
 }
 
 
+// function loadDashboardPage(role, page) {
+//     const pageUrl = `/Group_Project_48/frontend/pages/${role}/${page}.html`;
+
+//     // Set the iframe src to the dashboard page URL
+//     const contentFrame = document.getElementById("content-frame");
+//     if (contentFrame) {
+//         contentFrame.src = pageUrl;
+
+//         // Optionally, listen for iframe load events (for logging or further actions)
+//         contentFrame.onload = () => {
+//             console.log(`Dashboard page ${pageUrl} loaded successfully.`);
+//         };
+//         contentFrame.onerror = () => {
+//             console.error(`Failed to load dashboard page: ${pageUrl}`);
+//         };
+//     } else {
+//         console.error("Content frame not found. Ensure #content-frame exists in the DOM.");
+//     }
+// }
+
 function loadDashboardPage(role, page) {
     const pageUrl = `/Group_Project_48/frontend/pages/${role}/${page}.html`;
+    const pageCssUrl = `/Group_Project_48/frontend/css/${role}/${page}.css`;
+    const globalCssUrl = '/Group_Project_48/frontend/css/globals.css';
+    const pageJsUrl = `/Group_Project_48/frontend/js/${role}/${page}.js`;
 
-    // Set the iframe src to the dashboard page URL
-    const contentFrame = document.getElementById("content-frame");
-    if (contentFrame) {
-        contentFrame.src = pageUrl;
+    const dashboardPgContainer = document.getElementById("content-area");
+    dashboardPgContainer.innerHTML = "";
 
-        // Optionally, listen for iframe load events (for logging or further actions)
-        contentFrame.onload = () => {
-            console.log(`Dashboard page ${pageUrl} loaded successfully.`);
-        };
-        contentFrame.onerror = () => {
+    loadGlobalCss(globalCssUrl); //defined above
+    loadCss(pageCssUrl); //defined above
+    loadJs(pageJsUrl); //defined above
+
+    fetch(pageUrl)
+        .then((response) => {
+            if (!response.ok) throw new Error("Page not found");
             console.error(`Failed to load dashboard page: ${pageUrl}`);
-        };
-    } else {
-        console.error("Content frame not found. Ensure #content-frame exists in the DOM.");
-    }
+            return response.text();
+        })
+        .then((data) => {
+            dashboardPgContainer.innerHTML = data;
+            console.log(`Dashboard page ${pageUrl} loaded successfully.`);
+        })
+        .catch(() => {
+            dashboardPgContainer.innerHTML = `<p>404 - Page not found.</p>`;
+            console.error(`Failed to load dashboard page: ${pageUrl}`);
+        });
+}
+
+export function runSessionTimedOut(){
+    // Session timed out, redirect to login page
+    navigate('login');
+    notifySessionTimedOut();
 }
