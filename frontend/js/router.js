@@ -36,6 +36,17 @@ import { initMember_upgradePlan } from "./member/upgradePlan.js";
 import { initMember_viewPlan } from "./member/viewPlan.js";
 import { initMember_workoutMealPlan } from "./member/workoutMealPlans.js";
 
+//importing staff dashboardPg js funcs
+import { initStaff_equipmentMaintain } from "./staff/equipMaintainance.js";
+import { initStaff_equipment } from "./staff/gymEquipment.js";
+import { initStaff_memberAttendance } from "./staff/memberAttendance.js"; 
+import { initStaff_myAcnt } from "./staff/myAcnt.js";
+import { initStaff_publishNotice } from "./staff/publishNotices.js";
+import { initStaff_home } from "./staff/staffHome.js";
+
+//import trainer dashboardPg js funcs
+
+
 const validRoutes = {
     landingPages: [
         "careers",
@@ -583,6 +594,17 @@ function runDashboardPgJS(role, page) {
             case 'viewPlan' : initMember_viewPlan(); break;
             case 'workoutMealPlans' : initMember_workoutMealPlan(); break;
             default : console.error("Undefined member dashboard page js func");
+        }
+    }
+    if(role == 'staff'){
+        switch(page){
+            case 'staffHome' : initStaff_home(); break;
+            case 'equipMaintainance' : initStaff_equipmentMaintain(); break;
+            case 'gymEquipment' : initStaff_equipment(); break;
+            case 'memberAttendance' : initStaff_memberAttendance(); break;
+            case 'myAcnt' : initStaff_myAcnt(); break;
+            case 'publishNotices' : initStaff_publishNotice(); break;
+            default : console.error("Undefined staff dashboard pg js func");
         }
     }
 }
