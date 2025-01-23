@@ -45,7 +45,11 @@ import { initStaff_publishNotice } from "./staff/publishNotices.js";
 import { initStaff_home } from "./staff/staffHome.js";
 
 //import trainer dashboardPg js funcs
-
+import { initTrainer_assignedMembers } from "./trainer/assignedMembers.js";
+import { initTrainer_classSchedule } from "./trainer/classSchedule.js";
+import { initTrainer_myAcnt } from "./trainer/myAcnt.js";
+import { initTrainer_home } from "./trainer/trainerHome.js";
+import { initTrainer_workoutMealPlans } from "./trainer/workoutMealPlans.js";
 
 const validRoutes = {
     landingPages: [
@@ -593,7 +597,7 @@ function runDashboardPgJS(role, page) {
             case 'upgradePlan' : initMember_upgradePlan(); break;
             case 'viewPlan' : initMember_viewPlan(); break;
             case 'workoutMealPlans' : initMember_workoutMealPlan(); break;
-            default : console.error("Undefined member dashboard page js func");
+            default : console.error("Undefined member dashboard page js func"); break;
         }
     }
     if(role == 'staff'){
@@ -604,7 +608,17 @@ function runDashboardPgJS(role, page) {
             case 'memberAttendance' : initStaff_memberAttendance(); break;
             case 'myAcnt' : initStaff_myAcnt(); break;
             case 'publishNotices' : initStaff_publishNotice(); break;
-            default : console.error("Undefined staff dashboard pg js func");
+            default : console.error("Undefined staff dashboard pg js func"); break;
+        }
+    }
+    if(role == 'trainer'){
+        switch(page){
+            case 'trainerHome' : initTrainer_home(); break;
+            case 'classSchedule' : initTrainer_classSchedule(); break;
+            case 'myAcnt' : initTrainer_myAcnt(); break;
+            case 'trainerHome' : initTrainer_home(); break;
+            case 'workoutMealPlans' : initTrainer_workoutMealPlans(); break;
+            default : console.error("Undefined trainer dashboard "); break;
         }
     }
 }
