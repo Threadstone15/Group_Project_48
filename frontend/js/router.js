@@ -27,6 +27,15 @@ import { initAdmin_jobs } from "./admin/jobsAndNotices.js";
 import { initAdmin_myAcnt } from "./admin/myAcnt.js";
 import { initAdmin_paymentStat } from "./admin/paymentStatus.js";
 
+//importing member dashboardPg js funcs
+import { initMember_createPlan } from "./member/createPlan.js";
+import { initMember_home } from "./member/memberHome.js";
+import { initMember_myAcnt } from "./member/myAcnt.js";
+import { initMember_trackProgress } from "./member/trackYourProgress.js";
+import { initMember_upgradePlan } from "./member/upgradePlan.js";
+import { initMember_viewPlan } from "./member/viewPlan.js";
+import { initMember_workoutMealPlan } from "./member/workoutMealPlans.js";
+
 const validRoutes = {
     landingPages: [
         "careers",
@@ -562,6 +571,18 @@ function runDashboardPgJS(role, page) {
             case 'analytics': initOwner_analytics(); break;
             case 'myAcnt': initOwner_myAcnt(); break;
             default: console.error("Unndefined owner dashboard pageJS func"); break;
+        }
+    }
+    if (role == 'member'){
+        switch (page) {
+            case 'memberHome': initMember_home(); break;
+            case 'createPlan' : initMember_createPlan();break;
+            case 'myAcnt' : initMember_myAcnt(); break;
+            case 'trackYourProgress' : initMember_trackProgress(); break;
+            case 'upgradePlan' : initMember_upgradePlan(); break;
+            case 'viewPlan' : initMember_viewPlan(); break;
+            case 'workoutMealPlans' : initMember_workoutMealPlan(); break;
+            default : console.error("Undefined member dashboard page js func");
         }
     }
 }
