@@ -21,6 +21,11 @@ import { initOwner_analytics } from "./owner/analytics.js";
 import { initOwner_myAcnt } from "./owner/myAcnt.js";
 
 //importing admin dashboardPg js funcs
+import { initAdmin_home } from "./admin/adminHome.js";
+import { initAdmin_accounts } from "./admin/accounts.js";
+import { initAdmin_jobs } from "./admin/jobsAndNotices.js";
+import { initAdmin_myAcnt } from "./admin/myAcnt.js";
+import { initAdmin_paymentStat } from "./admin/paymentStatus.js";
 
 const validRoutes = {
     landingPages: [
@@ -536,6 +541,16 @@ export function runSessionTimedOut() {
 
 function runDashboardPgJS(role, page) {
     //run JS of each dashboard page
+    if(role == 'admin'){
+        switch(page){
+            case 'adminHome' : initAdmin_home(); break;
+            case 'accounts' : initAdmin_accounts(); break;
+            case 'jobsAndNotices' : initAdmin_jobs(); break;
+            case 'myAcnt' : initAdmin_myAcnt(); break;
+            case 'paymentStatus' : initAdmin_paymentStat(); break;
+            default : console.error("Undefined admin dashboard page js func"); break;
+        }
+    }
     if (role == 'owner') {
         switch (page) {
             case 'ownerHome': initOwner_home(); break;
@@ -546,7 +561,7 @@ function runDashboardPgJS(role, page) {
             case 'memberPlans': initOwner_memberPlans(); break;
             case 'analytics': initOwner_analytics(); break;
             case 'myAcnt': initOwner_myAcnt(); break;
-            default: console.log("Unndefined owner dashboard pageJS func"); break;
+            default: console.error("Unndefined owner dashboard pageJS func"); break;
         }
     }
 }
