@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Payment Status</title>
+  <title>publish jobs</title>
   <link rel="stylesheet" href="/Group_Project_48/frontend/css/admin/jobsAndNotices.css">
   <link rel="stylesheet" href="/Group_Project_48/frontend/css/globals.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -11,36 +11,79 @@
 </head>
 <body>
 
-  <div class="content-wrapper">
-   
-    <div class="header">
+    <div id="overlay" class="overlay"></div>
+    <div class="container">
+        
+        
+        <div class="header">
         <p class="heading">
-            Jobs
+            Publish Jobs
         </p>
+        </div>
+        
+        <!-- Notice Form -->
+        <div class="notice-form">
+            <textarea id="jobInputTopic" placeholder="Enter the job title" rows="1"></textarea>
+            <textarea id="jobInput" placeholder="Enter more details here..." rows="5"></textarea>
+            <button id="publishBtn">Publish Job</button>
+        </div>
+
+        <!-- Notices Table -->
+        <div class="table-container">
+            <table id="jobsTable">
+                <thead>
+                    <tr>
+                        <th>Job ID</th>
+                        <th>Publisher ID</th>
+                        <th>Job Title</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- JavaScript will insert rows here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Delete confirmation popup -->
+        <div id="deletePopup" class="popup" style="display: none;">
+            <button id="closePopup" class="close-button">&times;</button> <!-- Close button -->
+            <div class="popup-content">
+                <h2>Confirm Removal</h2>
+                <p>Are you sure you want to remove this equipment?</p>
+                <div class="popup-buttons">
+                    <button id="confirmDelete" class="popup-confirm">Yes</button>
+                    <button id="cancelDelete" class="popup-cancel">No</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Update equipment popup -->
+        <div id="updatePopup" class="popup" style="display: none;">
+            <button id="closeUpdatePopup" class="close-button">&times;</button> <!-- Close button -->
+            <div class="popup-content">
+                <h2>Update Notice</h2>
+                <form id="updateForm">
+                    <input type="hidden" id="updateJobId">
+                    <input type="hidden" id="uupdateJobId">
+                    <div class="form-group">
+                        <label for="updateJobTitle">Title:</label>
+                        <input type="text" id="updateJobTitle" rows="1" class="form-input" />
+                    </div>
+                    <div class="form-group">
+                        <label for="updateJobDescription">Description:</label>
+                        <input type="text" id="updateJobDescription" rows="5" class="form-input" />
+                    </div>
+                    <button type="submit" class="submit-button">Update Notice</button>
+                </form>
+            </div>
+        </div>
     </div>
 
-    <!-- Notice Form -->
-    <div class="notice-form">
-        <textarea id="noticeInput" placeholder="Enter your notice here..." rows="5"></textarea>
-        <button id="publishBtn">Publish Notice</button>
+        
+        
     </div>
-
-    <div class="table-container">
-        <table id="jobsTable">
-            <thead>
-                <tr>
-                    <th>Job ID</th>
-                    <th>Publisher ID</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- JavaScript will insert rows here -->
-            </tbody>
-        </table>
-    </div>
-</div>
 
 <script src="/Group_Project_48/frontend/js/admin/jobsAndNotices.js"></script>
 </body>

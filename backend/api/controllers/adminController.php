@@ -11,6 +11,7 @@ include_once "../../middleware/authMiddleware.php";
 include_once "../../config/database.php";
 include_once "trainerCareerHandler.php";
 include_once "staffHandler.php";
+include_once "jobsHandler.php";
 include_once "../models/User.php";
 include_once "../models/Staff.php";
 
@@ -75,6 +76,24 @@ switch ($action) {
         logMessage("Running get_all_emails....in controller");
         getAllEmails();
         break;
+
+    case 'add_job':
+        logMessage("Running add_jobs....in controller");
+        addJob($user_id);
+        break;
+    case 'get_jobs':
+        logMessage("Running get_jobs....in controller");
+        getJobs();
+        break;
+    case 'update_job':
+        logMessage("Running update_jobs....in controller");
+        updateJob($user_id);
+        break;
+    case 'delete_job':
+        logMessage("Running delete_jobs....in controller");
+        deleteJob();
+        break;
+    
     
 
     default:
