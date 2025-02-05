@@ -1,12 +1,8 @@
 /* General Styles */
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f4f7fc;
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
     color: #333;
   }
@@ -23,6 +19,8 @@ body {
     flex-direction: column;
     gap: 20px;
     position: relative;
+    margin-left: 60px;
+    margin-top: 90px;
   }
   
   /* Profile Header (Image and Name) */

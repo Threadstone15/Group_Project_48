@@ -133,6 +133,7 @@ export function navigate(path) {
     if (isDashboardPg(path)) {
         //this is a dashboard pg
         console.log("Dashboard Page path" + path);
+        removeExistingDashboardCSSJS();
         const role = path.split('/')[0];
         const page = path.split('/')[1];
 
@@ -186,6 +187,7 @@ window.addEventListener("popstate", () => {
     if (isDashboardPg(path)) {
         //this is a dashboard pg
         console.log("Dashboard Page path" + path);
+        removeExistingDashboardCSSJS();
         const role = path.split('/')[0];
         const page = path.split('/')[1];
 
@@ -268,6 +270,25 @@ function removeExistingCSSJS() {
     }
     removeExistingTags(`link[href="${pageCssUrl}"]`);
     // removeExistingTags(`link[href="${globalCssUrl}"]`);
+    removeExistingTags(`script[src="${pageJsUrl}"]`);
+}
+
+function removeExistingDashboardCSSJS() {
+    const currentPath = window.location.pathname.replace('/Group_Project_48/', '');
+    const role = currentPath.split('/')[0];
+    const page = currentPath.split('/')[1];
+
+    const pageCssUrl = `/Group_Project_48/frontend/css/${role}/${page}.css`;
+    const pageJsUrl = `/Group_Project_48/frontend/js/${role}/${page}.js`;
+    const globalCssUrl = '/Group_Project_48/frontend/css/globals.css';
+
+    // Helper function to remove existing tags
+    function removeExistingTags(selector) {
+        const existingTags = document.querySelectorAll(selector);
+        existingTags.forEach(tag => tag.remove());
+    }
+    removeExistingTags(`link[href="${pageCssUrl}"]`);
+    removeExistingTags(`link[href="${globalCssUrl}"]`);
     removeExistingTags(`script[src="${pageJsUrl}"]`);
 }
 
