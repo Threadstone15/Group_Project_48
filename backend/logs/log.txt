@@ -118,3 +118,241 @@
 [2025-02-11 03:01:03] Attendance recorded successfully for User ID: 118
 [2025-02-11 03:01:03] Attendance marked successfully for User ID: 118
 [2025-02-11 03:01:03] Database connection closed.
+[2025-02-11 04:05:35] Running auth controller ,login 
+[2025-02-11 04:05:35] running login...in auth controller
+[2025-02-11 04:05:35] login function running...
+[2025-02-11 04:05:36] Connection established successfully to the database: rad_gymverse
+[2025-02-11 04:05:36] User class instantiated with database connection.
+[2025-02-11 04:05:36] User Login model running for: owner@gmail.com
+[2025-02-11 04:05:36] Query bound and ready to execute for login: owner@gmail.com
+[2025-02-11 04:05:36] User login successful: owner@gmail.com with role: owner
+[2025-02-11 04:05:36] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzM5MjQ2NDAwfQ==.2ff13792772f146df9fbeb32236e79947473bd240989d92c3c433daa879bbe96 owner
+[2025-02-11 04:05:36] Database connection closed.
+[2025-02-11 04:05:36] Running auth controller ,login 
+[2025-02-11 04:05:36] running login...in auth controller
+[2025-02-11 04:05:36] login function running...
+[2025-02-11 04:05:37] Connection established successfully to the database: rad_gymverse
+[2025-02-11 04:05:37] User class instantiated with database connection.
+[2025-02-11 04:05:37] User Login model running for: owner@gmail.com
+[2025-02-11 04:05:37] Query bound and ready to execute for login: owner@gmail.com
+[2025-02-11 04:05:37] User login successful: owner@gmail.com with role: owner
+[2025-02-11 04:05:37] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzM5MjQ2NDAwfQ==.2ff13792772f146df9fbeb32236e79947473bd240989d92c3c433daa879bbe96 owner
+[2025-02-11 04:05:37] Database connection closed.
+[2025-02-11 04:05:45] Connection established successfully to the database: rad_gymverse
+[2025-02-11 04:05:45] User class instantiated with database connection.
+[2025-02-11 04:05:45] Fetching user role by user ID: 72
+[2025-02-11 04:05:45] User role fetched successfully for user ID: 72
+[2025-02-11 04:05:45] Running owner controller ,get_membershipPlans token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzM5MjQ2NDAwfQ==.2ff13792772f146df9fbeb32236e79947473bd240989d92c3c433daa879bbe96   id - 72 
+[2025-02-11 04:05:45] Running get_membership plan....in controller
+[2025-02-11 04:05:45] get membership plans running running...
+[2025-02-11 04:05:45] Membership plan model initialized with database connection.
+[2025-02-11 04:05:45] Fetching membership plan...
+[2025-02-11 04:05:46] Membership Plans fetched successfully
+[2025-02-11 04:05:46] Membership plans fetched
+[2025-02-11 04:05:46] Database connection closed.
+[2025-02-11 04:34:41] Running auth controller ,login 
+[2025-02-11 04:34:41] running login...in auth controller
+[2025-02-11 04:34:41] login function running...
+[2025-02-11 04:34:42] Connection established successfully to the database: rad_gymverse
+[2025-02-11 04:34:42] User class instantiated with database connection.
+[2025-02-11 04:34:42] User Login model running for: tevin@gmail.com
+[2025-02-11 04:34:42] Query bound and ready to execute for login: tevin@gmail.com
+[2025-02-11 04:34:42] User login successful: tevin@gmail.com with role: member
+[2025-02-11 04:34:42] Login Successful: eyJ1c2VyX2lkIjoxMTgsImV4cCI6MTczOTI0NjQwMH0=.ef5ddf1fa6ef734c445c0b6bfcc2cc4b8d88e75eb177474832c33ae19148d06c member
+[2025-02-11 04:34:42] Database connection closed.
+[2025-02-11 04:34:42] Running auth controller ,login 
+[2025-02-11 04:34:42] running login...in auth controller
+[2025-02-11 04:34:42] login function running...
+[2025-02-11 04:34:43] Connection established successfully to the database: rad_gymverse
+[2025-02-11 04:34:43] User class instantiated with database connection.
+[2025-02-11 04:34:43] User Login model running for: tevin@gmail.com
+[2025-02-11 04:34:43] Query bound and ready to execute for login: tevin@gmail.com
+[2025-02-11 04:34:43] User login successful: tevin@gmail.com with role: member
+[2025-02-11 04:34:43] Login Successful: eyJ1c2VyX2lkIjoxMTgsImV4cCI6MTczOTI0NjQwMH0=.ef5ddf1fa6ef734c445c0b6bfcc2cc4b8d88e75eb177474832c33ae19148d06c member
+[2025-02-11 04:34:43] Database connection closed.
+[2025-02-11 04:39:26] Running auth controller ,login 
+[2025-02-11 04:39:26] running login...in auth controller
+[2025-02-11 04:39:26] login function running...
+[2025-02-11 04:39:27] Connection established successfully to the database: rad_gymverse
+[2025-02-11 04:39:27] User class instantiated with database connection.
+[2025-02-11 04:39:27] User Login model running for: tevin@gmail.com
+[2025-02-11 04:39:27] Query bound and ready to execute for login: tevin@gmail.com
+[2025-02-11 04:39:27] User login successful: tevin@gmail.com with role: member
+[2025-02-11 04:39:27] Login Successful: eyJ1c2VyX2lkIjoxMTgsImV4cCI6MTczOTI0NjQwMH0=.ef5ddf1fa6ef734c445c0b6bfcc2cc4b8d88e75eb177474832c33ae19148d06c member
+[2025-02-11 04:39:27] Database connection closed.
+[2025-02-11 04:39:46] Connection established successfully to the database: rad_gymverse
+[2025-02-11 04:39:46] User class instantiated with database connection.
+[2025-02-11 04:39:46] Fetching user role by user ID: 118
+[2025-02-11 04:39:47] User role fetched successfully for user ID: 118
+[2025-02-11 04:39:47] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxMTgsImV4cCI6MTczOTI0NjQwMH0=.ef5ddf1fa6ef734c445c0b6bfcc2cc4b8d88e75eb177474832c33ae19148d06c   id - 118 
+[2025-02-11 04:39:47] Running get_membership plan....in controller
+[2025-02-11 04:39:47] get membership plans running running...
+[2025-02-11 04:39:47] Membership plan model initialized with database connection.
+[2025-02-11 04:39:47] Fetching membership plan...
+[2025-02-11 04:39:47] Membership Plans fetched successfully
+[2025-02-11 04:39:47] Membership plans fetched
+[2025-02-11 04:39:47] Database connection closed.
+[2025-02-11 04:51:40] Running auth controller ,login 
+[2025-02-11 04:51:40] running login...in auth controller
+[2025-02-11 04:51:40] login function running...
+[2025-02-11 04:51:41] Connection established successfully to the database: rad_gymverse
+[2025-02-11 04:51:41] User class instantiated with database connection.
+[2025-02-11 04:51:41] User Login model running for: tevin@gmail.com
+[2025-02-11 04:51:41] Query bound and ready to execute for login: tevin@gmail.com
+[2025-02-11 04:51:42] User login successful: tevin@gmail.com with role: member
+[2025-02-11 04:51:42] Login Successful: eyJ1c2VyX2lkIjoxMTgsImV4cCI6MTczOTI0NjQwMH0=.ef5ddf1fa6ef734c445c0b6bfcc2cc4b8d88e75eb177474832c33ae19148d06c member
+[2025-02-11 04:51:42] Database connection closed.
+[2025-02-11 04:52:01] Connection established successfully to the database: rad_gymverse
+[2025-02-11 04:52:01] User class instantiated with database connection.
+[2025-02-11 04:52:01] Fetching user role by user ID: 118
+[2025-02-11 04:52:02] User role fetched successfully for user ID: 118
+[2025-02-11 04:52:02] Running member controller ,update_attendance token - eyJ1c2VyX2lkIjoxMTgsImV4cCI6MTczOTI0NjQwMH0=.ef5ddf1fa6ef734c445c0b6bfcc2cc4b8d88e75eb177474832c33ae19148d06c   id - 118 
+[2025-02-11 04:52:02] Running member mark_attendance....in controller
+[2025-02-11 04:52:02] Running markAttendanceHandler...
+[2025-02-11 04:52:02] Attendance model initialized with database connection.
+[2025-02-11 04:52:02] Marking attendance for User ID: 118
+[2025-02-11 04:52:02] Attendance recorded successfully for User ID: 118
+[2025-02-11 04:52:02] Attendance marked successfully for User ID: 118
+[2025-02-11 04:52:02] Database connection closed.
+[2025-02-11 04:52:03] Connection established successfully to the database: rad_gymverse
+[2025-02-11 04:52:03] User class instantiated with database connection.
+[2025-02-11 04:52:03] Fetching user role by user ID: 118
+[2025-02-11 04:52:03] User role fetched successfully for user ID: 118
+[2025-02-11 04:52:03] Running member controller ,update_attendance token - eyJ1c2VyX2lkIjoxMTgsImV4cCI6MTczOTI0NjQwMH0=.ef5ddf1fa6ef734c445c0b6bfcc2cc4b8d88e75eb177474832c33ae19148d06c   id - 118 
+[2025-02-11 04:52:03] Running member mark_attendance....in controller
+[2025-02-11 04:52:03] Running markAttendanceHandler...
+[2025-02-11 04:52:03] Attendance model initialized with database connection.
+[2025-02-11 04:52:03] Marking attendance for User ID: 118
+[2025-02-11 04:52:03] Attendance recorded successfully for User ID: 118
+[2025-02-11 04:52:03] Attendance marked successfully for User ID: 118
+[2025-02-11 04:52:03] Database connection closed.
+[2025-02-11 05:00:44] Running auth controller ,login 
+[2025-02-11 05:00:44] running login...in auth controller
+[2025-02-11 05:00:44] login function running...
+[2025-02-11 05:00:45] Connection established successfully to the database: rad_gymverse
+[2025-02-11 05:00:45] User class instantiated with database connection.
+[2025-02-11 05:00:45] User Login model running for: tevin@gmail.com
+[2025-02-11 05:00:45] Query bound and ready to execute for login: tevin@gmail.com
+[2025-02-11 05:00:45] User login successful: tevin@gmail.com with role: member
+[2025-02-11 05:00:46] Login Successful: eyJ1c2VyX2lkIjoxMTgsImV4cCI6MTczOTI1MDAwMH0=.6de790ca07cb3d0194c57b942d649bcb34770bb206a564811b647b79d9d3cf9f member
+[2025-02-11 05:00:46] Database connection closed.
+[2025-02-11 05:00:47] Connection established successfully to the database: rad_gymverse
+[2025-02-11 05:00:47] User class instantiated with database connection.
+[2025-02-11 05:00:47] Fetching user role by user ID: 118
+[2025-02-11 05:00:47] User role fetched successfully for user ID: 118
+[2025-02-11 05:00:47] Running member controller ,get_daily_attendance token - eyJ1c2VyX2lkIjoxMTgsImV4cCI6MTczOTI1MDAwMH0=.6de790ca07cb3d0194c57b942d649bcb34770bb206a564811b647b79d9d3cf9f   id - 118 
+[2025-02-11 05:00:47] Running get_attendance....in controller
+[2025-02-11 05:00:47] Running getDailyAttendance...
+[2025-02-11 05:00:47] Attendance model initialized with database connection.
+[2025-02-11 05:00:47] Counting today's attendance...
+[2025-02-11 05:00:47] Fetching today's attendance...
+[2025-02-11 05:00:48] Today's attendance fetched successfully.
+[2025-02-11 05:00:48] Today's attendance count: 26
+[2025-02-11 05:00:48] Today's attendance percentage: 52%
+[2025-02-11 05:00:48] Today's attendance count: 26, percentage: 52%
+[2025-02-11 05:00:48] Database connection closed.
+[2025-02-11 05:08:20] Connection established successfully to the database: rad_gymverse
+[2025-02-11 05:08:20] User class instantiated with database connection.
+[2025-02-11 05:08:20] Fetching user role by user ID: 118
+[2025-02-11 05:08:21] User role fetched successfully for user ID: 118
+[2025-02-11 05:08:21] Running member controller ,get_daily_attendance token - eyJ1c2VyX2lkIjoxMTgsImV4cCI6MTczOTI1MDAwMH0=.6de790ca07cb3d0194c57b942d649bcb34770bb206a564811b647b79d9d3cf9f   id - 118 
+[2025-02-11 05:08:21] Running get_attendance....in controller
+[2025-02-11 05:08:21] Running getDailyAttendance...
+[2025-02-11 05:08:21] Attendance model initialized with database connection.
+[2025-02-11 05:08:21] Counting today's attendance...
+[2025-02-11 05:08:21] Fetching today's attendance...
+[2025-02-11 05:08:21] Today's attendance fetched successfully.
+[2025-02-11 05:08:22] Today's attendance count: 26
+[2025-02-11 05:08:22] Today's attendance percentage: 52%
+[2025-02-11 05:08:22] Today's attendance count: 26, percentage: 52%
+[2025-02-11 05:08:22] Database connection closed.
+[2025-02-11 05:10:01] Connection established successfully to the database: rad_gymverse
+[2025-02-11 05:10:01] User class instantiated with database connection.
+[2025-02-11 05:10:01] Fetching user role by user ID: 118
+[2025-02-11 05:10:01] User role fetched successfully for user ID: 118
+[2025-02-11 05:10:01] Running member controller ,get_daily_attendance token - eyJ1c2VyX2lkIjoxMTgsImV4cCI6MTczOTI1MDAwMH0=.6de790ca07cb3d0194c57b942d649bcb34770bb206a564811b647b79d9d3cf9f   id - 118 
+[2025-02-11 05:10:01] Running get_attendance....in controller
+[2025-02-11 05:10:01] Running getDailyAttendance...
+[2025-02-11 05:10:02] Attendance model initialized with database connection.
+[2025-02-11 05:10:02] Counting today's attendance...
+[2025-02-11 05:10:02] Fetching today's attendance...
+[2025-02-11 05:10:02] Today's attendance fetched successfully.
+[2025-02-11 05:10:02] Today's attendance count: 26
+[2025-02-11 05:10:02] Today's attendance percentage: 52%
+[2025-02-11 05:10:02] Today's attendance count: 26, percentage: 52%
+[2025-02-11 05:10:02] Database connection closed.
+[2025-02-11 05:10:03] Connection established successfully to the database: rad_gymverse
+[2025-02-11 05:10:03] User class instantiated with database connection.
+[2025-02-11 05:10:03] Fetching user role by user ID: 118
+[2025-02-11 05:10:03] User role fetched successfully for user ID: 118
+[2025-02-11 05:10:03] Running member controller ,get_daily_attendance token - eyJ1c2VyX2lkIjoxMTgsImV4cCI6MTczOTI1MDAwMH0=.6de790ca07cb3d0194c57b942d649bcb34770bb206a564811b647b79d9d3cf9f   id - 118 
+[2025-02-11 05:10:03] Running get_attendance....in controller
+[2025-02-11 05:10:03] Running getDailyAttendance...
+[2025-02-11 05:10:03] Attendance model initialized with database connection.
+[2025-02-11 05:10:03] Counting today's attendance...
+[2025-02-11 05:10:03] Fetching today's attendance...
+[2025-02-11 05:10:04] Today's attendance fetched successfully.
+[2025-02-11 05:10:04] Today's attendance count: 26
+[2025-02-11 05:10:04] Today's attendance percentage: 52%
+[2025-02-11 05:10:04] Today's attendance count: 26, percentage: 52%
+[2025-02-11 05:10:04] Database connection closed.
+[2025-02-11 05:10:08] Connection established successfully to the database: rad_gymverse
+[2025-02-11 05:10:08] User class instantiated with database connection.
+[2025-02-11 05:10:08] Fetching user role by user ID: 118
+[2025-02-11 05:10:08] User role fetched successfully for user ID: 118
+[2025-02-11 05:10:08] Running member controller ,get_daily_attendance token - eyJ1c2VyX2lkIjoxMTgsImV4cCI6MTczOTI1MDAwMH0=.6de790ca07cb3d0194c57b942d649bcb34770bb206a564811b647b79d9d3cf9f   id - 118 
+[2025-02-11 05:10:08] Running get_attendance....in controller
+[2025-02-11 05:10:08] Running getDailyAttendance...
+[2025-02-11 05:10:08] Attendance model initialized with database connection.
+[2025-02-11 05:10:08] Counting today's attendance...
+[2025-02-11 05:10:08] Fetching today's attendance...
+[2025-02-11 05:10:09] Today's attendance fetched successfully.
+[2025-02-11 05:10:09] Today's attendance count: 26
+[2025-02-11 05:10:09] Today's attendance percentage: 52%
+[2025-02-11 05:10:09] Today's attendance count: 26, percentage: 52%
+[2025-02-11 05:10:09] Database connection closed.
+[2025-02-11 05:10:10] Connection established successfully to the database: rad_gymverse
+[2025-02-11 05:10:10] User class instantiated with database connection.
+[2025-02-11 05:10:10] Fetching user role by user ID: 118
+[2025-02-11 05:10:10] User role fetched successfully for user ID: 118
+[2025-02-11 05:10:10] Running member controller ,get_daily_attendance token - eyJ1c2VyX2lkIjoxMTgsImV4cCI6MTczOTI1MDAwMH0=.6de790ca07cb3d0194c57b942d649bcb34770bb206a564811b647b79d9d3cf9f   id - 118 
+[2025-02-11 05:10:10] Running get_attendance....in controller
+[2025-02-11 05:10:10] Running getDailyAttendance...
+[2025-02-11 05:10:10] Attendance model initialized with database connection.
+[2025-02-11 05:10:10] Counting today's attendance...
+[2025-02-11 05:10:10] Fetching today's attendance...
+[2025-02-11 05:10:11] Today's attendance fetched successfully.
+[2025-02-11 05:10:11] Today's attendance count: 26
+[2025-02-11 05:10:11] Today's attendance percentage: 52%
+[2025-02-11 05:10:11] Today's attendance count: 26, percentage: 52%
+[2025-02-11 05:10:11] Database connection closed.
+[2025-02-11 05:10:12] Connection established successfully to the database: rad_gymverse
+[2025-02-11 05:10:12] User class instantiated with database connection.
+[2025-02-11 05:10:12] Fetching user role by user ID: 118
+[2025-02-11 05:10:12] User role fetched successfully for user ID: 118
+[2025-02-11 05:10:12] Running member controller ,get_daily_attendance token - eyJ1c2VyX2lkIjoxMTgsImV4cCI6MTczOTI1MDAwMH0=.6de790ca07cb3d0194c57b942d649bcb34770bb206a564811b647b79d9d3cf9f   id - 118 
+[2025-02-11 05:10:12] Running get_attendance....in controller
+[2025-02-11 05:10:12] Running getDailyAttendance...
+[2025-02-11 05:10:12] Attendance model initialized with database connection.
+[2025-02-11 05:10:12] Counting today's attendance...
+[2025-02-11 05:10:12] Fetching today's attendance...
+[2025-02-11 05:10:12] Today's attendance fetched successfully.
+[2025-02-11 05:10:13] Today's attendance count: 26
+[2025-02-11 05:10:13] Today's attendance percentage: 52%
+[2025-02-11 05:10:13] Today's attendance count: 26, percentage: 52%
+[2025-02-11 05:10:13] Database connection closed.
+[2025-02-11 05:10:16] Connection established successfully to the database: rad_gymverse
+[2025-02-11 05:10:16] User class instantiated with database connection.
+[2025-02-11 05:10:16] Fetching user role by user ID: 118
+[2025-02-11 05:10:16] User role fetched successfully for user ID: 118
+[2025-02-11 05:10:16] Running member controller ,get_daily_attendance token - eyJ1c2VyX2lkIjoxMTgsImV4cCI6MTczOTI1MDAwMH0=.6de790ca07cb3d0194c57b942d649bcb34770bb206a564811b647b79d9d3cf9f   id - 118 
+[2025-02-11 05:10:16] Running get_attendance....in controller
+[2025-02-11 05:10:16] Running getDailyAttendance...
+[2025-02-11 05:10:16] Attendance model initialized with database connection.
+[2025-02-11 05:10:16] Counting today's attendance...
+[2025-02-11 05:10:16] Fetching today's attendance...
+[2025-02-11 05:10:17] Today's attendance fetched successfully.
+[2025-02-11 05:10:17] Today's attendance count: 26
+[2025-02-11 05:10:17] Today's attendance percentage: 52%
+[2025-02-11 05:10:17] Today's attendance count: 26, percentage: 52%
+[2025-02-11 05:10:17] Database connection closed.

@@ -48,6 +48,11 @@ switch ($action) {
         logMessage("Running member mark_attendance....in controller");
         mark_attendance($user_id);
         break;
+    case 'get_daily_attendance':
+        logMessage("Running get_attendance....in controller");
+        getDailyAttendance();
+        break;
+
     default:
         echo json_encode(["error" => "Invalid action"]);
 }

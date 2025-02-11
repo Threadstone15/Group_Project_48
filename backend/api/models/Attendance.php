@@ -8,6 +8,7 @@ class Attendance
     private $conn;
     private $historyTable = "Attendance_History";
     private $todayTable = "today_attendance";
+    private $configtable = "configuration";
 
     public function __construct()
     {
@@ -104,5 +105,54 @@ class Attendance
             logMessage("Error fetching attendance history: " . $stmt->error);
             return false;
         }
+    }
+
+    public function countDailyAttendance()
+    {
+        logMessage("Counting today's attendance...");
+
+        $attendanceRecords = $this->getTodayAttendance();
+        if ($attendanceRecords === false) {
+            logMessage("Failed to fetch today's attendance.");
+            return false;
+        }
+
+        $query = "SELECT config_value FROM " . $this->configtable . " WHERE config_key = 'gym_capacity'";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing statement to fetch gym capacity: " . $this->conn->error);
+            return false;
+        }
+
+        if (!$stmt->execute()) {
+            logMessage("Error fetching gym capacity: " . $stmt->error);
+            return false;
+        }
+
+        $result = $stmt->get_result();
+        if ($result && $result->num_rows > 0) {
+            $config = $result->fetch_assoc();
+            $gymCapacity = (int) $config['config_value'];
+        } else {
+            logMessage("Gym capacity not found in configuration.");
+            return false;
+        }
+
+        $count = 0;
+
+        foreach ($attendanceRecords as $record) {
+            $arrived = ($record['Arrived'] < 0) ? 0 : $record['Arrived'];
+            if ($arrived == 1) {
+                $count++;
+            }
+        }
+
+        logMessage("Today's attendance count: $count");
+
+        $percentage = ($gymCapacity > 0) ? ($count / $gymCapacity) * 100 : 0;
+        logMessage("Today's attendance percentage: $percentage%");
+
+        return ['count' => $count, 'percentage' => $percentage];
     }
 }
