@@ -7,6 +7,49 @@ const crowdStatus = document.getElementById("crowdStatus");
 const memberCount = document.getElementById("memberCount");
 const crowdIndicator = document.getElementById("crowdIndicator");
 const dateDisplay = document.getElementById("dateDisplay");
+const toggleCheckbox = document.getElementById("toggle");
+
+toggleCheckbox.addEventListener("change", function () {
+    const arrived = this.checked ? 1 : 0; 
+    console.log("Arrived:", arrived);
+    updateAttendance(arrived);
+});
+
+function updateAttendance(arrived) {
+    const formData = new FormData();
+    formData.append("date", new Date().toISOString().split('T')[0]); // Current date in YYYY-MM-DD format
+    formData.append("time", new Date().toLocaleTimeString()); // Current time
+    formData.append("arrived", arrived);
+    formData.append("action", "update_attendance");
+
+    const authToken = localStorage.getItem("authToken");
+
+    if (!authToken) {
+        console.error("Auth token not found. Please log in.");
+        return;
+    }
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${authToken}` },
+        body: formData,
+        redirect: 'follow'
+    };
+
+    fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php", requestOptions)
+        .then(response => {
+            if (!response.ok) throw new Error("Failed to update attendance");
+            return response.json();
+        })
+        .then(result => {
+            console.log("Attendance updated successfully:", result);
+            alert("Attendance updated successfully!");
+        })
+        .catch(error => {
+            console.error("Error updating attendance:", error);
+            alert("Failed to update attendance");
+        });
+}
 
 fetch("get_notices.php")
  .then(response => response.json())
