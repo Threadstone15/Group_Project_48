@@ -92,20 +92,47 @@ export function initMember_upgradePlan() {
                     <div class="price annual">$${parseFloat(plan.yearlyPrice).toFixed(2)}<span>/year</span></div>
                 </div>
                 <ul class="features">${benefitsList}</ul>
-                <button class="select-plan" data-plan-id="${plan.membership_plan_id}">Upgrade to this Plan</button>
+                <button class="select-plan" 
+                    data-plan-id="${plan.membership_plan_id}"  
+                    data-plan-name="${plan.plan_name}"
+                    data-plan-price="${plan.monthlyPrice}">Upgrade to this Plan</button>
             `;
 
             pricingCardsContainer.appendChild(card);
         });
 
-        // Add event listeners to buttons after they are created
-        const selectPlanButtons = document.querySelectorAll('.select-plan');
-        selectPlanButtons.forEach(button => {
-            button.addEventListener('click', () => upgradePlan(button.dataset.planId));
+        
+        document.querySelectorAll('.select-plan').forEach(button => {
+            button.removeEventListener('click', openPopup); 
+            button.addEventListener('click', function () {
+                openPopup(this.dataset.planId, this.dataset.planName, this.dataset.planPrice);
+        });
         });
 
-        togglePricing(); // Ensure the correct prices are shown based on the toggle state
+        togglePricing(); 
     }
+
+    // Function to show popup
+    function openPopup(planId, planName, planPrice) {
+        console.log("Popup triggered!", { planId, planName, planPrice });
+
+        const popup = document.getElementById('paymentPopup');
+        document.getElementById('popupPlanName').innerText = `Upgrade to ${planName}`;
+        document.getElementById('popupPlanDetails').innerText = `Price: $${planPrice}/month`;
+
+        popup.style.display = 'flex';
+
+        // Pay Now button functionality
+        document.getElementById('payNowBtn').onclick = function () {
+            alert(`Redirecting to payment for plan ID: ${planId}`);
+            popup.style.display = 'none';
+        };
+        }
+
+    // Close popup when clicking close button
+    document.querySelector('.close-btn').addEventListener('click', () => {
+        document.getElementById('paymentPopup').style.display = 'none';
+    });
 
     function displayCurrentPlan(plans, planIDofMember, planPeriodofMember) {
         currentPlanContainer.innerHTML = ''; // Clear existing cards
