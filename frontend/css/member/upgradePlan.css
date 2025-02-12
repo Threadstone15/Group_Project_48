@@ -1,17 +1,30 @@
-.content {
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+body {
+    height: 100%;
     display: flex;
-    gap: 40px;
-    justify-content: center;
-    margin-top: 40px;
-}
-
-
-.pricing-container {
-    max-width: 1200px;
-    padding: 2rem;
+    background: transparent;
+    min-height: 100vh;
+    padding: 0 10px;
     align-items: center;
     justify-content: center;
-}
+  }
+
+.plan-change {
+    background: transparent;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-top: 30px;
+  }
+  
 
 .pricing-toggle {
     display: flex;
@@ -74,9 +87,11 @@ input:checked + .slider:before {
 
 /* Pricing Cards Styles */
 .pricing-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 60px;
 }
 
 .pricing-card {
