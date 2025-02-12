@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 $request_method = $_SERVER['REQUEST_METHOD'];
 $action = $_POST['action'] ?? $_GET['action'] ?? null;
 
+
 logMessage("Running auth controller ,$action ");
 
 switch ($action) {
@@ -51,7 +52,6 @@ switch ($action) {
         echo json_encode(["error" => "Invalid action"]);
 }
 
-
 function signup()
 {
     logMessage("signup function running...");
@@ -72,7 +72,7 @@ function signup()
         $role = filter_var($data['role'], FILTER_SANITIZE_STRING);
 
         $userData = $user->getUserByEmail($email);
-        if ($userData){
+        if ($userData) {
             logMessage('Email already exists in the db');
             echo json_encode(["error" => "Email is already in use"]);
             exit();
@@ -205,7 +205,7 @@ function registerMember()
     ) {
         $firstName = filter_var($data['firstName'], FILTER_SANITIZE_STRING);
         $lastName = filter_var($data['lastName'], FILTER_SANITIZE_STRING);
-        $dob = $data['dob'];  
+        $dob = $data['dob'];
         $phone = $data['phone'];
         $address = $data['address'];
         $gender = $data['gender'];
@@ -215,7 +215,7 @@ function registerMember()
         $role = 'member';
 
         $userData = $user->getUserByEmail($email);
-        if ($userData){
+        if ($userData) {
             logMessage('Email already exists in the db');
             echo json_encode(["error" => "Email is already in use"]);
             exit();
@@ -223,14 +223,14 @@ function registerMember()
 
         if ($user->register($email, $password, $role)) {
             logMessage("User registered: $email");
-    
+
             // Get the user_id for the newly registered user
             $userData = $user->getUserByEmail($email);
             if ($userData) {
                 $user_id = $userData['user_id'];
-    
+
                 logMessage("Entering to members: $user_id");
-    
+
                 // Register the member using the user_id
                 $member_id = $member->registerMember($user_id, $firstName, $lastName, $dob, $phone, $address, $gender);
                 if ($member_id) {
@@ -243,11 +243,10 @@ function registerMember()
                     $paymentDue_date = NULL;
                     $status = 'active';
                     $period = 'monthly';
-                    if($subscription->addSubscription($member_id, $membership_plan_id, $startDate, $endDate, $paymentDue_date, $status, $period)){
+                    if ($subscription->addSubscription($member_id, $membership_plan_id, $startDate, $endDate, $paymentDue_date, $status, $period)) {
                         logMessage("Subscription added successfully for member ID: $member_id");
                         echo json_encode(["message" => "User and Member registered successfully, with a free subscription"]);
                     }
-
                 } else {
                     logMessage("Member registration failed for user ID: $user_id");
                     echo json_encode(["error" => "Member registration failed"]);
@@ -266,8 +265,3 @@ function registerMember()
         echo json_encode(["error" => "Invalid input data"]);
     }
 }
-
-
-
-
-?>
