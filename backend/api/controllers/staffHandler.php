@@ -290,20 +290,3 @@ function getAllEmails()
         echo json_encode(["error" => "Failed to fetch emails"]);
     }
 }
-
-function getEquipmentTypes()
-{
-    logMessage("Fetching equipment types...");
-
-    $EquipmentTypes = new EquipmentTypes();
-
-    $types = $EquipmentTypes->getEquipmentTypes();
-
-    if ($types !== false) {
-        logMessage("Equipment types fetched successfully. Total: " . count($types));
-        echo json_encode($types);
-    } else {
-        logMessage("Failed to fetch equipment types.");
-        echo json_encode(["error" => "Failed to fetch equipment types"]);
-    }
-}

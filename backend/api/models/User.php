@@ -4,17 +4,20 @@
 include_once "../../logs/save.php"; // Assuming this is where logMessage is defined
 require_once "../../config/database.php"; // Include the DatabaseConnection class
 
-class User {
+class User
+{
     private $conn;
     private $table = "users";
 
-    public function __construct() {
+    public function __construct()
+    {
         // Get the database connection instance
         $this->conn = DatabaseConnection::getInstance()->getConnection();
         logMessage("User class instantiated with database connection.");
     }
 
-    public function register($email, $password, $role) {
+    public function register($email, $password, $role)
+    {
         logMessage("User Register model running...");
 
         if (!$this->conn) {
@@ -25,7 +28,7 @@ class User {
         // Hash password
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
         logMessage("Password hashed for user: $email");
-    
+
         // Prepare the query
         $query = "INSERT INTO " . $this->table . " (email, password, role) VALUES (?, ?, ?)";
         $stmt = $this->conn->prepare($query);
@@ -50,7 +53,8 @@ class User {
         }
     }
 
-    public function login($email, $password) {
+    public function login($email, $password)
+    {
         logMessage("User Login model running for: $email");
 
         // Prepare the query
@@ -88,21 +92,22 @@ class User {
 
 
 
-    public function getUserByEmail($email) {
+    public function getUserByEmail($email)
+    {
         logMessage("Fetching user by email: $email");
-    
+
         // Prepare the query
         $query = "SELECT user_id FROM " . $this->table . " WHERE email = ?";
         $stmt = $this->conn->prepare($query);
-    
+
         if ($stmt === false) {
             logMessage("Error preparing statement for getUserByEmail: " . $this->conn->error);
             return false;
         }
-    
+
         // Bind the email parameter
         $stmt->bind_param("s", $email);
-    
+
         // Execute the query
         if ($stmt->execute()) {
             $result = $stmt->get_result();
@@ -113,27 +118,28 @@ class User {
         }
     }
 
-    public function getUserRoleById($user_id) {
+    public function getUserRoleById($user_id)
+    {
         logMessage("Fetching user role by user ID: $user_id");
-    
+
         // Prepare the query
         $query = "SELECT role FROM " . $this->table . " WHERE user_id = ?";
         $stmt = $this->conn->prepare($query);
-    
+
         // Check if statement preparation was successful
         if ($stmt === false) {
             logMessage("Error preparing statement for getUserRoleById: " . $this->conn->error);
             return false;
         }
-    
+
         // Bind the user_id parameter
         $stmt->bind_param("i", $user_id);
-    
+
         // Execute the query
         if ($stmt->execute()) {
             $result = $stmt->get_result();
             $userData = $result->fetch_assoc();
-    
+
             // Check if user exists and return the role
             if ($userData) {
                 logMessage("User role fetched successfully for user ID: $user_id");
@@ -148,26 +154,27 @@ class User {
         }
     }
 
-    public function userExists($email) {
+    public function userExists($email)
+    {
         logMessage("Checking if user exists for email: $email");
-    
+
         // Prepare the query
         $query = "SELECT user_id FROM " . $this->table . " WHERE email = ? LIMIT 1";
         $stmt = $this->conn->prepare($query);
-    
+
         // Check if statement preparation was successful
         if ($stmt === false) {
             logMessage("Error preparing statement for userExists: " . $this->conn->error);
             return false;
         }
-    
+
         // Bind the email parameter
         $stmt->bind_param("s", $email);
-    
+
         // Execute the query
         if ($stmt->execute()) {
             $result = $stmt->get_result();
-    
+
             // Check if the result contains a row
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
@@ -184,26 +191,27 @@ class User {
         }
     }
 
-    public function resetPassword($user_id, $new_password) {
+    public function resetPassword($user_id, $new_password)
+    {
         logMessage("Resetting password for user ID: $user_id");
-    
+
         // Hash the new password
         $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
         logMessage("New password hashed for user ID: $user_id");
-    
+
         // Prepare the query
         $query = "UPDATE " . $this->table . " SET password = ? WHERE user_id = ?";
         $stmt = $this->conn->prepare($query);
-    
+
         // Check if statement preparation was successful
         if ($stmt === false) {
             logMessage("Error preparing statement for resetPassword: " . $this->conn->error);
             return false;
         }
-    
+
         // Bind parameters
         $stmt->bind_param("si", $hashed_password, $user_id);
-    
+
         // Execute the query
         if ($stmt->execute()) {
             if ($stmt->affected_rows > 0) {
@@ -219,29 +227,30 @@ class User {
         }
     }
 
-    public function getAllEmails() {
+    public function getAllEmails()
+    {
         logMessage("Fetching all emails from the users table.");
-        
+
         // Prepare the query
         $query = "SELECT email FROM " . $this->table;
         $stmt = $this->conn->prepare($query);
-        
+
         // Check if statement preparation was successful
         if ($stmt === false) {
             logMessage("Error preparing statement for getAllEmails: " . $this->conn->error);
             return false;
         }
-        
+
         // Execute the query
         if ($stmt->execute()) {
             $result = $stmt->get_result();
             $emails = [];
-            
+
             // Fetch all email addresses
             while ($row = $result->fetch_assoc()) {
                 $emails[] = $row['email'];
             }
-            
+
             logMessage("Emails fetched successfully. Total: " . count($emails));
             return $emails;
         } else {
@@ -250,55 +259,58 @@ class User {
         }
     }
 
-    public function deleteUser($user_id) {
-        logMessage("Attempting to delete user with ID: $user_id");
-    
-        // Prepare the query
-        $query = "DELETE FROM " . $this->table . " WHERE user_id = ?";
+    public function deactivateUser($user_id, $remark)
+    {
+        logMessage("Attempting to deactivate user with ID: $user_id");
+
+        // Prepare the query to update status and remarks instead of deleting
+        $query = "UPDATE " . $this->table . " SET status = 2, remarks = ? WHERE user_id = ?";
         $stmt = $this->conn->prepare($query);
-    
+
         // Check if statement preparation was successful
         if ($stmt === false) {
-            logMessage("Error preparing statement for deleteUser: " . $this->conn->error);
+            logMessage("Error preparing statement for deactivateUser: " . $this->conn->error);
             return false;
         }
-    
-        // Bind the user_id parameter
-        $stmt->bind_param("i", $user_id);
-    
+
+        // Bind the parameters (remark as string, user_id as integer)
+        $stmt->bind_param("si", $remark, $user_id);
+
         // Execute the query
         if ($stmt->execute()) {
             if ($stmt->affected_rows > 0) {
-                logMessage("User deleted successfully with ID: $user_id");
+                logMessage("User deactivated successfully with ID: $user_id");
                 return true;
             } else {
-                logMessage("No user found with ID: $user_id to delete.");
+                logMessage("No user found with ID: $user_id to deactivate.");
                 return false;
             }
         } else {
-            logMessage("Error executing deleteUser query for user ID: $user_id with error: " . $stmt->error);
+            logMessage("Error executing deactivateUser query for user ID: $user_id with error: " . $stmt->error);
             return false;
         }
     }
 
-    public function updateUser($user_id, $email, $firstname, $lastname, $contact_no) {
+
+    public function updateUser($user_id, $email, $firstname, $lastname, $contact_no)
+    {
         logMessage("Updating user details for user ID: $user_id");
 
         $userUpdateQuery = "UPDATE " . $this->table . " SET email = ? WHERE user_id = ?";
         $stmt = $this->conn->prepare($userUpdateQuery);
-    
+
         if ($stmt === false) {
             logMessage("Error preparing user update query: " . $this->conn->error);
             return false;
         }
 
         $stmt->bind_param("si", $email, $user_id);
-    
+
         if (!$stmt->execute()) {
             logMessage("Error executing user update query for user ID: $user_id with error: " . $stmt->error);
             return false;
         }
-    
+
         logMessage("User table updated successfully for user ID: $user_id");
 
         $role = $this->getUserRoleById($user_id);
@@ -306,7 +318,7 @@ class User {
             logMessage("Role not found for user ID: $user_id. Aborting role-specific update.");
             return false;
         }
-    
+
         // Update the role-specific table
         $roleTableMap = [
             "member" => "member",
@@ -314,31 +326,31 @@ class User {
             "owner" => "staff",
             "staff" => "staff",
         ];
-    
+
         if (!isset($roleTableMap[$role])) {
             logMessage("Invalid role `$role` for user ID: $user_id.");
             return false;
         }
-    
+
         $roleTable = $roleTableMap[$role];
-        if ($roleTable=="member") {
+        if ($roleTable == "member") {
             $roleUpdateQuery = "UPDATE $roleTable SET firstName = ?, lastName = ?, phone = ? WHERE user_id = ?";
-        } else if ($roleTable=="trainer") {
+        } else if ($roleTable == "trainer") {
             $roleUpdateQuery = "UPDATE $roleTable SET firstName = ?, lastName = ?, mobile_number = ? WHERE user_id = ?";
-        } else if ($roleTable=="staff") {
+        } else if ($roleTable == "staff") {
             $roleUpdateQuery = "UPDATE $roleTable SET first_name = ?, last_name = ?, phone = ? WHERE user_id = ?";
         }
 
         $roleStmt = $this->conn->prepare($roleUpdateQuery);
-    
+
         if ($roleStmt === false) {
             logMessage("Error preparing role-specific update query for table `$roleTable`: " . $this->conn->error);
             return false;
         }
-    
+
 
         $roleStmt->bind_param("sssi", $firstname, $lastname, $contact_no, $user_id);
-    
+
         if ($roleStmt->execute()) {
             logMessage("Role-specific table `$roleTable` updated successfully for user ID: $user_id.");
             return true;
@@ -347,12 +359,40 @@ class User {
             return false;
         }
     }
-    
-    
-    
-    
-    
-    
-    
+
+    public function getPasswordByUserId($user_id)
+    {
+        logMessage("Fetching password for user ID: $user_id");
+
+        // Prepare the query
+        $query = "SELECT password FROM " . $this->table . " WHERE user_id = ?";
+        $stmt = $this->conn->prepare($query);
+
+        // Check if statement preparation was successful
+        if ($stmt === false) {
+            logMessage("Error preparing statement for getPasswordByUserId: " . $this->conn->error);
+            return false;
+        }
+
+        // Bind the user_id parameter
+        $stmt->bind_param("i", $user_id);
+
+        // Execute the query
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            $userData = $result->fetch_assoc();
+
+            // Check if user exists and return the password
+            if ($userData) {
+                logMessage("Password fetched successfully for user ID: $user_id");
+                return $userData['password'];
+            } else {
+                logMessage("No user found with ID: $user_id");
+                return false;
+            }
+        } else {
+            logMessage("Error executing getPasswordByUserId query for user ID: $user_id with error: " . $stmt->error);
+            return false;
+        }
+    }
 }
-?>

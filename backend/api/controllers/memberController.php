@@ -52,7 +52,42 @@ switch ($action) {
         logMessage("Running get_attendance....in controller");
         getDailyAttendance();
         break;
+    case 'account_delete':
+        logMessage('running account delete...in auth controller');
+        deleteAccount($user_id);
+        break;
 
     default:
         echo json_encode(["error" => "Invalid action"]);
+}
+
+
+function deleteAccount($user_id)
+{
+    logMessage("delete account function running...");
+
+    $password = $_POST['password'] ?? $_GET['password'] ?? null;
+    $reason = $_POST['reason'] ?? $_GET['reason'] ?? null;
+
+    $user = new User();
+    $password_original = $user->getPasswordByUserId($user_id);
+
+    if (!$password_original) {
+        echo json_encode(["error" => "User not found"]);
+        return;
+    }
+
+    $reason = ($reason ?? '') . "- by user";
+
+    if (password_verify($password, $password_original)) {
+        logMessage("Password correct");
+
+        if ($user->deactivateUser($user_id, $reason)) {
+            echo json_encode(["message" => "Account deleted successfully"]);
+        } else {
+            echo json_encode(["error" => "Failed to delete account"]);
+        }
+    } else {
+        echo json_encode(["error" => "Invalid password"]);
+    }
 }
