@@ -12,6 +12,7 @@ include_once "../../config/database.php";
 include_once "./membershipPlanHandler.php";
 include_once "../models/User.php";
 include_once "./subscriptionHandler.php";
+include_once "./passwordReset.php";
 include_once "./markAttendanceHandler.php";
 
 $conn = include_once "../../config/database.php";
@@ -55,6 +56,10 @@ switch ($action) {
     case 'account_delete':
         logMessage('running account delete...in auth controller');
         deleteAccount($user_id);
+        break;
+    case 'change_password':
+        logMessage('running change password...in auth controller');
+        changePassword($user_id);
         break;
 
     default:

@@ -360,6 +360,38 @@ class User
         }
     }
 
+    public function changePassword($user_id, $current_password, $new_password)
+    {
+        logMessage("Changing password for user ID: $user_id");
+
+        $current_password = password_hash($current_password, PASSWORD_DEFAULT);
+
+        $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
+
+        $updateQuery = "UPDATE " . $this->table . " SET password = ? WHERE user_id = ? AND password = ?";
+        $stmt = $this->conn->prepare($updateQuery);
+
+        if ($stmt === false) {
+            logMessage("Error preparing change password query: " . $this->conn->error);
+            return false;
+        }
+
+        $stmt->bind_param("sii", $hashed_password, $user_id, $current_password);
+
+        if ($stmt->execute()) {
+            if ($stmt->affected_rows > 0) {
+                logMessage("Password changed successfully for user ID: $user_id");
+                return true;
+            } else {
+                logMessage("No user found with ID: $user_id to change password.");
+                return false;
+            }
+        } else {
+            logMessage("Error executing change password query for user ID: $user_id with error: " . $stmt->error);
+            return false;
+        }
+    }
+
     public function getPasswordByUserId($user_id)
     {
         logMessage("Fetching password for user ID: $user_id");
@@ -394,5 +426,42 @@ class User
             logMessage("Error executing getPasswordByUserId query for user ID: $user_id with error: " . $stmt->error);
             return false;
         }
+    }
+
+    public function getUserEmailById($user_id)
+    {
+        logMessage("Fetching email for user ID: $user_id");
+
+        // Prepare the query
+        $query = "SELECT email FROM " . $this->table . " WHERE user_id = ?";
+        $stmt = $this->conn->prepare($query);
+
+        // Check if statement preparation was successful
+        if ($stmt === false) {
+            logMessage("Error preparing statement for getUserEmailById: " . $this->conn->error);
+            return false;
+        }
+
+        // Bind the user_id parameter
+        $stmt->bind_param("i", $user_id);
+
+        // Execute the query        
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            $userData = $result->fetch_assoc();
+
+            // Check if user exists and return the email
+            if ($userData) {
+                logMessage("Email fetched successfully for user ID: $user_id");
+                return $userData['email'];
+            } else {
+                logMessage("No user found with ID: $user_id");
+                return false;
+            }
+        } else {
+            logMessage("Error executing getUserEmailById query for user ID: $user_id with error: " . $stmt->error);
+        }
+
+        return false;
     }
 }

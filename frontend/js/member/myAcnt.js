@@ -14,19 +14,62 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("address").value = userData.address;
     document.getElementById("dob").value = userData.dob;
     document.getElementById("gender").value = userData.gender;
-  
-    // Change Password Event
-    document.getElementById("change-password-btn").addEventListener("click", () => {
-      fetch("/api/change-password", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: userData.email })
-      })
-      .then(response => response.json())
-      .then(data => alert(data.message))
-      .catch(error => console.error("Error:", error));
+
+    // Change Password Popup Logic
+    const changePasswordPopup = document.getElementById("change-password-popup");
+    const changePasswordBtn = document.getElementById("change-password-btn");
+    const confirmChangePassword = document.getElementById("confirm-change-password");
+    const cancelChangePassword = document.getElementById("cancel-change-password");
+
+    changePasswordBtn.addEventListener("click", () => {
+        changePasswordPopup.style.display = "block";
+    });
+
+    cancelChangePassword.addEventListener("click", () => {
+        changePasswordPopup.style.display = "none";
+    });
+
+    confirmChangePassword.addEventListener("click", () => {
+        const currentPassword = document.getElementById("current-password").value;
+        const newPassword = document.getElementById("new-password").value;  
+        const confirmPassword = document.getElementById("confirm-new-password").value;
+
+        const authToken = localStorage.getItem("authToken");
+
+        if (newPassword !== confirmPassword) {
+            alert("New password and confirm password do not match.");
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append("action", "change_password");
+        formData.append("current_password", currentPassword);
+        formData.append("new_password", newPassword);
+
+        if (!authToken) {
+            console.error("Auth token not found. Please log in.");
+            return;
+        }
+
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Authorization': `Bearer ${authToken}` },
+            body: formData,
+            redirect: 'follow'
+        };
+
+        console.log("currentPassword:", currentPassword);
+        console.log("newPassword:", newPassword);
+
+        fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php",requestOptions)
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+        })
+        .catch(error => console.error("Error:", error));
     });
   
+
     // Delete Account Popup Logic
     const deletePopup = document.getElementById("delete-account-popup");
     const deleteBtn = document.getElementById("delete-account-btn");

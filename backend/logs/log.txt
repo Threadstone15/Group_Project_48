@@ -1,230 +1,77 @@
-[2025-02-12 18:03:41] Running auth controller ,login 
-[2025-02-12 18:03:41] running login...in auth controller
-[2025-02-12 18:03:41] login function running...
-[2025-02-12 18:03:42] Connection established successfully to the database: rad_gymverse
-[2025-02-12 18:03:42] User class instantiated with database connection.
-[2025-02-12 18:03:42] User Login model running for: tevin@gmail.com
-[2025-02-12 18:03:42] Query bound and ready to execute for login: tevin@gmail.com
-[2025-02-12 18:03:42] User login successful: tevin@gmail.com with role: member
-[2025-02-12 18:03:42] Login Successful: eyJ1c2VyX2lkIjoxMTgsImV4cCI6MTczOTM4MzIwMH0=.8421e74a6e251eb3ce332600fd6c12ad5fca69094543096e244c2657c88705dc member
-[2025-02-12 18:03:42] Database connection closed.
-[2025-02-12 18:03:43] Connection established successfully to the database: rad_gymverse
-[2025-02-12 18:03:43] User class instantiated with database connection.
-[2025-02-12 18:03:43] Fetching user role by user ID: 118
-[2025-02-12 18:03:43] User role fetched successfully for user ID: 118
-[2025-02-12 18:03:43] Running member controller ,get_daily_attendance token - eyJ1c2VyX2lkIjoxMTgsImV4cCI6MTczOTM4MzIwMH0=.8421e74a6e251eb3ce332600fd6c12ad5fca69094543096e244c2657c88705dc   id - 118 
-[2025-02-12 18:03:43] Running get_attendance....in controller
-[2025-02-12 18:03:43] Running getDailyAttendance...
-[2025-02-12 18:03:43] Attendance model initialized with database connection.
-[2025-02-12 18:03:43] Counting today's attendance...
-[2025-02-12 18:03:43] Fetching today's attendance...
-[2025-02-12 18:03:44] Today's attendance fetched successfully.
-[2025-02-12 18:03:44] Today's attendance count: 26
-[2025-02-12 18:03:44] Today's attendance percentage: 52%
-[2025-02-12 18:03:44] Today's attendance count: 26, percentage: 52%
-[2025-02-12 18:03:44] Database connection closed.
-[2025-02-12 18:03:49] Connection established successfully to the database: rad_gymverse
-[2025-02-12 18:03:49] User class instantiated with database connection.
-[2025-02-12 18:03:49] Fetching user role by user ID: 118
-[2025-02-12 18:03:49] User role fetched successfully for user ID: 118
-[2025-02-12 18:03:49] Running member controller ,account_delete token - eyJ1c2VyX2lkIjoxMTgsImV4cCI6MTczOTM4MzIwMH0=.8421e74a6e251eb3ce332600fd6c12ad5fca69094543096e244c2657c88705dc   id - 118 
-[2025-02-12 18:03:49] running account delete...in auth controller
-[2025-02-12 18:03:49] delete account function running...
-[2025-02-12 18:03:49] User class instantiated with database connection.
-[2025-02-12 18:03:49] Fetching password for user ID: 118
-[2025-02-12 18:03:49] Password fetched successfully for user ID: 118
-[2025-02-12 18:03:49] Password_1 = ,$2y$10$oZ8GmJcHHBUVOXw8gJtHGOBmR5X.INNItH6ko3Y8P4TrRuH1zjNgi 
-[2025-02-12 18:03:49] Password_2 = ,$2y$10$kOQ6x2eu3xtOMT3JT2Dc8elNHlphp6WiNjqSLPBz4JQbkYnZdrfnC 
-[2025-02-12 18:03:50] Database connection closed.
-[2025-02-12 18:04:14] Connection established successfully to the database: rad_gymverse
-[2025-02-12 18:04:14] User class instantiated with database connection.
-[2025-02-12 18:04:14] Fetching user role by user ID: 118
-[2025-02-12 18:04:14] User role fetched successfully for user ID: 118
-[2025-02-12 18:04:14] Running member controller ,account_delete token - eyJ1c2VyX2lkIjoxMTgsImV4cCI6MTczOTM4MzIwMH0=.8421e74a6e251eb3ce332600fd6c12ad5fca69094543096e244c2657c88705dc   id - 118 
-[2025-02-12 18:04:14] running account delete...in auth controller
-[2025-02-12 18:04:14] delete account function running...
-[2025-02-12 18:04:14] User class instantiated with database connection.
-[2025-02-12 18:04:14] Fetching password for user ID: 118
-[2025-02-12 18:04:15] Password fetched successfully for user ID: 118
-[2025-02-12 18:04:15] Password_1 = ,$2y$10$oZ8GmJcHHBUVOXw8gJtHGOBmR5X.INNItH6ko3Y8P4TrRuH1zjNgi 
-[2025-02-12 18:04:15] Password_2 = ,$2y$10$1qA7mZhGkObpYPZAnXUPAOTvhrJ9MZqPxpBAbikS54D0rhaAeISi2 
-[2025-02-12 18:04:15] Database connection closed.
-[2025-02-12 18:05:29] Connection established successfully to the database: rad_gymverse
-[2025-02-12 18:05:29] User class instantiated with database connection.
-[2025-02-12 18:05:29] Fetching user role by user ID: 118
-[2025-02-12 18:05:30] User role fetched successfully for user ID: 118
-[2025-02-12 18:05:30] Running member controller ,account_delete token - eyJ1c2VyX2lkIjoxMTgsImV4cCI6MTczOTM4MzIwMH0=.8421e74a6e251eb3ce332600fd6c12ad5fca69094543096e244c2657c88705dc   id - 118 
-[2025-02-12 18:05:30] running account delete...in auth controller
-[2025-02-12 18:05:30] delete account function running...
-[2025-02-12 18:05:30] User class instantiated with database connection.
-[2025-02-12 18:05:30] Fetching password for user ID: 118
-[2025-02-12 18:05:30] Password fetched successfully for user ID: 118
-[2025-02-12 18:05:30] Password_1 = ,$2y$10$oZ8GmJcHHBUVOXw8gJtHGOBmR5X.INNItH6ko3Y8P4TrRuH1zjNgi 
-[2025-02-12 18:05:30] Password_2 = ,$2y$10$oSHoQdcIt0q78EYli6PvoulerNoE9DMhW7Z6pWkg.x6ohJdyK3tyC 
-[2025-02-12 18:05:30] Password correct
-[2025-02-12 18:05:30] Attempting to delete user with ID: 118
-[2025-02-12 18:05:31] User deleted successfully with ID: 118
-[2025-02-12 18:05:31] Database connection closed.
-[2025-02-12 18:06:11] Connection established successfully to the database: rad_gymverse
-[2025-02-12 18:06:11] User class instantiated with database connection.
-[2025-02-12 18:06:11] Fetching user role by user ID: 118
-[2025-02-12 18:06:12] No user found with ID: 118
-[2025-02-12 18:06:12] Database connection closed.
-[2025-02-12 18:06:17] Connection established successfully to the database: rad_gymverse
-[2025-02-12 18:06:17] User class instantiated with database connection.
-[2025-02-12 18:06:17] Fetching user role by user ID: 118
-[2025-02-12 18:06:17] No user found with ID: 118
-[2025-02-12 18:06:17] Database connection closed.
-[2025-02-12 18:06:23] Running auth controller ,login 
-[2025-02-12 18:06:23] running login...in auth controller
-[2025-02-12 18:06:23] login function running...
-[2025-02-12 18:06:24] Connection established successfully to the database: rad_gymverse
-[2025-02-12 18:06:24] User class instantiated with database connection.
-[2025-02-12 18:06:24] User Login model running for: tevin@gmail.com
-[2025-02-12 18:06:24] Query bound and ready to execute for login: tevin@gmail.com
-[2025-02-12 18:06:25] Invalid credentials for user: tevin@gmail.com
-[2025-02-12 18:06:25] Database connection closed.
-[2025-02-12 18:06:29] Running auth controller ,login 
-[2025-02-12 18:06:29] running login...in auth controller
-[2025-02-12 18:06:29] login function running...
-[2025-02-12 18:06:29] Connection established successfully to the database: rad_gymverse
-[2025-02-12 18:06:29] User class instantiated with database connection.
-[2025-02-12 18:06:29] User Login model running for: tevin@gmail.com
-[2025-02-12 18:06:29] Query bound and ready to execute for login: tevin@gmail.com
-[2025-02-12 18:06:29] Invalid credentials for user: tevin@gmail.com
-[2025-02-12 18:06:29] Database connection closed.
-[2025-02-12 18:06:33] Running auth controller ,login 
-[2025-02-12 18:06:33] running login...in auth controller
-[2025-02-12 18:06:33] login function running...
-[2025-02-12 18:06:34] Connection established successfully to the database: rad_gymverse
-[2025-02-12 18:06:34] User class instantiated with database connection.
-[2025-02-12 18:06:34] User Login model running for: tevin@gmail.com
-[2025-02-12 18:06:34] Query bound and ready to execute for login: tevin@gmail.com
-[2025-02-12 18:06:34] Invalid credentials for user: tevin@gmail.com
-[2025-02-12 18:06:34] Database connection closed.
-[2025-02-12 18:07:22] Running auth controller ,login 
-[2025-02-12 18:07:22] running login...in auth controller
-[2025-02-12 18:07:22] login function running...
-[2025-02-12 18:07:22] Connection established successfully to the database: rad_gymverse
-[2025-02-12 18:07:22] User class instantiated with database connection.
-[2025-02-12 18:07:22] User Login model running for: tevin@gmail.com
-[2025-02-12 18:07:23] Query bound and ready to execute for login: tevin@gmail.com
-[2025-02-12 18:07:23] Invalid credentials for user: tevin@gmail.com
-[2025-02-12 18:07:23] Database connection closed.
-[2025-02-12 18:07:32] Running auth controller ,login 
-[2025-02-12 18:07:32] running login...in auth controller
-[2025-02-12 18:07:32] login function running...
-[2025-02-12 18:07:32] Connection established successfully to the database: rad_gymverse
-[2025-02-12 18:07:32] User class instantiated with database connection.
-[2025-02-12 18:07:32] User Login model running for: admin@gmail.com
-[2025-02-12 18:07:33] Query bound and ready to execute for login: admin@gmail.com
-[2025-02-12 18:07:33] User login successful: admin@gmail.com with role: admin
-[2025-02-12 18:07:33] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzM5MzgzMjAwfQ==.f7e7eeb8f437d0f2640998e795ef2daeaa9d54535fc85c6194a199ba42b2ede6 admin
-[2025-02-12 18:07:33] Database connection closed.
-[2025-02-12 18:07:37] Running auth controller ,login 
-[2025-02-12 18:07:37] running login...in auth controller
-[2025-02-12 18:07:37] login function running...
-[2025-02-12 18:07:38] Connection established successfully to the database: rad_gymverse
-[2025-02-12 18:07:38] User class instantiated with database connection.
-[2025-02-12 18:07:38] User Login model running for: tevin@gmail.com
-[2025-02-12 18:07:38] Query bound and ready to execute for login: tevin@gmail.com
-[2025-02-12 18:07:38] Invalid credentials for user: tevin@gmail.com
-[2025-02-12 18:07:38] Database connection closed.
-[2025-02-12 18:11:46] Running auth controller ,register_member 
-[2025-02-12 18:11:46] running member register...in auth controller
-[2025-02-12 18:11:46] register member function running...
-[2025-02-12 18:11:46] Connection established successfully to the database: rad_gymverse
-[2025-02-12 18:11:46] User class instantiated with database connection.
-[2025-02-12 18:11:46] Member model initialized with database connection.
-[2025-02-12 18:11:46] Subscription model initialized with database connection.
-[2025-02-12 18:11:46] Fetching user by email: tevin@gmail.com
-[2025-02-12 18:11:47] User Register model running...
-[2025-02-12 18:11:47] Password hashed for user: tevin@gmail.com
-[2025-02-12 18:11:47] Query bound and ready to execute for user: tevin@gmail.com
-[2025-02-12 18:11:47] User registered successfully: tevin@gmail.com with role: member
-[2025-02-12 18:11:47] User registered: tevin@gmail.com
-[2025-02-12 18:11:47] Fetching user by email: tevin@gmail.com
-[2025-02-12 18:11:47] Entering to members: 161
-[2025-02-12 18:11:47] Registering member...
-[2025-02-12 18:11:48] Query bound for member registration: Udeepa Gallage
-[2025-02-12 18:11:48] Member registered successfully: Udeepa Gallage
-[2025-02-12 18:11:48] Member registered successfully with user ID: 161
-[2025-02-12 18:11:48] Adding new subscription...
-[2025-02-12 18:11:48] Query bound for adding subscription for : M15
-[2025-02-12 18:11:49] subscription added successfully for: M15
-[2025-02-12 18:11:49] Subscription added successfully for member ID: M15
-[2025-02-12 18:11:49] Database connection closed.
-[2025-02-12 18:11:50] Running auth controller ,login 
-[2025-02-12 18:11:50] running login...in auth controller
-[2025-02-12 18:11:50] login function running...
-[2025-02-12 18:11:51] Connection established successfully to the database: rad_gymverse
-[2025-02-12 18:11:51] User class instantiated with database connection.
-[2025-02-12 18:11:51] User Login model running for: tevin@gmail.com
-[2025-02-12 18:11:51] Query bound and ready to execute for login: tevin@gmail.com
-[2025-02-12 18:11:51] User login successful: tevin@gmail.com with role: member
-[2025-02-12 18:11:51] Login Successful: eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTczOTM4MzIwMH0=.fc656c1174effc01dc6c13403ba9cd8caa8c090f98fc79344910e0de4cfa1cc2 member
-[2025-02-12 18:11:51] Database connection closed.
-[2025-02-12 18:11:52] Connection established successfully to the database: rad_gymverse
-[2025-02-12 18:11:52] User class instantiated with database connection.
-[2025-02-12 18:11:52] Fetching user role by user ID: 161
-[2025-02-12 18:11:52] User role fetched successfully for user ID: 161
-[2025-02-12 18:11:52] Running member controller ,get_daily_attendance token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTczOTM4MzIwMH0=.fc656c1174effc01dc6c13403ba9cd8caa8c090f98fc79344910e0de4cfa1cc2   id - 161 
-[2025-02-12 18:11:52] Running get_attendance....in controller
-[2025-02-12 18:11:52] Running getDailyAttendance...
-[2025-02-12 18:11:52] Attendance model initialized with database connection.
-[2025-02-12 18:11:52] Counting today's attendance...
-[2025-02-12 18:11:52] Fetching today's attendance...
-[2025-02-12 18:11:53] No attendance records found for today.
-[2025-02-12 18:11:53] Today's attendance count: 0
-[2025-02-12 18:11:53] Today's attendance percentage: 0%
-[2025-02-12 18:11:53] Today's attendance count: 0, percentage: 0%
-[2025-02-12 18:11:53] Database connection closed.
-[2025-02-12 18:12:30] Connection established successfully to the database: rad_gymverse
-[2025-02-12 18:12:30] User class instantiated with database connection.
-[2025-02-12 18:12:30] Fetching user role by user ID: 161
-[2025-02-12 18:12:30] User role fetched successfully for user ID: 161
-[2025-02-12 18:12:30] Running member controller ,account_delete token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTczOTM4MzIwMH0=.fc656c1174effc01dc6c13403ba9cd8caa8c090f98fc79344910e0de4cfa1cc2   id - 161 
-[2025-02-12 18:12:30] running account delete...in auth controller
-[2025-02-12 18:12:30] delete account function running...
-[2025-02-12 18:12:30] User class instantiated with database connection.
-[2025-02-12 18:12:30] Fetching password for user ID: 161
-[2025-02-12 18:12:31] Password fetched successfully for user ID: 161
-[2025-02-12 18:12:31] Database connection closed.
-[2025-02-12 18:17:17] Connection established successfully to the database: rad_gymverse
-[2025-02-12 18:17:17] User class instantiated with database connection.
-[2025-02-12 18:17:17] Fetching user role by user ID: 161
-[2025-02-12 18:17:18] User role fetched successfully for user ID: 161
-[2025-02-12 18:17:18] Running member controller ,account_delete token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTczOTM4MzIwMH0=.fc656c1174effc01dc6c13403ba9cd8caa8c090f98fc79344910e0de4cfa1cc2   id - 161 
-[2025-02-12 18:17:18] running account delete...in auth controller
-[2025-02-12 18:17:18] delete account function running...
-[2025-02-12 18:17:18] User class instantiated with database connection.
-[2025-02-12 18:17:18] Fetching password for user ID: 161
-[2025-02-12 18:17:18] Password fetched successfully for user ID: 161
-[2025-02-12 18:17:18] Password correct
-[2025-02-12 18:17:18] Database connection closed.
-[2025-02-12 18:18:21] Connection established successfully to the database: rad_gymverse
-[2025-02-12 18:18:21] User class instantiated with database connection.
-[2025-02-12 18:18:21] Fetching user role by user ID: 161
-[2025-02-12 18:18:22] User role fetched successfully for user ID: 161
-[2025-02-12 18:18:22] Running member controller ,account_delete token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTczOTM4MzIwMH0=.fc656c1174effc01dc6c13403ba9cd8caa8c090f98fc79344910e0de4cfa1cc2   id - 161 
-[2025-02-12 18:18:22] running account delete...in auth controller
-[2025-02-12 18:18:22] delete account function running...
-[2025-02-12 18:18:22] User class instantiated with database connection.
-[2025-02-12 18:18:22] Fetching password for user ID: 161
-[2025-02-12 18:18:22] Password fetched successfully for user ID: 161
-[2025-02-12 18:18:22] Password correct
-[2025-02-12 18:18:22] Database connection closed.
-[2025-02-12 18:25:29] Connection established successfully to the database: rad_gymverse
-[2025-02-12 18:25:29] User class instantiated with database connection.
-[2025-02-12 18:25:29] Fetching user role by user ID: 161
-[2025-02-12 18:25:29] User role fetched successfully for user ID: 161
-[2025-02-12 18:25:29] Running member controller ,account_delete token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTczOTM4MzIwMH0=.fc656c1174effc01dc6c13403ba9cd8caa8c090f98fc79344910e0de4cfa1cc2   id - 161 
-[2025-02-12 18:25:29] running account delete...in auth controller
-[2025-02-12 18:25:29] delete account function running...
-[2025-02-12 18:25:29] User class instantiated with database connection.
-[2025-02-12 18:25:29] Fetching password for user ID: 161
-[2025-02-12 18:25:29] Password fetched successfully for user ID: 161
-[2025-02-12 18:25:30] Password correct
-[2025-02-12 18:25:30] Attempting to deactivate user with ID: 161
-[2025-02-12 18:25:30] User deactivated successfully with ID: 161
-[2025-02-12 18:25:30] Database connection closed.
+[2025-02-15 15:23:32] Connection established successfully to the database: rad_gymverse
+[2025-02-15 15:23:32] User class instantiated with database connection.
+[2025-02-15 15:23:32] Fetching user role by user ID: 161
+[2025-02-15 15:23:32] User role fetched successfully for user ID: 161
+[2025-02-15 15:23:32] Running member controller ,get_daily_attendance token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTczOTYzMTYwMH0=.c21e1356fcd7622543204408251d8b86faf655bd86f55c29c86b590d4e668984   id - 161 
+[2025-02-15 15:23:32] Running get_attendance....in controller
+[2025-02-15 15:23:32] Running getDailyAttendance...
+[2025-02-15 15:23:32] Attendance model initialized with database connection.
+[2025-02-15 15:23:32] Counting today's attendance...
+[2025-02-15 15:23:32] Fetching today's attendance...
+[2025-02-15 15:23:33] No attendance records found for today.
+[2025-02-15 15:23:33] Today's attendance count: 0
+[2025-02-15 15:23:33] Today's attendance percentage: 0%
+[2025-02-15 15:23:33] Today's attendance count: 0, percentage: 0%
+[2025-02-15 15:23:33] Database connection closed.
+[2025-02-15 15:23:45] Connection established successfully to the database: rad_gymverse
+[2025-02-15 15:23:45] User class instantiated with database connection.
+[2025-02-15 15:23:45] Fetching user role by user ID: 161
+[2025-02-15 15:23:45] User role fetched successfully for user ID: 161
+[2025-02-15 15:23:45] Running member controller ,change_password token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTczOTYzMTYwMH0=.c21e1356fcd7622543204408251d8b86faf655bd86f55c29c86b590d4e668984   id - 161 
+[2025-02-15 15:23:45] running change password...in auth controller
+[2025-02-15 15:23:45] Password change function invoked.
+[2025-02-15 15:23:45] Sanitized inputs: current_password = (hidden for security), new_password = (hidden for security)
+[2025-02-15 15:23:45] User class instantiated with database connection.
+[2025-02-15 15:23:45] Fetching email for user ID: 161
+[2025-02-15 15:23:45] Email fetched successfully for user ID: 161
+[2025-02-15 15:23:45] Database connection closed.
+[2025-02-15 15:27:03] Connection established successfully to the database: rad_gymverse
+[2025-02-15 15:27:03] User class instantiated with database connection.
+[2025-02-15 15:27:03] Fetching user role by user ID: 161
+[2025-02-15 15:27:03] User role fetched successfully for user ID: 161
+[2025-02-15 15:27:03] Running member controller ,change_password token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTczOTYzMTYwMH0=.c21e1356fcd7622543204408251d8b86faf655bd86f55c29c86b590d4e668984   id - 161 
+[2025-02-15 15:27:03] running change password...in auth controller
+[2025-02-15 15:27:03] Password change function invoked.
+[2025-02-15 15:27:03] Sanitized inputs: current_password = (hidden for security), new_password = (hidden for security)
+[2025-02-15 15:27:03] User class instantiated with database connection.
+[2025-02-15 15:27:03] Fetching email for user ID: 161
+[2025-02-15 15:27:04] Email fetched successfully for user ID: 161
+[2025-02-15 15:27:04] Database connection closed.
+[2025-02-15 15:30:50] Connection established successfully to the database: rad_gymverse
+[2025-02-15 15:30:50] User class instantiated with database connection.
+[2025-02-15 15:30:50] Fetching user role by user ID: 161
+[2025-02-15 15:30:50] User role fetched successfully for user ID: 161
+[2025-02-15 15:30:50] Running member controller ,change_password token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTczOTYzMTYwMH0=.c21e1356fcd7622543204408251d8b86faf655bd86f55c29c86b590d4e668984   id - 161 
+[2025-02-15 15:30:50] running change password...in auth controller
+[2025-02-15 15:30:50] Password change function invoked.
+[2025-02-15 15:30:50] Sanitized inputs: current_password = (hidden for security), new_password = (hidden for security)
+[2025-02-15 15:30:50] User class instantiated with database connection.
+[2025-02-15 15:30:50] Fetching email for user ID: 161
+[2025-02-15 15:30:50] Email fetched successfully for user ID: 161
+[2025-02-15 15:30:50] Fetched email for user ID: 161 email: tevin@gmail.com
+[2025-02-15 15:30:50] Changing password for user ID: 161
+[2025-02-15 15:30:51] Password changed successfully for user ID: 161
+[2025-02-15 15:30:51] Password changed successfully for user ID: 161
+[2025-02-15 15:30:51] Configuring PHPMailer to send password change notification.
+[2025-02-15 15:30:51] Attempting to send password change email to: tevin@gmail.com
+[2025-02-15 15:30:55] Password change email sent successfully to: tevin@gmail.com
+[2025-02-15 15:30:55] Database connection closed.
+[2025-02-15 15:31:37] Connection established successfully to the database: rad_gymverse
+[2025-02-15 15:31:37] User class instantiated with database connection.
+[2025-02-15 15:31:37] Fetching user role by user ID: 161
+[2025-02-15 15:31:37] User role fetched successfully for user ID: 161
+[2025-02-15 15:31:37] Running member controller ,change_password token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTczOTYzMTYwMH0=.c21e1356fcd7622543204408251d8b86faf655bd86f55c29c86b590d4e668984   id - 161 
+[2025-02-15 15:31:37] running change password...in auth controller
+[2025-02-15 15:31:37] Password change function invoked.
+[2025-02-15 15:31:37] Sanitized inputs: current_password = (hidden for security), new_password = (hidden for security)
+[2025-02-15 15:31:37] User class instantiated with database connection.
+[2025-02-15 15:31:37] Fetching email for user ID: 161
+[2025-02-15 15:31:38] Email fetched successfully for user ID: 161
+[2025-02-15 15:31:38] Fetched email for user ID: 161 email: tevin@gmail.com
+[2025-02-15 15:31:38] Changing password for user ID: 161
+[2025-02-15 15:31:38] Password changed successfully for user ID: 161
+[2025-02-15 15:31:38] Password changed successfully for user ID: 161
+[2025-02-15 15:31:38] Configuring PHPMailer to send password change notification.
+[2025-02-15 15:31:38] Attempting to send password change email to: tevin@gmail.com
+[2025-02-15 15:31:42] Password change email sent successfully to: tevin@gmail.com
+[2025-02-15 15:31:42] Database connection closed.
