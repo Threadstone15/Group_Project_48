@@ -1,17 +1,30 @@
-.content {
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+body {
+    height: 100%;
     display: flex;
-    gap: 40px;
-    justify-content: center;
-    margin-top: 40px;
-}
-
-
-.pricing-container {
-    max-width: 1200px;
-    padding: 2rem;
+    background: transparent;
+    min-height: 100vh;
+    padding: 0 10px;
     align-items: center;
     justify-content: center;
-}
+  }
+
+.plan-change {
+    background: transparent;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-top: 30px;
+  }
+  
 
 .pricing-toggle {
     display: flex;
@@ -74,9 +87,11 @@ input:checked + .slider:before {
 
 /* Pricing Cards Styles */
 .pricing-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 60px;
 }
 
 .pricing-card {
@@ -159,4 +174,92 @@ input:checked + .slider:before {
 .select-plan:hover {
     background: #FF5F00;
     font: 'Poppins', sans-serif;
+}
+
+/* Overlay background */
+.popup-overlay.hidden {
+    display: none;
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Popup box */
+.popup-content {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    width: 400px;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Heading */
+.popup-content h2 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* Description */
+.popup-content p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Pay Now button */
+#payNowBtn {
+    background-color: #FF5F00;
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Hover effect */
+#payNowBtn:hover {
+    background-color: #e85500;
+}
+
+/* Popup animation */
+@keyframes fadeIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }

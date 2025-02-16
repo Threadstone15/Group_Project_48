@@ -1,4 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
+export function initMember_myAcnt(){
+    console.log("initializing member home");
+    document.addEventListener("DOMContentLoaded", () => {
     // Test user data
     const userData = {
       name: "Jane Doe",
@@ -72,4 +74,5 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch(error => console.error("Error:", error));
     });
   });
-  
+
+}

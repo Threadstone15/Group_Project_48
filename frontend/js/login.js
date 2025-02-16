@@ -108,3 +108,7 @@ export function initlogin() {
 }
 }
 
+export function notifySessionTimedOut(){
+  showFormResponse("Your session has timed out. Please log in again", "error");
+}
+

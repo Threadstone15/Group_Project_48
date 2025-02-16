@@ -5,18 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gym Member Weight Chart</title>
-  <link rel="stylesheet" href="/Group_Project_48/frontend/css/member/upgradePlan.css">
-  <link rel="stylesheet" href="/Group_Project_48/frontend/css/globals.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <div class="content">
     <section class="plan-change" id="current-plan">
-      <!-- cuurent plan will be dynamically inserted here -->
+      <!-- current plan will be dynamically inserted here -->
     </section>
-  </div>
-  <div class="pricing-container">
+
+ 
     <div class="pricing-toggle">
       <span class="toggle-label">Monthly</span>
       <label class="switch">
@@ -29,8 +27,19 @@
     <div class="pricing-cards" id="pricing-cards">
       <!-- Cards will be dynamically inserted here -->
     </div>
-  </div>
-  <script src="/Group_Project_48/frontend/js/member/upgradePlan.js"></script>
+
+    <div id="paymentPopup" class="popup-overlay hidden">
+      <div class="popup-content">
+          <span class="close-btn">&times;</span>
+          <h2>Upgrade Plan</h2>
+          <p>Upgrade your plan to access more features!</p>
+          <h3 id="popupPlanName"></h3>
+          <p id="popupPlanDetails"></p>
+          <button id="payNowBtn">Pay Now</button>
+      </div>
+    </div>
+
+</div>
 </body>
 
 </html>

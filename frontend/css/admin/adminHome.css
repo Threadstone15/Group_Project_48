@@ -1,10 +1,10 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
   }
   
-  body {
+  body{
+    height: 100%;
     display: flex;
     background: transparent;
     min-height: 100vh;
@@ -12,26 +12,19 @@
     align-items: center;
     justify-content: center;
   }
-  
-  .total-content {
+
+  .card-container {
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 1200px;
+    gap: 20px;
+    justify-content: center;
   }
   
-  .content {
-    display: flex;
-    margin-top: 30px;
-    flex-direction: row;
-    gap: 30px;
-  }
   
   .notice-container,
   .gym-card {
     background-color: #fff;
     border-radius: 8px;
-    padding: 20px;
+    padding: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     flex-basis: 33.3%;
     text-align: center;
