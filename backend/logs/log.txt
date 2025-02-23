@@ -396,3 +396,1780 @@
 [2025-02-23 10:47:28] User role fetched successfully for user ID: 161
 [2025-02-23 10:47:28] Running member controller ,get_userDetails token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMwNDgwMH0=.65db230d4dadfd3cde2d92e40799c72a3a8c5ffa842ca4b9560ce624df18b77a   id - 161 
 [2025-02-23 10:47:28] Database connection closed.
+[2025-02-23 14:37:50] Running auth controller ,login 
+[2025-02-23 14:37:50] running login...in auth controller
+[2025-02-23 14:37:50] login function running...
+[2025-02-23 14:37:52] Connection established successfully to the database: rad_gymverse
+[2025-02-23 14:37:52] User class instantiated with database connection.
+[2025-02-23 14:37:52] User Login model running for: tevin@gmail.com
+[2025-02-23 14:37:52] Query bound and ready to execute for login: tevin@gmail.com
+[2025-02-23 14:37:52] User login successful: tevin@gmail.com with role: member
+[2025-02-23 14:37:52] Login Successful: eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMxOTIwMH0=.6fcfd4ba6f858e09364c2d6cd5ad88ece056c00fa613f74d964b77e8748ef66e member
+[2025-02-23 14:37:52] Database connection closed.
+[2025-02-23 14:37:55] Connection established successfully to the database: rad_gymverse
+[2025-02-23 14:37:55] User class instantiated with database connection.
+[2025-02-23 14:37:55] Fetching user role by user ID: 161
+[2025-02-23 14:37:57] User role fetched successfully for user ID: 161
+[2025-02-23 14:37:57] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMxOTIwMH0=.6fcfd4ba6f858e09364c2d6cd5ad88ece056c00fa613f74d964b77e8748ef66e   id - 161 
+[2025-02-23 14:37:57] Running get_membership plan....in controller
+[2025-02-23 14:37:57] get membership plans running running...
+[2025-02-23 14:37:57] Membership plan model initialized with database connection.
+[2025-02-23 14:37:57] Fetching membership plan...
+[2025-02-23 14:37:57] Membership Plans fetched successfully
+[2025-02-23 14:37:57] Membership plans fetched
+[2025-02-23 14:37:57] Database connection closed.
+[2025-02-23 14:37:58] Connection established successfully to the database: rad_gymverse
+[2025-02-23 14:37:58] User class instantiated with database connection.
+[2025-02-23 14:37:58] Fetching user role by user ID: 161
+[2025-02-23 14:37:59] User role fetched successfully for user ID: 161
+[2025-02-23 14:37:59] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMxOTIwMH0=.6fcfd4ba6f858e09364c2d6cd5ad88ece056c00fa613f74d964b77e8748ef66e   id - 161 
+[2025-02-23 14:37:59] Running get_subscription....in controller
+[2025-02-23 14:37:59] getSubscriptionOfAMember func running...
+[2025-02-23 14:37:59] Subscription model initialized with database connection.
+[2025-02-23 14:37:59] Member model initialized with database connection.
+[2025-02-23 14:37:59] Fetching member_id of a member by user id: 161
+[2025-02-23 14:37:59] Fetching subscription of a member: M15
+[2025-02-23 14:38:00] subscription fetched
+[2025-02-23 14:38:00] Database connection closed.
+[2025-02-23 15:12:57] Running auth controller ,login 
+[2025-02-23 15:12:57] running login...in auth controller
+[2025-02-23 15:12:57] login function running...
+[2025-02-23 15:12:59] Connection established successfully to the database: rad_gymverse
+[2025-02-23 15:12:59] User class instantiated with database connection.
+[2025-02-23 15:12:59] User Login model running for: owner@gmail.com
+[2025-02-23 15:12:59] Query bound and ready to execute for login: owner@gmail.com
+[2025-02-23 15:12:59] User login successful: owner@gmail.com with role: owner
+[2025-02-23 15:12:59] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQwMzIyODAwfQ==.40dccc8f7b5ea09511905e1621420214b04b42c54a67f370adb0cf9b7eadfc9a owner
+[2025-02-23 15:12:59] Database connection closed.
+[2025-02-23 15:13:02] Connection established successfully to the database: rad_gymverse
+[2025-02-23 15:13:02] User class instantiated with database connection.
+[2025-02-23 15:13:02] Fetching user role by user ID: 72
+[2025-02-23 15:13:02] User role fetched successfully for user ID: 72
+[2025-02-23 15:13:02] Running owner controller ,get_membershipPlans token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQwMzIyODAwfQ==.40dccc8f7b5ea09511905e1621420214b04b42c54a67f370adb0cf9b7eadfc9a   id - 72 
+[2025-02-23 15:13:02] Running get_membership plan....in controller
+[2025-02-23 15:13:02] get membership plans running running...
+[2025-02-23 15:13:02] Membership plan model initialized with database connection.
+[2025-02-23 15:13:02] Fetching membership plan...
+[2025-02-23 15:13:03] Membership Plans fetched successfully
+[2025-02-23 15:13:03] Membership plans fetched
+[2025-02-23 15:13:03] Database connection closed.
+[2025-02-23 15:21:15] Running auth controller ,login 
+[2025-02-23 15:21:15] running login...in auth controller
+[2025-02-23 15:21:15] login function running...
+[2025-02-23 15:21:16] Connection established successfully to the database: rad_gymverse
+[2025-02-23 15:21:16] User class instantiated with database connection.
+[2025-02-23 15:21:16] User Login model running for: tevin@gmail.com
+[2025-02-23 15:21:16] Query bound and ready to execute for login: tevin@gmail.com
+[2025-02-23 15:21:17] User login successful: tevin@gmail.com with role: member
+[2025-02-23 15:21:17] Login Successful: eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyMjgwMH0=.10b20358f28c9caa91d148ff0464a31d1f67e85825e51c890811357b8bc5e24e member
+[2025-02-23 15:21:17] Database connection closed.
+[2025-02-23 15:21:24] Connection established successfully to the database: rad_gymverse
+[2025-02-23 15:21:24] User class instantiated with database connection.
+[2025-02-23 15:21:24] Fetching user role by user ID: 161
+[2025-02-23 15:21:25] User role fetched successfully for user ID: 161
+[2025-02-23 15:21:25] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyMjgwMH0=.10b20358f28c9caa91d148ff0464a31d1f67e85825e51c890811357b8bc5e24e   id - 161 
+[2025-02-23 15:21:25] Running get_membership plan....in controller
+[2025-02-23 15:21:25] get membership plans running running...
+[2025-02-23 15:21:25] Membership plan model initialized with database connection.
+[2025-02-23 15:21:25] Fetching membership plan...
+[2025-02-23 15:21:25] Membership Plans fetched successfully
+[2025-02-23 15:21:25] Membership plans fetched
+[2025-02-23 15:21:25] Database connection closed.
+[2025-02-23 15:21:25] Connection established successfully to the database: rad_gymverse
+[2025-02-23 15:21:25] User class instantiated with database connection.
+[2025-02-23 15:21:25] Fetching user role by user ID: 161
+[2025-02-23 15:21:26] User role fetched successfully for user ID: 161
+[2025-02-23 15:21:26] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyMjgwMH0=.10b20358f28c9caa91d148ff0464a31d1f67e85825e51c890811357b8bc5e24e   id - 161 
+[2025-02-23 15:21:26] Running get_subscription....in controller
+[2025-02-23 15:21:26] getSubscriptionOfAMember func running...
+[2025-02-23 15:21:26] Subscription model initialized with database connection.
+[2025-02-23 15:21:26] Member model initialized with database connection.
+[2025-02-23 15:21:26] Fetching member_id of a member by user id: 161
+[2025-02-23 15:21:26] Fetching subscription of a member: M15
+[2025-02-23 15:21:27] subscription fetched
+[2025-02-23 15:21:27] Database connection closed.
+[2025-02-23 15:22:00] Connection established successfully to the database: rad_gymverse
+[2025-02-23 15:22:00] User class instantiated with database connection.
+[2025-02-23 15:22:00] Fetching user role by user ID: 161
+[2025-02-23 15:22:00] User role fetched successfully for user ID: 161
+[2025-02-23 15:22:00] Running member controller ,get_userDetails token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyMjgwMH0=.10b20358f28c9caa91d148ff0464a31d1f67e85825e51c890811357b8bc5e24e   id - 161 
+[2025-02-23 15:22:00] Database connection closed.
+[2025-02-23 15:28:35] Running auth controller ,login 
+[2025-02-23 15:28:35] running login...in auth controller
+[2025-02-23 15:28:35] login function running...
+[2025-02-23 15:28:36] Connection established successfully to the database: rad_gymverse
+[2025-02-23 15:28:36] User class instantiated with database connection.
+[2025-02-23 15:28:36] User Login model running for: tevin@gmail.com
+[2025-02-23 15:28:36] Query bound and ready to execute for login: tevin@gmail.com
+[2025-02-23 15:28:36] User login successful: tevin@gmail.com with role: member
+[2025-02-23 15:28:36] Login Successful: eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyMjgwMH0=.10b20358f28c9caa91d148ff0464a31d1f67e85825e51c890811357b8bc5e24e member
+[2025-02-23 15:28:36] Database connection closed.
+[2025-02-23 15:28:41] Connection established successfully to the database: rad_gymverse
+[2025-02-23 15:28:41] User class instantiated with database connection.
+[2025-02-23 15:28:41] Fetching user role by user ID: 161
+[2025-02-23 15:28:41] User role fetched successfully for user ID: 161
+[2025-02-23 15:28:41] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyMjgwMH0=.10b20358f28c9caa91d148ff0464a31d1f67e85825e51c890811357b8bc5e24e   id - 161 
+[2025-02-23 15:28:41] Running get_membership plan....in controller
+[2025-02-23 15:28:41] get membership plans running running...
+[2025-02-23 15:28:41] Membership plan model initialized with database connection.
+[2025-02-23 15:28:41] Fetching membership plan...
+[2025-02-23 15:28:42] Membership Plans fetched successfully
+[2025-02-23 15:28:42] Membership plans fetched
+[2025-02-23 15:28:42] Database connection closed.
+[2025-02-23 15:28:42] Connection established successfully to the database: rad_gymverse
+[2025-02-23 15:28:42] User class instantiated with database connection.
+[2025-02-23 15:28:42] Fetching user role by user ID: 161
+[2025-02-23 15:28:42] User role fetched successfully for user ID: 161
+[2025-02-23 15:28:42] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyMjgwMH0=.10b20358f28c9caa91d148ff0464a31d1f67e85825e51c890811357b8bc5e24e   id - 161 
+[2025-02-23 15:28:42] Running get_subscription....in controller
+[2025-02-23 15:28:42] getSubscriptionOfAMember func running...
+[2025-02-23 15:28:42] Subscription model initialized with database connection.
+[2025-02-23 15:28:42] Member model initialized with database connection.
+[2025-02-23 15:28:42] Fetching member_id of a member by user id: 161
+[2025-02-23 15:28:43] Fetching subscription of a member: M15
+[2025-02-23 15:28:43] subscription fetched
+[2025-02-23 15:28:43] Database connection closed.
+[2025-02-23 15:28:54] Connection established successfully to the database: rad_gymverse
+[2025-02-23 15:28:54] User class instantiated with database connection.
+[2025-02-23 15:28:54] Fetching user role by user ID: 161
+[2025-02-23 15:28:55] User role fetched successfully for user ID: 161
+[2025-02-23 15:28:55] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyMjgwMH0=.10b20358f28c9caa91d148ff0464a31d1f67e85825e51c890811357b8bc5e24e   id - 161 
+[2025-02-23 15:28:55] Running get_membership plan....in controller
+[2025-02-23 15:28:55] get membership plans running running...
+[2025-02-23 15:28:55] Membership plan model initialized with database connection.
+[2025-02-23 15:28:55] Fetching membership plan...
+[2025-02-23 15:28:55] Membership Plans fetched successfully
+[2025-02-23 15:28:55] Membership plans fetched
+[2025-02-23 15:28:55] Database connection closed.
+[2025-02-23 15:30:45] Connection established successfully to the database: rad_gymverse
+[2025-02-23 15:30:45] User class instantiated with database connection.
+[2025-02-23 15:30:45] Fetching user role by user ID: 161
+[2025-02-23 15:30:45] User role fetched successfully for user ID: 161
+[2025-02-23 15:30:45] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyMjgwMH0=.10b20358f28c9caa91d148ff0464a31d1f67e85825e51c890811357b8bc5e24e   id - 161 
+[2025-02-23 15:30:45] Running get_subscription....in controller
+[2025-02-23 15:30:45] getSubscriptionOfAMember func running...
+[2025-02-23 15:30:45] Subscription model initialized with database connection.
+[2025-02-23 15:30:45] Member model initialized with database connection.
+[2025-02-23 15:30:45] Fetching member_id of a member by user id: 161
+[2025-02-23 15:30:45] Fetching subscription of a member: M15
+[2025-02-23 15:30:46] subscription fetched
+[2025-02-23 15:30:46] Database connection closed.
+[2025-02-23 15:31:10] Connection established successfully to the database: rad_gymverse
+[2025-02-23 15:31:10] User class instantiated with database connection.
+[2025-02-23 15:31:10] Fetching user role by user ID: 161
+[2025-02-23 15:31:10] User role fetched successfully for user ID: 161
+[2025-02-23 15:31:10] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyMjgwMH0=.10b20358f28c9caa91d148ff0464a31d1f67e85825e51c890811357b8bc5e24e   id - 161 
+[2025-02-23 15:31:10] Running get_membership plan....in controller
+[2025-02-23 15:31:10] get membership plans running running...
+[2025-02-23 15:31:10] Membership plan model initialized with database connection.
+[2025-02-23 15:31:10] Fetching membership plan...
+[2025-02-23 15:31:10] Membership Plans fetched successfully
+[2025-02-23 15:31:10] Membership plans fetched
+[2025-02-23 15:31:10] Database connection closed.
+[2025-02-23 15:32:52] Connection established successfully to the database: rad_gymverse
+[2025-02-23 15:32:52] User class instantiated with database connection.
+[2025-02-23 15:32:52] Fetching user role by user ID: 161
+[2025-02-23 15:32:52] User role fetched successfully for user ID: 161
+[2025-02-23 15:32:52] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyMjgwMH0=.10b20358f28c9caa91d148ff0464a31d1f67e85825e51c890811357b8bc5e24e   id - 161 
+[2025-02-23 15:32:52] Running get_subscription....in controller
+[2025-02-23 15:32:52] getSubscriptionOfAMember func running...
+[2025-02-23 15:32:52] Subscription model initialized with database connection.
+[2025-02-23 15:32:52] Member model initialized with database connection.
+[2025-02-23 15:32:52] Fetching member_id of a member by user id: 161
+[2025-02-23 15:32:52] Fetching subscription of a member: M15
+[2025-02-23 15:32:53] subscription fetched
+[2025-02-23 15:32:53] Database connection closed.
+[2025-02-23 15:34:04] Connection established successfully to the database: rad_gymverse
+[2025-02-23 15:34:04] User class instantiated with database connection.
+[2025-02-23 15:34:04] Fetching user role by user ID: 161
+[2025-02-23 15:34:04] User role fetched successfully for user ID: 161
+[2025-02-23 15:34:04] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyMjgwMH0=.10b20358f28c9caa91d148ff0464a31d1f67e85825e51c890811357b8bc5e24e   id - 161 
+[2025-02-23 15:34:04] Running get_membership plan....in controller
+[2025-02-23 15:34:04] get membership plans running running...
+[2025-02-23 15:34:04] Membership plan model initialized with database connection.
+[2025-02-23 15:34:04] Fetching membership plan...
+[2025-02-23 15:34:05] Membership Plans fetched successfully
+[2025-02-23 15:34:05] Membership plans fetched
+[2025-02-23 15:34:05] Database connection closed.
+[2025-02-23 15:34:05] Connection established successfully to the database: rad_gymverse
+[2025-02-23 15:34:05] User class instantiated with database connection.
+[2025-02-23 15:34:05] Fetching user role by user ID: 161
+[2025-02-23 15:34:06] User role fetched successfully for user ID: 161
+[2025-02-23 15:34:06] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyMjgwMH0=.10b20358f28c9caa91d148ff0464a31d1f67e85825e51c890811357b8bc5e24e   id - 161 
+[2025-02-23 15:34:06] Running get_subscription....in controller
+[2025-02-23 15:34:06] getSubscriptionOfAMember func running...
+[2025-02-23 15:34:06] Subscription model initialized with database connection.
+[2025-02-23 15:34:06] Member model initialized with database connection.
+[2025-02-23 15:34:06] Fetching member_id of a member by user id: 161
+[2025-02-23 15:34:06] Fetching subscription of a member: M15
+[2025-02-23 15:34:06] subscription fetched
+[2025-02-23 15:34:06] Database connection closed.
+[2025-02-23 15:34:20] Connection established successfully to the database: rad_gymverse
+[2025-02-23 15:34:20] User class instantiated with database connection.
+[2025-02-23 15:34:20] Fetching user role by user ID: 161
+[2025-02-23 15:34:21] User role fetched successfully for user ID: 161
+[2025-02-23 15:34:21] Running member controller ,get_userDetails token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyMjgwMH0=.10b20358f28c9caa91d148ff0464a31d1f67e85825e51c890811357b8bc5e24e   id - 161 
+[2025-02-23 15:34:21] Database connection closed.
+[2025-02-23 16:25:04] Running auth controller ,login 
+[2025-02-23 16:25:04] running login...in auth controller
+[2025-02-23 16:25:04] login function running...
+[2025-02-23 16:25:06] Connection established successfully to the database: rad_gymverse
+[2025-02-23 16:25:06] User class instantiated with database connection.
+[2025-02-23 16:25:06] User Login model running for: tevin@gmail.com
+[2025-02-23 16:25:06] Query bound and ready to execute for login: tevin@gmail.com
+[2025-02-23 16:25:06] User login successful: tevin@gmail.com with role: member
+[2025-02-23 16:25:06] Login Successful: eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyNjQwMH0=.59515f45b974e15961cb50ff68e8a0b4a42b14fe7cf7e9406d53de8a8a9669af member
+[2025-02-23 16:25:06] Database connection closed.
+[2025-02-23 16:25:09] Connection established successfully to the database: rad_gymverse
+[2025-02-23 16:25:09] User class instantiated with database connection.
+[2025-02-23 16:25:09] Fetching user role by user ID: 161
+[2025-02-23 16:25:10] User role fetched successfully for user ID: 161
+[2025-02-23 16:25:10] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyNjQwMH0=.59515f45b974e15961cb50ff68e8a0b4a42b14fe7cf7e9406d53de8a8a9669af   id - 161 
+[2025-02-23 16:25:10] Running get_membership plan....in controller
+[2025-02-23 16:25:10] get membership plans running running...
+[2025-02-23 16:25:10] Membership plan model initialized with database connection.
+[2025-02-23 16:25:10] Fetching membership plan...
+[2025-02-23 16:25:10] Membership Plans fetched successfully
+[2025-02-23 16:25:10] Membership plans fetched
+[2025-02-23 16:25:10] Database connection closed.
+[2025-02-23 16:25:12] Connection established successfully to the database: rad_gymverse
+[2025-02-23 16:25:12] User class instantiated with database connection.
+[2025-02-23 16:25:12] Fetching user role by user ID: 161
+[2025-02-23 16:25:12] User role fetched successfully for user ID: 161
+[2025-02-23 16:25:12] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyNjQwMH0=.59515f45b974e15961cb50ff68e8a0b4a42b14fe7cf7e9406d53de8a8a9669af   id - 161 
+[2025-02-23 16:25:12] Running get_subscription....in controller
+[2025-02-23 16:25:12] getSubscriptionOfAMember func running...
+[2025-02-23 16:25:12] Subscription model initialized with database connection.
+[2025-02-23 16:25:12] Member model initialized with database connection.
+[2025-02-23 16:25:12] Fetching member_id of a member by user id: 161
+[2025-02-23 16:25:13] Fetching subscription of a member: M15
+[2025-02-23 16:25:13] subscription fetched
+[2025-02-23 16:25:13] Database connection closed.
+[2025-02-23 16:26:24] Running auth controller ,login 
+[2025-02-23 16:26:24] running login...in auth controller
+[2025-02-23 16:26:24] login function running...
+[2025-02-23 16:26:25] Connection established successfully to the database: rad_gymverse
+[2025-02-23 16:26:25] User class instantiated with database connection.
+[2025-02-23 16:26:25] User Login model running for: tevin@gmail.com
+[2025-02-23 16:26:26] Query bound and ready to execute for login: tevin@gmail.com
+[2025-02-23 16:26:26] User login successful: tevin@gmail.com with role: member
+[2025-02-23 16:26:26] Login Successful: eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyNjQwMH0=.59515f45b974e15961cb50ff68e8a0b4a42b14fe7cf7e9406d53de8a8a9669af member
+[2025-02-23 16:26:26] Database connection closed.
+[2025-02-23 16:26:30] Connection established successfully to the database: rad_gymverse
+[2025-02-23 16:26:30] User class instantiated with database connection.
+[2025-02-23 16:26:30] Fetching user role by user ID: 161
+[2025-02-23 16:26:35] User role fetched successfully for user ID: 161
+[2025-02-23 16:26:35] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyNjQwMH0=.59515f45b974e15961cb50ff68e8a0b4a42b14fe7cf7e9406d53de8a8a9669af   id - 161 
+[2025-02-23 16:26:35] Running get_membership plan....in controller
+[2025-02-23 16:26:35] get membership plans running running...
+[2025-02-23 16:26:35] Membership plan model initialized with database connection.
+[2025-02-23 16:26:35] Fetching membership plan...
+[2025-02-23 16:26:41] Membership Plans fetched successfully
+[2025-02-23 16:26:41] Membership plans fetched
+[2025-02-23 16:26:41] Database connection closed.
+[2025-02-23 16:27:11] Connection established successfully to the database: rad_gymverse
+[2025-02-23 16:27:11] User class instantiated with database connection.
+[2025-02-23 16:27:11] Fetching user role by user ID: 161
+[2025-02-23 16:27:13] User role fetched successfully for user ID: 161
+[2025-02-23 16:27:13] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyNjQwMH0=.59515f45b974e15961cb50ff68e8a0b4a42b14fe7cf7e9406d53de8a8a9669af   id - 161 
+[2025-02-23 16:27:13] Running get_subscription....in controller
+[2025-02-23 16:27:13] getSubscriptionOfAMember func running...
+[2025-02-23 16:27:13] Subscription model initialized with database connection.
+[2025-02-23 16:27:13] Member model initialized with database connection.
+[2025-02-23 16:27:13] Fetching member_id of a member by user id: 161
+[2025-02-23 16:27:13] Fetching subscription of a member: M15
+[2025-02-23 16:27:13] subscription fetched
+[2025-02-23 16:27:13] Database connection closed.
+[2025-02-23 16:27:14] Connection established successfully to the database: rad_gymverse
+[2025-02-23 16:27:14] User class instantiated with database connection.
+[2025-02-23 16:27:14] Fetching user role by user ID: 161
+[2025-02-23 16:27:14] User role fetched successfully for user ID: 161
+[2025-02-23 16:27:14] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyNjQwMH0=.59515f45b974e15961cb50ff68e8a0b4a42b14fe7cf7e9406d53de8a8a9669af   id - 161 
+[2025-02-23 16:27:14] Running get_membership plan....in controller
+[2025-02-23 16:27:14] get membership plans running running...
+[2025-02-23 16:27:14] Membership plan model initialized with database connection.
+[2025-02-23 16:27:14] Fetching membership plan...
+[2025-02-23 16:27:15] Membership Plans fetched successfully
+[2025-02-23 16:27:15] Membership plans fetched
+[2025-02-23 16:27:15] Database connection closed.
+[2025-02-23 16:27:17] Connection established successfully to the database: rad_gymverse
+[2025-02-23 16:27:17] User class instantiated with database connection.
+[2025-02-23 16:27:18] Fetching user role by user ID: 161
+[2025-02-23 16:27:18] User role fetched successfully for user ID: 161
+[2025-02-23 16:27:18] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyNjQwMH0=.59515f45b974e15961cb50ff68e8a0b4a42b14fe7cf7e9406d53de8a8a9669af   id - 161 
+[2025-02-23 16:27:18] Running get_subscription....in controller
+[2025-02-23 16:27:18] getSubscriptionOfAMember func running...
+[2025-02-23 16:27:18] Subscription model initialized with database connection.
+[2025-02-23 16:27:18] Member model initialized with database connection.
+[2025-02-23 16:27:18] Fetching member_id of a member by user id: 161
+[2025-02-23 16:27:20] Fetching subscription of a member: M15
+[2025-02-23 16:27:21] subscription fetched
+[2025-02-23 16:27:21] Database connection closed.
+[2025-02-23 16:27:25] Connection established successfully to the database: rad_gymverse
+[2025-02-23 16:27:25] User class instantiated with database connection.
+[2025-02-23 16:27:25] Fetching user role by user ID: 161
+[2025-02-23 16:27:26] User role fetched successfully for user ID: 161
+[2025-02-23 16:27:26] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyNjQwMH0=.59515f45b974e15961cb50ff68e8a0b4a42b14fe7cf7e9406d53de8a8a9669af   id - 161 
+[2025-02-23 16:27:26] Running get_user_details....in controller
+[2025-02-23 16:27:26] get user details function running...
+[2025-02-23 16:27:26] Member model initialized with database connection.
+[2025-02-23 16:27:26] Fetching member details for user ID: 161
+[2025-02-23 16:27:28] Member details found for user ID: 161
+[2025-02-23 16:27:28] User details fetched
+[2025-02-23 16:27:28] Database connection closed.
+[2025-02-23 16:47:02] Connection established successfully to the database: rad_gymverse
+[2025-02-23 16:47:02] User class instantiated with database connection.
+[2025-02-23 16:47:02] Fetching user role by user ID: 161
+[2025-02-23 16:47:03] User role fetched successfully for user ID: 161
+[2025-02-23 16:47:03] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyNjQwMH0=.59515f45b974e15961cb50ff68e8a0b4a42b14fe7cf7e9406d53de8a8a9669af   id - 161 
+[2025-02-23 16:47:03] Running get_membership plan....in controller
+[2025-02-23 16:47:03] get membership plans running running...
+[2025-02-23 16:47:03] Membership plan model initialized with database connection.
+[2025-02-23 16:47:03] Fetching membership plan...
+[2025-02-23 16:47:03] Membership Plans fetched successfully
+[2025-02-23 16:47:03] Membership plans fetched
+[2025-02-23 16:47:03] Database connection closed.
+[2025-02-23 16:47:04] Connection established successfully to the database: rad_gymverse
+[2025-02-23 16:47:04] User class instantiated with database connection.
+[2025-02-23 16:47:04] Fetching user role by user ID: 161
+[2025-02-23 16:47:05] User role fetched successfully for user ID: 161
+[2025-02-23 16:47:05] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyNjQwMH0=.59515f45b974e15961cb50ff68e8a0b4a42b14fe7cf7e9406d53de8a8a9669af   id - 161 
+[2025-02-23 16:47:05] Running get_subscription....in controller
+[2025-02-23 16:47:05] getSubscriptionOfAMember func running...
+[2025-02-23 16:47:05] Subscription model initialized with database connection.
+[2025-02-23 16:47:05] Member model initialized with database connection.
+[2025-02-23 16:47:05] Fetching member_id of a member by user id: 161
+[2025-02-23 16:47:05] Fetching subscription of a member: M15
+[2025-02-23 16:47:06] subscription fetched
+[2025-02-23 16:47:06] Database connection closed.
+[2025-02-23 16:47:06] Connection established successfully to the database: rad_gymverse
+[2025-02-23 16:47:06] User class instantiated with database connection.
+[2025-02-23 16:47:06] Fetching user role by user ID: 161
+[2025-02-23 16:47:07] User role fetched successfully for user ID: 161
+[2025-02-23 16:47:07] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyNjQwMH0=.59515f45b974e15961cb50ff68e8a0b4a42b14fe7cf7e9406d53de8a8a9669af   id - 161 
+[2025-02-23 16:47:07] Running get_membership plan....in controller
+[2025-02-23 16:47:07] get membership plans running running...
+[2025-02-23 16:47:07] Membership plan model initialized with database connection.
+[2025-02-23 16:47:07] Fetching membership plan...
+[2025-02-23 16:47:08] Membership Plans fetched successfully
+[2025-02-23 16:47:08] Membership plans fetched
+[2025-02-23 16:47:08] Database connection closed.
+[2025-02-23 16:47:08] Connection established successfully to the database: rad_gymverse
+[2025-02-23 16:47:08] User class instantiated with database connection.
+[2025-02-23 16:47:08] Fetching user role by user ID: 161
+[2025-02-23 16:47:09] User role fetched successfully for user ID: 161
+[2025-02-23 16:47:09] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyNjQwMH0=.59515f45b974e15961cb50ff68e8a0b4a42b14fe7cf7e9406d53de8a8a9669af   id - 161 
+[2025-02-23 16:47:09] Running get_subscription....in controller
+[2025-02-23 16:47:09] getSubscriptionOfAMember func running...
+[2025-02-23 16:47:09] Subscription model initialized with database connection.
+[2025-02-23 16:47:09] Member model initialized with database connection.
+[2025-02-23 16:47:09] Fetching member_id of a member by user id: 161
+[2025-02-23 16:47:09] Fetching subscription of a member: M15
+[2025-02-23 16:47:10] subscription fetched
+[2025-02-23 16:47:10] Database connection closed.
+[2025-02-23 16:47:14] Connection established successfully to the database: rad_gymverse
+[2025-02-23 16:47:14] User class instantiated with database connection.
+[2025-02-23 16:47:14] Fetching user role by user ID: 161
+[2025-02-23 16:47:14] User role fetched successfully for user ID: 161
+[2025-02-23 16:47:14] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyNjQwMH0=.59515f45b974e15961cb50ff68e8a0b4a42b14fe7cf7e9406d53de8a8a9669af   id - 161 
+[2025-02-23 16:47:14] Running get_user_details....in controller
+[2025-02-23 16:47:14] get user details function running...
+[2025-02-23 16:47:14] Member model initialized with database connection.
+[2025-02-23 16:47:14] Fetching member details for user ID: 161
+[2025-02-23 16:47:14] Member details found for user ID: 161
+[2025-02-23 16:47:14] User details fetched
+[2025-02-23 16:47:14] Database connection closed.
+[2025-02-23 16:53:32] Running auth controller ,login 
+[2025-02-23 16:53:32] running login...in auth controller
+[2025-02-23 16:53:32] login function running...
+[2025-02-23 16:53:33] Connection established successfully to the database: rad_gymverse
+[2025-02-23 16:53:33] User class instantiated with database connection.
+[2025-02-23 16:53:33] User Login model running for: tevin@gmail.com
+[2025-02-23 16:53:33] Query bound and ready to execute for login: tevin@gmail.com
+[2025-02-23 16:53:33] User login successful: tevin@gmail.com with role: member
+[2025-02-23 16:53:33] Login Successful: eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyNjQwMH0=.59515f45b974e15961cb50ff68e8a0b4a42b14fe7cf7e9406d53de8a8a9669af member
+[2025-02-23 16:53:33] Database connection closed.
+[2025-02-23 16:53:36] Connection established successfully to the database: rad_gymverse
+[2025-02-23 16:53:36] User class instantiated with database connection.
+[2025-02-23 16:53:36] Fetching user role by user ID: 161
+[2025-02-23 16:53:38] User role fetched successfully for user ID: 161
+[2025-02-23 16:53:38] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyNjQwMH0=.59515f45b974e15961cb50ff68e8a0b4a42b14fe7cf7e9406d53de8a8a9669af   id - 161 
+[2025-02-23 16:53:38] Running get_membership plan....in controller
+[2025-02-23 16:53:38] get membership plans running running...
+[2025-02-23 16:53:38] Membership plan model initialized with database connection.
+[2025-02-23 16:53:38] Fetching membership plan...
+[2025-02-23 16:53:40] Membership Plans fetched successfully
+[2025-02-23 16:53:40] Membership plans fetched
+[2025-02-23 16:53:40] Database connection closed.
+[2025-02-23 16:53:42] Connection established successfully to the database: rad_gymverse
+[2025-02-23 16:53:42] User class instantiated with database connection.
+[2025-02-23 16:53:42] Fetching user role by user ID: 161
+[2025-02-23 16:53:45] User role fetched successfully for user ID: 161
+[2025-02-23 16:53:45] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyNjQwMH0=.59515f45b974e15961cb50ff68e8a0b4a42b14fe7cf7e9406d53de8a8a9669af   id - 161 
+[2025-02-23 16:53:45] Running get_subscription....in controller
+[2025-02-23 16:53:45] getSubscriptionOfAMember func running...
+[2025-02-23 16:53:45] Subscription model initialized with database connection.
+[2025-02-23 16:53:45] Member model initialized with database connection.
+[2025-02-23 16:53:45] Fetching member_id of a member by user id: 161
+[2025-02-23 16:53:48] Fetching subscription of a member: M15
+[2025-02-23 16:53:51] subscription fetched
+[2025-02-23 16:53:51] Database connection closed.
+[2025-02-23 16:53:57] Connection established successfully to the database: rad_gymverse
+[2025-02-23 16:53:57] User class instantiated with database connection.
+[2025-02-23 16:53:57] Fetching user role by user ID: 161
+[2025-02-23 16:53:58] User role fetched successfully for user ID: 161
+[2025-02-23 16:53:58] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyNjQwMH0=.59515f45b974e15961cb50ff68e8a0b4a42b14fe7cf7e9406d53de8a8a9669af   id - 161 
+[2025-02-23 16:53:58] Running get_user_details....in controller
+[2025-02-23 16:53:58] get user details function running...
+[2025-02-23 16:53:58] Member model initialized with database connection.
+[2025-02-23 16:53:58] Fetching member details for user ID: 161
+[2025-02-23 16:54:00] Member details found for user ID: 161
+[2025-02-23 16:54:00] User details fetched
+[2025-02-23 16:54:00] Database connection closed.
+[2025-02-23 16:59:16] Connection established successfully to the database: rad_gymverse
+[2025-02-23 16:59:16] User class instantiated with database connection.
+[2025-02-23 16:59:16] Fetching user role by user ID: 161
+[2025-02-23 16:59:16] User role fetched successfully for user ID: 161
+[2025-02-23 16:59:16] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyNjQwMH0=.59515f45b974e15961cb50ff68e8a0b4a42b14fe7cf7e9406d53de8a8a9669af   id - 161 
+[2025-02-23 16:59:16] Running get_membership plan....in controller
+[2025-02-23 16:59:16] get membership plans running running...
+[2025-02-23 16:59:16] Membership plan model initialized with database connection.
+[2025-02-23 16:59:16] Fetching membership plan...
+[2025-02-23 16:59:16] Membership Plans fetched successfully
+[2025-02-23 16:59:16] Membership plans fetched
+[2025-02-23 16:59:16] Database connection closed.
+[2025-02-23 16:59:17] Connection established successfully to the database: rad_gymverse
+[2025-02-23 16:59:17] User class instantiated with database connection.
+[2025-02-23 16:59:17] Fetching user role by user ID: 161
+[2025-02-23 16:59:17] User role fetched successfully for user ID: 161
+[2025-02-23 16:59:17] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyNjQwMH0=.59515f45b974e15961cb50ff68e8a0b4a42b14fe7cf7e9406d53de8a8a9669af   id - 161 
+[2025-02-23 16:59:17] Running get_subscription....in controller
+[2025-02-23 16:59:17] getSubscriptionOfAMember func running...
+[2025-02-23 16:59:17] Subscription model initialized with database connection.
+[2025-02-23 16:59:17] Member model initialized with database connection.
+[2025-02-23 16:59:17] Fetching member_id of a member by user id: 161
+[2025-02-23 16:59:18] Fetching subscription of a member: M15
+[2025-02-23 16:59:18] subscription fetched
+[2025-02-23 16:59:18] Database connection closed.
+[2025-02-23 16:59:32] Running auth controller ,login 
+[2025-02-23 16:59:32] running login...in auth controller
+[2025-02-23 16:59:32] login function running...
+[2025-02-23 16:59:33] Connection established successfully to the database: rad_gymverse
+[2025-02-23 16:59:33] User class instantiated with database connection.
+[2025-02-23 16:59:33] User Login model running for: tevin@gmail.com
+[2025-02-23 16:59:33] Query bound and ready to execute for login: tevin@gmail.com
+[2025-02-23 16:59:33] User login successful: tevin@gmail.com with role: member
+[2025-02-23 16:59:33] Login Successful: eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyNjQwMH0=.59515f45b974e15961cb50ff68e8a0b4a42b14fe7cf7e9406d53de8a8a9669af member
+[2025-02-23 16:59:33] Database connection closed.
+[2025-02-23 16:59:36] Connection established successfully to the database: rad_gymverse
+[2025-02-23 16:59:36] User class instantiated with database connection.
+[2025-02-23 16:59:36] Fetching user role by user ID: 161
+[2025-02-23 16:59:36] User role fetched successfully for user ID: 161
+[2025-02-23 16:59:36] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyNjQwMH0=.59515f45b974e15961cb50ff68e8a0b4a42b14fe7cf7e9406d53de8a8a9669af   id - 161 
+[2025-02-23 16:59:36] Running get_membership plan....in controller
+[2025-02-23 16:59:36] get membership plans running running...
+[2025-02-23 16:59:36] Membership plan model initialized with database connection.
+[2025-02-23 16:59:36] Fetching membership plan...
+[2025-02-23 16:59:37] Membership Plans fetched successfully
+[2025-02-23 16:59:37] Membership plans fetched
+[2025-02-23 16:59:37] Database connection closed.
+[2025-02-23 16:59:37] Connection established successfully to the database: rad_gymverse
+[2025-02-23 16:59:37] User class instantiated with database connection.
+[2025-02-23 16:59:37] Fetching user role by user ID: 161
+[2025-02-23 16:59:38] User role fetched successfully for user ID: 161
+[2025-02-23 16:59:38] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyNjQwMH0=.59515f45b974e15961cb50ff68e8a0b4a42b14fe7cf7e9406d53de8a8a9669af   id - 161 
+[2025-02-23 16:59:38] Running get_subscription....in controller
+[2025-02-23 16:59:38] getSubscriptionOfAMember func running...
+[2025-02-23 16:59:38] Subscription model initialized with database connection.
+[2025-02-23 16:59:38] Member model initialized with database connection.
+[2025-02-23 16:59:38] Fetching member_id of a member by user id: 161
+[2025-02-23 16:59:38] Fetching subscription of a member: M15
+[2025-02-23 16:59:38] subscription fetched
+[2025-02-23 16:59:38] Database connection closed.
+[2025-02-23 16:59:42] Connection established successfully to the database: rad_gymverse
+[2025-02-23 16:59:42] User class instantiated with database connection.
+[2025-02-23 16:59:42] Fetching user role by user ID: 161
+[2025-02-23 16:59:42] User role fetched successfully for user ID: 161
+[2025-02-23 16:59:42] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMyNjQwMH0=.59515f45b974e15961cb50ff68e8a0b4a42b14fe7cf7e9406d53de8a8a9669af   id - 161 
+[2025-02-23 16:59:42] Running get_user_details....in controller
+[2025-02-23 16:59:42] get user details function running...
+[2025-02-23 16:59:42] Member model initialized with database connection.
+[2025-02-23 16:59:42] Fetching member details for user ID: 161
+[2025-02-23 16:59:43] Member details found for user ID: 161
+[2025-02-23 16:59:43] User details fetched
+[2025-02-23 16:59:43] Database connection closed.
+[2025-02-23 17:24:43] Running auth controller ,login 
+[2025-02-23 17:24:43] running login...in auth controller
+[2025-02-23 17:24:43] login function running...
+[2025-02-23 17:24:44] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:24:44] User class instantiated with database connection.
+[2025-02-23 17:24:44] User Login model running for: tevin@gmail.com
+[2025-02-23 17:24:44] Query bound and ready to execute for login: tevin@gmail.com
+[2025-02-23 17:24:44] User login successful: tevin@gmail.com with role: member
+[2025-02-23 17:24:44] Login Successful: eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3 member
+[2025-02-23 17:24:44] Database connection closed.
+[2025-02-23 17:24:47] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:24:47] User class instantiated with database connection.
+[2025-02-23 17:24:47] Fetching user role by user ID: 161
+[2025-02-23 17:24:48] User role fetched successfully for user ID: 161
+[2025-02-23 17:24:48] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:24:48] Running get_membership plan....in controller
+[2025-02-23 17:24:48] get membership plans running running...
+[2025-02-23 17:24:48] Membership plan model initialized with database connection.
+[2025-02-23 17:24:48] Fetching membership plan...
+[2025-02-23 17:24:48] Membership Plans fetched successfully
+[2025-02-23 17:24:48] Membership plans fetched
+[2025-02-23 17:24:48] Database connection closed.
+[2025-02-23 17:24:49] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:24:49] User class instantiated with database connection.
+[2025-02-23 17:24:49] Fetching user role by user ID: 161
+[2025-02-23 17:24:49] User role fetched successfully for user ID: 161
+[2025-02-23 17:24:49] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:24:49] Running get_subscription....in controller
+[2025-02-23 17:24:49] getSubscriptionOfAMember func running...
+[2025-02-23 17:24:49] Subscription model initialized with database connection.
+[2025-02-23 17:24:49] Member model initialized with database connection.
+[2025-02-23 17:24:49] Fetching member_id of a member by user id: 161
+[2025-02-23 17:24:49] Fetching subscription of a member: M15
+[2025-02-23 17:24:50] subscription fetched
+[2025-02-23 17:24:50] Database connection closed.
+[2025-02-23 17:25:00] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:25:00] User class instantiated with database connection.
+[2025-02-23 17:25:00] Fetching user role by user ID: 161
+[2025-02-23 17:25:00] User role fetched successfully for user ID: 161
+[2025-02-23 17:25:00] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:25:00] Running get_user_details....in controller
+[2025-02-23 17:25:00] get user details function running...
+[2025-02-23 17:25:00] Member model initialized with database connection.
+[2025-02-23 17:25:00] Fetching member details for user ID: 161
+[2025-02-23 17:25:01] Member details found for user ID: 161
+[2025-02-23 17:25:01] User details fetched
+[2025-02-23 17:25:01] Database connection closed.
+[2025-02-23 17:28:24] Running auth controller ,login 
+[2025-02-23 17:28:24] running login...in auth controller
+[2025-02-23 17:28:24] login function running...
+[2025-02-23 17:28:25] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:28:25] User class instantiated with database connection.
+[2025-02-23 17:28:25] User Login model running for: tevin@gmail.com
+[2025-02-23 17:28:25] Query bound and ready to execute for login: tevin@gmail.com
+[2025-02-23 17:28:25] User login successful: tevin@gmail.com with role: member
+[2025-02-23 17:28:25] Login Successful: eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3 member
+[2025-02-23 17:28:25] Database connection closed.
+[2025-02-23 17:28:27] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:28:27] User class instantiated with database connection.
+[2025-02-23 17:28:27] Fetching user role by user ID: 161
+[2025-02-23 17:28:27] User role fetched successfully for user ID: 161
+[2025-02-23 17:28:27] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:28:27] Running get_membership plan....in controller
+[2025-02-23 17:28:27] get membership plans running running...
+[2025-02-23 17:28:27] Membership plan model initialized with database connection.
+[2025-02-23 17:28:27] Fetching membership plan...
+[2025-02-23 17:28:28] Membership Plans fetched successfully
+[2025-02-23 17:28:28] Membership plans fetched
+[2025-02-23 17:28:28] Database connection closed.
+[2025-02-23 17:28:28] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:28:28] User class instantiated with database connection.
+[2025-02-23 17:28:28] Fetching user role by user ID: 161
+[2025-02-23 17:28:29] User role fetched successfully for user ID: 161
+[2025-02-23 17:28:29] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:28:29] Running get_subscription....in controller
+[2025-02-23 17:28:29] getSubscriptionOfAMember func running...
+[2025-02-23 17:28:29] Subscription model initialized with database connection.
+[2025-02-23 17:28:29] Member model initialized with database connection.
+[2025-02-23 17:28:29] Fetching member_id of a member by user id: 161
+[2025-02-23 17:28:29] Fetching subscription of a member: M15
+[2025-02-23 17:28:29] subscription fetched
+[2025-02-23 17:28:29] Database connection closed.
+[2025-02-23 17:28:32] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:28:32] User class instantiated with database connection.
+[2025-02-23 17:28:32] Fetching user role by user ID: 161
+[2025-02-23 17:28:32] User role fetched successfully for user ID: 161
+[2025-02-23 17:28:32] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:28:32] Running get_user_details....in controller
+[2025-02-23 17:28:32] get user details function running...
+[2025-02-23 17:28:32] Member model initialized with database connection.
+[2025-02-23 17:28:32] Fetching member details for user ID: 161
+[2025-02-23 17:28:32] Member details found for user ID: 161
+[2025-02-23 17:28:32] User details fetched
+[2025-02-23 17:28:32] Database connection closed.
+[2025-02-23 17:38:29] Running auth controller ,login 
+[2025-02-23 17:38:29] running login...in auth controller
+[2025-02-23 17:38:29] login function running...
+[2025-02-23 17:38:30] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:38:30] User class instantiated with database connection.
+[2025-02-23 17:38:30] User Login model running for: tevin@gmail.com
+[2025-02-23 17:38:30] Query bound and ready to execute for login: tevin@gmail.com
+[2025-02-23 17:38:30] User login successful: tevin@gmail.com with role: member
+[2025-02-23 17:38:30] Login Successful: eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3 member
+[2025-02-23 17:38:30] Database connection closed.
+[2025-02-23 17:38:32] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:38:32] User class instantiated with database connection.
+[2025-02-23 17:38:32] Fetching user role by user ID: 161
+[2025-02-23 17:38:33] User role fetched successfully for user ID: 161
+[2025-02-23 17:38:33] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:38:33] Running get_membership plan....in controller
+[2025-02-23 17:38:33] get membership plans running running...
+[2025-02-23 17:38:33] Membership plan model initialized with database connection.
+[2025-02-23 17:38:33] Fetching membership plan...
+[2025-02-23 17:38:33] Membership Plans fetched successfully
+[2025-02-23 17:38:33] Membership plans fetched
+[2025-02-23 17:38:33] Database connection closed.
+[2025-02-23 17:38:34] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:38:34] User class instantiated with database connection.
+[2025-02-23 17:38:34] Fetching user role by user ID: 161
+[2025-02-23 17:38:34] User role fetched successfully for user ID: 161
+[2025-02-23 17:38:34] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:38:34] Running get_subscription....in controller
+[2025-02-23 17:38:34] getSubscriptionOfAMember func running...
+[2025-02-23 17:38:34] Subscription model initialized with database connection.
+[2025-02-23 17:38:34] Member model initialized with database connection.
+[2025-02-23 17:38:34] Fetching member_id of a member by user id: 161
+[2025-02-23 17:38:35] Fetching subscription of a member: M15
+[2025-02-23 17:38:35] subscription fetched
+[2025-02-23 17:38:35] Database connection closed.
+[2025-02-23 17:38:38] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:38:38] User class instantiated with database connection.
+[2025-02-23 17:38:38] Fetching user role by user ID: 161
+[2025-02-23 17:38:38] User role fetched successfully for user ID: 161
+[2025-02-23 17:38:38] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:38:38] Running get_user_details....in controller
+[2025-02-23 17:38:38] get user details function running...
+[2025-02-23 17:38:38] Member model initialized with database connection.
+[2025-02-23 17:38:38] Fetching member details for user ID: 161
+[2025-02-23 17:38:38] Member details found for user ID: 161
+[2025-02-23 17:38:38] User details fetched
+[2025-02-23 17:38:38] Database connection closed.
+[2025-02-23 17:40:46] Running auth controller ,login 
+[2025-02-23 17:40:46] running login...in auth controller
+[2025-02-23 17:40:46] login function running...
+[2025-02-23 17:40:47] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:40:47] User class instantiated with database connection.
+[2025-02-23 17:40:47] User Login model running for: tevin@gmail.com
+[2025-02-23 17:40:47] Query bound and ready to execute for login: tevin@gmail.com
+[2025-02-23 17:40:47] User login successful: tevin@gmail.com with role: member
+[2025-02-23 17:40:47] Login Successful: eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3 member
+[2025-02-23 17:40:47] Database connection closed.
+[2025-02-23 17:40:49] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:40:49] User class instantiated with database connection.
+[2025-02-23 17:40:49] Fetching user role by user ID: 161
+[2025-02-23 17:40:50] User role fetched successfully for user ID: 161
+[2025-02-23 17:40:50] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:40:50] Running get_membership plan....in controller
+[2025-02-23 17:40:50] get membership plans running running...
+[2025-02-23 17:40:50] Membership plan model initialized with database connection.
+[2025-02-23 17:40:50] Fetching membership plan...
+[2025-02-23 17:40:50] Membership Plans fetched successfully
+[2025-02-23 17:40:50] Membership plans fetched
+[2025-02-23 17:40:50] Database connection closed.
+[2025-02-23 17:40:51] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:40:51] User class instantiated with database connection.
+[2025-02-23 17:40:51] Fetching user role by user ID: 161
+[2025-02-23 17:40:51] User role fetched successfully for user ID: 161
+[2025-02-23 17:40:51] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:40:51] Running get_subscription....in controller
+[2025-02-23 17:40:51] getSubscriptionOfAMember func running...
+[2025-02-23 17:40:51] Subscription model initialized with database connection.
+[2025-02-23 17:40:51] Member model initialized with database connection.
+[2025-02-23 17:40:51] Fetching member_id of a member by user id: 161
+[2025-02-23 17:40:51] Fetching subscription of a member: M15
+[2025-02-23 17:40:52] subscription fetched
+[2025-02-23 17:40:52] Database connection closed.
+[2025-02-23 17:40:55] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:40:55] User class instantiated with database connection.
+[2025-02-23 17:40:55] Fetching user role by user ID: 161
+[2025-02-23 17:40:55] User role fetched successfully for user ID: 161
+[2025-02-23 17:40:55] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:40:55] Running get_user_details....in controller
+[2025-02-23 17:40:55] get user details function running...
+[2025-02-23 17:40:55] Member model initialized with database connection.
+[2025-02-23 17:40:55] Fetching member details for user ID: 161
+[2025-02-23 17:40:55] Member details found for user ID: 161
+[2025-02-23 17:40:55] User details fetched
+[2025-02-23 17:40:55] Database connection closed.
+[2025-02-23 17:41:37] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:41:37] User class instantiated with database connection.
+[2025-02-23 17:41:37] Fetching user role by user ID: 161
+[2025-02-23 17:41:38] User role fetched successfully for user ID: 161
+[2025-02-23 17:41:38] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:41:38] Running get_membership plan....in controller
+[2025-02-23 17:41:38] get membership plans running running...
+[2025-02-23 17:41:38] Membership plan model initialized with database connection.
+[2025-02-23 17:41:38] Fetching membership plan...
+[2025-02-23 17:41:38] Membership Plans fetched successfully
+[2025-02-23 17:41:38] Membership plans fetched
+[2025-02-23 17:41:38] Database connection closed.
+[2025-02-23 17:41:38] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:41:38] User class instantiated with database connection.
+[2025-02-23 17:41:38] Fetching user role by user ID: 161
+[2025-02-23 17:41:39] User role fetched successfully for user ID: 161
+[2025-02-23 17:41:39] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:41:39] Running get_subscription....in controller
+[2025-02-23 17:41:39] getSubscriptionOfAMember func running...
+[2025-02-23 17:41:39] Subscription model initialized with database connection.
+[2025-02-23 17:41:39] Member model initialized with database connection.
+[2025-02-23 17:41:39] Fetching member_id of a member by user id: 161
+[2025-02-23 17:41:39] Fetching subscription of a member: M15
+[2025-02-23 17:41:40] subscription fetched
+[2025-02-23 17:41:40] Database connection closed.
+[2025-02-23 17:41:40] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:41:40] User class instantiated with database connection.
+[2025-02-23 17:41:40] Fetching user role by user ID: 161
+[2025-02-23 17:41:41] User role fetched successfully for user ID: 161
+[2025-02-23 17:41:41] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:41:41] Running get_membership plan....in controller
+[2025-02-23 17:41:41] get membership plans running running...
+[2025-02-23 17:41:41] Membership plan model initialized with database connection.
+[2025-02-23 17:41:41] Fetching membership plan...
+[2025-02-23 17:41:41] Membership Plans fetched successfully
+[2025-02-23 17:41:41] Membership plans fetched
+[2025-02-23 17:41:41] Database connection closed.
+[2025-02-23 17:41:41] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:41:41] User class instantiated with database connection.
+[2025-02-23 17:41:41] Fetching user role by user ID: 161
+[2025-02-23 17:41:42] User role fetched successfully for user ID: 161
+[2025-02-23 17:41:42] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:41:42] Running get_subscription....in controller
+[2025-02-23 17:41:42] getSubscriptionOfAMember func running...
+[2025-02-23 17:41:42] Subscription model initialized with database connection.
+[2025-02-23 17:41:42] Member model initialized with database connection.
+[2025-02-23 17:41:42] Fetching member_id of a member by user id: 161
+[2025-02-23 17:41:42] Fetching subscription of a member: M15
+[2025-02-23 17:41:43] subscription fetched
+[2025-02-23 17:41:43] Database connection closed.
+[2025-02-23 17:41:45] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:41:45] User class instantiated with database connection.
+[2025-02-23 17:41:45] Fetching user role by user ID: 161
+[2025-02-23 17:41:46] User role fetched successfully for user ID: 161
+[2025-02-23 17:41:46] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:41:46] Running get_user_details....in controller
+[2025-02-23 17:41:46] get user details function running...
+[2025-02-23 17:41:46] Member model initialized with database connection.
+[2025-02-23 17:41:46] Fetching member details for user ID: 161
+[2025-02-23 17:41:46] Member details found for user ID: 161
+[2025-02-23 17:41:46] User details fetched
+[2025-02-23 17:41:46] Database connection closed.
+[2025-02-23 17:42:21] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:42:21] User class instantiated with database connection.
+[2025-02-23 17:42:21] Fetching user role by user ID: 161
+[2025-02-23 17:42:22] User role fetched successfully for user ID: 161
+[2025-02-23 17:42:22] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:42:22] Running get_membership plan....in controller
+[2025-02-23 17:42:22] get membership plans running running...
+[2025-02-23 17:42:22] Membership plan model initialized with database connection.
+[2025-02-23 17:42:22] Fetching membership plan...
+[2025-02-23 17:42:22] Membership Plans fetched successfully
+[2025-02-23 17:42:22] Membership plans fetched
+[2025-02-23 17:42:22] Database connection closed.
+[2025-02-23 17:42:23] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:42:23] User class instantiated with database connection.
+[2025-02-23 17:42:23] Fetching user role by user ID: 161
+[2025-02-23 17:42:23] User role fetched successfully for user ID: 161
+[2025-02-23 17:42:23] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:42:23] Running get_subscription....in controller
+[2025-02-23 17:42:23] getSubscriptionOfAMember func running...
+[2025-02-23 17:42:23] Subscription model initialized with database connection.
+[2025-02-23 17:42:23] Member model initialized with database connection.
+[2025-02-23 17:42:23] Fetching member_id of a member by user id: 161
+[2025-02-23 17:42:23] Fetching subscription of a member: M15
+[2025-02-23 17:42:24] subscription fetched
+[2025-02-23 17:42:24] Database connection closed.
+[2025-02-23 17:42:27] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:42:27] User class instantiated with database connection.
+[2025-02-23 17:42:27] Fetching user role by user ID: 161
+[2025-02-23 17:42:27] User role fetched successfully for user ID: 161
+[2025-02-23 17:42:27] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:42:27] Running get_user_details....in controller
+[2025-02-23 17:42:27] get user details function running...
+[2025-02-23 17:42:27] Member model initialized with database connection.
+[2025-02-23 17:42:27] Fetching member details for user ID: 161
+[2025-02-23 17:42:27] Member details found for user ID: 161
+[2025-02-23 17:42:27] User details fetched
+[2025-02-23 17:42:27] Database connection closed.
+[2025-02-23 17:47:57] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:47:57] User class instantiated with database connection.
+[2025-02-23 17:47:57] Fetching user role by user ID: 161
+[2025-02-23 17:47:57] User role fetched successfully for user ID: 161
+[2025-02-23 17:47:57] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:47:57] Running get_membership plan....in controller
+[2025-02-23 17:47:57] get membership plans running running...
+[2025-02-23 17:47:57] Membership plan model initialized with database connection.
+[2025-02-23 17:47:57] Fetching membership plan...
+[2025-02-23 17:47:57] Membership Plans fetched successfully
+[2025-02-23 17:47:57] Membership plans fetched
+[2025-02-23 17:47:57] Database connection closed.
+[2025-02-23 17:47:58] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:47:58] User class instantiated with database connection.
+[2025-02-23 17:47:58] Fetching user role by user ID: 161
+[2025-02-23 17:47:58] User role fetched successfully for user ID: 161
+[2025-02-23 17:47:58] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:47:58] Running get_subscription....in controller
+[2025-02-23 17:47:58] getSubscriptionOfAMember func running...
+[2025-02-23 17:47:58] Subscription model initialized with database connection.
+[2025-02-23 17:47:58] Member model initialized with database connection.
+[2025-02-23 17:47:58] Fetching member_id of a member by user id: 161
+[2025-02-23 17:47:59] Fetching subscription of a member: M15
+[2025-02-23 17:47:59] subscription fetched
+[2025-02-23 17:47:59] Database connection closed.
+[2025-02-23 17:48:01] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:48:01] User class instantiated with database connection.
+[2025-02-23 17:48:01] Fetching user role by user ID: 161
+[2025-02-23 17:48:02] User role fetched successfully for user ID: 161
+[2025-02-23 17:48:02] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:48:02] Running get_user_details....in controller
+[2025-02-23 17:48:02] get user details function running...
+[2025-02-23 17:48:02] Member model initialized with database connection.
+[2025-02-23 17:48:02] Fetching member details for user ID: 161
+[2025-02-23 17:48:02] Member details found for user ID: 161
+[2025-02-23 17:48:02] User details fetched
+[2025-02-23 17:48:02] Database connection closed.
+[2025-02-23 17:48:50] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:48:50] User class instantiated with database connection.
+[2025-02-23 17:48:50] Fetching user role by user ID: 161
+[2025-02-23 17:48:50] User role fetched successfully for user ID: 161
+[2025-02-23 17:48:50] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:48:50] Running get_membership plan....in controller
+[2025-02-23 17:48:50] get membership plans running running...
+[2025-02-23 17:48:50] Membership plan model initialized with database connection.
+[2025-02-23 17:48:50] Fetching membership plan...
+[2025-02-23 17:48:51] Membership Plans fetched successfully
+[2025-02-23 17:48:51] Membership plans fetched
+[2025-02-23 17:48:51] Database connection closed.
+[2025-02-23 17:48:51] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:48:51] User class instantiated with database connection.
+[2025-02-23 17:48:51] Fetching user role by user ID: 161
+[2025-02-23 17:48:52] User role fetched successfully for user ID: 161
+[2025-02-23 17:48:52] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:48:52] Running get_subscription....in controller
+[2025-02-23 17:48:52] getSubscriptionOfAMember func running...
+[2025-02-23 17:48:52] Subscription model initialized with database connection.
+[2025-02-23 17:48:52] Member model initialized with database connection.
+[2025-02-23 17:48:52] Fetching member_id of a member by user id: 161
+[2025-02-23 17:48:52] Fetching subscription of a member: M15
+[2025-02-23 17:48:52] subscription fetched
+[2025-02-23 17:48:52] Database connection closed.
+[2025-02-23 17:48:55] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:48:55] User class instantiated with database connection.
+[2025-02-23 17:48:55] Fetching user role by user ID: 161
+[2025-02-23 17:48:55] User role fetched successfully for user ID: 161
+[2025-02-23 17:48:55] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:48:55] Running get_user_details....in controller
+[2025-02-23 17:48:55] get user details function running...
+[2025-02-23 17:48:55] Member model initialized with database connection.
+[2025-02-23 17:48:55] Fetching member details for user ID: 161
+[2025-02-23 17:48:55] Member details found for user ID: 161
+[2025-02-23 17:48:55] User details fetched
+[2025-02-23 17:48:55] Database connection closed.
+[2025-02-23 17:49:13] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:49:13] User class instantiated with database connection.
+[2025-02-23 17:49:13] Fetching user role by user ID: 161
+[2025-02-23 17:49:13] User role fetched successfully for user ID: 161
+[2025-02-23 17:49:13] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:49:13] Running get_membership plan....in controller
+[2025-02-23 17:49:13] get membership plans running running...
+[2025-02-23 17:49:13] Membership plan model initialized with database connection.
+[2025-02-23 17:49:13] Fetching membership plan...
+[2025-02-23 17:49:14] Membership Plans fetched successfully
+[2025-02-23 17:49:14] Membership plans fetched
+[2025-02-23 17:49:14] Database connection closed.
+[2025-02-23 17:49:14] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:49:14] User class instantiated with database connection.
+[2025-02-23 17:49:14] Fetching user role by user ID: 161
+[2025-02-23 17:49:15] User role fetched successfully for user ID: 161
+[2025-02-23 17:49:15] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:49:15] Running get_subscription....in controller
+[2025-02-23 17:49:15] getSubscriptionOfAMember func running...
+[2025-02-23 17:49:15] Subscription model initialized with database connection.
+[2025-02-23 17:49:15] Member model initialized with database connection.
+[2025-02-23 17:49:15] Fetching member_id of a member by user id: 161
+[2025-02-23 17:49:15] Fetching subscription of a member: M15
+[2025-02-23 17:49:16] subscription fetched
+[2025-02-23 17:49:16] Database connection closed.
+[2025-02-23 17:49:18] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:49:18] User class instantiated with database connection.
+[2025-02-23 17:49:18] Fetching user role by user ID: 161
+[2025-02-23 17:49:19] User role fetched successfully for user ID: 161
+[2025-02-23 17:49:19] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:49:19] Running get_user_details....in controller
+[2025-02-23 17:49:19] get user details function running...
+[2025-02-23 17:49:19] Member model initialized with database connection.
+[2025-02-23 17:49:19] Fetching member details for user ID: 161
+[2025-02-23 17:49:19] Member details found for user ID: 161
+[2025-02-23 17:49:19] User details fetched
+[2025-02-23 17:49:19] Database connection closed.
+[2025-02-23 17:55:48] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:55:48] User class instantiated with database connection.
+[2025-02-23 17:55:48] Fetching user role by user ID: 161
+[2025-02-23 17:55:49] User role fetched successfully for user ID: 161
+[2025-02-23 17:55:49] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:55:49] Running get_membership plan....in controller
+[2025-02-23 17:55:49] get membership plans running running...
+[2025-02-23 17:55:49] Membership plan model initialized with database connection.
+[2025-02-23 17:55:49] Fetching membership plan...
+[2025-02-23 17:55:49] Membership Plans fetched successfully
+[2025-02-23 17:55:49] Membership plans fetched
+[2025-02-23 17:55:49] Database connection closed.
+[2025-02-23 17:55:49] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:55:49] User class instantiated with database connection.
+[2025-02-23 17:55:49] Fetching user role by user ID: 161
+[2025-02-23 17:55:50] User role fetched successfully for user ID: 161
+[2025-02-23 17:55:50] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:55:50] Running get_subscription....in controller
+[2025-02-23 17:55:50] getSubscriptionOfAMember func running...
+[2025-02-23 17:55:50] Subscription model initialized with database connection.
+[2025-02-23 17:55:50] Member model initialized with database connection.
+[2025-02-23 17:55:50] Fetching member_id of a member by user id: 161
+[2025-02-23 17:55:50] Fetching subscription of a member: M15
+[2025-02-23 17:55:50] subscription fetched
+[2025-02-23 17:55:50] Database connection closed.
+[2025-02-23 17:55:53] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:55:53] User class instantiated with database connection.
+[2025-02-23 17:55:53] Fetching user role by user ID: 161
+[2025-02-23 17:55:53] User role fetched successfully for user ID: 161
+[2025-02-23 17:55:53] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:55:53] Running get_user_details....in controller
+[2025-02-23 17:55:53] get user details function running...
+[2025-02-23 17:55:53] Member model initialized with database connection.
+[2025-02-23 17:55:53] Fetching member details for user ID: 161
+[2025-02-23 17:55:54] Member details found for user ID: 161
+[2025-02-23 17:55:54] User details fetched
+[2025-02-23 17:55:54] Database connection closed.
+[2025-02-23 17:55:54] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:55:54] User class instantiated with database connection.
+[2025-02-23 17:55:54] Fetching user role by user ID: 161
+[2025-02-23 17:55:54] User role fetched successfully for user ID: 161
+[2025-02-23 17:55:54] Running member controller ,generate_payment_hash token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:55:54] Running generate_payment_hash....in controller
+[2025-02-23 17:55:54] Database connection closed.
+[2025-02-23 17:57:10] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:57:10] User class instantiated with database connection.
+[2025-02-23 17:57:10] Fetching user role by user ID: 161
+[2025-02-23 17:57:10] User role fetched successfully for user ID: 161
+[2025-02-23 17:57:10] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:57:10] Running get_membership plan....in controller
+[2025-02-23 17:57:10] get membership plans running running...
+[2025-02-23 17:57:10] Membership plan model initialized with database connection.
+[2025-02-23 17:57:10] Fetching membership plan...
+[2025-02-23 17:57:11] Membership Plans fetched successfully
+[2025-02-23 17:57:11] Membership plans fetched
+[2025-02-23 17:57:11] Database connection closed.
+[2025-02-23 17:57:11] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:57:11] User class instantiated with database connection.
+[2025-02-23 17:57:11] Fetching user role by user ID: 161
+[2025-02-23 17:57:12] User role fetched successfully for user ID: 161
+[2025-02-23 17:57:12] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:57:12] Running get_subscription....in controller
+[2025-02-23 17:57:12] getSubscriptionOfAMember func running...
+[2025-02-23 17:57:12] Subscription model initialized with database connection.
+[2025-02-23 17:57:12] Member model initialized with database connection.
+[2025-02-23 17:57:12] Fetching member_id of a member by user id: 161
+[2025-02-23 17:57:12] Fetching subscription of a member: M15
+[2025-02-23 17:57:12] subscription fetched
+[2025-02-23 17:57:12] Database connection closed.
+[2025-02-23 17:57:15] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:57:15] User class instantiated with database connection.
+[2025-02-23 17:57:15] Fetching user role by user ID: 161
+[2025-02-23 17:57:16] User role fetched successfully for user ID: 161
+[2025-02-23 17:57:16] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:57:16] Running get_user_details....in controller
+[2025-02-23 17:57:16] get user details function running...
+[2025-02-23 17:57:16] Member model initialized with database connection.
+[2025-02-23 17:57:16] Fetching member details for user ID: 161
+[2025-02-23 17:57:16] Member details found for user ID: 161
+[2025-02-23 17:57:16] User details fetched
+[2025-02-23 17:57:16] Database connection closed.
+[2025-02-23 17:57:17] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:57:17] User class instantiated with database connection.
+[2025-02-23 17:57:17] Fetching user role by user ID: 161
+[2025-02-23 17:57:17] User role fetched successfully for user ID: 161
+[2025-02-23 17:57:17] Running member controller ,generate_payment_hash token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:57:17] Running generate_payment_hash....in controller
+[2025-02-23 17:57:17] Hash generated: 6BFD738AC30527B6D84ABE8AD5FA35EF
+[2025-02-23 17:57:17] Database connection closed.
+[2025-02-23 17:57:42] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:57:42] User class instantiated with database connection.
+[2025-02-23 17:57:42] Fetching user role by user ID: 161
+[2025-02-23 17:57:42] User role fetched successfully for user ID: 161
+[2025-02-23 17:57:42] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:57:42] Running get_membership plan....in controller
+[2025-02-23 17:57:42] get membership plans running running...
+[2025-02-23 17:57:42] Membership plan model initialized with database connection.
+[2025-02-23 17:57:42] Fetching membership plan...
+[2025-02-23 17:57:42] Membership Plans fetched successfully
+[2025-02-23 17:57:42] Membership plans fetched
+[2025-02-23 17:57:42] Database connection closed.
+[2025-02-23 17:57:43] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:57:43] User class instantiated with database connection.
+[2025-02-23 17:57:43] Fetching user role by user ID: 161
+[2025-02-23 17:57:43] User role fetched successfully for user ID: 161
+[2025-02-23 17:57:43] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:57:43] Running get_subscription....in controller
+[2025-02-23 17:57:43] getSubscriptionOfAMember func running...
+[2025-02-23 17:57:43] Subscription model initialized with database connection.
+[2025-02-23 17:57:43] Member model initialized with database connection.
+[2025-02-23 17:57:43] Fetching member_id of a member by user id: 161
+[2025-02-23 17:57:43] Fetching subscription of a member: M15
+[2025-02-23 17:57:44] subscription fetched
+[2025-02-23 17:57:44] Database connection closed.
+[2025-02-23 17:57:46] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:57:46] User class instantiated with database connection.
+[2025-02-23 17:57:46] Fetching user role by user ID: 161
+[2025-02-23 17:57:46] User role fetched successfully for user ID: 161
+[2025-02-23 17:57:46] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:57:46] Running get_membership plan....in controller
+[2025-02-23 17:57:46] get membership plans running running...
+[2025-02-23 17:57:46] Membership plan model initialized with database connection.
+[2025-02-23 17:57:46] Fetching membership plan...
+[2025-02-23 17:57:47] Membership Plans fetched successfully
+[2025-02-23 17:57:47] Membership plans fetched
+[2025-02-23 17:57:47] Database connection closed.
+[2025-02-23 17:57:47] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:57:47] User class instantiated with database connection.
+[2025-02-23 17:57:47] Fetching user role by user ID: 161
+[2025-02-23 17:57:47] User role fetched successfully for user ID: 161
+[2025-02-23 17:57:47] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:57:47] Running get_subscription....in controller
+[2025-02-23 17:57:47] getSubscriptionOfAMember func running...
+[2025-02-23 17:57:47] Subscription model initialized with database connection.
+[2025-02-23 17:57:47] Member model initialized with database connection.
+[2025-02-23 17:57:47] Fetching member_id of a member by user id: 161
+[2025-02-23 17:57:48] Fetching subscription of a member: M15
+[2025-02-23 17:57:48] subscription fetched
+[2025-02-23 17:57:48] Database connection closed.
+[2025-02-23 17:57:51] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:57:51] User class instantiated with database connection.
+[2025-02-23 17:57:51] Fetching user role by user ID: 161
+[2025-02-23 17:57:52] User role fetched successfully for user ID: 161
+[2025-02-23 17:57:52] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:57:52] Running get_user_details....in controller
+[2025-02-23 17:57:52] get user details function running...
+[2025-02-23 17:57:52] Member model initialized with database connection.
+[2025-02-23 17:57:52] Fetching member details for user ID: 161
+[2025-02-23 17:57:52] Member details found for user ID: 161
+[2025-02-23 17:57:52] User details fetched
+[2025-02-23 17:57:52] Database connection closed.
+[2025-02-23 17:57:52] Connection established successfully to the database: rad_gymverse
+[2025-02-23 17:57:52] User class instantiated with database connection.
+[2025-02-23 17:57:52] Fetching user role by user ID: 161
+[2025-02-23 17:57:53] User role fetched successfully for user ID: 161
+[2025-02-23 17:57:53] Running member controller ,generate_payment_hash token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMDAwMH0=.b852376c93445875cc3818d69d224f0f37635263bf85f4ecafecae7b22322de3   id - 161 
+[2025-02-23 17:57:53] Running generate_payment_hash....in controller
+[2025-02-23 17:57:53] Hash generated: 99244C918DAAC30298AB79076A193992
+[2025-02-23 17:57:53] Database connection closed.
+[2025-02-23 18:03:09] Running auth controller ,login 
+[2025-02-23 18:03:09] running login...in auth controller
+[2025-02-23 18:03:09] login function running...
+[2025-02-23 18:03:10] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:03:10] User class instantiated with database connection.
+[2025-02-23 18:03:10] User Login model running for: tevin@gmail.com
+[2025-02-23 18:03:10] Query bound and ready to execute for login: tevin@gmail.com
+[2025-02-23 18:03:10] User login successful: tevin@gmail.com with role: member
+[2025-02-23 18:03:10] Login Successful: eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc member
+[2025-02-23 18:03:10] Database connection closed.
+[2025-02-23 18:03:12] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:03:12] User class instantiated with database connection.
+[2025-02-23 18:03:12] Fetching user role by user ID: 161
+[2025-02-23 18:03:13] User role fetched successfully for user ID: 161
+[2025-02-23 18:03:13] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:03:13] Running get_membership plan....in controller
+[2025-02-23 18:03:13] get membership plans running running...
+[2025-02-23 18:03:13] Membership plan model initialized with database connection.
+[2025-02-23 18:03:13] Fetching membership plan...
+[2025-02-23 18:03:13] Membership Plans fetched successfully
+[2025-02-23 18:03:13] Membership plans fetched
+[2025-02-23 18:03:13] Database connection closed.
+[2025-02-23 18:03:14] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:03:14] User class instantiated with database connection.
+[2025-02-23 18:03:14] Fetching user role by user ID: 161
+[2025-02-23 18:03:14] User role fetched successfully for user ID: 161
+[2025-02-23 18:03:14] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:03:14] Running get_subscription....in controller
+[2025-02-23 18:03:14] getSubscriptionOfAMember func running...
+[2025-02-23 18:03:14] Subscription model initialized with database connection.
+[2025-02-23 18:03:14] Member model initialized with database connection.
+[2025-02-23 18:03:14] Fetching member_id of a member by user id: 161
+[2025-02-23 18:03:14] Fetching subscription of a member: M15
+[2025-02-23 18:03:15] subscription fetched
+[2025-02-23 18:03:15] Database connection closed.
+[2025-02-23 18:03:17] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:03:17] User class instantiated with database connection.
+[2025-02-23 18:03:17] Fetching user role by user ID: 161
+[2025-02-23 18:03:17] User role fetched successfully for user ID: 161
+[2025-02-23 18:03:17] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:03:17] Running get_user_details....in controller
+[2025-02-23 18:03:17] get user details function running...
+[2025-02-23 18:03:17] Member model initialized with database connection.
+[2025-02-23 18:03:17] Fetching member details for user ID: 161
+[2025-02-23 18:03:18] Member details found for user ID: 161
+[2025-02-23 18:03:18] User details fetched
+[2025-02-23 18:03:18] Database connection closed.
+[2025-02-23 18:03:18] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:03:18] User class instantiated with database connection.
+[2025-02-23 18:03:18] Fetching user role by user ID: 161
+[2025-02-23 18:03:19] User role fetched successfully for user ID: 161
+[2025-02-23 18:03:19] Running member controller ,generate_payment_hash token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:03:19] Running generate_payment_hash....in controller
+[2025-02-23 18:03:19] Hash generated: C717B799A87B64C16574F43254E640EE
+[2025-02-23 18:03:19] Database connection closed.
+[2025-02-23 18:03:52] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:03:52] User class instantiated with database connection.
+[2025-02-23 18:03:52] Fetching user role by user ID: 161
+[2025-02-23 18:03:52] User role fetched successfully for user ID: 161
+[2025-02-23 18:03:52] Running member controller ,confirm_payment token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:03:52] Running confirm_payment....in controller
+[2025-02-23 18:03:52] Database connection closed.
+[2025-02-23 18:38:06] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:38:06] User class instantiated with database connection.
+[2025-02-23 18:38:06] Fetching user role by user ID: 161
+[2025-02-23 18:38:07] User role fetched successfully for user ID: 161
+[2025-02-23 18:38:07] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:38:07] Running get_membership plan....in controller
+[2025-02-23 18:38:07] get membership plans running running...
+[2025-02-23 18:38:07] Membership plan model initialized with database connection.
+[2025-02-23 18:38:07] Fetching membership plan...
+[2025-02-23 18:38:07] Membership Plans fetched successfully
+[2025-02-23 18:38:07] Membership plans fetched
+[2025-02-23 18:38:07] Database connection closed.
+[2025-02-23 18:38:08] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:38:08] User class instantiated with database connection.
+[2025-02-23 18:38:08] Fetching user role by user ID: 161
+[2025-02-23 18:38:08] User role fetched successfully for user ID: 161
+[2025-02-23 18:38:08] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:38:08] Running get_subscription....in controller
+[2025-02-23 18:38:08] getSubscriptionOfAMember func running...
+[2025-02-23 18:38:08] Subscription model initialized with database connection.
+[2025-02-23 18:38:08] Member model initialized with database connection.
+[2025-02-23 18:38:08] Fetching member_id of a member by user id: 161
+[2025-02-23 18:38:08] Fetching subscription of a member: M15
+[2025-02-23 18:38:09] subscription fetched
+[2025-02-23 18:38:09] Database connection closed.
+[2025-02-23 18:38:15] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:38:15] User class instantiated with database connection.
+[2025-02-23 18:38:15] Fetching user role by user ID: 161
+[2025-02-23 18:38:16] User role fetched successfully for user ID: 161
+[2025-02-23 18:38:16] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:38:16] Running get_user_details....in controller
+[2025-02-23 18:38:16] get user details function running...
+[2025-02-23 18:38:16] Member model initialized with database connection.
+[2025-02-23 18:38:16] Fetching member details for user ID: 161
+[2025-02-23 18:38:16] Member details found for user ID: 161
+[2025-02-23 18:38:16] User details fetched
+[2025-02-23 18:38:16] Database connection closed.
+[2025-02-23 18:38:16] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:38:16] User class instantiated with database connection.
+[2025-02-23 18:38:16] Fetching user role by user ID: 161
+[2025-02-23 18:38:17] User role fetched successfully for user ID: 161
+[2025-02-23 18:38:17] Running member controller ,generate_payment_hash token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:38:17] Running generate_payment_hash....in controller
+[2025-02-23 18:38:17] Hash generated: BF1EA0B63FF7CAD073DB6AE5645B3DF2
+[2025-02-23 18:38:17] Database connection closed.
+[2025-02-23 18:39:23] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:39:23] User class instantiated with database connection.
+[2025-02-23 18:39:23] Fetching user role by user ID: 161
+[2025-02-23 18:39:23] User role fetched successfully for user ID: 161
+[2025-02-23 18:39:23] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:39:23] Running get_user_details....in controller
+[2025-02-23 18:39:23] get user details function running...
+[2025-02-23 18:39:23] Member model initialized with database connection.
+[2025-02-23 18:39:23] Fetching member details for user ID: 161
+[2025-02-23 18:39:23] Member details found for user ID: 161
+[2025-02-23 18:39:23] User details fetched
+[2025-02-23 18:39:23] Database connection closed.
+[2025-02-23 18:39:24] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:39:24] User class instantiated with database connection.
+[2025-02-23 18:39:24] Fetching user role by user ID: 161
+[2025-02-23 18:39:24] User role fetched successfully for user ID: 161
+[2025-02-23 18:39:24] Running member controller ,generate_payment_hash token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:39:24] Running generate_payment_hash....in controller
+[2025-02-23 18:39:24] Hash generated: 5CCDAEE422EEA780ECCCD01D1D8D4894
+[2025-02-23 18:39:24] Database connection closed.
+[2025-02-23 18:46:59] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:46:59] User class instantiated with database connection.
+[2025-02-23 18:46:59] Fetching user role by user ID: 161
+[2025-02-23 18:47:00] User role fetched successfully for user ID: 161
+[2025-02-23 18:47:00] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:47:00] Running get_membership plan....in controller
+[2025-02-23 18:47:00] get membership plans running running...
+[2025-02-23 18:47:00] Membership plan model initialized with database connection.
+[2025-02-23 18:47:00] Fetching membership plan...
+[2025-02-23 18:47:00] Membership Plans fetched successfully
+[2025-02-23 18:47:00] Membership plans fetched
+[2025-02-23 18:47:00] Database connection closed.
+[2025-02-23 18:47:01] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:47:01] User class instantiated with database connection.
+[2025-02-23 18:47:01] Fetching user role by user ID: 161
+[2025-02-23 18:47:01] User role fetched successfully for user ID: 161
+[2025-02-23 18:47:01] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:47:01] Running get_subscription....in controller
+[2025-02-23 18:47:01] getSubscriptionOfAMember func running...
+[2025-02-23 18:47:01] Subscription model initialized with database connection.
+[2025-02-23 18:47:01] Member model initialized with database connection.
+[2025-02-23 18:47:01] Fetching member_id of a member by user id: 161
+[2025-02-23 18:47:01] Fetching subscription of a member: M15
+[2025-02-23 18:47:02] subscription fetched
+[2025-02-23 18:47:02] Database connection closed.
+[2025-02-23 18:47:04] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:47:04] User class instantiated with database connection.
+[2025-02-23 18:47:04] Fetching user role by user ID: 161
+[2025-02-23 18:47:04] User role fetched successfully for user ID: 161
+[2025-02-23 18:47:04] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:47:04] Running get_user_details....in controller
+[2025-02-23 18:47:04] get user details function running...
+[2025-02-23 18:47:04] Member model initialized with database connection.
+[2025-02-23 18:47:04] Fetching member details for user ID: 161
+[2025-02-23 18:47:05] Member details found for user ID: 161
+[2025-02-23 18:47:05] User details fetched
+[2025-02-23 18:47:05] Database connection closed.
+[2025-02-23 18:47:05] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:47:05] User class instantiated with database connection.
+[2025-02-23 18:47:05] Fetching user role by user ID: 161
+[2025-02-23 18:47:06] User role fetched successfully for user ID: 161
+[2025-02-23 18:47:06] Running member controller ,generate_payment_hash token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:47:06] Running generate_payment_hash....in controller
+[2025-02-23 18:47:06] Hash generated: AE77ECF3266D0BC4246073682EEE7B54
+[2025-02-23 18:47:06] Database connection closed.
+[2025-02-23 18:49:48] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:49:48] User class instantiated with database connection.
+[2025-02-23 18:49:48] Fetching user role by user ID: 161
+[2025-02-23 18:49:49] User role fetched successfully for user ID: 161
+[2025-02-23 18:49:49] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:49:49] Running get_membership plan....in controller
+[2025-02-23 18:49:49] get membership plans running running...
+[2025-02-23 18:49:49] Membership plan model initialized with database connection.
+[2025-02-23 18:49:49] Fetching membership plan...
+[2025-02-23 18:49:49] Membership Plans fetched successfully
+[2025-02-23 18:49:49] Membership plans fetched
+[2025-02-23 18:49:49] Database connection closed.
+[2025-02-23 18:49:49] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:49:49] User class instantiated with database connection.
+[2025-02-23 18:49:49] Fetching user role by user ID: 161
+[2025-02-23 18:49:50] User role fetched successfully for user ID: 161
+[2025-02-23 18:49:50] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:49:50] Running get_subscription....in controller
+[2025-02-23 18:49:50] getSubscriptionOfAMember func running...
+[2025-02-23 18:49:50] Subscription model initialized with database connection.
+[2025-02-23 18:49:50] Member model initialized with database connection.
+[2025-02-23 18:49:50] Fetching member_id of a member by user id: 161
+[2025-02-23 18:49:50] Fetching subscription of a member: M15
+[2025-02-23 18:49:51] subscription fetched
+[2025-02-23 18:49:51] Database connection closed.
+[2025-02-23 18:49:53] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:49:53] User class instantiated with database connection.
+[2025-02-23 18:49:53] Fetching user role by user ID: 161
+[2025-02-23 18:49:53] User role fetched successfully for user ID: 161
+[2025-02-23 18:49:53] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:49:53] Running get_user_details....in controller
+[2025-02-23 18:49:53] get user details function running...
+[2025-02-23 18:49:53] Member model initialized with database connection.
+[2025-02-23 18:49:53] Fetching member details for user ID: 161
+[2025-02-23 18:49:54] Member details found for user ID: 161
+[2025-02-23 18:49:54] User details fetched
+[2025-02-23 18:49:54] Database connection closed.
+[2025-02-23 18:49:54] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:49:54] User class instantiated with database connection.
+[2025-02-23 18:49:54] Fetching user role by user ID: 161
+[2025-02-23 18:49:54] User role fetched successfully for user ID: 161
+[2025-02-23 18:49:54] Running member controller ,generate_payment_hash token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:49:54] Running generate_payment_hash....in controller
+[2025-02-23 18:49:54] Hash generated: B08B454FC362AA85FD02E686031F4A1D
+[2025-02-23 18:49:54] Database connection closed.
+[2025-02-23 18:50:20] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:50:20] User class instantiated with database connection.
+[2025-02-23 18:50:20] Fetching user role by user ID: 161
+[2025-02-23 18:50:21] User role fetched successfully for user ID: 161
+[2025-02-23 18:50:21] Running member controller ,confirm_payment token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:50:21] Running confirm_payment....in controller
+[2025-02-23 18:50:21] confirmPayment function running...
+[2025-02-23 18:50:21] Database connection closed.
+[2025-02-23 18:56:18] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:56:18] User class instantiated with database connection.
+[2025-02-23 18:56:18] Fetching user role by user ID: 161
+[2025-02-23 18:56:18] User role fetched successfully for user ID: 161
+[2025-02-23 18:56:18] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:56:18] Running get_membership plan....in controller
+[2025-02-23 18:56:18] get membership plans running running...
+[2025-02-23 18:56:18] Membership plan model initialized with database connection.
+[2025-02-23 18:56:18] Fetching membership plan...
+[2025-02-23 18:56:18] Membership Plans fetched successfully
+[2025-02-23 18:56:18] Membership plans fetched
+[2025-02-23 18:56:18] Database connection closed.
+[2025-02-23 18:56:19] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:56:19] User class instantiated with database connection.
+[2025-02-23 18:56:19] Fetching user role by user ID: 161
+[2025-02-23 18:56:19] User role fetched successfully for user ID: 161
+[2025-02-23 18:56:19] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:56:19] Running get_subscription....in controller
+[2025-02-23 18:56:19] getSubscriptionOfAMember func running...
+[2025-02-23 18:56:19] Subscription model initialized with database connection.
+[2025-02-23 18:56:19] Member model initialized with database connection.
+[2025-02-23 18:56:19] Fetching member_id of a member by user id: 161
+[2025-02-23 18:56:20] Fetching subscription of a member: M15
+[2025-02-23 18:56:20] subscription fetched
+[2025-02-23 18:56:20] Database connection closed.
+[2025-02-23 18:56:24] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:56:24] User class instantiated with database connection.
+[2025-02-23 18:56:24] Fetching user role by user ID: 161
+[2025-02-23 18:56:25] User role fetched successfully for user ID: 161
+[2025-02-23 18:56:25] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:56:25] Running get_user_details....in controller
+[2025-02-23 18:56:25] get user details function running...
+[2025-02-23 18:56:25] Member model initialized with database connection.
+[2025-02-23 18:56:25] Fetching member details for user ID: 161
+[2025-02-23 18:56:25] Member details found for user ID: 161
+[2025-02-23 18:56:25] User details fetched
+[2025-02-23 18:56:25] Database connection closed.
+[2025-02-23 18:56:26] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:56:26] User class instantiated with database connection.
+[2025-02-23 18:56:26] Fetching user role by user ID: 161
+[2025-02-23 18:56:26] User role fetched successfully for user ID: 161
+[2025-02-23 18:56:26] Running member controller ,generate_payment_hash token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:56:26] Running generate_payment_hash....in controller
+[2025-02-23 18:56:26] Hash generated: 66BAEFAF979980030F9B6263FBEEC096
+[2025-02-23 18:56:26] Database connection closed.
+[2025-02-23 18:56:57] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:56:57] User class instantiated with database connection.
+[2025-02-23 18:56:57] Fetching user role by user ID: 161
+[2025-02-23 18:56:57] User role fetched successfully for user ID: 161
+[2025-02-23 18:56:57] Running member controller ,confirm_payment token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:56:57] Running confirm_payment....in controller
+[2025-02-23 18:56:57] confirmPayment function running...
+[2025-02-23 18:56:57] Payment model initialized with database connection.
+[2025-02-23 18:56:57] Database connection closed.
+[2025-02-23 18:59:22] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:59:22] User class instantiated with database connection.
+[2025-02-23 18:59:22] Fetching user role by user ID: 161
+[2025-02-23 18:59:22] User role fetched successfully for user ID: 161
+[2025-02-23 18:59:22] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:59:22] Running get_membership plan....in controller
+[2025-02-23 18:59:22] get membership plans running running...
+[2025-02-23 18:59:22] Membership plan model initialized with database connection.
+[2025-02-23 18:59:22] Fetching membership plan...
+[2025-02-23 18:59:23] Membership Plans fetched successfully
+[2025-02-23 18:59:23] Membership plans fetched
+[2025-02-23 18:59:23] Database connection closed.
+[2025-02-23 18:59:23] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:59:23] User class instantiated with database connection.
+[2025-02-23 18:59:23] Fetching user role by user ID: 161
+[2025-02-23 18:59:24] User role fetched successfully for user ID: 161
+[2025-02-23 18:59:24] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:59:24] Running get_subscription....in controller
+[2025-02-23 18:59:24] getSubscriptionOfAMember func running...
+[2025-02-23 18:59:24] Subscription model initialized with database connection.
+[2025-02-23 18:59:24] Member model initialized with database connection.
+[2025-02-23 18:59:24] Fetching member_id of a member by user id: 161
+[2025-02-23 18:59:24] Fetching subscription of a member: M15
+[2025-02-23 18:59:24] subscription fetched
+[2025-02-23 18:59:24] Database connection closed.
+[2025-02-23 18:59:29] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:59:29] User class instantiated with database connection.
+[2025-02-23 18:59:29] Fetching user role by user ID: 161
+[2025-02-23 18:59:29] User role fetched successfully for user ID: 161
+[2025-02-23 18:59:29] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:59:29] Running get_user_details....in controller
+[2025-02-23 18:59:29] get user details function running...
+[2025-02-23 18:59:29] Member model initialized with database connection.
+[2025-02-23 18:59:29] Fetching member details for user ID: 161
+[2025-02-23 18:59:30] Member details found for user ID: 161
+[2025-02-23 18:59:30] User details fetched
+[2025-02-23 18:59:30] Database connection closed.
+[2025-02-23 18:59:30] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:59:30] User class instantiated with database connection.
+[2025-02-23 18:59:30] Fetching user role by user ID: 161
+[2025-02-23 18:59:31] User role fetched successfully for user ID: 161
+[2025-02-23 18:59:31] Running member controller ,generate_payment_hash token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:59:31] Running generate_payment_hash....in controller
+[2025-02-23 18:59:31] Hash generated: D298834C0620CFAD1AF207EE9F9AA4B1
+[2025-02-23 18:59:31] Database connection closed.
+[2025-02-23 18:59:59] Connection established successfully to the database: rad_gymverse
+[2025-02-23 18:59:59] User class instantiated with database connection.
+[2025-02-23 18:59:59] Fetching user role by user ID: 161
+[2025-02-23 18:59:59] User role fetched successfully for user ID: 161
+[2025-02-23 18:59:59] Running member controller ,confirm_payment token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzMzYwMH0=.e37a9e0bf911dac2dc7e0ef791fdbbba55626887a363809cfdd04d38192bf5dc   id - 161 
+[2025-02-23 18:59:59] Running confirm_payment....in controller
+[2025-02-23 18:59:59] confirmPayment function running...
+[2025-02-23 18:59:59] Payment model initialized
+[2025-02-23 18:59:59] Adding new payment record...
+[2025-02-23 19:00:00] Query bound for adding payment with payment_id: ORDER_1740333570149
+[2025-02-23 19:00:00] Database connection closed.
+[2025-02-23 19:02:41] Running auth controller ,login 
+[2025-02-23 19:02:41] running login...in auth controller
+[2025-02-23 19:02:41] login function running...
+[2025-02-23 19:02:41] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:02:41] User class instantiated with database connection.
+[2025-02-23 19:02:41] User Login model running for: tevin@gmail.com
+[2025-02-23 19:02:41] Query bound and ready to execute for login: tevin@gmail.com
+[2025-02-23 19:02:42] User login successful: tevin@gmail.com with role: member
+[2025-02-23 19:02:42] Login Successful: eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616 member
+[2025-02-23 19:02:42] Database connection closed.
+[2025-02-23 19:02:45] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:02:45] User class instantiated with database connection.
+[2025-02-23 19:02:45] Fetching user role by user ID: 161
+[2025-02-23 19:02:46] User role fetched successfully for user ID: 161
+[2025-02-23 19:02:46] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:02:46] Running get_membership plan....in controller
+[2025-02-23 19:02:46] get membership plans running running...
+[2025-02-23 19:02:46] Membership plan model initialized with database connection.
+[2025-02-23 19:02:46] Fetching membership plan...
+[2025-02-23 19:02:46] Membership Plans fetched successfully
+[2025-02-23 19:02:46] Membership plans fetched
+[2025-02-23 19:02:46] Database connection closed.
+[2025-02-23 19:02:46] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:02:46] User class instantiated with database connection.
+[2025-02-23 19:02:46] Fetching user role by user ID: 161
+[2025-02-23 19:02:47] User role fetched successfully for user ID: 161
+[2025-02-23 19:02:47] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:02:47] Running get_subscription....in controller
+[2025-02-23 19:02:47] getSubscriptionOfAMember func running...
+[2025-02-23 19:02:47] Subscription model initialized with database connection.
+[2025-02-23 19:02:47] Member model initialized with database connection.
+[2025-02-23 19:02:47] Fetching member_id of a member by user id: 161
+[2025-02-23 19:02:47] Fetching subscription of a member: M15
+[2025-02-23 19:02:47] subscription fetched
+[2025-02-23 19:02:47] Database connection closed.
+[2025-02-23 19:02:52] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:02:52] User class instantiated with database connection.
+[2025-02-23 19:02:52] Fetching user role by user ID: 161
+[2025-02-23 19:02:53] User role fetched successfully for user ID: 161
+[2025-02-23 19:02:53] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:02:53] Running get_user_details....in controller
+[2025-02-23 19:02:53] get user details function running...
+[2025-02-23 19:02:53] Member model initialized with database connection.
+[2025-02-23 19:02:53] Fetching member details for user ID: 161
+[2025-02-23 19:02:53] Member details found for user ID: 161
+[2025-02-23 19:02:53] User details fetched
+[2025-02-23 19:02:53] Database connection closed.
+[2025-02-23 19:02:54] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:02:54] User class instantiated with database connection.
+[2025-02-23 19:02:54] Fetching user role by user ID: 161
+[2025-02-23 19:02:54] User role fetched successfully for user ID: 161
+[2025-02-23 19:02:54] Running member controller ,generate_payment_hash token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:02:54] Running generate_payment_hash....in controller
+[2025-02-23 19:02:54] Hash generated: 0DDFC1DD4B3612AD06B332C9A3A776A5
+[2025-02-23 19:02:54] Database connection closed.
+[2025-02-23 19:03:19] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:03:19] User class instantiated with database connection.
+[2025-02-23 19:03:19] Fetching user role by user ID: 161
+[2025-02-23 19:03:19] User role fetched successfully for user ID: 161
+[2025-02-23 19:03:19] Running member controller ,confirm_payment token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:03:19] Running confirm_payment....in controller
+[2025-02-23 19:03:19] confirmPayment function running...
+[2025-02-23 19:03:19] Payment model initialized
+[2025-02-23 19:03:19] Adding new payment record...
+[2025-02-23 19:03:20] Query bound for adding payment with payment_id: ORDER_1740333773475
+[2025-02-23 19:03:20] Database connection closed.
+[2025-02-23 19:05:17] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:05:17] User class instantiated with database connection.
+[2025-02-23 19:05:17] Fetching user role by user ID: 161
+[2025-02-23 19:05:18] User role fetched successfully for user ID: 161
+[2025-02-23 19:05:18] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:05:18] Running get_membership plan....in controller
+[2025-02-23 19:05:18] get membership plans running running...
+[2025-02-23 19:05:18] Membership plan model initialized with database connection.
+[2025-02-23 19:05:18] Fetching membership plan...
+[2025-02-23 19:05:18] Membership Plans fetched successfully
+[2025-02-23 19:05:18] Membership plans fetched
+[2025-02-23 19:05:18] Database connection closed.
+[2025-02-23 19:05:19] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:05:19] User class instantiated with database connection.
+[2025-02-23 19:05:19] Fetching user role by user ID: 161
+[2025-02-23 19:05:19] User role fetched successfully for user ID: 161
+[2025-02-23 19:05:19] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:05:19] Running get_subscription....in controller
+[2025-02-23 19:05:19] getSubscriptionOfAMember func running...
+[2025-02-23 19:05:19] Subscription model initialized with database connection.
+[2025-02-23 19:05:19] Member model initialized with database connection.
+[2025-02-23 19:05:19] Fetching member_id of a member by user id: 161
+[2025-02-23 19:05:19] Fetching subscription of a member: M15
+[2025-02-23 19:05:20] subscription fetched
+[2025-02-23 19:05:20] Database connection closed.
+[2025-02-23 19:05:23] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:05:23] User class instantiated with database connection.
+[2025-02-23 19:05:23] Fetching user role by user ID: 161
+[2025-02-23 19:05:23] User role fetched successfully for user ID: 161
+[2025-02-23 19:05:23] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:05:23] Running get_user_details....in controller
+[2025-02-23 19:05:23] get user details function running...
+[2025-02-23 19:05:23] Member model initialized with database connection.
+[2025-02-23 19:05:23] Fetching member details for user ID: 161
+[2025-02-23 19:05:23] Member details found for user ID: 161
+[2025-02-23 19:05:23] User details fetched
+[2025-02-23 19:05:23] Database connection closed.
+[2025-02-23 19:05:24] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:05:24] User class instantiated with database connection.
+[2025-02-23 19:05:24] Fetching user role by user ID: 161
+[2025-02-23 19:05:24] User role fetched successfully for user ID: 161
+[2025-02-23 19:05:24] Running member controller ,generate_payment_hash token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:05:24] Running generate_payment_hash....in controller
+[2025-02-23 19:05:24] Hash generated: DF8EA2C5301A8743110834D94B9F7830
+[2025-02-23 19:05:24] Database connection closed.
+[2025-02-23 19:05:51] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:05:51] User class instantiated with database connection.
+[2025-02-23 19:05:51] Fetching user role by user ID: 161
+[2025-02-23 19:05:52] User role fetched successfully for user ID: 161
+[2025-02-23 19:05:52] Running member controller ,confirm_payment token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:05:52] Running confirm_payment....in controller
+[2025-02-23 19:05:52] confirmPayment function running...
+[2025-02-23 19:05:52] Payment model initialized
+[2025-02-23 19:05:52] Adding new payment record...
+[2025-02-23 19:05:52] Query bound for adding payment with payment_id: ORDER_1740333923921
+[2025-02-23 19:05:52] Database connection closed.
+[2025-02-23 19:08:30] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:08:30] User class instantiated with database connection.
+[2025-02-23 19:08:30] Fetching user role by user ID: 161
+[2025-02-23 19:08:31] User role fetched successfully for user ID: 161
+[2025-02-23 19:08:31] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:08:31] Running get_membership plan....in controller
+[2025-02-23 19:08:31] get membership plans running running...
+[2025-02-23 19:08:31] Membership plan model initialized with database connection.
+[2025-02-23 19:08:31] Fetching membership plan...
+[2025-02-23 19:08:31] Membership Plans fetched successfully
+[2025-02-23 19:08:31] Membership plans fetched
+[2025-02-23 19:08:31] Database connection closed.
+[2025-02-23 19:08:32] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:08:32] User class instantiated with database connection.
+[2025-02-23 19:08:32] Fetching user role by user ID: 161
+[2025-02-23 19:08:32] User role fetched successfully for user ID: 161
+[2025-02-23 19:08:32] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:08:32] Running get_subscription....in controller
+[2025-02-23 19:08:32] getSubscriptionOfAMember func running...
+[2025-02-23 19:08:32] Subscription model initialized with database connection.
+[2025-02-23 19:08:32] Member model initialized with database connection.
+[2025-02-23 19:08:32] Fetching member_id of a member by user id: 161
+[2025-02-23 19:08:32] Fetching subscription of a member: M15
+[2025-02-23 19:08:33] subscription fetched
+[2025-02-23 19:08:33] Database connection closed.
+[2025-02-23 19:08:36] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:08:36] User class instantiated with database connection.
+[2025-02-23 19:08:36] Fetching user role by user ID: 161
+[2025-02-23 19:08:37] User role fetched successfully for user ID: 161
+[2025-02-23 19:08:37] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:08:37] Running get_user_details....in controller
+[2025-02-23 19:08:37] get user details function running...
+[2025-02-23 19:08:37] Member model initialized with database connection.
+[2025-02-23 19:08:37] Fetching member details for user ID: 161
+[2025-02-23 19:08:37] Member details found for user ID: 161
+[2025-02-23 19:08:37] User details fetched
+[2025-02-23 19:08:37] Database connection closed.
+[2025-02-23 19:08:38] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:08:38] User class instantiated with database connection.
+[2025-02-23 19:08:38] Fetching user role by user ID: 161
+[2025-02-23 19:08:38] User role fetched successfully for user ID: 161
+[2025-02-23 19:08:38] Running member controller ,generate_payment_hash token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:08:38] Running generate_payment_hash....in controller
+[2025-02-23 19:08:38] Hash generated: 943C4DC59F947156483A9F5E076EE5B9
+[2025-02-23 19:08:38] Database connection closed.
+[2025-02-23 19:09:06] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:09:06] User class instantiated with database connection.
+[2025-02-23 19:09:06] Fetching user role by user ID: 161
+[2025-02-23 19:09:06] User role fetched successfully for user ID: 161
+[2025-02-23 19:09:06] Running member controller ,confirm_payment token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:09:06] Running confirm_payment....in controller
+[2025-02-23 19:09:06] confirmPayment function running...
+[2025-02-23 19:09:06] Payment model initialized
+[2025-02-23 19:09:06] Adding new payment record...
+[2025-02-23 19:09:06] Query bound for adding payment with payment_id: ORDER_1740334117543
+[2025-02-23 19:09:07] Database connection closed.
+[2025-02-23 19:13:14] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:13:14] User class instantiated with database connection.
+[2025-02-23 19:13:14] Fetching user role by user ID: 161
+[2025-02-23 19:13:14] User role fetched successfully for user ID: 161
+[2025-02-23 19:13:14] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:13:14] Running get_user_details....in controller
+[2025-02-23 19:13:14] get user details function running...
+[2025-02-23 19:13:14] Member model initialized with database connection.
+[2025-02-23 19:13:14] Fetching member details for user ID: 161
+[2025-02-23 19:13:14] Member details found for user ID: 161
+[2025-02-23 19:13:14] User details fetched
+[2025-02-23 19:13:14] Database connection closed.
+[2025-02-23 19:13:15] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:13:15] User class instantiated with database connection.
+[2025-02-23 19:13:15] Fetching user role by user ID: 161
+[2025-02-23 19:13:15] User role fetched successfully for user ID: 161
+[2025-02-23 19:13:15] Running member controller ,generate_payment_hash token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:13:15] Running generate_payment_hash....in controller
+[2025-02-23 19:13:15] Hash generated: 6B14E406D547B76C42E6545C3FCFCA88
+[2025-02-23 19:13:15] Database connection closed.
+[2025-02-23 19:13:35] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:13:35] User class instantiated with database connection.
+[2025-02-23 19:13:35] Fetching user role by user ID: 161
+[2025-02-23 19:13:35] User role fetched successfully for user ID: 161
+[2025-02-23 19:13:35] Running member controller ,confirm_payment token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:13:35] Running confirm_payment....in controller
+[2025-02-23 19:13:35] confirmPayment function running...
+[2025-02-23 19:13:35] Payment model initialized
+[2025-02-23 19:13:35] Adding new payment record...
+[2025-02-23 19:13:36] Query bound for adding payment with payment_id: ORDER_1740334394992
+[2025-02-23 19:13:36] Database connection closed.
+[2025-02-23 19:16:27] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:16:27] User class instantiated with database connection.
+[2025-02-23 19:16:27] Fetching user role by user ID: 161
+[2025-02-23 19:16:27] User role fetched successfully for user ID: 161
+[2025-02-23 19:16:27] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:16:27] Running get_user_details....in controller
+[2025-02-23 19:16:27] get user details function running...
+[2025-02-23 19:16:27] Member model initialized with database connection.
+[2025-02-23 19:16:27] Fetching member details for user ID: 161
+[2025-02-23 19:16:27] Member details found for user ID: 161
+[2025-02-23 19:16:27] User details fetched
+[2025-02-23 19:16:27] Database connection closed.
+[2025-02-23 19:16:28] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:16:28] User class instantiated with database connection.
+[2025-02-23 19:16:28] Fetching user role by user ID: 161
+[2025-02-23 19:16:28] User role fetched successfully for user ID: 161
+[2025-02-23 19:16:28] Running member controller ,generate_payment_hash token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:16:28] Running generate_payment_hash....in controller
+[2025-02-23 19:16:28] Hash generated: 5359417744E9C70274DA007EF7454C3E
+[2025-02-23 19:16:28] Database connection closed.
+[2025-02-23 19:16:49] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:16:49] User class instantiated with database connection.
+[2025-02-23 19:16:49] Fetching user role by user ID: 161
+[2025-02-23 19:16:50] User role fetched successfully for user ID: 161
+[2025-02-23 19:16:50] Running member controller ,confirm_payment token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:16:50] Running confirm_payment....in controller
+[2025-02-23 19:16:50] confirmPayment function running...
+[2025-02-23 19:16:50] Payment model initialized
+[2025-02-23 19:16:50] Adding new payment record...
+[2025-02-23 19:16:50] Query bound for adding payment with payment_id: ORDER_1740334587843
+[2025-02-23 19:16:50] Executing query: INSERT INTO payments (membership_plan_id, user_id, payment_id, amount, currency, status, method)
+              VALUES (?, ?, ?, ?, ?, ?, ?)
+[2025-02-23 19:16:50] Database connection closed.
+[2025-02-23 19:21:15] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:21:15] User class instantiated with database connection.
+[2025-02-23 19:21:15] Fetching user role by user ID: 161
+[2025-02-23 19:21:15] User role fetched successfully for user ID: 161
+[2025-02-23 19:21:15] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:21:15] Running get_membership plan....in controller
+[2025-02-23 19:21:15] get membership plans running running...
+[2025-02-23 19:21:15] Membership plan model initialized with database connection.
+[2025-02-23 19:21:15] Fetching membership plan...
+[2025-02-23 19:21:16] Membership Plans fetched successfully
+[2025-02-23 19:21:16] Membership plans fetched
+[2025-02-23 19:21:16] Database connection closed.
+[2025-02-23 19:21:16] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:21:16] User class instantiated with database connection.
+[2025-02-23 19:21:16] Fetching user role by user ID: 161
+[2025-02-23 19:21:17] User role fetched successfully for user ID: 161
+[2025-02-23 19:21:17] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:21:17] Running get_subscription....in controller
+[2025-02-23 19:21:17] getSubscriptionOfAMember func running...
+[2025-02-23 19:21:17] Subscription model initialized with database connection.
+[2025-02-23 19:21:17] Member model initialized with database connection.
+[2025-02-23 19:21:17] Fetching member_id of a member by user id: 161
+[2025-02-23 19:21:17] Fetching subscription of a member: M15
+[2025-02-23 19:21:17] subscription fetched
+[2025-02-23 19:21:17] Database connection closed.
+[2025-02-23 19:21:20] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:21:20] User class instantiated with database connection.
+[2025-02-23 19:21:20] Fetching user role by user ID: 161
+[2025-02-23 19:21:21] User role fetched successfully for user ID: 161
+[2025-02-23 19:21:21] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:21:21] Running get_user_details....in controller
+[2025-02-23 19:21:21] get user details function running...
+[2025-02-23 19:21:21] Member model initialized with database connection.
+[2025-02-23 19:21:21] Fetching member details for user ID: 161
+[2025-02-23 19:21:21] Member details found for user ID: 161
+[2025-02-23 19:21:21] User details fetched
+[2025-02-23 19:21:21] Database connection closed.
+[2025-02-23 19:21:22] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:21:22] User class instantiated with database connection.
+[2025-02-23 19:21:22] Fetching user role by user ID: 161
+[2025-02-23 19:21:22] User role fetched successfully for user ID: 161
+[2025-02-23 19:21:22] Running member controller ,generate_payment_hash token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:21:22] Running generate_payment_hash....in controller
+[2025-02-23 19:21:22] Hash generated: F15DEE154CC687BA55F666F204DF0F9B
+[2025-02-23 19:21:22] Database connection closed.
+[2025-02-23 19:21:52] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:21:52] User class instantiated with database connection.
+[2025-02-23 19:21:52] Fetching user role by user ID: 161
+[2025-02-23 19:21:53] User role fetched successfully for user ID: 161
+[2025-02-23 19:21:53] Running member controller ,confirm_payment token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:21:53] Running confirm_payment....in controller
+[2025-02-23 19:21:53] confirmPayment function running...
+[2025-02-23 19:21:53] Payment model initialized
+[2025-02-23 19:21:53] Adding new payment record...
+[2025-02-23 19:21:53] parameters: MP2, 161, ORDER_1740334881617, 50.00, LKR, Sucess, PayHere
+[2025-02-23 19:21:53] Query bound for adding payment with payment_id: ORDER_1740334881617
+[2025-02-23 19:21:53] Database connection closed.
+[2025-02-23 19:23:15] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:23:15] User class instantiated with database connection.
+[2025-02-23 19:23:15] Fetching user role by user ID: 161
+[2025-02-23 19:23:16] User role fetched successfully for user ID: 161
+[2025-02-23 19:23:16] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:23:16] Running get_membership plan....in controller
+[2025-02-23 19:23:16] get membership plans running running...
+[2025-02-23 19:23:16] Membership plan model initialized with database connection.
+[2025-02-23 19:23:16] Fetching membership plan...
+[2025-02-23 19:23:16] Membership Plans fetched successfully
+[2025-02-23 19:23:16] Membership plans fetched
+[2025-02-23 19:23:16] Database connection closed.
+[2025-02-23 19:23:17] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:23:17] User class instantiated with database connection.
+[2025-02-23 19:23:17] Fetching user role by user ID: 161
+[2025-02-23 19:23:17] User role fetched successfully for user ID: 161
+[2025-02-23 19:23:17] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:23:17] Running get_subscription....in controller
+[2025-02-23 19:23:17] getSubscriptionOfAMember func running...
+[2025-02-23 19:23:17] Subscription model initialized with database connection.
+[2025-02-23 19:23:17] Member model initialized with database connection.
+[2025-02-23 19:23:17] Fetching member_id of a member by user id: 161
+[2025-02-23 19:23:17] Fetching subscription of a member: M15
+[2025-02-23 19:23:18] subscription fetched
+[2025-02-23 19:23:18] Database connection closed.
+[2025-02-23 19:23:20] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:23:20] User class instantiated with database connection.
+[2025-02-23 19:23:20] Fetching user role by user ID: 161
+[2025-02-23 19:23:20] User role fetched successfully for user ID: 161
+[2025-02-23 19:23:20] Running member controller ,get_user_details token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:23:20] Running get_user_details....in controller
+[2025-02-23 19:23:20] get user details function running...
+[2025-02-23 19:23:20] Member model initialized with database connection.
+[2025-02-23 19:23:20] Fetching member details for user ID: 161
+[2025-02-23 19:23:21] Member details found for user ID: 161
+[2025-02-23 19:23:21] User details fetched
+[2025-02-23 19:23:21] Database connection closed.
+[2025-02-23 19:23:21] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:23:21] User class instantiated with database connection.
+[2025-02-23 19:23:21] Fetching user role by user ID: 161
+[2025-02-23 19:23:22] User role fetched successfully for user ID: 161
+[2025-02-23 19:23:22] Running member controller ,generate_payment_hash token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:23:22] Running generate_payment_hash....in controller
+[2025-02-23 19:23:22] Hash generated: 82CE9D9EFD48D5932CF7A889527BC56B
+[2025-02-23 19:23:22] Database connection closed.
+[2025-02-23 19:23:41] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:23:41] User class instantiated with database connection.
+[2025-02-23 19:23:41] Fetching user role by user ID: 161
+[2025-02-23 19:23:41] User role fetched successfully for user ID: 161
+[2025-02-23 19:23:41] Running member controller ,confirm_payment token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:23:41] Running confirm_payment....in controller
+[2025-02-23 19:23:41] confirmPayment function running...
+[2025-02-23 19:23:41] Payment model initialized
+[2025-02-23 19:23:41] Adding new payment record...
+[2025-02-23 19:23:41] parameters: MP2, 161, ORDER_1740335001315, 50.00, LKR, Success, PayHere
+[2025-02-23 19:23:41] Query bound for adding payment with payment_id: ORDER_1740335001315
+[2025-02-23 19:23:42] Payment added successfully for payment_id: ORDER_1740335001315
+[2025-02-23 19:23:42] Payment confirmed for user : 161, payment_id: ORDER_1740335001315
+[2025-02-23 19:23:42] Database connection closed.
+[2025-02-23 19:23:50] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:23:50] User class instantiated with database connection.
+[2025-02-23 19:23:50] Fetching user role by user ID: 161
+[2025-02-23 19:23:50] User role fetched successfully for user ID: 161
+[2025-02-23 19:23:50] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:23:50] Running get_membership plan....in controller
+[2025-02-23 19:23:50] get membership plans running running...
+[2025-02-23 19:23:50] Membership plan model initialized with database connection.
+[2025-02-23 19:23:50] Fetching membership plan...
+[2025-02-23 19:23:50] Membership Plans fetched successfully
+[2025-02-23 19:23:50] Membership plans fetched
+[2025-02-23 19:23:50] Database connection closed.
+[2025-02-23 19:23:51] Connection established successfully to the database: rad_gymverse
+[2025-02-23 19:23:51] User class instantiated with database connection.
+[2025-02-23 19:23:51] Fetching user role by user ID: 161
+[2025-02-23 19:23:51] User role fetched successfully for user ID: 161
+[2025-02-23 19:23:51] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxNjEsImV4cCI6MTc0MDMzNzIwMH0=.54fcf94a3b1776b0a85c57b35d8a8b50a0e3f8f72c64fb64213fef4a00b75616   id - 161 
+[2025-02-23 19:23:51] Running get_subscription....in controller
+[2025-02-23 19:23:51] getSubscriptionOfAMember func running...
+[2025-02-23 19:23:51] Subscription model initialized with database connection.
+[2025-02-23 19:23:51] Member model initialized with database connection.
+[2025-02-23 19:23:51] Fetching member_id of a member by user id: 161
+[2025-02-23 19:23:51] Fetching subscription of a member: M15
+[2025-02-23 19:23:52] subscription fetched
+[2025-02-23 19:23:52] Database connection closed.

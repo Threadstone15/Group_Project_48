@@ -126,68 +126,152 @@ export function initMember_upgradePlan() {
     }
 
     // Function to show popup
-    function openPopup(planId, planName, planPrice) {
-        console.log("Popup triggered!", { planId, planName, planPrice });
-    
-        const popup = document.getElementById('paymentPopup');
-        document.getElementById('popupPlanName').innerText = `Upgrade to ${planName}`;
-        document.getElementById('popupPlanDetails').innerText = `Price: $${planPrice}/month`;
-    
-        popup.style.display = 'flex';
-    
-        document.getElementById('payNowBtn').onclick = function () {
-            initiatePayHerePayment(planId, planName, planPrice);
-            popup.style.display = 'none';
-        };
+    const BASE_URL = "http://localhost:8080/Group_Project_48/backend/api/controllers/";
+
+function openPopup(planId, planName, planPrice) {
+    console.log("Popup triggered!", { planId, planName, planPrice });
+
+    const popup = document.getElementById('paymentPopup');
+    document.getElementById('popupPlanName').innerText = `Upgrade to ${planName}`;
+    document.getElementById('popupPlanDetails').innerText = `Price: $${planPrice}/month`;
+
+    popup.style.display = 'flex';
+
+    document.getElementById('payNowBtn').onclick = function () {
+        redirectToPayHere(planId, planName, planPrice);
+        popup.style.display = 'none';
+    };
+}
+
+function redirectToPayHere(planId, planName, planPrice) {
+    const authToken = localStorage.getItem("authToken");
+    if (!authToken) {
+        alert("Please log in to proceed with the payment.");
+        return;
     }
 
-    function initiatePayHerePayment(planId, planName, planPrice) {
-        const authToken = localStorage.getItem("authToken");
-        if (!authToken) {
-            alert("Please log in before making a payment.");
-            return;
+    fetch(`${BASE_URL}memberController.php?action=get_user_details`, {
+        headers: { 'Authorization': `Bearer ${authToken}` }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (!data.email || !data.firstName) {
+            throw new Error("Invalid user data received from the backend.");
         }
-    
-        // Fetch user details from backend to pass to PayHere
-        fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=get_userDetails", {
-            method: 'GET',
-            headers: { 'Authorization': `Bearer ${authToken}` }
+
+        console.log("User data:", data);
+
+        const orderId = `ORDER_${new Date().getTime()}`;
+
+        // Send payment details to the backend to generate the hash
+        fetch(`${BASE_URL}memberController.php?action=generate_payment_hash`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${authToken}`
+            },
+            body: JSON.stringify({ orderId, planName, planPrice, userData: data })
         })
         .then(response => response.json())
-        .then(user => {
-            if (!user) {
-                alert("User details not found.");
-                return;
+        .then(paymentData => {
+            if (!paymentData.hash) {
+                throw new Error("Failed to generate payment hash.");
             }
-    
-            // PayHere payment parameters
-            const payment = {
-                sandbox: true, // Use sandbox mode
-                merchant_id: "1227926", // Replace with your PayHere Merchant ID
-                return_url: "http://localhost:8080/Group_Project_48/payment_success.php",
-                cancel_url: "http://localhost:8080/Group_Project_48/payment_cancel.php",
-                notify_url: "http://localhost:8080/Group_Project_48/payment_notify.php",
-                order_id: `SUB_${planId}_${Date.now()}`,
-                items: `${planName} Subscription`,
-                amount: parseFloat(planPrice),
+
+            const paymentDetails = {
+                merchant_id: "1227926",
+                return_url: "http://localhost:8080/Group_Project_48/thank_you.html",
+                cancel_url: "http://localhost:8080/Group_Project_48/cancel.html",
+                notify_url: "http://your-public-domain.com/notify_url.php", // Must be publicly accessible
+                first_name: data.first_name,
+                last_name: data.last_name,
+                email: data.email,
+                phone: data.phone,
+                address: data.address,
+                city: data.city,
+                country: data.country,
+                order_id: orderId,
+                items: planName,
                 currency: "LKR",
-                first_name: user.firstName,
-                last_name: user.lastName,
-                email: user.email,
-                phone: user.phone || "0700000000",
-                address: user.address || "Not Provided",
-                city: "Colombo",
-                country: "Sri Lanka"
+                amount: planPrice,
+                hash: paymentData.hash, // Secure hash from backend
             };
-    
-            // Trigger PayHere payment
-            payhere.startPayment(payment);
+
+            payhere.onCompleted = function (orderId) {
+                console.log("Payment completed. Order ID:", orderId);
+                const method = "PayHere";
+                confirmPayment(orderId, planId, planPrice, "LKR", method,"Success");
+            };
+
+            payhere.onDismissed = function () {
+                console.log("Payment dismissed");
+                alert("Payment was cancelled.");
+            };
+
+            payhere.onError = function (error) {
+                console.log("Payment error:", error);
+                alert("Payment failed. Please try again.");
+            };
+
+            payhere.startPayment(paymentDetails);
         })
         .catch(error => {
-            console.error("Error fetching user details:", error);
-            alert("Failed to retrieve user details.");
+            console.error("Error generating hash:", error);
+            alert("Failed to initiate payment. Please try again.");
         });
+    })
+    .catch(error => {
+        console.error("Error fetching user details:", error);
+        alert("Failed to retrieve user details. Please try again.");
+    });
+}
+
+
+async function confirmPayment(orderId, planId, amount, currency, method, status) {
+    try {
+        const authToken = localStorage.getItem("authToken");
+        if (!authToken) {
+            throw new Error("Auth token not found. Please log in.");
+        }
+
+        const requestBody = {
+            payment_id: orderId,
+            membership_plan_id: planId,
+            amount: amount,
+            currency: currency,
+            method: method,
+            status: status,
+        };
+
+        const requestOptions = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${authToken}`
+            },
+            body: JSON.stringify(requestBody),
+        };
+
+        const response = await fetch(`${BASE_URL}memberController.php?action=confirm_payment`, requestOptions);
+        if (!response.ok) throw new Error("Payment confirmation failed");
+
+        const result = await response.json();
+        console.log("Payment confirmed:", result);
+        alert("Your subscription has been updated successfully!");
+
+        if (typeof fetchMembershipPlans === "function") {
+            fetchMembershipPlans();
+        } else {
+            console.warn("fetchMembershipPlans() is not defined.");
+        }
+    } catch (error) {
+        console.error("Error confirming payment:", error);
+        alert("Payment confirmation failed. Please contact support.");
     }
+}
+
+
+    
 
     // Close popup when clicking close button
     document.querySelector('.close-btn').addEventListener('click', () => {

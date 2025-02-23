@@ -52,6 +52,18 @@ switch ($action) {
         logMessage("Running get_attendance....in controller");
         getDailyAttendance();
         break;
+    case 'get_user_details':
+        logMessage("Running get_user_details....in controller");
+        getUserDetails($user_id);
+        break;
+    case 'generate_payment_hash':
+        logMessage("Running generate_payment_hash....in controller");
+        generatePaymentHash($user_id);
+        break;
+    case 'confirm_payment':
+        logMessage("Running confirm_payment....in controller");
+        confirmPayment($user_id);
+        break;
     case 'account_delete':
         logMessage('running account delete...in auth controller');
         deleteAccount($user_id);
