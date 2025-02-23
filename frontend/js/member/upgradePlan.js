@@ -1,5 +1,18 @@
 export function initMember_upgradePlan() {
     console.log("initializing upgradePlan.js");
+
+    // Dynamically load PayHere script
+    const payHereScript = document.createElement('script');
+    payHereScript.type = 'text/javascript';
+    payHereScript.src = 'https://www.payhere.lk/lib/payhere.js';
+    payHereScript.onload = () => {
+        console.log("PayHere script loaded successfully");
+        // You can now safely use PayHere functionality
+    };
+    payHereScript.onerror = () => {
+        console.error("Failed to load PayHere script");
+    };
+    document.head.appendChild(payHereScript);
     const pricingSwitch = document.getElementById('pricing-switch');
     const pricingCardsContainer = document.getElementById('pricing-cards');
     const currentPlanContainer = document.getElementById('current-plan');
@@ -115,19 +128,66 @@ export function initMember_upgradePlan() {
     // Function to show popup
     function openPopup(planId, planName, planPrice) {
         console.log("Popup triggered!", { planId, planName, planPrice });
-
+    
         const popup = document.getElementById('paymentPopup');
         document.getElementById('popupPlanName').innerText = `Upgrade to ${planName}`;
         document.getElementById('popupPlanDetails').innerText = `Price: $${planPrice}/month`;
-
+    
         popup.style.display = 'flex';
-
-        // Pay Now button functionality
+    
         document.getElementById('payNowBtn').onclick = function () {
-            alert(`Redirecting to payment for plan ID: ${planId}`);
+            initiatePayHerePayment(planId, planName, planPrice);
             popup.style.display = 'none';
         };
+    }
+
+    function initiatePayHerePayment(planId, planName, planPrice) {
+        const authToken = localStorage.getItem("authToken");
+        if (!authToken) {
+            alert("Please log in before making a payment.");
+            return;
         }
+    
+        // Fetch user details from backend to pass to PayHere
+        fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=get_userDetails", {
+            method: 'GET',
+            headers: { 'Authorization': `Bearer ${authToken}` }
+        })
+        .then(response => response.json())
+        .then(user => {
+            if (!user) {
+                alert("User details not found.");
+                return;
+            }
+    
+            // PayHere payment parameters
+            const payment = {
+                sandbox: true, // Use sandbox mode
+                merchant_id: "1227926", // Replace with your PayHere Merchant ID
+                return_url: "http://localhost:8080/Group_Project_48/payment_success.php",
+                cancel_url: "http://localhost:8080/Group_Project_48/payment_cancel.php",
+                notify_url: "http://localhost:8080/Group_Project_48/payment_notify.php",
+                order_id: `SUB_${planId}_${Date.now()}`,
+                items: `${planName} Subscription`,
+                amount: parseFloat(planPrice),
+                currency: "LKR",
+                first_name: user.firstName,
+                last_name: user.lastName,
+                email: user.email,
+                phone: user.phone || "0700000000",
+                address: user.address || "Not Provided",
+                city: "Colombo",
+                country: "Sri Lanka"
+            };
+    
+            // Trigger PayHere payment
+            payhere.startPayment(payment);
+        })
+        .catch(error => {
+            console.error("Error fetching user details:", error);
+            alert("Failed to retrieve user details.");
+        });
+    }
 
     // Close popup when clicking close button
     document.querySelector('.close-btn').addEventListener('click', () => {
