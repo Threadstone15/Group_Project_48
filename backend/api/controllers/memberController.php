@@ -5,6 +5,9 @@ header("Access-Control-Allow-Methods: POST, GET, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header('Content-Type: application/json');
 
+require_once '../models/Member.php';
+require_once '../../config/database.php';
+
 session_start();
 
 include_once "../../middleware/authMiddleware.php";
@@ -56,6 +59,21 @@ switch ($action) {
         logMessage('running account delete...in auth controller');
         deleteAccount($user_id);
         break;
+    
+    case 'get_member_details':
+        $userDetails = $member->getLoggedInMemberDetails($user_id);
+        if ($userDetails) {
+            echo json_encode([
+                "status" => "success",
+                "data" => $userDetails
+        ]);
+        } else {
+            echo json_encode([
+                "status" => "error",
+                "message" => "Failed to fetch member details"
+        ]);
+    }
+    break;
 
     default:
         echo json_encode(["error" => "Invalid action"]);
@@ -90,4 +108,23 @@ function deleteAccount($user_id)
     } else {
         echo json_encode(["error" => "Invalid password"]);
     }
+}
+
+$database = new DatabaseConnection();
+$db = $database->connect();
+$member = new Member($db);
+
+$token = getBearerToken();
+$requiredRole = "member";
+verifyRequest($requiredRole, $token);
+$user_id = getUserIdFromToken($token);
+
+$action = $_GET['action'] ?? '';
+
+if ($action === 'get_member_details') {
+    $userDetails = $member->getLoggedInMemberDetails($user_id);
+    echo json_encode([
+        "status" => "success",
+        "data" => $userDetails
+    ]);
 }

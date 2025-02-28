@@ -124,5 +124,18 @@ class Member {
             return false;
         }
     }
+
+    public function getLoggedInMemberDetails($user_id) {
+        $query = "SELECT m.name, m.email, m.address, m.date_of_birth, m.gender 
+                 FROM members m 
+                 WHERE m.user_id = ?";
+        
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        return $result->fetch_assoc();
+    }
 }
 ?>

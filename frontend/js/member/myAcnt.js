@@ -76,3 +76,61 @@ export function initMember_myAcnt(){
   });
 
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const token = localStorage.getItem('token');
+    
+    // Fetch member details
+    fetch('/Group_Project_48/backend/api/controllers/memberController.php?action=get_member_details', {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            const memberData = data.data;
+            document.getElementById('name').textContent = memberData.name;
+            document.getElementById('email').value = memberData.email;
+            document.getElementById('address').value = memberData.address;
+            document.getElementById('dob').value = memberData.date_of_birth;
+            document.getElementById('gender').value = memberData.gender;
+        }
+    })
+    .catch(error => console.error('Error:', error));
+
+    // Delete account functionality
+    const deleteBtn = document.getElementById('delete-account-btn');
+    const popup = document.getElementById('delete-account-popup');
+    const confirmBtn = document.getElementById('confirm-delete');
+    const cancelBtn = document.getElementById('cancel-delete');
+
+    deleteBtn.addEventListener('click', () => {
+        popup.style.display = 'block';
+    });
+
+    cancelBtn.addEventListener('click', () => {
+        popup.style.display = 'none';
+    });
+
+    confirmBtn.addEventListener('click', () => {
+        const password = document.getElementById('delete-password').value;
+        const reason = document.getElementById('delete-reason').value;
+
+        fetch('/Group_Project_48/backend/api/controllers/memberController.php?action=account_delete', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: `password=${password}&reason=${reason}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.message) {
+                localStorage.removeItem('token');
+                window.location.href = '/Group_Project_48/frontend/pages/login.html';
+            }
+        });
+    });
+});

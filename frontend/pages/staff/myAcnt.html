@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profile Page</title>
-  <!-- <link rel="stylesheet" href="/Group_Project_48/frontend/css/staff/myAcnt.css">
-  <link rel="stylesheet" href="/Group_Project_48/frontend/css/globals.css"> -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -16,7 +14,7 @@
           <img src="/Group_Project_48/frontend/assets/images/prof-1.jpg" alt="Profile Image" class="profile-image">
         </div>
         <div class="profile-name">
-          <h2 id="name">John Doe</h2>
+          <h2 id="name">Loading...</h2>
         </div>
       </div>
   
@@ -39,29 +37,27 @@
         </div>
       </div>
     </div>
-      <!-- 
-      <div class="sign-out-section">
-        <a href="#" class="sign-out-button">Sign Out</a>
-      </div>
-    </div>-->
-  
+
     <script>
-        // Test data
-        const userData = {
-          name: "Jane Doe",
-          email: "jane.doe@example.com",
-          address: "1234 Elm Street, Springfield, USA",
-          dob: "1990-01-01",
-          gender: "Female"
-        };
-    
-        // Populate input fields with user data
-        document.getElementById('name').textContent = userData.name;
-        document.getElementById('email').value = userData.email;
-        document.getElementById('address').value = userData.address;
-        document.getElementById('dob').value = userData.dob;
-        document.getElementById('gender').value = userData.gender;
-      </script>
-      <!-- <script src="/Group_Project_48/frontend/js/staff/myAcnt.js"></script> -->
-  </body>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("/Group_Project_48/backend/api/profile.php", {
+                method: "GET",
+                credentials: "include"
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    console.error(data.error);
+                } else {
+                    document.getElementById("name").textContent = data.full_name;
+                    document.getElementById("email").value = data.email;
+                    document.getElementById("address").value = data.address;
+                    document.getElementById("dob").value = data.dob;
+                    document.getElementById("gender").value = data.gender;
+                }
+            })
+            .catch(error => console.error("Error fetching profile:", error));
+        });
+    </script>
+</body>
 </html>

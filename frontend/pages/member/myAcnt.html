@@ -57,7 +57,30 @@
       </div>
     </div>
   </div>
+  
 
   <script src="/Group_Project_48/frontend/js/member/myAcnt.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const token = localStorage.getItem('token');
+    
+    fetch('/Group_Project_48/backend/api/controllers/memberController.php?action=get_member_details', {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('name').textContent = data.name;
+        document.getElementById('email').value = data.email;
+        document.getElementById('address').value = data.address;
+        document.getElementById('dob').value = data.date_of_birth;
+        document.getElementById('gender').value = data.gender;
+    })
+    .catch(error => console.error('Error:', error));
+});
+  </script>
 </body>
+
 </html>

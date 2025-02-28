@@ -5,6 +5,9 @@ header("Access-Control-Allow-Methods: POST, GET, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header('Content-Type: application/json');
 
+require_once '../models/Staff.php';
+require_once '../../config/database.php';
+
 session_start();
 
 include_once "../../middleware/authMiddleware.php";
@@ -13,6 +16,10 @@ include_once "equipmentHandler.php";
 include_once "equipmentMaintenanceHandler.php";
 include_once "noticeHandler.php";
 include_once "../models/User.php";
+
+$database = new DatabaseConnection();
+$db = $database->connect();
+$staff = new Staff($db);
 
 $conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -93,3 +100,17 @@ switch ($action) {
     default:
         echo json_encode(["error" => "Invalid action"]);
 }
+
+if (!isset($_SESSION['user_id'])) {
+    echo json_encode(["error" => "Unauthorized"]);
+    exit();
+}
+
+
+
+$user_id = $_SESSION['user_id'];
+$userDetails = $staff->getLoggedInStaffDetails($user_id);
+
+header('Content-Type: application/json');
+echo json_encode($userDetails);
+?>
