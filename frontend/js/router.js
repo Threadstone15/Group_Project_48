@@ -61,7 +61,8 @@ const validRoutes = {
         "becomeMember",
         "findATrainer",
         "login",
-        "forgotPassword"
+        "forgotPassword",
+        "trainerApplication"
     ],
     dashboards: {
         owner: [

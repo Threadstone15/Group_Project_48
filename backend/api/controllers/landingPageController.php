@@ -12,6 +12,7 @@ include_once "../../config/database.php";
 include_once "./membershipPlanHandler.php";
 include_once "./trainerApplicationHandler.php";
 include_once "../models/User.php";
+include_once "./trainerCareerHandler.php";
 
 $conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -33,6 +34,10 @@ switch ($action) {
     case 'add_trainer_application':
         logMessage("Running add trainer application....in controller");
         addTrainerApplication();
+        break;
+    case 'get_trainer_career':
+        logMessage("Running get_trainer_career....in controller");
+        getTrainerCareer();
         break;
     default:
         echo json_encode(["error" => "Invalid action"]);

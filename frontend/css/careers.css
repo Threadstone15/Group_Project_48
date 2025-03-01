@@ -1,193 +1,254 @@
 /* careers.css */
 .header {
-    text-align: center; /* Center the text content */
-    margin: 0 auto; /* Center the entire header block */
-    padding: 20px; /* Add some padding to the header for spacing */
-    margin-top: 30px;
-  }
-  
-  .heading {
-    font-size: 35px; /* Set font size for heading */
-    font-weight: 600; /* Set font weight to bold for emphasis */
-    font-family: 'Poppins', sans-serif; /* Use Poppins font */
-    color: #000; /* Set text color (black) */
-    margin-bottom: -5px;
-  }
+  text-align: center;
+  /* Center the text content */
+  margin: 0 auto;
+  /* Center the entire header block */
+  padding: 20px;
+  /* Add some padding to the header for spacing */
+  margin-top: 30px;
+}
 
-  .dashboard-container{
-    display: none;
-  }
-  
-  .subheading {
-    font-size: 16px; /* Set font size for subheading */
-    font-family: 'Poppins', sans-serif; /* Use Poppins font */
-    color: #4F4F4F; /* Set a slightly lighter text color */
-    max-width: 800px; /* Restrict width to ensure readability */
-    margin: 0 auto; /* Center the subheading */
-    line-height: 1.5; /* Add some line spacing for better readability */
-    margin-top: 30px;
-    margin-bottom: 90px;
-  }
+.heading {
+  font-size: 35px;
+  /* Set font size for heading */
+  font-weight: 600;
+  /* Set font weight to bold for emphasis */
+  font-family: 'Poppins', sans-serif;
+  /* Use Poppins font */
+  color: #000;
+  /* Set text color (black) */
+  margin-bottom: -5px;
+}
 
-  .workout-plans-container {
-    border-radius: 30px;
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    color: #4f4f4f;
-    justify-content: center;
-    padding: 60px 90px;
-    font: 500 18px 'Poppins', sans-serif;
-    border: 3px solid #ff5f00;
-    max-width: 800px; /* Set a max-width */
-    margin: 0 auto; /* Center the container horizontally */
-    margin-top: 30px;
+.dashboard-container {
+  display: none;
+}
+
+.subheading {
+  font-size: 16px;
+  /* Set font size for subheading */
+  font-family: 'Poppins', sans-serif;
+  /* Use Poppins font */
+  color: #4F4F4F;
+  /* Set a slightly lighter text color */
+  max-width: 800px;
+  /* Restrict width to ensure readability */
+  margin: 0 auto;
+  /* Center the subheading */
+  line-height: 1.5;
+  /* Add some line spacing for better readability */
+  margin-top: 30px;
+  margin-bottom: 90px;
+}
+
+.workout-plans-container {
+  border-radius: 30px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  color: #4f4f4f;
+  justify-content: center;
+  padding: 60px 90px;
+  font: 500 18px 'Poppins', sans-serif;
+  border: 3px solid #ff5f00;
+  max-width: 800px;
+  /* Set a max-width */
+  margin: 0 auto;
+  /* Center the container horizontally */
+  margin-top: 30px;
 }
 
 .workout-plans-content {
-    border-radius: 0;
-    display: flex;
-    max-width: 100%;
-    max-width: 771px;
-    flex-direction: column;
-    padding: 0px;
-    margin: 0px;
+  border-radius: 0;
+  display: flex;
+  max-width: 100%;
+  max-width: 771px;
+  flex-direction: column;
+  padding: 0px;
+  margin: 0px;
 }
 
 .requirements-content {
-    border-radius: 0;
-    display: flex;
-    max-width: 100%;
-    max-width: 771px;
-    flex-direction: column;
-    max-width: 800px; /* Set a max-width */
-    margin: 0 auto; /* Center the container horizontally */
-    margin-top: 90px;
+  border-radius: 0;
+  display: flex;
+  max-width: 100%;
+  max-width: 771px;
+  flex-direction: column;
+  max-width: 800px;
+  /* Set a max-width */
+  margin: 0 auto;
+  /* Center the container horizontally */
+  margin-top: 90px;
 }
 
 
 .workout-plans-title {
-    color: #000;
-    font-size: 30px;
-    font-weight: 600;
-    align-self: start;
+  color: #000;
+  font-size: 30px;
+  font-weight: 600;
+  align-self: start;
 }
 
 .workout-plans-feature {
-    margin-top: 20px;
-    font-size: 16px;
+  margin-top: 20px;
+  font-size: 16px;
 
 }
 
 .workout-plans-feature:last-child {
-    margin-top: 15px;
-    font-weight: 600px;
+  margin-top: 15px;
+  font-weight: 600px;
 }
 
 .feature-highlight {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 @media (max-width: 991px) {
-    .workout-plans-container {
-        padding: 30px 20px;
-    }
+  .workout-plans-container {
+    padding: 30px 20px;
+  }
 
-    .workout-plans-title,
-    .workout-plans-feature {
-        max-width: 100%;
-    }
+  .workout-plans-title,
+  .workout-plans-feature {
+    max-width: 100%;
+  }
 }
 
 /*ready to transform*/
 .final-content-container {
-    border-radius: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 924px;
-    margin: 0 auto; /* Centers the container horizontally */
-    color: rgba(255, 95, 0, 1);
-    font: 600 65px Poppins, sans-serif;
-    margin-bottom: 100px;
-    margin-top: 100px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 924px;
+  margin: 0 auto;
+  /* Centers the container horizontally */
+  color: rgba(255, 95, 0, 1);
+  font: 600 65px Poppins, sans-serif;
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+
+@media (max-width: 991px) {
+  .final-content-container {
+    font-size: 40px;
   }
-  
-  @media (max-width: 991px) {
-    .final-content-container {
-        font-size: 40px;
-    }
-  }
-  
+}
+
+.final-main-heading,
+.final-sub-heading {
+  line-height: 1.2;
+  text-align: center;
+  z-index: 10;
+  margin: 0;
+  /* Reset margin */
+  font-size: 40px;
+  font-weight: 600;
+}
+
+@media (max-width: 991px) {
+
   .final-main-heading,
   .final-sub-heading {
-    line-height: 1.2;
-    text-align: center;
-    z-index: 10;
-    margin: 0; /* Reset margin */
-    font-size: 40px;
-    font-weight: 600;
+    max-width: 100%;
+    font-size: 30px;
   }
-  
-  @media (max-width: 991px) {
-    .final-main-heading,
-    .final-sub-heading {
-        max-width: 100%;
-        font-size: 30px;
-    }
-  }
-  
-  .final-highlighted-text {
-    color: rgba(255, 95, 0, 1);
-  }
-  
+}
+
+.final-highlighted-text {
+  color: rgba(255, 95, 0, 1);
+}
+
+.final-info-text {
+  color: rgba(79, 79, 79, 1);
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 19px;
+  width: 100%;
+  max-width: 924px;
+}
+
+@media (max-width: 991px) {
   .final-info-text {
-    color: rgba(79, 79, 79, 1);
-    font-size: 16px;
-    font-weight: 500;
-    text-align: center;
-    margin-top: 19px;
-    width: 100%;
-    max-width: 924px;
+    max-width: 100%;
   }
-  
-  @media (max-width: 991px) {
-    .final-info-text {
-        max-width: 100%;
-    }
-  }
-  
-  .final-cta-button {
-    align-self: flex-start;
-    border-radius: 30px;
-    background-color: #FF5F00;
-    color: #FFF;
-    gap: 10px;
-    font-size: 18px;
-    font-weight: 500;
-    padding: 10px 40px;
-    text-decoration: none;
-    margin: 0 auto;
-    margin-top: 61px;
-    flex: 0 0 auto;
-    font-family: Poppins, sans-serif;
-    
-  }
-  
-  .final-cta-button {
-    border: none;
-    outline: none;
-  }
-  
-  /* Hover state for the button */
-  .final-cta-button:hover {
-    background-color: #E43700;
-  }
-  
-  /* Active (clicked) state for the button */
-  .final-cta-button:active {
-    background-color: #B83200;
-  }
-  
-  /* End of styles for home page */
-  
+}
+
+.final-cta-button {
+  align-self: flex-start;
+  border-radius: 30px;
+  background-color: #FF5F00;
+  color: #FFF;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 40px;
+  text-decoration: none;
+  margin: 0 auto;
+  margin-top: 61px;
+  flex: 0 0 auto;
+  font-family: Poppins, sans-serif;
+
+}
+
+.final-cta-button {
+  border: none;
+  outline: none;
+}
+
+/* Hover state for the button */
+.final-cta-button:hover {
+  background-color: #E43700;
+}
+
+/* Active (clicked) state for the button */
+.final-cta-button:active {
+  background-color: #B83200;
+}
+
+.career-opportunities-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.career-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.career-card {
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  text-align: center;
+}
+
+.career-role {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.career-requirements {
+  font-size: 0.9em;
+  margin: 10px 0;
+}
+
+.apply-button {
+  background-color: #ff7f50;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.apply-button:hover {
+  background-color: #ff6347;
+}
