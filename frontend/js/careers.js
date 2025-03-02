@@ -46,8 +46,7 @@ export function initcareers() {
         document.querySelectorAll(".apply-button").forEach(button => {
             button.addEventListener("click", function () {
                 const careerId = this.getAttribute("data-career-id");
-                alert(`Applying for job with ID: ${careerId}`);
-                // You can replace this alert with actual application logic
+                navigate(`trainerApplication?careerId=${careerId}`);
             });
         });
     }
