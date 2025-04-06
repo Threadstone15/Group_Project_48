@@ -44,6 +44,10 @@ switch ($action) {
         logMessage("Running update_subscription....in controller");
         updateSubscription($user_id);
         break;
+    case 'payment_list':
+        logMessage("Running payment_list....in controller");
+        getPaymentListOfAMember($user_id);
+        break;
     case 'update_attendance':
         logMessage("Running member mark_attendance....in controller");
         mark_attendance($user_id);

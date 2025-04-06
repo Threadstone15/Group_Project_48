@@ -10,6 +10,7 @@ session_start();
 
 include_once "../../middleware/authMiddleware.php";
 include_once "../models/User.php";
+include_once "../models/Payments.php";
 include_once "../models/Member.php";
 include_once "../models/Subscription.php";
 include_once "../../logs/save.php";
@@ -99,6 +100,7 @@ function login()
 
     $user = new User();
 
+
     // Get the raw input data and decode JSON
     $data = json_decode(file_get_contents("php://input"), true);
 
@@ -121,13 +123,29 @@ function login()
                 // Set the HTTP status code for successful login
                 http_response_code(200);
 
-                // Respond with a success message and token
-                $response = [
-                    "success" => true,
-                    "message" => "Login successful",
-                    "role" => $role,
-                    "token" => $token
-                ];
+                if ($role === 'member') {
+                    $payment = new Payment();
+                    $user_id = $userData['user_id'];
+                    $payments = $payment->getLatestPaymentByUserId($user_id);
+
+                    $response = [
+                        "success" => true,
+                        "message" => "Login successful",
+                        "role" => $role,
+                        "token" => $token,
+                        "membership_plan_id" => $payments['membership_plan_id'],
+                        "amount" => $payments['amount'],
+                        "status" => $payments['status'],
+                        "date_time" => $payments['date_time']
+                    ];
+                } else {
+                    $response = [
+                        "success" => true,
+                        "message" => "Login successful",
+                        "role" => $role,
+                        "token" => $token
+                    ];
+                }
             } else {
                 // Incorrect password, return error response
                 http_response_code(401); // Unauthorized

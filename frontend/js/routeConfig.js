@@ -48,6 +48,7 @@ import { initMember_trackProgress } from "./member/trackYourProgress.js";
 import { initMember_upgradePlan } from "./member/upgradePlan.js";
 import { initMember_viewPlan } from "./member/viewPlan.js";
 import { initMember_workoutMealPlan } from "./member/workoutMealPlans.js";
+import { initMember_payments } from "./member/payments.js";
 
 //importing staff dashboardPg js funcs
 import { initStaff_equipmentMaintain } from "./staff/equipMaintainance.js";
@@ -172,6 +173,7 @@ export function runDashboardPgJS(role, page) {
             case 'createPlan' : initMember_createPlan();break;
             case 'myAcnt' : initMember_myAcnt(); break;
             case 'trackYourProgress' : initMember_trackProgress(); break;
+            case 'payments' : initMember_payments(); break;
             case 'upgradePlan' : initMember_upgradePlan(); break;
             case 'viewPlan' : initMember_viewPlan(); break;
             case 'workoutMealPlans' : initMember_workoutMealPlan(); break;

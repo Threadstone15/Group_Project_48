@@ -31,6 +31,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    margin-top: 3rem;
     margin-bottom: 3rem;
 }
 
@@ -263,3 +264,17 @@ input:checked + .slider:before {
         opacity: 1;
     }
 }
+
+
+
+.current-plan {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 20px;
+    margin-left: 150px;
+    margin-right: 150px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
