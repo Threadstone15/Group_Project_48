@@ -92,7 +92,20 @@ export function initStaff_equipment() {
             .catch(error => console.error("Error fetching equipment list:", error));
     }
 
-    function deleteEquipment(equipmentId, type) {
+    window.closeDeletePopup = function() {
+        document.getElementById("deletePopup").style.display = "none";
+        document.getElementById("overlay").style.display = "none";
+    };
+    
+    window.setupDeletePopupHandlers = function() {
+        // Set up cancel button
+        document.getElementById("cancelDelete").onclick = window.closeDeletePopup;
+        
+        // Set up close button (X)
+        document.getElementById("closePopup").addEventListener("click", window.closeDeletePopup);
+    };
+
+    window.deleteEquipment = function(equipmentId, type) {
         const typeName = type.split('_')[0];
         console.log(`Delete button clicked for equipment ID: ${equipmentId}  ${typeName}`);
 
@@ -131,36 +144,23 @@ export function initStaff_equipment() {
                     return response.json(); // Expecting JSON response
                 })
                 .then(result => {
-                    console.log("Equipment deleted successfully:", result);
-                    alert("Equipment removed successfully!"); // Debugging log
+                    window.closeDeletePopup();// Close popup on success
                     fetchEquipmentList(); // Refresh the equipment list after deletion
-                    deletePopup.style.display = "none"; // Close the confirmation popup
-                    document.getElementById("overlay").style.display = "none";
-                })
+            })
                 .catch(error => {
                     console.error("Error deleting equipment:", error)
                     alert("Failed to remove the equipment");
                 });
         };
 
-        document.getElementById("cancelDelete").onclick = () => {
-            deletePopup.style.display = "none"; // Close the confirmation popup if canceled
-        };
+    // Call this to set up the close handlers
+    window.setupDeletePopupHandlers();
+}
 
-        // Close the delete popup
-        document.getElementById("closePopup").addEventListener("click", function () {
-            const popup = document.getElementById("deletePopup");
-            popup.style.display = "none";
-            document.getElementById("overlay").style.display = "none";
-        });
-
-    }
+   
 
 
-
-
-
-    function openUpdatePopup(button) {
+    window.openUpdatePopup =function(button) {
         const row = button.closest('tr'); // Get the row containing the clicked button
         const name = row.cells[0].textContent; // Name
         const purchaseDate = row.cells[1].textContent;
@@ -182,11 +182,14 @@ export function initStaff_equipment() {
         document.getElementById("updatePopup").style.display = "block";
     }
 
-    // Close the Update Popup
-    document.getElementById("closeUpdatePopup").onclick = () => {
+     // Close the Update Popup
+     window.closeUpdatePopup = () => {
         document.getElementById("updatePopup").style.display = "none";
         document.getElementById("overlay").style.display = "none";
     };
+    document.getElementById("closeUpdatePopup").onclick = window.closeUpdatePopup;
+
+
 
     // Real-time validation for Maintenance Duration
     const updateMaintenanceDurationInput = document.getElementById("updateMaintenanceDuration");
@@ -246,8 +249,7 @@ export function initStaff_equipment() {
             })
             .then((data) => {
                 if (data.message) {
-                    alert("Equipment updated successfully!");
-                    document.getElementById("updatePopup").style.display = "none";
+                    window.closeUpdatePopup(); // Close the popup
                     fetchEquipmentList();
                 } else {
                     alert("Failed to update equipment");
@@ -362,8 +364,6 @@ export function initStaff_equipment() {
                 return response.json(); // Parse JSON response
             })
             .then(result => {
-                console.log("Equipment added successfully:", result);
-                alert("Equipment added successfully!");
                 fetchEquipmentList();
             })
             .catch(error => {
