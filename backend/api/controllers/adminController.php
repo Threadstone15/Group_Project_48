@@ -17,17 +17,17 @@ include_once "../models/Staff.php";
 $conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     logMessage("Handling preflight OPTIONS request.");
-    http_response_code(204);  
+    http_response_code(204);
     exit();
 }
 
 $request_method = $_SERVER['REQUEST_METHOD'];
-$action = $_POST['action'] ?? $_GET['action'] ?? null; 
+$action = $_POST['action'] ?? $_GET['action'] ?? null;
 
 $token = getBearerToken();
 $requiredRole = "admin";
 verifyRequest($requiredRole, $token);
-$user_id  =getUserIdFromToken($token);
+$user_id  = getUserIdFromToken($token);
 
 logMessage("Running admin controller ,$action token - $token   id - $user_id ");
 
@@ -56,7 +56,7 @@ switch ($action) {
         addStaff();
         break;
     case 'get_members_by_role':
-        $role = $_POST['role'] ?? $_GET['role'] ?? null; 
+        $role = $_POST['role'] ?? $_GET['role'] ?? null;
         logMessage("Running get_members_by_role....in controller");
         getStaff($role);
         break;
@@ -75,9 +75,14 @@ switch ($action) {
         logMessage("Running get_all_emails....in controller");
         getAllEmails();
         break;
-    
+
+
+    case 'get_all_payments':
+        logMessage("Running get_all_payments....in controller");
+        getAllPayments(); //staffHandler
+        break;
+
 
     default:
         echo json_encode(["error" => "Invalid action"]);
 }
-?>

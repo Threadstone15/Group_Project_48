@@ -6,6 +6,7 @@ include_once "../models/User.php";
 include_once "../models/Member.php";
 include_once "../models/Trainer.php";
 include_once "../models/equipmentTypes.php";
+include_once "../models/Payments.php";
 include_once "../../logs/save.php";
 include_once "accountMail.php";
 
@@ -288,5 +289,20 @@ function getAllEmails()
     } else {
         logMessage("Failed to fetch emails.");
         echo json_encode(["error" => "Failed to fetch emails"]);
+    }
+}
+
+function getAllPayments()
+{
+    logMessage("Running get_all_payments....in controller");
+    $payment = new Payment();
+    $paymentData = $payment->getAllPayments();  // Store the result here
+
+    if ($paymentData !== false) {
+        logMessage("Payment fetched successfully.");
+        echo json_encode($paymentData);  // Echo the actual data
+    } else {
+        logMessage("Failed to fetch payments.");
+        echo json_encode(["error" => "Failed to fetch payments"]);
     }
 }

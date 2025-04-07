@@ -173,4 +173,38 @@ class Payment
             return false;
         }
     }
+
+    public function getAllPayments()
+    {
+        logMessage("Fetching all payment records using stored procedure...");
+
+        // Call the stored procedure
+        $query = "CALL GetMemberPaymentDetails()";
+
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing statement for stored procedure: " . $this->conn->error);
+            return false;
+        }
+
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            $payments = $result->fetch_all(MYSQLI_ASSOC);
+
+            logMessage("Fetched " . count($payments) . " payments from stored procedure");
+
+            // Close the result set and statement
+            $stmt->close();
+            // Clear remaining results (in case of multiple result sets)
+            while ($this->conn->more_results() && $this->conn->next_result()) {
+                $this->conn->use_result();
+            }
+
+            return $payments;
+        } else {
+            logMessage("Error executing stored procedure: " . $stmt->error);
+            return false;
+        }
+    }
 }
