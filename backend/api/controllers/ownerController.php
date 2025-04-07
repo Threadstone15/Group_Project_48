@@ -12,21 +12,22 @@ include_once "../../config/database.php";
 include_once "./membershipPlanHandler.php";
 include_once "./trainerApplicationHandler.php";
 include_once "../models/User.php";
+include_once "./staffHandler.php";
 
 $conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     logMessage("Handling preflight OPTIONS request.");
-    http_response_code(204);  
+    http_response_code(204);
     exit();
 }
 
 $request_method = $_SERVER['REQUEST_METHOD'];
-$action = $_POST['action'] ?? $_GET['action'] ?? null; 
+$action = $_POST['action'] ?? $_GET['action'] ?? null;
 
 $token = getBearerToken();
 $requiredRole = "owner";
 verifyRequest($requiredRole, $token);
-$user_id  =getUserIdFromToken($token);
+$user_id  = getUserIdFromToken($token);
 
 logMessage("Running owner controller ,$action token - $token   id - $user_id ");
 
@@ -47,8 +48,8 @@ switch ($action) {
         logMessage("Running delete_membership plan....in controller");
         deleteMembershipPlan();
         break;
-    
-    case 'get_trainerApplications' :
+
+    case 'get_trainerApplications':
         logMessage("Running get_trainer_applications....in controller");
         getTrainerApplications();
         break;
@@ -56,11 +57,15 @@ switch ($action) {
         logMessage("Running update_trainer_application_status....in controller");
         updateTrainerApplicationStatus();
         break;
-    case 'delete_trainerApplication' : 
+    case 'delete_trainerApplication':
         logMessage("Running delete_trainer_application....in controller");
         deleteTrainerApplication();
         break;
+    case 'get_all_payments':
+        logMessage("Running get_all_payments....in controller");
+        getAllPayments(); //staffHandler
+        break;
+
     default:
         echo json_encode(["error" => "Invalid action"]);
 }
-?>

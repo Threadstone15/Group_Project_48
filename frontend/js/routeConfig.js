@@ -32,6 +32,7 @@ import { initOwner_staff } from "./owner/staff.js";
 import { initOwner_financialOver } from "./owner/financialOver.js";
 import { initOwner_analytics } from "./owner/analytics.js";
 import { initOwner_myAcnt } from "./owner/myAcnt.js";
+import Chart from "https://cdn.jsdelivr.net/npm/chart.js"
 
 //importing admin dashboardPg js funcs
 import { initAdmin_home } from "./admin/adminHome.js";
@@ -160,7 +161,7 @@ export function runDashboardPgJS(role, page) {
             case 'gymMembers': initOwner_gymMembers(); break;
             case 'trainers': initOwner_trainers(); break;
             case 'staff': initOwner_staff(); break;
-            case 'financialOver': initOwner_financialOver(); break;
+            case 'financialOver': initOwner_financialOver() ; break;
             case 'memberPlans': initOwner_memberPlans(); break;
             case 'analytics': initOwner_analytics(); break;
             case 'myAcnt': initOwner_myAcnt(); break;

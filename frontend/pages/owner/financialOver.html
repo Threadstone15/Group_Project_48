@@ -8,19 +8,50 @@
   <link rel="stylesheet" href="/Group_Project_48/frontend/css/owner/financialOver.css">
   <link rel="stylesheet" href="/Group_Project_48/frontend/css/globals.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+  
+  <!-- Include Chart.js for rendering the graph -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
     <div class="financial-container">
-            <div class="total-income-container">
-                <h2>Total Income</h2>
-                <p class="total-income" id="totalIncome">Rs.12345</p>
+        <div class="total-income-container">
+            <h2>Total Income</h2>
+            <p class="total-income" id="totalIncome">Rs.12345</p>
+        </div>
+
+        <div class="view-options">
+            <label for="periodSelector">Select Period:</label>
+            <select id="periodSelector">
+                <option value="monthly">Monthly</option>
+                <option value="annual">Annual</option>
+            </select>
+
+            <div id="monthSelectorContainer" style="display:none;">
+                <label for="monthSelector">Select Month:</label>
+                <select id="monthSelector">
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
             </div>
-            <div class="total-expenses-container">
-                <h2>Total Expenses</h2>
-                <p class="total-expenses" id="totalExpenses">Rs.567</p>
-            </div>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="incomeChart"></canvas>
+        </div>
+
     </div>
+
     <script type="module" src="/Group_Project_48/frontend/js/owner/financialOver.js"></script>
 
 </body>

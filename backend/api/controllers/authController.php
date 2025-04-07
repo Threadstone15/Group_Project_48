@@ -128,16 +128,25 @@ function login()
                     $user_id = $userData['user_id'];
                     $payments = $payment->getLatestPaymentByUserId($user_id);
 
-                    $response = [
-                        "success" => true,
-                        "message" => "Login successful",
-                        "role" => $role,
-                        "token" => $token,
-                        "membership_plan_id" => $payments['membership_plan_id'],
-                        "amount" => $payments['amount'],
-                        "status" => $payments['status'],
-                        "date_time" => $payments['date_time']
-                    ];
+                    if (!$payments) {
+                        $response = [
+                            "success" => true,
+                            "message" => "Login successful",
+                            "role" => $role,
+                            "token" => $token
+                        ];
+                    } else {
+                        $response = [
+                            "success" => true,
+                            "message" => "Login successful",
+                            "role" => $role,
+                            "token" => $token,
+                            "membership_plan_id" => $payments['membership_plan_id'],
+                            "amount" => $payments['amount'],
+                            "status" => $payments['status'],
+                            "date_time" => $payments['date_time']
+                        ];
+                    }
                 } else {
                     $response = [
                         "success" => true,

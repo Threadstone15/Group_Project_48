@@ -64,7 +64,7 @@ export function initAdmin_paymentStat() {
                 <td>${payment["Member ID"]}</td>
                 <td>${payment["Name"]}</td>
                 <td>${payment["Membership Plan"]}</td>
-                <td>${payment["Payment Status"]}</td>
+                <td>${payment["Amount"]}</td>
                 <td>${payment["Date"]}</td>
             `;
             tableBody.appendChild(row);
