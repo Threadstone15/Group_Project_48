@@ -1,48 +1,56 @@
-//import * as Chart from "https://cdn.jsdelivr.net/npm/chart.js";
+//const chartModule = await import('https://cdn.jsdelivr.net/npm/chart.js@4.4.0/+esm');
 
-export function initOwner_financialOver() {
+export async function initOwner_financialOver() {
+
+    const Chart = window.Chart;
     
+    if (!Chart) {
+        console.error("Chart.js not loaded");
+        return;
+    }
+
+    // DOM elements
     const totalIncome = document.getElementById("totalIncome");
     const periodSelector = document.getElementById("periodSelector");
     const monthSelectorContainer = document.getElementById("monthSelectorContainer");
     const monthSelector = document.getElementById("monthSelector");
-    const incomeChartCanvas = document.getElementById("incomeChart").getContext("2d");
+    const incomeChartCanvas = document.getElementById("incomeChart")?.getContext("2d");
+    
+    if (!incomeChartCanvas) {
+        console.error("Canvas context not found");
+        return;
+    }
 
     let incomeChart;
     let payments = [];
 
-    function fetchPaymentsFromBackend(callback) {
+    async function fetchPaymentsFromBackend() {
         const authToken = localStorage.getItem("authToken");
         if (!authToken) {
             console.error("Auth token not found. Please log in.");
             return;
         }
 
-        const requestOptions = {
-            method: "GET",
-            headers: { Authorization: `Bearer ${authToken}` },
-            redirect: "follow",
-        };
-
-        fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/ownerController.php?action=get_all_payments", requestOptions)
-            .then((response) => {
-                if (!response.ok) throw new Error("Failed to fetch payments");
-                return response.json();
-            })
-            .then((data) => {
-                console.log("Fetched payment data:", data);
-                if (Array.isArray(data)) {
-                    payments = data;
-                } else if (Array.isArray(data.data)) {
-                    payments = data.data;
-                } else {
-                    console.error("Unexpected data format", data);
-                    payments = [];
+        try {
+            const response = await fetch(
+                "http://localhost:8080/Group_Project_48/backend/api/controllers/ownerController.php?action=get_all_payments",
+                {
+                    method: "GET",
+                    headers: { Authorization: `Bearer ${authToken}` }
                 }
+            );
 
-                if (callback) callback();
-            })
-            .catch((error) => console.error("Error fetching payments:", error));
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            
+            const data = await response.json();
+            payments = Array.isArray(data?.data) ? data.data : 
+                     Array.isArray(data) ? data : [];
+            
+            return payments;
+        } catch (error) {
+            console.error("Fetch error:", error);
+            throw error;
+        }
     }
 
     function calculateIncome(period, month = null) {
@@ -51,34 +59,30 @@ export function initOwner_financialOver() {
 
         let filteredPayments = payments.filter(p => p["Amount"] && p["Date"]);
 
-        console.log(filteredPayments);
-
         if (period === "monthly") {
             filteredPayments = filteredPayments.filter(payment => {
                 const date = new Date(payment["Date"]);
                 return date.getFullYear() === currentYear && (date.getMonth() + 1) === parseInt(month);
-
             });
         } else if (period === "annual") {
             filteredPayments = filteredPayments.filter(payment => {
-                const date = new Date(payment.date);
+                const date = new Date(payment["Date"]);
                 return date.getFullYear() === currentYear;
             });
         }
 
         const total = filteredPayments.reduce((sum, payment) => sum + parseFloat(payment["Amount"]), 0);
-
         totalIncome.textContent = `Total Income: Rs.${total.toFixed(2)}`;
 
-        // For graph data
+        // Prepare chart data
         const chartData = {};
         filteredPayments.forEach(payment => {
-            const date = new Date(payment.date);
-            const key = (period === "monthly")
-                ? `${date.getDate()}`
+            const date = new Date(payment["Date"]);
+            const key = period === "monthly" 
+                ? `${date.getDate()}` 
                 : `${date.getMonth() + 1}`;
-
-            chartData[key] = (chartData[key] || 0) + parseFloat(payment.amount);
+            
+            chartData[key] = (chartData[key] || 0) + parseFloat(payment["Amount"]);
         });
 
         const labels = Object.keys(chartData).sort((a, b) => parseInt(a) - parseInt(b));
@@ -90,6 +94,12 @@ export function initOwner_financialOver() {
     function renderGraph(labels, data, period) {
         if (incomeChart) {
             incomeChart.destroy();
+        }
+
+        // Ensure Chart is available
+        if (!Chart) {
+            console.error("Chart is not available");
+            return;
         }
 
         incomeChart = new Chart(incomeChartCanvas, {
@@ -121,24 +131,30 @@ export function initOwner_financialOver() {
         });
     }
 
-    periodSelector.addEventListener("change", () => {
-        const selectedPeriod = periodSelector.value;
-        if (selectedPeriod === "monthly") {
-            monthSelectorContainer.style.display = "block";
-            calculateIncome("monthly", monthSelector.value);
-        } else {
-            monthSelectorContainer.style.display = "none";
-            calculateIncome("annual");
-        }
-    });
-
-    monthSelector.addEventListener("change", () => {
-        calculateIncome("monthly", monthSelector.value);
-    });
-
-    fetchPaymentsFromBackend(() => {
+    // Initialize
+    try {
+        await fetchPaymentsFromBackend();
         const currentMonth = new Date().getMonth() + 1;
         monthSelector.value = currentMonth.toString().padStart(2, '0');
         calculateIncome("monthly", currentMonth);
-    });
+        
+        // Event listeners
+        periodSelector.addEventListener("change", () => {
+            const selectedPeriod = periodSelector.value;
+            if (selectedPeriod === "monthly") {
+                monthSelectorContainer.style.display = "block";
+                calculateIncome("monthly", monthSelector.value);
+            } else {
+                monthSelectorContainer.style.display = "none";
+                calculateIncome("annual");
+            }
+        });
+
+        monthSelector.addEventListener("change", () => {
+            calculateIncome("monthly", monthSelector.value);
+        });
+        
+    } catch (error) {
+        console.error("Initialization error:", error);
+    }
 }

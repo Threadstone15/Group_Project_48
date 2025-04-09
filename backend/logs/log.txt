@@ -297,3 +297,185 @@
 [2025-04-09 12:05:08] User class instantiated with database connection.
 [2025-04-09 12:05:08] User Login model running for: owner@gmail.com
 [2025-04-09 12:05:12] Database connection closed.
+[2025-04-09 12:15:22] Running auth controller ,login 
+[2025-04-09 12:15:22] running login...in auth controller
+[2025-04-09 12:15:22] login function running...
+[2025-04-09 12:15:24] Connection established successfully to the database: rad_gymverse
+[2025-04-09 12:15:24] User class instantiated with database connection.
+[2025-04-09 12:15:24] User Login model running for: owner@gmail.com
+[2025-04-09 12:15:24] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-09 12:15:24] User login successful: owner@gmail.com with role: owner
+[2025-04-09 12:15:25] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MTk2NDAwfQ==.9e8ee40f6594981cfc6eb0ce8f0383abbf7e24747af692377ee35d0b601fc50e owner
+[2025-04-09 12:15:25] Database connection closed.
+[2025-04-09 12:15:29] Connection established successfully to the database: rad_gymverse
+[2025-04-09 12:15:29] User class instantiated with database connection.
+[2025-04-09 12:15:29] Fetching user role by user ID: 72
+[2025-04-09 12:15:30] User role fetched successfully for user ID: 72
+[2025-04-09 12:15:30] Running owner controller ,get_all_payments token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MTk2NDAwfQ==.9e8ee40f6594981cfc6eb0ce8f0383abbf7e24747af692377ee35d0b601fc50e   id - 72 
+[2025-04-09 12:15:30] Running get_all_payments....in controller
+[2025-04-09 12:15:30] Running get_all_payments....in controller
+[2025-04-09 12:15:30] Payment model initialized
+[2025-04-09 12:15:30] Fetching all payment records using stored procedure...
+[2025-04-09 12:15:30] Fetched 14 payments from stored procedure
+[2025-04-09 12:15:30] Payment fetched successfully.
+[2025-04-09 12:15:30] Database connection closed.
+[2025-04-09 12:15:35] Connection established successfully to the database: rad_gymverse
+[2025-04-09 12:15:35] User class instantiated with database connection.
+[2025-04-09 12:15:35] Fetching user role by user ID: 72
+[2025-04-09 12:15:36] User role fetched successfully for user ID: 72
+[2025-04-09 12:15:36] Running owner controller ,get_all_payments token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MTk2NDAwfQ==.9e8ee40f6594981cfc6eb0ce8f0383abbf7e24747af692377ee35d0b601fc50e   id - 72 
+[2025-04-09 12:15:36] Running get_all_payments....in controller
+[2025-04-09 12:15:36] Running get_all_payments....in controller
+[2025-04-09 12:15:36] Payment model initialized
+[2025-04-09 12:15:36] Fetching all payment records using stored procedure...
+[2025-04-09 12:15:37] Fetched 14 payments from stored procedure
+[2025-04-09 12:15:37] Payment fetched successfully.
+[2025-04-09 12:15:37] Database connection closed.
+[2025-04-09 12:18:41] Connection established successfully to the database: rad_gymverse
+[2025-04-09 12:18:41] User class instantiated with database connection.
+[2025-04-09 12:18:41] Fetching user role by user ID: 72
+[2025-04-09 12:18:41] User role fetched successfully for user ID: 72
+[2025-04-09 12:18:41] Running owner controller ,get_all_payments token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MTk2NDAwfQ==.9e8ee40f6594981cfc6eb0ce8f0383abbf7e24747af692377ee35d0b601fc50e   id - 72 
+[2025-04-09 12:18:41] Running get_all_payments....in controller
+[2025-04-09 12:18:41] Running get_all_payments....in controller
+[2025-04-09 12:18:41] Payment model initialized
+[2025-04-09 12:18:41] Fetching all payment records using stored procedure...
+[2025-04-09 12:18:42] Fetched 14 payments from stored procedure
+[2025-04-09 12:18:42] Payment fetched successfully.
+[2025-04-09 12:18:42] Database connection closed.
+[2025-04-09 12:19:57] Connection established successfully to the database: rad_gymverse
+[2025-04-09 12:19:57] User class instantiated with database connection.
+[2025-04-09 12:19:57] Fetching user role by user ID: 72
+[2025-04-09 12:19:58] User role fetched successfully for user ID: 72
+[2025-04-09 12:19:58] Running owner controller ,get_all_payments token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MTk2NDAwfQ==.9e8ee40f6594981cfc6eb0ce8f0383abbf7e24747af692377ee35d0b601fc50e   id - 72 
+[2025-04-09 12:19:58] Running get_all_payments....in controller
+[2025-04-09 12:19:58] Running get_all_payments....in controller
+[2025-04-09 12:19:58] Payment model initialized
+[2025-04-09 12:19:58] Fetching all payment records using stored procedure...
+[2025-04-09 12:19:58] Fetched 14 payments from stored procedure
+[2025-04-09 12:19:58] Payment fetched successfully.
+[2025-04-09 12:19:58] Database connection closed.
+[2025-04-09 12:33:42] Connection established successfully to the database: rad_gymverse
+[2025-04-09 12:33:42] User class instantiated with database connection.
+[2025-04-09 12:33:42] Fetching user role by user ID: 72
+[2025-04-09 12:33:43] User role fetched successfully for user ID: 72
+[2025-04-09 12:33:43] Running owner controller ,get_all_payments token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MTk2NDAwfQ==.9e8ee40f6594981cfc6eb0ce8f0383abbf7e24747af692377ee35d0b601fc50e   id - 72 
+[2025-04-09 12:33:43] Running get_all_payments....in controller
+[2025-04-09 12:33:43] Running get_all_payments....in controller
+[2025-04-09 12:33:43] Payment model initialized
+[2025-04-09 12:33:43] Fetching all payment records using stored procedure...
+[2025-04-09 12:33:43] Fetched 14 payments from stored procedure
+[2025-04-09 12:33:43] Payment fetched successfully.
+[2025-04-09 12:33:43] Database connection closed.
+[2025-04-09 12:35:18] Connection established successfully to the database: rad_gymverse
+[2025-04-09 12:35:18] User class instantiated with database connection.
+[2025-04-09 12:35:18] Fetching user role by user ID: 72
+[2025-04-09 12:35:22] User role fetched successfully for user ID: 72
+[2025-04-09 12:35:22] Running owner controller ,get_all_payments token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MTk2NDAwfQ==.9e8ee40f6594981cfc6eb0ce8f0383abbf7e24747af692377ee35d0b601fc50e   id - 72 
+[2025-04-09 12:35:22] Running get_all_payments....in controller
+[2025-04-09 12:35:22] Running get_all_payments....in controller
+[2025-04-09 12:35:22] Payment model initialized
+[2025-04-09 12:35:22] Fetching all payment records using stored procedure...
+[2025-04-09 12:35:22] Fetched 14 payments from stored procedure
+[2025-04-09 12:35:22] Payment fetched successfully.
+[2025-04-09 12:35:22] Database connection closed.
+[2025-04-09 12:36:32] Connection established successfully to the database: rad_gymverse
+[2025-04-09 12:36:32] User class instantiated with database connection.
+[2025-04-09 12:36:32] Fetching user role by user ID: 72
+[2025-04-09 12:36:32] User role fetched successfully for user ID: 72
+[2025-04-09 12:36:32] Running owner controller ,get_all_payments token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MTk2NDAwfQ==.9e8ee40f6594981cfc6eb0ce8f0383abbf7e24747af692377ee35d0b601fc50e   id - 72 
+[2025-04-09 12:36:32] Running get_all_payments....in controller
+[2025-04-09 12:36:32] Running get_all_payments....in controller
+[2025-04-09 12:36:32] Payment model initialized
+[2025-04-09 12:36:32] Fetching all payment records using stored procedure...
+[2025-04-09 12:36:32] Fetched 14 payments from stored procedure
+[2025-04-09 12:36:32] Payment fetched successfully.
+[2025-04-09 12:36:32] Database connection closed.
+[2025-04-09 12:38:48] Connection established successfully to the database: rad_gymverse
+[2025-04-09 12:38:48] User class instantiated with database connection.
+[2025-04-09 12:38:48] Fetching user role by user ID: 72
+[2025-04-09 12:38:49] User role fetched successfully for user ID: 72
+[2025-04-09 12:38:49] Running owner controller ,get_all_payments token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MTk2NDAwfQ==.9e8ee40f6594981cfc6eb0ce8f0383abbf7e24747af692377ee35d0b601fc50e   id - 72 
+[2025-04-09 12:38:49] Running get_all_payments....in controller
+[2025-04-09 12:38:49] Running get_all_payments....in controller
+[2025-04-09 12:38:49] Payment model initialized
+[2025-04-09 12:38:49] Fetching all payment records using stored procedure...
+[2025-04-09 12:38:49] Fetched 14 payments from stored procedure
+[2025-04-09 12:38:49] Payment fetched successfully.
+[2025-04-09 12:38:49] Database connection closed.
+[2025-04-09 12:41:22] Connection established successfully to the database: rad_gymverse
+[2025-04-09 12:41:22] User class instantiated with database connection.
+[2025-04-09 12:41:22] Fetching user role by user ID: 72
+[2025-04-09 12:41:22] User role fetched successfully for user ID: 72
+[2025-04-09 12:41:22] Running owner controller ,get_all_payments token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MTk2NDAwfQ==.9e8ee40f6594981cfc6eb0ce8f0383abbf7e24747af692377ee35d0b601fc50e   id - 72 
+[2025-04-09 12:41:22] Running get_all_payments....in controller
+[2025-04-09 12:41:22] Running get_all_payments....in controller
+[2025-04-09 12:41:22] Payment model initialized
+[2025-04-09 12:41:22] Fetching all payment records using stored procedure...
+[2025-04-09 12:41:26] Fetched 14 payments from stored procedure
+[2025-04-09 12:41:26] Payment fetched successfully.
+[2025-04-09 12:41:26] Database connection closed.
+[2025-04-09 12:41:58] Running auth controller ,login 
+[2025-04-09 12:41:58] running login...in auth controller
+[2025-04-09 12:41:58] login function running...
+[2025-04-09 12:41:59] Connection established successfully to the database: rad_gymverse
+[2025-04-09 12:41:59] User class instantiated with database connection.
+[2025-04-09 12:41:59] User Login model running for: owner@gmail.com
+[2025-04-09 12:42:03] Running auth controller ,login 
+[2025-04-09 12:42:03] running login...in auth controller
+[2025-04-09 12:42:03] login function running...
+[2025-04-09 12:42:04] Connection established successfully to the database: rad_gymverse
+[2025-04-09 12:42:04] User class instantiated with database connection.
+[2025-04-09 12:42:04] User Login model running for: owner@gmail.com
+[2025-04-09 12:42:04] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-09 12:42:04] User login successful: owner@gmail.com with role: owner
+[2025-04-09 12:42:04] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MTk2NDAwfQ==.9e8ee40f6594981cfc6eb0ce8f0383abbf7e24747af692377ee35d0b601fc50e owner
+[2025-04-09 12:42:04] Database connection closed.
+[2025-04-09 12:42:08] Connection established successfully to the database: rad_gymverse
+[2025-04-09 12:42:08] User class instantiated with database connection.
+[2025-04-09 12:42:08] Fetching user role by user ID: 72
+[2025-04-09 12:42:08] User role fetched successfully for user ID: 72
+[2025-04-09 12:42:08] Running owner controller ,get_all_payments token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MTk2NDAwfQ==.9e8ee40f6594981cfc6eb0ce8f0383abbf7e24747af692377ee35d0b601fc50e   id - 72 
+[2025-04-09 12:42:08] Running get_all_payments....in controller
+[2025-04-09 12:42:08] Running get_all_payments....in controller
+[2025-04-09 12:42:08] Payment model initialized
+[2025-04-09 12:42:08] Fetching all payment records using stored procedure...
+[2025-04-09 12:42:11] Fetched 14 payments from stored procedure
+[2025-04-09 12:42:11] Payment fetched successfully.
+[2025-04-09 12:42:12] Database connection closed.
+[2025-04-09 12:42:15] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-09 12:42:16] User login successful: owner@gmail.com with role: owner
+[2025-04-09 12:42:16] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MTk2NDAwfQ==.9e8ee40f6594981cfc6eb0ce8f0383abbf7e24747af692377ee35d0b601fc50e owner
+[2025-04-09 12:42:16] Database connection closed.
+[2025-04-09 12:44:11] Running auth controller ,login 
+[2025-04-09 12:44:11] running login...in auth controller
+[2025-04-09 12:44:11] login function running...
+[2025-04-09 12:44:12] Connection established successfully to the database: rad_gymverse
+[2025-04-09 12:44:12] User class instantiated with database connection.
+[2025-04-09 12:44:12] User Login model running for: owner@gmail.com
+[2025-04-09 12:44:12] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-09 12:44:12] User login successful: owner@gmail.com with role: owner
+[2025-04-09 12:44:12] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MTk2NDAwfQ==.9e8ee40f6594981cfc6eb0ce8f0383abbf7e24747af692377ee35d0b601fc50e owner
+[2025-04-09 12:44:12] Database connection closed.
+[2025-04-09 12:44:42] Connection established successfully to the database: rad_gymverse
+[2025-04-09 12:44:42] User class instantiated with database connection.
+[2025-04-09 12:44:42] Fetching user role by user ID: 72
+[2025-04-09 12:44:42] User role fetched successfully for user ID: 72
+[2025-04-09 12:44:42] Running owner controller ,get_all_payments token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MTk2NDAwfQ==.9e8ee40f6594981cfc6eb0ce8f0383abbf7e24747af692377ee35d0b601fc50e   id - 72 
+[2025-04-09 12:44:42] Running get_all_payments....in controller
+[2025-04-09 12:44:42] Running get_all_payments....in controller
+[2025-04-09 12:44:42] Payment model initialized
+[2025-04-09 12:44:42] Fetching all payment records using stored procedure...
+[2025-04-09 12:44:45] Fetched 14 payments from stored procedure
+[2025-04-09 12:44:45] Payment fetched successfully.
+[2025-04-09 12:44:45] Database connection closed.
+[2025-04-09 13:06:18] Running auth controller ,login 
+[2025-04-09 13:06:18] running login...in auth controller
+[2025-04-09 13:06:18] login function running...
+[2025-04-09 13:06:22] Connection established successfully to the database: rad_gymverse
+[2025-04-09 13:06:22] User class instantiated with database connection.
+[2025-04-09 13:06:22] User Login model running for: owner@gmail.com
+[2025-04-09 13:06:22] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-09 13:06:23] User login successful: owner@gmail.com with role: owner
+[2025-04-09 13:06:23] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjAwMDAwfQ==.1c9b8859239e2de807e2236668cb6ceff160f026bab0ba2fc9ac0f25c91a29a2 owner
+[2025-04-09 13:06:23] Database connection closed.
