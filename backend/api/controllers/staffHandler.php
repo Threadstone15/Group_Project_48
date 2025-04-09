@@ -76,6 +76,15 @@ function addStaff()
     try {
         logMessage("Processing user registration: role=$role, email=$email.");
 
+        if ($user->userExists($email)) {
+            logMessage("User already exists with email: $email.");
+            http_response_code(400);
+            echo json_encode(["error" => "User already exists with email: $email."]);
+            return;
+        }
+
+
+
         // Add user to User table
         if ($role === "staff" || $role === "owner") {
             $staff = new Staff();
@@ -158,7 +167,7 @@ function addStaff()
     } catch (Exception $e) {
         logMessage("Error in 'addStaff': " . $e->getMessage());
         http_response_code(500);
-        echo json_encode(["error" => "An error occurred while adding staff. Please try again later."]);
+        echo json_encode(["error" => "An error occurred: " . $e->getMessage()]);
     }
 }
 
@@ -258,13 +267,16 @@ function updateStaff()
 
 
 // Delete staff
-function deleteStaff($user_id)
+function deleteStaff($user_id, $remark, $deleted_by)
 {
+    // Concatenate the remark with the "Deleted by" info
+    $remark = $remark . " (Deleted by: " . $deleted_by . ")";
     logMessage("Delete staff function running...ID - $user_id");
 
     $user = new User();
 
-    if ($user->deleteUser($user_id)) {
+    // Call the deactivateUser function and check the result
+    if ($user->deactivateUser($user_id, $remark)) {
         logMessage("Staff deleted successfully:");
         echo json_encode(["message" => "User deleted successfully"]);
     } else {
@@ -272,6 +284,7 @@ function deleteStaff($user_id)
         echo json_encode(["error" => "User deletion failed"]);
     }
 }
+
 
 // Get all emails
 function getAllEmails()
