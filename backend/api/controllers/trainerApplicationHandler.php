@@ -3,6 +3,7 @@
 
 include_once "../models/trainerApplication.php";
 include_once "../models/User.php";
+include_once "../models/trainerCareer.php";
 include_once "../../logs/save.php";
 function addTrainerApplication() {
     logMessage("add trainer application function running...");
@@ -86,6 +87,26 @@ function getTrainerApplications() {
         echo json_encode($applications);
     } else {
         echo json_encode(["error" => "No trainer applications found"]);
+    }
+}
+function getTrainerAppliedCareers() {
+    $trainerApplication = new TrainerApplication();
+    $applications = $trainerApplication->getApplications();
+
+    if ($applications === false || empty($applications)) {
+        echo json_encode(["error" => "No trainer applications found"]);
+        return;
+    }
+
+    $uniqueCareerIds = array_unique(array_column($applications, 'career_id'));
+
+    $trainerCareer = new TrainerCareer();
+    $trainerAppliedCareers = $trainerCareer->getCareerById($uniqueCareerIds);
+
+    if ($trainerAppliedCareers !== false) {
+        echo json_encode($trainerAppliedCareers);
+    } else {
+        echo json_encode(["error" => "No trainer careers found for the given applications"]);
     }
 }
 function updateTrainerApplicationStatus() {

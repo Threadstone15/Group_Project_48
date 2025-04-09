@@ -5,9 +5,9 @@ export function initlogin() {
   const togglePassword = document.getElementById('togglePassword');
   const passwordField = document.getElementById('password');
 
-  
+
   if (togglePassword && passwordField) {
-    togglePassword.addEventListener('click', function() {
+    togglePassword.addEventListener('click', function () {
       const type = passwordField.type === 'password' ? 'text' : 'password';
       passwordField.type = type;
 
@@ -20,12 +20,12 @@ export function initlogin() {
 
   const storedRole = localStorage.getItem('role');
   if (storedRole) {
-    switch(storedRole){
+    switch (storedRole) {
       case 'staff': navigate('staff/staffHome'); break;
       case 'admin': navigate('admin/adminHome'); break;
-      case 'member' : navigate('member/memberHome'); break;
-      case 'owner' : navigate('owner/ownerHome'); break;
-      case 'trainer' : navigate('trainer/trainerHome'); break;
+      case 'member': navigate('member/memberHome'); break;
+      case 'owner': navigate('owner/ownerHome'); break;
+      case 'trainer': navigate('trainer/trainerHome'); break;
     }
     return;
   }
@@ -36,7 +36,7 @@ export function initlogin() {
     }
   });
 
-  
+
   document.getElementById('loginForm').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent form submission
 
@@ -98,21 +98,21 @@ export function initlogin() {
         alert("An error occurred. Please try again later.");
       });
   });
-
-  function showFormResponse(message, type) {
-    const responseContainer = document.getElementById("formResponse");
-    responseContainer.textContent = "";
-    responseContainer.textContent = message;
-    responseContainer.className = `form-response ${type}`;
-    responseContainer.style.display = "block";
-
-    setTimeout(() => {
-        responseContainer.style.display = "none";
-    }, 3000);
-}
 }
 
-export function notifySessionTimedOut(){
+function showFormResponse(message, type) {
+  const responseContainer = document.getElementById("formResponse");
+  responseContainer.textContent = "";
+  responseContainer.textContent = message;
+  responseContainer.className = `form-response ${type}`;
+  responseContainer.style.display = "block";
+
+  setTimeout(() => {
+    responseContainer.style.display = "none";
+  }, 3000);
+}
+
+export function notifySessionTimedOut() {
   showFormResponse("Your session has timed out. Please log in again", "error");
 }
 

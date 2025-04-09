@@ -48,8 +48,8 @@ class TrainerApplication {
             return false;
         }
 
-        $query = "INSERT INTO " . $this->table . " (application_id, career_id, firstName, lastName, NIC, DOB, email, address, mobile_number, years_of_experience, specialties, cv, approved_by_owner) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO " . $this->table . " (application_id, career_id, firstName, lastName, NIC, DOB, email, address, mobile_number, years_of_experience, specialties, cv, submission_date, approved_by_owner) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,NOW(), ?)";
         $stmt = $this->conn->prepare($query);
 
         if ($stmt === false) {
