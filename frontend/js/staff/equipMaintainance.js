@@ -10,6 +10,25 @@ export function initStaff_equipmentMaintain() {
         console.warn("Equipment table not found. Skipping fetch.");
     }
 
+    function filterEquipment() {
+        const searchInput = document.getElementById('equipmentSearch');
+        const filter = searchInput.value.toLowerCase().trim();
+        const tableBody = document.getElementById("equipmentsMaintainceTable").getElementsByTagName("tbody")[0];
+        const rows = tableBody.getElementsByTagName('tr');
+
+        for (let i = 0; i < rows.length; i++) {
+            const nameCell = rows[i].getElementsByTagName('td')[0];
+            if (nameCell) {
+                const textValue = nameCell.textContent || nameCell.innerText;
+                if (textValue.toLowerCase().indexOf(filter) > -1) {
+                    rows[i].style.display = '';
+                } else {
+                    rows[i].style.display = 'none';
+                }
+            }
+        }
+    }
+
     function fetchEquipmentIdList() {
         console.log("Fetching Equipment IDs");
 
@@ -88,6 +107,12 @@ export function initStaff_equipmentMaintain() {
 
                         tableBody.appendChild(row);
                     });
+
+                    // Set up search input event listener after populating the table
+                    const searchInput = document.getElementById('equipmentSearch');
+                    if (searchInput) {
+                        searchInput.addEventListener('keyup', filterEquipment);
+                    }
                 } else {
                     const noDataRow = document.createElement("tr");
                     noDataRow.innerHTML = `<td colspan="6" style="text-align: center;">No equipment found</td>`;

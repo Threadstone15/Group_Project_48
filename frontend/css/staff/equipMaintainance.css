@@ -86,6 +86,10 @@ tbody tr:hover {
   color:  #333;
 }
 
+.search-container {
+  margin-bottom: 15px;
+}
+
 
 .add-equipment-container {
   max-width: 605px;
@@ -198,7 +202,7 @@ tbody tr:hover {
   }
 }
 
-.header, .table-container, .add-equipment-container {
+.header, .table-container, .add-equipment-container, .search-container {
   width: 100%; 
   margin-left: 50px; 
   padding-left: 0;
