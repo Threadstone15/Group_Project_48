@@ -5659,3 +5659,340 @@
 [2025-04-08 17:08:58] Equipment fetched successfully
 [2025-04-08 17:08:58] Equipment data fetched
 [2025-04-08 17:08:58] Database connection closed.
+[2025-04-09 08:35:41] Connection established successfully to the database: rad_gymverse
+[2025-04-09 08:35:41] User class instantiated with database connection.
+[2025-04-09 08:35:41] Fetching user role by user ID: 68
+[2025-04-09 08:35:41] User role fetched successfully for user ID: 68
+[2025-04-09 08:35:41] Running staff controller ,get_equipments token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MTgyMDAwfQ==.60f83181bffc9468b8db64c5f8830fc06c5518c8c407c103fffa0f6a79a266f5   id - 68 
+[2025-04-09 08:35:41] Running get_equip....in controller
+[2025-04-09 08:35:41] get equip function running...
+[2025-04-09 08:35:41] Equipment model initialized with database connection.
+[2025-04-09 08:35:41] Fetching equipment...
+[2025-04-09 08:35:41] Equipment fetched successfully
+[2025-04-09 08:35:41] Equipment data fetched
+[2025-04-09 08:35:41] Database connection closed.
+[2025-04-09 08:35:42] Connection established successfully to the database: rad_gymverse
+[2025-04-09 08:35:42] User class instantiated with database connection.
+[2025-04-09 08:35:42] Fetching user role by user ID: 68
+[2025-04-09 08:35:42] User role fetched successfully for user ID: 68
+[2025-04-09 08:35:42] Running staff controller ,get_maintenances token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MTgyMDAwfQ==.60f83181bffc9468b8db64c5f8830fc06c5518c8c407c103fffa0f6a79a266f5   id - 68 
+[2025-04-09 08:35:42] Running get_maintenance....in controller
+[2025-04-09 08:35:42] EquipmentMaintenance model initialized
+[2025-04-09 08:35:42] Fetching maintenance data...
+[2025-04-09 08:35:42] Maintenance data fetched successfully
+[2025-04-09 08:35:42] [{"maintenance_id":23,"equipment_id":93,"maintenance_date":"2025-04-27","details":"ttt","next_maintenance_date":"2025-04-30","name":"Leg Extension Machine_1"},{"maintenance_id":24,"equipment_id":94,"maintenance_date":"2025-04-11","details":"r44","next_maintenance_date":"2025-05-02","name":"Kettlebells_1"}]
+[2025-04-09 08:35:42] Maintenance data fetched successfully
+[2025-04-09 08:35:42] Database connection closed.
+[2025-04-09 08:36:35] Connection established successfully to the database: rad_gymverse
+[2025-04-09 08:36:35] User class instantiated with database connection.
+[2025-04-09 08:36:35] Fetching user role by user ID: 68
+[2025-04-09 08:36:35] User role fetched successfully for user ID: 68
+[2025-04-09 08:36:35] Running staff controller ,add_maintenance token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MTgyMDAwfQ==.60f83181bffc9468b8db64c5f8830fc06c5518c8c407c103fffa0f6a79a266f5   id - 68 
+[2025-04-09 08:36:35] Running add_maintenance....in controller
+[2025-04-09 08:36:35] addMaintenance function running...
+[2025-04-09 08:36:35] EquipmentMaintenance model initialized
+[2025-04-09 08:36:35] Received data: equipment_id = 97, maintenance_date = 2025-02-11, details = ojuyftfjcufuyfu, next_maintenance_date = 2025-04-03
+[2025-04-09 08:36:35] Adding new maintenance record...
+[2025-04-09 08:36:35] Query bound for adding maintenance for equipment: 97
+[2025-04-09 08:36:35] Maintenance added successfully for equipment: 97
+[2025-04-09 08:36:35] Maintenance added for equipment: 97
+[2025-04-09 08:36:35] Database connection closed.
+[2025-04-09 08:36:36] Connection established successfully to the database: rad_gymverse
+[2025-04-09 08:36:36] User class instantiated with database connection.
+[2025-04-09 08:36:36] Fetching user role by user ID: 68
+[2025-04-09 08:36:36] User role fetched successfully for user ID: 68
+[2025-04-09 08:36:36] Running staff controller ,get_maintenances token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MTgyMDAwfQ==.60f83181bffc9468b8db64c5f8830fc06c5518c8c407c103fffa0f6a79a266f5   id - 68 
+[2025-04-09 08:36:36] Running get_maintenance....in controller
+[2025-04-09 08:36:36] EquipmentMaintenance model initialized
+[2025-04-09 08:36:36] Fetching maintenance data...
+[2025-04-09 08:36:37] Maintenance data fetched successfully
+[2025-04-09 08:36:37] [{"maintenance_id":23,"equipment_id":93,"maintenance_date":"2025-04-27","details":"ttt","next_maintenance_date":"2025-04-30","name":"Leg Extension Machine_1"},{"maintenance_id":24,"equipment_id":94,"maintenance_date":"2025-04-11","details":"r44","next_maintenance_date":"2025-05-02","name":"Kettlebells_1"},{"maintenance_id":25,"equipment_id":97,"maintenance_date":"2025-02-11","details":"ojuyftfjcufuyfu","next_maintenance_date":"2025-04-03","name":"Leg Curl Machine_1"}]
+[2025-04-09 08:36:37] Maintenance data fetched successfully
+[2025-04-09 08:36:37] Database connection closed.
+[2025-04-09 12:25:14] Running auth controller ,login 
+[2025-04-09 12:25:14] running login...in auth controller
+[2025-04-09 12:25:14] login function running...
+[2025-04-09 12:25:15] Connection established successfully to the database: rad_gymverse
+[2025-04-09 12:25:15] User class instantiated with database connection.
+[2025-04-09 12:25:15] User Login model running for: staff@gmail.com
+[2025-04-09 12:25:15] Query bound and ready to execute for login: staff@gmail.com
+[2025-04-09 12:25:15] User login successful: staff@gmail.com with role: staff
+[2025-04-09 12:25:16] Login Successful: eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MTk2NDAwfQ==.fa516588719608f63f43361f5d3f854559580a10f7221ecc29c34c3a6a02997f staff
+[2025-04-09 12:25:16] Database connection closed.
+[2025-04-09 12:25:19] Connection established successfully to the database: rad_gymverse
+[2025-04-09 12:25:19] User class instantiated with database connection.
+[2025-04-09 12:25:19] Fetching user role by user ID: 68
+[2025-04-09 12:25:19] User role fetched successfully for user ID: 68
+[2025-04-09 12:25:19] Running staff controller ,get_maintenances token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MTk2NDAwfQ==.fa516588719608f63f43361f5d3f854559580a10f7221ecc29c34c3a6a02997f   id - 68 
+[2025-04-09 12:25:19] Running get_maintenance....in controller
+[2025-04-09 12:25:19] EquipmentMaintenance model initialized
+[2025-04-09 12:25:19] Fetching maintenance data...
+[2025-04-09 12:25:19] Maintenance data fetched successfully
+[2025-04-09 12:25:19] [{"maintenance_id":23,"equipment_id":93,"maintenance_date":"2025-04-27","details":"ttt","next_maintenance_date":"2025-04-30","name":"Leg Extension Machine_1"},{"maintenance_id":24,"equipment_id":94,"maintenance_date":"2025-04-11","details":"r44","next_maintenance_date":"2025-05-02","name":"Kettlebells_1"},{"maintenance_id":25,"equipment_id":97,"maintenance_date":"2025-02-11","details":"ojuyftfjcufuyfu","next_maintenance_date":"2025-04-03","name":"Leg Curl Machine_1"}]
+[2025-04-09 12:25:19] Maintenance data fetched successfully
+[2025-04-09 12:25:19] Database connection closed.
+[2025-04-09 12:25:20] Connection established successfully to the database: rad_gymverse
+[2025-04-09 12:25:20] User class instantiated with database connection.
+[2025-04-09 12:25:20] Fetching user role by user ID: 68
+[2025-04-09 12:25:20] User role fetched successfully for user ID: 68
+[2025-04-09 12:25:20] Running staff controller ,get_equipments token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MTk2NDAwfQ==.fa516588719608f63f43361f5d3f854559580a10f7221ecc29c34c3a6a02997f   id - 68 
+[2025-04-09 12:25:20] Running get_equip....in controller
+[2025-04-09 12:25:20] get equip function running...
+[2025-04-09 12:25:20] Equipment model initialized with database connection.
+[2025-04-09 12:25:20] Fetching equipment...
+[2025-04-09 12:25:20] Equipment fetched successfully
+[2025-04-09 12:25:20] Equipment data fetched
+[2025-04-09 12:25:20] Database connection closed.
+[2025-04-09 13:14:38] Running auth controller ,login 
+[2025-04-09 13:14:38] running login...in auth controller
+[2025-04-09 13:14:38] login function running...
+[2025-04-09 13:14:38] Connection established successfully to the database: rad_gymverse
+[2025-04-09 13:14:38] User class instantiated with database connection.
+[2025-04-09 13:14:38] User Login model running for: staff@gmail.com
+[2025-04-09 13:14:38] Query bound and ready to execute for login: staff@gmail.com
+[2025-04-09 13:14:38] User login successful: staff@gmail.com with role: staff
+[2025-04-09 13:14:39] Login Successful: eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MjAwMDAwfQ==.b10b6c6bf5780a316c665b9bfe4547493a82e551aea23fcf828ee01aad08e157 staff
+[2025-04-09 13:14:39] Database connection closed.
+[2025-04-09 13:15:04] Connection established successfully to the database: rad_gymverse
+[2025-04-09 13:15:04] User class instantiated with database connection.
+[2025-04-09 13:15:04] Fetching user role by user ID: 68
+[2025-04-09 13:15:04] User role fetched successfully for user ID: 68
+[2025-04-09 13:15:04] Running staff controller ,get_maintenances token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MjAwMDAwfQ==.b10b6c6bf5780a316c665b9bfe4547493a82e551aea23fcf828ee01aad08e157   id - 68 
+[2025-04-09 13:15:04] Running get_maintenance....in controller
+[2025-04-09 13:15:04] EquipmentMaintenance model initialized
+[2025-04-09 13:15:04] Fetching maintenance data...
+[2025-04-09 13:15:04] Maintenance data fetched successfully
+[2025-04-09 13:15:04] [{"maintenance_id":23,"equipment_id":93,"maintenance_date":"2025-04-27","details":"ttt","next_maintenance_date":"2025-04-30","name":"Leg Extension Machine_1"},{"maintenance_id":24,"equipment_id":94,"maintenance_date":"2025-04-11","details":"r44","next_maintenance_date":"2025-05-02","name":"Kettlebells_1"},{"maintenance_id":25,"equipment_id":97,"maintenance_date":"2025-02-11","details":"ojuyftfjcufuyfu","next_maintenance_date":"2025-04-03","name":"Leg Curl Machine_1"}]
+[2025-04-09 13:15:04] Maintenance data fetched successfully
+[2025-04-09 13:15:04] Database connection closed.
+[2025-04-09 13:15:05] Connection established successfully to the database: rad_gymverse
+[2025-04-09 13:15:05] User class instantiated with database connection.
+[2025-04-09 13:15:05] Fetching user role by user ID: 68
+[2025-04-09 13:15:05] User role fetched successfully for user ID: 68
+[2025-04-09 13:15:05] Running staff controller ,get_equipments token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MjAwMDAwfQ==.b10b6c6bf5780a316c665b9bfe4547493a82e551aea23fcf828ee01aad08e157   id - 68 
+[2025-04-09 13:15:05] Running get_equip....in controller
+[2025-04-09 13:15:05] get equip function running...
+[2025-04-09 13:15:05] Equipment model initialized with database connection.
+[2025-04-09 13:15:05] Fetching equipment...
+[2025-04-09 13:15:05] Equipment fetched successfully
+[2025-04-09 13:15:05] Equipment data fetched
+[2025-04-09 13:15:05] Database connection closed.
+[2025-04-09 13:25:30] Connection established successfully to the database: rad_gymverse
+[2025-04-09 13:25:30] User class instantiated with database connection.
+[2025-04-09 13:25:30] Fetching user role by user ID: 68
+[2025-04-09 13:25:30] User role fetched successfully for user ID: 68
+[2025-04-09 13:25:30] Running staff controller ,get_maintenances token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MjAwMDAwfQ==.b10b6c6bf5780a316c665b9bfe4547493a82e551aea23fcf828ee01aad08e157   id - 68 
+[2025-04-09 13:25:30] Running get_maintenance....in controller
+[2025-04-09 13:25:30] EquipmentMaintenance model initialized
+[2025-04-09 13:25:30] Fetching maintenance data...
+[2025-04-09 13:25:30] Maintenance data fetched successfully
+[2025-04-09 13:25:30] [{"maintenance_id":23,"equipment_id":93,"maintenance_date":"2025-04-27","details":"ttt","next_maintenance_date":"2025-04-30","name":"Leg Extension Machine_1"},{"maintenance_id":24,"equipment_id":94,"maintenance_date":"2025-04-11","details":"r44","next_maintenance_date":"2025-05-02","name":"Kettlebells_1"},{"maintenance_id":25,"equipment_id":97,"maintenance_date":"2025-02-11","details":"ojuyftfjcufuyfu","next_maintenance_date":"2025-04-03","name":"Leg Curl Machine_1"}]
+[2025-04-09 13:25:30] Maintenance data fetched successfully
+[2025-04-09 13:25:30] Database connection closed.
+[2025-04-09 13:25:31] Connection established successfully to the database: rad_gymverse
+[2025-04-09 13:25:31] User class instantiated with database connection.
+[2025-04-09 13:25:31] Fetching user role by user ID: 68
+[2025-04-09 13:25:31] User role fetched successfully for user ID: 68
+[2025-04-09 13:25:31] Running staff controller ,get_equipments token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MjAwMDAwfQ==.b10b6c6bf5780a316c665b9bfe4547493a82e551aea23fcf828ee01aad08e157   id - 68 
+[2025-04-09 13:25:31] Running get_equip....in controller
+[2025-04-09 13:25:31] get equip function running...
+[2025-04-09 13:25:31] Equipment model initialized with database connection.
+[2025-04-09 13:25:31] Fetching equipment...
+[2025-04-09 13:25:31] Equipment fetched successfully
+[2025-04-09 13:25:31] Equipment data fetched
+[2025-04-09 13:25:31] Database connection closed.
+[2025-04-09 13:25:34] Connection established successfully to the database: rad_gymverse
+[2025-04-09 13:25:34] User class instantiated with database connection.
+[2025-04-09 13:25:34] Fetching user role by user ID: 68
+[2025-04-09 13:25:34] User role fetched successfully for user ID: 68
+[2025-04-09 13:25:34] Running staff controller ,delete_maintenance token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MjAwMDAwfQ==.b10b6c6bf5780a316c665b9bfe4547493a82e551aea23fcf828ee01aad08e157   id - 68 
+[2025-04-09 13:25:34] Running delete_maintenance....in controller
+[2025-04-09 13:25:34] delete equipMaintaince function running...
+[2025-04-09 13:25:34] EquipmentMaintenance model initialized
+[2025-04-09 13:25:34] Deleting maintenance record...
+[2025-04-09 13:25:34] Query bound for deleting maintenance: 23
+[2025-04-09 13:25:34] Maintenance record deleted successfully: 23
+[2025-04-09 13:25:34] Maintenance record deleted: 23
+[2025-04-09 13:25:34] Database connection closed.
+[2025-04-09 13:25:35] Connection established successfully to the database: rad_gymverse
+[2025-04-09 13:25:35] User class instantiated with database connection.
+[2025-04-09 13:25:35] Fetching user role by user ID: 68
+[2025-04-09 13:25:35] User role fetched successfully for user ID: 68
+[2025-04-09 13:25:35] Running staff controller ,get_maintenances token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MjAwMDAwfQ==.b10b6c6bf5780a316c665b9bfe4547493a82e551aea23fcf828ee01aad08e157   id - 68 
+[2025-04-09 13:25:35] Running get_maintenance....in controller
+[2025-04-09 13:25:35] EquipmentMaintenance model initialized
+[2025-04-09 13:25:35] Fetching maintenance data...
+[2025-04-09 13:25:35] Maintenance data fetched successfully
+[2025-04-09 13:25:35] [{"maintenance_id":24,"equipment_id":94,"maintenance_date":"2025-04-11","details":"r44","next_maintenance_date":"2025-05-02","name":"Kettlebells_1"},{"maintenance_id":25,"equipment_id":97,"maintenance_date":"2025-02-11","details":"ojuyftfjcufuyfu","next_maintenance_date":"2025-04-03","name":"Leg Curl Machine_1"}]
+[2025-04-09 13:25:35] Maintenance data fetched successfully
+[2025-04-09 13:25:35] Database connection closed.
+[2025-04-09 13:30:11] Connection established successfully to the database: rad_gymverse
+[2025-04-09 13:30:11] User class instantiated with database connection.
+[2025-04-09 13:30:11] Fetching user role by user ID: 68
+[2025-04-09 13:30:12] User role fetched successfully for user ID: 68
+[2025-04-09 13:30:12] Running staff controller ,get_maintenances token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MjAwMDAwfQ==.b10b6c6bf5780a316c665b9bfe4547493a82e551aea23fcf828ee01aad08e157   id - 68 
+[2025-04-09 13:30:12] Running get_maintenance....in controller
+[2025-04-09 13:30:12] EquipmentMaintenance model initialized
+[2025-04-09 13:30:12] Fetching maintenance data...
+[2025-04-09 13:30:12] Maintenance data fetched successfully
+[2025-04-09 13:30:12] [{"maintenance_id":24,"equipment_id":94,"maintenance_date":"2025-04-11","details":"r44","next_maintenance_date":"2025-05-02","name":"Kettlebells_1"},{"maintenance_id":25,"equipment_id":97,"maintenance_date":"2025-02-11","details":"ojuyftfjcufuyfu","next_maintenance_date":"2025-04-03","name":"Leg Curl Machine_1"}]
+[2025-04-09 13:30:12] Maintenance data fetched successfully
+[2025-04-09 13:30:12] Database connection closed.
+[2025-04-09 13:30:13] Connection established successfully to the database: rad_gymverse
+[2025-04-09 13:30:13] User class instantiated with database connection.
+[2025-04-09 13:30:13] Fetching user role by user ID: 68
+[2025-04-09 13:30:13] User role fetched successfully for user ID: 68
+[2025-04-09 13:30:13] Running staff controller ,get_equipments token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MjAwMDAwfQ==.b10b6c6bf5780a316c665b9bfe4547493a82e551aea23fcf828ee01aad08e157   id - 68 
+[2025-04-09 13:30:13] Running get_equip....in controller
+[2025-04-09 13:30:13] get equip function running...
+[2025-04-09 13:30:13] Equipment model initialized with database connection.
+[2025-04-09 13:30:13] Fetching equipment...
+[2025-04-09 13:30:13] Equipment fetched successfully
+[2025-04-09 13:30:13] Equipment data fetched
+[2025-04-09 13:30:13] Database connection closed.
+[2025-04-09 13:32:32] Connection established successfully to the database: rad_gymverse
+[2025-04-09 13:32:32] User class instantiated with database connection.
+[2025-04-09 13:32:32] Fetching user role by user ID: 68
+[2025-04-09 13:32:32] User role fetched successfully for user ID: 68
+[2025-04-09 13:32:32] Running staff controller ,update_maintenance_status token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MjAwMDAwfQ==.b10b6c6bf5780a316c665b9bfe4547493a82e551aea23fcf828ee01aad08e157   id - 68 
+[2025-04-09 13:32:32] Running update_maintenance....in controller
+[2025-04-09 13:32:32] EquipmentMaintenance model initialized
+[2025-04-09 13:32:32] Updating maintenance record: 24
+[2025-04-09 13:32:32] Query bound for updating maintenance: 24
+[2025-04-09 13:32:32] Maintenance record updated successfully: 24
+[2025-04-09 13:32:32] Maintenance record updated: 24
+[2025-04-09 13:32:32] Database connection closed.
+[2025-04-09 13:32:35] Connection established successfully to the database: rad_gymverse
+[2025-04-09 13:32:35] User class instantiated with database connection.
+[2025-04-09 13:32:35] Fetching user role by user ID: 68
+[2025-04-09 13:32:35] User role fetched successfully for user ID: 68
+[2025-04-09 13:32:35] Running staff controller ,get_maintenances token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MjAwMDAwfQ==.b10b6c6bf5780a316c665b9bfe4547493a82e551aea23fcf828ee01aad08e157   id - 68 
+[2025-04-09 13:32:35] Running get_maintenance....in controller
+[2025-04-09 13:32:35] EquipmentMaintenance model initialized
+[2025-04-09 13:32:35] Fetching maintenance data...
+[2025-04-09 13:32:35] Maintenance data fetched successfully
+[2025-04-09 13:32:35] [{"maintenance_id":24,"equipment_id":94,"maintenance_date":"2025-04-03","details":"r44","next_maintenance_date":"2025-05-02","name":"Kettlebells_1"},{"maintenance_id":25,"equipment_id":97,"maintenance_date":"2025-02-11","details":"ojuyftfjcufuyfu","next_maintenance_date":"2025-04-03","name":"Leg Curl Machine_1"}]
+[2025-04-09 13:32:35] Maintenance data fetched successfully
+[2025-04-09 13:32:35] Database connection closed.
+[2025-04-09 13:33:09] Connection established successfully to the database: rad_gymverse
+[2025-04-09 13:33:09] User class instantiated with database connection.
+[2025-04-09 13:33:09] Fetching user role by user ID: 68
+[2025-04-09 13:33:09] User role fetched successfully for user ID: 68
+[2025-04-09 13:33:09] Running staff controller ,get_equipments token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MjAwMDAwfQ==.b10b6c6bf5780a316c665b9bfe4547493a82e551aea23fcf828ee01aad08e157   id - 68 
+[2025-04-09 13:33:09] Running get_equip....in controller
+[2025-04-09 13:33:09] get equip function running...
+[2025-04-09 13:33:09] Equipment model initialized with database connection.
+[2025-04-09 13:33:09] Fetching equipment...
+[2025-04-09 13:33:10] Equipment fetched successfully
+[2025-04-09 13:33:10] Equipment data fetched
+[2025-04-09 13:33:10] Database connection closed.
+[2025-04-09 13:33:10] Connection established successfully to the database: rad_gymverse
+[2025-04-09 13:33:10] User class instantiated with database connection.
+[2025-04-09 13:33:10] Fetching user role by user ID: 68
+[2025-04-09 13:33:10] User role fetched successfully for user ID: 68
+[2025-04-09 13:33:10] Running staff controller ,get_maintenances token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MjAwMDAwfQ==.b10b6c6bf5780a316c665b9bfe4547493a82e551aea23fcf828ee01aad08e157   id - 68 
+[2025-04-09 13:33:10] Running get_maintenance....in controller
+[2025-04-09 13:33:10] EquipmentMaintenance model initialized
+[2025-04-09 13:33:10] Fetching maintenance data...
+[2025-04-09 13:33:10] Maintenance data fetched successfully
+[2025-04-09 13:33:10] [{"maintenance_id":24,"equipment_id":94,"maintenance_date":"2025-04-03","details":"r44","next_maintenance_date":"2025-05-02","name":"Kettlebells_1"},{"maintenance_id":25,"equipment_id":97,"maintenance_date":"2025-02-11","details":"ojuyftfjcufuyfu","next_maintenance_date":"2025-04-03","name":"Leg Curl Machine_1"}]
+[2025-04-09 13:33:10] Maintenance data fetched successfully
+[2025-04-09 13:33:10] Database connection closed.
+[2025-04-09 13:33:19] Connection established successfully to the database: rad_gymverse
+[2025-04-09 13:33:19] User class instantiated with database connection.
+[2025-04-09 13:33:19] Fetching user role by user ID: 68
+[2025-04-09 13:33:19] User role fetched successfully for user ID: 68
+[2025-04-09 13:33:19] Running staff controller ,update_maintenance_status token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MjAwMDAwfQ==.b10b6c6bf5780a316c665b9bfe4547493a82e551aea23fcf828ee01aad08e157   id - 68 
+[2025-04-09 13:33:19] Running update_maintenance....in controller
+[2025-04-09 13:33:19] EquipmentMaintenance model initialized
+[2025-04-09 13:33:19] Updating maintenance record: 24
+[2025-04-09 13:33:19] Query bound for updating maintenance: 24
+[2025-04-09 13:33:19] Maintenance record updated successfully: 24
+[2025-04-09 13:33:19] Maintenance record updated: 24
+[2025-04-09 13:33:19] Database connection closed.
+[2025-04-09 13:33:23] Connection established successfully to the database: rad_gymverse
+[2025-04-09 13:33:23] User class instantiated with database connection.
+[2025-04-09 13:33:23] Fetching user role by user ID: 68
+[2025-04-09 13:33:23] User role fetched successfully for user ID: 68
+[2025-04-09 13:33:23] Running staff controller ,get_maintenances token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MjAwMDAwfQ==.b10b6c6bf5780a316c665b9bfe4547493a82e551aea23fcf828ee01aad08e157   id - 68 
+[2025-04-09 13:33:23] Running get_maintenance....in controller
+[2025-04-09 13:33:23] EquipmentMaintenance model initialized
+[2025-04-09 13:33:23] Fetching maintenance data...
+[2025-04-09 13:33:23] Maintenance data fetched successfully
+[2025-04-09 13:33:23] [{"maintenance_id":24,"equipment_id":94,"maintenance_date":"2025-04-03","details":"jdtj","next_maintenance_date":"2025-05-02","name":"Kettlebells_1"},{"maintenance_id":25,"equipment_id":97,"maintenance_date":"2025-02-11","details":"ojuyftfjcufuyfu","next_maintenance_date":"2025-04-03","name":"Leg Curl Machine_1"}]
+[2025-04-09 13:33:23] Maintenance data fetched successfully
+[2025-04-09 13:33:23] Database connection closed.
+[2025-04-09 13:34:49] Connection established successfully to the database: rad_gymverse
+[2025-04-09 13:34:49] User class instantiated with database connection.
+[2025-04-09 13:34:49] Fetching user role by user ID: 68
+[2025-04-09 13:34:49] User role fetched successfully for user ID: 68
+[2025-04-09 13:34:49] Running staff controller ,get_maintenances token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MjAwMDAwfQ==.b10b6c6bf5780a316c665b9bfe4547493a82e551aea23fcf828ee01aad08e157   id - 68 
+[2025-04-09 13:34:49] Running get_maintenance....in controller
+[2025-04-09 13:34:49] EquipmentMaintenance model initialized
+[2025-04-09 13:34:49] Fetching maintenance data...
+[2025-04-09 13:34:49] Maintenance data fetched successfully
+[2025-04-09 13:34:49] [{"maintenance_id":24,"equipment_id":94,"maintenance_date":"2025-04-03","details":"jdtj","next_maintenance_date":"2025-05-02","name":"Kettlebells_1"},{"maintenance_id":25,"equipment_id":97,"maintenance_date":"2025-02-11","details":"ojuyftfjcufuyfu","next_maintenance_date":"2025-04-03","name":"Leg Curl Machine_1"}]
+[2025-04-09 13:34:49] Maintenance data fetched successfully
+[2025-04-09 13:34:49] Database connection closed.
+[2025-04-09 13:34:50] Connection established successfully to the database: rad_gymverse
+[2025-04-09 13:34:50] User class instantiated with database connection.
+[2025-04-09 13:34:50] Fetching user role by user ID: 68
+[2025-04-09 13:34:50] User role fetched successfully for user ID: 68
+[2025-04-09 13:34:50] Running staff controller ,get_equipments token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MjAwMDAwfQ==.b10b6c6bf5780a316c665b9bfe4547493a82e551aea23fcf828ee01aad08e157   id - 68 
+[2025-04-09 13:34:50] Running get_equip....in controller
+[2025-04-09 13:34:50] get equip function running...
+[2025-04-09 13:34:50] Equipment model initialized with database connection.
+[2025-04-09 13:34:50] Fetching equipment...
+[2025-04-09 13:34:50] Equipment fetched successfully
+[2025-04-09 13:34:50] Equipment data fetched
+[2025-04-09 13:34:50] Database connection closed.
+[2025-04-09 13:34:57] Connection established successfully to the database: rad_gymverse
+[2025-04-09 13:34:57] User class instantiated with database connection.
+[2025-04-09 13:34:57] Fetching user role by user ID: 68
+[2025-04-09 13:34:57] User role fetched successfully for user ID: 68
+[2025-04-09 13:34:57] Running staff controller ,update_maintenance_status token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MjAwMDAwfQ==.b10b6c6bf5780a316c665b9bfe4547493a82e551aea23fcf828ee01aad08e157   id - 68 
+[2025-04-09 13:34:57] Running update_maintenance....in controller
+[2025-04-09 13:34:57] EquipmentMaintenance model initialized
+[2025-04-09 13:34:57] Updating maintenance record: 25
+[2025-04-09 13:34:57] Query bound for updating maintenance: 25
+[2025-04-09 13:34:57] Maintenance record updated successfully: 25
+[2025-04-09 13:34:57] Maintenance record updated: 25
+[2025-04-09 13:34:57] Database connection closed.
+[2025-04-09 13:34:58] Connection established successfully to the database: rad_gymverse
+[2025-04-09 13:34:58] User class instantiated with database connection.
+[2025-04-09 13:34:58] Fetching user role by user ID: 68
+[2025-04-09 13:34:58] User role fetched successfully for user ID: 68
+[2025-04-09 13:34:58] Running staff controller ,get_maintenances token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MjAwMDAwfQ==.b10b6c6bf5780a316c665b9bfe4547493a82e551aea23fcf828ee01aad08e157   id - 68 
+[2025-04-09 13:34:58] Running get_maintenance....in controller
+[2025-04-09 13:34:58] EquipmentMaintenance model initialized
+[2025-04-09 13:34:58] Fetching maintenance data...
+[2025-04-09 13:34:58] Maintenance data fetched successfully
+[2025-04-09 13:34:58] [{"maintenance_id":24,"equipment_id":94,"maintenance_date":"2025-04-03","details":"jdtj","next_maintenance_date":"2025-05-02","name":"Kettlebells_1"},{"maintenance_id":25,"equipment_id":97,"maintenance_date":"2025-02-11","details":"vorgorg0","next_maintenance_date":"2025-04-03","name":"Leg Curl Machine_1"}]
+[2025-04-09 13:34:58] Maintenance data fetched successfully
+[2025-04-09 13:34:58] Database connection closed.
+[2025-04-09 13:37:12] Connection established successfully to the database: rad_gymverse
+[2025-04-09 13:37:12] User class instantiated with database connection.
+[2025-04-09 13:37:12] Fetching user role by user ID: 68
+[2025-04-09 13:37:13] User role fetched successfully for user ID: 68
+[2025-04-09 13:37:13] Running staff controller ,add_maintenance token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MjAwMDAwfQ==.b10b6c6bf5780a316c665b9bfe4547493a82e551aea23fcf828ee01aad08e157   id - 68 
+[2025-04-09 13:37:13] Running add_maintenance....in controller
+[2025-04-09 13:37:13] addMaintenance function running...
+[2025-04-09 13:37:13] EquipmentMaintenance model initialized
+[2025-04-09 13:37:13] Received data: equipment_id = 95, maintenance_date = 2025-05-03, details = kktyty, next_maintenance_date = 2025-07-13
+[2025-04-09 13:37:13] Adding new maintenance record...
+[2025-04-09 13:37:13] Query bound for adding maintenance for equipment: 95
+[2025-04-09 13:37:13] Maintenance added successfully for equipment: 95
+[2025-04-09 13:37:13] Maintenance added for equipment: 95
+[2025-04-09 13:37:13] Database connection closed.
+[2025-04-09 13:37:13] Connection established successfully to the database: rad_gymverse
+[2025-04-09 13:37:13] User class instantiated with database connection.
+[2025-04-09 13:37:13] Fetching user role by user ID: 68
+[2025-04-09 13:37:14] User role fetched successfully for user ID: 68
+[2025-04-09 13:37:14] Running staff controller ,get_maintenances token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0MjAwMDAwfQ==.b10b6c6bf5780a316c665b9bfe4547493a82e551aea23fcf828ee01aad08e157   id - 68 
+[2025-04-09 13:37:14] Running get_maintenance....in controller
+[2025-04-09 13:37:14] EquipmentMaintenance model initialized
+[2025-04-09 13:37:14] Fetching maintenance data...
+[2025-04-09 13:37:14] Maintenance data fetched successfully
+[2025-04-09 13:37:14] [{"maintenance_id":24,"equipment_id":94,"maintenance_date":"2025-04-03","details":"jdtj","next_maintenance_date":"2025-05-02","name":"Kettlebells_1"},{"maintenance_id":26,"equipment_id":95,"maintenance_date":"2025-05-03","details":"kktyty","next_maintenance_date":"2025-07-13","name":"Chin-Up Bar_1"},{"maintenance_id":25,"equipment_id":97,"maintenance_date":"2025-02-11","details":"vorgorg0","next_maintenance_date":"2025-04-03","name":"Leg Curl Machine_1"}]
+[2025-04-09 13:37:14] Maintenance data fetched successfully
+[2025-04-09 13:37:14] Database connection closed.

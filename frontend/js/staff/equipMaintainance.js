@@ -97,7 +97,20 @@ export function initStaff_equipmentMaintain() {
             .catch(error => console.error("Error fetching equipment list:", error));
     }
 
-    function deleteEquipment(maintenanceId) {
+    window.closeDeletePopup = function() {
+        document.getElementById("deletePopup").style.display = "none";
+        document.getElementById("overlay").style.display = "none";
+    };
+    
+    window.setupDeletePopupHandlers = function() {
+        // Set up cancel button
+        document.getElementById("cancelDelete").onclick = window.closeDeletePopup;
+        
+        // Set up close button (X)
+        document.getElementById("closePopup").addEventListener("click", window.closeDeletePopup);
+    };
+
+    window.deleteEquipment = function(maintenanceId) {
         console.log(`Delete button clicked for maintenance ID: ${maintenanceId}`);
 
         // Show confirmation popup
@@ -139,23 +152,24 @@ export function initStaff_equipmentMaintain() {
                 .catch(error => console.error("Error deleting equipment:", error));
         };
 
-        document.getElementById("cancelDelete").onclick = () => {
-            deletePopup.style.display = "none"; // Close the confirmation popup if canceled
-        };
+        // Call this to set up the close handlers
+        window.setupDeletePopupHandlers();
+
+       
     }
 
 
 
 
 
-    function openUpdatePopup(
+    window.openUpdatePopup = function(
         maintenanceId,
         equipmentId,
         maintenanceDate,
         details,
         nextMaintenanceDate
     ) {
-        console.log("Update button clicked for maintenance ID:", maintenanceId);
+       
 
         document.getElementById("updateMaintenanceID").value = maintenanceId;
         document.getElementById("updateEquipmentID").value = equipmentId;
@@ -168,9 +182,14 @@ export function initStaff_equipmentMaintain() {
         document.getElementById("updatePopup").style.display = "block";
     }
 
-    document.getElementById("closeUpdatePopup").onclick = () => {
-        document.getElementById("updatePopup").style.display = "none"; // Close the update popup
+    // Close the Update Popup
+    window.closeUpdatePopup = () => {
+        document.getElementById("updatePopup").style.display = "none";
+        document.getElementById("overlay").style.display = "none";
     };
+    document.getElementById("closeUpdatePopup").onclick = window.closeUpdatePopup;
+
+    
 
     document.getElementById("updateForm").addEventListener("submit", function (event) {
         event.preventDefault();
@@ -234,7 +253,6 @@ export function initStaff_equipmentMaintain() {
             })
             .then(data => {
                 if (data.message) {
-                    alert("Equipment updated successfully!");
                     document.getElementById("updatePopup").style.display = "none"; // Close the popup
                     fetchEquipmentList(); // Refresh the equipment list
                 } else {
