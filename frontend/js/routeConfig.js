@@ -65,6 +65,7 @@ import { initTrainer_myAcnt } from "./trainer/myAcnt.js";
 import { initTrainer_home } from "./trainer/trainerHome.js";
 import { initTrainer_workoutMealPlans } from "./trainer/workoutMealPlans.js";
 
+import { navigate } from "./router.js";
 
 export const validRoutes = {
     landingPages: [
@@ -201,4 +202,12 @@ export function runDashboardPgJS(role, page) {
             default : console.error("Undefined trainer dashboard "); break;
         }
     }
+}
+
+export function runSessionTimedOut() {
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("role");
+    navigate('login');
+    notifySessionTimedOut();
+     
 }

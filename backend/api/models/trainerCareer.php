@@ -167,5 +167,48 @@ class TrainerCareer {
             return false;
         }
     }
+    public function getCareerById($careerIds = []) {
+        logMessage("Fetching trainer applied careers...");
+
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
+        $query = "SELECT * FROM " . $this->table;
+
+        if (!empty($careerIds)) {
+            // Create placeholders for each ID (?, ?, ?...)
+            $placeholders = implode(',', array_fill(0, count($careerIds), '?'));
+            $query .= " WHERE career_id IN ($placeholders)";
+        }   
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing statement for fetching trainer applied careers: " . $this->conn->error);
+            return false;
+        }
+
+        if (!empty($careerIds)) {
+            $types = str_repeat('s', count($careerIds));
+            $stmt->bind_param($types, ...$careerIds);
+        }
+
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+    
+            if ($result && $result->num_rows > 0) {
+                $careers = $result->fetch_all(MYSQLI_ASSOC);
+                logMessage("Trainer applied careers fetched successfully.");
+                return $careers;
+            } else {
+                logMessage("No trainer applied careers found.");
+                return [];
+            }
+        } else {
+            logMessage("Error fetching trainer applied careers: " . $stmt->error);
+            return false;
+        }
+    }
 }
 ?>

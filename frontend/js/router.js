@@ -439,9 +439,3 @@ function loadDashboardPage(role, page) {
             console.error(`Failed to load dashboard page: ${pageUrl}`);
         });
 }
-
-export function runSessionTimedOut() {
-    // Session timed out, redirect to login page
-    navigate('login');
-    notifySessionTimedOut();
-}

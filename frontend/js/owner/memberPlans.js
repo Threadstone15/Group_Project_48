@@ -242,7 +242,7 @@ export function initOwner_memberPlans() {
     }
 
 
-
+    //do from here
     //updat popup for custom plan
     function openUpdatePopup(button) {
         const row = button.closest('tr'); // Get the row containing the clicked button
