@@ -1,6 +1,7 @@
-//import Chart from "https://cdn.jsdelivr.net/npm/chart.js";
+//import * as Chart from "https://cdn.jsdelivr.net/npm/chart.js";
 
 export function initOwner_financialOver() {
+    
     const totalIncome = document.getElementById("totalIncome");
     const periodSelector = document.getElementById("periodSelector");
     const monthSelectorContainer = document.getElementById("monthSelectorContainer");

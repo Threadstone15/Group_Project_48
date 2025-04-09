@@ -32,7 +32,6 @@ import { initOwner_staff } from "./owner/staff.js";
 import { initOwner_financialOver } from "./owner/financialOver.js";
 import { initOwner_analytics } from "./owner/analytics.js";
 import { initOwner_myAcnt } from "./owner/myAcnt.js";
-import Chart from "https://cdn.jsdelivr.net/npm/chart.js"
 
 //importing admin dashboardPg js funcs
 import { initAdmin_home } from "./admin/adminHome.js";
