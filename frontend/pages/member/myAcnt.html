@@ -31,9 +31,16 @@
       <div class="right-column">
         <label for="dob">Date of Birth</label>
         <input type="date" id="dob" name="dob" readonly>
-
-        <label for="gender">Gender</label>
-        <input type="text" id="gender" name="gender" readonly>
+        <div class="gender-container">
+          <label for="gender">Gender</label>
+          <div class="select-container">
+          <select id="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+          <input type="text" id="gender" name="gender" readonly>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -45,7 +52,7 @@
   </div>
 
   <!-- Delete Account Popup -->
-  <div id="delete-account-popup" class="popup">
+  <div id="delete-account-popup" class="popup" >
     <div class="popup-content">
       <h3>Confirm Account Deletion</h3>
       <p>Enter your password to confirm deletion:</p>
