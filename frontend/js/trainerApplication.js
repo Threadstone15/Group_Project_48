@@ -15,6 +15,9 @@ export function inittrainerApplication() {
         const specialties = document.getElementById('specialties').value;
         const cvLink = document.getElementById('cvLink').value;
 
+        const urlParams = new URLSearchParams(window.location.search); //extracting params after ?
+        const careerId = urlParams.get('careerId'); //getting value of careerID
+
         const errors = [];
 
         if (!firstName) errors.push("First Name is required.");
@@ -47,7 +50,7 @@ export function inittrainerApplication() {
         myHeaders.append("Content-Type", "application/json");
 
         const applicationData = JSON.stringify({
-            "career_id": "C1",
+            "career_id": careerId,
             "firstName": firstName,
             "lastName": lastName,
             "NIC": nic,

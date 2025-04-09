@@ -52,6 +52,10 @@ switch ($action) {
         logMessage("Running get_trainer_applications....in controller");
         getTrainerApplications();
         break;
+    case 'get_trainerAppliedCareers' :
+            logMessage("Running get_trainerAppliedCareers....in controller");
+            getTrainerAppliedCareers();
+            break;
     case 'update_trainerApplicationStatus':
         logMessage("Running update_trainer_application_status....in controller");
         updateTrainerApplicationStatus();
