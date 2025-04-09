@@ -25,10 +25,9 @@ import { inittrainerApplication } from "./trainerApplication.js";
 
 //import owner dashboardPg js funcs
 import { initOwner_home } from "./owner/ownerHome.js";
-import { initOwner_gymMembers } from "./owner/gymMembers.js";
+import { initOwner_accounts } from "./owner/accounts.js";
 import { initOwner_trainers } from "./owner/trainers.js";
 import { initOwner_memberPlans } from "./owner/memberPlans.js";
-import { initOwner_staff } from "./owner/staff.js";
 import { initOwner_financialOver } from "./owner/financialOver.js";
 import { initOwner_analytics } from "./owner/analytics.js";
 import { initOwner_myAcnt } from "./owner/myAcnt.js";
@@ -82,9 +81,8 @@ export const validRoutes = {
     dashboards: {
         owner: [
             "owner/ownerHome",
-            "owner/gymMembers",
+            "owner/accounts",
             "owner/trainers",
-            "owner/staff",
             "owner/financialOver",
             "owner/memberPlans",
             "owner/analytics",
@@ -157,9 +155,8 @@ export function runDashboardPgJS(role, page) {
     if (role == 'owner') {
         switch (page) {
             case 'ownerHome': initOwner_home(); break;
-            case 'gymMembers': initOwner_gymMembers(); break;
+            case 'accounts': initOwner_accounts(); break;
             case 'trainers': initOwner_trainers(); break;
-            case 'staff': initOwner_staff(); break;
             case 'financialOver': initOwner_financialOver() ; break;
             case 'memberPlans': initOwner_memberPlans(); break;
             case 'analytics': initOwner_analytics(); break;

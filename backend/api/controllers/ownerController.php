@@ -32,6 +32,33 @@ $user_id  = getUserIdFromToken($token);
 logMessage("Running owner controller ,$action token - $token   id - $user_id ");
 
 switch ($action) {
+    //for accounts section
+    case 'get_all_emails':
+        logMessage("Running get_all_emails....in controller");
+        getAllEmails();
+        break;
+    case 'get_members_by_role':
+        $role = $_POST['role'] ?? $_GET['role'] ?? null;
+        logMessage("Running get_members_by_role....in controller");
+        getStaff($role);
+        break;
+    case 'update_staff':
+        logMessage("Running update_staff....in controller");
+        updateStaff();
+        break;
+    case 'delete_staff':
+        logMessage("Running delete_staff....in controller");
+        $user_id = $_POST['userID'] ?? $_GET['userID'] ?? null;
+        deleteStaff($user_id);
+        break;
+    case 'add_staff':
+        logMessage("Running add_staff....in controller");
+        addStaff();
+        break;
+
+
+
+
     case 'add_membershipPlan':
         logMessage("Running add_membership plan....in controller");
         addMembershipPlan();
