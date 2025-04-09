@@ -1,6 +1,8 @@
 export function initMember_upgradePlan() {
     console.log("initializing upgradePlan.js");
 
+    
+
     // Dynamically load PayHere script
     const payHereScript = document.createElement('script');
     payHereScript.type = 'text/javascript';
@@ -44,8 +46,15 @@ export function initMember_upgradePlan() {
 
             const subscription = await getSubscriptionOfMember();
             const planIDofMember = subscription.membership_plan_id;
-            const planPeriodofMember = subscription.period;
-            displayCurrentPlan(plans, planIDofMember, planPeriodofMember);
+            let planPeriodofMember = "free";
+            if (subscription.amount == 50.00 || subscription.amount == 70.00 || subscription.amount == 60.00) {
+                planPeriodofMember = "monthly";
+            } else {
+                planPeriodofMember = "annual";
+
+            }
+            const startDate = subscription.date_time;            ;
+            displayCurrentPlan(plans, planIDofMember, planPeriodofMember, startDate);
             displayMembershipPlans(plans, plans.slice(0, 3));
         } catch (error) {
             console.error("Error fetching membership plans:", error);
@@ -71,6 +80,7 @@ export function initMember_upgradePlan() {
             if (!response.ok) throw new Error("Failed to fetch subscription of the member");
 
             const subscription = await response.json();
+            console.log(subscription);
 
             return subscription;
         } catch (error) {
@@ -101,8 +111,8 @@ export function initMember_upgradePlan() {
             card.innerHTML = `
                 <h3>${plan.plan_name}</h3>
                 <div class="price-container">
-                    <div class="price monthly active">$${parseFloat(plan.monthlyPrice).toFixed(2)}<span>/month</span></div>
-                    <div class="price annual">$${parseFloat(plan.yearlyPrice).toFixed(2)}<span>/year</span></div>
+                    <div class="price monthly active">LKR${parseFloat(plan.monthlyPrice).toFixed(2)}<span>/month</span></div>
+                    <div class="price annual">LKR${parseFloat(plan.yearlyPrice).toFixed(2)}<span>/year</span></div>
                 </div>
                 <ul class="features">${benefitsList}</ul>
                 <button class="select-plan" 
@@ -133,7 +143,7 @@ function openPopup(planId, planName, planPrice) {
 
     const popup = document.getElementById('paymentPopup');
     document.getElementById('popupPlanName').innerText = `Upgrade to ${planName}`;
-    document.getElementById('popupPlanDetails').innerText = `Price: $${planPrice}/month`;
+    document.getElementById('popupPlanDetails').innerText = `Price: LKR${planPrice}/month`;
 
     popup.style.display = 'flex';
 
@@ -278,7 +288,9 @@ async function confirmPayment(orderId, planId, amount, currency, method, status)
         document.getElementById('paymentPopup').style.display = 'none';
     });
 
-    function displayCurrentPlan(plans, planIDofMember, planPeriodofMember) {
+    function displayCurrentPlan(plans, planIDofMember, planPeriodofMember, startDate) {
+ 
+        console.log("Displaying current plan");
         currentPlanContainer.innerHTML = ''; // Clear existing cards
 
         plans.forEach(plan => {
@@ -298,16 +310,35 @@ async function confirmPayment(orderId, planId, amount, currency, method, status)
                 benefitsList = plan.benefits.split(',').map(benefit => `<li>${benefit.trim()}</li>`).join('');
             }
 
+            //  Calculate remaining days
+            const start = new Date(startDate);
+            let end;
+
+            if (planPeriodofMember === "monthly") {
+                end = new Date(start);
+                end.setMonth(end.getMonth() + 1);
+            } else if (planPeriodofMember === "annual") {
+                end = new Date(start);
+                end.setFullYear(end.getFullYear() + 1);
+            }
+
+            const now = new Date();
+            const diffTime = end - now;
+            const remainingDays = Math.max(0, Math.ceil(diffTime / (1000 * 60 * 60 * 24))); // Avoid negative days
+
+
             const card = document.createElement('div');
             card.className = 'pricing-card';
+            console.log(plan);
 
             card.innerHTML = `
                 <div class="popular-badge">Your current plan</div>
                 <h2 class="plan-title">${plan.plan_name}</h2>
                 <div class="price-container">
-                    ${planPeriodofMember == "monthly" ? `<p class="plan-price">$${parseFloat(plan.monthlyPrice).toFixed(2)}<span>/month</span></p>` : ""}
-                    ${planPeriodofMember == "annual" ? `<p class="plan-price">$${parseFloat(plan.yearlyPrice).toFixed(2)}<span>/year</span></p>` : ""}
+                    ${planPeriodofMember == "monthly" ? `<p class="plan-price">LKR${parseFloat(plan.monthlyPrice).toFixed(2)}<span>/month</span></p>` : ""}
+                    ${planPeriodofMember == "annual" ? `<p class="plan-price">LKR${parseFloat(plan.yearlyPrice).toFixed(2)}<span>/year</span></p>` : ""}
                 </div>
+                <p class="remaining-days"><strong>${remainingDays}</strong> days remaining</p>
                 <ul class="benefit-list">${benefitsList}</ul>                
             `;
 

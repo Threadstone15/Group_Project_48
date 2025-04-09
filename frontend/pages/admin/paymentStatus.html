@@ -18,13 +18,24 @@
     </div>
 
     <div class="table-container">
+        <div class="filter-section">
+            <label for="fromDate">From:</label>
+            <input type="date" id="fromDate">
+            
+            <label for="toDate">To:</label>
+            <input type="date" id="toDate">
+            
+            <button onclick="filterByDate()">Filter</button>
+          </div>
+          
         <table id="paymentsTable">
             <thead>
                 <tr>
                     <th>Member ID</th>
                     <th>Name</th>
                     <th>Membership Plan</th>
-                    <th>Payment Status</th>
+                    <th>Amount</th>
+                    <th>Date</th>
                 </tr>
             </thead>
             <tbody>

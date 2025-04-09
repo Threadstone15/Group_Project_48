@@ -67,6 +67,10 @@ export function initlogin() {
           // Save token and role in browser storage
           localStorage.setItem('authToken', data.token);
           localStorage.setItem('role', data.role);
+          localStorage.setItem('amount', data.amount,);
+          localStorage.setItem('date_time', data.date_time);
+          localStorage.setItem('membership_plan_id', data.membership_plan_id);
+          localStorage.setItem('status', data.status);
 
           // Redirect based on role
           if (data.role == 'staff') {

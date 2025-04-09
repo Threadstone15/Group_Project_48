@@ -10,27 +10,32 @@ include_once "../../logs/save.php";
 function getSubscriptionOfAMember($user_id)
 {
     logMessage("getSubscriptionOfAMember func running...");
-    $subscription = new Subscription();
-    $member = new Member();
+    $payment = new Payment();
+    $paymentData = $payment->getLatestPaymentByUserId($user_id);
 
-    //getting member id of member using userId
-    $memberData = $member->getMemberIDbyUserID($user_id);
-    if ($memberData) {
-        $member_id = $memberData['member_id'];
 
-        $result = $subscription->getSubscriptionOfAMember($member_id);
-        if ($result) {
-            logMessage("subscription fetched");
-            echo json_encode($result);
-        } else {
-            logMessage("subscription not found for member id : $member_id");
-            echo json_encode(["error" => "No subscription found"]);
-        }
+    if ($paymentData) {
+        echo json_encode($paymentData);
     } else {
-        logMessage("Member not found for userID : $user_id");
-        echo json_encode(["error" => "Member not found"]);
+        echo json_encode(["error" => "Subscription not found"]);
     }
 }
+
+function getPaymentListOfAMember($user_id)
+{
+    logMessage("getSubscriptionOfAMember func running...");
+    $payment = new Payment();
+    $paymentList = $payment->getPaymentsByUserId($user_id);
+
+
+    if ($paymentList) {
+        echo json_encode($paymentList);
+    } else {
+        echo json_encode(["error" => "Subscription not found"]);
+    }
+}
+
+
 
 function updateSubscription($user_id)
 {
