@@ -4,6 +4,7 @@
 include_once "../../logs/save.php"; // Assuming this is where logMessage is defined
 require_once "../../config/database.php"; // Include the DatabaseConnection class
 
+
 class User
 {
     private $conn;
@@ -287,6 +288,32 @@ class User
             }
         } else {
             logMessage("Error executing deactivateUser query for user ID: $user_id with error: " . $stmt->error);
+            return false;
+        }
+    }
+
+    public function getEmailById($user_id)
+    {
+        $query = "SELECT email FROM " . $this->table . " WHERE user_id = ?";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing statement for getEmailById: " . $this->conn->error);
+            return false;
+        }
+
+        $stmt->bind_param("i", $user_id);
+
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                return $row['email'];
+            } else {
+                return false;
+            }
+        } else {
+            logMessage("Error executing getEmailById query for user ID: $user_id with error: " . $stmt->error);
             return false;
         }
     }

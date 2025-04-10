@@ -266,6 +266,10 @@ function deleteStaff($user_id)
 
     if ($user->deleteUser($user_id)) {
         logMessage("Staff deleted successfully:");
+        if ($email =  $user->getEmailById($user_id)) {
+            logMessage("Email: $email");
+            account_deactivation($email);
+        }
         echo json_encode(["message" => "User deleted successfully"]);
     } else {
         logMessage("Failed to delete staff:");

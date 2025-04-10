@@ -40,7 +40,6 @@ function account_creation($email, $password)
         logMessage("Sending account creation email to: $email");
         $mail->send();
         logMessage("Account creation email sent successfully to: $email");
-
     } catch (Exception $e) {
         logMessage("Failed to send account creation email to: $email. PHPMailer Error: " . $e->getMessage());
     }
@@ -61,7 +60,6 @@ function account_update($email)
         logMessage("Sending account update email to: $email");
         $mail->send();
         logMessage("Account update email sent successfully to: $email");
-
     } catch (Exception $e) {
         logMessage("Failed to send account update email to: $email. PHPMailer Error: " . $e->getMessage());
     }
@@ -82,10 +80,26 @@ function account_deletion($email)
         logMessage("Sending account deletion email to: $email");
         $mail->send();
         logMessage("Account deletion email sent successfully to: $email");
-
     } catch (Exception $e) {
         logMessage("Failed to send account deletion email to: $email. PHPMailer Error: " . $e->getMessage());
     }
 }
 
-?>
+function account_deactivation($email)
+{
+    logMessage("Account deactivation email function invoked.");
+    $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+
+    try {
+        $mail = configureMailer();
+        $mail->addAddress($email);
+        $mail->Subject = "Account Deactivation Confirmation";
+        $mail->Body = "Hello,\n\nYour account has been deactivated by the GymVerse team. \n\nIf you want to reactivate your account, please contact support immediately.\n\nBest Regards,\nGymVerse Team";
+
+        logMessage("Sending account deactivation email to: $email");
+        $mail->send();
+        logMessage("Account deactivation email sent successfully to: $email");
+    } catch (Exception $e) {
+        logMessage("Failed to send account deactivation email to: $email. PHPMailer Error: " . $e->getMessage());
+    }
+}
