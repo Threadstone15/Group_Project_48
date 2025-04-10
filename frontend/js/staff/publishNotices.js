@@ -111,8 +111,21 @@ export function initStaff_publishNotice() {
             .catch(error => console.error("Error adding notice:", error));
     });
 
+    window.closeDeletePopup = function() {
+        document.getElementById("deletePopup").style.display = "none";
+        document.getElementById("overlay").style.display = "none";
+    };
+    
+    window.setupDeletePopupHandlers = function() {
+        // Set up cancel button
+        document.getElementById("cancelDelete").onclick = window.closeDeletePopup;
+        
+        // Set up close button (X)
+        document.getElementById("closePopup").addEventListener("click", window.closeDeletePopup);
+    };
+
     // Delete a notice
-    function deleteNotice(noticeId) {
+    window.deleteNotice = function(noticeId) {
         console.log(`Delete button clicked for notice ID: ${noticeId}`);
 
         const deletePopup = document.getElementById("deletePopup");
@@ -150,14 +163,12 @@ export function initStaff_publishNotice() {
                 .catch(error => console.error("Error deleting notice:", error));
         };
 
-        document.getElementById("cancelDelete").onclick = () => {
-            deletePopup.style.display = "none";
-            document.getElementById("overlay").style.display = "none";
-        };
+        // Call this to set up the close handlers
+        window.setupDeletePopupHandlers();
     }
 
     // Open the update popup for editing a notice
-    function openUpdatePopup(button) {
+    window.openUpdatePopup = function(button) {
         const row = button.closest("tr");
         const noticeId = row.cells[0].textContent;
         //const publisherId = row.cells[1].textContent;
@@ -174,12 +185,15 @@ export function initStaff_publishNotice() {
         document.getElementById("updateNoticeDescription").value = description;
 
         document.getElementById("updatePopup").style.display = "block";
-        document.getElementById("closeUpdatePopup").onclick = () => {
-            document.getElementById("updatePopup").style.display = "none"; // Close the update popup
-            document.getElementById("overlay").style.display = "none";
-        };
+        
+}
 
-    }
+    // Close the Update Popup
+    window.closeUpdatePopup = () => {
+        document.getElementById("updatePopup").style.display = "none";
+        document.getElementById("overlay").style.display = "none";
+    };
+    document.getElementById("closeUpdatePopup").onclick = window.closeUpdatePopup;
 
     // Update a notice
     document.getElementById("updateForm").addEventListener("submit", function (event) {
@@ -217,9 +231,8 @@ export function initStaff_publishNotice() {
                 return response.json();
             })
             .then(result => {
-                console.log("Notice updated successfully:", result);
+                window.closeUpdatePopup(); // Close the popup
                 fetchNoticeList(); // Refresh the notice list
-                document.getElementById("updatePopup").style.display = "none";
             })
             .catch(error => console.error("Error updating notice:", error));
     });
