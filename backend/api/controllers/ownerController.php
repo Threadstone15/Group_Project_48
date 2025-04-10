@@ -29,6 +29,7 @@ $requiredRole = "owner";
 verifyRequest($requiredRole, $token);
 $user_id  = getUserIdFromToken($token);
 
+
 logMessage("Running owner controller ,$action token - $token   id - $user_id ");
 
 switch ($action) {
@@ -47,10 +48,15 @@ switch ($action) {
         updateStaff();
         break;
     case 'delete_staff':
+        $deleted_by = $user_id;
         logMessage("Running delete_staff....in controller");
-        $user_id = $_POST['userID'] ?? $_GET['userID'] ?? null;
-        deleteStaff($user_id);
+        $input = json_decode(file_get_contents('php://input'), true);
+        $user_id = $input['userId'] ?? null;
+        $remark = $input['reason'] ?? null;
+        logMessage("User ID: $user_id, Remark: $remark, Deleted By: $deleted_by");
+        deleteStaff($user_id, $remark, $deleted_by);
         break;
+
     case 'add_staff':
         logMessage("Running add_staff....in controller");
         addStaff();
@@ -80,10 +86,10 @@ switch ($action) {
         logMessage("Running get_trainer_applications....in controller");
         getTrainerApplications();
         break;
-    case 'get_trainerAppliedCareers' :
-            logMessage("Running get_trainerAppliedCareers....in controller");
-            getTrainerAppliedCareers();
-            break;
+    case 'get_trainerAppliedCareers':
+        logMessage("Running get_trainerAppliedCareers....in controller");
+        getTrainerAppliedCareers();
+        break;
     case 'update_trainerApplicationStatus':
         logMessage("Running update_trainer_application_status....in controller");
         updateTrainerApplicationStatus();

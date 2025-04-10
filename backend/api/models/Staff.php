@@ -1,20 +1,23 @@
 <?php
 // api/models/Staff.php
 
-include_once "../../logs/save.php"; 
+include_once "../../logs/save.php";
 require_once "../../config/database.php";
 
-class Staff {
+class Staff
+{
     private $conn;
     private $table = "staff";
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->conn = DatabaseConnection::getInstance()->getConnection();
         logMessage("Staff model initialized with database connection.");
     }
 
     // Generate a unique Staff ID
-    private function generateStaffID() {
+    private function generateStaffID()
+    {
         $query = "SELECT staff_id 
                   FROM " . $this->table . " 
                   ORDER BY CAST(SUBSTRING(staff_id, 2) AS UNSIGNED) DESC 
@@ -32,7 +35,8 @@ class Staff {
     }
 
     // Create staff record
-    public function createStaff( $user_id, $firstName, $lastName, $dob, $phone, $address, $gender) {
+    public function createStaff($user_id, $firstName, $lastName, $dob, $phone, $address, $gender)
+    {
         logMessage("Creating staff...");
 
         $query = "INSERT INTO " . $this->table . " (staff_id, user_id, first_name, last_name, DOB, phone, address, gender, join_date)
@@ -62,7 +66,8 @@ class Staff {
     }
 
     // Read staff records
-    public function getAllStaff() {
+    public function getAllStaff()
+    {
         logMessage("Fetching all staff records...");
 
         $query = "SELECT * FROM " . $this->table;
@@ -83,38 +88,40 @@ class Staff {
     }
 
     // Get staff record by ID
-public function getStaffByID($staff_id) {
-    logMessage("Fetching staff record with ID: $staff_id");
+    public function getStaffByID($staff_id)
+    {
+        logMessage("Fetching staff record with ID: $staff_id");
 
-    $query = "SELECT * FROM " . $this->table . " WHERE staff_id = ?";
-    $stmt = $this->conn->prepare($query);
+        $query = "SELECT * FROM " . $this->table . " WHERE staff_id = ?";
+        $stmt = $this->conn->prepare($query);
 
-    if ($stmt === false) {
-        logMessage("Error preparing statement for fetching staff by ID: " . $this->conn->error);
-        return false;
-    }
-
-    $stmt->bind_param("s", $staff_id);
-
-    if ($stmt->execute()) {
-        $result = $stmt->get_result();
-        if ($result->num_rows > 0) {
-            $staffRecord = $result->fetch_assoc();
-            logMessage("Staff record fetched successfully: $staff_id");
-            return $staffRecord;
-        } else {
-            logMessage("No staff record found with ID: $staff_id");
-            return null;
+        if ($stmt === false) {
+            logMessage("Error preparing statement for fetching staff by ID: " . $this->conn->error);
+            return false;
         }
-    } else {
-        logMessage("Error executing statement for fetching staff by ID: " . $stmt->error);
-        return false;
+
+        $stmt->bind_param("s", $staff_id);
+
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) {
+                $staffRecord = $result->fetch_assoc();
+                logMessage("Staff record fetched successfully: $staff_id");
+                return $staffRecord;
+            } else {
+                logMessage("No staff record found with ID: $staff_id");
+                return null;
+            }
+        } else {
+            logMessage("Error executing statement for fetching staff by ID: " . $stmt->error);
+            return false;
+        }
     }
-}
 
 
     // Update staff record
-    public function updateStaff($staff_id, $user_id, $firstName, $lastName, $dob, $phone, $address, $gender) {
+    public function updateStaff($staff_id, $user_id, $firstName, $lastName, $dob, $phone, $address, $gender)
+    {
         logMessage("Updating staff with ID: $staff_id");
 
         $query = "UPDATE " . $this->table . "
@@ -139,7 +146,8 @@ public function getStaffByID($staff_id) {
     }
 
     // Delete staff record
-    public function deleteStaff($staff_id) {
+    public function deleteStaff($staff_id)
+    {
         logMessage("Deleting staff with ID: $staff_id");
 
         $query = "DELETE FROM " . $this->table . " WHERE staff_id = ?";
@@ -161,7 +169,8 @@ public function getStaffByID($staff_id) {
         }
     }
 
-    public function getStaffDetails($role) {
+    public function getStaffDetails($role)
+    {
         logMessage("Fetching member details...");
 
         $query = "SELECT 
@@ -170,7 +179,8 @@ public function getStaffByID($staff_id) {
                     s.last_name as lastName, 
                     s.phone, 
                     u.user_id,
-                    u.email
+                    u.email,
+                    u.status
                   FROM 
                     " . $this->table . " s
                   JOIN 
@@ -195,4 +205,3 @@ public function getStaffByID($staff_id) {
         }
     }
 }
-?>

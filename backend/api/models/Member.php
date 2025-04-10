@@ -80,7 +80,8 @@ class Member
                     m.lastName, 
                     m.phone, 
                     u.user_id,
-                    u.email
+                    u.email,
+                    u.status
                   FROM 
                     " . $this->table . " m
                   JOIN 
