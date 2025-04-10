@@ -2831,3 +2831,1150 @@
 [2025-04-09 19:42:20] Member details fetched successfully.
 [2025-04-09 19:42:20] Member details fetched successfully.
 [2025-04-09 19:42:20] Database connection closed.
+[2025-04-10 06:48:45] Running auth controller ,login 
+[2025-04-10 06:48:45] running login...in auth controller
+[2025-04-10 06:48:45] login function running...
+[2025-04-10 06:48:45] Connection established successfully to the database: rad_gymverse
+[2025-04-10 06:48:45] User class instantiated with database connection.
+[2025-04-10 06:48:45] User Login model running for: owner@gmail.com
+[2025-04-10 06:48:46] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-10 06:48:46] User login successful: owner@gmail.com with role: owner
+[2025-04-10 06:48:46] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjYxMjAwfQ==.2c06c0f9ce9e54d0ff647bb8ccc3c3a25ef2937ce775598de6a0f63d1abb4b68 owner
+[2025-04-10 06:48:46] Database connection closed.
+[2025-04-10 06:48:49] Connection established successfully to the database: rad_gymverse
+[2025-04-10 06:48:49] User class instantiated with database connection.
+[2025-04-10 06:48:49] Fetching user role by user ID: 72
+[2025-04-10 06:48:49] User role fetched successfully for user ID: 72
+[2025-04-10 06:48:49] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjYxMjAwfQ==.2c06c0f9ce9e54d0ff647bb8ccc3c3a25ef2937ce775598de6a0f63d1abb4b68   id - 72 
+[2025-04-10 06:48:49] Running get_members_by_role....in controller
+[2025-04-10 06:48:49] Get staff function running for role: trainer
+[2025-04-10 06:48:49] Fetching details for trainers...
+[2025-04-10 06:48:49] Trainer model initialized with database connection.
+[2025-04-10 06:48:49] Fetching trainer details...
+[2025-04-10 06:48:49] Member details fetched successfully.
+[2025-04-10 06:48:49] Trainer details fetched successfully.
+[2025-04-10 06:48:49] Database connection closed.
+[2025-04-10 06:58:13] Connection established successfully to the database: rad_gymverse
+[2025-04-10 06:58:13] User class instantiated with database connection.
+[2025-04-10 06:58:13] Fetching user role by user ID: 72
+[2025-04-10 06:58:13] User role fetched successfully for user ID: 72
+[2025-04-10 06:58:13] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjYxMjAwfQ==.2c06c0f9ce9e54d0ff647bb8ccc3c3a25ef2937ce775598de6a0f63d1abb4b68   id - 72 
+[2025-04-10 06:58:13] Running get_members_by_role....in controller
+[2025-04-10 06:58:13] Get staff function running for role: member
+[2025-04-10 06:58:13] Fetching details for members...
+[2025-04-10 06:58:13] Member model initialized with database connection.
+[2025-04-10 06:58:13] Fetching member details...
+[2025-04-10 06:58:13] Member details fetched successfully.
+[2025-04-10 06:58:13] Member details fetched successfully.
+[2025-04-10 06:58:13] Database connection closed.
+[2025-04-10 06:58:45] Running auth controller ,login 
+[2025-04-10 06:58:45] running login...in auth controller
+[2025-04-10 06:58:45] login function running...
+[2025-04-10 06:58:46] Connection established successfully to the database: rad_gymverse
+[2025-04-10 06:58:46] User class instantiated with database connection.
+[2025-04-10 06:58:46] User Login model running for: owner@gmail.com
+[2025-04-10 06:58:46] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-10 06:58:46] User login successful: owner@gmail.com with role: owner
+[2025-04-10 06:58:46] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjYxMjAwfQ==.2c06c0f9ce9e54d0ff647bb8ccc3c3a25ef2937ce775598de6a0f63d1abb4b68 owner
+[2025-04-10 06:58:46] Database connection closed.
+[2025-04-10 06:58:53] Connection established successfully to the database: rad_gymverse
+[2025-04-10 06:58:53] User class instantiated with database connection.
+[2025-04-10 06:58:53] Fetching user role by user ID: 72
+[2025-04-10 06:58:54] User role fetched successfully for user ID: 72
+[2025-04-10 06:58:54] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjYxMjAwfQ==.2c06c0f9ce9e54d0ff647bb8ccc3c3a25ef2937ce775598de6a0f63d1abb4b68   id - 72 
+[2025-04-10 06:58:54] Running get_members_by_role....in controller
+[2025-04-10 06:58:54] Get staff function running for role: trainer
+[2025-04-10 06:58:54] Fetching details for trainers...
+[2025-04-10 06:58:54] Trainer model initialized with database connection.
+[2025-04-10 06:58:54] Fetching trainer details...
+[2025-04-10 06:58:54] Member details fetched successfully.
+[2025-04-10 06:58:54] Trainer details fetched successfully.
+[2025-04-10 06:58:54] Database connection closed.
+[2025-04-10 06:58:59] Connection established successfully to the database: rad_gymverse
+[2025-04-10 06:58:59] User class instantiated with database connection.
+[2025-04-10 06:58:59] Fetching user role by user ID: 72
+[2025-04-10 06:58:59] User role fetched successfully for user ID: 72
+[2025-04-10 06:58:59] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjYxMjAwfQ==.2c06c0f9ce9e54d0ff647bb8ccc3c3a25ef2937ce775598de6a0f63d1abb4b68   id - 72 
+[2025-04-10 06:58:59] Running get_members_by_role....in controller
+[2025-04-10 06:58:59] Get staff function running for role: owner
+[2025-04-10 06:58:59] Fetching details for owner...
+[2025-04-10 06:58:59] Staff model initialized with database connection.
+[2025-04-10 06:58:59] Fetching member details...
+[2025-04-10 06:58:59] Member details fetched successfully.
+[2025-04-10 06:58:59] Owner details fetched successfully.
+[2025-04-10 06:58:59] Database connection closed.
+[2025-04-10 07:02:06] Running auth controller ,login 
+[2025-04-10 07:02:06] running login...in auth controller
+[2025-04-10 07:02:06] login function running...
+[2025-04-10 07:02:06] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:02:06] User class instantiated with database connection.
+[2025-04-10 07:02:06] User Login model running for: owner@gmail.com
+[2025-04-10 07:02:06] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-10 07:02:06] User login successful: owner@gmail.com with role: owner
+[2025-04-10 07:02:06] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86 owner
+[2025-04-10 07:02:06] Database connection closed.
+[2025-04-10 07:02:06] Running auth controller ,login 
+[2025-04-10 07:02:06] running login...in auth controller
+[2025-04-10 07:02:06] login function running...
+[2025-04-10 07:02:07] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:02:07] User class instantiated with database connection.
+[2025-04-10 07:02:07] User Login model running for: owner@gmail.com
+[2025-04-10 07:02:07] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-10 07:02:07] User login successful: owner@gmail.com with role: owner
+[2025-04-10 07:02:07] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86 owner
+[2025-04-10 07:02:07] Database connection closed.
+[2025-04-10 07:02:08] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:02:08] User class instantiated with database connection.
+[2025-04-10 07:02:08] Fetching user role by user ID: 72
+[2025-04-10 07:02:08] User role fetched successfully for user ID: 72
+[2025-04-10 07:02:08] Running owner controller ,get_trainerAppliedCareers token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:02:08] Running get_trainerAppliedCareers....in controller
+[2025-04-10 07:02:08] TrainerCareer model initialized with database connection.
+[2025-04-10 07:02:08] Fetching trainer applications...
+[2025-04-10 07:02:09] Trainer applicatins fetched successfully.
+[2025-04-10 07:02:09] TrainerCareer model initialized with database connection.
+[2025-04-10 07:02:09] Fetching trainer applied careers...
+[2025-04-10 07:02:09] Trainer applied careers fetched successfully.
+[2025-04-10 07:02:09] Database connection closed.
+[2025-04-10 07:02:10] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:02:10] User class instantiated with database connection.
+[2025-04-10 07:02:10] Fetching user role by user ID: 72
+[2025-04-10 07:02:10] User role fetched successfully for user ID: 72
+[2025-04-10 07:02:10] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:02:10] Running get_trainer_applications....in controller
+[2025-04-10 07:02:10] TrainerCareer model initialized with database connection.
+[2025-04-10 07:02:10] Fetching trainer applications...
+[2025-04-10 07:02:10] Trainer applicatins fetched successfully.
+[2025-04-10 07:02:10] Database connection closed.
+[2025-04-10 07:02:11] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:02:11] User class instantiated with database connection.
+[2025-04-10 07:02:11] Fetching user role by user ID: 72
+[2025-04-10 07:02:11] User role fetched successfully for user ID: 72
+[2025-04-10 07:02:11] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:02:11] Running get_members_by_role....in controller
+[2025-04-10 07:02:11] Get staff function running for role: trainer
+[2025-04-10 07:02:11] Fetching details for trainers...
+[2025-04-10 07:02:11] Trainer model initialized with database connection.
+[2025-04-10 07:02:11] Fetching trainer details...
+[2025-04-10 07:02:11] Member details fetched successfully.
+[2025-04-10 07:02:11] Trainer details fetched successfully.
+[2025-04-10 07:02:11] Database connection closed.
+[2025-04-10 07:04:39] Running auth controller ,login 
+[2025-04-10 07:04:39] running login...in auth controller
+[2025-04-10 07:04:39] login function running...
+[2025-04-10 07:04:40] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:04:40] User class instantiated with database connection.
+[2025-04-10 07:04:40] User Login model running for: owner@gmail.com
+[2025-04-10 07:04:40] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-10 07:04:40] User login successful: owner@gmail.com with role: owner
+[2025-04-10 07:04:40] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86 owner
+[2025-04-10 07:04:40] Database connection closed.
+[2025-04-10 07:04:45] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:04:45] User class instantiated with database connection.
+[2025-04-10 07:04:45] Fetching user role by user ID: 72
+[2025-04-10 07:04:45] User role fetched successfully for user ID: 72
+[2025-04-10 07:04:45] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:04:45] Running get_members_by_role....in controller
+[2025-04-10 07:04:45] Get staff function running for role: trainer
+[2025-04-10 07:04:45] Fetching details for trainers...
+[2025-04-10 07:04:45] Trainer model initialized with database connection.
+[2025-04-10 07:04:45] Fetching trainer details...
+[2025-04-10 07:04:45] Member details fetched successfully.
+[2025-04-10 07:04:45] Trainer details fetched successfully.
+[2025-04-10 07:04:45] Database connection closed.
+[2025-04-10 07:05:28] Running auth controller ,login 
+[2025-04-10 07:05:28] running login...in auth controller
+[2025-04-10 07:05:28] login function running...
+[2025-04-10 07:05:28] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:05:28] User class instantiated with database connection.
+[2025-04-10 07:05:28] User Login model running for: owner@gmail.com
+[2025-04-10 07:05:28] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-10 07:05:29] User login successful: owner@gmail.com with role: owner
+[2025-04-10 07:05:29] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86 owner
+[2025-04-10 07:05:29] Database connection closed.
+[2025-04-10 07:05:30] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:05:30] User class instantiated with database connection.
+[2025-04-10 07:05:30] Fetching user role by user ID: 72
+[2025-04-10 07:05:30] User role fetched successfully for user ID: 72
+[2025-04-10 07:05:30] Running owner controller ,get_trainerAppliedCareers token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:05:30] Running get_trainerAppliedCareers....in controller
+[2025-04-10 07:05:30] TrainerCareer model initialized with database connection.
+[2025-04-10 07:05:30] Fetching trainer applications...
+[2025-04-10 07:05:31] Trainer applicatins fetched successfully.
+[2025-04-10 07:05:31] TrainerCareer model initialized with database connection.
+[2025-04-10 07:05:31] Fetching trainer applied careers...
+[2025-04-10 07:05:31] Trainer applied careers fetched successfully.
+[2025-04-10 07:05:31] Database connection closed.
+[2025-04-10 07:05:32] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:05:32] User class instantiated with database connection.
+[2025-04-10 07:05:32] Fetching user role by user ID: 72
+[2025-04-10 07:05:32] User role fetched successfully for user ID: 72
+[2025-04-10 07:05:32] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:05:32] Running get_trainer_applications....in controller
+[2025-04-10 07:05:32] TrainerCareer model initialized with database connection.
+[2025-04-10 07:05:32] Fetching trainer applications...
+[2025-04-10 07:05:32] Trainer applicatins fetched successfully.
+[2025-04-10 07:05:32] Database connection closed.
+[2025-04-10 07:05:33] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:05:33] User class instantiated with database connection.
+[2025-04-10 07:05:33] Fetching user role by user ID: 72
+[2025-04-10 07:05:33] User role fetched successfully for user ID: 72
+[2025-04-10 07:05:33] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:05:33] Running get_members_by_role....in controller
+[2025-04-10 07:05:33] Get staff function running for role: trainer
+[2025-04-10 07:05:33] Fetching details for trainers...
+[2025-04-10 07:05:33] Trainer model initialized with database connection.
+[2025-04-10 07:05:33] Fetching trainer details...
+[2025-04-10 07:05:33] Member details fetched successfully.
+[2025-04-10 07:05:33] Trainer details fetched successfully.
+[2025-04-10 07:05:33] Database connection closed.
+[2025-04-10 07:07:22] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:07:22] User class instantiated with database connection.
+[2025-04-10 07:07:22] Fetching user role by user ID: 72
+[2025-04-10 07:07:22] User role fetched successfully for user ID: 72
+[2025-04-10 07:07:22] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:07:22] Running get_members_by_role....in controller
+[2025-04-10 07:07:22] Get staff function running for role: trainer
+[2025-04-10 07:07:22] Fetching details for trainers...
+[2025-04-10 07:07:22] Trainer model initialized with database connection.
+[2025-04-10 07:07:22] Fetching trainer details...
+[2025-04-10 07:07:23] Member details fetched successfully.
+[2025-04-10 07:07:23] Trainer details fetched successfully.
+[2025-04-10 07:07:23] Database connection closed.
+[2025-04-10 07:07:46] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:07:46] User class instantiated with database connection.
+[2025-04-10 07:07:46] Fetching user role by user ID: 72
+[2025-04-10 07:07:46] User role fetched successfully for user ID: 72
+[2025-04-10 07:07:46] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:07:46] Running get_members_by_role....in controller
+[2025-04-10 07:07:46] Get staff function running for role: owner
+[2025-04-10 07:07:46] Fetching details for owner...
+[2025-04-10 07:07:46] Staff model initialized with database connection.
+[2025-04-10 07:07:46] Fetching member details...
+[2025-04-10 07:07:46] Member details fetched successfully.
+[2025-04-10 07:07:46] Owner details fetched successfully.
+[2025-04-10 07:07:46] Database connection closed.
+[2025-04-10 07:09:50] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:09:50] User class instantiated with database connection.
+[2025-04-10 07:09:50] Fetching user role by user ID: 72
+[2025-04-10 07:09:50] User role fetched successfully for user ID: 72
+[2025-04-10 07:09:50] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:09:50] Running get_members_by_role....in controller
+[2025-04-10 07:09:50] Get staff function running for role: trainer
+[2025-04-10 07:09:50] Fetching details for trainers...
+[2025-04-10 07:09:50] Trainer model initialized with database connection.
+[2025-04-10 07:09:50] Fetching trainer details...
+[2025-04-10 07:09:50] Member details fetched successfully.
+[2025-04-10 07:09:50] Trainer details fetched successfully.
+[2025-04-10 07:09:50] Database connection closed.
+[2025-04-10 07:10:05] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:10:05] User class instantiated with database connection.
+[2025-04-10 07:10:05] Fetching user role by user ID: 72
+[2025-04-10 07:10:05] User role fetched successfully for user ID: 72
+[2025-04-10 07:10:05] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:10:05] Running get_members_by_role....in controller
+[2025-04-10 07:10:05] Get staff function running for role: member
+[2025-04-10 07:10:05] Fetching details for members...
+[2025-04-10 07:10:05] Member model initialized with database connection.
+[2025-04-10 07:10:05] Fetching member details...
+[2025-04-10 07:10:05] Member details fetched successfully.
+[2025-04-10 07:10:05] Member details fetched successfully.
+[2025-04-10 07:10:05] Database connection closed.
+[2025-04-10 07:10:47] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:10:47] User class instantiated with database connection.
+[2025-04-10 07:10:47] Fetching user role by user ID: 72
+[2025-04-10 07:10:47] User role fetched successfully for user ID: 72
+[2025-04-10 07:10:47] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:10:47] Running get_members_by_role....in controller
+[2025-04-10 07:10:47] Get staff function running for role: trainer
+[2025-04-10 07:10:47] Fetching details for trainers...
+[2025-04-10 07:10:47] Trainer model initialized with database connection.
+[2025-04-10 07:10:47] Fetching trainer details...
+[2025-04-10 07:10:48] Member details fetched successfully.
+[2025-04-10 07:10:48] Trainer details fetched successfully.
+[2025-04-10 07:10:48] Database connection closed.
+[2025-04-10 07:12:38] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:12:38] User class instantiated with database connection.
+[2025-04-10 07:12:38] Fetching user role by user ID: 72
+[2025-04-10 07:12:38] User role fetched successfully for user ID: 72
+[2025-04-10 07:12:38] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:12:38] Running get_members_by_role....in controller
+[2025-04-10 07:12:38] Get staff function running for role: trainer
+[2025-04-10 07:12:38] Fetching details for trainers...
+[2025-04-10 07:12:38] Trainer model initialized with database connection.
+[2025-04-10 07:12:38] Fetching trainer details...
+[2025-04-10 07:12:38] Member details fetched successfully.
+[2025-04-10 07:12:38] Trainer details fetched successfully.
+[2025-04-10 07:12:38] Database connection closed.
+[2025-04-10 07:13:52] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:13:52] User class instantiated with database connection.
+[2025-04-10 07:13:52] Fetching user role by user ID: 72
+[2025-04-10 07:13:52] User role fetched successfully for user ID: 72
+[2025-04-10 07:13:52] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:13:52] Running get_members_by_role....in controller
+[2025-04-10 07:13:52] Get staff function running for role: trainer
+[2025-04-10 07:13:52] Fetching details for trainers...
+[2025-04-10 07:13:52] Trainer model initialized with database connection.
+[2025-04-10 07:13:52] Fetching trainer details...
+[2025-04-10 07:13:52] Member details fetched successfully.
+[2025-04-10 07:13:52] Trainer details fetched successfully.
+[2025-04-10 07:13:52] Database connection closed.
+[2025-04-10 07:14:52] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:14:52] User class instantiated with database connection.
+[2025-04-10 07:14:52] Fetching user role by user ID: 72
+[2025-04-10 07:14:52] User role fetched successfully for user ID: 72
+[2025-04-10 07:14:52] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:14:52] Running get_members_by_role....in controller
+[2025-04-10 07:14:52] Get staff function running for role: trainer
+[2025-04-10 07:14:52] Fetching details for trainers...
+[2025-04-10 07:14:52] Trainer model initialized with database connection.
+[2025-04-10 07:14:52] Fetching trainer details...
+[2025-04-10 07:14:52] Member details fetched successfully.
+[2025-04-10 07:14:52] Trainer details fetched successfully.
+[2025-04-10 07:14:52] Database connection closed.
+[2025-04-10 07:18:01] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:18:01] User class instantiated with database connection.
+[2025-04-10 07:18:01] Fetching user role by user ID: 72
+[2025-04-10 07:18:01] User role fetched successfully for user ID: 72
+[2025-04-10 07:18:01] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:18:01] Running get_members_by_role....in controller
+[2025-04-10 07:18:01] Get staff function running for role: trainer
+[2025-04-10 07:18:01] Fetching details for trainers...
+[2025-04-10 07:18:01] Trainer model initialized with database connection.
+[2025-04-10 07:18:01] Fetching trainer details...
+[2025-04-10 07:18:01] Member details fetched successfully.
+[2025-04-10 07:18:01] Trainer details fetched successfully.
+[2025-04-10 07:18:01] Database connection closed.
+[2025-04-10 07:19:30] Running auth controller ,login 
+[2025-04-10 07:19:30] running login...in auth controller
+[2025-04-10 07:19:30] login function running...
+[2025-04-10 07:19:31] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:19:31] User class instantiated with database connection.
+[2025-04-10 07:19:31] User Login model running for: owner@gmail.com
+[2025-04-10 07:19:31] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-10 07:19:31] User login successful: owner@gmail.com with role: owner
+[2025-04-10 07:19:31] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86 owner
+[2025-04-10 07:19:31] Database connection closed.
+[2025-04-10 07:19:36] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:19:36] User class instantiated with database connection.
+[2025-04-10 07:19:36] Fetching user role by user ID: 72
+[2025-04-10 07:19:36] User role fetched successfully for user ID: 72
+[2025-04-10 07:19:36] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:19:36] Running get_members_by_role....in controller
+[2025-04-10 07:19:36] Get staff function running for role: member
+[2025-04-10 07:19:36] Fetching details for members...
+[2025-04-10 07:19:36] Member model initialized with database connection.
+[2025-04-10 07:19:36] Fetching member details...
+[2025-04-10 07:19:36] Member details fetched successfully.
+[2025-04-10 07:19:36] Member details fetched successfully.
+[2025-04-10 07:19:36] Database connection closed.
+[2025-04-10 07:23:31] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:23:31] User class instantiated with database connection.
+[2025-04-10 07:23:31] Fetching user role by user ID: 72
+[2025-04-10 07:23:31] User role fetched successfully for user ID: 72
+[2025-04-10 07:23:31] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:23:31] Running get_members_by_role....in controller
+[2025-04-10 07:23:31] Get staff function running for role: trainer
+[2025-04-10 07:23:31] Fetching details for trainers...
+[2025-04-10 07:23:31] Trainer model initialized with database connection.
+[2025-04-10 07:23:31] Fetching trainer details...
+[2025-04-10 07:23:31] Member details fetched successfully.
+[2025-04-10 07:23:31] Trainer details fetched successfully.
+[2025-04-10 07:23:31] Database connection closed.
+[2025-04-10 07:23:33] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:23:33] User class instantiated with database connection.
+[2025-04-10 07:23:33] Fetching user role by user ID: 72
+[2025-04-10 07:23:33] User role fetched successfully for user ID: 72
+[2025-04-10 07:23:33] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:23:33] Running get_members_by_role....in controller
+[2025-04-10 07:23:33] Get staff function running for role: owner
+[2025-04-10 07:23:33] Fetching details for owner...
+[2025-04-10 07:23:33] Staff model initialized with database connection.
+[2025-04-10 07:23:33] Fetching member details...
+[2025-04-10 07:23:33] Member details fetched successfully.
+[2025-04-10 07:23:33] Owner details fetched successfully.
+[2025-04-10 07:23:33] Database connection closed.
+[2025-04-10 07:24:07] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:24:07] User class instantiated with database connection.
+[2025-04-10 07:24:07] Fetching user role by user ID: 72
+[2025-04-10 07:24:07] User role fetched successfully for user ID: 72
+[2025-04-10 07:24:07] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:24:07] Running get_members_by_role....in controller
+[2025-04-10 07:24:07] Get staff function running for role: trainer
+[2025-04-10 07:24:07] Fetching details for trainers...
+[2025-04-10 07:24:07] Trainer model initialized with database connection.
+[2025-04-10 07:24:07] Fetching trainer details...
+[2025-04-10 07:24:07] Member details fetched successfully.
+[2025-04-10 07:24:07] Trainer details fetched successfully.
+[2025-04-10 07:24:07] Database connection closed.
+[2025-04-10 07:24:19] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:24:19] User class instantiated with database connection.
+[2025-04-10 07:24:19] Fetching user role by user ID: 72
+[2025-04-10 07:24:19] User role fetched successfully for user ID: 72
+[2025-04-10 07:24:19] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:24:19] Running get_members_by_role....in controller
+[2025-04-10 07:24:19] Get staff function running for role: trainer
+[2025-04-10 07:24:19] Fetching details for trainers...
+[2025-04-10 07:24:19] Trainer model initialized with database connection.
+[2025-04-10 07:24:19] Fetching trainer details...
+[2025-04-10 07:24:19] Member details fetched successfully.
+[2025-04-10 07:24:19] Trainer details fetched successfully.
+[2025-04-10 07:24:19] Database connection closed.
+[2025-04-10 07:24:35] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:24:35] User class instantiated with database connection.
+[2025-04-10 07:24:35] Fetching user role by user ID: 72
+[2025-04-10 07:24:36] User role fetched successfully for user ID: 72
+[2025-04-10 07:24:36] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:24:36] Running get_members_by_role....in controller
+[2025-04-10 07:24:36] Get staff function running for role: trainer
+[2025-04-10 07:24:36] Fetching details for trainers...
+[2025-04-10 07:24:36] Trainer model initialized with database connection.
+[2025-04-10 07:24:36] Fetching trainer details...
+[2025-04-10 07:24:36] Member details fetched successfully.
+[2025-04-10 07:24:36] Trainer details fetched successfully.
+[2025-04-10 07:24:36] Database connection closed.
+[2025-04-10 07:27:32] Running auth controller ,login 
+[2025-04-10 07:27:32] running login...in auth controller
+[2025-04-10 07:27:32] login function running...
+[2025-04-10 07:27:33] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:27:33] User class instantiated with database connection.
+[2025-04-10 07:27:33] User Login model running for: owner@gmail.com
+[2025-04-10 07:27:33] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-10 07:27:33] User login successful: owner@gmail.com with role: owner
+[2025-04-10 07:27:33] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86 owner
+[2025-04-10 07:27:33] Database connection closed.
+[2025-04-10 07:27:38] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:27:38] User class instantiated with database connection.
+[2025-04-10 07:27:38] Fetching user role by user ID: 72
+[2025-04-10 07:27:38] User role fetched successfully for user ID: 72
+[2025-04-10 07:27:38] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:27:38] Running get_members_by_role....in controller
+[2025-04-10 07:27:38] Get staff function running for role: trainer
+[2025-04-10 07:27:38] Fetching details for trainers...
+[2025-04-10 07:27:38] Trainer model initialized with database connection.
+[2025-04-10 07:27:38] Fetching trainer details...
+[2025-04-10 07:27:38] Member details fetched successfully.
+[2025-04-10 07:27:38] Trainer details fetched successfully.
+[2025-04-10 07:27:38] Database connection closed.
+[2025-04-10 07:32:15] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:32:15] User class instantiated with database connection.
+[2025-04-10 07:32:15] Fetching user role by user ID: 72
+[2025-04-10 07:32:15] User role fetched successfully for user ID: 72
+[2025-04-10 07:32:15] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:32:15] Running get_members_by_role....in controller
+[2025-04-10 07:32:15] Get staff function running for role: member
+[2025-04-10 07:32:15] Fetching details for members...
+[2025-04-10 07:32:15] Member model initialized with database connection.
+[2025-04-10 07:32:15] Fetching member details...
+[2025-04-10 07:32:15] Member details fetched successfully.
+[2025-04-10 07:32:15] Member details fetched successfully.
+[2025-04-10 07:32:15] Database connection closed.
+[2025-04-10 07:32:16] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:32:16] User class instantiated with database connection.
+[2025-04-10 07:32:16] Fetching user role by user ID: 72
+[2025-04-10 07:32:16] User role fetched successfully for user ID: 72
+[2025-04-10 07:32:16] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:32:16] Running get_members_by_role....in controller
+[2025-04-10 07:32:16] Get staff function running for role: trainer
+[2025-04-10 07:32:16] Fetching details for trainers...
+[2025-04-10 07:32:16] Trainer model initialized with database connection.
+[2025-04-10 07:32:16] Fetching trainer details...
+[2025-04-10 07:32:16] Member details fetched successfully.
+[2025-04-10 07:32:16] Trainer details fetched successfully.
+[2025-04-10 07:32:16] Database connection closed.
+[2025-04-10 07:32:23] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:32:23] User class instantiated with database connection.
+[2025-04-10 07:32:23] Fetching user role by user ID: 72
+[2025-04-10 07:32:23] User role fetched successfully for user ID: 72
+[2025-04-10 07:32:23] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:32:23] Running get_members_by_role....in controller
+[2025-04-10 07:32:23] Get staff function running for role: member
+[2025-04-10 07:32:23] Fetching details for members...
+[2025-04-10 07:32:23] Member model initialized with database connection.
+[2025-04-10 07:32:23] Fetching member details...
+[2025-04-10 07:32:23] Member details fetched successfully.
+[2025-04-10 07:32:23] Member details fetched successfully.
+[2025-04-10 07:32:23] Database connection closed.
+[2025-04-10 07:38:35] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:38:35] User class instantiated with database connection.
+[2025-04-10 07:38:35] Fetching user role by user ID: 72
+[2025-04-10 07:38:35] User role fetched successfully for user ID: 72
+[2025-04-10 07:38:35] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:38:35] Running get_members_by_role....in controller
+[2025-04-10 07:38:35] Get staff function running for role: member
+[2025-04-10 07:38:35] Fetching details for members...
+[2025-04-10 07:38:35] Member model initialized with database connection.
+[2025-04-10 07:38:35] Fetching member details...
+[2025-04-10 07:38:35] Member details fetched successfully.
+[2025-04-10 07:38:35] Member details fetched successfully.
+[2025-04-10 07:38:35] Database connection closed.
+[2025-04-10 07:38:52] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:38:52] User class instantiated with database connection.
+[2025-04-10 07:38:52] Fetching user role by user ID: 72
+[2025-04-10 07:38:52] User role fetched successfully for user ID: 72
+[2025-04-10 07:38:52] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:38:52] Running get_members_by_role....in controller
+[2025-04-10 07:38:52] Get staff function running for role: staff
+[2025-04-10 07:38:52] Fetching details for staff...
+[2025-04-10 07:38:52] Staff model initialized with database connection.
+[2025-04-10 07:38:52] Fetching member details...
+[2025-04-10 07:38:52] Member details fetched successfully.
+[2025-04-10 07:38:52] Staff details fetched successfully.
+[2025-04-10 07:38:52] Database connection closed.
+[2025-04-10 07:38:54] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:38:54] User class instantiated with database connection.
+[2025-04-10 07:38:54] Fetching user role by user ID: 72
+[2025-04-10 07:38:55] User role fetched successfully for user ID: 72
+[2025-04-10 07:38:55] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:38:55] Running get_members_by_role....in controller
+[2025-04-10 07:38:55] Get staff function running for role: staff
+[2025-04-10 07:38:55] Fetching details for staff...
+[2025-04-10 07:38:55] Staff model initialized with database connection.
+[2025-04-10 07:38:55] Fetching member details...
+[2025-04-10 07:38:55] Member details fetched successfully.
+[2025-04-10 07:38:55] Staff details fetched successfully.
+[2025-04-10 07:38:55] Database connection closed.
+[2025-04-10 07:39:01] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:39:01] User class instantiated with database connection.
+[2025-04-10 07:39:01] Fetching user role by user ID: 72
+[2025-04-10 07:39:01] User role fetched successfully for user ID: 72
+[2025-04-10 07:39:01] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:39:01] Running get_members_by_role....in controller
+[2025-04-10 07:39:01] Get staff function running for role: owner
+[2025-04-10 07:39:01] Fetching details for owner...
+[2025-04-10 07:39:01] Staff model initialized with database connection.
+[2025-04-10 07:39:01] Fetching member details...
+[2025-04-10 07:39:02] Member details fetched successfully.
+[2025-04-10 07:39:02] Owner details fetched successfully.
+[2025-04-10 07:39:02] Database connection closed.
+[2025-04-10 07:39:07] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:39:07] User class instantiated with database connection.
+[2025-04-10 07:39:07] Fetching user role by user ID: 72
+[2025-04-10 07:39:07] User role fetched successfully for user ID: 72
+[2025-04-10 07:39:07] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:39:07] Running get_members_by_role....in controller
+[2025-04-10 07:39:07] Get staff function running for role: owner
+[2025-04-10 07:39:07] Fetching details for owner...
+[2025-04-10 07:39:07] Staff model initialized with database connection.
+[2025-04-10 07:39:07] Fetching member details...
+[2025-04-10 07:39:07] Member details fetched successfully.
+[2025-04-10 07:39:07] Owner details fetched successfully.
+[2025-04-10 07:39:07] Database connection closed.
+[2025-04-10 07:39:10] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:39:10] User class instantiated with database connection.
+[2025-04-10 07:39:10] Fetching user role by user ID: 72
+[2025-04-10 07:39:10] User role fetched successfully for user ID: 72
+[2025-04-10 07:39:10] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:39:10] Running get_members_by_role....in controller
+[2025-04-10 07:39:10] Get staff function running for role: owner
+[2025-04-10 07:39:10] Fetching details for owner...
+[2025-04-10 07:39:10] Staff model initialized with database connection.
+[2025-04-10 07:39:10] Fetching member details...
+[2025-04-10 07:39:10] Member details fetched successfully.
+[2025-04-10 07:39:10] Owner details fetched successfully.
+[2025-04-10 07:39:10] Database connection closed.
+[2025-04-10 07:39:16] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:39:16] User class instantiated with database connection.
+[2025-04-10 07:39:16] Fetching user role by user ID: 72
+[2025-04-10 07:39:16] User role fetched successfully for user ID: 72
+[2025-04-10 07:39:16] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:39:16] Running get_members_by_role....in controller
+[2025-04-10 07:39:16] Get staff function running for role: owner
+[2025-04-10 07:39:16] Fetching details for owner...
+[2025-04-10 07:39:16] Staff model initialized with database connection.
+[2025-04-10 07:39:16] Fetching member details...
+[2025-04-10 07:39:16] Member details fetched successfully.
+[2025-04-10 07:39:16] Owner details fetched successfully.
+[2025-04-10 07:39:16] Database connection closed.
+[2025-04-10 07:39:32] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:39:32] User class instantiated with database connection.
+[2025-04-10 07:39:32] Fetching user role by user ID: 72
+[2025-04-10 07:39:32] User role fetched successfully for user ID: 72
+[2025-04-10 07:39:32] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:39:32] Running get_members_by_role....in controller
+[2025-04-10 07:39:32] Get staff function running for role: owner
+[2025-04-10 07:39:32] Fetching details for owner...
+[2025-04-10 07:39:32] Staff model initialized with database connection.
+[2025-04-10 07:39:32] Fetching member details...
+[2025-04-10 07:39:32] Member details fetched successfully.
+[2025-04-10 07:39:32] Owner details fetched successfully.
+[2025-04-10 07:39:32] Database connection closed.
+[2025-04-10 07:44:01] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:44:01] User class instantiated with database connection.
+[2025-04-10 07:44:01] Fetching user role by user ID: 72
+[2025-04-10 07:44:01] User role fetched successfully for user ID: 72
+[2025-04-10 07:44:01] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:44:01] Running get_members_by_role....in controller
+[2025-04-10 07:44:01] Get staff function running for role: member
+[2025-04-10 07:44:01] Fetching details for members...
+[2025-04-10 07:44:01] Member model initialized with database connection.
+[2025-04-10 07:44:01] Fetching member details...
+[2025-04-10 07:44:02] Member details fetched successfully.
+[2025-04-10 07:44:02] Member details fetched successfully.
+[2025-04-10 07:44:02] Database connection closed.
+[2025-04-10 07:44:11] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:44:11] User class instantiated with database connection.
+[2025-04-10 07:44:11] Fetching user role by user ID: 72
+[2025-04-10 07:44:12] User role fetched successfully for user ID: 72
+[2025-04-10 07:44:12] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:44:12] Running get_members_by_role....in controller
+[2025-04-10 07:44:12] Get staff function running for role: member
+[2025-04-10 07:44:12] Fetching details for members...
+[2025-04-10 07:44:12] Member model initialized with database connection.
+[2025-04-10 07:44:12] Fetching member details...
+[2025-04-10 07:44:12] Member details fetched successfully.
+[2025-04-10 07:44:12] Member details fetched successfully.
+[2025-04-10 07:44:12] Database connection closed.
+[2025-04-10 07:44:13] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:44:13] User class instantiated with database connection.
+[2025-04-10 07:44:13] Fetching user role by user ID: 72
+[2025-04-10 07:44:13] User role fetched successfully for user ID: 72
+[2025-04-10 07:44:13] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:44:13] Running get_members_by_role....in controller
+[2025-04-10 07:44:13] Get staff function running for role: member
+[2025-04-10 07:44:13] Fetching details for members...
+[2025-04-10 07:44:13] Member model initialized with database connection.
+[2025-04-10 07:44:13] Fetching member details...
+[2025-04-10 07:44:13] Member details fetched successfully.
+[2025-04-10 07:44:13] Member details fetched successfully.
+[2025-04-10 07:44:13] Database connection closed.
+[2025-04-10 07:44:15] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:44:15] User class instantiated with database connection.
+[2025-04-10 07:44:15] Fetching user role by user ID: 72
+[2025-04-10 07:44:15] User role fetched successfully for user ID: 72
+[2025-04-10 07:44:15] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:44:15] Running get_members_by_role....in controller
+[2025-04-10 07:44:15] Get staff function running for role: member
+[2025-04-10 07:44:15] Fetching details for members...
+[2025-04-10 07:44:15] Member model initialized with database connection.
+[2025-04-10 07:44:15] Fetching member details...
+[2025-04-10 07:44:16] Member details fetched successfully.
+[2025-04-10 07:44:16] Member details fetched successfully.
+[2025-04-10 07:44:16] Database connection closed.
+[2025-04-10 07:44:20] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:44:20] User class instantiated with database connection.
+[2025-04-10 07:44:20] Fetching user role by user ID: 72
+[2025-04-10 07:44:20] User role fetched successfully for user ID: 72
+[2025-04-10 07:44:20] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:44:20] Running get_members_by_role....in controller
+[2025-04-10 07:44:20] Get staff function running for role: staff
+[2025-04-10 07:44:20] Fetching details for staff...
+[2025-04-10 07:44:20] Staff model initialized with database connection.
+[2025-04-10 07:44:20] Fetching member details...
+[2025-04-10 07:44:21] Member details fetched successfully.
+[2025-04-10 07:44:21] Staff details fetched successfully.
+[2025-04-10 07:44:21] Database connection closed.
+[2025-04-10 07:44:21] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:44:21] User class instantiated with database connection.
+[2025-04-10 07:44:21] Fetching user role by user ID: 72
+[2025-04-10 07:44:22] User role fetched successfully for user ID: 72
+[2025-04-10 07:44:22] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:44:22] Running get_members_by_role....in controller
+[2025-04-10 07:44:22] Get staff function running for role: staff
+[2025-04-10 07:44:22] Fetching details for staff...
+[2025-04-10 07:44:22] Staff model initialized with database connection.
+[2025-04-10 07:44:22] Fetching member details...
+[2025-04-10 07:44:22] Member details fetched successfully.
+[2025-04-10 07:44:22] Staff details fetched successfully.
+[2025-04-10 07:44:22] Database connection closed.
+[2025-04-10 07:44:25] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:44:25] User class instantiated with database connection.
+[2025-04-10 07:44:25] Fetching user role by user ID: 72
+[2025-04-10 07:44:25] User role fetched successfully for user ID: 72
+[2025-04-10 07:44:25] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:44:25] Running get_members_by_role....in controller
+[2025-04-10 07:44:25] Get staff function running for role: staff
+[2025-04-10 07:44:25] Fetching details for staff...
+[2025-04-10 07:44:25] Staff model initialized with database connection.
+[2025-04-10 07:44:25] Fetching member details...
+[2025-04-10 07:44:25] Member details fetched successfully.
+[2025-04-10 07:44:25] Staff details fetched successfully.
+[2025-04-10 07:44:25] Database connection closed.
+[2025-04-10 07:46:25] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:46:25] User class instantiated with database connection.
+[2025-04-10 07:46:25] Fetching user role by user ID: 72
+[2025-04-10 07:46:25] User role fetched successfully for user ID: 72
+[2025-04-10 07:46:25] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:46:25] Running get_members_by_role....in controller
+[2025-04-10 07:46:25] Get staff function running for role: member
+[2025-04-10 07:46:25] Fetching details for members...
+[2025-04-10 07:46:25] Member model initialized with database connection.
+[2025-04-10 07:46:25] Fetching member details...
+[2025-04-10 07:46:25] Member details fetched successfully.
+[2025-04-10 07:46:25] Member details fetched successfully.
+[2025-04-10 07:46:25] Database connection closed.
+[2025-04-10 07:46:28] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:46:28] User class instantiated with database connection.
+[2025-04-10 07:46:28] Fetching user role by user ID: 72
+[2025-04-10 07:46:28] User role fetched successfully for user ID: 72
+[2025-04-10 07:46:28] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:46:28] Running get_members_by_role....in controller
+[2025-04-10 07:46:28] Get staff function running for role: owner
+[2025-04-10 07:46:28] Fetching details for owner...
+[2025-04-10 07:46:28] Staff model initialized with database connection.
+[2025-04-10 07:46:28] Fetching member details...
+[2025-04-10 07:46:28] Member details fetched successfully.
+[2025-04-10 07:46:28] Owner details fetched successfully.
+[2025-04-10 07:46:28] Database connection closed.
+[2025-04-10 07:46:33] Running auth controller ,login 
+[2025-04-10 07:46:33] running login...in auth controller
+[2025-04-10 07:46:33] login function running...
+[2025-04-10 07:46:33] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:46:33] User class instantiated with database connection.
+[2025-04-10 07:46:33] User Login model running for: owner@gmail.com
+[2025-04-10 07:46:33] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-10 07:46:34] User login successful: owner@gmail.com with role: owner
+[2025-04-10 07:46:34] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86 owner
+[2025-04-10 07:46:34] Database connection closed.
+[2025-04-10 07:46:37] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:46:37] User class instantiated with database connection.
+[2025-04-10 07:46:37] Fetching user role by user ID: 72
+[2025-04-10 07:46:37] User role fetched successfully for user ID: 72
+[2025-04-10 07:46:37] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:46:37] Running get_members_by_role....in controller
+[2025-04-10 07:46:37] Get staff function running for role: member
+[2025-04-10 07:46:37] Fetching details for members...
+[2025-04-10 07:46:37] Member model initialized with database connection.
+[2025-04-10 07:46:37] Fetching member details...
+[2025-04-10 07:46:37] Member details fetched successfully.
+[2025-04-10 07:46:37] Member details fetched successfully.
+[2025-04-10 07:46:37] Database connection closed.
+[2025-04-10 07:47:28] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:47:28] User class instantiated with database connection.
+[2025-04-10 07:47:28] Fetching user role by user ID: 72
+[2025-04-10 07:47:28] User role fetched successfully for user ID: 72
+[2025-04-10 07:47:28] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:47:28] Running get_members_by_role....in controller
+[2025-04-10 07:47:28] Get staff function running for role: member
+[2025-04-10 07:47:28] Fetching details for members...
+[2025-04-10 07:47:28] Member model initialized with database connection.
+[2025-04-10 07:47:28] Fetching member details...
+[2025-04-10 07:47:28] Member details fetched successfully.
+[2025-04-10 07:47:28] Member details fetched successfully.
+[2025-04-10 07:47:28] Database connection closed.
+[2025-04-10 07:47:30] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:47:30] User class instantiated with database connection.
+[2025-04-10 07:47:30] Fetching user role by user ID: 72
+[2025-04-10 07:47:31] User role fetched successfully for user ID: 72
+[2025-04-10 07:47:31] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:47:31] Running get_members_by_role....in controller
+[2025-04-10 07:47:31] Get staff function running for role: member
+[2025-04-10 07:47:31] Fetching details for members...
+[2025-04-10 07:47:31] Member model initialized with database connection.
+[2025-04-10 07:47:31] Fetching member details...
+[2025-04-10 07:47:31] Member details fetched successfully.
+[2025-04-10 07:47:31] Member details fetched successfully.
+[2025-04-10 07:47:31] Database connection closed.
+[2025-04-10 07:47:33] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:47:33] User class instantiated with database connection.
+[2025-04-10 07:47:33] Fetching user role by user ID: 72
+[2025-04-10 07:47:33] User role fetched successfully for user ID: 72
+[2025-04-10 07:47:33] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:47:33] Running get_members_by_role....in controller
+[2025-04-10 07:47:33] Get staff function running for role: member
+[2025-04-10 07:47:33] Fetching details for members...
+[2025-04-10 07:47:33] Member model initialized with database connection.
+[2025-04-10 07:47:33] Fetching member details...
+[2025-04-10 07:47:33] Member details fetched successfully.
+[2025-04-10 07:47:33] Member details fetched successfully.
+[2025-04-10 07:47:33] Database connection closed.
+[2025-04-10 07:47:37] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:47:37] User class instantiated with database connection.
+[2025-04-10 07:47:37] Fetching user role by user ID: 72
+[2025-04-10 07:47:37] User role fetched successfully for user ID: 72
+[2025-04-10 07:47:37] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:47:37] Running get_members_by_role....in controller
+[2025-04-10 07:47:37] Get staff function running for role: member
+[2025-04-10 07:47:37] Fetching details for members...
+[2025-04-10 07:47:37] Member model initialized with database connection.
+[2025-04-10 07:47:37] Fetching member details...
+[2025-04-10 07:47:37] Member details fetched successfully.
+[2025-04-10 07:47:37] Member details fetched successfully.
+[2025-04-10 07:47:37] Database connection closed.
+[2025-04-10 07:49:03] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:49:03] User class instantiated with database connection.
+[2025-04-10 07:49:03] Fetching user role by user ID: 72
+[2025-04-10 07:49:04] User role fetched successfully for user ID: 72
+[2025-04-10 07:49:04] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:49:04] Running get_members_by_role....in controller
+[2025-04-10 07:49:04] Get staff function running for role: member
+[2025-04-10 07:49:04] Fetching details for members...
+[2025-04-10 07:49:04] Member model initialized with database connection.
+[2025-04-10 07:49:04] Fetching member details...
+[2025-04-10 07:49:04] Member details fetched successfully.
+[2025-04-10 07:49:04] Member details fetched successfully.
+[2025-04-10 07:49:04] Database connection closed.
+[2025-04-10 07:49:05] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:49:05] User class instantiated with database connection.
+[2025-04-10 07:49:05] Fetching user role by user ID: 72
+[2025-04-10 07:49:05] User role fetched successfully for user ID: 72
+[2025-04-10 07:49:05] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:49:05] Running get_members_by_role....in controller
+[2025-04-10 07:49:05] Get staff function running for role: member
+[2025-04-10 07:49:05] Fetching details for members...
+[2025-04-10 07:49:05] Member model initialized with database connection.
+[2025-04-10 07:49:05] Fetching member details...
+[2025-04-10 07:49:05] Member details fetched successfully.
+[2025-04-10 07:49:05] Member details fetched successfully.
+[2025-04-10 07:49:05] Database connection closed.
+[2025-04-10 07:49:10] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:49:10] User class instantiated with database connection.
+[2025-04-10 07:49:10] Fetching user role by user ID: 72
+[2025-04-10 07:49:11] User role fetched successfully for user ID: 72
+[2025-04-10 07:49:11] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:49:11] Running get_members_by_role....in controller
+[2025-04-10 07:49:11] Get staff function running for role: member
+[2025-04-10 07:49:11] Fetching details for members...
+[2025-04-10 07:49:11] Member model initialized with database connection.
+[2025-04-10 07:49:11] Fetching member details...
+[2025-04-10 07:49:11] Member details fetched successfully.
+[2025-04-10 07:49:11] Member details fetched successfully.
+[2025-04-10 07:49:11] Database connection closed.
+[2025-04-10 07:49:14] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:49:14] User class instantiated with database connection.
+[2025-04-10 07:49:14] Fetching user role by user ID: 72
+[2025-04-10 07:49:14] User role fetched successfully for user ID: 72
+[2025-04-10 07:49:14] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:49:14] Running get_members_by_role....in controller
+[2025-04-10 07:49:14] Get staff function running for role: member
+[2025-04-10 07:49:14] Fetching details for members...
+[2025-04-10 07:49:14] Member model initialized with database connection.
+[2025-04-10 07:49:14] Fetching member details...
+[2025-04-10 07:49:14] Member details fetched successfully.
+[2025-04-10 07:49:14] Member details fetched successfully.
+[2025-04-10 07:49:14] Database connection closed.
+[2025-04-10 07:49:16] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:49:16] User class instantiated with database connection.
+[2025-04-10 07:49:16] Fetching user role by user ID: 72
+[2025-04-10 07:49:16] User role fetched successfully for user ID: 72
+[2025-04-10 07:49:16] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:49:16] Running get_members_by_role....in controller
+[2025-04-10 07:49:16] Get staff function running for role: owner
+[2025-04-10 07:49:16] Fetching details for owner...
+[2025-04-10 07:49:16] Staff model initialized with database connection.
+[2025-04-10 07:49:16] Fetching member details...
+[2025-04-10 07:49:16] Member details fetched successfully.
+[2025-04-10 07:49:16] Owner details fetched successfully.
+[2025-04-10 07:49:16] Database connection closed.
+[2025-04-10 07:49:18] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:49:18] User class instantiated with database connection.
+[2025-04-10 07:49:18] Fetching user role by user ID: 72
+[2025-04-10 07:49:18] User role fetched successfully for user ID: 72
+[2025-04-10 07:49:18] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:49:18] Running get_members_by_role....in controller
+[2025-04-10 07:49:18] Get staff function running for role: owner
+[2025-04-10 07:49:18] Fetching details for owner...
+[2025-04-10 07:49:18] Staff model initialized with database connection.
+[2025-04-10 07:49:18] Fetching member details...
+[2025-04-10 07:49:18] Member details fetched successfully.
+[2025-04-10 07:49:18] Owner details fetched successfully.
+[2025-04-10 07:49:18] Database connection closed.
+[2025-04-10 07:49:19] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:49:19] User class instantiated with database connection.
+[2025-04-10 07:49:19] Fetching user role by user ID: 72
+[2025-04-10 07:49:20] User role fetched successfully for user ID: 72
+[2025-04-10 07:49:20] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:49:20] Running get_members_by_role....in controller
+[2025-04-10 07:49:20] Get staff function running for role: owner
+[2025-04-10 07:49:20] Fetching details for owner...
+[2025-04-10 07:49:20] Staff model initialized with database connection.
+[2025-04-10 07:49:20] Fetching member details...
+[2025-04-10 07:49:20] Member details fetched successfully.
+[2025-04-10 07:49:20] Owner details fetched successfully.
+[2025-04-10 07:49:20] Database connection closed.
+[2025-04-10 07:50:01] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:50:01] User class instantiated with database connection.
+[2025-04-10 07:50:01] Fetching user role by user ID: 72
+[2025-04-10 07:50:01] User role fetched successfully for user ID: 72
+[2025-04-10 07:50:01] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:50:01] Running get_members_by_role....in controller
+[2025-04-10 07:50:01] Get staff function running for role: owner
+[2025-04-10 07:50:01] Fetching details for owner...
+[2025-04-10 07:50:01] Staff model initialized with database connection.
+[2025-04-10 07:50:01] Fetching member details...
+[2025-04-10 07:50:01] Member details fetched successfully.
+[2025-04-10 07:50:01] Owner details fetched successfully.
+[2025-04-10 07:50:01] Database connection closed.
+[2025-04-10 07:50:02] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:50:02] User class instantiated with database connection.
+[2025-04-10 07:50:02] Fetching user role by user ID: 72
+[2025-04-10 07:50:03] User role fetched successfully for user ID: 72
+[2025-04-10 07:50:03] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:50:03] Running get_members_by_role....in controller
+[2025-04-10 07:50:03] Get staff function running for role: owner
+[2025-04-10 07:50:03] Fetching details for owner...
+[2025-04-10 07:50:03] Staff model initialized with database connection.
+[2025-04-10 07:50:03] Fetching member details...
+[2025-04-10 07:50:03] Member details fetched successfully.
+[2025-04-10 07:50:03] Owner details fetched successfully.
+[2025-04-10 07:50:03] Database connection closed.
+[2025-04-10 07:50:05] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:50:05] User class instantiated with database connection.
+[2025-04-10 07:50:05] Fetching user role by user ID: 72
+[2025-04-10 07:50:05] User role fetched successfully for user ID: 72
+[2025-04-10 07:50:05] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:50:05] Running get_members_by_role....in controller
+[2025-04-10 07:50:05] Get staff function running for role: owner
+[2025-04-10 07:50:05] Fetching details for owner...
+[2025-04-10 07:50:05] Staff model initialized with database connection.
+[2025-04-10 07:50:05] Fetching member details...
+[2025-04-10 07:50:05] Member details fetched successfully.
+[2025-04-10 07:50:05] Owner details fetched successfully.
+[2025-04-10 07:50:05] Database connection closed.
+[2025-04-10 07:50:06] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:50:06] User class instantiated with database connection.
+[2025-04-10 07:50:06] Fetching user role by user ID: 72
+[2025-04-10 07:50:08] User role fetched successfully for user ID: 72
+[2025-04-10 07:50:08] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:50:08] Running get_members_by_role....in controller
+[2025-04-10 07:50:08] Get staff function running for role: owner
+[2025-04-10 07:50:08] Fetching details for owner...
+[2025-04-10 07:50:08] Staff model initialized with database connection.
+[2025-04-10 07:50:08] Fetching member details...
+[2025-04-10 07:50:08] Member details fetched successfully.
+[2025-04-10 07:50:08] Owner details fetched successfully.
+[2025-04-10 07:50:08] Database connection closed.
+[2025-04-10 07:50:09] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:50:09] User class instantiated with database connection.
+[2025-04-10 07:50:09] Fetching user role by user ID: 72
+[2025-04-10 07:50:09] User role fetched successfully for user ID: 72
+[2025-04-10 07:50:09] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:50:09] Running get_members_by_role....in controller
+[2025-04-10 07:50:09] Get staff function running for role: owner
+[2025-04-10 07:50:09] Fetching details for owner...
+[2025-04-10 07:50:09] Staff model initialized with database connection.
+[2025-04-10 07:50:09] Fetching member details...
+[2025-04-10 07:50:09] Member details fetched successfully.
+[2025-04-10 07:50:09] Owner details fetched successfully.
+[2025-04-10 07:50:09] Database connection closed.
+[2025-04-10 07:50:26] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:50:26] User class instantiated with database connection.
+[2025-04-10 07:50:26] Fetching user role by user ID: 72
+[2025-04-10 07:50:27] User role fetched successfully for user ID: 72
+[2025-04-10 07:50:27] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:50:27] Running get_members_by_role....in controller
+[2025-04-10 07:50:27] Get staff function running for role: owner
+[2025-04-10 07:50:27] Fetching details for owner...
+[2025-04-10 07:50:27] Staff model initialized with database connection.
+[2025-04-10 07:50:27] Fetching member details...
+[2025-04-10 07:50:27] Member details fetched successfully.
+[2025-04-10 07:50:27] Owner details fetched successfully.
+[2025-04-10 07:50:27] Database connection closed.
+[2025-04-10 07:50:29] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:50:29] User class instantiated with database connection.
+[2025-04-10 07:50:29] Fetching user role by user ID: 72
+[2025-04-10 07:50:29] User role fetched successfully for user ID: 72
+[2025-04-10 07:50:29] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:50:29] Running get_members_by_role....in controller
+[2025-04-10 07:50:29] Get staff function running for role: owner
+[2025-04-10 07:50:29] Fetching details for owner...
+[2025-04-10 07:50:29] Staff model initialized with database connection.
+[2025-04-10 07:50:29] Fetching member details...
+[2025-04-10 07:50:30] Member details fetched successfully.
+[2025-04-10 07:50:30] Owner details fetched successfully.
+[2025-04-10 07:50:30] Database connection closed.
+[2025-04-10 07:50:31] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:50:31] User class instantiated with database connection.
+[2025-04-10 07:50:31] Fetching user role by user ID: 72
+[2025-04-10 07:50:31] User role fetched successfully for user ID: 72
+[2025-04-10 07:50:31] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:50:31] Running get_members_by_role....in controller
+[2025-04-10 07:50:31] Get staff function running for role: owner
+[2025-04-10 07:50:31] Fetching details for owner...
+[2025-04-10 07:50:31] Staff model initialized with database connection.
+[2025-04-10 07:50:31] Fetching member details...
+[2025-04-10 07:50:32] Member details fetched successfully.
+[2025-04-10 07:50:32] Owner details fetched successfully.
+[2025-04-10 07:50:32] Database connection closed.
+[2025-04-10 07:50:33] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:50:33] User class instantiated with database connection.
+[2025-04-10 07:50:33] Fetching user role by user ID: 72
+[2025-04-10 07:50:34] User role fetched successfully for user ID: 72
+[2025-04-10 07:50:34] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:50:34] Running get_members_by_role....in controller
+[2025-04-10 07:50:34] Get staff function running for role: owner
+[2025-04-10 07:50:34] Fetching details for owner...
+[2025-04-10 07:50:34] Staff model initialized with database connection.
+[2025-04-10 07:50:34] Fetching member details...
+[2025-04-10 07:50:34] Member details fetched successfully.
+[2025-04-10 07:50:34] Owner details fetched successfully.
+[2025-04-10 07:50:34] Database connection closed.
+[2025-04-10 07:50:35] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:50:35] User class instantiated with database connection.
+[2025-04-10 07:50:35] Fetching user role by user ID: 72
+[2025-04-10 07:50:35] User role fetched successfully for user ID: 72
+[2025-04-10 07:50:35] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:50:35] Running get_members_by_role....in controller
+[2025-04-10 07:50:35] Get staff function running for role: owner
+[2025-04-10 07:50:35] Fetching details for owner...
+[2025-04-10 07:50:35] Staff model initialized with database connection.
+[2025-04-10 07:50:35] Fetching member details...
+[2025-04-10 07:50:35] Member details fetched successfully.
+[2025-04-10 07:50:35] Owner details fetched successfully.
+[2025-04-10 07:50:35] Database connection closed.
+[2025-04-10 07:50:40] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:50:40] User class instantiated with database connection.
+[2025-04-10 07:50:40] Fetching user role by user ID: 72
+[2025-04-10 07:50:40] User role fetched successfully for user ID: 72
+[2025-04-10 07:50:40] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:50:40] Running get_members_by_role....in controller
+[2025-04-10 07:50:40] Get staff function running for role: member
+[2025-04-10 07:50:40] Fetching details for members...
+[2025-04-10 07:50:40] Member model initialized with database connection.
+[2025-04-10 07:50:40] Fetching member details...
+[2025-04-10 07:50:40] Member details fetched successfully.
+[2025-04-10 07:50:40] Member details fetched successfully.
+[2025-04-10 07:50:40] Database connection closed.
+[2025-04-10 07:50:41] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:50:41] User class instantiated with database connection.
+[2025-04-10 07:50:41] Fetching user role by user ID: 72
+[2025-04-10 07:50:42] User role fetched successfully for user ID: 72
+[2025-04-10 07:50:42] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:50:42] Running get_members_by_role....in controller
+[2025-04-10 07:50:42] Get staff function running for role: member
+[2025-04-10 07:50:42] Fetching details for members...
+[2025-04-10 07:50:42] Member model initialized with database connection.
+[2025-04-10 07:50:42] Fetching member details...
+[2025-04-10 07:50:42] Member details fetched successfully.
+[2025-04-10 07:50:42] Member details fetched successfully.
+[2025-04-10 07:50:42] Database connection closed.
+[2025-04-10 07:50:44] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:50:44] User class instantiated with database connection.
+[2025-04-10 07:50:44] Fetching user role by user ID: 72
+[2025-04-10 07:50:45] User role fetched successfully for user ID: 72
+[2025-04-10 07:50:45] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:50:45] Running get_members_by_role....in controller
+[2025-04-10 07:50:45] Get staff function running for role: member
+[2025-04-10 07:50:45] Fetching details for members...
+[2025-04-10 07:50:45] Member model initialized with database connection.
+[2025-04-10 07:50:45] Fetching member details...
+[2025-04-10 07:50:45] Member details fetched successfully.
+[2025-04-10 07:50:45] Member details fetched successfully.
+[2025-04-10 07:50:45] Database connection closed.
+[2025-04-10 07:50:47] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:50:47] User class instantiated with database connection.
+[2025-04-10 07:50:47] Fetching user role by user ID: 72
+[2025-04-10 07:50:47] User role fetched successfully for user ID: 72
+[2025-04-10 07:50:47] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:50:47] Running get_members_by_role....in controller
+[2025-04-10 07:50:47] Get staff function running for role: trainer
+[2025-04-10 07:50:47] Fetching details for trainers...
+[2025-04-10 07:50:47] Trainer model initialized with database connection.
+[2025-04-10 07:50:47] Fetching trainer details...
+[2025-04-10 07:50:48] Member details fetched successfully.
+[2025-04-10 07:50:48] Trainer details fetched successfully.
+[2025-04-10 07:50:48] Database connection closed.
+[2025-04-10 07:50:49] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:50:49] User class instantiated with database connection.
+[2025-04-10 07:50:49] Fetching user role by user ID: 72
+[2025-04-10 07:50:50] User role fetched successfully for user ID: 72
+[2025-04-10 07:50:50] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:50:50] Running get_members_by_role....in controller
+[2025-04-10 07:50:50] Get staff function running for role: trainer
+[2025-04-10 07:50:50] Fetching details for trainers...
+[2025-04-10 07:50:50] Trainer model initialized with database connection.
+[2025-04-10 07:50:50] Fetching trainer details...
+[2025-04-10 07:50:50] Member details fetched successfully.
+[2025-04-10 07:50:50] Trainer details fetched successfully.
+[2025-04-10 07:50:50] Database connection closed.
+[2025-04-10 07:50:51] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:50:51] User class instantiated with database connection.
+[2025-04-10 07:50:51] Fetching user role by user ID: 72
+[2025-04-10 07:50:51] User role fetched successfully for user ID: 72
+[2025-04-10 07:50:51] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:50:51] Running get_members_by_role....in controller
+[2025-04-10 07:50:51] Get staff function running for role: trainer
+[2025-04-10 07:50:51] Fetching details for trainers...
+[2025-04-10 07:50:51] Trainer model initialized with database connection.
+[2025-04-10 07:50:51] Fetching trainer details...
+[2025-04-10 07:50:52] Member details fetched successfully.
+[2025-04-10 07:50:52] Trainer details fetched successfully.
+[2025-04-10 07:50:52] Database connection closed.
+[2025-04-10 07:50:53] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:50:53] User class instantiated with database connection.
+[2025-04-10 07:50:53] Fetching user role by user ID: 72
+[2025-04-10 07:50:53] User role fetched successfully for user ID: 72
+[2025-04-10 07:50:53] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:50:53] Running get_members_by_role....in controller
+[2025-04-10 07:50:53] Get staff function running for role: owner
+[2025-04-10 07:50:53] Fetching details for owner...
+[2025-04-10 07:50:53] Staff model initialized with database connection.
+[2025-04-10 07:50:53] Fetching member details...
+[2025-04-10 07:50:53] Member details fetched successfully.
+[2025-04-10 07:50:53] Owner details fetched successfully.
+[2025-04-10 07:50:53] Database connection closed.
+[2025-04-10 07:50:54] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:50:54] User class instantiated with database connection.
+[2025-04-10 07:50:54] Fetching user role by user ID: 72
+[2025-04-10 07:50:55] User role fetched successfully for user ID: 72
+[2025-04-10 07:50:55] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:50:55] Running get_members_by_role....in controller
+[2025-04-10 07:50:55] Get staff function running for role: owner
+[2025-04-10 07:50:55] Fetching details for owner...
+[2025-04-10 07:50:55] Staff model initialized with database connection.
+[2025-04-10 07:50:55] Fetching member details...
+[2025-04-10 07:50:55] Member details fetched successfully.
+[2025-04-10 07:50:55] Owner details fetched successfully.
+[2025-04-10 07:50:55] Database connection closed.
+[2025-04-10 07:51:29] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:51:29] User class instantiated with database connection.
+[2025-04-10 07:51:29] Fetching user role by user ID: 72
+[2025-04-10 07:51:29] User role fetched successfully for user ID: 72
+[2025-04-10 07:51:29] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:51:29] Running get_members_by_role....in controller
+[2025-04-10 07:51:29] Get staff function running for role: staff
+[2025-04-10 07:51:29] Fetching details for staff...
+[2025-04-10 07:51:29] Staff model initialized with database connection.
+[2025-04-10 07:51:29] Fetching member details...
+[2025-04-10 07:51:29] Member details fetched successfully.
+[2025-04-10 07:51:29] Staff details fetched successfully.
+[2025-04-10 07:51:29] Database connection closed.
+[2025-04-10 07:51:38] Running auth controller ,login 
+[2025-04-10 07:51:38] running login...in auth controller
+[2025-04-10 07:51:38] login function running...
+[2025-04-10 07:51:38] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:51:38] User class instantiated with database connection.
+[2025-04-10 07:51:38] User Login model running for: owner@gmail.com
+[2025-04-10 07:51:38] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-10 07:51:39] User login successful: owner@gmail.com with role: owner
+[2025-04-10 07:51:39] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86 owner
+[2025-04-10 07:51:39] Database connection closed.
+[2025-04-10 07:51:41] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:51:41] User class instantiated with database connection.
+[2025-04-10 07:51:41] Fetching user role by user ID: 72
+[2025-04-10 07:51:41] User role fetched successfully for user ID: 72
+[2025-04-10 07:51:41] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:51:41] Running get_members_by_role....in controller
+[2025-04-10 07:51:41] Get staff function running for role: staff
+[2025-04-10 07:51:41] Fetching details for staff...
+[2025-04-10 07:51:41] Staff model initialized with database connection.
+[2025-04-10 07:51:41] Fetching member details...
+[2025-04-10 07:51:42] Member details fetched successfully.
+[2025-04-10 07:51:42] Staff details fetched successfully.
+[2025-04-10 07:51:42] Database connection closed.
+[2025-04-10 07:51:43] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:51:43] User class instantiated with database connection.
+[2025-04-10 07:51:43] Fetching user role by user ID: 72
+[2025-04-10 07:51:44] User role fetched successfully for user ID: 72
+[2025-04-10 07:51:44] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:51:44] Running get_members_by_role....in controller
+[2025-04-10 07:51:44] Get staff function running for role: staff
+[2025-04-10 07:51:44] Fetching details for staff...
+[2025-04-10 07:51:44] Staff model initialized with database connection.
+[2025-04-10 07:51:44] Fetching member details...
+[2025-04-10 07:51:44] Member details fetched successfully.
+[2025-04-10 07:51:44] Staff details fetched successfully.
+[2025-04-10 07:51:44] Database connection closed.
+[2025-04-10 07:51:48] Connection established successfully to the database: rad_gymverse
+[2025-04-10 07:51:48] User class instantiated with database connection.
+[2025-04-10 07:51:48] Fetching user role by user ID: 72
+[2025-04-10 07:51:48] User role fetched successfully for user ID: 72
+[2025-04-10 07:51:48] Running owner controller ,get_members_by_role token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0MjY0ODAwfQ==.d9f39b543c1089bdcbf39628291c578bd7144f1ef2d9eaf706c32b71c2ef8f86   id - 72 
+[2025-04-10 07:51:48] Running get_members_by_role....in controller
+[2025-04-10 07:51:48] Get staff function running for role: member
+[2025-04-10 07:51:48] Fetching details for members...
+[2025-04-10 07:51:48] Member model initialized with database connection.
+[2025-04-10 07:51:48] Fetching member details...
+[2025-04-10 07:51:48] Member details fetched successfully.
+[2025-04-10 07:51:48] Member details fetched successfully.
+[2025-04-10 07:51:48] Database connection closed.
