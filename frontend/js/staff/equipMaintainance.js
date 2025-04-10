@@ -288,90 +288,103 @@ export function initStaff_equipmentMaintain() {
     });
 
 
-    // Attach event listener for search input
-    document.getElementById("equipmentName").addEventListener("focus", handleSearchInput);
-    document.getElementById("equipmentName").addEventListener("input", handleSearchInput);
+// Attach event listeners for search input
+const equipmentNameInput = document.getElementById("equipmentName");
+const equipmentIDInput = document.getElementById("equipmentID");
+const suggestionsList = document.getElementById("equipmentSuggestions");
 
-    function handleSearchInput(event) {
-        const query = event.target.value.toLowerCase();
-        const suggestionsList = document.getElementById("equipmentSuggestions");
+let isSelectingSuggestion = false;
 
-        // Clear previous suggestions
-        suggestionsList.innerHTML = "";
+// Handle search input and focus
+equipmentNameInput.addEventListener("input", handleSearchInput);
+equipmentNameInput.addEventListener("focus", handleSearchInput);
 
-        // Retrieve equipment data from local storage
-        const savedEquipmentData = JSON.parse(localStorage.getItem("equipmentData")) || [];
-        if (savedEquipmentData.length === 0) {
-            console.error("No equipment data available. Fetch the equipment list first.");
-            return;
-        }
+function handleSearchInput(event) {
+    const query = event.target.value.toLowerCase();
+    
+    // Clear previous suggestions
+    suggestionsList.innerHTML = "";
+    suggestionsList.style.display = "none";
 
-        // Filter equipment names based on input
-        const filteredEquipments = savedEquipmentData.filter(equipment =>
-            equipment.name.toLowerCase().includes(query)
-        );
+    // If empty query, don't show suggestions
+    if (!query.trim()) return;
 
-        // Display filtered equipment names as suggestions
+    // Retrieve equipment data from local storage
+    const savedEquipmentData = JSON.parse(localStorage.getItem("equipmentData")) || [];
+    if (savedEquipmentData.length === 0) {
+        console.error("No equipment data available. Fetch the equipment list first.");
+        return;
+    }
+
+    // Filter equipment names based on input
+    const filteredEquipments = savedEquipmentData.filter(equipment =>
+        equipment.name.toLowerCase().includes(query)
+    );
+
+    // Display filtered equipment names as suggestions
+    if (filteredEquipments.length > 0) {
+        suggestionsList.style.display = "block";
         filteredEquipments.forEach(equipment => {
             const li = document.createElement("li");
             li.textContent = equipment.name;
             li.classList.add("suggestion-item");
 
-            // Autofill input fields on selecting an option
-            li.addEventListener("click", () => {
-                document.getElementById("equipmentName").value = equipment.name;
-                document.getElementById("equipmentID").value = equipment.equipment_id;
-                suggestionsList.innerHTML = ""; // Clear suggestions
+            // Handle suggestion selection
+            li.addEventListener("mousedown", (e) => {
+                e.preventDefault();
+                isSelectingSuggestion = true;
+                equipmentNameInput.value = equipment.name;
+                equipmentIDInput.value = equipment.equipment_id;
+                suggestionsList.innerHTML = "";
+                suggestionsList.style.display = "none";
             });
 
             suggestionsList.appendChild(li);
         });
-
-        // Show "No matches found" message if no equipment matches
-        if (filteredEquipments.length === 0 && query.trim()) {
-            const li = document.createElement("li");
-            li.textContent = "No matches found";
-            li.classList.add("no-match");
-            suggestionsList.appendChild(li);
-        }
+    } else {
+        // Show "No matches found" message
+        suggestionsList.style.display = "block";
+        const li = document.createElement("li");
+        li.textContent = "No matches found";
+        li.classList.add("no-match");
+        suggestionsList.appendChild(li);
     }
+}
 
-    // Prevent manual input by clearing the input field if the user types anything manually
-    document.getElementById("equipmentName").addEventListener("blur", () => {
-        const equipmentNameInput = document.getElementById("equipmentName");
-        const equipmentIDInput = document.getElementById("equipmentID");
-
+// Handle blur event with delay
+equipmentNameInput.addEventListener("blur", () => {
+    setTimeout(() => {
+        if (isSelectingSuggestion) {
+            isSelectingSuggestion = false;
+            return;
+        }
+        
         const savedEquipmentData = JSON.parse(localStorage.getItem("equipmentData")) || [];
-        const isValidEquipment = savedEquipmentData.some(equipment => equipment.name === equipmentNameInput.value);
+        const isValidEquipment = savedEquipmentData.some(
+            equipment => equipment.name === equipmentNameInput.value
+        );
 
         if (!isValidEquipment) {
-            // Clear the input field if the entered value is invalid
             equipmentNameInput.value = "";
             equipmentIDInput.value = "";
         }
-    });
+        
+        suggestionsList.style.display = "none";
+    }, 200);
+});
 
-    // Hide suggestions when clicking outside
-    document.addEventListener("click", (event) => {
-        const equipmentNameInput = document.getElementById("equipmentName");
-        const suggestionsList = document.getElementById("equipmentSuggestions");
+// Hide suggestions when clicking outside
+document.addEventListener("click", (event) => {
+    if (!equipmentNameInput.contains(event.target) && !suggestionsList.contains(event.target)) {
+        suggestionsList.style.display = "none";
+    }
+});
 
-        if (!equipmentNameInput.contains(event.target) && !suggestionsList.contains(event.target)) {
-            suggestionsList.innerHTML = ""; // Clear suggestions
-        }
-    });
+// When showing suggestions:
+document.getElementById('equipmentName').classList.add('has-suggestions');
 
-
-    // Hide suggestions dropdown when user clicks outside
-    document.addEventListener("click", (event) => {
-        const equipmentNameInput = document.getElementById("equipmentName");
-        const suggestionsList = document.getElementById("equipmentSuggestions");
-
-        if (!equipmentNameInput.contains(event.target) && !suggestionsList.contains(event.target)) {
-            suggestionsList.innerHTML = ""; // Clear suggestions
-        }
-    });
-
+// When hiding suggestions:
+document.getElementById('equipmentName').classList.remove('has-suggestions');
 
 
     document.getElementById('equipmentForm').addEventListener('submit', (event) => {
@@ -460,5 +473,7 @@ export function initStaff_equipmentMaintain() {
         const popup = document.getElementById("deletePopup");
         popup.style.display = "none";
     });
+
+    
 
 }

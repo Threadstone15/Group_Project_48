@@ -182,7 +182,7 @@ tbody tr:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 100px;
+  margin-left: 120px;
   transition: all 0.3s ease; 
 }
 
@@ -384,3 +384,92 @@ display: none;
 .popup {
 animation: fadeIn 0.3s ease-in-out;
 }
+
+
+/* Existing styles - keep these exactly as they are */
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative; /* This is important for positioning */
+}
+
+.form-label {
+  flex: 0 0 auto;
+  margin-right: 10px;
+}
+
+.form-input {
+  flex: 1;
+  min-width: 220px;
+  height: 36px;
+  border-radius: 10px;
+  background-color: rgba(79, 79, 79, 0.05);
+  border: 1px solid rgba(79, 79, 79, 0.05);
+  padding: 10px;
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Suggestions dropdown styling */
+#equipmentSuggestions {
+  position: absolute;
+  top: 100%; /* Positions directly below input */
+  left: 0;
+  width: 60%; /* Matches input width exactly */
+  max-height: 200px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid rgba(79, 79, 79, 0.1);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  list-style: none;
+  display: none;
+  margin: 0;
+  padding: 0;
+  margin-left: 150px;
+}
+
+/* Suggestion items */
+#equipmentSuggestions li.suggestion-item {
+  padding: 10px 15px;
+  font-family: Poppins, sans-serif;
+  font-size: 13px;
+  font-weight: 400; /* Lighter font weight */
+  color: #353535;
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: all 0.2s ease;
+}
+
+/* Hover state */
+#equipmentSuggestions li.suggestion-item:hover {
+  background-color: rgba(79, 79, 79, 0.05);
+  color: #FF5F00; /* Orange text on hover */
+}
+
+/* No matches message */
+#equipmentSuggestions li.no-match {
+  padding: 10px 15px;
+  color: #828282;
+  font-style: italic;
+  font-weight: 400;
+  cursor: default; /* Regular cursor for no matches */
+}
+
+/* Input field when suggestions are visible */
+#equipmentName.has-suggestions {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-color: rgba(79, 79, 79, 0.3);
+}
+
+/* Focus state */
+#equipmentName:focus {
+  outline: none;
+  border-color: rgba(79, 79, 79, 0.3);
+  background-color: white;
+}
+
