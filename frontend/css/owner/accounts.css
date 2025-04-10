@@ -244,6 +244,51 @@ tbody tr:hover {
     border: none;
   }
 
+  .status-buttons { 
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    margin-left: 50px;
+  }
+
+  .status-filter {
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    color: #FF5F00;
+    font-size: 14px; /* Reduced button font size */
+    font-weight: 500;
+    padding: 10px 30px; /* Reduced padding for the button */
+    text-decoration: none;
+    margin: 5px ;
+    border: 2px solid #FF5F00;
+    font-family: 'Poppins', sans-serif; 
+  }
+
+  .status-filter:hover {
+    background-color: #FF5F00;
+    color: #FFF;
+    border: none;
+  }
+
+  .status-filter:active {
+    background-color: #E04E00;
+    color: #FFF;
+    border: none;
+  }
+
+  .filter-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 50px; /* Adjust spacing from page edges */
+  }
+  .selected {
+    background-color: #FF5F00;
+    color: #FFF;
+    border: none;
+  }
+  
+
   .header {
     text-align: center; /* Center the text content */
     margin: 0 auto; /* Center the entire header block */
@@ -489,4 +534,29 @@ tbody tr:hover {
   color: #721c24;
   background-color: #f8d7da;
   border: 1px solid #f5c6cb;
+}
+
+#deactivationReason {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #FF5F00; /* Matching border color */
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  color: #FF5F00;
+  font-family: 'Poppins', sans-serif;
+  resize: vertical; /* Allows resizing vertically */
+  box-sizing: border-box;
+}
+
+#deactivationReason:focus {
+  outline: none;
+  border-color: #FF5F00;
+  box-shadow: 0 0 5px rgba(255, 95, 0, 0.3);
+}
+
+#deactivationReason::placeholder {
+  color: #FF5F00;
+  opacity: 0.7; /* Slightly transparent placeholder text */
 }

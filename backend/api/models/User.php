@@ -264,30 +264,62 @@ class User
     {
         logMessage("Attempting to deactivate user with ID: $user_id");
 
-        // Prepare the query to update status and remarks instead of deleting
-        $query = "UPDATE " . $this->table . " SET status = 2, remarks = ? WHERE user_id = ?";
+        // check if already deleted or not active
+        $query = "SELECT status FROM " . $this->table . " WHERE user_id = ?";
         $stmt = $this->conn->prepare($query);
 
-        // Check if statement preparation was successful
         if ($stmt === false) {
             logMessage("Error preparing statement for deactivateUser: " . $this->conn->error);
+            echo json_encode(["error" => "Error preparing statement for deactivation."]);
+            http_response_code(500); // Internal Server Error
             return false;
         }
 
-        // Bind the parameters (remark as string, user_id as integer)
+        $stmt->bind_param("i", $user_id);
+
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            $userData = $result->fetch_assoc();
+
+            if ($result->num_rows > 0) {
+                $status = $userData['status'];
+                if ($status == 2) {
+                    logMessage("User already deactivated with ID: $user_id");
+                    echo json_encode(["error" => "User already deactivated."]);
+                    http_response_code(400); // Bad Request
+                    return false;
+                }
+            }
+        }
+
+        $query = "UPDATE " . $this->table . " SET status = 2, remarks = ? WHERE user_id = ?";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing statement for deactivateUser: " . $this->conn->error);
+            echo json_encode(["error" => "Error preparing update query."]);
+            http_response_code(500); // Internal Server Error
+            return false;
+        }
+
         $stmt->bind_param("si", $remark, $user_id);
 
-        // Execute the query
         if ($stmt->execute()) {
             if ($stmt->affected_rows > 0) {
                 logMessage("User deactivated successfully with ID: $user_id");
+                echo json_encode(["message" => "User deactivated successfully."]);
+                http_response_code(200); // OK
                 return true;
             } else {
                 logMessage("No user found with ID: $user_id to deactivate.");
+                echo json_encode(["error" => "No user found with the given ID to deactivate."]);
+                http_response_code(404); // Not Found
                 return false;
             }
         } else {
             logMessage("Error executing deactivateUser query for user ID: $user_id with error: " . $stmt->error);
+            echo json_encode(["error" => "Error deactivating user."]);
+            http_response_code(500); // Internal Server Error
             return false;
         }
     }
@@ -317,6 +349,8 @@ class User
             return false;
         }
     }
+
+
 
 
     public function updateUser($user_id, $email, $firstname, $lastname, $contact_no)
