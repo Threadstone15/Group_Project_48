@@ -481,4 +481,91 @@ class User
             return false;
         }
     }
+
+
+    public function getProfile($user_id)
+    {
+        logMessage("Fetching profile for user ID: $user_id");
+
+        // Prepare the stored procedure call
+        $query = "CALL GetUserDetailsByUserID(?)";
+        $stmt = $this->conn->prepare($query);
+
+        // Check if statement preparation was successful
+        if ($stmt === false) {
+            logMessage("Error preparing statement for getProfile: " . $this->conn->error);
+            return json_encode([
+                'status' => 'error',
+                'message' => 'Statement preparation failed'
+            ]);
+        }
+
+        // Bind the user_id parameter
+        $stmt->bind_param("i", $user_id);
+
+        // Execute the query
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            $profileData = $result->fetch_assoc();
+
+            // Check if data exists
+            if ($profileData) {
+                logMessage("Profile data fetched successfully for user ID: $user_id");
+                logMessage("Profile data: " . json_encode($profileData));
+                return json_encode([
+                    'status' => 'success',
+                    'data' => $profileData
+                ]);
+            } else {
+                logMessage("No profile found for user ID: $user_id");
+                return json_encode([
+                    'status' => 'error',
+                    'message' => 'No profile data found'
+                ]);
+            }
+        } else {
+            logMessage("Error executing getProfile query for user ID: $user_id with error: " . $stmt->error);
+            return json_encode([
+                'status' => 'error',
+                'message' => 'Execution failed'
+            ]);
+        }
+    }
+
+    public function updateProfile($user_id, $address, $dob, $gender, $phone)
+    {
+        logMessage("Updating profile for user ID: $user_id");
+
+        // Prepare the stored procedure call
+        $query = "CALL update_profile(?, ?, ?, ?, ?)";
+        $stmt = $this->conn->prepare($query);
+
+        // Check if statement preparation was successful
+        if ($stmt === false) {
+            logMessage("Error preparing statement for updateProfile: " . $this->conn->error);
+            return json_encode([
+                'status' => 'error',
+                'message' => 'Statement preparation failed'
+            ]);
+        }
+
+        // Bind parameters
+        $stmt->bind_param("issss", $user_id, $address, $dob, $gender, $phone);
+
+        // Execute the query
+        if ($stmt->execute()) {
+            logMessage("Profile updated successfully for user ID: $user_id");
+
+            return json_encode([
+                'status' => 'success',
+                'message' => 'Profile updated successfully'
+            ]);
+        } else {
+            logMessage("Error executing updateProfile for user ID: $user_id with error: " . $stmt->error);
+            return json_encode([
+                'status' => 'error',
+                'message' => 'Failed to update profile'
+            ]);
+        }
+    }
 }

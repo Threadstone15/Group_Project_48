@@ -13,6 +13,7 @@ include_once "./membershipPlanHandler.php";
 include_once "../models/User.php";
 include_once "./subscriptionHandler.php";
 include_once "./markAttendanceHandler.php";
+include_once "./accountDetailHandler.php";
 
 $conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -71,6 +72,14 @@ switch ($action) {
     case 'account_delete':
         logMessage('running account delete...in auth controller');
         deleteAccount($user_id);
+        break;
+    case 'get_profile':
+        logMessage("Running get_profile....in controller");
+        getProfileDetails($user_id);
+        break;
+    case 'update_profile':
+        logMessage("Running update_profile....in controller");
+        updateProfileDetails($user_id);
         break;
 
     default:
