@@ -115,72 +115,52 @@ function login()
         $userData = $user->login($email, $password);
 
         if ($userData) {
-            if (password_verify($password, $userData['password'])) {
-                $token = generateToken($userData['user_id']);
-                $role = $userData['role'];
-                logMessage("Login Successful: $token $role");
+            $token = generateToken($userData['user_id']);
+            $role = $userData['role'];
+            logMessage("Login Successful: $token $role");
+            http_response_code(200);
 
-                // Set the HTTP status code for successful login
-                http_response_code(200);
+            if ($role === 'member') {
+                $payment = new Payment();
+                $user_id = $userData['user_id'];
+                $payments = $payment->getLatestPaymentByUserId($user_id);
 
-                if ($role === 'member') {
-                    $payment = new Payment();
-                    $user_id = $userData['user_id'];
-                    $payments = $payment->getLatestPaymentByUserId($user_id);
-
-                    if (!$payments) {
-                        $response = [
-                            "success" => true,
-                            "message" => "Login successful",
-                            "role" => $role,
-                            "token" => $token
-                        ];
-                    } else {
-                        $response = [
-                            "success" => true,
-                            "message" => "Login successful",
-                            "role" => $role,
-                            "token" => $token,
-                            "membership_plan_id" => $payments['membership_plan_id'],
-                            "amount" => $payments['amount'],
-                            "status" => $payments['status'],
-                            "date_time" => $payments['date_time']
-                        ];
-                    }
-                } else {
+                if (!$payments) {
                     $response = [
                         "success" => true,
                         "message" => "Login successful",
                         "role" => $role,
                         "token" => $token
                     ];
+                } else {
+                    $response = [
+                        "success" => true,
+                        "message" => "Login successful",
+                        "role" => $role,
+                        "token" => $token,
+                        "membership_plan_id" => $payments['membership_plan_id'],
+                        "amount" => $payments['amount'],
+                        "status" => $payments['status'],
+                        "date_time" => $payments['date_time']
+                    ];
                 }
             } else {
-                // Incorrect password, return error response
-                http_response_code(401); // Unauthorized
                 $response = [
-                    "success" => false,
-                    "error" => "Invalid credentials"
+                    "success" => true,
+                    "message" => "Login successful",
+                    "role" => $role,
+                    "token" => $token
                 ];
             }
         } else {
-            // User not found, return error response
-            http_response_code(404); // Not Found
-            $response = [
-                "success" => false,
-                "error" => "User not found"
-            ];
+            exit();
         }
 
         // Send the response as JSON
         echo json_encode($response);
-
-        // Ensure that the script stops after sending the response
         exit;
     } else {
         logMessage("Invalid input data for user login");
-        http_response_code(400);  // Bad Request
-        echo json_encode(["error" => "Invalid input data"]);
     }
 }
 

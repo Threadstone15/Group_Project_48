@@ -38,56 +38,40 @@
         </div>
         <a id="forgotPw" class="forgot-password">Forgot password?</a>
       </div>
-      <!-- Response Message Container -->
       <div id="formResponse" class="form-response" style="display: none;"></div>
       <button class="final-cta-button" tabindex="0">Log In</button>
     </form>
   </section>
+  <div id="toast-container" class="toast-container"></div>
+  <style>
+    .toast-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+    }
 
-  <!-- <script>
-    document.getElementById('loginForm').addEventListener('submit', function (event) {
-      event.preventDefault();
-      alert('Login button clicked!');
-    });
-  </script> -->
-  <!-- Link to the external JavaScript file
-  <script type="module" src="../js/login.js"></script> -->
+    .toast {
+        margin-bottom: 10px;
+        padding: 12px 20px;
+        border-radius: 5px;
+        font-size: 14px;
+        color: white;
+        background-color: #333;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        opacity: 0;
+        animation: fadeInOut 4s forwards;
+    }
 
-  <!-- <script>
-    document.getElementById('loginForm').addEventListener('submit', function (event) {
-    event.preventDefault(); 
+    .toast.success { background-color: #28a745; }
+    .toast.error { background-color: #dc3545; }
 
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-
-    const loginData = {
-        login : 1,
-        email: email,
-        password: password
-    };
-
-    fetch('http://localhost:8080/Group_Project_48/backend/api/controllers/authController.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(loginData)
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert('Login successful!');
-                //indow.location.href = 'dashboard.html';
-            } else {
-                alert(data.error || 'Login failed. Please check your credentials.');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('An error occurred. Please try again later.');
-        });
-  });
-
-  </script> -->
+    @keyframes fadeInOut {
+        0% { opacity: 0; transform: translateY(-20px); }
+        10%, 90% { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(-20px); }
+    }
+    </style>
+  </body>
 
 </html>

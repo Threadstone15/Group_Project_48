@@ -54,45 +54,6 @@ class User
         }
     }
 
-    public function login($email, $password)
-    {
-        logMessage("User Login model running for: $email");
-
-        // Prepare the query
-        $query = "SELECT user_id, password, role FROM " . $this->table . " WHERE email = ?";
-        $stmt = $this->conn->prepare($query);
-
-        // Check if statement preparation was successful
-        if ($stmt === false) {
-            logMessage("Error preparing statement for login: " . $this->conn->error);
-            return false;
-        }
-
-        // Bind parameters
-        $stmt->bind_param("s", $email);
-        logMessage("Query bound and ready to execute for login: $email");
-
-        // Execute the query
-        if ($stmt->execute()) {
-            $result = $stmt->get_result();
-            $userData = $result->fetch_assoc();
-
-            // Verify user data and password
-            if ($userData && password_verify($password, $userData['password'])) {
-                logMessage("User login successful: $email with role: " . $userData['role']);
-                return $userData;
-            } else {
-                logMessage("Invalid credentials for user: $email");
-                return false;
-            }
-        } else {
-            logMessage("Error executing login query for: $email with error: " . $stmt->error);
-            return false;
-        }
-    }
-
-
-
     public function getUserByEmail($email)
     {
         logMessage("Fetching user by email: $email");
@@ -118,6 +79,70 @@ class User
             return false;
         }
     }
+
+
+
+
+
+    public function login($email, $password)
+    {
+        logMessage("User Login model running for: $email");
+        $user = $this->getUserByEmail($email);
+        if ($user == false) {
+            logMessage("User not found for email: $email");
+            echo json_encode(["error" => "User not found"]);
+            return false;
+        } else {
+            logMessage("User found for email: $email");
+
+            // Prepare the query
+            $query = "SELECT user_id, password,status, role FROM " . $this->table . " WHERE email = ?";
+            $stmt = $this->conn->prepare($query);
+
+            // Check if statement preparation was successful
+            if ($stmt === false) {
+                logMessage("Error preparing statement for login: " . $this->conn->error);
+                echo json_encode(["error" => "Internal server error"]);
+                return false;
+            }
+
+            // Bind parameters
+            $stmt->bind_param("s", $email);
+            logMessage("Query bound and ready to execute for login: $email");
+
+            // Execute the query
+            if ($stmt->execute()) {
+                $result = $stmt->get_result();
+                $userData = $result->fetch_assoc();
+
+                // Verify user data and password
+                if ($userData && password_verify($password, $userData['password'])) {
+                    $status = $userData['status'];
+                    logMessage("User status: $status");
+                    if ($status == 2) {
+                        logMessage("User is deactivated: $email");
+                        echo json_encode(["error" => "User is deactivated"]);
+                        return false;
+                    } else {
+                        logMessage("User login successful: $email with role: " . $userData['role']);
+                        return $userData;
+                    }
+                } else {
+                    logMessage("Invalid credentials for user: $email");
+                    echo json_encode(["error" => "Invalid password"]);
+                    return false;
+                }
+            } else {
+                logMessage("Error executing login query for: $email with error: " . $stmt->error);
+                echo json_encode(["error" => "Internal server error"]);
+                return false;
+            }
+        }
+    }
+
+
+
+
 
     public function getUserRoleById($user_id)
     {
