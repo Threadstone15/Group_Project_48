@@ -146,9 +146,15 @@ export function initMember_myAcnt() {
       return false;
     }
 
-    if (newPass.length < 6) {
-      showToast("Password must be at least 6 characters long.", "error");
+    if (oldPass === newPass) {
+      showToast("New password cannot be the same as the old password.", "error");
       return false;
+    }
+
+    const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{6,}$/;
+    if (!passwordRegex.test(newPass)) {
+        showToast("Password must be at least 6 characters long and include a number and a special character.", "error");
+        return false;
     }
 
     return true;
@@ -185,14 +191,16 @@ export function initMember_myAcnt() {
         return response.json();
       })
       .then((data) => {
-        showToast(data.message);
         if (data.success) {
           changePasswordPopup.classList.add("hidden");
+          showToast(data.message);
+        }else{
+          showToast(data.message, "error");
         }
       })
       .catch((error) => {
         console.error("Error:", error);
-        showToast("Error changing password");
+        showToast("Error changing password" , "error");
       });
   });
 
@@ -245,6 +253,27 @@ export function initMember_myAcnt() {
         showToast("Account deletion failed.");
       });
   });
+
+  const genderSelect = document.getElementById("gender");
+  const profileImage = document.getElementById("profile-image");
+
+    function updateProfileImage() {
+        const gender = genderSelect.value;
+
+        if (gender === "M") {
+            profileImage.src = "/Group_Project_48/frontend/assets/images/trainer_m.jpg";
+        } else if (gender === "F") {
+            profileImage.src = "/Group_Project_48/frontend/assets/images/trainer_f.jpg";
+        } else {
+            profileImage.src = "/Group_Project_48/frontend/assets/images/trainer_m.jpg"; // default image
+        }
+    }
+
+    // Load correct image on page load
+    updateProfileImage();
+
+    // If gender becomes editable later, listen for changes
+    genderSelect.addEventListener("change", updateProfileImage);
 
   function showToast(message, type = 'success') {
     const container = document.getElementById('toast-container');

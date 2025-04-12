@@ -103,3 +103,22 @@ function account_deactivation($email)
         logMessage("Failed to send account deactivation email to: $email. PHPMailer Error: " . $e->getMessage());
     }
 }
+
+function password_change($email)
+{
+    logMessage("Password change email function invoked.");
+    $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+
+    try {
+        $mail = configureMailer();
+        $mail->addAddress($email);
+        $mail->Subject = "Password Change Confirmation";
+        $mail->Body = "Hello,\n\nYour password has been changed successfully. \n\nIf you did not request this change, please contact support immediately.\n\nBest Regards,\nGymVerse Team";
+
+        logMessage("Sending password change email to: $email");
+        $mail->send();
+        logMessage("Password change email sent successfully to: $email");
+    } catch (Exception $e) {
+        logMessage("Failed to send password change email to: $email. PHPMailer Error: " . $e->getMessage());
+    }
+}

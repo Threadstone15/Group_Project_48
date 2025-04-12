@@ -81,6 +81,10 @@ switch ($action) {
         logMessage("Running update_profile....in controller");
         updateProfileDetails($user_id);
         break;
+    case 'change_password':
+        logMessage("Running change_password....in controller");
+        changePassword($user_id);
+        break;
 
     default:
         echo json_encode(["error" => "Invalid action"]);

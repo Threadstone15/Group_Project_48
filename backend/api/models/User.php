@@ -568,4 +568,71 @@ class User
             ]);
         }
     }
+
+    public function changePassword($user_id, $old_password, $new_password)
+    {
+        logMessage("Changing password for user ID: $user_id");
+
+        // Check the old password
+        $query_check = "SELECT password FROM " . $this->table . " WHERE user_id = ?";
+        $stmt_check = $this->conn->prepare($query_check);
+
+        // Check if statement preparation was successful
+        if ($stmt_check === false) {
+            logMessage("Error preparing statement for changePassword: " . $this->conn->error);
+            return false;
+        }
+
+        // Bind the user_id parameter
+        $stmt_check->bind_param("i", $user_id);
+
+        // Execute the query
+        if ($stmt_check->execute()) {
+            $result = $stmt_check->get_result();
+            $userData = $result->fetch_assoc();
+
+            // Check if user exists and return the password
+            if ($userData) {
+                $hashed_password = $userData['password'];
+                if (password_verify($old_password, $hashed_password)) {
+                    logMessage("Old password matched for user ID: $user_id");
+                    // Prepare the query
+                    $query = "UPDATE " . $this->table . " SET password = ? WHERE user_id = ?";
+                    $stmt = $this->conn->prepare($query);
+
+                    // Check if statement preparation was successful
+                    if ($stmt === false) {
+                        logMessage("Error preparing statement for changePassword: " . $this->conn->error);
+                        return false;
+                    }
+
+                    // Bind parameters
+                    $hashed_password_new = password_hash($new_password, PASSWORD_DEFAULT);
+                    $stmt->bind_param("si", $hashed_password_new, $user_id);
+                    // Execute the query
+                    if ($stmt->execute()) {
+                        logMessage("Password changed successfully for user ID: $user_id");
+                        echo json_encode([
+                            "success" => true,
+                            "message" => "Password changed successfully"
+                        ]);
+
+                        return true;
+                    } else {
+                        logMessage("Error executing changePassword query for user ID: $user_id with error: " . $stmt->error);
+                        echo json_encode(["error" => "Failed to change password"]);
+                        return false;
+                    }
+                } else {
+                    logMessage("Old password did not match for user ID: $user_id");
+                    echo json_encode([
+                        "success" => false,
+                        "message" => "Old password did not match"
+                    ]);
+
+                    return false;
+                }
+            }
+        }
+    }
 }

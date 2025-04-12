@@ -1562,3 +1562,655 @@
 [2025-04-11 21:11:00] Profile data fetched successfully for user ID: 169
 [2025-04-11 21:11:00] Profile data: {"email":"own33er@gmail.com","full_name":"Saman Silva","DOB":"2006-02-07","phone":"0755554447","address":"78\/3, New ST, Colombo 13.","gender":"M"}
 [2025-04-11 21:11:00] Database connection closed.
+[2025-04-12 04:50:36] Running auth controller ,login 
+[2025-04-12 04:50:36] running login...in auth controller
+[2025-04-12 04:50:36] login function running...
+[2025-04-12 04:50:36] Connection established successfully to the database: rad_gymverse
+[2025-04-12 04:50:36] User class instantiated with database connection.
+[2025-04-12 04:50:36] User Login model running for: own33er@gmail.com
+[2025-04-12 04:50:36] Fetching user by email: own33er@gmail.com
+[2025-04-12 04:50:36] User found for email: own33er@gmail.com
+[2025-04-12 04:50:37] Query bound and ready to execute for login: own33er@gmail.com
+[2025-04-12 04:50:37] User status: 1
+[2025-04-12 04:50:37] User login successful: own33er@gmail.com with role: member
+[2025-04-12 04:50:37] Login Successful: eyJ1c2VyX2lkIjoxNjksImV4cCI6MTc0NDQyNjgwMH0=.ca5a7301a95d8fcb40cfd38c4540e41f037e9c5e52342274ea8a08af0fa46fa9 member
+[2025-04-12 04:50:37] Payment model initialized
+[2025-04-12 04:50:37] Fetching latest payment record for user_id: 169
+[2025-04-12 04:50:37] Query bound for fetching latest payment of user_id: 169
+[2025-04-12 04:50:37] No payment record found for user_id: 169
+[2025-04-12 04:50:37] Database connection closed.
+[2025-04-12 04:50:39] Connection established successfully to the database: rad_gymverse
+[2025-04-12 04:50:39] User class instantiated with database connection.
+[2025-04-12 04:50:39] Fetching user role by user ID: 169
+[2025-04-12 04:50:40] User role fetched successfully for user ID: 169
+[2025-04-12 04:50:40] Running member controller ,get_profile token - eyJ1c2VyX2lkIjoxNjksImV4cCI6MTc0NDQyNjgwMH0=.ca5a7301a95d8fcb40cfd38c4540e41f037e9c5e52342274ea8a08af0fa46fa9   id - 169 
+[2025-04-12 04:50:40] Running get_profile....in controller
+[2025-04-12 04:50:40] Running get_profile....in handler
+[2025-04-12 04:50:40] User class instantiated with database connection.
+[2025-04-12 04:50:40] Fetching profile for user ID: 169
+[2025-04-12 04:50:40] Profile data fetched successfully for user ID: 169
+[2025-04-12 04:50:40] Profile data: {"email":"own33er@gmail.com","full_name":"Saman Silva","DOB":"2006-02-07","phone":"0755554447","address":"78\/3, New ST, Colombo 13.","gender":"M"}
+[2025-04-12 04:50:40] Database connection closed.
+[2025-04-12 04:52:36] Connection established successfully to the database: rad_gymverse
+[2025-04-12 04:52:36] User class instantiated with database connection.
+[2025-04-12 04:52:36] Fetching user role by user ID: 169
+[2025-04-12 04:52:36] User role fetched successfully for user ID: 169
+[2025-04-12 04:52:36] Running member controller ,get_profile token - eyJ1c2VyX2lkIjoxNjksImV4cCI6MTc0NDQyNjgwMH0=.ca5a7301a95d8fcb40cfd38c4540e41f037e9c5e52342274ea8a08af0fa46fa9   id - 169 
+[2025-04-12 04:52:36] Running get_profile....in controller
+[2025-04-12 04:52:36] Running get_profile....in handler
+[2025-04-12 04:52:36] User class instantiated with database connection.
+[2025-04-12 04:52:36] Fetching profile for user ID: 169
+[2025-04-12 04:52:36] Profile data fetched successfully for user ID: 169
+[2025-04-12 04:52:36] Profile data: {"email":"own33er@gmail.com","full_name":"Saman Silva","DOB":"2006-02-07","phone":"0755554447","address":"78\/3, New ST, Colombo 13.","gender":"M"}
+[2025-04-12 04:52:36] Database connection closed.
+[2025-04-12 05:01:09] Running auth controller ,login 
+[2025-04-12 05:01:09] running login...in auth controller
+[2025-04-12 05:01:09] login function running...
+[2025-04-12 05:01:10] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:01:10] User class instantiated with database connection.
+[2025-04-12 05:01:10] User Login model running for: own33er@gmail.com
+[2025-04-12 05:01:10] Fetching user by email: own33er@gmail.com
+[2025-04-12 05:01:10] User found for email: own33er@gmail.com
+[2025-04-12 05:01:11] Query bound and ready to execute for login: own33er@gmail.com
+[2025-04-12 05:01:11] User status: 1
+[2025-04-12 05:01:11] User login successful: own33er@gmail.com with role: member
+[2025-04-12 05:01:11] Login Successful: eyJ1c2VyX2lkIjoxNjksImV4cCI6MTc0NDQzMDQwMH0=.3b14ac878a5122e50cebe98c60b1ce49b4efad9e65c795e4ceb2ae09c8aebb94 member
+[2025-04-12 05:01:11] Payment model initialized
+[2025-04-12 05:01:11] Fetching latest payment record for user_id: 169
+[2025-04-12 05:01:11] Query bound for fetching latest payment of user_id: 169
+[2025-04-12 05:01:11] No payment record found for user_id: 169
+[2025-04-12 05:01:11] Database connection closed.
+[2025-04-12 05:01:13] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:01:13] User class instantiated with database connection.
+[2025-04-12 05:01:13] Fetching user role by user ID: 169
+[2025-04-12 05:01:13] User role fetched successfully for user ID: 169
+[2025-04-12 05:01:13] Running member controller ,get_profile token - eyJ1c2VyX2lkIjoxNjksImV4cCI6MTc0NDQzMDQwMH0=.3b14ac878a5122e50cebe98c60b1ce49b4efad9e65c795e4ceb2ae09c8aebb94   id - 169 
+[2025-04-12 05:01:13] Running get_profile....in controller
+[2025-04-12 05:01:13] Running get_profile....in handler
+[2025-04-12 05:01:13] User class instantiated with database connection.
+[2025-04-12 05:01:13] Fetching profile for user ID: 169
+[2025-04-12 05:01:13] Profile data fetched successfully for user ID: 169
+[2025-04-12 05:01:13] Profile data: {"email":"own33er@gmail.com","full_name":"Saman Silva","DOB":"2006-02-07","phone":"0755554447","address":"78\/3, New ST, Colombo 13.","gender":"M"}
+[2025-04-12 05:01:13] Database connection closed.
+[2025-04-12 05:01:16] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:01:16] User class instantiated with database connection.
+[2025-04-12 05:01:16] Fetching user role by user ID: 169
+[2025-04-12 05:01:17] User role fetched successfully for user ID: 169
+[2025-04-12 05:01:17] Running member controller ,get_profile token - eyJ1c2VyX2lkIjoxNjksImV4cCI6MTc0NDQzMDQwMH0=.3b14ac878a5122e50cebe98c60b1ce49b4efad9e65c795e4ceb2ae09c8aebb94   id - 169 
+[2025-04-12 05:01:17] Running get_profile....in controller
+[2025-04-12 05:01:17] Running get_profile....in handler
+[2025-04-12 05:01:17] User class instantiated with database connection.
+[2025-04-12 05:01:17] Fetching profile for user ID: 169
+[2025-04-12 05:01:17] Profile data fetched successfully for user ID: 169
+[2025-04-12 05:01:17] Profile data: {"email":"own33er@gmail.com","full_name":"Saman Silva","DOB":"2006-02-07","phone":"0755554447","address":"78\/3, New ST, Colombo 13.","gender":"M"}
+[2025-04-12 05:01:17] Database connection closed.
+[2025-04-12 05:04:25] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:04:25] User class instantiated with database connection.
+[2025-04-12 05:04:25] Fetching user role by user ID: 169
+[2025-04-12 05:04:25] User role fetched successfully for user ID: 169
+[2025-04-12 05:04:25] Running member controller ,change_password token - eyJ1c2VyX2lkIjoxNjksImV4cCI6MTc0NDQzMDQwMH0=.3b14ac878a5122e50cebe98c60b1ce49b4efad9e65c795e4ceb2ae09c8aebb94   id - 169 
+[2025-04-12 05:04:25] Running change_password....in controller
+[2025-04-12 05:04:25] Running change_password....in handler
+[2025-04-12 05:04:25] User class instantiated with database connection.
+[2025-04-12 05:04:25] Database connection closed.
+[2025-04-12 05:09:53] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:09:53] User class instantiated with database connection.
+[2025-04-12 05:09:53] Fetching user role by user ID: 169
+[2025-04-12 05:09:53] User role fetched successfully for user ID: 169
+[2025-04-12 05:09:53] Running member controller ,get_profile token - eyJ1c2VyX2lkIjoxNjksImV4cCI6MTc0NDQzMDQwMH0=.3b14ac878a5122e50cebe98c60b1ce49b4efad9e65c795e4ceb2ae09c8aebb94   id - 169 
+[2025-04-12 05:09:53] Running get_profile....in controller
+[2025-04-12 05:09:53] Running get_profile....in handler
+[2025-04-12 05:09:53] User class instantiated with database connection.
+[2025-04-12 05:09:53] Fetching profile for user ID: 169
+[2025-04-12 05:09:54] Profile data fetched successfully for user ID: 169
+[2025-04-12 05:09:54] Profile data: {"email":"own33er@gmail.com","full_name":"Saman Silva","DOB":"2006-02-07","phone":"0755554447","address":"78\/3, New ST, Colombo 13.","gender":"M"}
+[2025-04-12 05:09:54] Database connection closed.
+[2025-04-12 05:10:09] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:10:09] User class instantiated with database connection.
+[2025-04-12 05:10:09] Fetching user role by user ID: 169
+[2025-04-12 05:10:10] User role fetched successfully for user ID: 169
+[2025-04-12 05:10:10] Running member controller ,change_password token - eyJ1c2VyX2lkIjoxNjksImV4cCI6MTc0NDQzMDQwMH0=.3b14ac878a5122e50cebe98c60b1ce49b4efad9e65c795e4ceb2ae09c8aebb94   id - 169 
+[2025-04-12 05:10:10] Running change_password....in controller
+[2025-04-12 05:10:10] Running change_password....in handler
+[2025-04-12 05:10:10] User class instantiated with database connection.
+[2025-04-12 05:10:10] Changing password for user ID: 169
+[2025-04-12 05:10:10] Database connection closed.
+[2025-04-12 05:13:39] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:13:39] User class instantiated with database connection.
+[2025-04-12 05:13:39] Fetching user role by user ID: 169
+[2025-04-12 05:13:39] User role fetched successfully for user ID: 169
+[2025-04-12 05:13:39] Running member controller ,change_password token - eyJ1c2VyX2lkIjoxNjksImV4cCI6MTc0NDQzMDQwMH0=.3b14ac878a5122e50cebe98c60b1ce49b4efad9e65c795e4ceb2ae09c8aebb94   id - 169 
+[2025-04-12 05:13:39] Running change_password....in controller
+[2025-04-12 05:13:39] Running change_password....in handler
+[2025-04-12 05:13:39] User class instantiated with database connection.
+[2025-04-12 05:13:39] Changing password for user ID: 169
+[2025-04-12 05:13:39] Password changed successfully for user ID: 169
+[2025-04-12 05:13:40] Database connection closed.
+[2025-04-12 05:14:07] Running auth controller ,login 
+[2025-04-12 05:14:07] running login...in auth controller
+[2025-04-12 05:14:07] login function running...
+[2025-04-12 05:14:07] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:14:07] User class instantiated with database connection.
+[2025-04-12 05:14:07] User Login model running for: own33er@gmail.com
+[2025-04-12 05:14:07] Fetching user by email: own33er@gmail.com
+[2025-04-12 05:14:07] User found for email: own33er@gmail.com
+[2025-04-12 05:14:07] Query bound and ready to execute for login: own33er@gmail.com
+[2025-04-12 05:14:08] Invalid credentials for user: own33er@gmail.com
+[2025-04-12 05:14:08] Database connection closed.
+[2025-04-12 05:14:21] Running auth controller ,login 
+[2025-04-12 05:14:21] running login...in auth controller
+[2025-04-12 05:14:21] login function running...
+[2025-04-12 05:14:21] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:14:21] User class instantiated with database connection.
+[2025-04-12 05:14:21] User Login model running for: member@gmail.com
+[2025-04-12 05:14:21] Fetching user by email: member@gmail.com
+[2025-04-12 05:14:21] User found for email: member@gmail.com
+[2025-04-12 05:14:21] Query bound and ready to execute for login: member@gmail.com
+[2025-04-12 05:14:22] User status: 1
+[2025-04-12 05:14:22] User login successful: member@gmail.com with role: member
+[2025-04-12 05:14:22] Login Successful: eyJ1c2VyX2lkIjo3MywiZXhwIjoxNzQ0NDMwNDAwfQ==.b3231ed5d60ef6d61b624478ab5d9045fc4924c9aba739b2943362dc76a58311 member
+[2025-04-12 05:14:22] Payment model initialized
+[2025-04-12 05:14:22] Fetching latest payment record for user_id: 73
+[2025-04-12 05:14:22] Query bound for fetching latest payment of user_id: 73
+[2025-04-12 05:14:22] Fetched latest payment for user_id: 73
+[2025-04-12 05:14:22] Database connection closed.
+[2025-04-12 05:14:24] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:14:24] User class instantiated with database connection.
+[2025-04-12 05:14:24] Fetching user role by user ID: 73
+[2025-04-12 05:14:25] User role fetched successfully for user ID: 73
+[2025-04-12 05:14:25] Running member controller ,get_profile token - eyJ1c2VyX2lkIjo3MywiZXhwIjoxNzQ0NDMwNDAwfQ==.b3231ed5d60ef6d61b624478ab5d9045fc4924c9aba739b2943362dc76a58311   id - 73 
+[2025-04-12 05:14:25] Running get_profile....in controller
+[2025-04-12 05:14:25] Running get_profile....in handler
+[2025-04-12 05:14:25] User class instantiated with database connection.
+[2025-04-12 05:14:25] Fetching profile for user ID: 73
+[2025-04-12 05:14:25] No profile found for user ID: 73
+[2025-04-12 05:14:25] Database connection closed.
+[2025-04-12 05:14:29] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:14:29] User class instantiated with database connection.
+[2025-04-12 05:14:29] Fetching user role by user ID: 73
+[2025-04-12 05:14:29] User role fetched successfully for user ID: 73
+[2025-04-12 05:14:29] Running member controller ,get_profile token - eyJ1c2VyX2lkIjo3MywiZXhwIjoxNzQ0NDMwNDAwfQ==.b3231ed5d60ef6d61b624478ab5d9045fc4924c9aba739b2943362dc76a58311   id - 73 
+[2025-04-12 05:14:29] Running get_profile....in controller
+[2025-04-12 05:14:29] Running get_profile....in handler
+[2025-04-12 05:14:29] User class instantiated with database connection.
+[2025-04-12 05:14:29] Fetching profile for user ID: 73
+[2025-04-12 05:14:29] No profile found for user ID: 73
+[2025-04-12 05:14:29] Database connection closed.
+[2025-04-12 05:16:11] Running auth controller ,register_member 
+[2025-04-12 05:16:11] running member register...in auth controller
+[2025-04-12 05:16:11] register member function running...
+[2025-04-12 05:16:12] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:16:12] User class instantiated with database connection.
+[2025-04-12 05:16:12] Member model initialized with database connection.
+[2025-04-12 05:16:12] Subscription model initialized with database connection.
+[2025-04-12 05:16:12] Fetching user by email: pasangunawardhena@gmail.com
+[2025-04-12 05:16:13] User Register model running...
+[2025-04-12 05:16:13] Password hashed for user: pasangunawardhena@gmail.com
+[2025-04-12 05:16:13] Query bound and ready to execute for user: pasangunawardhena@gmail.com
+[2025-04-12 05:16:13] User registered successfully: pasangunawardhena@gmail.com with role: member
+[2025-04-12 05:16:13] User registered: pasangunawardhena@gmail.com
+[2025-04-12 05:16:13] Fetching user by email: pasangunawardhena@gmail.com
+[2025-04-12 05:16:14] Entering to members: 170
+[2025-04-12 05:16:14] Registering member...
+[2025-04-12 05:16:14] Query bound for member registration: Pasan Gunawardhena
+[2025-04-12 05:16:14] Member registered successfully: Pasan Gunawardhena
+[2025-04-12 05:16:14] Member registered successfully with user ID: 170
+[2025-04-12 05:16:14] Adding new subscription...
+[2025-04-12 05:16:14] Query bound for adding subscription for : M19
+[2025-04-12 05:16:14] subscription added successfully for: M19
+[2025-04-12 05:16:14] Subscription added successfully for member ID: M19
+[2025-04-12 05:16:14] Database connection closed.
+[2025-04-12 05:16:17] Running auth controller ,login 
+[2025-04-12 05:16:17] running login...in auth controller
+[2025-04-12 05:16:18] login function running...
+[2025-04-12 05:16:18] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:16:18] User class instantiated with database connection.
+[2025-04-12 05:16:18] User Login model running for: pasangunawardhena@gmail.com
+[2025-04-12 05:16:18] Fetching user by email: pasangunawardhena@gmail.com
+[2025-04-12 05:16:18] User found for email: pasangunawardhena@gmail.com
+[2025-04-12 05:16:19] Query bound and ready to execute for login: pasangunawardhena@gmail.com
+[2025-04-12 05:16:19] User status: 1
+[2025-04-12 05:16:19] User login successful: pasangunawardhena@gmail.com with role: member
+[2025-04-12 05:16:19] Login Successful: eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb member
+[2025-04-12 05:16:19] Payment model initialized
+[2025-04-12 05:16:19] Fetching latest payment record for user_id: 170
+[2025-04-12 05:16:19] Query bound for fetching latest payment of user_id: 170
+[2025-04-12 05:16:19] No payment record found for user_id: 170
+[2025-04-12 05:16:19] Database connection closed.
+[2025-04-12 05:16:21] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:16:21] User class instantiated with database connection.
+[2025-04-12 05:16:21] Fetching user role by user ID: 170
+[2025-04-12 05:16:21] User role fetched successfully for user ID: 170
+[2025-04-12 05:16:21] Running member controller ,get_profile token - eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb   id - 170 
+[2025-04-12 05:16:21] Running get_profile....in controller
+[2025-04-12 05:16:21] Running get_profile....in handler
+[2025-04-12 05:16:21] User class instantiated with database connection.
+[2025-04-12 05:16:21] Fetching profile for user ID: 170
+[2025-04-12 05:16:21] Profile data fetched successfully for user ID: 170
+[2025-04-12 05:16:21] Profile data: {"email":"pasangunawardhena@gmail.com","full_name":"Pasan Gunawardhena","DOB":"1997-06-24","phone":"0743677720","address":"89\/6, Flower Road, Panadura","gender":"M"}
+[2025-04-12 05:16:21] Database connection closed.
+[2025-04-12 05:19:49] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:19:49] User class instantiated with database connection.
+[2025-04-12 05:19:49] Fetching user role by user ID: 170
+[2025-04-12 05:19:49] User role fetched successfully for user ID: 170
+[2025-04-12 05:19:49] Running member controller ,change_password token - eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb   id - 170 
+[2025-04-12 05:19:49] Running change_password....in controller
+[2025-04-12 05:19:49] Running change_password....in handler
+[2025-04-12 05:19:49] User class instantiated with database connection.
+[2025-04-12 05:19:49] Changing password for user ID: 170
+[2025-04-12 05:19:49] Password changed successfully for user ID: 170
+[2025-04-12 05:19:50] Database connection closed.
+[2025-04-12 05:19:58] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:19:58] User class instantiated with database connection.
+[2025-04-12 05:19:58] Fetching user role by user ID: 170
+[2025-04-12 05:19:58] User role fetched successfully for user ID: 170
+[2025-04-12 05:19:58] Running member controller ,change_password token - eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb   id - 170 
+[2025-04-12 05:19:58] Running change_password....in controller
+[2025-04-12 05:19:58] Running change_password....in handler
+[2025-04-12 05:19:58] User class instantiated with database connection.
+[2025-04-12 05:19:58] Changing password for user ID: 170
+[2025-04-12 05:19:59] Password changed successfully for user ID: 170
+[2025-04-12 05:19:59] Database connection closed.
+[2025-04-12 05:23:26] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:23:26] User class instantiated with database connection.
+[2025-04-12 05:23:26] Fetching user role by user ID: 170
+[2025-04-12 05:23:26] User role fetched successfully for user ID: 170
+[2025-04-12 05:23:26] Running member controller ,change_password token - eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb   id - 170 
+[2025-04-12 05:23:26] Running change_password....in controller
+[2025-04-12 05:23:26] Running change_password....in handler
+[2025-04-12 05:23:26] User class instantiated with database connection.
+[2025-04-12 05:23:26] Changing password for user ID: 170
+[2025-04-12 05:23:27] Password changed successfully for user ID: 170
+[2025-04-12 05:23:27] Password change email function invoked.
+[2025-04-12 05:23:27] Configuring PHPMailer.
+[2025-04-12 05:23:27] Sending password change email to: pasangunawardhena@gmail.com
+[2025-04-12 05:23:31] Password change email sent successfully to: pasangunawardhena@gmail.com
+[2025-04-12 05:23:31] Database connection closed.
+[2025-04-12 05:23:51] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:23:51] User class instantiated with database connection.
+[2025-04-12 05:23:51] Fetching user role by user ID: 170
+[2025-04-12 05:23:52] User role fetched successfully for user ID: 170
+[2025-04-12 05:23:52] Running member controller ,get_profile token - eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb   id - 170 
+[2025-04-12 05:23:52] Running get_profile....in controller
+[2025-04-12 05:23:52] Running get_profile....in handler
+[2025-04-12 05:23:52] User class instantiated with database connection.
+[2025-04-12 05:23:52] Fetching profile for user ID: 170
+[2025-04-12 05:23:52] Profile data fetched successfully for user ID: 170
+[2025-04-12 05:23:52] Profile data: {"email":"pasangunawardhena@gmail.com","full_name":"Pasan Gunawardhena","DOB":"1997-06-24","phone":"0743677720","address":"89\/6, Flower Road, Panadura","gender":"M"}
+[2025-04-12 05:23:52] Database connection closed.
+[2025-04-12 05:23:59] Running auth controller ,login 
+[2025-04-12 05:23:59] running login...in auth controller
+[2025-04-12 05:23:59] login function running...
+[2025-04-12 05:23:59] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:23:59] User class instantiated with database connection.
+[2025-04-12 05:23:59] User Login model running for: pasangunawardhena@gmail.com
+[2025-04-12 05:23:59] Fetching user by email: pasangunawardhena@gmail.com
+[2025-04-12 05:23:59] User found for email: pasangunawardhena@gmail.com
+[2025-04-12 05:24:00] Query bound and ready to execute for login: pasangunawardhena@gmail.com
+[2025-04-12 05:24:00] User status: 1
+[2025-04-12 05:24:00] User login successful: pasangunawardhena@gmail.com with role: member
+[2025-04-12 05:24:00] Login Successful: eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb member
+[2025-04-12 05:24:00] Payment model initialized
+[2025-04-12 05:24:00] Fetching latest payment record for user_id: 170
+[2025-04-12 05:24:00] Query bound for fetching latest payment of user_id: 170
+[2025-04-12 05:24:00] No payment record found for user_id: 170
+[2025-04-12 05:24:00] Database connection closed.
+[2025-04-12 05:24:02] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:24:02] User class instantiated with database connection.
+[2025-04-12 05:24:02] Fetching user role by user ID: 170
+[2025-04-12 05:24:02] User role fetched successfully for user ID: 170
+[2025-04-12 05:24:02] Running member controller ,get_profile token - eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb   id - 170 
+[2025-04-12 05:24:02] Running get_profile....in controller
+[2025-04-12 05:24:02] Running get_profile....in handler
+[2025-04-12 05:24:02] User class instantiated with database connection.
+[2025-04-12 05:24:02] Fetching profile for user ID: 170
+[2025-04-12 05:24:02] Profile data fetched successfully for user ID: 170
+[2025-04-12 05:24:02] Profile data: {"email":"pasangunawardhena@gmail.com","full_name":"Pasan Gunawardhena","DOB":"1997-06-24","phone":"0743677720","address":"89\/6, Flower Road, Panadura","gender":"M"}
+[2025-04-12 05:24:02] Database connection closed.
+[2025-04-12 05:24:30] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:24:30] User class instantiated with database connection.
+[2025-04-12 05:24:30] Fetching user role by user ID: 170
+[2025-04-12 05:24:30] User role fetched successfully for user ID: 170
+[2025-04-12 05:24:30] Running member controller ,change_password token - eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb   id - 170 
+[2025-04-12 05:24:30] Running change_password....in controller
+[2025-04-12 05:24:30] Running change_password....in handler
+[2025-04-12 05:24:30] User class instantiated with database connection.
+[2025-04-12 05:24:30] Changing password for user ID: 170
+[2025-04-12 05:24:31] Password changed successfully for user ID: 170
+[2025-04-12 05:24:31] Password change email function invoked.
+[2025-04-12 05:24:31] Configuring PHPMailer.
+[2025-04-12 05:24:31] Sending password change email to: pasangunawardhena@gmail.com
+[2025-04-12 05:24:35] Password change email sent successfully to: pasangunawardhena@gmail.com
+[2025-04-12 05:24:35] Database connection closed.
+[2025-04-12 05:24:51] Running auth controller ,login 
+[2025-04-12 05:24:51] running login...in auth controller
+[2025-04-12 05:24:51] login function running...
+[2025-04-12 05:24:52] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:24:52] User class instantiated with database connection.
+[2025-04-12 05:24:52] User Login model running for: pasangunawardhena@gmail.com
+[2025-04-12 05:24:52] Fetching user by email: pasangunawardhena@gmail.com
+[2025-04-12 05:24:52] User found for email: pasangunawardhena@gmail.com
+[2025-04-12 05:24:52] Query bound and ready to execute for login: pasangunawardhena@gmail.com
+[2025-04-12 05:24:53] User status: 1
+[2025-04-12 05:24:53] User login successful: pasangunawardhena@gmail.com with role: member
+[2025-04-12 05:24:53] Login Successful: eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb member
+[2025-04-12 05:24:53] Payment model initialized
+[2025-04-12 05:24:53] Fetching latest payment record for user_id: 170
+[2025-04-12 05:24:53] Query bound for fetching latest payment of user_id: 170
+[2025-04-12 05:24:53] No payment record found for user_id: 170
+[2025-04-12 05:24:53] Database connection closed.
+[2025-04-12 05:24:57] Running auth controller ,login 
+[2025-04-12 05:24:57] running login...in auth controller
+[2025-04-12 05:24:57] login function running...
+[2025-04-12 05:24:58] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:24:58] User class instantiated with database connection.
+[2025-04-12 05:24:58] User Login model running for: pasangunawardhena@gmail.com
+[2025-04-12 05:24:58] Fetching user by email: pasangunawardhena@gmail.com
+[2025-04-12 05:24:58] User found for email: pasangunawardhena@gmail.com
+[2025-04-12 05:24:58] Query bound and ready to execute for login: pasangunawardhena@gmail.com
+[2025-04-12 05:24:58] User status: 1
+[2025-04-12 05:24:58] User login successful: pasangunawardhena@gmail.com with role: member
+[2025-04-12 05:24:58] Login Successful: eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb member
+[2025-04-12 05:24:58] Payment model initialized
+[2025-04-12 05:24:58] Fetching latest payment record for user_id: 170
+[2025-04-12 05:24:59] Query bound for fetching latest payment of user_id: 170
+[2025-04-12 05:24:59] No payment record found for user_id: 170
+[2025-04-12 05:24:59] Database connection closed.
+[2025-04-12 05:26:09] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:26:09] User class instantiated with database connection.
+[2025-04-12 05:26:09] Fetching user role by user ID: 170
+[2025-04-12 05:26:09] User role fetched successfully for user ID: 170
+[2025-04-12 05:26:09] Running member controller ,get_profile token - eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb   id - 170 
+[2025-04-12 05:26:09] Running get_profile....in controller
+[2025-04-12 05:26:09] Running get_profile....in handler
+[2025-04-12 05:26:09] User class instantiated with database connection.
+[2025-04-12 05:26:09] Fetching profile for user ID: 170
+[2025-04-12 05:26:09] Profile data fetched successfully for user ID: 170
+[2025-04-12 05:26:09] Profile data: {"email":"pasangunawardhena@gmail.com","full_name":"Pasan Gunawardhena","DOB":"1997-06-24","phone":"0743677720","address":"89\/6, Flower Road, Panadura","gender":"M"}
+[2025-04-12 05:26:09] Database connection closed.
+[2025-04-12 05:26:28] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:26:28] User class instantiated with database connection.
+[2025-04-12 05:26:28] Fetching user role by user ID: 170
+[2025-04-12 05:26:28] User role fetched successfully for user ID: 170
+[2025-04-12 05:26:28] Running member controller ,change_password token - eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb   id - 170 
+[2025-04-12 05:26:28] Running change_password....in controller
+[2025-04-12 05:26:28] Running change_password....in handler
+[2025-04-12 05:26:28] User class instantiated with database connection.
+[2025-04-12 05:26:28] Changing password for user ID: 170
+[2025-04-12 05:26:29] Password changed successfully for user ID: 170
+[2025-04-12 05:26:29] Password change email function invoked.
+[2025-04-12 05:26:29] Configuring PHPMailer.
+[2025-04-12 05:26:29] Sending password change email to: pasangunawardhena@gmail.com
+[2025-04-12 05:26:33] Password change email sent successfully to: pasangunawardhena@gmail.com
+[2025-04-12 05:26:33] Database connection closed.
+[2025-04-12 05:28:32] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:28:32] User class instantiated with database connection.
+[2025-04-12 05:28:32] Fetching user role by user ID: 170
+[2025-04-12 05:28:33] User role fetched successfully for user ID: 170
+[2025-04-12 05:28:33] Running member controller ,change_password token - eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb   id - 170 
+[2025-04-12 05:28:33] Running change_password....in controller
+[2025-04-12 05:28:33] Running change_password....in handler
+[2025-04-12 05:28:33] User class instantiated with database connection.
+[2025-04-12 05:28:33] Changing password for user ID: 170
+[2025-04-12 05:28:33] Password changed successfully for user ID: 170
+[2025-04-12 05:28:33] Password change email function invoked.
+[2025-04-12 05:28:33] Configuring PHPMailer.
+[2025-04-12 05:28:33] Sending password change email to: pasangunawardhena@gmail.com
+[2025-04-12 05:28:37] Password change email sent successfully to: pasangunawardhena@gmail.com
+[2025-04-12 05:28:37] Password changed successfully for user ID: 170
+[2025-04-12 05:28:37] Database connection closed.
+[2025-04-12 05:28:55] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:28:55] User class instantiated with database connection.
+[2025-04-12 05:28:55] Fetching user role by user ID: 170
+[2025-04-12 05:28:56] User role fetched successfully for user ID: 170
+[2025-04-12 05:28:56] Running member controller ,get_profile token - eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb   id - 170 
+[2025-04-12 05:28:56] Running get_profile....in controller
+[2025-04-12 05:28:56] Running get_profile....in handler
+[2025-04-12 05:28:56] User class instantiated with database connection.
+[2025-04-12 05:28:56] Fetching profile for user ID: 170
+[2025-04-12 05:28:56] Profile data fetched successfully for user ID: 170
+[2025-04-12 05:28:56] Profile data: {"email":"pasangunawardhena@gmail.com","full_name":"Pasan Gunawardhena","DOB":"1997-06-24","phone":"0743677720","address":"89\/6, Flower Road, Panadura","gender":"M"}
+[2025-04-12 05:28:56] Database connection closed.
+[2025-04-12 05:29:08] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:29:08] User class instantiated with database connection.
+[2025-04-12 05:29:08] Fetching user role by user ID: 170
+[2025-04-12 05:29:08] User role fetched successfully for user ID: 170
+[2025-04-12 05:29:08] Running member controller ,change_password token - eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb   id - 170 
+[2025-04-12 05:29:08] Running change_password....in controller
+[2025-04-12 05:29:08] Running change_password....in handler
+[2025-04-12 05:29:08] User class instantiated with database connection.
+[2025-04-12 05:29:08] Changing password for user ID: 170
+[2025-04-12 05:29:09] Password changed successfully for user ID: 170
+[2025-04-12 05:29:09] Password change email function invoked.
+[2025-04-12 05:29:09] Configuring PHPMailer.
+[2025-04-12 05:29:09] Sending password change email to: pasangunawardhena@gmail.com
+[2025-04-12 05:29:13] Password change email sent successfully to: pasangunawardhena@gmail.com
+[2025-04-12 05:29:13] Password changed successfully for user ID: 170
+[2025-04-12 05:29:13] Database connection closed.
+[2025-04-12 05:29:35] Running auth controller ,login 
+[2025-04-12 05:29:35] running login...in auth controller
+[2025-04-12 05:29:35] login function running...
+[2025-04-12 05:29:36] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:29:36] User class instantiated with database connection.
+[2025-04-12 05:29:36] User Login model running for: pasangunawardhena@gmail.com
+[2025-04-12 05:29:36] Fetching user by email: pasangunawardhena@gmail.com
+[2025-04-12 05:29:36] User found for email: pasangunawardhena@gmail.com
+[2025-04-12 05:29:36] Query bound and ready to execute for login: pasangunawardhena@gmail.com
+[2025-04-12 05:29:36] User status: 1
+[2025-04-12 05:29:36] User login successful: pasangunawardhena@gmail.com with role: member
+[2025-04-12 05:29:36] Login Successful: eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb member
+[2025-04-12 05:29:36] Payment model initialized
+[2025-04-12 05:29:36] Fetching latest payment record for user_id: 170
+[2025-04-12 05:29:36] Query bound for fetching latest payment of user_id: 170
+[2025-04-12 05:29:37] No payment record found for user_id: 170
+[2025-04-12 05:29:37] Database connection closed.
+[2025-04-12 05:29:48] Running auth controller ,login 
+[2025-04-12 05:29:48] running login...in auth controller
+[2025-04-12 05:29:48] login function running...
+[2025-04-12 05:29:49] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:29:49] User class instantiated with database connection.
+[2025-04-12 05:29:49] User Login model running for: pasangunawardhena@gmail.com
+[2025-04-12 05:29:49] Fetching user by email: pasangunawardhena@gmail.com
+[2025-04-12 05:29:49] User found for email: pasangunawardhena@gmail.com
+[2025-04-12 05:29:50] Query bound and ready to execute for login: pasangunawardhena@gmail.com
+[2025-04-12 05:29:51] User status: 1
+[2025-04-12 05:29:51] User login successful: pasangunawardhena@gmail.com with role: member
+[2025-04-12 05:29:51] Login Successful: eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb member
+[2025-04-12 05:29:51] Payment model initialized
+[2025-04-12 05:29:51] Fetching latest payment record for user_id: 170
+[2025-04-12 05:29:51] Query bound for fetching latest payment of user_id: 170
+[2025-04-12 05:29:51] No payment record found for user_id: 170
+[2025-04-12 05:29:51] Database connection closed.
+[2025-04-12 05:29:57] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:29:57] User class instantiated with database connection.
+[2025-04-12 05:29:57] Fetching user role by user ID: 170
+[2025-04-12 05:29:57] User role fetched successfully for user ID: 170
+[2025-04-12 05:29:57] Running member controller ,get_profile token - eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb   id - 170 
+[2025-04-12 05:29:57] Running get_profile....in controller
+[2025-04-12 05:29:57] Running get_profile....in handler
+[2025-04-12 05:29:57] User class instantiated with database connection.
+[2025-04-12 05:29:57] Fetching profile for user ID: 170
+[2025-04-12 05:29:57] Profile data fetched successfully for user ID: 170
+[2025-04-12 05:29:57] Profile data: {"email":"pasangunawardhena@gmail.com","full_name":"Pasan Gunawardhena","DOB":"1997-06-24","phone":"0743677720","address":"89\/6, Flower Road, Panadura","gender":"M"}
+[2025-04-12 05:29:57] Database connection closed.
+[2025-04-12 05:30:36] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:30:36] User class instantiated with database connection.
+[2025-04-12 05:30:36] Fetching user role by user ID: 170
+[2025-04-12 05:30:36] User role fetched successfully for user ID: 170
+[2025-04-12 05:30:36] Running member controller ,change_password token - eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb   id - 170 
+[2025-04-12 05:30:36] Running change_password....in controller
+[2025-04-12 05:30:36] Running change_password....in handler
+[2025-04-12 05:30:36] User class instantiated with database connection.
+[2025-04-12 05:30:36] Changing password for user ID: 170
+[2025-04-12 05:30:37] Password changed successfully for user ID: 170
+[2025-04-12 05:30:37] Password change email function invoked.
+[2025-04-12 05:30:37] Configuring PHPMailer.
+[2025-04-12 05:30:37] Sending password change email to: pasangunawardhena@gmail.com
+[2025-04-12 05:30:41] Password change email sent successfully to: pasangunawardhena@gmail.com
+[2025-04-12 05:30:41] Password changed successfully for user ID: 170
+[2025-04-12 05:30:41] Database connection closed.
+[2025-04-12 05:35:17] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:35:17] User class instantiated with database connection.
+[2025-04-12 05:35:17] Fetching user role by user ID: 170
+[2025-04-12 05:35:17] User role fetched successfully for user ID: 170
+[2025-04-12 05:35:17] Running member controller ,change_password token - eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb   id - 170 
+[2025-04-12 05:35:17] Running change_password....in controller
+[2025-04-12 05:35:17] Running change_password....in handler
+[2025-04-12 05:35:17] User class instantiated with database connection.
+[2025-04-12 05:35:17] Changing password for user ID: 170
+[2025-04-12 05:35:18] Old password did not match for user ID: 170
+[2025-04-12 05:35:18] Error executing changePassword query for user ID: 170
+[2025-04-12 05:35:18] Database connection closed.
+[2025-04-12 05:35:25] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:35:25] User class instantiated with database connection.
+[2025-04-12 05:35:25] Fetching user role by user ID: 170
+[2025-04-12 05:35:25] User role fetched successfully for user ID: 170
+[2025-04-12 05:35:25] Running member controller ,get_profile token - eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb   id - 170 
+[2025-04-12 05:35:25] Running get_profile....in controller
+[2025-04-12 05:35:25] Running get_profile....in handler
+[2025-04-12 05:35:25] User class instantiated with database connection.
+[2025-04-12 05:35:25] Fetching profile for user ID: 170
+[2025-04-12 05:35:25] Profile data fetched successfully for user ID: 170
+[2025-04-12 05:35:25] Profile data: {"email":"pasangunawardhena@gmail.com","full_name":"Pasan Gunawardhena","DOB":"1997-06-24","phone":"0743677720","address":"89\/6, Flower Road, Panadura","gender":"M"}
+[2025-04-12 05:35:25] Database connection closed.
+[2025-04-12 05:35:45] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:35:45] User class instantiated with database connection.
+[2025-04-12 05:35:45] Fetching user role by user ID: 170
+[2025-04-12 05:35:45] User role fetched successfully for user ID: 170
+[2025-04-12 05:35:45] Running member controller ,get_profile token - eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb   id - 170 
+[2025-04-12 05:35:45] Running get_profile....in controller
+[2025-04-12 05:35:45] Running get_profile....in handler
+[2025-04-12 05:35:45] User class instantiated with database connection.
+[2025-04-12 05:35:45] Fetching profile for user ID: 170
+[2025-04-12 05:35:45] Profile data fetched successfully for user ID: 170
+[2025-04-12 05:35:45] Profile data: {"email":"pasangunawardhena@gmail.com","full_name":"Pasan Gunawardhena","DOB":"1997-06-24","phone":"0743677720","address":"89\/6, Flower Road, Panadura","gender":"M"}
+[2025-04-12 05:35:45] Database connection closed.
+[2025-04-12 05:35:58] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:35:58] User class instantiated with database connection.
+[2025-04-12 05:35:58] Fetching user role by user ID: 170
+[2025-04-12 05:35:59] User role fetched successfully for user ID: 170
+[2025-04-12 05:35:59] Running member controller ,change_password token - eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb   id - 170 
+[2025-04-12 05:35:59] Running change_password....in controller
+[2025-04-12 05:35:59] Running change_password....in handler
+[2025-04-12 05:35:59] User class instantiated with database connection.
+[2025-04-12 05:35:59] Changing password for user ID: 170
+[2025-04-12 05:35:59] Old password did not match for user ID: 170
+[2025-04-12 05:35:59] Error executing changePassword query for user ID: 170
+[2025-04-12 05:35:59] Database connection closed.
+[2025-04-12 05:38:00] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:38:00] User class instantiated with database connection.
+[2025-04-12 05:38:00] Fetching user role by user ID: 170
+[2025-04-12 05:38:00] User role fetched successfully for user ID: 170
+[2025-04-12 05:38:00] Running member controller ,change_password token - eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb   id - 170 
+[2025-04-12 05:38:00] Running change_password....in controller
+[2025-04-12 05:38:00] Running change_password....in handler
+[2025-04-12 05:38:00] User class instantiated with database connection.
+[2025-04-12 05:38:00] Changing password for user ID: 170
+[2025-04-12 05:38:01] Old password did not match for user ID: 170
+[2025-04-12 05:38:01] Error executing changePassword query for user ID: 170
+[2025-04-12 05:38:01] Database connection closed.
+[2025-04-12 05:42:11] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:42:11] User class instantiated with database connection.
+[2025-04-12 05:42:11] Fetching user role by user ID: 170
+[2025-04-12 05:42:11] User role fetched successfully for user ID: 170
+[2025-04-12 05:42:11] Running member controller ,change_password token - eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb   id - 170 
+[2025-04-12 05:42:11] Running change_password....in controller
+[2025-04-12 05:42:11] Running change_password....in handler
+[2025-04-12 05:42:11] User class instantiated with database connection.
+[2025-04-12 05:42:11] Changing password for user ID: 170
+[2025-04-12 05:42:12] Old password did not match for user ID: 170
+[2025-04-12 05:42:12] Error executing changePassword query for user ID: 170
+[2025-04-12 05:42:12] Database connection closed.
+[2025-04-12 05:43:11] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:43:11] User class instantiated with database connection.
+[2025-04-12 05:43:11] Fetching user role by user ID: 170
+[2025-04-12 05:43:11] User role fetched successfully for user ID: 170
+[2025-04-12 05:43:11] Running member controller ,change_password token - eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb   id - 170 
+[2025-04-12 05:43:11] Running change_password....in controller
+[2025-04-12 05:43:11] Running change_password....in handler
+[2025-04-12 05:43:11] User class instantiated with database connection.
+[2025-04-12 05:43:11] Changing password for user ID: 170
+[2025-04-12 05:43:11] Old password did not match for user ID: 170
+[2025-04-12 05:43:11] Error executing changePassword query for user ID: 170
+[2025-04-12 05:43:11] Database connection closed.
+[2025-04-12 05:44:18] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:44:18] User class instantiated with database connection.
+[2025-04-12 05:44:18] Fetching user role by user ID: 170
+[2025-04-12 05:44:18] User role fetched successfully for user ID: 170
+[2025-04-12 05:44:18] Running member controller ,get_profile token - eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb   id - 170 
+[2025-04-12 05:44:18] Running get_profile....in controller
+[2025-04-12 05:44:18] Running get_profile....in handler
+[2025-04-12 05:44:18] User class instantiated with database connection.
+[2025-04-12 05:44:18] Fetching profile for user ID: 170
+[2025-04-12 05:44:18] Profile data fetched successfully for user ID: 170
+[2025-04-12 05:44:18] Profile data: {"email":"pasangunawardhena@gmail.com","full_name":"Pasan Gunawardhena","DOB":"1997-06-24","phone":"0743677720","address":"89\/6, Flower Road, Panadura","gender":"M"}
+[2025-04-12 05:44:18] Database connection closed.
+[2025-04-12 05:44:32] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:44:32] User class instantiated with database connection.
+[2025-04-12 05:44:32] Fetching user role by user ID: 170
+[2025-04-12 05:44:33] User role fetched successfully for user ID: 170
+[2025-04-12 05:44:33] Running member controller ,change_password token - eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb   id - 170 
+[2025-04-12 05:44:33] Running change_password....in controller
+[2025-04-12 05:44:33] Running change_password....in handler
+[2025-04-12 05:44:33] User class instantiated with database connection.
+[2025-04-12 05:44:33] Changing password for user ID: 170
+[2025-04-12 05:44:33] Old password did not match for user ID: 170
+[2025-04-12 05:44:33] Error executing changePassword query for user ID: 170
+[2025-04-12 05:44:33] Database connection closed.
+[2025-04-12 05:44:38] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:44:38] User class instantiated with database connection.
+[2025-04-12 05:44:38] Fetching user role by user ID: 170
+[2025-04-12 05:44:39] User role fetched successfully for user ID: 170
+[2025-04-12 05:44:39] Running member controller ,change_password token - eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb   id - 170 
+[2025-04-12 05:44:39] Running change_password....in controller
+[2025-04-12 05:44:39] Running change_password....in handler
+[2025-04-12 05:44:39] User class instantiated with database connection.
+[2025-04-12 05:44:39] Changing password for user ID: 170
+[2025-04-12 05:44:39] Old password matched for user ID: 170
+[2025-04-12 05:44:39] Password changed successfully for user ID: 170
+[2025-04-12 05:44:39] Password change email function invoked.
+[2025-04-12 05:44:39] Configuring PHPMailer.
+[2025-04-12 05:44:39] Sending password change email to: pasangunawardhena@gmail.com
+[2025-04-12 05:44:43] Password change email sent successfully to: pasangunawardhena@gmail.com
+[2025-04-12 05:44:43] Password changed successfully for user ID: 170
+[2025-04-12 05:44:43] Database connection closed.
+[2025-04-12 05:44:50] Running auth controller ,login 
+[2025-04-12 05:44:50] running login...in auth controller
+[2025-04-12 05:44:50] login function running...
+[2025-04-12 05:44:50] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:44:50] User class instantiated with database connection.
+[2025-04-12 05:44:50] User Login model running for: pasangunawardhena@gmail.com
+[2025-04-12 05:44:50] Fetching user by email: pasangunawardhena@gmail.com
+[2025-04-12 05:44:51] User found for email: pasangunawardhena@gmail.com
+[2025-04-12 05:44:51] Query bound and ready to execute for login: pasangunawardhena@gmail.com
+[2025-04-12 05:44:51] Invalid credentials for user: pasangunawardhena@gmail.com
+[2025-04-12 05:44:51] Database connection closed.
+[2025-04-12 05:44:56] Running auth controller ,login 
+[2025-04-12 05:44:56] running login...in auth controller
+[2025-04-12 05:44:56] login function running...
+[2025-04-12 05:44:56] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:44:56] User class instantiated with database connection.
+[2025-04-12 05:44:56] User Login model running for: pasangunawardhena@gmail.com
+[2025-04-12 05:44:56] Fetching user by email: pasangunawardhena@gmail.com
+[2025-04-12 05:44:57] User found for email: pasangunawardhena@gmail.com
+[2025-04-12 05:44:57] Query bound and ready to execute for login: pasangunawardhena@gmail.com
+[2025-04-12 05:44:57] User status: 1
+[2025-04-12 05:44:57] User login successful: pasangunawardhena@gmail.com with role: member
+[2025-04-12 05:44:57] Login Successful: eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb member
+[2025-04-12 05:44:57] Payment model initialized
+[2025-04-12 05:44:57] Fetching latest payment record for user_id: 170
+[2025-04-12 05:44:57] Query bound for fetching latest payment of user_id: 170
+[2025-04-12 05:44:57] No payment record found for user_id: 170
+[2025-04-12 05:44:57] Database connection closed.
+[2025-04-12 05:45:01] Connection established successfully to the database: rad_gymverse
+[2025-04-12 05:45:01] User class instantiated with database connection.
+[2025-04-12 05:45:01] Fetching user role by user ID: 170
+[2025-04-12 05:45:02] User role fetched successfully for user ID: 170
+[2025-04-12 05:45:02] Running member controller ,get_profile token - eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzMDQwMH0=.13100978aa80edc0c6126ba85153a7f81d5a4b287f2d3a45801676eeb97a73bb   id - 170 
+[2025-04-12 05:45:02] Running get_profile....in controller
+[2025-04-12 05:45:02] Running get_profile....in handler
+[2025-04-12 05:45:02] User class instantiated with database connection.
+[2025-04-12 05:45:02] Fetching profile for user ID: 170
+[2025-04-12 05:45:02] Profile data fetched successfully for user ID: 170
+[2025-04-12 05:45:02] Profile data: {"email":"pasangunawardhena@gmail.com","full_name":"Pasan Gunawardhena","DOB":"1997-06-24","phone":"0743677720","address":"89\/6, Flower Road, Panadura","gender":"M"}
+[2025-04-12 05:45:02] Database connection closed.
