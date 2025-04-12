@@ -39,6 +39,7 @@ export function initMember_myAcnt() {
     
       document.getElementById("gender").value = user.gender.toUpperCase();
       document.getElementById("phone").value = user.phone;
+      updateProfileImage();
     })
     
     .catch((err) => {

@@ -13,6 +13,7 @@ include_once "trainerCareerHandler.php";
 include_once "staffHandler.php";
 include_once "../models/User.php";
 include_once "../models/Staff.php";
+include_once "./accountDetailHandler.php";
 
 $conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -80,6 +81,24 @@ switch ($action) {
     case 'get_all_payments':
         logMessage("Running get_all_payments....in controller");
         getAllPayments(); //staffHandler
+        break;
+
+
+    case 'account_delete':
+        logMessage('running account delete...in controller');
+        deleteUserAccount($user_id);
+        break;
+    case 'get_profile':
+        logMessage("Running get_profile....in controller");
+        getProfileDetails($user_id);
+        break;
+    case 'update_profile':
+        logMessage("Running update_profile....in controller");
+        updateProfileDetails($user_id);
+        break;
+    case 'change_password':
+        logMessage("Running change_password....in controller");
+        changePassword($user_id);
         break;
 
 

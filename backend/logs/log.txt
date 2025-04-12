@@ -2628,3 +2628,344 @@
 [2025-04-12 06:43:10] User status: 3
 [2025-04-12 06:43:10] User is deleted: pasangunawardhena@gmail.com
 [2025-04-12 06:43:10] Database connection closed.
+[2025-04-12 06:46:02] Running auth controller ,login 
+[2025-04-12 06:46:02] running login...in auth controller
+[2025-04-12 06:46:02] login function running...
+[2025-04-12 06:46:02] Connection established successfully to the database: rad_gymverse
+[2025-04-12 06:46:02] User class instantiated with database connection.
+[2025-04-12 06:46:02] User Login model running for: pasangunawardhena@gmail.com
+[2025-04-12 06:46:02] Fetching user by email: pasangunawardhena@gmail.com
+[2025-04-12 06:46:03] User found for email: pasangunawardhena@gmail.com
+[2025-04-12 06:46:03] Query bound and ready to execute for login: pasangunawardhena@gmail.com
+[2025-04-12 06:46:03] User status: 3
+[2025-04-12 06:46:03] User is deleted: pasangunawardhena@gmail.com
+[2025-04-12 06:46:03] Database connection closed.
+[2025-04-12 06:46:18] Running auth controller ,login 
+[2025-04-12 06:46:18] running login...in auth controller
+[2025-04-12 06:46:18] login function running...
+[2025-04-12 06:46:18] Connection established successfully to the database: rad_gymverse
+[2025-04-12 06:46:18] User class instantiated with database connection.
+[2025-04-12 06:46:18] User Login model running for: pasangunawardhena@gmail.com
+[2025-04-12 06:46:18] Fetching user by email: pasangunawardhena@gmail.com
+[2025-04-12 06:46:19] User found for email: pasangunawardhena@gmail.com
+[2025-04-12 06:46:19] Query bound and ready to execute for login: pasangunawardhena@gmail.com
+[2025-04-12 06:46:19] User status: 1
+[2025-04-12 06:46:19] User login successful: pasangunawardhena@gmail.com with role: member
+[2025-04-12 06:46:19] Login Successful: eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzNDAwMH0=.3dd658af6f6670608a63515856f2d91c7ebe888749f053c56c6c2aca6272fe06 member
+[2025-04-12 06:46:19] Payment model initialized
+[2025-04-12 06:46:19] Fetching latest payment record for user_id: 170
+[2025-04-12 06:46:19] Query bound for fetching latest payment of user_id: 170
+[2025-04-12 06:46:19] No payment record found for user_id: 170
+[2025-04-12 06:46:19] Database connection closed.
+[2025-04-12 06:46:25] Connection established successfully to the database: rad_gymverse
+[2025-04-12 06:46:25] User class instantiated with database connection.
+[2025-04-12 06:46:25] Fetching user role by user ID: 170
+[2025-04-12 06:46:25] User role fetched successfully for user ID: 170
+[2025-04-12 06:46:25] Running member controller ,get_profile token - eyJ1c2VyX2lkIjoxNzAsImV4cCI6MTc0NDQzNDAwMH0=.3dd658af6f6670608a63515856f2d91c7ebe888749f053c56c6c2aca6272fe06   id - 170 
+[2025-04-12 06:46:25] Running get_profile....in controller
+[2025-04-12 06:46:25] Running get_profile....in handler
+[2025-04-12 06:46:25] User class instantiated with database connection.
+[2025-04-12 06:46:25] Fetching profile for user ID: 170
+[2025-04-12 06:46:25] Profile data fetched successfully for user ID: 170
+[2025-04-12 06:46:25] Profile data: {"email":"pasangunawardhena@gmail.com","full_name":"Pasan Gunawardhena","DOB":"1997-06-24","phone":"0743677720","address":"89\/6, Flower Road, Panadura","gender":"M"}
+[2025-04-12 06:46:25] Database connection closed.
+[2025-04-12 07:19:44] Running auth controller ,login 
+[2025-04-12 07:19:44] running login...in auth controller
+[2025-04-12 07:19:44] login function running...
+[2025-04-12 07:19:45] Connection established successfully to the database: rad_gymverse
+[2025-04-12 07:19:45] User class instantiated with database connection.
+[2025-04-12 07:19:45] User Login model running for: admin@gmail.com
+[2025-04-12 07:19:45] Fetching user by email: admin@gmail.com
+[2025-04-12 07:19:45] User found for email: admin@gmail.com
+[2025-04-12 07:19:45] Query bound and ready to execute for login: admin@gmail.com
+[2025-04-12 07:19:46] User status: 1
+[2025-04-12 07:19:46] User login successful: admin@gmail.com with role: admin
+[2025-04-12 07:19:46] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ0NDM3NjAwfQ==.8ef196a39f1b5a984a80a08f5653690b0b1adbba2126f037475c23429c4a916e admin
+[2025-04-12 07:19:46] Database connection closed.
+[2025-04-12 07:19:47] Connection established successfully to the database: rad_gymverse
+[2025-04-12 07:19:47] User class instantiated with database connection.
+[2025-04-12 07:19:47] Fetching user role by user ID: 75
+[2025-04-12 07:19:47] User role fetched successfully for user ID: 75
+[2025-04-12 07:19:47] Running admin controller ,get_profile token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ0NDM3NjAwfQ==.8ef196a39f1b5a984a80a08f5653690b0b1adbba2126f037475c23429c4a916e   id - 75 
+[2025-04-12 07:19:47] Running get_profile....in controller
+[2025-04-12 07:19:47] Running get_profile....in handler
+[2025-04-12 07:19:47] User class instantiated with database connection.
+[2025-04-12 07:19:47] Fetching profile for user ID: 75
+[2025-04-12 07:19:48] Profile data fetched successfully for user ID: 75
+[2025-04-12 07:19:48] Profile data: {"message":"Invalid role or user not found"}
+[2025-04-12 07:19:48] Database connection closed.
+[2025-04-12 07:26:52] Running auth controller ,login 
+[2025-04-12 07:26:52] running login...in auth controller
+[2025-04-12 07:26:52] login function running...
+[2025-04-12 07:26:53] Connection established successfully to the database: rad_gymverse
+[2025-04-12 07:26:53] User class instantiated with database connection.
+[2025-04-12 07:26:53] User Login model running for: admin@gmail.com
+[2025-04-12 07:26:53] Fetching user by email: admin@gmail.com
+[2025-04-12 07:26:53] User found for email: admin@gmail.com
+[2025-04-12 07:26:53] Query bound and ready to execute for login: admin@gmail.com
+[2025-04-12 07:26:53] User status: 1
+[2025-04-12 07:26:53] User login successful: admin@gmail.com with role: admin
+[2025-04-12 07:26:53] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ0NDM3NjAwfQ==.8ef196a39f1b5a984a80a08f5653690b0b1adbba2126f037475c23429c4a916e admin
+[2025-04-12 07:26:53] Database connection closed.
+[2025-04-12 07:27:51] Running auth controller ,login 
+[2025-04-12 07:27:51] running login...in auth controller
+[2025-04-12 07:27:51] login function running...
+[2025-04-12 07:27:51] Connection established successfully to the database: rad_gymverse
+[2025-04-12 07:27:51] User class instantiated with database connection.
+[2025-04-12 07:27:51] User Login model running for: admin@gmail.com
+[2025-04-12 07:27:51] Fetching user by email: admin@gmail.com
+[2025-04-12 07:27:51] User found for email: admin@gmail.com
+[2025-04-12 07:27:51] Query bound and ready to execute for login: admin@gmail.com
+[2025-04-12 07:27:52] User status: 1
+[2025-04-12 07:27:52] User login successful: admin@gmail.com with role: admin
+[2025-04-12 07:27:52] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ0NDM3NjAwfQ==.8ef196a39f1b5a984a80a08f5653690b0b1adbba2126f037475c23429c4a916e admin
+[2025-04-12 07:27:52] Database connection closed.
+[2025-04-12 07:29:30] Running auth controller ,login 
+[2025-04-12 07:29:30] running login...in auth controller
+[2025-04-12 07:29:30] login function running...
+[2025-04-12 07:29:30] Connection established successfully to the database: rad_gymverse
+[2025-04-12 07:29:30] User class instantiated with database connection.
+[2025-04-12 07:29:30] User Login model running for: admin@gmail.com
+[2025-04-12 07:29:30] Fetching user by email: admin@gmail.com
+[2025-04-12 07:29:30] User found for email: admin@gmail.com
+[2025-04-12 07:29:31] Query bound and ready to execute for login: admin@gmail.com
+[2025-04-12 07:29:31] User status: 1
+[2025-04-12 07:29:31] User login successful: admin@gmail.com with role: admin
+[2025-04-12 07:29:31] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ0NDM3NjAwfQ==.8ef196a39f1b5a984a80a08f5653690b0b1adbba2126f037475c23429c4a916e admin
+[2025-04-12 07:29:31] Database connection closed.
+[2025-04-12 07:31:47] Running auth controller ,login 
+[2025-04-12 07:31:47] running login...in auth controller
+[2025-04-12 07:31:47] login function running...
+[2025-04-12 07:31:48] Connection established successfully to the database: rad_gymverse
+[2025-04-12 07:31:48] User class instantiated with database connection.
+[2025-04-12 07:31:48] User Login model running for: admin@gmail.com
+[2025-04-12 07:31:48] Fetching user by email: admin@gmail.com
+[2025-04-12 07:31:48] User found for email: admin@gmail.com
+[2025-04-12 07:31:48] Query bound and ready to execute for login: admin@gmail.com
+[2025-04-12 07:31:48] User status: 1
+[2025-04-12 07:31:48] User login successful: admin@gmail.com with role: admin
+[2025-04-12 07:31:48] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ0NDM3NjAwfQ==.8ef196a39f1b5a984a80a08f5653690b0b1adbba2126f037475c23429c4a916e admin
+[2025-04-12 07:31:48] Database connection closed.
+[2025-04-12 07:37:58] Running auth controller ,login 
+[2025-04-12 07:37:58] running login...in auth controller
+[2025-04-12 07:37:58] login function running...
+[2025-04-12 07:37:59] Connection established successfully to the database: rad_gymverse
+[2025-04-12 07:37:59] User class instantiated with database connection.
+[2025-04-12 07:37:59] User Login model running for: admin@gmail.com
+[2025-04-12 07:37:59] Fetching user by email: admin@gmail.com
+[2025-04-12 07:37:59] User found for email: admin@gmail.com
+[2025-04-12 07:37:59] Query bound and ready to execute for login: admin@gmail.com
+[2025-04-12 07:38:00] User status: 1
+[2025-04-12 07:38:00] User login successful: admin@gmail.com with role: admin
+[2025-04-12 07:38:00] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ0NDM3NjAwfQ==.8ef196a39f1b5a984a80a08f5653690b0b1adbba2126f037475c23429c4a916e admin
+[2025-04-12 07:38:00] Database connection closed.
+[2025-04-12 07:39:35] Running auth controller ,login 
+[2025-04-12 07:39:35] running login...in auth controller
+[2025-04-12 07:39:35] login function running...
+[2025-04-12 07:39:35] Connection established successfully to the database: rad_gymverse
+[2025-04-12 07:39:35] User class instantiated with database connection.
+[2025-04-12 07:39:35] User Login model running for: admin@gmail.com
+[2025-04-12 07:39:35] Fetching user by email: admin@gmail.com
+[2025-04-12 07:39:35] User found for email: admin@gmail.com
+[2025-04-12 07:39:35] Query bound and ready to execute for login: admin@gmail.com
+[2025-04-12 07:39:36] User status: 1
+[2025-04-12 07:39:36] User login successful: admin@gmail.com with role: admin
+[2025-04-12 07:39:36] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ0NDM3NjAwfQ==.8ef196a39f1b5a984a80a08f5653690b0b1adbba2126f037475c23429c4a916e admin
+[2025-04-12 07:39:36] Database connection closed.
+[2025-04-12 07:40:06] Running auth controller ,login 
+[2025-04-12 07:40:06] running login...in auth controller
+[2025-04-12 07:40:06] login function running...
+[2025-04-12 07:40:06] Connection established successfully to the database: rad_gymverse
+[2025-04-12 07:40:06] User class instantiated with database connection.
+[2025-04-12 07:40:06] User Login model running for: admin@gmail.com
+[2025-04-12 07:40:06] Fetching user by email: admin@gmail.com
+[2025-04-12 07:40:07] User found for email: admin@gmail.com
+[2025-04-12 07:40:07] Query bound and ready to execute for login: admin@gmail.com
+[2025-04-12 07:40:07] User status: 1
+[2025-04-12 07:40:07] User login successful: admin@gmail.com with role: admin
+[2025-04-12 07:40:07] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ0NDM3NjAwfQ==.8ef196a39f1b5a984a80a08f5653690b0b1adbba2126f037475c23429c4a916e admin
+[2025-04-12 07:40:07] Database connection closed.
+[2025-04-12 07:46:48] Running auth controller ,login 
+[2025-04-12 07:46:48] running login...in auth controller
+[2025-04-12 07:46:48] login function running...
+[2025-04-12 07:46:48] Connection established successfully to the database: rad_gymverse
+[2025-04-12 07:46:48] User class instantiated with database connection.
+[2025-04-12 07:46:48] User Login model running for: owner@gmail.com
+[2025-04-12 07:46:48] Fetching user by email: owner@gmail.com
+[2025-04-12 07:46:49] User found for email: owner@gmail.com
+[2025-04-12 07:46:49] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-12 07:46:49] User status: 1
+[2025-04-12 07:46:49] User login successful: owner@gmail.com with role: owner
+[2025-04-12 07:46:49] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDM3NjAwfQ==.9d758af21c5540c6935d55c204f326423408908b2d1d9866d2ce695e1a3cb6c2 owner
+[2025-04-12 07:46:49] Database connection closed.
+[2025-04-12 07:46:51] Connection established successfully to the database: rad_gymverse
+[2025-04-12 07:46:51] User class instantiated with database connection.
+[2025-04-12 07:46:51] Fetching user role by user ID: 72
+[2025-04-12 07:46:51] User role fetched successfully for user ID: 72
+[2025-04-12 07:46:51] Running owner controller ,get_profile token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDM3NjAwfQ==.9d758af21c5540c6935d55c204f326423408908b2d1d9866d2ce695e1a3cb6c2   id - 72 
+[2025-04-12 07:46:51] Running get_profile....in controller
+[2025-04-12 07:46:51] Running get_profile....in handler
+[2025-04-12 07:46:51] User class instantiated with database connection.
+[2025-04-12 07:46:51] Fetching profile for user ID: 72
+[2025-04-12 07:46:52] No profile found for user ID: 72
+[2025-04-12 07:46:52] Database connection closed.
+[2025-04-12 07:48:37] Running auth controller ,login 
+[2025-04-12 07:48:37] running login...in auth controller
+[2025-04-12 07:48:37] login function running...
+[2025-04-12 07:48:37] Connection established successfully to the database: rad_gymverse
+[2025-04-12 07:48:37] User class instantiated with database connection.
+[2025-04-12 07:48:37] User Login model running for: owner@gmail.com
+[2025-04-12 07:48:37] Fetching user by email: owner@gmail.com
+[2025-04-12 07:48:37] User found for email: owner@gmail.com
+[2025-04-12 07:48:38] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-12 07:48:38] User status: 1
+[2025-04-12 07:48:38] User login successful: owner@gmail.com with role: owner
+[2025-04-12 07:48:38] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDM3NjAwfQ==.9d758af21c5540c6935d55c204f326423408908b2d1d9866d2ce695e1a3cb6c2 owner
+[2025-04-12 07:48:38] Database connection closed.
+[2025-04-12 07:48:39] Connection established successfully to the database: rad_gymverse
+[2025-04-12 07:48:39] User class instantiated with database connection.
+[2025-04-12 07:48:39] Fetching user role by user ID: 72
+[2025-04-12 07:48:39] User role fetched successfully for user ID: 72
+[2025-04-12 07:48:39] Running owner controller ,get_profile token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDM3NjAwfQ==.9d758af21c5540c6935d55c204f326423408908b2d1d9866d2ce695e1a3cb6c2   id - 72 
+[2025-04-12 07:48:39] Running get_profile....in controller
+[2025-04-12 07:48:39] Running get_profile....in handler
+[2025-04-12 07:48:39] User class instantiated with database connection.
+[2025-04-12 07:48:39] Fetching profile for user ID: 72
+[2025-04-12 07:48:40] Profile data fetched successfully for user ID: 72
+[2025-04-12 07:48:40] Profile data: {"email":"owner@gmail.com","full_name":"Dilmi Perepa","DOB":"1995-05-06","phone":"0772340985","address":"90\/1A, pandura, katukurunda","gender":"f"}
+[2025-04-12 07:48:40] Database connection closed.
+[2025-04-12 07:49:59] Connection established successfully to the database: rad_gymverse
+[2025-04-12 07:49:59] User class instantiated with database connection.
+[2025-04-12 07:49:59] Fetching user role by user ID: 72
+[2025-04-12 07:50:00] User role fetched successfully for user ID: 72
+[2025-04-12 07:50:00] Running owner controller ,get_profile token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDM3NjAwfQ==.9d758af21c5540c6935d55c204f326423408908b2d1d9866d2ce695e1a3cb6c2   id - 72 
+[2025-04-12 07:50:00] Running get_profile....in controller
+[2025-04-12 07:50:00] Running get_profile....in handler
+[2025-04-12 07:50:00] User class instantiated with database connection.
+[2025-04-12 07:50:00] Fetching profile for user ID: 72
+[2025-04-12 07:50:00] Profile data fetched successfully for user ID: 72
+[2025-04-12 07:50:00] Profile data: {"email":"owner@gmail.com","full_name":"Dilmi Perepa","DOB":"1995-05-06","phone":"0772340985","address":"90\/1A, pandura, katukurunda","gender":"f"}
+[2025-04-12 07:50:00] Database connection closed.
+[2025-04-12 07:53:32] Running auth controller ,login 
+[2025-04-12 07:53:32] running login...in auth controller
+[2025-04-12 07:53:32] login function running...
+[2025-04-12 07:53:33] Connection established successfully to the database: rad_gymverse
+[2025-04-12 07:53:33] User class instantiated with database connection.
+[2025-04-12 07:53:33] User Login model running for: staff@gmail.com
+[2025-04-12 07:53:33] Fetching user by email: staff@gmail.com
+[2025-04-12 07:53:33] User found for email: staff@gmail.com
+[2025-04-12 07:53:33] Query bound and ready to execute for login: staff@gmail.com
+[2025-04-12 07:53:33] User status: 1
+[2025-04-12 07:53:33] User login successful: staff@gmail.com with role: staff
+[2025-04-12 07:53:33] Login Successful: eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0NDM3NjAwfQ==.958da6cdb32edec7875e994c4544eae0ea3a0ae7fe33c4e7a8b19e9770f03c64 staff
+[2025-04-12 07:53:33] Database connection closed.
+[2025-04-12 07:53:35] Connection established successfully to the database: rad_gymverse
+[2025-04-12 07:53:35] User class instantiated with database connection.
+[2025-04-12 07:53:35] Fetching user role by user ID: 68
+[2025-04-12 07:53:36] User role fetched successfully for user ID: 68
+[2025-04-12 07:53:36] Database connection closed.
+[2025-04-12 07:54:33] Connection established successfully to the database: rad_gymverse
+[2025-04-12 07:54:33] User class instantiated with database connection.
+[2025-04-12 07:54:33] Fetching user role by user ID: 68
+[2025-04-12 07:54:33] User role fetched successfully for user ID: 68
+[2025-04-12 07:54:33] Database connection closed.
+[2025-04-12 07:55:05] Connection established successfully to the database: rad_gymverse
+[2025-04-12 07:55:05] User class instantiated with database connection.
+[2025-04-12 07:55:05] Fetching user role by user ID: 68
+[2025-04-12 07:55:05] User role fetched successfully for user ID: 68
+[2025-04-12 07:55:05] Running staff controller ,get_profile token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0NDM3NjAwfQ==.958da6cdb32edec7875e994c4544eae0ea3a0ae7fe33c4e7a8b19e9770f03c64   id - 68 
+[2025-04-12 07:55:05] Running get_profile....in controller
+[2025-04-12 07:55:05] Running get_profile....in handler
+[2025-04-12 07:55:05] User class instantiated with database connection.
+[2025-04-12 07:55:05] Fetching profile for user ID: 68
+[2025-04-12 07:55:06] Profile data fetched successfully for user ID: 68
+[2025-04-12 07:55:06] Profile data: {"email":"staff@gmail.com","full_name":"Pehan Ransika","DOB":"1986-06-09","phone":"0743677720","address":"554, saddd","gender":"m"}
+[2025-04-12 07:55:06] Database connection closed.
+[2025-04-12 07:58:14] Running auth controller ,login 
+[2025-04-12 07:58:14] running login...in auth controller
+[2025-04-12 07:58:14] login function running...
+[2025-04-12 07:58:15] Connection established successfully to the database: rad_gymverse
+[2025-04-12 07:58:15] User class instantiated with database connection.
+[2025-04-12 07:58:15] User Login model running for: trainer@gmail.com
+[2025-04-12 07:58:15] Fetching user by email: trainer@gmail.com
+[2025-04-12 07:58:15] User found for email: trainer@gmail.com
+[2025-04-12 07:58:15] Query bound and ready to execute for login: trainer@gmail.com
+[2025-04-12 07:58:15] User status: 1
+[2025-04-12 07:58:15] User login successful: trainer@gmail.com with role: trainer
+[2025-04-12 07:58:15] Login Successful: eyJ1c2VyX2lkIjo3NiwiZXhwIjoxNzQ0NDM3NjAwfQ==.6f576334d7f1b9114826ab714140b7c2f00ff777c4a5989d9118abff7e13b9e6 trainer
+[2025-04-12 07:58:15] Database connection closed.
+[2025-04-12 07:59:07] Running trainer controller, get_profile token -    id -  
+[2025-04-12 07:59:07] Running get_profile....in controller
+[2025-04-12 07:59:07] Running get_profile....in handler
+[2025-04-12 07:59:07] Connection established successfully to the database: rad_gymverse
+[2025-04-12 07:59:07] User class instantiated with database connection.
+[2025-04-12 07:59:07] Fetching profile for user ID: 
+[2025-04-12 07:59:08] Profile data fetched successfully for user ID: 
+[2025-04-12 07:59:08] Profile data: {"message":"Invalid role or user not found"}
+[2025-04-12 07:59:08] Database connection closed.
+[2025-04-12 08:00:28] Running auth controller ,login 
+[2025-04-12 08:00:28] running login...in auth controller
+[2025-04-12 08:00:28] login function running...
+[2025-04-12 08:00:28] Connection established successfully to the database: rad_gymverse
+[2025-04-12 08:00:28] User class instantiated with database connection.
+[2025-04-12 08:00:28] User Login model running for: trainer@gmail.com
+[2025-04-12 08:00:28] Fetching user by email: trainer@gmail.com
+[2025-04-12 08:00:29] User found for email: trainer@gmail.com
+[2025-04-12 08:00:29] Query bound and ready to execute for login: trainer@gmail.com
+[2025-04-12 08:00:29] User status: 1
+[2025-04-12 08:00:29] User login successful: trainer@gmail.com with role: trainer
+[2025-04-12 08:00:29] Login Successful: eyJ1c2VyX2lkIjo3NiwiZXhwIjoxNzQ0NDQxMjAwfQ==.6710247d49b7244c98f32e3b2d42611d94f61cd1626a8dc6eb8a56563c56131e trainer
+[2025-04-12 08:00:29] Database connection closed.
+[2025-04-12 08:00:36] Running auth controller ,login 
+[2025-04-12 08:00:36] running login...in auth controller
+[2025-04-12 08:00:36] login function running...
+[2025-04-12 08:00:36] Connection established successfully to the database: rad_gymverse
+[2025-04-12 08:00:36] User class instantiated with database connection.
+[2025-04-12 08:00:36] User Login model running for: trainer@gmail.com
+[2025-04-12 08:00:36] Fetching user by email: trainer@gmail.com
+[2025-04-12 08:00:36] User found for email: trainer@gmail.com
+[2025-04-12 08:00:37] Query bound and ready to execute for login: trainer@gmail.com
+[2025-04-12 08:00:37] User status: 1
+[2025-04-12 08:00:37] User login successful: trainer@gmail.com with role: trainer
+[2025-04-12 08:00:37] Login Successful: eyJ1c2VyX2lkIjo3NiwiZXhwIjoxNzQ0NDQxMjAwfQ==.6710247d49b7244c98f32e3b2d42611d94f61cd1626a8dc6eb8a56563c56131e trainer
+[2025-04-12 08:00:37] Database connection closed.
+[2025-04-12 08:00:59] Running trainer controller, get_profile token -    id -  
+[2025-04-12 08:00:59] Running get_profile....in controller
+[2025-04-12 08:00:59] Running get_profile....in handler
+[2025-04-12 08:00:59] Connection established successfully to the database: rad_gymverse
+[2025-04-12 08:00:59] User class instantiated with database connection.
+[2025-04-12 08:00:59] Fetching profile for user ID: 
+[2025-04-12 08:01:00] Profile data fetched successfully for user ID: 
+[2025-04-12 08:01:00] Profile data: {"message":"Invalid role or user not found"}
+[2025-04-12 08:01:00] Database connection closed.
+[2025-04-12 08:02:21] Running auth controller ,login 
+[2025-04-12 08:02:21] running login...in auth controller
+[2025-04-12 08:02:21] login function running...
+[2025-04-12 08:02:21] Connection established successfully to the database: rad_gymverse
+[2025-04-12 08:02:21] User class instantiated with database connection.
+[2025-04-12 08:02:21] User Login model running for: trainer@gmail.com
+[2025-04-12 08:02:21] Fetching user by email: trainer@gmail.com
+[2025-04-12 08:02:22] User found for email: trainer@gmail.com
+[2025-04-12 08:02:22] Query bound and ready to execute for login: trainer@gmail.com
+[2025-04-12 08:02:22] User status: 1
+[2025-04-12 08:02:22] User login successful: trainer@gmail.com with role: trainer
+[2025-04-12 08:02:22] Login Successful: eyJ1c2VyX2lkIjo3NiwiZXhwIjoxNzQ0NDQxMjAwfQ==.6710247d49b7244c98f32e3b2d42611d94f61cd1626a8dc6eb8a56563c56131e trainer
+[2025-04-12 08:02:22] Database connection closed.
+[2025-04-12 08:02:47] Running trainer controller, get_profile token -    id -  
+[2025-04-12 08:02:47] Running get_profile....in controller
+[2025-04-12 08:02:47] Running get_profile....in handler
+[2025-04-12 08:02:47] Connection established successfully to the database: rad_gymverse
+[2025-04-12 08:02:47] User class instantiated with database connection.
+[2025-04-12 08:02:47] Fetching profile for user ID: 
+[2025-04-12 08:02:47] Profile data fetched successfully for user ID: 
+[2025-04-12 08:02:47] Profile data: {"message":"Invalid role or user not found"}
+[2025-04-12 08:02:47] Database connection closed.
+[2025-04-12 08:03:12] Running trainer controller, get_profile token -    id -  
+[2025-04-12 08:03:12] Running get_profile....in controller
+[2025-04-12 08:03:12] Running get_profile....in handler
+[2025-04-12 08:03:13] Connection established successfully to the database: rad_gymverse
+[2025-04-12 08:03:13] User class instantiated with database connection.
+[2025-04-12 08:03:13] Fetching profile for user ID: 
+[2025-04-12 08:03:13] Profile data fetched successfully for user ID: 
+[2025-04-12 08:03:13] Profile data: {"message":"Invalid role or user not found"}
+[2025-04-12 08:03:13] Database connection closed.
