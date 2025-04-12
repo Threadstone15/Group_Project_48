@@ -5,7 +5,8 @@ include_once "../models/trainerApplication.php";
 include_once "../models/User.php";
 include_once "../models/trainerCareer.php";
 include_once "../../logs/save.php";
-function addTrainerApplication() {
+function addTrainerApplication()
+{
     logMessage("add trainer application function running...");
 
     $trainerApplication = new TrainerApplication();
@@ -13,6 +14,7 @@ function addTrainerApplication() {
 
     // Get the raw input data and decode JSON
     $data = json_decode(file_get_contents("php://input"), true);
+    logMessage("Raw input data: " . json_encode($data));
 
     if (
         isset($data['career_id']) &&
@@ -22,11 +24,13 @@ function addTrainerApplication() {
         isset($data['dob']) &&
         isset($data['email']) &&
         isset($data['address']) &&
+        isset($data['gender']) &&
         isset($data['mobile_number']) &&
         isset($data['years_of_experience']) &&
         isset($data['specialties']) &&
         isset($data['cv'])
     ) {
+        logMessage("Adding new application...(content checked)");
         $career_id = $data['career_id'];
         $firstName = $data['firstName'];
         $lastName = $data['lastName'];
@@ -34,6 +38,7 @@ function addTrainerApplication() {
         $dob = $data['dob'];
         $email = $data['email'];
         $address = $data['address'];
+        $gender = $data['gender'];
         $mobile_number = $data['mobile_number'];
         $years_of_experience = $data['years_of_experience'];
         $specialties = $data['specialties'];
@@ -41,13 +46,13 @@ function addTrainerApplication() {
         $approved_by_owner = FALSE;
 
         $userData = $user->getUserByEmail($email);
-        if ($userData){
+        if ($userData) {
             logMessage('Email already exists in the db');
             echo json_encode(["error" => "Email is already in use"]);
             exit();
         }
         $ApplicationData = $trainerApplication->getApplicationByEmail($email);
-        if($ApplicationData){
+        if ($ApplicationData) {
             logMessage('Email already exists in the db');
             echo json_encode(["error" => "An application has been already submitted using this email"]);
             exit();
@@ -56,17 +61,18 @@ function addTrainerApplication() {
         if ($trainerApplication->addApplication(
             $career_id,
             $firstName,
-            $lastName, 
-            $NIC, 
-            $dob, 
-            $email, 
-            $address, 
+            $lastName,
+            $NIC,
+            $dob,
+            $email,
+            $address,
+            $gender,
             $mobile_number,
             $years_of_experience,
             $specialties,
             $cv,
             $approved_by_owner
-            )) {
+        )) {
             logMessage("Trainer application added successfully: $career_id");
             echo json_encode(["message" => "Appplication submitted successfully"]);
         } else {
@@ -79,7 +85,8 @@ function addTrainerApplication() {
     }
 }
 
-function getTrainerApplications() {
+function getTrainerApplications()
+{
     $trainerApplication = new TrainerApplication();
     $applications = $trainerApplication->getApplications();
 
@@ -89,7 +96,8 @@ function getTrainerApplications() {
         echo json_encode(["error" => "No trainer applications found"]);
     }
 }
-function getTrainerAppliedCareers() {
+function getTrainerAppliedCareers()
+{
     $trainerApplication = new TrainerApplication();
     $applications = $trainerApplication->getApplications();
 
@@ -109,7 +117,8 @@ function getTrainerAppliedCareers() {
         echo json_encode(["error" => "No trainer careers found for the given applications"]);
     }
 }
-function updateTrainerApplicationStatus() {
+function updateTrainerApplicationStatus()
+{
     logMessage("update trainer application status function running...");
 
     $trainerApplication = new TrainerApplication();
@@ -117,7 +126,7 @@ function updateTrainerApplicationStatus() {
 
     if (
         isset($data['application_id']) &&
-        isset($data['approved_by_owner']) 
+        isset($data['approved_by_owner'])
     ) {
         $application_id = $data['application_id'];
         $approved_by_owner = $data['approved_by_owner'];
@@ -135,7 +144,8 @@ function updateTrainerApplicationStatus() {
     }
 }
 
-function deleteTrainerApplication() {
+function deleteTrainerApplication()
+{
     logMessage("delete trainer application function running...");
 
     $trainerApplication = new TrainerApplication();
@@ -155,4 +165,3 @@ function deleteTrainerApplication() {
         echo json_encode(["error" => "Invalid input data"]);
     }
 }
-?>

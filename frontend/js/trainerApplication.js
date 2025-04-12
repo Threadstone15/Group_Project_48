@@ -1,6 +1,7 @@
 export function inittrainerApplication() {
     console.log("Trainer application page initialized");
 
+
     document.getElementById('trainerApplication').addEventListener('submit', function (event) {
         event.preventDefault();
 
@@ -14,9 +15,14 @@ export function inittrainerApplication() {
         const experience = document.getElementById('experience').value;
         const specialties = document.getElementById('specialties').value;
         const cvLink = document.getElementById('cvLink').value;
+        const gender = document.getElementById('gender').value;
 
         const urlParams = new URLSearchParams(window.location.search); //extracting params after ?
-        const careerId = urlParams.get('careerId'); //getting value of careerID
+        let careerId = urlParams.get('careerId'); //getting value of careerID
+
+        if (!careerId) {
+            careerId = localStorage.getItem('careerId');  
+        } 
 
         const errors = [];
 
@@ -36,15 +42,24 @@ export function inittrainerApplication() {
         if (experience < 0) {
             errors.push("Years of experience must be a positive number.");
         }
+        if (!gender) errors.push("Gender is required.");
         if (!specialties) errors.push("Specialties is required.");
         if (!cvLink || !/(https?:\/\/[^\s]+)/.test(cvLink)) {
             errors.push("Invalid CV link. Please enter a valid URL.");
         }
-
-        if (errors.length > 0) {
-            showFormResponse(errors, "error");
+        // Basic empty check for all required fields
+        if (!firstName || !lastName || !nic || !dob || !email || !address || !mobile || !experience || !gender || !specialties || !cvLink) {
+            showToast("Please fill in all required fields.", "error");
             return;
+        } else {
+            
+            if (errors.length > 0) {
+                showToast(errors, "error");
+                return;
+            }
         }
+
+
 
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
@@ -58,6 +73,7 @@ export function inittrainerApplication() {
             "email": email,
             "address": address,
             "mobile_number": mobile,
+            "gender": gender,
             "years_of_experience": experience,
             "specialties": specialties,
             "cv": cvLink
@@ -79,19 +95,19 @@ export function inittrainerApplication() {
                 console.log("Response data:", data);  // Log the parsed JSON data
 
                 if (data.error) {
-                    showFormResponse(data.error, "error");
+                    showToast(data.error, "error");
                 } else if (data.message) {
-                    showFormResponse(data.message, "success");
+                    showToast(data.message);
                     setTimeout(() => {
                         navigate('careers');
                     }, 3000);
                 } else {
-                    showFormResponse("Failed to send the application", "error");
+                    showToast("Failed to send the application", "error");
                 }
             })
             .catch(error => {
                 console.error("Error:", error);
-                showFormResponse("An error occurred. Please try again later.", "error");
+                showToast("An error occurred. Please try again later.", "error");
             });
 
     });
@@ -113,4 +129,35 @@ export function inittrainerApplication() {
             responseContainer.style.display = "none";
         }, 3000);
     }
+
+    function showToast(message, type = 'success') {
+        const container = document.getElementById('toast-container');
+    
+        // If message is an array, show each one
+        if (Array.isArray(message)) {
+            message.forEach(msg => {
+                const toast = document.createElement('div');
+                toast.className = `toast ${type}`;
+                toast.innerText = msg;
+    
+                container.appendChild(toast);
+    
+                setTimeout(() => {
+                    toast.remove();
+                }, 4000);
+            });
+        } else {
+            // Single message
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.innerText = message;
+    
+            container.appendChild(toast);
+    
+            setTimeout(() => {
+                toast.remove();
+            }, 4000);
+        }
+    }
+    
 }

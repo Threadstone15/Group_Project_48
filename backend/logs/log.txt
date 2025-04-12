@@ -2969,3 +2969,553 @@
 [2025-04-12 08:03:13] Profile data fetched successfully for user ID: 
 [2025-04-12 08:03:13] Profile data: {"message":"Invalid role or user not found"}
 [2025-04-12 08:03:13] Database connection closed.
+[2025-04-12 08:11:20] Running auth controller ,login 
+[2025-04-12 08:11:20] running login...in auth controller
+[2025-04-12 08:11:20] login function running...
+[2025-04-12 08:11:21] Connection established successfully to the database: rad_gymverse
+[2025-04-12 08:11:21] User class instantiated with database connection.
+[2025-04-12 08:11:21] User Login model running for: owner@gmail.com
+[2025-04-12 08:11:21] Fetching user by email: owner@gmail.com
+[2025-04-12 08:11:21] User found for email: owner@gmail.com
+[2025-04-12 08:11:21] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-12 08:11:21] User status: 1
+[2025-04-12 08:11:21] User login successful: owner@gmail.com with role: owner
+[2025-04-12 08:11:21] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDQxMjAwfQ==.0822a040a331f6962d7f9d3ee8edb6b63029b4ba17b1f0e3cb751ce90b5f3822 owner
+[2025-04-12 08:11:21] Database connection closed.
+[2025-04-12 08:11:25] Connection established successfully to the database: rad_gymverse
+[2025-04-12 08:11:25] User class instantiated with database connection.
+[2025-04-12 08:11:25] Fetching user role by user ID: 72
+[2025-04-12 08:11:25] User role fetched successfully for user ID: 72
+[2025-04-12 08:11:25] Running owner controller ,get_trainerAppliedCareers token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDQxMjAwfQ==.0822a040a331f6962d7f9d3ee8edb6b63029b4ba17b1f0e3cb751ce90b5f3822   id - 72 
+[2025-04-12 08:11:25] Running get_trainerAppliedCareers....in controller
+[2025-04-12 08:11:25] TrainerCareer model initialized with database connection.
+[2025-04-12 08:11:25] Fetching trainer applications...
+[2025-04-12 08:11:25] Trainer applicatins fetched successfully.
+[2025-04-12 08:11:25] TrainerCareer model initialized with database connection.
+[2025-04-12 08:11:25] Fetching trainer applied careers...
+[2025-04-12 08:11:26] Trainer applied careers fetched successfully.
+[2025-04-12 08:11:26] Database connection closed.
+[2025-04-12 08:11:26] Connection established successfully to the database: rad_gymverse
+[2025-04-12 08:11:26] User class instantiated with database connection.
+[2025-04-12 08:11:26] Fetching user role by user ID: 72
+[2025-04-12 08:11:26] User role fetched successfully for user ID: 72
+[2025-04-12 08:11:26] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDQxMjAwfQ==.0822a040a331f6962d7f9d3ee8edb6b63029b4ba17b1f0e3cb751ce90b5f3822   id - 72 
+[2025-04-12 08:11:26] Running get_trainer_applications....in controller
+[2025-04-12 08:11:26] TrainerCareer model initialized with database connection.
+[2025-04-12 08:11:26] Fetching trainer applications...
+[2025-04-12 08:11:27] Trainer applicatins fetched successfully.
+[2025-04-12 08:11:27] Database connection closed.
+[2025-04-12 14:27:24] Running auth controller ,login 
+[2025-04-12 14:27:24] running login...in auth controller
+[2025-04-12 14:27:24] login function running...
+[2025-04-12 14:27:25] Connection established successfully to the database: rad_gymverse
+[2025-04-12 14:27:25] User class instantiated with database connection.
+[2025-04-12 14:27:25] User Login model running for: owner@gmail.com
+[2025-04-12 14:27:25] Fetching user by email: owner@gmail.com
+[2025-04-12 14:27:25] User found for email: owner@gmail.com
+[2025-04-12 14:27:25] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-12 14:27:25] User status: 1
+[2025-04-12 14:27:25] User login successful: owner@gmail.com with role: owner
+[2025-04-12 14:27:25] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDYyODAwfQ==.d317a98623697fb734ad0e41521d54660c2d33abd39980f77550684f2b5ef1ea owner
+[2025-04-12 14:27:25] Database connection closed.
+[2025-04-12 14:27:28] Connection established successfully to the database: rad_gymverse
+[2025-04-12 14:27:28] User class instantiated with database connection.
+[2025-04-12 14:27:28] Fetching user role by user ID: 72
+[2025-04-12 14:27:28] User role fetched successfully for user ID: 72
+[2025-04-12 14:27:28] Running owner controller ,get_trainerAppliedCareers token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDYyODAwfQ==.d317a98623697fb734ad0e41521d54660c2d33abd39980f77550684f2b5ef1ea   id - 72 
+[2025-04-12 14:27:28] Running get_trainerAppliedCareers....in controller
+[2025-04-12 14:27:28] TrainerCareer model initialized with database connection.
+[2025-04-12 14:27:28] Fetching trainer applications...
+[2025-04-12 14:27:28] Trainer applicatins fetched successfully.
+[2025-04-12 14:27:28] TrainerCareer model initialized with database connection.
+[2025-04-12 14:27:28] Fetching trainer applied careers...
+[2025-04-12 14:27:29] Trainer applied careers fetched successfully.
+[2025-04-12 14:27:29] Database connection closed.
+[2025-04-12 14:27:29] Connection established successfully to the database: rad_gymverse
+[2025-04-12 14:27:29] User class instantiated with database connection.
+[2025-04-12 14:27:29] Fetching user role by user ID: 72
+[2025-04-12 14:27:30] User role fetched successfully for user ID: 72
+[2025-04-12 14:27:30] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDYyODAwfQ==.d317a98623697fb734ad0e41521d54660c2d33abd39980f77550684f2b5ef1ea   id - 72 
+[2025-04-12 14:27:30] Running get_trainer_applications....in controller
+[2025-04-12 14:27:30] TrainerCareer model initialized with database connection.
+[2025-04-12 14:27:30] Fetching trainer applications...
+[2025-04-12 14:27:30] Trainer applicatins fetched successfully.
+[2025-04-12 14:27:30] Database connection closed.
+[2025-04-12 14:28:04] Connection established successfully to the database: rad_gymverse
+[2025-04-12 14:28:04] User class instantiated with database connection.
+[2025-04-12 14:28:04] Fetching user role by user ID: 72
+[2025-04-12 14:28:04] User role fetched successfully for user ID: 72
+[2025-04-12 14:28:04] Running owner controller ,get_membershipPlans token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDYyODAwfQ==.d317a98623697fb734ad0e41521d54660c2d33abd39980f77550684f2b5ef1ea   id - 72 
+[2025-04-12 14:28:04] Running get_membership plan....in controller
+[2025-04-12 14:28:04] get membership plans running running...
+[2025-04-12 14:28:04] Membership plan model initialized with database connection.
+[2025-04-12 14:28:04] Fetching membership plan...
+[2025-04-12 14:28:05] Membership Plans fetched successfully
+[2025-04-12 14:28:05] Membership plans fetched
+[2025-04-12 14:28:05] Database connection closed.
+[2025-04-12 14:33:50] Connection established successfully to the database: rad_gymverse
+[2025-04-12 14:33:50] User class instantiated with database connection.
+[2025-04-12 14:33:50] Fetching user role by user ID: 72
+[2025-04-12 14:33:51] User role fetched successfully for user ID: 72
+[2025-04-12 14:33:51] Running owner controller ,get_trainerAppliedCareers token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDYyODAwfQ==.d317a98623697fb734ad0e41521d54660c2d33abd39980f77550684f2b5ef1ea   id - 72 
+[2025-04-12 14:33:51] Running get_trainerAppliedCareers....in controller
+[2025-04-12 14:33:51] TrainerCareer model initialized with database connection.
+[2025-04-12 14:33:51] Fetching trainer applications...
+[2025-04-12 14:33:51] Trainer applicatins fetched successfully.
+[2025-04-12 14:33:51] TrainerCareer model initialized with database connection.
+[2025-04-12 14:33:51] Fetching trainer applied careers...
+[2025-04-12 14:33:51] Trainer applied careers fetched successfully.
+[2025-04-12 14:33:51] Database connection closed.
+[2025-04-12 14:33:52] Connection established successfully to the database: rad_gymverse
+[2025-04-12 14:33:52] User class instantiated with database connection.
+[2025-04-12 14:33:52] Fetching user role by user ID: 72
+[2025-04-12 14:33:52] User role fetched successfully for user ID: 72
+[2025-04-12 14:33:52] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDYyODAwfQ==.d317a98623697fb734ad0e41521d54660c2d33abd39980f77550684f2b5ef1ea   id - 72 
+[2025-04-12 14:33:52] Running get_trainer_applications....in controller
+[2025-04-12 14:33:52] TrainerCareer model initialized with database connection.
+[2025-04-12 14:33:52] Fetching trainer applications...
+[2025-04-12 14:33:52] Trainer applicatins fetched successfully.
+[2025-04-12 14:33:52] Database connection closed.
+[2025-04-12 14:33:56] Running auth controller ,login 
+[2025-04-12 14:33:56] running login...in auth controller
+[2025-04-12 14:33:56] login function running...
+[2025-04-12 14:33:56] Connection established successfully to the database: rad_gymverse
+[2025-04-12 14:33:56] User class instantiated with database connection.
+[2025-04-12 14:33:56] User Login model running for: staff@gmail.com
+[2025-04-12 14:33:56] Fetching user by email: staff@gmail.com
+[2025-04-12 14:33:56] User found for email: staff@gmail.com
+[2025-04-12 14:33:56] Query bound and ready to execute for login: staff@gmail.com
+[2025-04-12 14:33:57] User status: 1
+[2025-04-12 14:33:57] User login successful: staff@gmail.com with role: staff
+[2025-04-12 14:33:57] Login Successful: eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0NDYyODAwfQ==.cc96094868016bc0887216e11041b4af91e4fbf62a3f5f2bb2f8affcd3d545cb staff
+[2025-04-12 14:33:57] Database connection closed.
+[2025-04-12 14:34:07] Running auth controller ,login 
+[2025-04-12 14:34:07] running login...in auth controller
+[2025-04-12 14:34:07] login function running...
+[2025-04-12 14:34:07] Connection established successfully to the database: rad_gymverse
+[2025-04-12 14:34:07] User class instantiated with database connection.
+[2025-04-12 14:34:07] User Login model running for: admin@gmail.com
+[2025-04-12 14:34:07] Fetching user by email: admin@gmail.com
+[2025-04-12 14:34:07] User found for email: admin@gmail.com
+[2025-04-12 14:34:07] Query bound and ready to execute for login: admin@gmail.com
+[2025-04-12 14:34:08] User status: 1
+[2025-04-12 14:34:08] User login successful: admin@gmail.com with role: admin
+[2025-04-12 14:34:08] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ0NDYyODAwfQ==.c70aaf62c800c9cec6c199268c9c26494e38740ad6dc63c7e4e11247ae0c6e34 admin
+[2025-04-12 14:34:08] Database connection closed.
+[2025-04-12 14:34:12] Connection established successfully to the database: rad_gymverse
+[2025-04-12 14:34:12] User class instantiated with database connection.
+[2025-04-12 14:34:12] Fetching user role by user ID: 75
+[2025-04-12 14:34:12] User role fetched successfully for user ID: 75
+[2025-04-12 14:34:12] Running admin controller ,get_trainer_career token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ0NDYyODAwfQ==.c70aaf62c800c9cec6c199268c9c26494e38740ad6dc63c7e4e11247ae0c6e34   id - 75 
+[2025-04-12 14:34:12] Running get_trainer_career....in controller
+[2025-04-12 14:34:12] TrainerCareer model initialized with database connection.
+[2025-04-12 14:34:12] Fetching trainer careers...
+[2025-04-12 14:34:12] Trainer careers fetched successfully.
+[2025-04-12 14:34:12] Database connection closed.
+[2025-04-12 14:34:28] Connection established successfully to the database: rad_gymverse
+[2025-04-12 14:34:28] User class instantiated with database connection.
+[2025-04-12 14:34:28] Fetching user role by user ID: 75
+[2025-04-12 14:34:28] User role fetched successfully for user ID: 75
+[2025-04-12 14:34:28] Running admin controller ,get_trainer_career token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ0NDYyODAwfQ==.c70aaf62c800c9cec6c199268c9c26494e38740ad6dc63c7e4e11247ae0c6e34   id - 75 
+[2025-04-12 14:34:28] Running get_trainer_career....in controller
+[2025-04-12 14:34:28] TrainerCareer model initialized with database connection.
+[2025-04-12 14:34:28] Fetching trainer careers...
+[2025-04-12 14:34:28] Trainer careers fetched successfully.
+[2025-04-12 14:34:28] Database connection closed.
+[2025-04-12 14:37:25] Connection established successfully to the database: rad_gymverse
+[2025-04-12 14:37:25] User class instantiated with database connection.
+[2025-04-12 14:37:25] Fetching user role by user ID: 75
+[2025-04-12 14:37:26] User role fetched successfully for user ID: 75
+[2025-04-12 14:37:26] Running admin controller ,add_trainer_career token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ0NDYyODAwfQ==.c70aaf62c800c9cec6c199268c9c26494e38740ad6dc63c7e4e11247ae0c6e34   id - 75 
+[2025-04-12 14:37:26] Running add_trainer_career....in controller
+[2025-04-12 14:37:26] add trainer career function running...
+[2025-04-12 14:37:26] TrainerCareer model initialized with database connection.
+[2025-04-12 14:37:26] Adding new trainer career...
+[2025-04-12 14:37:26] Query bound for adding trainer career: xxx
+[2025-04-12 14:37:26] Trainer career added successfully: xxx
+[2025-04-12 14:37:26] Trainer career added successfully: xxx
+[2025-04-12 14:37:26] Database connection closed.
+[2025-04-12 14:37:28] Connection established successfully to the database: rad_gymverse
+[2025-04-12 14:37:28] User class instantiated with database connection.
+[2025-04-12 14:37:28] Fetching user role by user ID: 75
+[2025-04-12 14:37:28] User role fetched successfully for user ID: 75
+[2025-04-12 14:37:28] Running admin controller ,get_trainer_career token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ0NDYyODAwfQ==.c70aaf62c800c9cec6c199268c9c26494e38740ad6dc63c7e4e11247ae0c6e34   id - 75 
+[2025-04-12 14:37:28] Running get_trainer_career....in controller
+[2025-04-12 14:37:28] TrainerCareer model initialized with database connection.
+[2025-04-12 14:37:28] Fetching trainer careers...
+[2025-04-12 14:37:29] Trainer careers fetched successfully.
+[2025-04-12 14:37:29] Database connection closed.
+[2025-04-12 14:37:29] Connection established successfully to the database: rad_gymverse
+[2025-04-12 14:37:29] User class instantiated with database connection.
+[2025-04-12 14:37:29] Fetching user role by user ID: 75
+[2025-04-12 14:37:29] User role fetched successfully for user ID: 75
+[2025-04-12 14:37:29] Running admin controller ,get_trainer_career token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ0NDYyODAwfQ==.c70aaf62c800c9cec6c199268c9c26494e38740ad6dc63c7e4e11247ae0c6e34   id - 75 
+[2025-04-12 14:37:29] Running get_trainer_career....in controller
+[2025-04-12 14:37:29] TrainerCareer model initialized with database connection.
+[2025-04-12 14:37:29] Fetching trainer careers...
+[2025-04-12 14:37:30] Trainer careers fetched successfully.
+[2025-04-12 14:37:30] Database connection closed.
+[2025-04-12 14:38:37] Connection established successfully to the database: rad_gymverse
+[2025-04-12 14:38:37] User class instantiated with database connection.
+[2025-04-12 14:38:37] Fetching user role by user ID: 75
+[2025-04-12 14:38:37] User role fetched successfully for user ID: 75
+[2025-04-12 14:38:37] Running admin controller ,update_trainer_career token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ0NDYyODAwfQ==.c70aaf62c800c9cec6c199268c9c26494e38740ad6dc63c7e4e11247ae0c6e34   id - 75 
+[2025-04-12 14:38:37] Running update_trainer_career....in controller
+[2025-04-12 14:38:37] update trainer career function running...
+[2025-04-12 14:38:37] TrainerCareer model initialized with database connection.
+[2025-04-12 14:38:37] Updating trainer career...
+[2025-04-12 14:38:37] Query bound for updating trainer career: C3
+[2025-04-12 14:38:37] Trainer career updated successfully for ID: C3
+[2025-04-12 14:38:37] Trainer career updated successfully: C3
+[2025-04-12 14:38:37] Database connection closed.
+[2025-04-12 14:38:38] Connection established successfully to the database: rad_gymverse
+[2025-04-12 14:38:38] User class instantiated with database connection.
+[2025-04-12 14:38:38] Fetching user role by user ID: 75
+[2025-04-12 14:38:38] User role fetched successfully for user ID: 75
+[2025-04-12 14:38:38] Running admin controller ,get_trainer_career token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ0NDYyODAwfQ==.c70aaf62c800c9cec6c199268c9c26494e38740ad6dc63c7e4e11247ae0c6e34   id - 75 
+[2025-04-12 14:38:38] Running get_trainer_career....in controller
+[2025-04-12 14:38:38] TrainerCareer model initialized with database connection.
+[2025-04-12 14:38:38] Fetching trainer careers...
+[2025-04-12 14:38:38] Trainer careers fetched successfully.
+[2025-04-12 14:38:38] Database connection closed.
+[2025-04-12 14:38:46] Running landing page controller ,get_trainer_career 
+[2025-04-12 14:38:46] Running get_trainer_career....in controller
+[2025-04-12 14:38:46] Connection established successfully to the database: rad_gymverse
+[2025-04-12 14:38:46] TrainerCareer model initialized with database connection.
+[2025-04-12 14:38:46] Fetching trainer careers...
+[2025-04-12 14:38:46] Trainer careers fetched successfully.
+[2025-04-12 14:38:46] Database connection closed.
+[2025-04-12 15:07:38] Running landing page controller ,get_trainer_career 
+[2025-04-12 15:07:38] Running get_trainer_career....in controller
+[2025-04-12 15:07:39] Connection established successfully to the database: rad_gymverse
+[2025-04-12 15:07:39] TrainerCareer model initialized with database connection.
+[2025-04-12 15:07:39] Fetching trainer careers...
+[2025-04-12 15:07:39] Trainer careers fetched successfully.
+[2025-04-12 15:07:39] Database connection closed.
+[2025-04-12 15:10:09] Running landing page controller ,get_trainer_career 
+[2025-04-12 15:10:09] Running get_trainer_career....in controller
+[2025-04-12 15:10:09] Connection established successfully to the database: rad_gymverse
+[2025-04-12 15:10:09] TrainerCareer model initialized with database connection.
+[2025-04-12 15:10:09] Fetching trainer careers...
+[2025-04-12 15:10:09] Trainer careers fetched successfully.
+[2025-04-12 15:10:09] Database connection closed.
+[2025-04-12 15:10:49] Running landing page controller ,get_trainer_career 
+[2025-04-12 15:10:49] Running get_trainer_career....in controller
+[2025-04-12 15:10:49] Connection established successfully to the database: rad_gymverse
+[2025-04-12 15:10:49] TrainerCareer model initialized with database connection.
+[2025-04-12 15:10:49] Fetching trainer careers...
+[2025-04-12 15:10:50] Trainer careers fetched successfully.
+[2025-04-12 15:10:50] Database connection closed.
+[2025-04-12 15:11:02] Running landing page controller ,get_trainer_career 
+[2025-04-12 15:11:02] Running get_trainer_career....in controller
+[2025-04-12 15:11:02] Connection established successfully to the database: rad_gymverse
+[2025-04-12 15:11:02] TrainerCareer model initialized with database connection.
+[2025-04-12 15:11:02] Fetching trainer careers...
+[2025-04-12 15:11:02] Trainer careers fetched successfully.
+[2025-04-12 15:11:02] Database connection closed.
+[2025-04-12 15:12:54] Running landing page controller ,get_trainer_career 
+[2025-04-12 15:12:54] Running get_trainer_career....in controller
+[2025-04-12 15:12:54] Connection established successfully to the database: rad_gymverse
+[2025-04-12 15:12:54] TrainerCareer model initialized with database connection.
+[2025-04-12 15:12:54] Fetching trainer careers...
+[2025-04-12 15:12:54] Trainer careers fetched successfully.
+[2025-04-12 15:12:54] Database connection closed.
+[2025-04-12 15:18:41] Running landing page controller ,get_trainer_career 
+[2025-04-12 15:18:41] Running get_trainer_career....in controller
+[2025-04-12 15:18:41] Connection established successfully to the database: rad_gymverse
+[2025-04-12 15:18:41] TrainerCareer model initialized with database connection.
+[2025-04-12 15:18:41] Fetching trainer careers...
+[2025-04-12 15:18:42] Trainer careers fetched successfully.
+[2025-04-12 15:18:42] Database connection closed.
+[2025-04-12 15:20:32] Running landing page controller ,add_trainer_application 
+[2025-04-12 15:20:32] Running add trainer application....in controller
+[2025-04-12 15:20:32] add trainer application function running...
+[2025-04-12 15:20:32] Connection established successfully to the database: rad_gymverse
+[2025-04-12 15:20:32] TrainerCareer model initialized with database connection.
+[2025-04-12 15:20:32] User class instantiated with database connection.
+[2025-04-12 15:20:32] Fetching user by email: trainer1@gmail.com
+[2025-04-12 15:20:32] Fetching application by email: trainer1@gmail.com
+[2025-04-12 15:20:33] Adding new application...
+[2025-04-12 15:20:33] Database connection closed.
+[2025-04-12 15:21:38] Running landing page controller ,add_trainer_application 
+[2025-04-12 15:21:38] Running add trainer application....in controller
+[2025-04-12 15:21:38] add trainer application function running...
+[2025-04-12 15:21:38] Connection established successfully to the database: rad_gymverse
+[2025-04-12 15:21:38] TrainerCareer model initialized with database connection.
+[2025-04-12 15:21:38] User class instantiated with database connection.
+[2025-04-12 15:21:38] Fetching user by email: trainer1@gmail.com
+[2025-04-12 15:21:39] Fetching application by email: trainer1@gmail.com
+[2025-04-12 15:21:39] Adding new application...
+[2025-04-12 15:21:39] Database connection closed.
+[2025-04-12 15:39:27] Running landing page controller ,add_trainer_application 
+[2025-04-12 15:39:27] Running add trainer application....in controller
+[2025-04-12 15:39:27] add trainer application function running...
+[2025-04-12 15:39:28] Connection established successfully to the database: rad_gymverse
+[2025-04-12 15:39:28] TrainerCareer model initialized with database connection.
+[2025-04-12 15:39:28] User class instantiated with database connection.
+[2025-04-12 15:39:28] Invalid input data for trainer application
+[2025-04-12 15:39:28] Database connection closed.
+[2025-04-12 15:41:54] Running landing page controller ,add_trainer_application 
+[2025-04-12 15:41:54] Running add trainer application....in controller
+[2025-04-12 15:41:54] add trainer application function running...
+[2025-04-12 15:41:55] Connection established successfully to the database: rad_gymverse
+[2025-04-12 15:41:55] TrainerCareer model initialized with database connection.
+[2025-04-12 15:41:55] User class instantiated with database connection.
+[2025-04-12 15:41:55] Invalid input data for trainer application
+[2025-04-12 15:41:55] Database connection closed.
+[2025-04-12 15:46:27] Running landing page controller ,add_trainer_application 
+[2025-04-12 15:46:27] Running add trainer application....in controller
+[2025-04-12 15:46:27] add trainer application function running...
+[2025-04-12 15:46:28] Connection established successfully to the database: rad_gymverse
+[2025-04-12 15:46:28] TrainerCareer model initialized with database connection.
+[2025-04-12 15:46:28] User class instantiated with database connection.
+[2025-04-12 15:46:28] Invalid input data for trainer application
+[2025-04-12 15:46:28] Database connection closed.
+[2025-04-12 15:47:21] Running landing page controller ,add_trainer_application 
+[2025-04-12 15:47:21] Running add trainer application....in controller
+[2025-04-12 15:47:21] add trainer application function running...
+[2025-04-12 15:47:21] Connection established successfully to the database: rad_gymverse
+[2025-04-12 15:47:21] TrainerCareer model initialized with database connection.
+[2025-04-12 15:47:21] User class instantiated with database connection.
+[2025-04-12 15:47:21] Raw input data: {"career_id":null,"firstName":"Name","lastName":"lname","NIC":"1234567878","dob":"1998-06-09","email":"trainer1@gmail.com","address":"78\/3, New ST, Colombo 12.","mobile_number":"0755554443","gender":"M","years_of_experience":"5","specialties":"kokokokok","cv":"https:\/\/www.deepseek.com\/en"}
+[2025-04-12 15:47:21] Invalid input data for trainer application
+[2025-04-12 15:47:21] Database connection closed.
+[2025-04-12 15:48:14] Running landing page controller ,get_trainer_career 
+[2025-04-12 15:48:14] Running get_trainer_career....in controller
+[2025-04-12 15:48:15] Connection established successfully to the database: rad_gymverse
+[2025-04-12 15:48:15] TrainerCareer model initialized with database connection.
+[2025-04-12 15:48:15] Fetching trainer careers...
+[2025-04-12 15:48:15] Trainer careers fetched successfully.
+[2025-04-12 15:48:15] Database connection closed.
+[2025-04-12 15:48:56] Running landing page controller ,add_trainer_application 
+[2025-04-12 15:48:56] Running add trainer application....in controller
+[2025-04-12 15:48:56] add trainer application function running...
+[2025-04-12 15:48:56] Connection established successfully to the database: rad_gymverse
+[2025-04-12 15:48:56] TrainerCareer model initialized with database connection.
+[2025-04-12 15:48:56] User class instantiated with database connection.
+[2025-04-12 15:48:56] Raw input data: {"career_id":"C2","firstName":"Name","lastName":"lname","NIC":"1234567878","dob":"1997-11-12","email":"trainer1@gmail.com","address":"78\/3, New ST, Colombo 12.","mobile_number":"0755554443","gender":"M","years_of_experience":"5","specialties":"ggggg","cv":"https:\/\/www.deepseek.com\/en"}
+[2025-04-12 15:48:56] Adding new application...(content checked)
+[2025-04-12 15:48:56] Fetching user by email: trainer1@gmail.com
+[2025-04-12 15:48:56] Fetching application by email: trainer1@gmail.com
+[2025-04-12 15:48:57] Adding new application...
+[2025-04-12 15:48:57] Database connection closed.
+[2025-04-12 15:53:11] Running landing page controller ,get_trainer_career 
+[2025-04-12 15:53:11] Running get_trainer_career....in controller
+[2025-04-12 15:53:12] Connection established successfully to the database: rad_gymverse
+[2025-04-12 15:53:12] TrainerCareer model initialized with database connection.
+[2025-04-12 15:53:12] Fetching trainer careers...
+[2025-04-12 15:53:12] Trainer careers fetched successfully.
+[2025-04-12 15:53:12] Database connection closed.
+[2025-04-12 15:54:29] Running landing page controller ,get_trainer_career 
+[2025-04-12 15:54:29] Running get_trainer_career....in controller
+[2025-04-12 15:54:29] Connection established successfully to the database: rad_gymverse
+[2025-04-12 15:54:29] TrainerCareer model initialized with database connection.
+[2025-04-12 15:54:29] Fetching trainer careers...
+[2025-04-12 15:54:29] Trainer careers fetched successfully.
+[2025-04-12 15:54:29] Database connection closed.
+[2025-04-12 15:54:31] Running landing page controller ,get_trainer_career 
+[2025-04-12 15:54:31] Running get_trainer_career....in controller
+[2025-04-12 15:54:32] Connection established successfully to the database: rad_gymverse
+[2025-04-12 15:54:32] TrainerCareer model initialized with database connection.
+[2025-04-12 15:54:32] Fetching trainer careers...
+[2025-04-12 15:54:32] Trainer careers fetched successfully.
+[2025-04-12 15:54:32] Database connection closed.
+[2025-04-12 15:54:39] Running landing page controller ,get_trainer_career 
+[2025-04-12 15:54:39] Running get_trainer_career....in controller
+[2025-04-12 15:54:39] Connection established successfully to the database: rad_gymverse
+[2025-04-12 15:54:39] TrainerCareer model initialized with database connection.
+[2025-04-12 15:54:39] Fetching trainer careers...
+[2025-04-12 15:54:39] Trainer careers fetched successfully.
+[2025-04-12 15:54:39] Database connection closed.
+[2025-04-12 15:59:16] Running landing page controller ,get_trainer_career 
+[2025-04-12 15:59:16] Running get_trainer_career....in controller
+[2025-04-12 15:59:16] Connection established successfully to the database: rad_gymverse
+[2025-04-12 15:59:16] TrainerCareer model initialized with database connection.
+[2025-04-12 15:59:16] Fetching trainer careers...
+[2025-04-12 15:59:17] Trainer careers fetched successfully.
+[2025-04-12 15:59:17] Database connection closed.
+[2025-04-12 16:03:12] Running landing page controller ,get_trainer_career 
+[2025-04-12 16:03:12] Running get_trainer_career....in controller
+[2025-04-12 16:03:12] Connection established successfully to the database: rad_gymverse
+[2025-04-12 16:03:12] TrainerCareer model initialized with database connection.
+[2025-04-12 16:03:12] Fetching trainer careers...
+[2025-04-12 16:03:12] Trainer careers fetched successfully.
+[2025-04-12 16:03:12] Database connection closed.
+[2025-04-12 16:04:58] Running landing page controller ,get_trainer_career 
+[2025-04-12 16:04:58] Running get_trainer_career....in controller
+[2025-04-12 16:04:59] Connection established successfully to the database: rad_gymverse
+[2025-04-12 16:04:59] TrainerCareer model initialized with database connection.
+[2025-04-12 16:04:59] Fetching trainer careers...
+[2025-04-12 16:04:59] Trainer careers fetched successfully.
+[2025-04-12 16:04:59] Database connection closed.
+[2025-04-12 16:05:59] Running landing page controller ,get_trainer_career 
+[2025-04-12 16:05:59] Running get_trainer_career....in controller
+[2025-04-12 16:05:59] Connection established successfully to the database: rad_gymverse
+[2025-04-12 16:05:59] TrainerCareer model initialized with database connection.
+[2025-04-12 16:05:59] Fetching trainer careers...
+[2025-04-12 16:06:00] Trainer careers fetched successfully.
+[2025-04-12 16:06:00] Database connection closed.
+[2025-04-12 16:14:50] Running landing page controller ,add_trainer_application 
+[2025-04-12 16:14:50] Running add trainer application....in controller
+[2025-04-12 16:14:50] add trainer application function running...
+[2025-04-12 16:14:51] Connection established successfully to the database: rad_gymverse
+[2025-04-12 16:14:51] TrainerCareer model initialized with database connection.
+[2025-04-12 16:14:51] User class instantiated with database connection.
+[2025-04-12 16:14:51] Raw input data: {"career_id":"C2","firstName":"Name","lastName":"lname","NIC":"1234567878","dob":"2001-07-18","email":"trainer1@gmail.com","address":"78\/3, New ST, Colombo 12.","mobile_number":"0755554443","gender":"M","years_of_experience":"5","specialties":"dddd","cv":"https:\/\/www.deepseek.com\/en"}
+[2025-04-12 16:14:51] Adding new application...(content checked)
+[2025-04-12 16:14:51] Fetching user by email: trainer1@gmail.com
+[2025-04-12 16:14:51] Fetching application by email: trainer1@gmail.com
+[2025-04-12 16:14:52] Adding new application...
+[2025-04-12 16:14:52] Database connection closed.
+[2025-04-12 16:16:19] Running landing page controller ,add_trainer_application 
+[2025-04-12 16:16:19] Running add trainer application....in controller
+[2025-04-12 16:16:19] add trainer application function running...
+[2025-04-12 16:16:19] Connection established successfully to the database: rad_gymverse
+[2025-04-12 16:16:19] TrainerCareer model initialized with database connection.
+[2025-04-12 16:16:19] User class instantiated with database connection.
+[2025-04-12 16:16:19] Raw input data: {"career_id":"C2","firstName":"Name","lastName":"lname","NIC":"1234567878","dob":"2001-07-18","email":"trainer1@gmail.com","address":"78\/3, New ST, Colombo 12.","mobile_number":"0755554443","gender":"M","years_of_experience":"5","specialties":"dddd","cv":"https:\/\/www.deepseek.com\/en"}
+[2025-04-12 16:16:19] Adding new application...(content checked)
+[2025-04-12 16:16:19] Fetching user by email: trainer1@gmail.com
+[2025-04-12 16:16:20] Fetching application by email: trainer1@gmail.com
+[2025-04-12 16:16:20] Adding new application...
+[2025-04-12 16:16:20] Database connection closed.
+[2025-04-12 16:16:43] Running landing page controller ,add_trainer_application 
+[2025-04-12 16:16:43] Running add trainer application....in controller
+[2025-04-12 16:16:43] add trainer application function running...
+[2025-04-12 16:16:44] Connection established successfully to the database: rad_gymverse
+[2025-04-12 16:16:44] TrainerCareer model initialized with database connection.
+[2025-04-12 16:16:44] User class instantiated with database connection.
+[2025-04-12 16:16:44] Raw input data: {"career_id":"C2","firstName":"Name","lastName":"lname","NIC":"1234567878","dob":"2001-07-18","email":"trainer1@gmail.com","address":"78\/3, New ST, Colombo 12.","mobile_number":"0755554443","gender":"M","years_of_experience":"5","specialties":"dddd","cv":"https:\/\/www.deepseek.com\/en"}
+[2025-04-12 16:16:44] Adding new application...(content checked)
+[2025-04-12 16:16:44] Fetching user by email: trainer1@gmail.com
+[2025-04-12 16:16:44] Fetching application by email: trainer1@gmail.com
+[2025-04-12 16:16:44] Adding new application...
+[2025-04-12 16:16:44] Query prepared for adding application: C2
+[2025-04-12 16:16:44] Database connection closed.
+[2025-04-12 16:17:37] Running landing page controller ,add_trainer_application 
+[2025-04-12 16:17:37] Running add trainer application....in controller
+[2025-04-12 16:17:37] add trainer application function running...
+[2025-04-12 16:17:38] Connection established successfully to the database: rad_gymverse
+[2025-04-12 16:17:38] TrainerCareer model initialized with database connection.
+[2025-04-12 16:17:38] User class instantiated with database connection.
+[2025-04-12 16:17:38] Raw input data: {"career_id":"C2","firstName":"Name","lastName":"lname","NIC":"1234567878","dob":"2001-07-18","email":"trainer1@gmail.com","address":"78\/3, New ST, Colombo 12.","mobile_number":"0755554443","gender":"M","years_of_experience":"5","specialties":"dddd","cv":"https:\/\/www.deepseek.com\/en"}
+[2025-04-12 16:17:38] Adding new application...(content checked)
+[2025-04-12 16:17:38] Fetching user by email: trainer1@gmail.com
+[2025-04-12 16:17:38] Fetching application by email: trainer1@gmail.com
+[2025-04-12 16:17:39] Adding new application...
+[2025-04-12 16:17:39] Query prepared for adding application: C2
+[2025-04-12 16:17:39] Database connection closed.
+[2025-04-12 16:19:01] Running landing page controller ,add_trainer_application 
+[2025-04-12 16:19:01] Running add trainer application....in controller
+[2025-04-12 16:19:01] add trainer application function running...
+[2025-04-12 16:19:01] Connection established successfully to the database: rad_gymverse
+[2025-04-12 16:19:01] TrainerCareer model initialized with database connection.
+[2025-04-12 16:19:01] User class instantiated with database connection.
+[2025-04-12 16:19:01] Raw input data: {"career_id":"C2","firstName":"Name","lastName":"lname","NIC":"1234567878","dob":"2001-07-18","email":"trainer1@gmail.com","address":"78\/3, New ST, Colombo 12.","mobile_number":"0755554443","gender":"M","years_of_experience":"5","specialties":"dddd","cv":"https:\/\/www.deepseek.com\/en"}
+[2025-04-12 16:19:01] Adding new application...(content checked)
+[2025-04-12 16:19:01] Fetching user by email: trainer1@gmail.com
+[2025-04-12 16:19:02] Fetching application by email: trainer1@gmail.com
+[2025-04-12 16:19:02] Adding new application...
+[2025-04-12 16:19:02] Query prepared for adding application: C2
+[2025-04-12 16:19:02] Query prepared for adding application: C2
+[2025-04-12 16:19:02] Query bound for adding application: C2
+[2025-04-12 16:19:03] Application added successfully: TA7
+[2025-04-12 16:19:03] Trainer application added successfully: C2
+[2025-04-12 16:19:03] Database connection closed.
+[2025-04-12 16:19:06] Running landing page controller ,get_trainer_career 
+[2025-04-12 16:19:06] Running get_trainer_career....in controller
+[2025-04-12 16:19:06] Connection established successfully to the database: rad_gymverse
+[2025-04-12 16:19:06] TrainerCareer model initialized with database connection.
+[2025-04-12 16:19:06] Fetching trainer careers...
+[2025-04-12 16:19:06] Trainer careers fetched successfully.
+[2025-04-12 16:19:06] Database connection closed.
+[2025-04-12 16:21:26] Running landing page controller ,get_trainer_career 
+[2025-04-12 16:21:26] Running get_trainer_career....in controller
+[2025-04-12 16:21:27] Connection established successfully to the database: rad_gymverse
+[2025-04-12 16:21:27] TrainerCareer model initialized with database connection.
+[2025-04-12 16:21:27] Fetching trainer careers...
+[2025-04-12 16:21:27] Trainer careers fetched successfully.
+[2025-04-12 16:21:27] Database connection closed.
+[2025-04-12 16:23:04] Running landing page controller ,get_trainer_career 
+[2025-04-12 16:23:04] Running get_trainer_career....in controller
+[2025-04-12 16:23:05] Connection established successfully to the database: rad_gymverse
+[2025-04-12 16:23:05] TrainerCareer model initialized with database connection.
+[2025-04-12 16:23:05] Fetching trainer careers...
+[2025-04-12 16:23:05] Trainer careers fetched successfully.
+[2025-04-12 16:23:05] Database connection closed.
+[2025-04-12 16:26:05] Running landing page controller ,get_trainer_career 
+[2025-04-12 16:26:05] Running get_trainer_career....in controller
+[2025-04-12 16:26:05] Connection established successfully to the database: rad_gymverse
+[2025-04-12 16:26:05] TrainerCareer model initialized with database connection.
+[2025-04-12 16:26:05] Fetching trainer careers...
+[2025-04-12 16:26:05] Trainer careers fetched successfully.
+[2025-04-12 16:26:05] Database connection closed.
+[2025-04-12 16:30:27] Running landing page controller ,add_trainer_application 
+[2025-04-12 16:30:27] Running add trainer application....in controller
+[2025-04-12 16:30:27] add trainer application function running...
+[2025-04-12 16:30:28] Connection established successfully to the database: rad_gymverse
+[2025-04-12 16:30:28] TrainerCareer model initialized with database connection.
+[2025-04-12 16:30:28] User class instantiated with database connection.
+[2025-04-12 16:30:28] Raw input data: {"career_id":"C3","firstName":"Name","lastName":"lname","NIC":"1234567878","dob":"1998-01-14","email":"trainssser1@gmail.com","address":"78\/3, New ST, Colombo 12.","mobile_number":"0755554443","gender":"M","years_of_experience":"5","specialties":"ssss","cv":"https:\/\/www.deepseek.com\/en"}
+[2025-04-12 16:30:28] Adding new application...(content checked)
+[2025-04-12 16:30:28] Fetching user by email: trainssser1@gmail.com
+[2025-04-12 16:30:28] Fetching application by email: trainssser1@gmail.com
+[2025-04-12 16:30:28] Adding new application...
+[2025-04-12 16:30:29] Query prepared for adding application: C3
+[2025-04-12 16:30:29] Query prepared for adding application: C3
+[2025-04-12 16:30:29] Query bound for adding application: C3
+[2025-04-12 16:30:29] Application added successfully: TA8
+[2025-04-12 16:30:29] Trainer application added successfully: C3
+[2025-04-12 16:30:29] Database connection closed.
+[2025-04-12 16:30:32] Running landing page controller ,get_trainer_career 
+[2025-04-12 16:30:32] Running get_trainer_career....in controller
+[2025-04-12 16:30:32] Connection established successfully to the database: rad_gymverse
+[2025-04-12 16:30:32] TrainerCareer model initialized with database connection.
+[2025-04-12 16:30:32] Fetching trainer careers...
+[2025-04-12 16:30:33] Trainer careers fetched successfully.
+[2025-04-12 16:30:33] Database connection closed.
+[2025-04-12 16:31:45] Running landing page controller ,get_trainer_career 
+[2025-04-12 16:31:45] Running get_trainer_career....in controller
+[2025-04-12 16:31:45] Connection established successfully to the database: rad_gymverse
+[2025-04-12 16:31:45] TrainerCareer model initialized with database connection.
+[2025-04-12 16:31:45] Fetching trainer careers...
+[2025-04-12 16:31:46] Trainer careers fetched successfully.
+[2025-04-12 16:31:46] Database connection closed.
+[2025-04-12 16:32:01] Running landing page controller ,add_trainer_application 
+[2025-04-12 16:32:01] Running add trainer application....in controller
+[2025-04-12 16:32:01] add trainer application function running...
+[2025-04-12 16:32:01] Connection established successfully to the database: rad_gymverse
+[2025-04-12 16:32:01] TrainerCareer model initialized with database connection.
+[2025-04-12 16:32:01] User class instantiated with database connection.
+[2025-04-12 16:32:01] Raw input data: {"career_id":"C2","firstName":"Name","lastName":"lname","NIC":"1234567878","dob":"1999-06-15","email":"trainsssexxr1@gmail.com","address":"78\/3, New ST, Colombo 12.","mobile_number":"0755554443","gender":"M","years_of_experience":"5","specialties":"ccc","cv":"https:\/\/www.deepseek.com\/en"}
+[2025-04-12 16:32:01] Adding new application...(content checked)
+[2025-04-12 16:32:01] Fetching user by email: trainsssexxr1@gmail.com
+[2025-04-12 16:32:01] Fetching application by email: trainsssexxr1@gmail.com
+[2025-04-12 16:32:02] Adding new application...
+[2025-04-12 16:32:02] Query prepared for adding application: C2
+[2025-04-12 16:32:02] Query prepared for adding application: C2
+[2025-04-12 16:32:02] Query bound for adding application: C2
+[2025-04-12 16:32:02] Application added successfully: TA9
+[2025-04-12 16:32:02] Trainer application added successfully: C2
+[2025-04-12 16:32:02] Database connection closed.
+[2025-04-12 16:32:05] Running landing page controller ,get_trainer_career 
+[2025-04-12 16:32:05] Running get_trainer_career....in controller
+[2025-04-12 16:32:06] Connection established successfully to the database: rad_gymverse
+[2025-04-12 16:32:06] TrainerCareer model initialized with database connection.
+[2025-04-12 16:32:06] Fetching trainer careers...
+[2025-04-12 16:32:06] Trainer careers fetched successfully.
+[2025-04-12 16:32:06] Database connection closed.
+[2025-04-12 16:33:15] Running landing page controller ,get_trainer_career 
+[2025-04-12 16:33:15] Running get_trainer_career....in controller
+[2025-04-12 16:33:15] Connection established successfully to the database: rad_gymverse
+[2025-04-12 16:33:15] TrainerCareer model initialized with database connection.
+[2025-04-12 16:33:15] Fetching trainer careers...
+[2025-04-12 16:33:15] Trainer careers fetched successfully.
+[2025-04-12 16:33:15] Database connection closed.
+[2025-04-12 16:39:37] Running landing page controller ,get_trainer_career 
+[2025-04-12 16:39:37] Running get_trainer_career....in controller
+[2025-04-12 16:39:37] Connection established successfully to the database: rad_gymverse
+[2025-04-12 16:39:37] TrainerCareer model initialized with database connection.
+[2025-04-12 16:39:37] Fetching trainer careers...
+[2025-04-12 16:39:38] Trainer careers fetched successfully.
+[2025-04-12 16:39:38] Database connection closed.

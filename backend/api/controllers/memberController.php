@@ -70,7 +70,7 @@ switch ($action) {
         confirmPayment($user_id);
         break;
     case 'account_delete':
-        logMessage('running account delete...in auth controller');
+        logMessage('running account delete...in controller');
         deleteUserAccount($user_id);
         break;
     case 'get_profile':

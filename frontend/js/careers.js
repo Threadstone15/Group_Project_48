@@ -46,6 +46,7 @@ export function initcareers() {
         document.querySelectorAll(".apply-button").forEach(button => {
             button.addEventListener("click", function () {
                 const careerId = this.getAttribute("data-career-id");
+                localStorage.setItem('careerId', careerId);
                 navigate(`trainerApplication?careerId=${careerId}`);
             });
         });
