@@ -36,13 +36,15 @@ class Trainer
         }
     }
 
-    public function registerTrainer($user_id, $firstName, $lastName, $NIC, $dob, $address, $mobile_number, $years_of_experience, $specialties, $cv_link)
+    public function registerTrainer($user_id, $firstName, $lastName, $NIC, $dob, $address, $mobile_number, $years_of_experience, $specialties, $cv_link, $gender)
     {
         logMessage("Registering trainer...");
 
+        logMessage("All details: $user_id, $firstName, $lastName, $NIC, $dob, $address, $mobile_number, $years_of_experience, $specialties, $cv_link, $gender");
+
         $query = "INSERT INTO " . $this->table . " 
-          (trainer_id, user_id, firstName, lastName, NIC, DOB, address, mobile_number, years_of_experience, specialties, cv_link) 
-          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+          (trainer_id, user_id, firstName, lastName, NIC, DOB, address, phone, years_of_experience, specialties, cv_link, gender) 
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         logMessage("Running..");
         $stmt = $this->conn->prepare($query);
@@ -60,7 +62,7 @@ class Trainer
         }
 
         $stmt->bind_param(
-            "sissssssiss",
+            "sissssssisss",
             $trainer_id,
             $user_id,
             $firstName,
@@ -71,7 +73,8 @@ class Trainer
             $mobile_number,
             $years_of_experience,
             $specialties,
-            $cv_link
+            $cv_link,
+            $gender
         );
 
 

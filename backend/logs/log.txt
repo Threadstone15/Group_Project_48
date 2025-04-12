@@ -3519,3 +3519,741 @@
 [2025-04-12 16:39:37] Fetching trainer careers...
 [2025-04-12 16:39:38] Trainer careers fetched successfully.
 [2025-04-12 16:39:38] Database connection closed.
+[2025-04-12 16:40:35] Running auth controller ,login 
+[2025-04-12 16:40:35] running login...in auth controller
+[2025-04-12 16:40:35] login function running...
+[2025-04-12 16:40:35] Connection established successfully to the database: rad_gymverse
+[2025-04-12 16:40:35] User class instantiated with database connection.
+[2025-04-12 16:40:35] User Login model running for: owner@gmail.com
+[2025-04-12 16:40:35] Fetching user by email: owner@gmail.com
+[2025-04-12 16:40:36] User found for email: owner@gmail.com
+[2025-04-12 16:40:36] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-12 16:40:36] User status: 1
+[2025-04-12 16:40:36] User login successful: owner@gmail.com with role: owner
+[2025-04-12 16:40:36] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDcwMDAwfQ==.e7db8f68ee4b7c6c98f7884f906269cd556576884f9f94a7d6a5147e64d734a4 owner
+[2025-04-12 16:40:36] Database connection closed.
+[2025-04-12 16:40:38] Connection established successfully to the database: rad_gymverse
+[2025-04-12 16:40:38] User class instantiated with database connection.
+[2025-04-12 16:40:38] Fetching user role by user ID: 72
+[2025-04-12 16:40:38] User role fetched successfully for user ID: 72
+[2025-04-12 16:40:38] Running owner controller ,get_trainerAppliedCareers token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDcwMDAwfQ==.e7db8f68ee4b7c6c98f7884f906269cd556576884f9f94a7d6a5147e64d734a4   id - 72 
+[2025-04-12 16:40:38] Running get_trainerAppliedCareers....in controller
+[2025-04-12 16:40:38] TrainerCareer model initialized with database connection.
+[2025-04-12 16:40:38] Fetching trainer applications...
+[2025-04-12 16:40:39] Trainer applicatins fetched successfully.
+[2025-04-12 16:40:39] TrainerCareer model initialized with database connection.
+[2025-04-12 16:40:39] Fetching trainer applied careers...
+[2025-04-12 16:40:39] Trainer applied careers fetched successfully.
+[2025-04-12 16:40:39] Database connection closed.
+[2025-04-12 16:40:39] Connection established successfully to the database: rad_gymverse
+[2025-04-12 16:40:39] User class instantiated with database connection.
+[2025-04-12 16:40:39] Fetching user role by user ID: 72
+[2025-04-12 16:40:40] User role fetched successfully for user ID: 72
+[2025-04-12 16:40:40] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDcwMDAwfQ==.e7db8f68ee4b7c6c98f7884f906269cd556576884f9f94a7d6a5147e64d734a4   id - 72 
+[2025-04-12 16:40:40] Running get_trainer_applications....in controller
+[2025-04-12 16:40:40] TrainerCareer model initialized with database connection.
+[2025-04-12 16:40:40] Fetching trainer applications...
+[2025-04-12 16:40:40] Trainer applicatins fetched successfully.
+[2025-04-12 16:40:40] Database connection closed.
+[2025-04-12 16:41:29] Connection established successfully to the database: rad_gymverse
+[2025-04-12 16:41:29] User class instantiated with database connection.
+[2025-04-12 16:41:29] Fetching user role by user ID: 72
+[2025-04-12 16:41:30] User role fetched successfully for user ID: 72
+[2025-04-12 16:41:30] Running owner controller ,update_trainerApplicationStatus token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDcwMDAwfQ==.e7db8f68ee4b7c6c98f7884f906269cd556576884f9f94a7d6a5147e64d734a4   id - 72 
+[2025-04-12 16:41:30] Running update_trainer_application_status....in controller
+[2025-04-12 16:41:30] update trainer application status function running...
+[2025-04-12 16:41:30] TrainerCareer model initialized with database connection.
+[2025-04-12 16:41:30] Updating trainer application status...
+[2025-04-12 16:41:30] Query bound for updating trainer application status: TA8
+[2025-04-12 16:41:30] Trainer application status updated successfully for ID: TA8
+[2025-04-12 16:41:30] Trainer application status updated successfully: TA8
+[2025-04-12 16:41:30] Database connection closed.
+[2025-04-12 16:41:31] Connection established successfully to the database: rad_gymverse
+[2025-04-12 16:41:31] User class instantiated with database connection.
+[2025-04-12 16:41:31] Fetching user role by user ID: 72
+[2025-04-12 16:41:31] User role fetched successfully for user ID: 72
+[2025-04-12 16:41:31] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDcwMDAwfQ==.e7db8f68ee4b7c6c98f7884f906269cd556576884f9f94a7d6a5147e64d734a4   id - 72 
+[2025-04-12 16:41:31] Running get_trainer_applications....in controller
+[2025-04-12 16:41:31] TrainerCareer model initialized with database connection.
+[2025-04-12 16:41:31] Fetching trainer applications...
+[2025-04-12 16:41:31] Trainer applicatins fetched successfully.
+[2025-04-12 16:41:31] Database connection closed.
+[2025-04-12 18:53:30] Running auth controller ,login 
+[2025-04-12 18:53:30] running login...in auth controller
+[2025-04-12 18:53:30] login function running...
+[2025-04-12 18:53:31] Connection established successfully to the database: rad_gymverse
+[2025-04-12 18:53:31] User class instantiated with database connection.
+[2025-04-12 18:53:31] User Login model running for: owner@gmail.com
+[2025-04-12 18:53:31] Fetching user by email: owner@gmail.com
+[2025-04-12 18:53:31] User found for email: owner@gmail.com
+[2025-04-12 18:53:31] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-12 18:53:31] User status: 1
+[2025-04-12 18:53:31] User login successful: owner@gmail.com with role: owner
+[2025-04-12 18:53:31] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDc3MjAwfQ==.617d1b3f102c43484d97a3c69c27c092ac4044661b207c3127ca6b2282e1d339 owner
+[2025-04-12 18:53:31] Database connection closed.
+[2025-04-12 18:53:33] Connection established successfully to the database: rad_gymverse
+[2025-04-12 18:53:33] User class instantiated with database connection.
+[2025-04-12 18:53:33] Fetching user role by user ID: 72
+[2025-04-12 18:53:33] User role fetched successfully for user ID: 72
+[2025-04-12 18:53:33] Running owner controller ,get_trainerAppliedCareers token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDc3MjAwfQ==.617d1b3f102c43484d97a3c69c27c092ac4044661b207c3127ca6b2282e1d339   id - 72 
+[2025-04-12 18:53:33] Running get_trainerAppliedCareers....in controller
+[2025-04-12 18:53:33] TrainerCareer model initialized with database connection.
+[2025-04-12 18:53:33] Fetching trainer applications...
+[2025-04-12 18:53:33] Trainer applicatins fetched successfully.
+[2025-04-12 18:53:33] TrainerCareer model initialized with database connection.
+[2025-04-12 18:53:33] Fetching trainer applied careers...
+[2025-04-12 18:53:34] Trainer applied careers fetched successfully.
+[2025-04-12 18:53:34] Database connection closed.
+[2025-04-12 18:53:34] Connection established successfully to the database: rad_gymverse
+[2025-04-12 18:53:34] User class instantiated with database connection.
+[2025-04-12 18:53:34] Fetching user role by user ID: 72
+[2025-04-12 18:53:34] User role fetched successfully for user ID: 72
+[2025-04-12 18:53:34] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDc3MjAwfQ==.617d1b3f102c43484d97a3c69c27c092ac4044661b207c3127ca6b2282e1d339   id - 72 
+[2025-04-12 18:53:34] Running get_trainer_applications....in controller
+[2025-04-12 18:53:34] TrainerCareer model initialized with database connection.
+[2025-04-12 18:53:34] Fetching trainer applications...
+[2025-04-12 18:53:35] Trainer applicatins fetched successfully.
+[2025-04-12 18:53:35] Database connection closed.
+[2025-04-12 19:21:36] Running auth controller ,login 
+[2025-04-12 19:21:36] running login...in auth controller
+[2025-04-12 19:21:36] login function running...
+[2025-04-12 19:21:37] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:21:37] User class instantiated with database connection.
+[2025-04-12 19:21:37] User Login model running for: owner@gmail.com
+[2025-04-12 19:21:37] Fetching user by email: owner@gmail.com
+[2025-04-12 19:21:37] User found for email: owner@gmail.com
+[2025-04-12 19:21:37] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-12 19:21:37] User status: 1
+[2025-04-12 19:21:37] User login successful: owner@gmail.com with role: owner
+[2025-04-12 19:21:37] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f owner
+[2025-04-12 19:21:37] Database connection closed.
+[2025-04-12 19:22:12] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:22:12] User class instantiated with database connection.
+[2025-04-12 19:22:12] Fetching user role by user ID: 72
+[2025-04-12 19:22:12] User role fetched successfully for user ID: 72
+[2025-04-12 19:22:12] Running owner controller ,get_trainerAppliedCareers token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:22:12] Running get_trainerAppliedCareers....in controller
+[2025-04-12 19:22:12] TrainerCareer model initialized with database connection.
+[2025-04-12 19:22:12] Fetching trainer applications...
+[2025-04-12 19:22:13] Trainer applicatins fetched successfully.
+[2025-04-12 19:22:13] TrainerCareer model initialized with database connection.
+[2025-04-12 19:22:13] Fetching trainer applied careers...
+[2025-04-12 19:22:13] Trainer applied careers fetched successfully.
+[2025-04-12 19:22:13] Database connection closed.
+[2025-04-12 19:22:13] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:22:13] User class instantiated with database connection.
+[2025-04-12 19:22:13] Fetching user role by user ID: 72
+[2025-04-12 19:22:14] User role fetched successfully for user ID: 72
+[2025-04-12 19:22:14] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:22:14] Running get_trainer_applications....in controller
+[2025-04-12 19:22:14] TrainerCareer model initialized with database connection.
+[2025-04-12 19:22:14] Fetching trainer applications...
+[2025-04-12 19:22:14] Trainer applicatins fetched successfully.
+[2025-04-12 19:22:14] Database connection closed.
+[2025-04-12 19:22:24] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:22:24] User class instantiated with database connection.
+[2025-04-12 19:22:24] Fetching user role by user ID: 72
+[2025-04-12 19:22:24] User role fetched successfully for user ID: 72
+[2025-04-12 19:22:24] Running owner controller ,update_trainerApplicationStatus token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:22:24] Running update_trainer_application_status....in controller
+[2025-04-12 19:22:24] update trainer application status function running...
+[2025-04-12 19:22:24] TrainerCareer model initialized with database connection.
+[2025-04-12 19:22:24] Updating trainer application status...
+[2025-04-12 19:22:24] Query bound for updating trainer application status: TA9
+[2025-04-12 19:22:24] Trainer application status updated successfully for ID: TA9
+[2025-04-12 19:22:24] Fetching email by application ID: TA9
+[2025-04-12 19:22:25] Email: trainsssexxr1@gmail.com
+[2025-04-12 19:22:25] Trainer application rejection email function invoked.
+[2025-04-12 19:22:25] Configuring PHPMailer.
+[2025-04-12 19:22:25] Sending trainer application rejection email to: trainsssexxr1@gmail.com
+[2025-04-12 19:22:29] Trainer application rejection email sent successfully to: trainsssexxr1@gmail.com
+[2025-04-12 19:22:29] Trainer application status updated successfully: TA9
+[2025-04-12 19:22:29] Database connection closed.
+[2025-04-12 19:22:29] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:22:29] User class instantiated with database connection.
+[2025-04-12 19:22:29] Fetching user role by user ID: 72
+[2025-04-12 19:22:30] User role fetched successfully for user ID: 72
+[2025-04-12 19:22:30] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:22:30] Running get_trainer_applications....in controller
+[2025-04-12 19:22:30] TrainerCareer model initialized with database connection.
+[2025-04-12 19:22:30] Fetching trainer applications...
+[2025-04-12 19:22:30] Trainer applicatins fetched successfully.
+[2025-04-12 19:22:30] Database connection closed.
+[2025-04-12 19:28:14] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:28:14] User class instantiated with database connection.
+[2025-04-12 19:28:14] Fetching user role by user ID: 72
+[2025-04-12 19:28:14] User role fetched successfully for user ID: 72
+[2025-04-12 19:28:14] Running owner controller ,update_trainerApplicationStatus token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:28:14] Running update_trainer_application_status....in controller
+[2025-04-12 19:28:14] update trainer application status function running...
+[2025-04-12 19:28:14] TrainerCareer model initialized with database connection.
+[2025-04-12 19:28:14] Updating trainer application status...
+[2025-04-12 19:28:14] Query bound for updating trainer application status: TA1
+[2025-04-12 19:28:14] Trainer application status updated successfully for ID: TA1
+[2025-04-12 19:28:14] Fetching application by email: TA1
+[2025-04-12 19:28:15] Email: 
+[2025-04-12 19:28:15] Trainer application status updated successfully: TA1
+[2025-04-12 19:28:15] Database connection closed.
+[2025-04-12 19:28:15] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:28:15] User class instantiated with database connection.
+[2025-04-12 19:28:15] Fetching user role by user ID: 72
+[2025-04-12 19:28:15] User role fetched successfully for user ID: 72
+[2025-04-12 19:28:15] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:28:15] Running get_trainer_applications....in controller
+[2025-04-12 19:28:15] TrainerCareer model initialized with database connection.
+[2025-04-12 19:28:15] Fetching trainer applications...
+[2025-04-12 19:28:16] Trainer applicatins fetched successfully.
+[2025-04-12 19:28:16] Database connection closed.
+[2025-04-12 19:29:01] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:29:01] User class instantiated with database connection.
+[2025-04-12 19:29:01] Fetching user role by user ID: 72
+[2025-04-12 19:29:01] User role fetched successfully for user ID: 72
+[2025-04-12 19:29:01] Running owner controller ,get_trainerAppliedCareers token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:29:01] Running get_trainerAppliedCareers....in controller
+[2025-04-12 19:29:01] TrainerCareer model initialized with database connection.
+[2025-04-12 19:29:01] Fetching trainer applications...
+[2025-04-12 19:29:01] Trainer applicatins fetched successfully.
+[2025-04-12 19:29:01] TrainerCareer model initialized with database connection.
+[2025-04-12 19:29:01] Fetching trainer applied careers...
+[2025-04-12 19:29:02] Trainer applied careers fetched successfully.
+[2025-04-12 19:29:02] Database connection closed.
+[2025-04-12 19:29:02] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:29:02] User class instantiated with database connection.
+[2025-04-12 19:29:02] Fetching user role by user ID: 72
+[2025-04-12 19:29:03] User role fetched successfully for user ID: 72
+[2025-04-12 19:29:03] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:29:03] Running get_trainer_applications....in controller
+[2025-04-12 19:29:03] TrainerCareer model initialized with database connection.
+[2025-04-12 19:29:03] Fetching trainer applications...
+[2025-04-12 19:29:03] Trainer applicatins fetched successfully.
+[2025-04-12 19:29:03] Database connection closed.
+[2025-04-12 19:31:59] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:31:59] User class instantiated with database connection.
+[2025-04-12 19:31:59] Fetching user role by user ID: 72
+[2025-04-12 19:32:00] User role fetched successfully for user ID: 72
+[2025-04-12 19:32:00] Running owner controller ,update_trainerApplicationStatus token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:32:00] Running update_trainer_application_status....in controller
+[2025-04-12 19:32:00] update trainer application status function running...
+[2025-04-12 19:32:00] TrainerCareer model initialized with database connection.
+[2025-04-12 19:32:00] Updating trainer application status...
+[2025-04-12 19:32:00] Query bound for updating trainer application status: TA2
+[2025-04-12 19:32:00] Trainer application status updated successfully for ID: TA2
+[2025-04-12 19:32:00] Fetching application by email: TA2
+[2025-04-12 19:32:00] Email: 
+[2025-04-12 19:32:00] Trainer application status updated successfully: TA2
+[2025-04-12 19:32:00] Database connection closed.
+[2025-04-12 19:34:25] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:34:25] User class instantiated with database connection.
+[2025-04-12 19:34:25] Fetching user role by user ID: 72
+[2025-04-12 19:34:25] User role fetched successfully for user ID: 72
+[2025-04-12 19:34:25] Running owner controller ,get_trainerAppliedCareers token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:34:25] Running get_trainerAppliedCareers....in controller
+[2025-04-12 19:34:25] TrainerCareer model initialized with database connection.
+[2025-04-12 19:34:25] Fetching trainer applications...
+[2025-04-12 19:34:26] Trainer applicatins fetched successfully.
+[2025-04-12 19:34:26] TrainerCareer model initialized with database connection.
+[2025-04-12 19:34:26] Fetching trainer applied careers...
+[2025-04-12 19:34:26] Trainer applied careers fetched successfully.
+[2025-04-12 19:34:26] Database connection closed.
+[2025-04-12 19:34:26] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:34:26] User class instantiated with database connection.
+[2025-04-12 19:34:26] Fetching user role by user ID: 72
+[2025-04-12 19:34:27] User role fetched successfully for user ID: 72
+[2025-04-12 19:34:27] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:34:27] Running get_trainer_applications....in controller
+[2025-04-12 19:34:27] TrainerCareer model initialized with database connection.
+[2025-04-12 19:34:27] Fetching trainer applications...
+[2025-04-12 19:34:27] Trainer applicatins fetched successfully.
+[2025-04-12 19:34:27] Database connection closed.
+[2025-04-12 19:34:30] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:34:30] User class instantiated with database connection.
+[2025-04-12 19:34:30] Fetching user role by user ID: 72
+[2025-04-12 19:34:30] User role fetched successfully for user ID: 72
+[2025-04-12 19:34:30] Running owner controller ,update_trainerApplicationStatus token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:34:30] Running update_trainer_application_status....in controller
+[2025-04-12 19:34:30] update trainer application status function running...
+[2025-04-12 19:34:30] TrainerCareer model initialized with database connection.
+[2025-04-12 19:34:30] Updating trainer application status...
+[2025-04-12 19:34:30] Query bound for updating trainer application status: TA1
+[2025-04-12 19:34:31] Trainer application status updated successfully for ID: TA1
+[2025-04-12 19:34:31] Fetching application by email: TA1
+[2025-04-12 19:34:31] Result: null
+[2025-04-12 19:34:31] Email: 
+[2025-04-12 19:34:31] Trainer application status updated successfully: TA1
+[2025-04-12 19:34:31] Database connection closed.
+[2025-04-12 19:38:02] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:38:02] User class instantiated with database connection.
+[2025-04-12 19:38:02] Fetching user role by user ID: 72
+[2025-04-12 19:38:02] User role fetched successfully for user ID: 72
+[2025-04-12 19:38:02] Running owner controller ,get_trainerAppliedCareers token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:38:02] Running get_trainerAppliedCareers....in controller
+[2025-04-12 19:38:02] TrainerCareer model initialized with database connection.
+[2025-04-12 19:38:02] Fetching trainer applications...
+[2025-04-12 19:38:03] Trainer applicatins fetched successfully.
+[2025-04-12 19:38:03] TrainerCareer model initialized with database connection.
+[2025-04-12 19:38:03] Fetching trainer applied careers...
+[2025-04-12 19:38:03] Trainer applied careers fetched successfully.
+[2025-04-12 19:38:03] Database connection closed.
+[2025-04-12 19:38:04] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:38:04] User class instantiated with database connection.
+[2025-04-12 19:38:04] Fetching user role by user ID: 72
+[2025-04-12 19:38:04] User role fetched successfully for user ID: 72
+[2025-04-12 19:38:04] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:38:04] Running get_trainer_applications....in controller
+[2025-04-12 19:38:04] TrainerCareer model initialized with database connection.
+[2025-04-12 19:38:04] Fetching trainer applications...
+[2025-04-12 19:38:04] Trainer applicatins fetched successfully.
+[2025-04-12 19:38:04] Database connection closed.
+[2025-04-12 19:40:02] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:40:02] User class instantiated with database connection.
+[2025-04-12 19:40:02] Fetching user role by user ID: 72
+[2025-04-12 19:40:02] User role fetched successfully for user ID: 72
+[2025-04-12 19:40:02] Running owner controller ,get_trainerAppliedCareers token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:40:02] Running get_trainerAppliedCareers....in controller
+[2025-04-12 19:40:02] TrainerCareer model initialized with database connection.
+[2025-04-12 19:40:02] Fetching trainer applications...
+[2025-04-12 19:40:02] Trainer applicatins fetched successfully.
+[2025-04-12 19:40:02] TrainerCareer model initialized with database connection.
+[2025-04-12 19:40:02] Fetching trainer applied careers...
+[2025-04-12 19:40:02] Trainer applied careers fetched successfully.
+[2025-04-12 19:40:02] Database connection closed.
+[2025-04-12 19:40:03] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:40:03] User class instantiated with database connection.
+[2025-04-12 19:40:03] Fetching user role by user ID: 72
+[2025-04-12 19:40:03] User role fetched successfully for user ID: 72
+[2025-04-12 19:40:03] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:40:03] Running get_trainer_applications....in controller
+[2025-04-12 19:40:03] TrainerCareer model initialized with database connection.
+[2025-04-12 19:40:03] Fetching trainer applications...
+[2025-04-12 19:40:03] Trainer applicatins fetched successfully.
+[2025-04-12 19:40:03] Database connection closed.
+[2025-04-12 19:40:06] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:40:06] User class instantiated with database connection.
+[2025-04-12 19:40:06] Fetching user role by user ID: 72
+[2025-04-12 19:40:07] User role fetched successfully for user ID: 72
+[2025-04-12 19:40:07] Running owner controller ,update_trainerApplicationStatus token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:40:07] Running update_trainer_application_status....in controller
+[2025-04-12 19:40:07] update trainer application status function running...
+[2025-04-12 19:40:07] TrainerCareer model initialized with database connection.
+[2025-04-12 19:40:07] Updating trainer application status...
+[2025-04-12 19:40:07] Query bound for updating trainer application status: TA1
+[2025-04-12 19:40:07] Trainer application status updated successfully for ID: TA1
+[2025-04-12 19:40:07] Fetching application by email: TA1
+[2025-04-12 19:40:07] Email: 
+[2025-04-12 19:40:07] Trainer application status updated successfully: TA1
+[2025-04-12 19:40:07] Database connection closed.
+[2025-04-12 19:42:21] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:42:21] User class instantiated with database connection.
+[2025-04-12 19:42:21] Fetching user role by user ID: 72
+[2025-04-12 19:42:21] User role fetched successfully for user ID: 72
+[2025-04-12 19:42:21] Running owner controller ,get_trainerAppliedCareers token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:42:21] Running get_trainerAppliedCareers....in controller
+[2025-04-12 19:42:21] TrainerCareer model initialized with database connection.
+[2025-04-12 19:42:21] Fetching trainer applications...
+[2025-04-12 19:42:21] Trainer applicatins fetched successfully.
+[2025-04-12 19:42:21] TrainerCareer model initialized with database connection.
+[2025-04-12 19:42:21] Fetching trainer applied careers...
+[2025-04-12 19:42:22] Trainer applied careers fetched successfully.
+[2025-04-12 19:42:22] Database connection closed.
+[2025-04-12 19:42:22] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:42:22] User class instantiated with database connection.
+[2025-04-12 19:42:22] Fetching user role by user ID: 72
+[2025-04-12 19:42:22] User role fetched successfully for user ID: 72
+[2025-04-12 19:42:22] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:42:22] Running get_trainer_applications....in controller
+[2025-04-12 19:42:22] TrainerCareer model initialized with database connection.
+[2025-04-12 19:42:22] Fetching trainer applications...
+[2025-04-12 19:42:23] Trainer applicatins fetched successfully.
+[2025-04-12 19:42:23] Database connection closed.
+[2025-04-12 19:42:26] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:42:26] User class instantiated with database connection.
+[2025-04-12 19:42:26] Fetching user role by user ID: 72
+[2025-04-12 19:42:26] User role fetched successfully for user ID: 72
+[2025-04-12 19:42:26] Running owner controller ,update_trainerApplicationStatus token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:42:26] Running update_trainer_application_status....in controller
+[2025-04-12 19:42:26] update trainer application status function running...
+[2025-04-12 19:42:26] TrainerCareer model initialized with database connection.
+[2025-04-12 19:42:26] Updating trainer application status...
+[2025-04-12 19:42:27] Query bound for updating trainer application status: TA7
+[2025-04-12 19:42:27] Trainer application status updated successfully for ID: TA7
+[2025-04-12 19:42:27] Fetching application by application ID: TA7
+[2025-04-12 19:42:27] Details: {"application_id":"TA7","career_id":"C2","firstName":"Name","lastName":"lname","NIC":"1234567878","DOB":"2001-07-18","email":"trainer1@gmail.com","address":"78\/3, New ST, Colombo 12.","gender":"M","mobile_number":"0755554443","years_of_experience":5,"specialties":"dddd","cv":"https:\/\/www.deepseek.com\/en","submission_date":"2025-04-12","approved_by_owner":1}
+[2025-04-12 19:42:27] Trainer application status updated successfully: TA7
+[2025-04-12 19:42:27] Database connection closed.
+[2025-04-12 19:42:28] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:42:28] User class instantiated with database connection.
+[2025-04-12 19:42:28] Fetching user role by user ID: 72
+[2025-04-12 19:42:28] User role fetched successfully for user ID: 72
+[2025-04-12 19:42:28] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:42:28] Running get_trainer_applications....in controller
+[2025-04-12 19:42:28] TrainerCareer model initialized with database connection.
+[2025-04-12 19:42:28] Fetching trainer applications...
+[2025-04-12 19:42:29] Trainer applicatins fetched successfully.
+[2025-04-12 19:42:29] Database connection closed.
+[2025-04-12 19:42:57] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:42:57] User class instantiated with database connection.
+[2025-04-12 19:42:57] Fetching user role by user ID: 72
+[2025-04-12 19:42:58] User role fetched successfully for user ID: 72
+[2025-04-12 19:42:58] Running owner controller ,get_trainerAppliedCareers token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:42:58] Running get_trainerAppliedCareers....in controller
+[2025-04-12 19:42:58] TrainerCareer model initialized with database connection.
+[2025-04-12 19:42:58] Fetching trainer applications...
+[2025-04-12 19:42:58] Trainer applicatins fetched successfully.
+[2025-04-12 19:42:58] TrainerCareer model initialized with database connection.
+[2025-04-12 19:42:58] Fetching trainer applied careers...
+[2025-04-12 19:42:58] Trainer applied careers fetched successfully.
+[2025-04-12 19:42:58] Database connection closed.
+[2025-04-12 19:42:59] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:42:59] User class instantiated with database connection.
+[2025-04-12 19:42:59] Fetching user role by user ID: 72
+[2025-04-12 19:42:59] User role fetched successfully for user ID: 72
+[2025-04-12 19:42:59] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:42:59] Running get_trainer_applications....in controller
+[2025-04-12 19:42:59] TrainerCareer model initialized with database connection.
+[2025-04-12 19:42:59] Fetching trainer applications...
+[2025-04-12 19:42:59] Trainer applicatins fetched successfully.
+[2025-04-12 19:42:59] Database connection closed.
+[2025-04-12 19:58:38] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:58:38] User class instantiated with database connection.
+[2025-04-12 19:58:38] Fetching user role by user ID: 72
+[2025-04-12 19:58:38] User role fetched successfully for user ID: 72
+[2025-04-12 19:58:38] Running owner controller ,get_trainerAppliedCareers token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:58:38] Running get_trainerAppliedCareers....in controller
+[2025-04-12 19:58:38] TrainerCareer model initialized with database connection.
+[2025-04-12 19:58:38] Fetching trainer applications...
+[2025-04-12 19:58:38] Trainer applicatins fetched successfully.
+[2025-04-12 19:58:38] TrainerCareer model initialized with database connection.
+[2025-04-12 19:58:38] Fetching trainer applied careers...
+[2025-04-12 19:58:39] Trainer applied careers fetched successfully.
+[2025-04-12 19:58:39] Database connection closed.
+[2025-04-12 19:58:39] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:58:39] User class instantiated with database connection.
+[2025-04-12 19:58:39] Fetching user role by user ID: 72
+[2025-04-12 19:58:39] User role fetched successfully for user ID: 72
+[2025-04-12 19:58:39] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:58:39] Running get_trainer_applications....in controller
+[2025-04-12 19:58:39] TrainerCareer model initialized with database connection.
+[2025-04-12 19:58:39] Fetching trainer applications...
+[2025-04-12 19:58:39] Trainer applicatins fetched successfully.
+[2025-04-12 19:58:39] Database connection closed.
+[2025-04-12 19:58:45] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:58:45] User class instantiated with database connection.
+[2025-04-12 19:58:45] Fetching user role by user ID: 72
+[2025-04-12 19:58:45] User role fetched successfully for user ID: 72
+[2025-04-12 19:58:45] Running owner controller ,update_trainerApplicationStatus token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:58:45] Running update_trainer_application_status....in controller
+[2025-04-12 19:58:45] update trainer application status function running...
+[2025-04-12 19:58:45] TrainerCareer model initialized with database connection.
+[2025-04-12 19:58:45] Updating trainer application status...
+[2025-04-12 19:58:45] Query bound for updating trainer application status: TA6
+[2025-04-12 19:58:45] Trainer application status updated successfully for ID: TA6
+[2025-04-12 19:58:45] Fetching application by application ID: TA6
+[2025-04-12 19:58:46] Details: {"application_id":"TA6","career_id":"C2","firstName":"nalaka","lastName":"herath","NIC":"2002978978978","DOB":"2002-02-03","email":"nalaka@gmail.com","address":"rajagiriya,sri lanka","gender":null,"mobile_number":"0734567892","years_of_experience":6,"specialties":"Physique","cv":"https:\/\/example.com\/your-cv.pdf","submission_date":"2025-04-09","approved_by_owner":1}
+[2025-04-12 19:58:46] User class instantiated with database connection.
+[2025-04-12 19:58:46] User Register model running...
+[2025-04-12 19:58:46] Password hashed for user: nalaka@gmail.com
+[2025-04-12 19:58:46] Query bound and ready to execute for user: nalaka@gmail.com
+[2025-04-12 19:58:46] User registered successfully: nalaka@gmail.com with role: trainer
+[2025-04-12 19:58:46] Fetching user by email: nalaka@gmail.com
+[2025-04-12 19:58:46] Trainer model initialized with database connection.
+[2025-04-12 19:58:46] Registering trainer...
+[2025-04-12 19:58:46] Running..
+[2025-04-12 19:58:46] Running..1
+[2025-04-12 19:58:47] generated ID - T8
+[2025-04-12 19:58:47] Database connection closed.
+[2025-04-12 19:59:04] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:59:04] User class instantiated with database connection.
+[2025-04-12 19:59:04] Fetching user role by user ID: 72
+[2025-04-12 19:59:04] User role fetched successfully for user ID: 72
+[2025-04-12 19:59:04] Running owner controller ,get_trainerAppliedCareers token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:59:04] Running get_trainerAppliedCareers....in controller
+[2025-04-12 19:59:04] TrainerCareer model initialized with database connection.
+[2025-04-12 19:59:04] Fetching trainer applications...
+[2025-04-12 19:59:04] Trainer applicatins fetched successfully.
+[2025-04-12 19:59:04] TrainerCareer model initialized with database connection.
+[2025-04-12 19:59:04] Fetching trainer applied careers...
+[2025-04-12 19:59:05] Trainer applied careers fetched successfully.
+[2025-04-12 19:59:05] Database connection closed.
+[2025-04-12 19:59:05] Connection established successfully to the database: rad_gymverse
+[2025-04-12 19:59:05] User class instantiated with database connection.
+[2025-04-12 19:59:05] Fetching user role by user ID: 72
+[2025-04-12 19:59:05] User role fetched successfully for user ID: 72
+[2025-04-12 19:59:05] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDgwODAwfQ==.b10b71f728e8c760205f07ba150b424c0d9a860c60a5324bf7d26ffa9ede0f8f   id - 72 
+[2025-04-12 19:59:05] Running get_trainer_applications....in controller
+[2025-04-12 19:59:05] TrainerCareer model initialized with database connection.
+[2025-04-12 19:59:05] Fetching trainer applications...
+[2025-04-12 19:59:06] Trainer applicatins fetched successfully.
+[2025-04-12 19:59:06] Database connection closed.
+[2025-04-12 20:03:20] Running auth controller ,login 
+[2025-04-12 20:03:20] running login...in auth controller
+[2025-04-12 20:03:20] login function running...
+[2025-04-12 20:03:21] Connection established successfully to the database: rad_gymverse
+[2025-04-12 20:03:21] User class instantiated with database connection.
+[2025-04-12 20:03:21] User Login model running for: owner@gmail.com
+[2025-04-12 20:03:21] Fetching user by email: owner@gmail.com
+[2025-04-12 20:03:21] User found for email: owner@gmail.com
+[2025-04-12 20:03:21] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-12 20:03:21] User status: 1
+[2025-04-12 20:03:21] User login successful: owner@gmail.com with role: owner
+[2025-04-12 20:03:21] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDg0NDAwfQ==.369fc41bfefa73bfbedb6df6dcfc6f4219d9f5cf7798875d0c09a1eed7f8a536 owner
+[2025-04-12 20:03:21] Database connection closed.
+[2025-04-12 20:03:23] Connection established successfully to the database: rad_gymverse
+[2025-04-12 20:03:23] User class instantiated with database connection.
+[2025-04-12 20:03:23] Fetching user role by user ID: 72
+[2025-04-12 20:03:23] User role fetched successfully for user ID: 72
+[2025-04-12 20:03:23] Running owner controller ,get_trainerAppliedCareers token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDg0NDAwfQ==.369fc41bfefa73bfbedb6df6dcfc6f4219d9f5cf7798875d0c09a1eed7f8a536   id - 72 
+[2025-04-12 20:03:23] Running get_trainerAppliedCareers....in controller
+[2025-04-12 20:03:23] TrainerCareer model initialized with database connection.
+[2025-04-12 20:03:23] Fetching trainer applications...
+[2025-04-12 20:03:23] Trainer applicatins fetched successfully.
+[2025-04-12 20:03:23] TrainerCareer model initialized with database connection.
+[2025-04-12 20:03:23] Fetching trainer applied careers...
+[2025-04-12 20:03:24] Trainer applied careers fetched successfully.
+[2025-04-12 20:03:24] Database connection closed.
+[2025-04-12 20:03:24] Connection established successfully to the database: rad_gymverse
+[2025-04-12 20:03:24] User class instantiated with database connection.
+[2025-04-12 20:03:24] Fetching user role by user ID: 72
+[2025-04-12 20:03:24] User role fetched successfully for user ID: 72
+[2025-04-12 20:03:24] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDg0NDAwfQ==.369fc41bfefa73bfbedb6df6dcfc6f4219d9f5cf7798875d0c09a1eed7f8a536   id - 72 
+[2025-04-12 20:03:24] Running get_trainer_applications....in controller
+[2025-04-12 20:03:24] TrainerCareer model initialized with database connection.
+[2025-04-12 20:03:24] Fetching trainer applications...
+[2025-04-12 20:03:25] Trainer applicatins fetched successfully.
+[2025-04-12 20:03:25] Database connection closed.
+[2025-04-12 20:03:29] Connection established successfully to the database: rad_gymverse
+[2025-04-12 20:03:29] User class instantiated with database connection.
+[2025-04-12 20:03:29] Fetching user role by user ID: 72
+[2025-04-12 20:03:29] User role fetched successfully for user ID: 72
+[2025-04-12 20:03:29] Running owner controller ,update_trainerApplicationStatus token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDg0NDAwfQ==.369fc41bfefa73bfbedb6df6dcfc6f4219d9f5cf7798875d0c09a1eed7f8a536   id - 72 
+[2025-04-12 20:03:29] Running update_trainer_application_status....in controller
+[2025-04-12 20:03:29] update trainer application status function running...
+[2025-04-12 20:03:29] TrainerCareer model initialized with database connection.
+[2025-04-12 20:03:29] Updating trainer application status...
+[2025-04-12 20:03:29] Query bound for updating trainer application status: TA1
+[2025-04-12 20:03:29] Trainer application status updated successfully for ID: TA1
+[2025-04-12 20:03:29] Fetching application by application ID: TA1
+[2025-04-12 20:03:30] Details: {"application_id":"TA1","career_id":"C1","firstName":"John","lastName":"Doe","NIC":"123456789V","DOB":"1990-01-01","email":"john@gmail.com","address":"123 Main Street, Cityville","gender":"M","mobile_number":"0712345678","years_of_experience":5,"specialties":"Cardio, fitness, Physique","cv":"https:\/\/example.com\/cv.pdf","submission_date":"2025-04-07","approved_by_owner":1}
+[2025-04-12 20:03:30] User class instantiated with database connection.
+[2025-04-12 20:03:30] User Register model running...
+[2025-04-12 20:03:30] Password hashed for user: john@gmail.com
+[2025-04-12 20:03:30] Query bound and ready to execute for user: john@gmail.com
+[2025-04-12 20:03:30] User registered successfully: john@gmail.com with role: trainer
+[2025-04-12 20:03:30] Fetching user by email: john@gmail.com
+[2025-04-12 20:03:30] Trainer model initialized with database connection.
+[2025-04-12 20:03:30] Registering trainer...
+[2025-04-12 20:03:30] All details: Array, John, Doe, 123456789V, 1990-01-01, 123 Main Street, Cityville, 0712345678, 5, Cardio, fitness, Physique, https://example.com/cv.pdf, M
+[2025-04-12 20:03:30] Running..
+[2025-04-12 20:03:30] Running..1
+[2025-04-12 20:03:31] generated ID - T8
+[2025-04-12 20:03:31] Database connection closed.
+[2025-04-12 20:06:32] Connection established successfully to the database: rad_gymverse
+[2025-04-12 20:06:32] User class instantiated with database connection.
+[2025-04-12 20:06:32] Fetching user role by user ID: 72
+[2025-04-12 20:06:32] User role fetched successfully for user ID: 72
+[2025-04-12 20:06:32] Running owner controller ,get_trainerAppliedCareers token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDg0NDAwfQ==.369fc41bfefa73bfbedb6df6dcfc6f4219d9f5cf7798875d0c09a1eed7f8a536   id - 72 
+[2025-04-12 20:06:32] Running get_trainerAppliedCareers....in controller
+[2025-04-12 20:06:32] TrainerCareer model initialized with database connection.
+[2025-04-12 20:06:32] Fetching trainer applications...
+[2025-04-12 20:06:32] Trainer applicatins fetched successfully.
+[2025-04-12 20:06:32] TrainerCareer model initialized with database connection.
+[2025-04-12 20:06:32] Fetching trainer applied careers...
+[2025-04-12 20:06:33] Trainer applied careers fetched successfully.
+[2025-04-12 20:06:33] Database connection closed.
+[2025-04-12 20:06:33] Connection established successfully to the database: rad_gymverse
+[2025-04-12 20:06:33] User class instantiated with database connection.
+[2025-04-12 20:06:33] Fetching user role by user ID: 72
+[2025-04-12 20:06:33] User role fetched successfully for user ID: 72
+[2025-04-12 20:06:33] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDg0NDAwfQ==.369fc41bfefa73bfbedb6df6dcfc6f4219d9f5cf7798875d0c09a1eed7f8a536   id - 72 
+[2025-04-12 20:06:33] Running get_trainer_applications....in controller
+[2025-04-12 20:06:33] TrainerCareer model initialized with database connection.
+[2025-04-12 20:06:33] Fetching trainer applications...
+[2025-04-12 20:06:34] Trainer applicatins fetched successfully.
+[2025-04-12 20:06:34] Database connection closed.
+[2025-04-12 20:06:38] Connection established successfully to the database: rad_gymverse
+[2025-04-12 20:06:38] User class instantiated with database connection.
+[2025-04-12 20:06:38] Fetching user role by user ID: 72
+[2025-04-12 20:06:38] User role fetched successfully for user ID: 72
+[2025-04-12 20:06:38] Running owner controller ,update_trainerApplicationStatus token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDg0NDAwfQ==.369fc41bfefa73bfbedb6df6dcfc6f4219d9f5cf7798875d0c09a1eed7f8a536   id - 72 
+[2025-04-12 20:06:38] Running update_trainer_application_status....in controller
+[2025-04-12 20:06:38] update trainer application status function running...
+[2025-04-12 20:06:38] TrainerCareer model initialized with database connection.
+[2025-04-12 20:06:38] Updating trainer application status...
+[2025-04-12 20:06:38] Query bound for updating trainer application status: TA2
+[2025-04-12 20:06:38] Trainer application status updated successfully for ID: TA2
+[2025-04-12 20:06:38] Fetching application by application ID: TA2
+[2025-04-12 20:06:39] Details: {"application_id":"TA2","career_id":"C1","firstName":"Alfred","lastName":"Penyworth","NIC":"123456789V","DOB":"1990-01-01","email":"john@gamil.com","address":"123 Main Street, Gotham","gender":"M","mobile_number":"0712345678","years_of_experience":5,"specialties":"Cardio, fitness, Physique","cv":"https:\/\/example.com\/cv.pdf","submission_date":"2025-04-07","approved_by_owner":1}
+[2025-04-12 20:06:39] User class instantiated with database connection.
+[2025-04-12 20:06:39] User Register model running...
+[2025-04-12 20:06:39] Password hashed for user: john@gamil.com
+[2025-04-12 20:06:39] Query bound and ready to execute for user: john@gamil.com
+[2025-04-12 20:06:39] User registered successfully: john@gamil.com with role: trainer
+[2025-04-12 20:06:39] Checking if user exists for email: john@gamil.com
+[2025-04-12 20:06:39] User exists for email: john@gamil.com with user_id: 173
+[2025-04-12 20:06:39] Trainer model initialized with database connection.
+[2025-04-12 20:06:39] Registering trainer...
+[2025-04-12 20:06:39] All details: 173, Alfred, Penyworth, 123456789V, 1990-01-01, 123 Main Street, Gotham, 0712345678, 5, Cardio, fitness, Physique, https://example.com/cv.pdf, M
+[2025-04-12 20:06:39] Running..
+[2025-04-12 20:06:39] Running..1
+[2025-04-12 20:06:40] generated ID - T8
+[2025-04-12 20:06:40] Trainer registered successfully: Alfred Penyworth
+[2025-04-12 20:06:40] Trainer application acceptance email function invoked.
+[2025-04-12 20:06:40] Configuring PHPMailer.
+[2025-04-12 20:06:40] Sending trainer application acceptance email to: john@gamil.com
+[2025-04-12 20:06:43] Trainer application acceptance email sent successfully to: john@gamil.com
+[2025-04-12 20:06:43] Trainer application status updated successfully: TA2
+[2025-04-12 20:06:43] Database connection closed.
+[2025-04-12 20:06:44] Connection established successfully to the database: rad_gymverse
+[2025-04-12 20:06:44] User class instantiated with database connection.
+[2025-04-12 20:06:44] Fetching user role by user ID: 72
+[2025-04-12 20:06:44] User role fetched successfully for user ID: 72
+[2025-04-12 20:06:44] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDg0NDAwfQ==.369fc41bfefa73bfbedb6df6dcfc6f4219d9f5cf7798875d0c09a1eed7f8a536   id - 72 
+[2025-04-12 20:06:44] Running get_trainer_applications....in controller
+[2025-04-12 20:06:44] TrainerCareer model initialized with database connection.
+[2025-04-12 20:06:44] Fetching trainer applications...
+[2025-04-12 20:06:44] Trainer applicatins fetched successfully.
+[2025-04-12 20:06:44] Database connection closed.
+[2025-04-12 20:10:02] Connection established successfully to the database: rad_gymverse
+[2025-04-12 20:10:02] User class instantiated with database connection.
+[2025-04-12 20:10:02] Fetching user role by user ID: 72
+[2025-04-12 20:10:02] User role fetched successfully for user ID: 72
+[2025-04-12 20:10:02] Running owner controller ,get_trainerAppliedCareers token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDg0NDAwfQ==.369fc41bfefa73bfbedb6df6dcfc6f4219d9f5cf7798875d0c09a1eed7f8a536   id - 72 
+[2025-04-12 20:10:02] Running get_trainerAppliedCareers....in controller
+[2025-04-12 20:10:02] TrainerCareer model initialized with database connection.
+[2025-04-12 20:10:02] Fetching trainer applications...
+[2025-04-12 20:10:02] Trainer applicatins fetched successfully.
+[2025-04-12 20:10:02] TrainerCareer model initialized with database connection.
+[2025-04-12 20:10:02] Fetching trainer applied careers...
+[2025-04-12 20:10:03] Trainer applied careers fetched successfully.
+[2025-04-12 20:10:03] Database connection closed.
+[2025-04-12 20:10:03] Connection established successfully to the database: rad_gymverse
+[2025-04-12 20:10:03] User class instantiated with database connection.
+[2025-04-12 20:10:03] Fetching user role by user ID: 72
+[2025-04-12 20:10:03] User role fetched successfully for user ID: 72
+[2025-04-12 20:10:03] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDg0NDAwfQ==.369fc41bfefa73bfbedb6df6dcfc6f4219d9f5cf7798875d0c09a1eed7f8a536   id - 72 
+[2025-04-12 20:10:03] Running get_trainer_applications....in controller
+[2025-04-12 20:10:03] TrainerCareer model initialized with database connection.
+[2025-04-12 20:10:03] Fetching trainer applications...
+[2025-04-12 20:10:04] Trainer applicatins fetched successfully.
+[2025-04-12 20:10:04] Database connection closed.
+[2025-04-12 20:10:07] Connection established successfully to the database: rad_gymverse
+[2025-04-12 20:10:07] User class instantiated with database connection.
+[2025-04-12 20:10:07] Fetching user role by user ID: 72
+[2025-04-12 20:10:07] User role fetched successfully for user ID: 72
+[2025-04-12 20:10:07] Running owner controller ,update_trainerApplicationStatus token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDg0NDAwfQ==.369fc41bfefa73bfbedb6df6dcfc6f4219d9f5cf7798875d0c09a1eed7f8a536   id - 72 
+[2025-04-12 20:10:07] Running update_trainer_application_status....in controller
+[2025-04-12 20:10:07] update trainer application status function running...
+[2025-04-12 20:10:07] TrainerCareer model initialized with database connection.
+[2025-04-12 20:10:07] Updating trainer application status...
+[2025-04-12 20:10:07] Query bound for updating trainer application status: TA6
+[2025-04-12 20:10:07] Trainer application status updated successfully for ID: TA6
+[2025-04-12 20:10:07] Fetching application by application ID: TA6
+[2025-04-12 20:10:07] Details: {"application_id":"TA6","career_id":"C2","firstName":"nalaka","lastName":"herath","NIC":"2002978978978","DOB":"2002-02-03","email":"nalaka@gmail.com","address":"rajagiriya,sri lanka","gender":null,"mobile_number":"0734567892","years_of_experience":6,"specialties":"Physique","cv":"https:\/\/example.com\/your-cv.pdf","submission_date":"2025-04-09","approved_by_owner":1}
+[2025-04-12 20:10:07] User class instantiated with database connection.
+[2025-04-12 20:10:07] User Register model running...
+[2025-04-12 20:10:08] Password hashed for user: nalaka@gmail.com
+[2025-04-12 20:10:08] Query bound and ready to execute for user: nalaka@gmail.com
+[2025-04-12 20:10:08] User registered successfully: nalaka@gmail.com with role: trainer
+[2025-04-12 20:10:08] Checking if user exists for email: nalaka@gmail.com
+[2025-04-12 20:10:08] User exists for email: nalaka@gmail.com with user_id: 174
+[2025-04-12 20:10:08] Trainer model initialized with database connection.
+[2025-04-12 20:10:08] Registering trainer...
+[2025-04-12 20:10:08] All details: 174, nalaka, herath, 2002978978978, 2002-02-03, rajagiriya,sri lanka, 0734567892, 6, Physique, https://example.com/your-cv.pdf, 
+[2025-04-12 20:10:08] Running..
+[2025-04-12 20:10:08] Running..1
+[2025-04-12 20:10:09] generated ID - T9
+[2025-04-12 20:10:09] Trainer registered successfully: nalaka herath
+[2025-04-12 20:10:09] Trainer application acceptance email function invoked.
+[2025-04-12 20:10:09] Configuring PHPMailer.
+[2025-04-12 20:10:09] Sending trainer application acceptance email to: nalaka@gmail.com
+[2025-04-12 20:10:12] Trainer application acceptance email sent successfully to: nalaka@gmail.com
+[2025-04-12 20:10:12] Trainer application status updated successfully: TA6
+[2025-04-12 20:10:12] Database connection closed.
+[2025-04-12 20:10:13] Connection established successfully to the database: rad_gymverse
+[2025-04-12 20:10:13] User class instantiated with database connection.
+[2025-04-12 20:10:13] Fetching user role by user ID: 72
+[2025-04-12 20:10:13] User role fetched successfully for user ID: 72
+[2025-04-12 20:10:13] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDg0NDAwfQ==.369fc41bfefa73bfbedb6df6dcfc6f4219d9f5cf7798875d0c09a1eed7f8a536   id - 72 
+[2025-04-12 20:10:13] Running get_trainer_applications....in controller
+[2025-04-12 20:10:13] TrainerCareer model initialized with database connection.
+[2025-04-12 20:10:13] Fetching trainer applications...
+[2025-04-12 20:10:13] Trainer applicatins fetched successfully.
+[2025-04-12 20:10:13] Database connection closed.
+[2025-04-12 20:10:40] Running auth controller ,login 
+[2025-04-12 20:10:40] running login...in auth controller
+[2025-04-12 20:10:40] login function running...
+[2025-04-12 20:10:40] Connection established successfully to the database: rad_gymverse
+[2025-04-12 20:10:40] User class instantiated with database connection.
+[2025-04-12 20:10:40] User Login model running for: owner@gmail.com
+[2025-04-12 20:10:40] Fetching user by email: owner@gmail.com
+[2025-04-12 20:10:40] User found for email: owner@gmail.com
+[2025-04-12 20:10:40] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-12 20:10:41] User status: 1
+[2025-04-12 20:10:41] User login successful: owner@gmail.com with role: owner
+[2025-04-12 20:10:41] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDg0NDAwfQ==.369fc41bfefa73bfbedb6df6dcfc6f4219d9f5cf7798875d0c09a1eed7f8a536 owner
+[2025-04-12 20:10:41] Database connection closed.
+[2025-04-12 20:10:43] Connection established successfully to the database: rad_gymverse
+[2025-04-12 20:10:43] User class instantiated with database connection.
+[2025-04-12 20:10:43] Fetching user role by user ID: 72
+[2025-04-12 20:10:43] User role fetched successfully for user ID: 72
+[2025-04-12 20:10:43] Running owner controller ,get_trainerAppliedCareers token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDg0NDAwfQ==.369fc41bfefa73bfbedb6df6dcfc6f4219d9f5cf7798875d0c09a1eed7f8a536   id - 72 
+[2025-04-12 20:10:43] Running get_trainerAppliedCareers....in controller
+[2025-04-12 20:10:43] TrainerCareer model initialized with database connection.
+[2025-04-12 20:10:43] Fetching trainer applications...
+[2025-04-12 20:10:43] Trainer applicatins fetched successfully.
+[2025-04-12 20:10:43] TrainerCareer model initialized with database connection.
+[2025-04-12 20:10:43] Fetching trainer applied careers...
+[2025-04-12 20:10:43] Trainer applied careers fetched successfully.
+[2025-04-12 20:10:43] Database connection closed.
+[2025-04-12 20:10:44] Connection established successfully to the database: rad_gymverse
+[2025-04-12 20:10:44] User class instantiated with database connection.
+[2025-04-12 20:10:44] Fetching user role by user ID: 72
+[2025-04-12 20:10:44] User role fetched successfully for user ID: 72
+[2025-04-12 20:10:44] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDg0NDAwfQ==.369fc41bfefa73bfbedb6df6dcfc6f4219d9f5cf7798875d0c09a1eed7f8a536   id - 72 
+[2025-04-12 20:10:44] Running get_trainer_applications....in controller
+[2025-04-12 20:10:44] TrainerCareer model initialized with database connection.
+[2025-04-12 20:10:44] Fetching trainer applications...
+[2025-04-12 20:10:45] Trainer applicatins fetched successfully.
+[2025-04-12 20:10:45] Database connection closed.
+[2025-04-12 20:10:48] Connection established successfully to the database: rad_gymverse
+[2025-04-12 20:10:48] User class instantiated with database connection.
+[2025-04-12 20:10:48] Fetching user role by user ID: 72
+[2025-04-12 20:10:48] User role fetched successfully for user ID: 72
+[2025-04-12 20:10:48] Running owner controller ,update_trainerApplicationStatus token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDg0NDAwfQ==.369fc41bfefa73bfbedb6df6dcfc6f4219d9f5cf7798875d0c09a1eed7f8a536   id - 72 
+[2025-04-12 20:10:48] Running update_trainer_application_status....in controller
+[2025-04-12 20:10:48] update trainer application status function running...
+[2025-04-12 20:10:48] TrainerCareer model initialized with database connection.
+[2025-04-12 20:10:48] Updating trainer application status...
+[2025-04-12 20:10:49] Query bound for updating trainer application status: TA4
+[2025-04-12 20:10:49] Trainer application status updated successfully for ID: TA4
+[2025-04-12 20:10:49] Fetching application by application ID: TA4
+[2025-04-12 20:10:49] Details: {"application_id":"TA4","career_id":"C1","firstName":"supun","lastName":"perera","NIC":"200207900666","DOB":"1998-06-09","email":"supun@gmail.com","address":"kandana,sri lanka","gender":null,"mobile_number":"0734567892","years_of_experience":5,"specialties":"physique","cv":"https:\/\/example.com\/your-cv.pdf","submission_date":"2025-04-07","approved_by_owner":1}
+[2025-04-12 20:10:49] User class instantiated with database connection.
+[2025-04-12 20:10:49] User Register model running...
+[2025-04-12 20:10:49] Password hashed for user: supun@gmail.com
+[2025-04-12 20:10:49] Query bound and ready to execute for user: supun@gmail.com
+[2025-04-12 20:10:50] User registered successfully: supun@gmail.com with role: trainer
+[2025-04-12 20:10:50] Checking if user exists for email: supun@gmail.com
+[2025-04-12 20:10:50] User exists for email: supun@gmail.com with user_id: 175
+[2025-04-12 20:10:50] Trainer model initialized with database connection.
+[2025-04-12 20:10:50] Registering trainer...
+[2025-04-12 20:10:50] All details: 175, supun, perera, 200207900666, 1998-06-09, kandana,sri lanka, 0734567892, 5, physique, https://example.com/your-cv.pdf, 
+[2025-04-12 20:10:50] Running..
+[2025-04-12 20:10:50] Running..1
+[2025-04-12 20:10:50] generated ID - T10
+[2025-04-12 20:10:50] Trainer registered successfully: supun perera
+[2025-04-12 20:10:50] Trainer application acceptance email function invoked.
+[2025-04-12 20:10:50] Configuring PHPMailer.
+[2025-04-12 20:10:50] Sending trainer application acceptance email to: supun@gmail.com
+[2025-04-12 20:10:54] Trainer application acceptance email sent successfully to: supun@gmail.com
+[2025-04-12 20:10:54] Trainer application status updated successfully: TA4
+[2025-04-12 20:10:54] Database connection closed.
+[2025-04-12 20:10:54] Connection established successfully to the database: rad_gymverse
+[2025-04-12 20:10:54] User class instantiated with database connection.
+[2025-04-12 20:10:54] Fetching user role by user ID: 72
+[2025-04-12 20:10:55] User role fetched successfully for user ID: 72
+[2025-04-12 20:10:55] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0NDg0NDAwfQ==.369fc41bfefa73bfbedb6df6dcfc6f4219d9f5cf7798875d0c09a1eed7f8a536   id - 72 
+[2025-04-12 20:10:55] Running get_trainer_applications....in controller
+[2025-04-12 20:10:55] TrainerCareer model initialized with database connection.
+[2025-04-12 20:10:55] Fetching trainer applications...
+[2025-04-12 20:10:55] Trainer applicatins fetched successfully.
+[2025-04-12 20:10:55] Database connection closed.

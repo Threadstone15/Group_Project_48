@@ -216,4 +216,57 @@ class TrainerApplication
             return false;
         }
     }
+
+    public function getEmailByApplicationId($application_id)
+    {
+        logMessage("Fetching email by application ID: $application_id");
+
+        // Prepare the query
+        $query = "SELECT email FROM " . $this->table . " WHERE application_id = ?";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing statement for getEmailByApplicationId: " . $this->conn->error);
+            return false;
+        }
+
+        // Bind the application_id parameter
+        $stmt->bind_param("s", $application_id);
+
+        // Execute the query
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
+            return $row['email'];
+        } else {
+            logMessage("Error executing getEmailByApplicationId query: " . $stmt->error);
+            return false;
+        }
+    }
+
+    public function getApplicationByApplicationId($application_id)
+    {
+        logMessage("Fetching application by application ID: $application_id");
+
+        // Prepare the query
+        $query = "SELECT * FROM " . $this->table . " WHERE application_id = ?";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing statement for getApplicationByApplicationId: " . $this->conn->error);
+            return false;
+        }
+
+        // Bind the application_id parameter
+        $stmt->bind_param("s", $application_id);
+
+        // Execute the query
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            return $result->fetch_assoc();
+        } else {
+            logMessage("Error executing getApplicationByApplicationId query: " . $stmt->error);
+            return false;
+        }
+    }
 }

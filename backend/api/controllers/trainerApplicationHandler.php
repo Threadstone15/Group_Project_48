@@ -3,8 +3,11 @@
 
 include_once "../models/trainerApplication.php";
 include_once "../models/User.php";
+include_once "../models/Trainer.php";
 include_once "../models/trainerCareer.php";
 include_once "../../logs/save.php";
+include_once "./accountMail.php";
+
 function addTrainerApplication()
 {
     logMessage("add trainer application function running...");
@@ -132,6 +135,38 @@ function updateTrainerApplicationStatus()
         $approved_by_owner = $data['approved_by_owner'];
 
         if ($trainerApplication->updateApplicationStatus($application_id, $approved_by_owner)) {
+            if ($approved_by_owner == 1) {
+                #Accepted
+                $details = $trainerApplication->getApplicationByApplicationId($application_id);
+                logMessage("Details: " . json_encode($details));
+                $phone = $details['mobile_number'];
+                $email = $details['email'];
+                $firstName = $details['firstName'];
+                $lastName = $details['lastName'];
+                $NIC = $details['NIC'];
+                $dob = $details['DOB'];
+                $address = $details['address'];
+                $years_of_experience = $details['years_of_experience'];
+                $specialties = $details['specialties'];
+                $cv_link = $details['cv'];
+                $gender = $details['gender'];
+                $password = "TRAINER" . $phone;
+                $User = new User();
+                $User->register($email, $password, "trainer");
+                $user_id = $User->userExists($email);
+                $Trainer = new Trainer();
+                $Trainer->registerTrainer($user_id, $firstName, $lastName, $NIC, $dob, $address, $phone, $years_of_experience, $specialties, $cv_link, $gender);
+                trainer_application_acceptance($email, $password);
+
+                //trainer_application_acceptance($email, $password);
+            } elseif ($approved_by_owner == 2) {
+                #Rejected
+                $email = $trainerApplication->getEmailByApplicationId($application_id);
+                logMessage("Email: $email");
+                trainer_application_rejection($email);
+            } else {
+                #Pending
+            }
             logMessage("Trainer application status updated successfully: $application_id");
             echo json_encode(["message" => "Trainer application status updated successfully"]);
         } else {

@@ -272,7 +272,7 @@ export function initOwner_trainers() {
             })
             .then(data => {
                 if (data.message) {
-                    showFormResponse("applicationStatusResponse", data.message, "success");
+                    showToast(data.message);
                     setTimeout(() => {
                         document.getElementById("pendingApplicationButtonsPopup").style.display = "none";
                         document.getElementById("viewApplicationPopup").style.display = "none";
@@ -280,7 +280,7 @@ export function initOwner_trainers() {
                     fetchApplications(); // refreshing tables by fetching applicatons again
                 } else {
                     const errorMsg = data.error || "Failed to update Application Status.";
-                    showFormResponse("applicationStatusResponse", errorMsg, "error");
+                    showToast("applicationStatusResponse", "error");
                 }
             })
             .catch(error => {
@@ -358,5 +358,18 @@ export function initOwner_trainers() {
             responseContainer.style.display = "none";
         }, 3000);
     }
+
+    function showToast(message, type = 'success') {
+        const container = document.getElementById('toast-container');
+        const toast = document.createElement('div');
+        toast.className = `toast ${type}`;
+        toast.innerText = message;
+    
+        container.appendChild(toast);
+    
+        setTimeout(() => {
+            toast.remove();
+        }, 4000);
+      }
 
 }

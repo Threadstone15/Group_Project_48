@@ -122,3 +122,44 @@ function password_change($email)
         logMessage("Failed to send password change email to: $email. PHPMailer Error: " . $e->getMessage());
     }
 }
+
+//Trainer Application Rejection Mail
+function trainer_application_rejection($email)
+{
+    logMessage("Trainer application rejection email function invoked.");
+    $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+
+    try {
+        $mail = configureMailer();
+        $mail->addAddress($email);
+        $mail->Subject = "Trainer Application Rejection Notification";
+        $mail->Body = "Hello,\n\nYour trainer application has been rejected by the GymVerse team. \n\nPlease contact support if you have any questions.\n\nBest Regards,\nGymVerse Team";
+
+        logMessage("Sending trainer application rejection email to: $email");
+        $mail->send();
+        logMessage("Trainer application rejection email sent successfully to: $email");
+    } catch (Exception $e) {
+        logMessage("Failed to send trainer application rejection email to: $email. PHPMailer Error: " . $e->getMessage());
+    }
+}
+
+//Trainer Application Acceptance Mail
+
+function trainer_application_acceptance($email, $password)
+{
+    logMessage("Trainer application acceptance email function invoked.");
+    $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+
+    try {
+        $mail = configureMailer();
+        $mail->addAddress($email);
+        $mail->Subject = "Trainer Application Acceptance Notification";
+        $mail->Body = "Hello,\n\nYour trainer application has been accepted by the GymVerse team. \n\nBelow are your login details (Please change your password once you log in):\n\nUsername: $email\nPassword: $password\n\nPlease keep this information secure. \n\nPlease contact support if you have any questions.\n\nBest Regards,\nGymVerse Team";
+
+        logMessage("Sending trainer application acceptance email to: $email");
+        $mail->send();
+        logMessage("Trainer application acceptance email sent successfully to: $email");
+    } catch (Exception $e) {
+        logMessage("Failed to send trainer application acceptance email to: $email. PHPMailer Error: " . $e->getMessage());
+    }
+}
