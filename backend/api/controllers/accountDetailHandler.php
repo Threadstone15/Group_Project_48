@@ -41,3 +41,20 @@ function changePassword($user_id)
         logMessage("Error executing changePassword query for user ID: $user_id");
     }
 }
+
+function deleteUserAccount($user_id)
+{
+    $reason = $_POST['reason'] ?? $_GET['reason'] ?? null;
+    $password = $_POST['password'] ?? $_GET['password'] ?? null;
+    logMessage("Running account_delete....in handler");
+    $user = new User();
+    if ($user->deleteAccount($user_id, $reason, $password)) {
+        $email = $user->getEmailById($user_id);
+        if ($email) {
+            account_deletion($email);
+        }
+        logMessage("Account deleted successfully for user ID: $user_id");
+    } else {
+        logMessage("Error executing deleteAccount query for user ID: $user_id");
+    }
+}

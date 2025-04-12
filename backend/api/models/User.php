@@ -123,6 +123,10 @@ class User
                         logMessage("User is deactivated: $email");
                         echo json_encode(["error" => "User is deactivated"]);
                         return false;
+                    } elseif ($status == 3) {
+                        logMessage("User is deleted: $email");
+                        echo json_encode(["error" => "User is deleted"]);
+                        return false;
                     } else {
                         logMessage("User login successful: $email with role: " . $userData['role']);
                         return $userData;
@@ -632,6 +636,92 @@ class User
 
                     return false;
                 }
+            }
+        }
+    }
+
+    public function deleteAccount($user_id, $remark, $password)
+    {
+        logMessage("Attempting to delete user with ID: $user_id");
+
+        // check if already deleted or not active
+        $query = "SELECT status, password FROM " . $this->table . " WHERE user_id = ?";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing statement for delete User: " . $this->conn->error);
+            echo json_encode([
+                "success" => false,
+                "message" => "Error preparing statement for deletion."
+            ]);
+            return false;
+        }
+
+        $stmt->bind_param("i", $user_id);
+
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            $userData = $result->fetch_assoc();
+
+            if ($result->num_rows > 0) {
+                $status = $userData['status'];
+                if ($status == 3) {
+                    logMessage("User already deleted with ID: $user_id");
+                    echo json_encode([
+                        "success" => false,
+                        "message" => "User already deleted."
+                    ]);
+                    return false;
+                }
+            }
+        }
+
+        if (!password_verify($password, $userData['password'])) {
+            logMessage("Password did not match for user ID: $user_id");
+            echo json_encode([
+                "success" => false,
+                "message" => "Password did not match."
+            ]);
+            return false;
+        } else {
+
+            $query = "UPDATE " . $this->table . " SET status = 3, remarks = ? WHERE user_id = ?";
+            $stmt = $this->conn->prepare($query);
+
+            if ($stmt === false) {
+                logMessage("Error preparing statement for delete User: " . $this->conn->error);
+                echo json_encode([
+                    "success" => false,
+                    "message" => "Error preparing update query."
+                ]);
+                return false;
+            }
+
+            $stmt->bind_param("si", $remark, $user_id);
+
+            if ($stmt->execute()) {
+                if ($stmt->affected_rows > 0) {
+                    logMessage("User deleted successfully with ID: $user_id");
+                    echo json_encode([
+                        "success" => true,
+                        "message" => "User deleted successfully."
+                    ]);
+                    return true;
+                } else {
+                    logMessage("No user found with ID: $user_id to delete.");
+                    echo json_encode([
+                        "success" => false,
+                        "message" => "No user found with the given ID to delete."
+                    ]);
+                    return false;
+                }
+            } else {
+                logMessage("Error executing delete User query for user ID: $user_id with error: " . $stmt->error);
+                echo json_encode([
+                    "success" => false,
+                    "message" => "Error deleting user."
+                ]);
+                return false;
             }
         }
     }

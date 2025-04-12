@@ -71,7 +71,7 @@ switch ($action) {
         break;
     case 'account_delete':
         logMessage('running account delete...in auth controller');
-        deleteAccount($user_id);
+        deleteUserAccount($user_id);
         break;
     case 'get_profile':
         logMessage("Running get_profile....in controller");
@@ -85,6 +85,8 @@ switch ($action) {
         logMessage("Running change_password....in controller");
         changePassword($user_id);
         break;
+
+
 
     default:
         echo json_encode(["error" => "Invalid action"]);

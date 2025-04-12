@@ -43,7 +43,7 @@ export function initMember_myAcnt() {
     
     .catch((err) => {
       console.error("Error:", err);
-      showToast("Something went wrong fetching profile.");
+      showToast("Something went wrong fetching profile.", "error");
     });
 
   // Enable Edit Mode
@@ -221,7 +221,7 @@ export function initMember_myAcnt() {
     const confirmText = document.getElementById("delete-confirm-text").value;
 
     if (confirmText.trim().toLowerCase() !== "confirm") {
-      showToast("Please type 'confirm' to delete your account");
+      showToast("Please type 'confirm' to delete your account", "error");
       return;
     }
 
@@ -229,6 +229,8 @@ export function initMember_myAcnt() {
     formData.append("action", "account_delete");
     formData.append("password", password);
     formData.append("reason", reason);
+
+    console.log(formData);
 
     fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php", {
       method: "POST",
@@ -242,15 +244,19 @@ export function initMember_myAcnt() {
         return res.json();
       })
       .then((data) => {
-        showToast(data.message);
         if (data.success) {
-          localStorage.clear();
-          window.location.href = "/login";
+          showToast(data.message);
+          setTimeout(() => {
+            localStorage.clear();
+            window.location.href = "/Group_Project_48/home";
+          }, 3000);
+        }else{
+          showToast(data.message, "error");
         }
       })
       .catch((err) => {
         console.error("Error deleting account:", err);
-        showToast("Account deletion failed.");
+        showToast("Account deletion failed.", "error");
       });
   });
 
