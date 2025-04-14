@@ -1,4 +1,4 @@
-.trainer-registration-form {
+.class-schedule-form {
     max-width: 650px;
     margin: 0 auto;
     margin-bottom: 90px;
@@ -132,3 +132,51 @@ label {
     background-color: #e04e00; /* Even darker shade on click */
     transform: translateY(0); /* Remove lift effect */
 }
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.toast {
+    margin-bottom: 10px;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: white;
+    background-color: #333;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    opacity: 0;
+    animation: fadeInOut 4s forwards;
+}
+
+.toast.success { background-color: #28a745; }
+.toast.error { background-color: #dc3545; }
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(-20px); }
+    10%, 90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-20px); }
+}
+
+.form-response {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .form-response.success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+  }
+  
+  .form-response.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+  }
+  
