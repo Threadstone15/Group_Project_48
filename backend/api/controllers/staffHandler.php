@@ -267,7 +267,7 @@ function updateStaff()
 
 
 // Delete staff
-function deleteStaff($user_id, $remark, $deleted_by)
+function deactivateStaffStaff($user_id, $remark, $deleted_by)
 {
     // Concatenate the remark with the "Deleted by" info
     $remark = $remark . " (Deleted by: " . $deleted_by . ")";
@@ -286,6 +286,28 @@ function deleteStaff($user_id, $remark, $deleted_by)
     } else {
         logMessage("Failed to delete staff:");
         echo json_encode(["error" => "User deletion failed"]);
+    }
+}
+
+function reactivateStaff($user_id, $remark)
+{
+    // Concatenate the remark with the "Reactivated by" info
+    $remark = $remark . " (Reactivated by: " . $deleted_by . ")";
+    logMessage("Reactivate staff function running...ID - $user_id");
+
+    $user = new User();
+
+    // Call the deactivateUser function and check the result
+    if ($user->reactivateUser($user_id, $remark)) {
+        logMessage("Staff reactivated successfully:");
+        if ($email =  $user->getEmailById($user_id)) {
+            logMessage("Email: $email");
+            account_reactivation($email);
+        }
+        echo json_encode(["message" => "User reactivated successfully"]);
+    } else {
+        logMessage("Failed to reactivate staff:");
+        echo json_encode(["error" => "User reactivation failed"]);
     }
 }
 

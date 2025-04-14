@@ -175,8 +175,8 @@ class Staff
 
         $query = "SELECT 
                     s.staff_id as userID, 
-                    s.first_name as firstName, 
-                    s.last_name as lastName, 
+                    s.firstName as firstName, 
+                    s.lastName as lastName, 
                     s.phone, 
                     u.user_id,
                     u.email,

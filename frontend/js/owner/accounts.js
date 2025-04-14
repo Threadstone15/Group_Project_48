@@ -1,13 +1,32 @@
 export function initOwner_accounts() {
+    console.log("initlaizing accounts page...");
     let temp_role;
     let allEmails = [];
-    let role = '';
-    let type = 'all';
+    let role = 'member';
+    let type = 'active';
     // Get all role filter buttons
     const roleButtons = document.querySelectorAll('.role-filter');
     const statusButtons = document.querySelectorAll('.status-filter');
 
     // Function to toggle the 'selected' class on the clicked button
+
+    // Modify the initialization part to trigger default loading
+    async function initialize() {
+
+        console.log("initlaize accounts page");
+        // Set the default active buttons
+        const defaultRoleButton = document.querySelector('.role-filter[data-role="member"]');
+        const defaultStatusButton = document.querySelector('.status-filter[data-role="active"]');
+        
+        if (defaultRoleButton) defaultRoleButton.classList.add('selected', 'active');
+        if (defaultStatusButton) defaultStatusButton.classList.add('selected', 'active');
+        
+        // Fetch emails and members
+        await fetchMembersByRole(role, type);
+    }
+
+    // Call initialize at the end of your initOwner_accounts function
+
     function toggleSelected(buttons) {
     buttons.forEach(button => {
         button.addEventListener('click', function() {
@@ -23,34 +42,6 @@ export function initOwner_accounts() {
     toggleSelected(roleButtons);
     toggleSelected(statusButtons);
 
-
-
-
-    // Fetch all emails from the backend on page load
-    async function fetchEmails() {
-        try {
-            const response = await fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/ownerController.php?action=get_all_emails", {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('authToken')}`
-                }
-            });
-
-            if (response.ok) {
-                const result = await response.json();
-                if (result && Array.isArray(result)) {
-                    allEmails = result;
-                } else {
-                    console.error('Unexpected response for fetching emails:', result);
-                }
-            } else {
-                console.error('Failed to fetch emails, HTTP status:', response.status);
-            }
-        } catch (error) {
-            console.error('Error fetching emails:', error);
-        }
-    }
 
 
 
@@ -75,151 +66,220 @@ export function initOwner_accounts() {
     } catch (error) {
         console.error('Error fetching members by role:', error);
     }
-}
-
-// Populate table with members based on type
-function populateTable(members, type) {
-    const tbody = document.querySelector("#equipmentsTable tbody");
-    tbody.innerHTML = ''; // Clear existing rows
-
-    // Filter members based on the type
-    let filteredMembers = [];
-
-    if (type == 'all') {
-        filteredMembers = members; // No filtering needed for 'all'
-    } else if (type == 'active') {
-        filteredMembers = members.filter(member => member.status == 1); // Filter for active members
-    } else if (type == 'inactive') {
-        filteredMembers = members.filter(member => member.status == 2); // Filter for inactive members
     }
 
-    if (filteredMembers.length > 0) {
-        filteredMembers.forEach(member => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${member.userID}</td>
-                <td>${member.firstName} ${member.lastName}</td>
-                <td>${member.email}</td>
-                <td>${member.phone}</td>
-                <td>
-                    <button class="delete-button" data-id="${member.user_id}">Deactivate</button>
-                </td>
-            `;
-            tbody.appendChild(row);
-        });
-        attachEventHandlers();
-    } else {
-        tbody.innerHTML = '<tr><td colspan="5">No members found for the selected role.</td></tr>';
-    }
-}
+    // Populate table with members based on type
+    function populateTable(members, type) {
+        const tbody = document.querySelector("#equipmentsTable tbody");
+        tbody.innerHTML = ''; // Clear existing rows
 
-// Event listener for role filter buttons
-document.querySelectorAll('.role-filter').forEach(button => {
-    button.addEventListener('click', event => {
-        document.querySelectorAll('.role-filter').forEach(btn => btn.classList.remove('active'));
-        event.target.classList.add('active');
+        // Filter members based on the type
+        let filteredMembers = [];
 
-        role = event.target.dataset.role; // Assign the selected role
-        console.log("Selected role: ", role);
-        fetchMembersByRole(role, type);  // Call with the current type
-    });
-});
 
-// Event listener for status filter buttons
-document.querySelectorAll('.status-filter').forEach(button => {
-    button.addEventListener('click', event => {
-        document.querySelectorAll('.status-filter').forEach(btn => btn.classList.remove('active'));
-        event.target.classList.add('active');
+        if (type == 'active') {
+            filteredMembers = members.filter(member => member.status == 1); // Filter for active members
+        } else if (type == 'inactive') {
+            filteredMembers = members.filter(member => member.status == 2); // Filter for inactive members
+        } else if (type == 'deleted') {
+            filteredMembers = members.filter(member => member.status == 3); // Filter for deleted members
+        }
 
-        type = event.target.dataset.role; // Assign the selected type
-        console.log("Selected type: ", type);
-        fetchMembersByRole(role, type);  // Call with the current role
-    });
-});
+        if (filteredMembers.length > 0) {
+            filteredMembers.forEach(member => {
+                const row = document.createElement('tr');
+                
+                // Determine button properties based on status filter
+                let buttonText, buttonClass, actionType;
+                if (type === 'active') {
+                    buttonText = 'Deactivate';
+                    buttonClass = 'deactivate-button';
+                    actionType = 'deactivate';
+                } else {
+                    buttonText = 'Reactivate';
+                    buttonClass = 'reactivate-button';
+                    actionType = 'reactivate';
+                }
 
-    function attachEventHandlers() {
-        document.querySelectorAll('.delete-button').forEach(button => {
-            button.addEventListener('click', event => {
-                const userId = event.target.dataset.id;
-                confirmDelete(userId);
+                row.innerHTML = `
+                    <td>${member.userID}</td>
+                    <td>${member.firstName} ${member.lastName}</td>
+                    <td>${member.email}</td>
+                    <td>${member.phone}</td>
+                    <td>
+                        <button class="${buttonClass} action-button" data-id="${member.user_id}">${buttonText}</button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+
+                // Add event listener to the new button
+                const button = row.querySelector('.action-button');
+                button.addEventListener('click', () => {
+                    if (actionType === 'deactivate') {
+                        confirmDeactivate(member.user_id);
+                    } else {
+                        confirmReactivate(member.user_id);
+                    }
+                });
             });
+        } else {
+            tbody.innerHTML = '<tr><td colspan="5">No members found for the selected role.</td></tr>';
+        }
+    }
+
+    // Event listener for role filter buttons
+    document.querySelectorAll('.role-filter').forEach(button => {
+        button.addEventListener('click', event => {
+            document.querySelectorAll('.role-filter').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            role = event.target.dataset.role; // Assign the selected role
+            console.log("Selected role: ", role);
+            deletePopup.style.display = 'none';
+            reactivatePopup.style.display = 'none';
+            setTimeout(() => {
+                fetchMembersByRole(role, type);  // Call with the current role
+            }, 50);
         });
+    });
 
-    }
+    // Event listener for status filter buttons
+    document.querySelectorAll('.status-filter').forEach(button => {
+        button.addEventListener('click', event => {
+            document.querySelectorAll('.status-filter').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
 
-    // Function to handle closing the popup
-    function closePopup() {
-        const deletePopup = document.getElementById('deletePopup');
-        deletePopup.style.display = 'none';  // Hide the popup
-    }
+            type = event.target.dataset.role; // Assign the selected type
+            console.log("Selected type: ", type);
+            deletePopup.style.display = 'none';
+            reactivatePopup.style.display = 'none';
+            setTimeout(() => {
+                fetchMembersByRole(role, type);  // Call with the current role
+            }, 50);
+        });
+    });
+    
 
-    // Get the close button and add event listener
-    document.getElementById('closePopup').addEventListener('click', closePopup);
-
-
-    // Confirm delete action
-    function confirmDelete(userId) {
-
+    function confirmDeactivate(userId) {
+        console.log("Deactivating member with ID:", userId);
         const deletePopup = document.getElementById('deletePopup');
         const confirmDeleteButton = document.getElementById('confirmDelete');
         const cancelDeleteButton = document.getElementById('cancelDelete');
+        const deactivationReason = document.getElementById('deactivationReason');
 
         // Show the popup
         deletePopup.style.display = 'block';
-
-        // Store the user ID to be deleted
-        deletePopup.setAttribute('data-user-id', userId);
+        deactivationReason.value = ''; // Clear previous reason
 
         // Add event listener for the confirm button
-        confirmDeleteButton.onclick = async function () {
-            const reason = document.getElementById('deactivationReason').value;
-            
-            // Call the delete function with the reason and logged user ID
+        confirmDeleteButton.onclick = async function() {
+            const reason = deactivationReason.value;
             if (reason) {
-                console.log("Reason for deactivation: ", reason , userId);
-                await deleteMember(userId, reason);
-                deletePopup.style.display = 'none';  // Close the popup
+                await deactivateMember(userId, reason);
+                deletePopup.style.display = 'none';
             } else {
                 showToast("Please enter a reason for deactivation.", "error");
             }
         };
+
         // Close the popup when cancel is clicked
-        cancelDeleteButton.onclick = function () {
+        cancelDeleteButton.onclick = function() {
             deletePopup.style.display = 'none';
         };
 
+        // Close popup when clicking the X button
+        document.getElementById('closePopup').onclick = function() {
+            deletePopup.style.display = 'none';
+        };
     }
 
-    // Delete member
-    async function deleteMember(userId, reason) {
+    // Confirm reactivate action
+    function confirmReactivate(userId) {
+        const reactivatePopup = document.getElementById('reactivatePopup');
+        const confirmReactivateButton = document.getElementById('confirmReactivate');
+        const cancelReactivateButton = document.getElementById('cancelReactivate');
+        const reactivationReason = document.getElementById('reactivationReason');
+
+        // Show the popup
+        reactivatePopup.style.display = 'block';
+        reactivationReason.value = ''; // Clear previous reason
+
+        // Add event listener for the confirm button
+        confirmReactivateButton.onclick = async function() {
+            const reason = reactivationReason.value;
+            if (reason) {
+                await reactivateMember(userId, reason);
+                reactivatePopup.style.display = 'none';
+            } else {
+                showToast("Please enter a reason for reactivation.", "error");
+            }
+        };
+
+        // Close the popup when cancel is clicked
+        cancelReactivateButton.onclick = function() {
+            reactivatePopup.style.display = 'none';
+        };
+
+        // Close popup when clicking the X button
+        document.getElementById('closeReactivatePopup').onclick = function() {
+            reactivatePopup.style.display = 'none';
+        };
+    }
+
+    // Deactivate member function
+    async function deactivateMember(userId, reason) {
+        console.log("Deactivating member with ID:(Fetch)", userId);
         try {
-            console.log("Deleting... - ", userId);
-    
-            const response = await fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/ownerController.php?action=delete_staff&userID=${userId}`, {
-                method: 'DELETE',
+            const response = await fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/ownerController.php?action=deactivate_staff`, {
+                method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    userId: userId,  // The user being deactivated
-                    reason: reason,  // Reason for deactivation
+                    userId: userId,
+                    reason: reason
                 })
             });
-    
+
             if (response.ok) {
-                showToast("Member deleted successfully", "success"); // Show success toast
-                fetchMembersByRole(document.querySelector('.role-filter.active').dataset.role); // Refresh table
+                showToast("Member deactivated successfully", "success");
+                fetchMembersByRole(role, type); // Refresh table with current filters
             } else {
-                console.error('Failed to delete member, HTTP status:', response.status);
-                showToast("Failed to delete member. Please try again.", "error"); // Show error toast
+                showToast("Failed to deactivate member", "error");
             }
         } catch (error) {
-            console.error('Error deleting member:', error);
-            showToast("An error occurred while deleting the member.", "error"); // Show error toast
+            console.error('Error deactivating member:', error);
+            showToast("An error occurred", "error");
         }
     }
-    
+
+    // Reactivate member function
+    async function reactivateMember(userId, reason) {
+        try {
+            const response = await fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/ownerController.php?action=reactivate_staff`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    userId: userId,
+                    reason: reason
+                })
+            });
+
+            if (response.ok) {
+                showToast("Member reactivated successfully", "success");
+                fetchMembersByRole(role, type); // Refresh table with current filters
+            } else {
+                showToast("Failed to reactivate member", "error");
+            }
+        } catch (error) {
+            console.error('Error reactivating member:', error);
+            showToast("An error occurred", "error");
+        }
+    }
 
 
     document.querySelectorAll('.final-cta-button').forEach(button => {
@@ -245,7 +305,7 @@ document.querySelectorAll('.status-filter').forEach(button => {
 
     
 
-
+    
     // Add member functionality
     function initAddMember() {
         const role = document.getElementById('role').value.trim();
@@ -326,6 +386,8 @@ document.querySelectorAll('.status-filter').forEach(button => {
             mobile,
             gender
         });
+
+        
     
         fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/ownerController.php?action=add_staff", {
             method: "POST",
@@ -377,8 +439,8 @@ document.querySelectorAll('.status-filter').forEach(button => {
             toast.remove();
         }, 4000);
     }
+        
+    initialize();
     
-    
-
 
 }

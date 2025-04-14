@@ -24,9 +24,9 @@
                 </div>
                 
                 <div class="status-buttons">
-                    <button class="status-filter" data-role="all">All</button>
                     <button class="status-filter" data-role="active">Active</button>
                     <button class="status-filter" data-role="inactive">Deactivated</button>
+                    <button class="status-filter" data-role="deleted">Deleted</button>
                 </div>
             </div>
             
@@ -61,6 +61,23 @@
                     <div class="popup-buttons">
                         <button id="confirmDelete" class="popup-confirm">Yes</button>
                         <button id="cancelDelete" class="popup-cancel">No</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reactivate confirmation popup -->
+            <div id="reactivatePopup" class="popup" style="display: none;">
+                <button id="closeReactivatePopup" class="close-button">&times;</button>
+                <div class="popup-content">
+                    <h2>Confirm Reactivation</h2>
+                    <p>Are you sure you want to reactivate this account?</p>
+
+                    <!-- Reason input field -->
+                    <label for="reactivationReason">Reason for Reactivation:</label>
+                    <textarea id="reactivationReason" placeholder="Enter the reason for reactivation" required></textarea>
+                    <div class="popup-buttons">
+                        <button id="confirmReactivate" class="popup-confirm">Yes</button>
+                        <button id="cancelReactivate" class="popup-cancel">No</button>
                     </div>
                 </div>
             </div>

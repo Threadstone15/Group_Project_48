@@ -369,6 +369,47 @@ tbody tr:hover {
   background-color: #0d0d0d; 
   color: #fff; 
 }
+.deactivate-button {
+  background-color: #f44336; /* Orange - warning color for deactivation */
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #fff;
+  margin-right: 5px;
+  transition: all 0.3s ease;
+}
+
+.deactivate-button:hover {
+  background-color: #b71010; /* Darker orange on hover */
+  color: #fff;
+}
+
+.deactivate-button:active {
+  background-color: #0d0d0d; ; /* Even darker on active */
+  color: #fff;
+}
+
+.reactivate-button {
+  background-color: #22be3f; /* Blue - positive action color */
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #fff;
+  margin-right: 5px;
+  transition: all 0.3s ease;
+}
+
+.reactivate-button:hover {
+  background-color: #1c672f; /* Darker blue on hover */
+  color: #fff;
+}
+
+.reactivate-button:active {
+  background-color: #0d0d0d; /* Even darker on active */
+  color: #fff;
+}
 
 
 /* Popup container styling */

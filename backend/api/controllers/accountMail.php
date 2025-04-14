@@ -163,3 +163,22 @@ function trainer_application_acceptance($email, $password)
         logMessage("Failed to send trainer application acceptance email to: $email. PHPMailer Error: " . $e->getMessage());
     }
 }
+
+function account_reactivation($email)
+{
+    logMessage("Account reactivation email function invoked.");
+    $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+
+    try {
+        $mail = configureMailer();
+        $mail->addAddress($email);
+        $mail->Subject = "Account Reactivation Confirmation";
+        $mail->Body = "Hello,\n\nYour account has been reactivated by the GymVerse team. \n\nPlease contact support if you have any questions.\n\nBest Regards,\nGymVerse Team";
+
+        logMessage("Sending account reactivation email to: $email");
+        $mail->send();
+        logMessage("Account reactivation email sent successfully to: $email");
+    } catch (Exception $e) {
+        logMessage("Failed to send account reactivation email to: $email. PHPMailer Error: " . $e->getMessage());
+    }
+}

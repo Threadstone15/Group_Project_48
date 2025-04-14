@@ -95,7 +95,7 @@ class Trainer
                     t.trainer_id as userID, 
                     t.firstName, 
                     t.lastName, 
-                    t.mobile_number as phone, 
+                    t.phone,  
                     u.user_id,
                     u.email,
                     u.status

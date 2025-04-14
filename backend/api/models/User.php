@@ -725,4 +725,68 @@ class User
             }
         }
     }
+
+    public function reactivateUser($user_id, $remark)
+    {
+        logMessage("Attempting to reactivate user with ID: $user_id");
+
+        // check if already deleted or not active
+        $query = "SELECT status FROM " . $this->table . " WHERE user_id = ?";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing statement for reactivateUser: " . $this->conn->error);
+            echo json_encode(["error" => "Error preparing statement for reactivation."]);
+            http_response_code(500); // Internal Server Error
+            return false;
+        }
+
+        $stmt->bind_param("i", $user_id);
+
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            $userData = $result->fetch_assoc();
+
+            if ($result->num_rows > 0) {
+                $status = $userData['status'];
+                if ($status == 1) {
+                    logMessage("User already active with ID: $user_id");
+                    echo json_encode(["error" => "User already active."]);
+                    http_response_code(400); // Bad Request
+                    return false;
+                }
+            }
+        }
+
+        $query = "UPDATE " . $this->table . " SET status = 1, remarks = ? WHERE user_id = ?";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing statement for reactivateUser: " . $this->conn->error);
+            echo json_encode(["error" => "Error preparing update query."]);
+            http_response_code(500); // Internal Server Error
+            return false;
+        }
+
+        $stmt->bind_param("si", $remark, $user_id);
+
+        if ($stmt->execute()) {
+            if ($stmt->affected_rows > 0) {
+                logMessage("User reactivated successfully with ID: $user_id");
+                echo json_encode(["message" => "User reactivated successfully."]);
+                http_response_code(200); // OK
+                return true;
+            } else {
+                logMessage("No user found with ID: $user_id to reactivate.");
+                echo json_encode(["error" => "No user found with the given ID to reactivate."]);
+                http_response_code(404); // Not Found
+                return false;
+            }
+        } else {
+            logMessage("Error executing reactivate User query for user ID: $user_id with error: " . $stmt->error);
+            echo json_encode(["error" => "Error reactivating user."]);
+            http_response_code(500); // Internal Server Error
+            return false;
+        }
+    }
 }

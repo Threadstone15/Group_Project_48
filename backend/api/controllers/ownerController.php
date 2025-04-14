@@ -48,14 +48,23 @@ switch ($action) {
         logMessage("Running update_staff....in controller");
         updateStaff();
         break;
-    case 'delete_staff':
+    case 'deactivate_staff':
         $deleted_by = $user_id;
         logMessage("Running delete_staff....in controller");
         $input = json_decode(file_get_contents('php://input'), true);
         $user_id = $input['userId'] ?? null;
         $remark = $input['reason'] ?? null;
         logMessage("User ID: $user_id, Remark: $remark, Deleted By: $deleted_by");
-        deleteStaff($user_id, $remark, $deleted_by);
+        deactivateStaff($user_id, $remark, $deleted_by);
+        break;
+    case 'reactivate_staff':
+        $reactivated_by = $user_id;
+        logMessage("Running reactivate_staff....in controller");
+        $input = json_decode(file_get_contents('php://input'), true);
+        $user_id = $input['userId'] ?? null;
+        $remark = $input['reason'] ?? null;
+        logMessage("User ID: $user_id, Remark: $remark, Reactivated By: $reactivated_by");
+        reactivateStaff($user_id, $remark, $reactivated_by);
         break;
 
     case 'add_staff':
