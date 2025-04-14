@@ -1,9 +1,9 @@
 export function initOwner_accounts() {
     console.log("initlaizing accounts page...");
-    let temp_role;
-    let allEmails = [];
+    let searchTimeout = null;
     let role = 'member';
     let type = 'active';
+    let currentMembers;
     // Get all role filter buttons
     const roleButtons = document.querySelectorAll('.role-filter');
     const statusButtons = document.querySelectorAll('.status-filter');
@@ -59,6 +59,7 @@ export function initOwner_accounts() {
         if (response.ok) {
             const members = await response.json();
             console.log("response: ", members);
+            currentMembers = members;
             populateTable(members, type);  // Passing type to filter the results
         } else {
             console.error('Failed to fetch members by role, HTTP status:', response.status);
@@ -125,6 +126,80 @@ export function initOwner_accounts() {
         } else {
             tbody.innerHTML = '<tr><td colspan="5">No members found for the selected role.</td></tr>';
         }
+    }
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+
+        console.log("Search input: ", e.target.value);
+        // Clear any existing timeout
+        clearTimeout(searchTimeout);
+        
+        // Set a new timeout to trigger the search after 300ms of inactivity
+        searchTimeout = setTimeout(() => {
+            const searchTerm = e.target.value.trim().toLowerCase();
+            if (searchTerm) {
+                filterMembersBySearch(searchTerm);
+            } else {
+                // If search field is empty, show all current filtered members
+                populateTable(currentMembers, type);
+            }
+        }, 300);
+    });
+    
+    // Modify the filterMembersBySearch function to highlight matches
+    function filterMembersBySearch(term) {
+        const filtered = currentMembers.filter(member => {
+            const fullName = `${member.firstName} ${member.lastName}`.toLowerCase();
+            const email = member.email.toLowerCase();
+            return fullName.includes(term) || email.includes(term);
+        });
+        
+        const tbody = document.querySelector("#equipmentsTable tbody");
+        tbody.innerHTML = '';
+        
+        if (filtered.length > 0) {
+            filtered.forEach(member => {
+                const row = document.createElement('tr');
+                const fullName = `${member.firstName} ${member.lastName}`;
+                const email = member.email;
+                
+                // Highlight matching text
+                const highlightedName = highlightMatch(fullName, term);
+                const highlightedEmail = highlightMatch(email, term);
+                
+                row.innerHTML = `
+                    <td>${member.userID}</td>
+                    <td>${highlightedName}</td>
+                    <td>${highlightedEmail}</td>
+                    <td>${member.phone}</td>
+                    <td>
+                        <button class="${type === 'active' ? 'deactivate-button' : 'reactivate-button'} action-button" data-id="${member.user_id}">
+                            ${type === 'active' ? 'Deactivate' : 'Reactivate'}
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+                
+                // Reattach event listeners to the new buttons
+                const button = row.querySelector('.action-button');
+                button.addEventListener('click', () => {
+                    if (type === 'active') {
+                        confirmDeactivate(member.user_id);
+                    } else {
+                        confirmReactivate(member.user_id);
+                    }
+                });
+            });
+        } else {
+            tbody.innerHTML = '<tr><td colspan="5">No matching members found.</td></tr>';
+        }
+    }
+    
+    // Helper function to highlight matching text
+    function highlightMatch(text, term) {
+        if (!term) return text;
+        
+        const regex = new RegExp(term, 'gi');
+        return text.replace(regex, match => `<span class="highlight">${match}</span>`);
     }
 
     // Event listener for role filter buttons
