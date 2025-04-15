@@ -1,8 +1,8 @@
 
 .table-container {
   width: 100%;
-  margin: 20px auto;
   border-collapse: collapse;
+  margin-bottom: 30px;
 }
 
 .table-container table {
@@ -29,6 +29,10 @@ th, td {
 /* Optional: Add a bottom border for row dividers */
 .table-container tr td {
   border-bottom: 1px solid #e0e0e0; /* Light border between rows */
+}
+
+.search-container {
+  margin-bottom: 15px;
 }
 
 th {
@@ -78,7 +82,6 @@ tbody tr:hover {
   cursor: default;
 }
 
-
 .add-equipment-container {
   max-width: 605px;
   font: 600 18px Poppins, sans-serif;
@@ -121,7 +124,7 @@ tbody tr:hover {
 }
 
 .equipment-form {
-  margin-top: 35px;
+  margin-top: 25px;
   font-size: 16px;
   color: #4F4F4F;
   letter-spacing: -0.32px;
@@ -140,15 +143,20 @@ tbody tr:hover {
 
 .form-input {
   flex: 1;
-  min-width: 220px;
+  min-width: 200px;
   height: 36px;
   border-radius: 10px;
   background-color: rgba(79, 79, 79, 0.05);
   border: 1px solid rgba(79, 79, 79, 0.05);
-  padding: 10px;
   font-family: Poppins, sans-serif;
-  font-size: 14px;
+  padding: 10px;
+  font-size: 12px;
   cursor: pointer;
+}
+
+.form-input[aria-label="Select equipment type"] {
+  /* Only add padding to the left side */
+  padding: 5px 10px 5px 5px; /* top right bottom left */
 }
 
 /* Add pointer cursor on hover for the calendar icon */
@@ -168,11 +176,8 @@ tbody tr:hover {
   line-height: 1;
   cursor: pointer;
   font-family: 'Poppins', sans-serif;
-  margin-top: 30px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 110px;
+  justify-content: flex-end;
   transition: all 0.3s ease; 
 }
 
@@ -190,12 +195,9 @@ tbody tr:hover {
     padding: 20px;
   }
 
-  .submit-button {
-    padding: 12px 20px;
-  }
 }
 
-.header, .table-container, .add-equipment-container {
+.header, .table-container, .add-equipment-container, .search-container {
   width: 100%; 
   margin-left: 50px; 
   padding-left: 0;
