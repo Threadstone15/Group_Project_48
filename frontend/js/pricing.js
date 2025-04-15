@@ -45,8 +45,8 @@ export function initpricing(){
                 ${index === 2 ? '<div class="popular-badge">Most Popular</div>' : ''}
                 <h3>${plan.plan_name}</h3>
                 <div class="price-container">
-                    <div class="price monthly active">$${parseFloat(plan.monthlyPrice).toFixed(2)}<span>/month</span></div>
-                    <div class="price annual">$${parseFloat(plan.yearlyPrice).toFixed(2)}<span>/year</span></div>
+                    <div class="price monthly active">LKR${parseFloat(plan.monthlyPrice).toFixed(2)}<span>/month</span></div>
+                    <div class="price annual">LKR${parseFloat(plan.yearlyPrice).toFixed(2)}<span>/year</span></div>
                 </div>
                 <ul class="features">${benefitsList}</ul>
             `;

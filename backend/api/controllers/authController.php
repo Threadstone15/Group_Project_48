@@ -10,6 +10,7 @@ session_start();
 
 include_once "../../middleware/authMiddleware.php";
 include_once "../models/User.php";
+include_once "../models/Payments.php";
 include_once "../models/Member.php";
 include_once "../models/Subscription.php";
 include_once "../../logs/save.php";
@@ -99,6 +100,7 @@ function login()
 
     $user = new User();
 
+
     // Get the raw input data and decode JSON
     $data = json_decode(file_get_contents("php://input"), true);
 
@@ -113,47 +115,52 @@ function login()
         $userData = $user->login($email, $password);
 
         if ($userData) {
-            if (password_verify($password, $userData['password'])) {
-                $token = generateToken($userData['user_id']);
-                $role = $userData['role'];
-                logMessage("Login Successful: $token $role");
+            $token = generateToken($userData['user_id']);
+            $role = $userData['role'];
+            logMessage("Login Successful: $token $role");
+            http_response_code(200);
 
-                // Set the HTTP status code for successful login
-                http_response_code(200);
+            if ($role === 'member') {
+                $payment = new Payment();
+                $user_id = $userData['user_id'];
+                $payments = $payment->getLatestPaymentByUserId($user_id);
 
-                // Respond with a success message and token
+                if (!$payments) {
+                    $response = [
+                        "success" => true,
+                        "message" => "Login successful",
+                        "role" => $role,
+                        "token" => $token
+                    ];
+                } else {
+                    $response = [
+                        "success" => true,
+                        "message" => "Login successful",
+                        "role" => $role,
+                        "token" => $token,
+                        "membership_plan_id" => $payments['membership_plan_id'],
+                        "amount" => $payments['amount'],
+                        "status" => $payments['status'],
+                        "date_time" => $payments['date_time']
+                    ];
+                }
+            } else {
                 $response = [
                     "success" => true,
                     "message" => "Login successful",
                     "role" => $role,
                     "token" => $token
                 ];
-            } else {
-                // Incorrect password, return error response
-                http_response_code(401); // Unauthorized
-                $response = [
-                    "success" => false,
-                    "error" => "Invalid credentials"
-                ];
             }
         } else {
-            // User not found, return error response
-            http_response_code(404); // Not Found
-            $response = [
-                "success" => false,
-                "error" => "User not found"
-            ];
+            exit();
         }
 
         // Send the response as JSON
         echo json_encode($response);
-
-        // Ensure that the script stops after sending the response
         exit;
     } else {
         logMessage("Invalid input data for user login");
-        http_response_code(400);  // Bad Request
-        echo json_encode(["error" => "Invalid input data"]);
     }
 }
 

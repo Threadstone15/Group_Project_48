@@ -25,10 +25,9 @@ import { inittrainerApplication } from "./trainerApplication.js";
 
 //import owner dashboardPg js funcs
 import { initOwner_home } from "./owner/ownerHome.js";
-import { initOwner_gymMembers } from "./owner/gymMembers.js";
+import { initOwner_accounts } from "./owner/accounts.js";
 import { initOwner_trainers } from "./owner/trainers.js";
 import { initOwner_memberPlans } from "./owner/memberPlans.js";
-import { initOwner_staff } from "./owner/staff.js";
 import { initOwner_financialOver } from "./owner/financialOver.js";
 import { initOwner_analytics } from "./owner/analytics.js";
 import { initOwner_myAcnt } from "./owner/myAcnt.js";
@@ -48,6 +47,7 @@ import { initMember_trackProgress } from "./member/trackYourProgress.js";
 import { initMember_upgradePlan } from "./member/upgradePlan.js";
 import { initMember_viewPlan } from "./member/viewPlan.js";
 import { initMember_workoutMealPlan } from "./member/workoutMealPlans.js";
+import { initMember_payments } from "./member/payments.js";
 
 //importing staff dashboardPg js funcs
 import { initStaff_equipmentMaintain } from "./staff/equipMaintainance.js";
@@ -64,6 +64,7 @@ import { initTrainer_myAcnt } from "./trainer/myAcnt.js";
 import { initTrainer_home } from "./trainer/trainerHome.js";
 import { initTrainer_workoutMealPlans } from "./trainer/workoutMealPlans.js";
 
+import { navigate } from "./router.js";
 
 export const validRoutes = {
     landingPages: [
@@ -81,9 +82,8 @@ export const validRoutes = {
     dashboards: {
         owner: [
             "owner/ownerHome",
-            "owner/gymMembers",
+            "owner/accounts",
             "owner/trainers",
-            "owner/staff",
             "owner/financialOver",
             "owner/memberPlans",
             "owner/analytics",
@@ -156,10 +156,9 @@ export function runDashboardPgJS(role, page) {
     if (role == 'owner') {
         switch (page) {
             case 'ownerHome': initOwner_home(); break;
-            case 'gymMembers': initOwner_gymMembers(); break;
+            case 'accounts': initOwner_accounts(); break;
             case 'trainers': initOwner_trainers(); break;
-            case 'staff': initOwner_staff(); break;
-            case 'financialOver': initOwner_financialOver(); break;
+            case 'financialOver': initOwner_financialOver() ; break;
             case 'memberPlans': initOwner_memberPlans(); break;
             case 'analytics': initOwner_analytics(); break;
             case 'myAcnt': initOwner_myAcnt(); break;
@@ -172,6 +171,7 @@ export function runDashboardPgJS(role, page) {
             case 'createPlan' : initMember_createPlan();break;
             case 'myAcnt' : initMember_myAcnt(); break;
             case 'trackYourProgress' : initMember_trackProgress(); break;
+            case 'payments' : initMember_payments(); break;
             case 'upgradePlan' : initMember_upgradePlan(); break;
             case 'viewPlan' : initMember_viewPlan(); break;
             case 'workoutMealPlans' : initMember_workoutMealPlan(); break;
@@ -199,4 +199,12 @@ export function runDashboardPgJS(role, page) {
             default : console.error("Undefined trainer dashboard "); break;
         }
     }
+}
+
+export function runSessionTimedOut() {
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("role");
+    navigate('login');
+    notifySessionTimedOut();
+     
 }

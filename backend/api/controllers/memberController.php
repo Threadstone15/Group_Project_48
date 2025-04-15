@@ -13,6 +13,7 @@ include_once "./membershipPlanHandler.php";
 include_once "../models/User.php";
 include_once "./subscriptionHandler.php";
 include_once "./markAttendanceHandler.php";
+include_once "./accountDetailHandler.php";
 
 $conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -44,6 +45,10 @@ switch ($action) {
         logMessage("Running update_subscription....in controller");
         updateSubscription($user_id);
         break;
+    case 'payment_list':
+        logMessage("Running payment_list....in controller");
+        getPaymentListOfAMember($user_id);
+        break;
     case 'update_attendance':
         logMessage("Running member mark_attendance....in controller");
         mark_attendance($user_id);
@@ -65,9 +70,23 @@ switch ($action) {
         confirmPayment($user_id);
         break;
     case 'account_delete':
-        logMessage('running account delete...in auth controller');
-        deleteAccount($user_id);
+        logMessage('running account delete...in controller');
+        deleteUserAccount($user_id);
         break;
+    case 'get_profile':
+        logMessage("Running get_profile....in controller");
+        getProfileDetails($user_id);
+        break;
+    case 'update_profile':
+        logMessage("Running update_profile....in controller");
+        updateProfileDetails($user_id);
+        break;
+    case 'change_password':
+        logMessage("Running change_password....in controller");
+        changePassword($user_id);
+        break;
+
+
 
     default:
         echo json_encode(["error" => "Invalid action"]);

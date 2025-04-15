@@ -11,16 +11,17 @@ include_once "../../middleware/authMiddleware.php";
 include_once "../../config/database.php";
 include_once "workoutPlanHandler.php";
 include_once "../models/User.php";
+include_once "./accountDetailHandler.php";
 
 $conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     logMessage("Handling preflight OPTIONS request.");
-    http_response_code(204);  
+    http_response_code(204);
     exit();
 }
 
 $request_method = $_SERVER['REQUEST_METHOD'];
-$action = $_POST['action'] ?? $_GET['action'] ?? null; 
+$action = $_POST['action'] ?? $_GET['action'] ?? null;
 
 /*$token = getBearerToken();
 $requiredRole = "trainer";
@@ -46,8 +47,26 @@ switch ($action) {
         logMessage("Running delete_workout_plan....in controller");
         deleteWorkoutPlan();
         break;
-        
+
+
+
+    case 'account_delete':
+        logMessage('running account delete...in controller');
+        deleteUserAccount($user_id);
+        break;
+    case 'get_profile':
+        logMessage("Running get_profile....in controller");
+        getProfileDetails($user_id);
+        break;
+    case 'update_profile':
+        logMessage("Running update_profile....in controller");
+        updateProfileDetails($user_id);
+        break;
+    case 'change_password':
+        logMessage("Running change_password....in controller");
+        changePassword($user_id);
+        break;
+
     default:
         echo json_encode(["error" => "Invalid action"]);
 }
-?>

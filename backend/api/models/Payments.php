@@ -99,4 +99,112 @@ class Payment
             return false;
         }
     }
+
+    public function getLatestPaymentByUserId($user_id)
+    {
+        logMessage("Fetching latest payment record for user_id: $user_id");
+
+        $query = "
+        SELECT p.membership_plan_id, p.amount, p.status, p.date_time, m.plan_name, m.benefits
+        FROM {$this->table} AS p
+        JOIN membership_plan AS m ON p.membership_plan_id = m.membership_plan_id
+        WHERE p.user_id = ?
+        ORDER BY p.date_time DESC
+        LIMIT 1
+    ";
+
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing statement for fetching latest user payment: " . $this->conn->error);
+            return false;
+        }
+
+        $stmt->bind_param("i", $user_id);
+        logMessage("Query bound for fetching latest payment of user_id: $user_id");
+
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            $payment = $result->fetch_assoc();
+
+            if ($payment) {
+                logMessage("Fetched latest payment for user_id: $user_id");
+                return $payment;
+            } else {
+                logMessage("No payment record found for user_id: $user_id");
+                return null;
+            }
+        } else {
+            logMessage("Error executing statement: " . $stmt->error);
+            return false;
+        }
+    }
+
+    public function getPaymentsByUserId($user_id)
+    {
+        logMessage("Fetching payment records for user_id: $user_id");
+
+        $query = "SELECT membership_plan_id, amount, status, date_time 
+                  FROM " . $this->table . " 
+                  WHERE user_id = ?";
+
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing statement for fetching user payments: " . $this->conn->error);
+            return false;
+        }
+
+        $stmt->bind_param("i", $user_id);
+        logMessage("Query bound for fetching payments of user_id: $user_id");
+
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            $payments = [];
+
+            while ($row = $result->fetch_assoc()) {
+                $payments[] = $row;
+            }
+
+            logMessage("Fetched " . count($payments) . " payments for user_id: $user_id");
+            return $payments;
+        } else {
+            logMessage("Error executing statement: " . $stmt->error);
+            return false;
+        }
+    }
+
+    public function getAllPayments()
+    {
+        logMessage("Fetching all payment records using stored procedure...");
+
+        // Call the stored procedure
+        $query = "CALL GetMemberPaymentDetails()";
+
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing statement for stored procedure: " . $this->conn->error);
+            return false;
+        }
+
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            $payments = $result->fetch_all(MYSQLI_ASSOC);
+
+            logMessage("Fetched " . count($payments) . " payments from stored procedure");
+
+            // Close the result set and statement
+            $stmt->close();
+            // Clear remaining results (in case of multiple result sets)
+            while ($this->conn->more_results() && $this->conn->next_result()) {
+                $this->conn->use_result();
+            }
+
+            return $payments;
+        } else {
+            logMessage("Error executing stored procedure: " . $stmt->error);
+            return false;
+        }
+    }
 }

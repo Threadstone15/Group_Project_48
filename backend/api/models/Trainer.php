@@ -1,19 +1,22 @@
 <?php
 // api/models/Trainer.php
 
-include_once "../../logs/save.php"; 
+include_once "../../logs/save.php";
 require_once "../../config/database.php"; // Added to follow the structure of Member.php
 
-class Trainer {
+class Trainer
+{
     private $conn;
     private $table = "trainer";
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->conn = DatabaseConnection::getInstance()->getConnection(); // Changed to align with Member.php
         logMessage("Trainer model initialized with database connection.");
     }
 
-    private function generateTrainerID() {
+    private function generateTrainerID()
+    {
         // Use SUBSTRING to extract the numeric part and ORDER BY it as an integer
         $query = "SELECT trainer_id 
                   FROM " . $this->table . " 
@@ -33,12 +36,15 @@ class Trainer {
         }
     }
 
-    public function registerTrainer($user_id, $firstName, $lastName, $NIC, $dob, $address, $mobile_number, $years_of_experience, $specialties, $cv_link) {
+    public function registerTrainer($user_id, $firstName, $lastName, $NIC, $dob, $address, $mobile_number, $years_of_experience, $specialties, $cv_link, $gender)
+    {
         logMessage("Registering trainer...");
-    
+
+        logMessage("All details: $user_id, $firstName, $lastName, $NIC, $dob, $address, $mobile_number, $years_of_experience, $specialties, $cv_link, $gender");
+
         $query = "INSERT INTO " . $this->table . " 
-          (trainer_id, user_id, firstName, lastName, NIC, DOB, address, mobile_number, years_of_experience, specialties, cv_link) 
-          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+          (trainer_id, user_id, firstName, lastName, NIC, DOB, address, phone, years_of_experience, specialties, cv_link, gender) 
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         logMessage("Running..");
         $stmt = $this->conn->prepare($query);
@@ -47,30 +53,31 @@ class Trainer {
             logMessage("Error preparing statement for trainer registration: " . $this->conn->error);
             return false;
         }
-    
+
         $trainer_id = $this->generateTrainerID();
         logMessage("generated ID - $trainer_id");
         if (!$trainer_id) {
             logMessage("Trainer ID generation failed");
             return false;
         }
-    
+
         $stmt->bind_param(
-            "sissssssiss", 
-            $trainer_id, 
-            $user_id, 
-            $firstName, 
-            $lastName, 
-            $NIC, 
-            $dob, 
-            $address, 
-            $mobile_number, 
-            $years_of_experience, 
-            $specialties, 
-            $cv_link
+            "sissssssisss",
+            $trainer_id,
+            $user_id,
+            $firstName,
+            $lastName,
+            $NIC,
+            $dob,
+            $address,
+            $mobile_number,
+            $years_of_experience,
+            $specialties,
+            $cv_link,
+            $gender
         );
-        
-    
+
+
         if ($stmt->execute()) {
             logMessage("Trainer registered successfully: $firstName $lastName");
             return true;
@@ -80,16 +87,18 @@ class Trainer {
         }
     }
 
-    public function getTrainerDetails() {
+    public function getTrainerDetails()
+    {
         logMessage("Fetching trainer details...");
 
         $query = "SELECT 
                     t.trainer_id as userID, 
                     t.firstName, 
                     t.lastName, 
-                    t.mobile_number as phone, 
+                    t.phone,  
                     u.user_id,
-                    u.email
+                    u.email,
+                    u.status
                   FROM 
                     " . $this->table . " t
                   JOIN 
@@ -113,6 +122,4 @@ class Trainer {
             return [];
         }
     }
-    
 }
-?>

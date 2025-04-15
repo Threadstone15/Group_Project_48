@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OwnerHome</title>
+  <title>Financial Overview</title>
   <link rel="stylesheet" href="/Group_Project_48/frontend/css/owner/financialOver.css">
   <link rel="stylesheet" href="/Group_Project_48/frontend/css/globals.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <div class="financial-container">
-            <div class="total-income-container">
-                <h2>Total Income</h2>
-                <p class="total-income" id="totalIncome">Rs.12345</p>
-            </div>
-            <div class="total-expenses-container">
-                <h2>Total Expenses</h2>
-                <p class="total-expenses" id="totalExpenses">Rs.567</p>
-            </div>
+  <div class="dashboard-container">
+    <!-- Main content area -->
+    <div class="content-area">
+      <div class="financial-summary">
+        <div class="summary-card">
+          <h2>Total Income</h2>
+          <p id="totalIncomeDisplay">Rs. Loading...</p>
+        </div>
+        <div class="summary-card">
+          <h2>Total Expenses</h2>
+          <p id="totalExpensesDisplay">Rs. Loading...</p>
+        </div>
+      </div>
+      
+      <div class="chart-section">
+        <h2>Monthly Financial Overview</h2>
+        <div class="chart-container">
+          <canvas id="financialChart"></canvas>
+        </div>
+      </div>
     </div>
-    <script type="module" src="/Group_Project_48/frontend/js/owner/financialOver.js"></script>
-
+  </div>
 </body>
 </html>

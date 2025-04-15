@@ -1,26 +1,29 @@
 <?php
 // models/TrainerCareer.php
 
-include_once "../../logs/save.php"; 
-require_once "../../config/database.php"; 
+include_once "../../logs/save.php";
+require_once "../../config/database.php";
 
-class TrainerApplication {
+class TrainerApplication
+{
     private $conn;
     private $table = "trainer_application";
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->conn = DatabaseConnection::getInstance()->getConnection();
         logMessage("TrainerCareer model initialized with database connection.");
     }
 
-    private function generateApplicationID() {
+    private function generateApplicationID()
+    {
         // Use SUBSTRING to extract the numeric part and ORDER BY it as an integer
         $query = "SELECT application_id 
                   FROM " . $this->table . " 
                   ORDER BY CAST(SUBSTRING(application_id, 3) AS UNSIGNED) DESC 
                   LIMIT 1";
         $result = $this->conn->query($query);
-    
+
         if ($result && $row = $result->fetch_assoc()) {
             // Extract the numeric part of the last ID and increment it
             $lastID = (int)substr($row['application_id'], 2); // Remove 'TA' and convert to integer
@@ -33,7 +36,8 @@ class TrainerApplication {
         }
     }
 
-    public function addApplication($career_id, $firstName, $lastName, $NIC, $dob, $email,  $address, $mobile_number, $years_of_experience, $specialties,$cv, $approved_by_owner) {
+    public function addApplication($career_id, $firstName, $lastName, $NIC, $dob, $email,  $address, $gender, $mobile_number, $years_of_experience, $specialties, $cv, $approved_by_owner)
+    {
         logMessage("Adding new application...");
 
         if (!$this->conn) {
@@ -47,18 +51,18 @@ class TrainerApplication {
             logMessage("Application ID generation failed");
             return false;
         }
-
-        $query = "INSERT INTO " . $this->table . " (application_id, career_id, firstName, lastName, NIC, DOB, email, address, mobile_number, years_of_experience, specialties, cv, approved_by_owner) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        logMessage("Query prepared for adding application: $career_id");
+        $query = "INSERT INTO " . $this->table . " (application_id, career_id, firstName, lastName, NIC, DOB, email, address, gender, mobile_number, years_of_experience, specialties, cv, submission_date, approved_by_owner) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,NOW(), ?)";
         $stmt = $this->conn->prepare($query);
-
+        logMessage("Query prepared for adding application: $career_id");
         if ($stmt === false) {
             logMessage("Error preparing statement for application insertion: " . $this->conn->error);
             return false;
         }
 
         if (!$stmt->bind_param(
-            "sssssssssisss",
+            "ssssssssssisss",
             $application_id,
             $career_id,
             $firstName,
@@ -67,12 +71,13 @@ class TrainerApplication {
             $dob,
             $email,
             $address,
+            $gender,
             $mobile_number,
             $years_of_experience,
             $specialties,
             $cv,
             $approved_by_owner
-            )) {
+        )) {
             logMessage("Error binding parameters for application insertion: " . $stmt->error);
             return false;
         }
@@ -87,7 +92,8 @@ class TrainerApplication {
         }
     }
 
-    public function getApplications() {
+    public function getApplications()
+    {
         logMessage("Fetching trainer applications...");
 
         if (!$this->conn) {
@@ -105,7 +111,7 @@ class TrainerApplication {
 
         if ($stmt->execute()) {
             $result = $stmt->get_result();
-    
+
             if ($result && $result->num_rows > 0) {
                 $careers = $result->fetch_all(MYSQLI_ASSOC);
                 logMessage("Trainer applicatins fetched successfully.");
@@ -119,8 +125,9 @@ class TrainerApplication {
             return false;
         }
     }
-    
-    public function updateApplicationStatus($application_id, $approved_by_owner) {
+
+    public function updateApplicationStatus($application_id, $approved_by_owner)
+    {
 
         logMessage("Updating trainer application status...");
 
@@ -152,7 +159,8 @@ class TrainerApplication {
         }
     }
 
-    public function deleteApplication($application_id) {
+    public function deleteApplication($application_id)
+    {
         logMessage("Deleting trainer application...");
 
         if (!$this->conn) {
@@ -183,21 +191,22 @@ class TrainerApplication {
         }
     }
 
-    public function getApplicationByEmail($email) {
+    public function getApplicationByEmail($email)
+    {
         logMessage("Fetching application by email: $email");
-    
+
         // Prepare the query
         $query = "SELECT * FROM " . $this->table . " WHERE email = ?";
         $stmt = $this->conn->prepare($query);
-    
+
         if ($stmt === false) {
             logMessage("Error preparing statement for getApplicationByEmail: " . $this->conn->error);
             return false;
         }
-    
+
         // Bind the email parameter
         $stmt->bind_param("s", $email);
-    
+
         // Execute the query
         if ($stmt->execute()) {
             $result = $stmt->get_result();
@@ -207,5 +216,57 @@ class TrainerApplication {
             return false;
         }
     }
+
+    public function getEmailByApplicationId($application_id)
+    {
+        logMessage("Fetching email by application ID: $application_id");
+
+        // Prepare the query
+        $query = "SELECT email FROM " . $this->table . " WHERE application_id = ?";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing statement for getEmailByApplicationId: " . $this->conn->error);
+            return false;
+        }
+
+        // Bind the application_id parameter
+        $stmt->bind_param("s", $application_id);
+
+        // Execute the query
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
+            return $row['email'];
+        } else {
+            logMessage("Error executing getEmailByApplicationId query: " . $stmt->error);
+            return false;
+        }
+    }
+
+    public function getApplicationByApplicationId($application_id)
+    {
+        logMessage("Fetching application by application ID: $application_id");
+
+        // Prepare the query
+        $query = "SELECT * FROM " . $this->table . " WHERE application_id = ?";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing statement for getApplicationByApplicationId: " . $this->conn->error);
+            return false;
+        }
+
+        // Bind the application_id parameter
+        $stmt->bind_param("s", $application_id);
+
+        // Execute the query
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            return $result->fetch_assoc();
+        } else {
+            logMessage("Error executing getApplicationByApplicationId query: " . $stmt->error);
+            return false;
+        }
+    }
 }
-?>

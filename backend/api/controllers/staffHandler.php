@@ -6,6 +6,7 @@ include_once "../models/User.php";
 include_once "../models/Member.php";
 include_once "../models/Trainer.php";
 include_once "../models/equipmentTypes.php";
+include_once "../models/Payments.php";
 include_once "../../logs/save.php";
 include_once "accountMail.php";
 
@@ -74,6 +75,15 @@ function addStaff()
     // Begin adding staff
     try {
         logMessage("Processing user registration: role=$role, email=$email.");
+
+        if ($user->userExists($email)) {
+            logMessage("User already exists with email: $email.");
+            http_response_code(400);
+            echo json_encode(["error" => "User already exists with email: $email."]);
+            return;
+        }
+
+
 
         // Add user to User table
         if ($role === "staff" || $role === "owner") {
@@ -157,7 +167,7 @@ function addStaff()
     } catch (Exception $e) {
         logMessage("Error in 'addStaff': " . $e->getMessage());
         http_response_code(500);
-        echo json_encode(["error" => "An error occurred while adding staff. Please try again later."]);
+        echo json_encode(["error" => "An error occurred: " . $e->getMessage()]);
     }
 }
 
@@ -257,20 +267,50 @@ function updateStaff()
 
 
 // Delete staff
-function deleteStaff($user_id)
+function deactivateStaffStaff($user_id, $remark, $deleted_by)
 {
+    // Concatenate the remark with the "Deleted by" info
+    $remark = $remark . " (Deleted by: " . $deleted_by . ")";
     logMessage("Delete staff function running...ID - $user_id");
 
     $user = new User();
 
-    if ($user->deleteUser($user_id)) {
+    // Call the deactivateUser function and check the result
+    if ($user->deactivateUser($user_id, $remark)) {
         logMessage("Staff deleted successfully:");
+        if ($email =  $user->getEmailById($user_id)) {
+            logMessage("Email: $email");
+            account_deactivation($email);
+        }
         echo json_encode(["message" => "User deleted successfully"]);
     } else {
         logMessage("Failed to delete staff:");
         echo json_encode(["error" => "User deletion failed"]);
     }
 }
+
+function reactivateStaff($user_id, $remark)
+{
+    // Concatenate the remark with the "Reactivated by" info
+    $remark = $remark . " (Reactivated by: " . $deleted_by . ")";
+    logMessage("Reactivate staff function running...ID - $user_id");
+
+    $user = new User();
+
+    // Call the deactivateUser function and check the result
+    if ($user->reactivateUser($user_id, $remark)) {
+        logMessage("Staff reactivated successfully:");
+        if ($email =  $user->getEmailById($user_id)) {
+            logMessage("Email: $email");
+            account_reactivation($email);
+        }
+        echo json_encode(["message" => "User reactivated successfully"]);
+    } else {
+        logMessage("Failed to reactivate staff:");
+        echo json_encode(["error" => "User reactivation failed"]);
+    }
+}
+
 
 // Get all emails
 function getAllEmails()
@@ -288,5 +328,20 @@ function getAllEmails()
     } else {
         logMessage("Failed to fetch emails.");
         echo json_encode(["error" => "Failed to fetch emails"]);
+    }
+}
+
+function getAllPayments()
+{
+    logMessage("Running get_all_payments....in controller");
+    $payment = new Payment();
+    $paymentData = $payment->getAllPayments();  // Store the result here
+
+    if ($paymentData !== false) {
+        logMessage("Payment fetched successfully.");
+        echo json_encode($paymentData);  // Echo the actual data
+    } else {
+        logMessage("Failed to fetch payments.");
+        echo json_encode(["error" => "Failed to fetch payments"]);
     }
 }

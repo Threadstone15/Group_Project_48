@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="overlay" id="overlay"></div>
+    <div class="content-wrapper">
+        <div class="content">
+            <div class="header">
+                <p class="heading">Accounts</p>
+            </div>
+            <div class="filter-row">
+                <div class="filter-buttons">
+                    <button class="role-filter" data-role="member">Member</button>
+                    <button class="role-filter" data-role="trainer">Trainer</button>
+                    <button class="role-filter" data-role="owner">Owner</button>
+                    <button class="role-filter" data-role="staff">Staff</button>
+                </div>
+                
+                <div class="status-buttons">
+                    <button class="status-filter" data-role="active">Active</button>
+                    <button class="status-filter" data-role="inactive">Deactivated</button>
+                    <button class="status-filter" data-role="deleted">Deleted</button>
+                </div>
+            </div>
+                        <!-- Add this search bar just below your filter buttons div -->
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search by name or email..." class="search-input">
+            </div>
+            
+            <div class="table-container">
+                <table id="equipmentsTable">
+                    <thead>
+                        <tr>
+                            <th>Role ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Contact No</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- JavaScript will insert rows here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Delete confirmation popup -->
+            <div id="deletePopup" class="popup" style="display: none;">
+                <button id="closePopup" class="close-button">&times;</button>
+                <div class="popup-content">
+                    <h2>Confirm Deactivation</h2>
+                    <p>Are you sure you want to deactivate this account?</p>
+                    
+                    <!-- Reason input field -->
+                    <label for="deactivationReason">Reason for Deactivation:</label>
+                    <textarea id="deactivationReason" placeholder="Enter the reason for deactivation" required></textarea>
+
+                    <div class="popup-buttons">
+                        <button id="confirmDelete" class="popup-confirm">Yes</button>
+                        <button id="cancelDelete" class="popup-cancel">No</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reactivate confirmation popup -->
+            <div id="reactivatePopup" class="popup" style="display: none;">
+                <button id="closeReactivatePopup" class="close-button">&times;</button>
+                <div class="popup-content">
+                    <h2>Confirm Reactivation</h2>
+                    <p>Are you sure you want to reactivate this account?</p>
+
+                    <!-- Reason input field -->
+                    <label for="reactivationReason">Reason for Reactivation:</label>
+                    <textarea id="reactivationReason" placeholder="Enter the reason for reactivation" required></textarea>
+                    <div class="popup-buttons">
+                        <button id="confirmReactivate" class="popup-confirm">Yes</button>
+                        <button id="cancelReactivate" class="popup-cancel">No</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <section class="signup-form">
+            <h1 class="signup-form-heading">Add a user account</h1>
+            <form>
+                <div class="role-select-wrapper">
+                    <label for="role" class="visually-hidden">Select user role</label>
+                    <select id="role" name="role" class="select-field" aria-required="true">
+                        <option value="member">Member</option>
+                        <option value="trainer">Trainer</option>
+                        <option value="owner">Owner</option>
+                        <option value="staff">Staff member</option>
+                    </select>
+                </div>
+                <div class="name-fields">
+                    <div class="input-group">
+                        <label for="firstName">First name</label>
+                        <input type="text" id="firstName" name="firstName" class="input-field" aria-required="true">
+                    </div>
+                    <div class="input-group">
+                        <label for="lastName">Last name</label>
+                        <input type="text" id="lastName" name="lastName" class="input-field" aria-required="true">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" class="input-field" placeholder="abc123@gmail.com"
+                        aria-required="true">
+                    <span id="email-error" style="color: red; display: none;">This email is already in use.</span>
+                </div>
+                <fieldset class="date-of-birth">
+                    <legend>Date of Birth</legend>
+                    <div class="dob-fields">
+                      <div class="select-wrapper">
+                        <input type="date" id="dob" name="dob" class="input-field" >
+                      </div>
+                    </div>
+                  </fieldset>
+                <div class="input-group">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" name="address" class="input-field"
+                        placeholder="Apartment / Street / City" aria-required="true">
+                </div>
+                <div class="input-group">
+                    <label for="mobile">Mobile No</label>
+                    <input type="tel" id="mobile" name="mobile" class="input-field" placeholder="07x xxx xxxx"
+                        aria-required="true">
+                </div>
+                <div class="input-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" class="select-field" aria-required="true">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="prefer-not-to-say">Prefer not to say</option>
+                    </select>
+                </div>
+                <button type="submit" class="final-cta-button" tabindex="0">Add a new user</button>
+                <!-- Response Message Container -->
+                <div id="addFormResponse" class="form-response" style="display: none;"></div>
+            </form>
+        </section>
+    </div>
+
+    <!-- Update confirmation popup -->
+    <div id="updatePopup" class="popup" style="display: none;">
+        <button id="closeUpdatePopup" class="close-button">&times;</button>
+        <div class="popup-content">
+            <h2>Update User</h2>
+            <form id="updateForm">
+                <div class="input-group">
+                    <label for="updateFirstName">First Name</label>
+                    <input type="text" id="updateFirstName" name="firstName" class="input-field" required>
+                </div>
+                <div class="input-group">
+                    <label for="updateLastName">Last Name</label>
+                    <input type="text" id="updateLastName" name="lastName" class="input-field" required>
+                </div>
+                <div class="input-group">
+                    <label for="updateEmail">Email</label>
+                    <input type="email" id="updateEmail" name="email" class="input-field" required>
+                </div>
+                <div class="input-group">
+                    <label for="updateMobile">Mobile</label>
+                    <input type="tel" id="updateMobile" name="mobile" class="input-field" required>
+                </div>
+                <div class="popup-buttons">
+                    <button type="submit" class="popup-confirm">Save Changes</button>
+                    <button type="button" id="cancelUpdate" class="popup-cancel">Cancel</button>
+                </div>
+
+            </form>
+            <!-- Response Message Container -->
+            <div id="updateFormResponse" class="form-response" style="display: none;"></div>
+        </div>
+    </div>
+    <!-- Toast container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <style>
+    .toast-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+    }
+
+    .toast {
+        margin-bottom: 10px;
+        padding: 12px 20px;
+        border-radius: 5px;
+        font-size: 14px;
+        color: white;
+        background-color: #333;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        opacity: 0;
+        animation: fadeInOut 4s forwards;
+    }
+
+    .toast.success { background-color: #28a745; }
+    .toast.error { background-color: #dc3545; }
+
+    @keyframes fadeInOut {
+        0% { opacity: 0; transform: translateY(-20px); }
+        10%, 90% { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(-20px); }
+    }
+    </style>
+
+</body>
+
+</html>
