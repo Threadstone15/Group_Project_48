@@ -1,4 +1,56 @@
 export function initMember_home() {
+
+
+    // Load QRCode.js library (optional, only if not in HTML already)
+    const qrScript = document.createElement('script');
+    qrScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+    qrScript.onload = () => console.log('QRCode library loaded');
+    qrScript.onerror = () => console.error('Failed to load QRCode library');
+    document.head.appendChild(qrScript);
+
+    // QR Modal logic
+  const qrModal = document.getElementById("qrModal");
+  const qrCodeDiv = document.getElementById("qrCode");
+  const markAttendanceBtn = document.getElementById("markAttendanceBtn");
+  const closeBtn = document.querySelector(".close-btn");
+
+  if (markAttendanceBtn) {
+    markAttendanceBtn.addEventListener("click", () => {
+    console.log("Mark attendance button clicked");
+      const token = localStorage.getItem('authToken');
+
+      if (!token) {
+        alert("User token not found in localStorage.");
+        return;
+      }
+
+      // Clear any previous QR code
+      qrCodeDiv.innerHTML = "";
+
+      // Show QR modal
+      qrModal.style.display = "flex";
+
+      // Generate QR with token
+      new QRCode(qrCodeDiv, {
+        text: token,
+        width: 200,
+        height: 200
+      });
+    });
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      qrModal.style.display = "none";
+    });
+  }
+
+  window.addEventListener("click", (e) => {
+    if (e.target === qrModal) {
+      qrModal.style.display = "none";
+    }
+  });
+
   const noticeContent = document.getElementById("noticeContent");
   const readCheckbox = document.getElementById("readCheckbox");
   let notices = [];
