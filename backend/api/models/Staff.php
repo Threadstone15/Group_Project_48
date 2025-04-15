@@ -39,7 +39,7 @@ class Staff
     {
         logMessage("Creating staff...");
 
-        $query = "INSERT INTO " . $this->table . " (staff_id, user_id, first_name, last_name, DOB, phone, address, gender, join_date)
+        $query = "INSERT INTO " . $this->table . " (staff_id, user_id, firstName, lastName, DOB, phone, address, gender, join_date)
                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())";
         $stmt = $this->conn->prepare($query);
 
