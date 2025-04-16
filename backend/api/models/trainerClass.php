@@ -7,6 +7,7 @@ class TrainerClass
 {
     private $conn;
     private $table = "class";
+    private $trainerTable = "trainer";
 
     public function __construct()
     {
@@ -80,7 +81,8 @@ class TrainerClass
             logMessage("database connection failed");
             return false;
         }
-        $query = "SELECT * FROM " . $this->table;
+        $query = "SELECT C.*, CONCAT(T.firstName, ' ', T.lastName) AS trainerName FROM " . $this->table . " C, " . $this->trainerTable . " T 
+        WHERE C.trainer_id = T.trainer_id";
         $stmt = $this->conn->prepare($query);
 
         if ($stmt === false) {
@@ -159,6 +161,40 @@ class TrainerClass
             return true;
         } else {
             logMessage("Error deleting class: " . $stmt->error);
+            return false;
+        }
+    }
+
+    public function getClassesOfaTrainer($trainer_id)
+    {
+        logMessage("getting classes belongs to the trainer : $trainer_id");
+        if (!$this->conn) {
+            logMessage("database connection failed");
+            return false;
+        }
+        $query = "SELECT class_id FROM " . $this->table . " WHERE trainer_id = ?";
+        $stmt = $this->conn->prepare($query);
+        if ($stmt === false) {
+            logMessage("Error preparing stmt for class get: " . $this->conn->error);
+            return false;
+        }
+        $stmt->bind_param(
+            "s",
+            $trainer_id
+        );
+        if($stmt->execute()){
+            $result = $stmt->get_result();
+            
+            if($result && $result->num_rows > 0){
+                $classes = $result->fetch_all(MYSQLI_ASSOC);
+                logMessage("Classes belongs to the trainer fetched successfully");
+                return $classes;
+            }else{
+                logMessage("No classes found for the trainer : $trainer_id");
+                return [];
+            }
+        }else{
+            logMessage("Error fetching classes for the trainer : $trainer_id");
             return false;
         }
     }

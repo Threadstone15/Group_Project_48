@@ -1,3 +1,6 @@
+import { runSessionTimedOut } from "../routeConfig.js";
+import { navigate } from "../router.js";
+
 export function initTrainer_classSchedule() {
     console.log("initializing clss schedule js");
 
@@ -65,6 +68,7 @@ export function initTrainer_classSchedule() {
         const authToken = localStorage.getItem("authToken");
         if (!authToken) {
             console.error("Auth token not found. Please log in.");
+            navigate('login');
             return;
         }
         const requestOptions = {
@@ -87,23 +91,30 @@ export function initTrainer_classSchedule() {
                 });
             })
             .then(data => {
-                if(data.message){
-                    switch(data.message){
+                if (data.message) {
+                    switch (data.message) {
                         case "Class is Scheduled Successfully":
                             showToast(data.message, "success");
                             break;
                         case "Requested Time Slot is not available":
-                            showToast(`${data.message} <br> ${data.conflicts}` , "error");
+                            showToast(`${data.message} <br> ${data.conflicts}`, "error");
                             break;
                     }
                 }
-                if(data.error){
-                    showFormResponse("class-schedule-form-response", data.error, "error");
+                if (data.error) {
+                    showToast(data.error, "error");
                 }
             })
             .catch(error => {
-                const errorMsg = error.error || "Failed to schedule the class.";
-                showFormResponse("class-schedule-form-response", errorMsg, "error");
+                console.warn(error.message, "error");
+                if (error.message === "Token expired") {
+                    showToast("Your session has timed out. Please log in again", "error");
+                    setTimeout(() => {
+                        runSessionTimedOut();
+                    }, 4000);
+                } else {
+                    console.error("Error: " + error.message);
+                }
             });
     });
 
@@ -124,11 +135,11 @@ export function initTrainer_classSchedule() {
         const toast = document.createElement('div');
         toast.className = `toast ${type}`;
         toast.innerHTML = message;
-    
+
         container.appendChild(toast);
-    
+
         setTimeout(() => {
             toast.remove();
         }, 4000);
-      }
+    }
 }

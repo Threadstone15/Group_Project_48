@@ -65,6 +65,10 @@ switch ($action) {
         logMessage("Running delete_class....in controller");
         deleteTrainerClass('trainer');
         break;
+    case 'get_classes_of_trainer':
+        logMessage("Running get_classes_of_trainer....in controller");
+        getClassesBelongToATrainer($user_id);
+        break;
 
     case 'account_delete':
         logMessage('running account delete...in controller');

@@ -196,3 +196,23 @@ function deleteTrainerClass($updatingRole = null)
         }
     }
 }
+
+function getClassesBelongToATrainer($user_id)
+{
+    logMessage("get classes belong to a trainer func is runing.....");
+    $trainerClass = new TrainerClass();
+    $trainer = new Trainer();
+    $trainer_id = $trainer->getTrainerIdByUserId($user_id);
+    $classes = $trainerClass->getClassesOfaTrainer($trainer_id);
+
+    if($classes !== false && !empty($classes)){
+        logMessage("classes retrieved successfully");
+        echo json_encode($classes);
+    }else if(empty($classes)){
+        logMessage("No Classes Found");
+        echo json_encode(["error" => "No classes found"]);
+    }else{
+        logMessage("Failed to retrieve classes");
+        echo json_encode(["error" => "Failed to retrieve classes"]);
+    }
+}
