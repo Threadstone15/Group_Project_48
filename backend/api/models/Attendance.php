@@ -19,12 +19,13 @@ class Attendance
     // Insert attendance into Today_attendance
     public function markAttendance($userid, $date, $time, $arrived)
     {
-        logMessage("Marking attendance for User ID: $userid");
+        logMessage("Marking attendance for User ID: $userid with Date: $date, Time: $time, Arrived: $arrived");
 
         if (!$this->conn) {
             logMessage("Database connection is not valid.");
             return false;
         }
+        logMessage("1");
 
         $query = "INSERT INTO " . $this->todayTable . " (user_id, Date, Time, Arrived) 
                   VALUES (?, ?, ?, ?)";
@@ -39,7 +40,7 @@ class Attendance
             logMessage("Error binding parameters for attendance insertion: " . $stmt->error);
             return false;
         }
-
+        logMessage("2");
         if ($stmt->execute()) {
             logMessage("Attendance recorded successfully for User ID: $userid");
             return true;

@@ -1,7 +1,6 @@
 export function initStaff_memberAttendance() {
     console.log("Initializing member attendance");
 
-    // Dynamically load ZXing library
     const script = document.createElement('script');
     script.src = 'https://unpkg.com/@zxing/library@latest';
     script.onload = setupScanner;
@@ -25,48 +24,97 @@ export function initStaff_memberAttendance() {
         function resetScannerUI() {
             arrivalBtn.disabled = true;
             leaveBtn.disabled = true;
+            nextScanBtn.disabled = true;
             scannedData = null;
         }
 
+        function enableArrivalLeaveButtons() {
+            arrivalBtn.disabled = false;
+            leaveBtn.disabled = false;
+        }
+
+        function disableAllButtons() {
+            arrivalBtn.disabled = true;
+            leaveBtn.disabled = true;
+            nextScanBtn.disabled = true;
+        }
+
         async function startScanner() {
-            if (codeReader) {
-                await stopScanner(); // Stop if running
-            }
+            if (codeReader) await stopScanner();
+
+            disableAllButtons(); // prevent multiple scans
 
             try {
                 codeReader = new ZXing.BrowserMultiFormatReader();
-
-                const videoInputDevices = await codeReader.listVideoInputDevices();
-                selectedDeviceId = videoInputDevices[0]?.deviceId;
+                const devices = await codeReader.listVideoInputDevices();
+                selectedDeviceId = devices[0]?.deviceId;
 
                 if (!selectedDeviceId) {
-                    alert("No camera device found");
+                    showToast("No camera found", "error");
                     return;
                 }
 
-                await codeReader.decodeFromVideoDevice(
-                    selectedDeviceId,
-                    videoElement,
-                    (result, err) => {
-                        if (result) {
-                            scannedData = result.getText();
-                            console.log("Scanned:", scannedData);
-                            stopScanner();
-                            arrivalBtn.disabled = false;
-                            leaveBtn.disabled = false;
-                        }
-
-                        if (err && !(err instanceof ZXing.NotFoundException)) {
-                            console.warn("Scan Error:", err);
-                        }
+                await codeReader.decodeFromVideoDevice(selectedDeviceId, videoElement, (result, err) => {
+                    if (result) {
+                        scannedData = result.getText();
+                        console.log("Scanned:", scannedData);
+                        showToast("Scanned Successfully", "success");
+                        stopScanner();
+                        enableArrivalLeaveButtons();
                     }
-                );
 
-                console.log("ZXing Scanner started");
+                    if (err && !(err instanceof ZXing.NotFoundException)) {
+                        console.warn("Scan Error:", err);
+                    }
+                });
+
+                console.log("Scanner started");
             } catch (err) {
                 console.error("Failed to start scanner:", err);
-                alert(`Scanner Error: ${err.message}`);
+                showToast(`Scanner Error: ${err.message}`, "error");
             }
+        }
+
+        async function sendAttendanceRequest(data, arrived) {
+            try {
+                const authToken = localStorage.getItem("authToken");
+                if (!authToken) throw new Error("Auth token not found. Please log in.");
+                
+                const now = new Date();
+                const date = now.toISOString().split("T")[0]; // YYYY-MM-DD
+                const time = now.toTimeString().split(" ")[0]; // HH:MM:SS
+
+                const requestOptions = {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${authToken}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        data: data,
+                        arrived: arrived,
+                        date: date,
+                        time: time
+                    })
+                };
+
+                const response = await fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php?action=mark_attendance", requestOptions);
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`Request failed: ${errorText}`);
+                }
+
+                const result = await response.json();
+                console.log("Server Response:", result);
+                showToast("Attendance marked successfully", "success");
+
+
+            } catch (error) {
+                console.error("Error:", error);
+                showToast(`Error: ${error.message}`, "error");
+
+            } 
         }
 
         async function stopScanner() {
@@ -80,7 +128,8 @@ export function initStaff_memberAttendance() {
         // Event bindings
         markBtn.addEventListener('click', () => {
             modal.style.display = 'flex';
-            setTimeout(startScanner, 100);
+            disableAllButtons();
+            startScanner();
         });
 
         closeBtn.addEventListener('click', async () => {
@@ -89,7 +138,6 @@ export function initStaff_memberAttendance() {
             resetScannerUI();
         });
 
-        startScanBtn.addEventListener('click', startScanner);
         nextScanBtn.addEventListener('click', () => {
             resetScannerUI();
             startScanner();
@@ -97,16 +145,16 @@ export function initStaff_memberAttendance() {
 
         arrivalBtn.addEventListener('click', () => {
             if (scannedData) {
-                alert(`Marked arrival for: ${scannedData}`);
-                resetScannerUI();
+                sendAttendanceRequest(scannedData, 1); // arrived = true
             }
+            nextScanBtn.disabled = false;
         });
 
         leaveBtn.addEventListener('click', () => {
             if (scannedData) {
-                alert(`Marked departure for: ${scannedData}`);
-                resetScannerUI();
+                sendAttendanceRequest(scannedData, 0); // arrived = false
             }
+            nextScanBtn.disabled = false;
         });
 
         modal.addEventListener('click', (e) => {
@@ -114,5 +162,18 @@ export function initStaff_memberAttendance() {
                 closeBtn.click();
             }
         });
+    }
+
+    function showToast(message, type = 'success') {
+        const container = document.getElementById('toast-container');
+        const toast = document.createElement('div');
+        toast.className = `toast ${type}`;
+        toast.innerText = message;
+
+        container.appendChild(toast);
+
+        setTimeout(() => {
+            toast.remove();
+        }, 4000);
     }
 }

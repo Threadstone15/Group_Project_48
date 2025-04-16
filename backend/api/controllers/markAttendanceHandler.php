@@ -4,15 +4,15 @@
 include_once "../models/Attendance.php";
 include_once "../../logs/save.php";
 
-function mark_attendance($userid)
+function markAttendance($userid, $jsonData)
 {
     logMessage("Running markAttendanceHandler...");
 
     $attendance = new Attendance();
 
-    $date = $_POST['date'] ?? $_GET['date'] ?? null;
-    $time = $_POST['time'] ?? $_GET['time'] ?? null;
-    $arrived = $_POST['arrived'] ?? $_GET['arrived'] ?? null;
+    $date = $jsonData['date'];
+    $time = $jsonData['time'];
+    $arrived = $jsonData['arrived'];
 
     if ($attendance->markAttendance($userid, $date, $time, $arrived)) {
         logMessage("Attendance marked successfully for User ID: $userid");
