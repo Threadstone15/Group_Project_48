@@ -26,7 +26,7 @@ class Trainer
 
         if ($result && $row = $result->fetch_assoc()) {
             // Extract the numeric part of the last ID and increment it
-            $lastID = (int)substr($row['trainer_id'], 1); // Remove 'T' and convert to integer
+            $lastID = (int) substr($row['trainer_id'], 1); // Remove 'T' and convert to integer
             $newID = $lastID + 1;
             return 'T' . $newID; // Format as TX where X is the incremented value
         } else {
@@ -120,6 +120,27 @@ class Trainer
         } else {
             logMessage("No members found.");
             return [];
+        }
+    }
+
+    public function getTrainerIdByUserId($user_id)
+    {
+        logMessage("Fetching trainer ID by user ID : $user_id...");
+        $query = "SELECT trainer_id FROM " . $this->table . " WHERE user_id = ?";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing query: " . $this->conn->error);
+            return false;
+        }
+        $stmt->bind_param("i", $user_id);
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
+            return $row ? $row['trainer_id'] : null;
+        } else {
+            logMessage("Error executing query: " . $this->conn->error);
+            return false;
         }
     }
 }

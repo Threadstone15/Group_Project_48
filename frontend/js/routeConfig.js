@@ -204,7 +204,5 @@ export function runDashboardPgJS(role, page) {
 export function runSessionTimedOut() {
     localStorage.removeItem("authToken");
     localStorage.removeItem("role");
-    navigate('login');
-    notifySessionTimedOut();
-     
+    navigate('login');     
 }
