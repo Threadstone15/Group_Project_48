@@ -14,6 +14,7 @@ include_once "./trainerApplicationHandler.php";
 include_once "../models/User.php";
 include_once "./staffHandler.php";
 include_once "./accountDetailHandler.php";
+include_once "./trainerClassHandler.php";
 
 $conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -28,7 +29,7 @@ $action = $_POST['action'] ?? $_GET['action'] ?? null;
 $token = getBearerToken();
 $requiredRole = "owner";
 verifyRequest($requiredRole, $token);
-$user_id  = getUserIdFromToken($token);
+$user_id = getUserIdFromToken($token);
 
 
 logMessage("Running owner controller ,$action token - $token   id - $user_id ");
@@ -130,6 +131,19 @@ switch ($action) {
     case 'change_password':
         logMessage("Running change_password....in controller");
         changePassword($user_id);
+        break;
+
+    case 'get_classes':
+        logMessage("Running get_classes....in controller");
+        getTrainerClasses();
+        break;
+    case 'update_class':
+        logMessage("Running update_class....in controller");
+        updateTrainerClass();
+        break;
+    case 'delete_class':
+        logMessage("Running delete_class....in controller");
+        deleteTrainerClass();
         break;
 
     default:

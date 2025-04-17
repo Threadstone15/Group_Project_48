@@ -210,7 +210,7 @@ function getClassesBelongToATrainer($user_id)
         echo json_encode($classes);
     }else if(empty($classes)){
         logMessage("No Classes Found");
-        echo json_encode(["error" => "No classes found"]);
+        echo json_encode(["error" => "You don't have any scheduled classes"]);
     }else{
         logMessage("Failed to retrieve classes");
         echo json_encode(["error" => "Failed to retrieve classes"]);
