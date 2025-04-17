@@ -25,22 +25,58 @@ class Attendance
             logMessage("Database connection is not valid.");
             return false;
         }
-        logMessage("1");
 
-        $query = "INSERT INTO " . $this->todayTable . " (user_id, Date, Time, Arrived) 
-                  VALUES (?, ?, ?, ?)";
-        $stmt = $this->conn->prepare($query);
+        // Step 1: Get existing date in today_attendance
+        $existingDateQuery = "SELECT `Date` FROM " . $this->todayTable . " LIMIT 1";
+        $result = $this->conn->query($existingDateQuery);
+
+        if ($result && $result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $existingDate = $row['Date'];
+            logMessage("Existing date in today_attendance: $existingDate");
+
+            // Step 2: If date is different, archive and clear
+            if ($existingDate !== $date) {
+                logMessage("New date is different. Archiving old records...");
+
+                // Insert old records into history
+                $archiveQuery = "INSERT INTO " . $this->historyTable . " (user_id, `Date`, `Time`, Arrived)
+                             SELECT user_id, `Date`, `Time`, Arrived FROM " . $this->todayTable;
+                if (!$this->conn->query($archiveQuery)) {
+                    logMessage("Error archiving attendance: " . $this->conn->error);
+                    return false;
+                }
+
+                // Delete old records
+                $clearQuery = "DELETE FROM " . $this->todayTable;
+                if (!$this->conn->query($clearQuery)) {
+                    logMessage("Error clearing today's attendance: " . $this->conn->error);
+                    return false;
+                }
+
+                logMessage("Archiving and clearing done.");
+            } else {
+                logMessage("Same date as existing. No need to archive.");
+            }
+        } else {
+            logMessage("No existing records. Proceeding to insert.");
+        }
+        logMessage("Inserting new attendance record...");
+        // Step 3: Insert the new attendance record
+        $insertQuery = "INSERT INTO " . $this->todayTable . " (user_id, Date, Time, Arrived) 
+                    VALUES (?, ?, ?, ?)";
+        $stmt = $this->conn->prepare($insertQuery);
 
         if ($stmt === false) {
-            logMessage("Error preparing statement for attendance insertion: " . $this->conn->error);
+            logMessage("Error preparing insert statement: " . $this->conn->error);
             return false;
         }
 
         if (!$stmt->bind_param("issi", $userid, $date, $time, $arrived)) {
-            logMessage("Error binding parameters for attendance insertion: " . $stmt->error);
+            logMessage("Error binding insert params: " . $stmt->error);
             return false;
         }
-        logMessage("2");
+
         if ($stmt->execute()) {
             logMessage("Attendance recorded successfully for User ID: $userid");
             return true;
@@ -49,6 +85,7 @@ class Attendance
             return false;
         }
     }
+
 
     // Fetch all attendance records from Today_attendance
     public function getTodayAttendance()
@@ -155,5 +192,110 @@ class Attendance
         logMessage("Today's attendance percentage: $percentage%");
 
         return ['count' => $count, 'percentage' => $percentage];
+    }
+
+    public function getUniqueUsersArrived()
+    {
+        logMessage("Fetching number of unique users with latest arrival marked as 1...");
+
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
+        $query = "CALL GetUniqueUsersWithArrived()";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing stored procedure call: " . $this->conn->error);
+            return false;
+        }
+
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+
+            if ($result && $result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $count = $row['total_users_arrived'];
+                logMessage("Total users with latest Arrived=1: $count");
+                return $count;
+            } else {
+                logMessage("No result returned from stored procedure.");
+                return 0;
+            }
+        } else {
+            logMessage("Error executing stored procedure: " . $stmt->error);
+            return false;
+        }
+    }
+    public function getGymCapacity()
+    {
+        logMessage("Fetching gym capacity from configuration...");
+
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
+        $query = "SELECT config_value FROM " . $this->configtable . " WHERE config_key = 'gym_capacity'";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing statement to fetch gym capacity: " . $this->conn->error);
+            return false;
+        }
+
+        if (!$stmt->execute()) {
+            logMessage("Error executing statement to fetch gym capacity: " . $stmt->error);
+            return false;
+        }
+
+        $result = $stmt->get_result();
+        if ($result && $result->num_rows > 0) {
+            $config = $result->fetch_assoc();
+            $gymCapacity = (int) $config['config_value'];
+            logMessage("Gym capacity fetched successfully: $gymCapacity");
+            return $gymCapacity;
+        } else {
+            logMessage("Gym capacity not found in configuration.");
+            return false;
+        }
+    }
+    public function getLatestArrivedStatus($userId)
+    {
+        logMessage("Fetching latest Arrived status for User ID: $userId");
+
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
+        $query = "CALL GetLatestArrivedStatus(?)";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing statement: " . $this->conn->error);
+            return false;
+        }
+
+        if (!$stmt->bind_param("i", $userId)) {
+            logMessage("Error binding parameter: " . $stmt->error);
+            return false;
+        }
+
+        if (!$stmt->execute()) {
+            logMessage("Error executing stored procedure: " . $stmt->error);
+            return false;
+        }
+
+        $result = $stmt->get_result();
+        if ($result && $row = $result->fetch_assoc()) {
+            $arrived = $row['Arrived'];
+            logMessage("Latest Arrived status for User ID $userId: $arrived");
+            return $arrived;
+        } else {
+            logMessage("No records found for User ID: $userId");
+            return null;
+        }
     }
 }

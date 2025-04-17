@@ -49,14 +49,21 @@ switch ($action) {
         logMessage("Running payment_list....in controller");
         getPaymentListOfAMember($user_id);
         break;
+
+
+
+
     case 'update_attendance':
         logMessage("Running member mark_attendance....in controller");
-        mark_attendance($user_id);
+        userArrivedStatus($user_id);
         break;
-    case 'get_daily_attendance':
-        logMessage("Running get_attendance....in controller");
-        getDailyAttendance();
+    case 'get_gym_crowd':
+        logMessage("Running get_gym_crowd....in controller");
+        getGymCrowd();
         break;
+
+
+
     case 'get_user_details':
         logMessage("Running get_user_details....in controller");
         getUserDetails($user_id);
