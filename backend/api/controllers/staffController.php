@@ -15,6 +15,7 @@ include_once "noticeHandler.php";
 include_once "markAttendanceHandler.php";
 include_once "../models/User.php";
 include_once "./accountDetailHandler.php";
+include_once "./trainerClassHandler.php";
 
 $conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -126,6 +127,11 @@ switch ($action) {
         $mem_user_id = getUserIdFromTokenNoVerify($mem_token);;
         logMessage("Marking attendance for User ID: $mem_user_id");
         markAttendance($mem_user_id, $jsonData);
+        break;
+    
+    case 'get_classes':
+        logMessage("Running get_classes....in controller");
+        getTrainerClasses();
         break;
 
 
