@@ -11,11 +11,7 @@ const calendar = document.querySelector(".calendar"),
   dateInput = document.querySelector(".date-input"),
   eventDay = document.querySelector(".event-day"),
   eventDate = document.querySelector(".event-date"),
-  eventsContainer = document.querySelector(".events"),
-  addEventBtn = document.querySelector(".add-event"),
-  addEventWrapper = document.querySelector(".add-event-wrapper "),
-  addEventCloseBtn = document.querySelector(".close "),
-  addEventSubmit = document.querySelector(".add-event-btn ");
+  eventsContainer = document.querySelector(".events");
 
 let today = new Date();
 let activeDay;
@@ -38,7 +34,6 @@ const months = [
 ];
 
 let allClasses = [];
-let classesOfTrainer = [];
 fetchClasses();
 
 //function to add days in days with class day and prev-date next-date on previous month and next month days and active on today
@@ -235,7 +230,6 @@ function updateEvents(date) {
     const classDate = dateObj.getDate();
 
     if (date === classDate && month + 1 === classMonth && year === classYear) {
-      const isTrainersClass = classesOfTrainer.includes(classObj.class_id);
       events += `<div class="event">
           <div class="title">
             <i class="fas fa-circle"></i>
@@ -253,12 +247,10 @@ function updateEvents(date) {
           <div class="event-desc">
             <span> No of participants : ${classObj.noOfParticipants}</span>
           </div>
-          ${isTrainersClass ? `
-            <div class="event-handle">
-              <button class="update-button" id="updateClass" data-class-id="${classObj.class_id}" >Update</button>
-              <button class="delete-button" id="deleteClass" data-class-id="${classObj.class_id}">Delete</button>
-            </div>
-            ` : ''}
+          <div class="event-handle">
+            <button class="update-button" id="updateClass" data-class-id="${classObj.class_id}" >Update</button>
+            <button class="delete-button" id="deleteClass" data-class-id="${classObj.class_id}">Delete</button>
+          </div>
       </div>`;
     }
   });
@@ -279,148 +271,6 @@ function updateEvents(date) {
     }
   });
 }
-
-//function to add event
-addEventBtn.addEventListener("click", () => {
-  addEventWrapper.classList.toggle("active");
-});
-
-addEventCloseBtn.addEventListener("click", () => {
-  addEventWrapper.classList.remove("active");
-});
-
-document.addEventListener("click", (e) => {
-  if (e.target !== addEventBtn && !addEventWrapper.contains(e.target)) {
-    addEventWrapper.classList.remove("active");
-  }
-});
-
-//function to add event to eventsArr
-document.getElementById('scheduleClassForm').addEventListener('submit', (event) => {
-  event.preventDefault();
-  const className = document.getElementById("className").value;
-  const startTime = document.getElementById("startTime").value;
-  const endTime = document.getElementById("endTime").value;
-  const description = document.getElementById("description").value;
-  const classDate = document.getElementById("classDate").dataset.currentDate;
-
-  if (!classDate || !startTime || !endTime || !className || !description) {
-    showFormResponse("class-schedule-form-response", "Fields cannot be empty", "error");
-    return;
-  }
-  if (startTime && endTime && startTime >= endTime) {
-    showFormResponse("class-schedule-form-response", " End time must be after start time", "error");
-    return;
-  }
-  const today = new Date()
-  const selectedDate = new Date(classDate)
-  const minDate = new Date();
-  minDate.setDate(minDate.getDate() + 7);
-
-  if (selectedDate < today) {
-    console.log("selected date is:", selectedDate, " and today is : ", today);
-    showFormResponse(
-      "class-schedule-form-response",
-      "Class date cannot be in the past",
-      "error"
-    );
-    return;
-  }
-
-  if (selectedDate < minDate) {
-    showFormResponse(
-      "class-schedule-form-response",
-      "Please select a date at least 7 days from today (For member convenience, classes must be scheduled at least 7 days in advance)",
-      "error"
-    );
-    return;
-  }
-  //min clz duration is 1hr
-  const [startH, startM] = startTime.split(':').map(Number);
-  const [endH, endM] = endTime.split(':').map(Number);
-  const durationMinutes = (endH * 60 + endM) - (startH * 60 + startM);
-  if (durationMinutes < 60) {
-    showFormResponse("class-schedule-form-response", "Minimum class duration is 1 hour", "error");
-    return;
-  }
-  // start time and end time must be between 8am - 10pm
-  if (startH < 8 || endH > 22 || (endH === 22 && endM > 0)) {
-    showFormResponse("class-schedule-form-response", "Classes must be between 8:00 AM and 10:00 PM", "error");
-    return;
-  }
-  const payload = {
-    "className": className,
-    "description": description,
-    "date": classDate,
-    "start_time": startTime,
-    "end_time": endTime
-  };
-
-  const authToken = localStorage.getItem("authToken");
-  if (!authToken) {
-    console.error("Auth token not found. Please log in.");
-    navigate('login');
-    return;
-  }
-  const requestOptions = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${authToken}`
-    },
-    body: JSON.stringify(payload),
-  };
-
-  fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/trainerController.php?action=add_class", requestOptions)
-    .then(response => {
-      return response.json().then(data => {
-        if (data.error && data.error === "Token expired") {
-          throw new Error("Token expired");
-        }
-        if (!response.ok) throw new Error("Failed to schedule the class");
-        return data;
-      });
-    })
-    .then(data => {
-      if (data.message) {
-        switch (data.message) {
-          case "Class is Scheduled Successfully":
-            showToast(data.message, "success");
-            fetchClasses();
-            break;
-          case "Requested Time Slot is not available":
-            showToast(`${data.message} <br> ${data.conflicts}`, "error");
-            break;
-        }
-      }
-      if (data.error) {
-        showToast(data.error, "error");
-      }
-    })
-    .catch(error => {
-      console.warn(error.message, "error");
-      if (error.message === "Token expired") {
-        showToast("Your session has timed out. Please log in again", "error");
-        setTimeout(() => {
-          runSessionTimedOut();
-        }, 4000);
-      } else {
-        console.error("Error: " + error.message);
-      }
-    });
-  addEventWrapper.classList.remove("active");
-  className.value = "";
-  startTime.value = "";
-  endTime.value = "";
-  description.value = "";
-  updateEvents(activeDay);
-  //select active day and add event class if not added
-  const activeDayEl = document.querySelector(".day.active");
-  if (!activeDayEl.classList.contains("event")) {
-    activeDayEl.classList.add("event");
-  }
-});
-
 
 function openUpdatePopup(class_id) {
   const selectedClass = allClasses.find(cls => cls.class_id === class_id);
@@ -494,7 +344,7 @@ document.getElementById("updateForm").addEventListener("submit", function (event
     redirect: 'follow'
   };
 
-  fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/trainerController.php?action=update_class", requestOptions)
+  fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/ownerController.php?action=update_class", requestOptions)
     .then(response => {
       return response.json().then(data => {
         if (data.error && data.error === "Token expired") {
@@ -556,7 +406,7 @@ function openDeletePopup(class_id) {
       redirect: 'follow'
     };
 
-    fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/trainerController.php?action=delete_class&class_id=${class_id}`, requestOptions)
+    fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/ownerController.php?action=delete_class&class_id=${class_id}`, requestOptions)
       .then(response => {
         return response.json().then(data => {
           if (data.error && data.error === "Token expired") {
@@ -595,10 +445,10 @@ function openDeletePopup(class_id) {
   };
 
   document.getElementById("cancelDelete").onclick = () => {
-    deletePopup.style.display = "none"; 
+    deletePopup.style.display = "none";
   };
   document.getElementById("closeDeletePopup").onclick = () => {
-    deletePopup.style.display = "none"; 
+    deletePopup.style.display = "none";
   };
 }
 
@@ -616,7 +466,7 @@ function fetchClasses() {
     headers: { 'Authorization': `Bearer ${authToken}` },
     redirect: 'follow'
   };
-  fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/trainerController.php?action=get_classes", requestOptions)
+  fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/ownerController.php?action=get_classes", requestOptions)
     .then(response => {
       return response.json().then(data => {
         if (data.error && data.error === "Token expired") {
@@ -632,7 +482,6 @@ function fetchClasses() {
       }
       if (data.length > 0) {
         allClasses = data;
-        fetchClassesOfTrainer();
         initCalendar();
       }
     })
@@ -649,49 +498,6 @@ function fetchClasses() {
     });
 }
 
-function fetchClassesOfTrainer() {
-  const authToken = localStorage.getItem("authToken");
-  if (!authToken) {
-    showToast("Auth token not found. Please log in.", "error");
-    navigate("login");
-  }
-  const requestOptions = {
-    method: 'GET',
-    headers: { 'Authorization': `Bearer ${authToken}` },
-    redirect: 'follow'
-  };
-  fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/trainerController.php?action=get_classes_of_trainer", requestOptions)
-    .then(response => {
-      return response.json().then(data => {
-        if (data.error && data.error === "Token expired") {
-          throw new Error("Token expired");
-        }
-        if (!response.ok) throw new Error("Failed to fetch trainer classes/sessions");
-        return data;
-      });
-    })
-    .then(data => {
-      if (data.error) {
-        showToast(data.error, "error");
-      }
-      if (data.length > 0) {
-        classesOfTrainer = data.map(obj => obj.class_id);
-      }
-    })
-    .catch(error => {
-      console.warn(error.message, "error");
-      if (error.message === "Token expired") {
-        showToast("Your session has timed out. Please log in again", "error");
-        setTimeout(() => {
-          runSessionTimedOut();
-        }, 4000);
-      } else {
-        console.error("Error: " + error.message);
-      }
-    });
-
-}
-
 function showToast(message, type) {
   // invoking toast container of parent window-> ownerHome.html
   if (window.parent !== window) {
@@ -700,7 +506,7 @@ function showToast(message, type) {
       message: message,
       toastType: type
     }, '*');
-  } 
+  }
   // Fallback for direct access
   else {
     const container = document.getElementById('toast-container');
@@ -708,7 +514,7 @@ function showToast(message, type) {
     toast.className = `toast ${type}`;
     toast.textContent = message;
     container.appendChild(toast);
-    
+
     setTimeout(() => toast.remove(), 4000);
   }
 }
