@@ -106,7 +106,8 @@ label {
   font-weight: bold;
   color: #FF5F00;
   cursor: pointer;
-  margin-left: 60px;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 .toggleContainer::before {
   content: '';
@@ -163,4 +164,75 @@ label {
 .gym-card progress::-webkit-progress-value {
   background-color: #FF5F00;
   border-radius: 10px;
+}
+
+.qr-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.qr-modal-content {
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.qr-modal-content h3 {
+  margin-bottom: 20px;
+  color: #FF5F00;
+}
+
+.qr-modal-content #qrCode {
+  margin: auto;
+}
+
+/* Mark Attendance Button */
+#markAttendanceBtn {
+  padding: 10px 20px;
+  margin-top: 20px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  background-color: #FF5F00;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#markAttendanceBtn:hover {
+  background-color: #d75001;
+}
+
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #FF5F00;
+}
+
+.attendance-card {
+  background-color: #fff;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

@@ -10,39 +10,55 @@
 
 <body>
 
-        <div class="content">
+    <div class="content">
 
-        <div class="card-container">    
-            <div class="notice-container">
-                <h2>Notices</h2>
-                <div id="noticeContent"></div>
-                <label>
-                    <input type="checkbox" id="readCheckbox"> Mark as Read
-                </label>
-            </div>
-
-            <div class="gym-card">
-                <h2>Gym Crowd</h2>
-                <p class="date" id="dateDisplay">Friday</p>
-                <progress id="gymProgress" value="0" max="100"></progress>
-                <p class="member-count" id="memberCount">Members Present: 0</p>
-            </div>
-
+        <div class="card-container">
+    
+          <div class="notice-container">
+            <h2>Notices</h2>
+            <div id="noticeContent"></div>
+            <label>
+              <input type="checkbox" id="readCheckbox"> Mark as Read
+            </label>
+          </div>
+    
+          <div class="gym-card">
+            <h2>Gym Crowd</h2>
+            <p class="date" id="dateDisplay">Friday</p>
+            <progress id="gymProgress" value="0" max="100"></progress>
+            <p class="member-count" id="memberCount">Members Present: 0</p>
+          </div>
+    
+          <!-- ✅ NEW ATTENDANCE CARD -->
+          <div class="attendance-card">
             <div class="toggle-button">
-                <input type="checkbox" id="toggle" class="toggleCheckbox" />
-                <label for="toggle" class='toggleContainer'>
-                    <div>Arrived</div>   
-                    <div>Left</div>
-                </label>
+              <input type="checkbox" id="toggle" class="toggleCheckbox" />
+              <label for="toggle" class='toggleContainer'>
+                <div>Arrived</div>
+                <div>Left</div>
+              </label>
             </div>
-
+    
+            <div class="attendance-section">
+              <button id="markAttendanceBtn">Mark Attendance</button>
+            </div>
+          </div>
+    
+          <div id="qrModal" class="qr-modal">
+            <div class="qr-modal-content">
+              <span class="close-btn">&times;</span>
+              <h3>Scan this QR Code</h3>
+              <div id="qrCode"></div>
+            </div>
+          </div>
+    
         </div>
-
-
+    
         <div class="content-bottom">
-            <iframe id="task-calendar-iframe" src="/Group_Project_48/frontend/components/calendar/calendar.html" style="width: 100%; height: 100%;" frameborder="0"></iframe>
+          <iframe id="task-calendar-iframe" src="/Group_Project_48/frontend/components/calendar/calendar.html" style="width: 100%; height: 100%;" frameborder="0"></iframe>
         </div>
-    </div>
+    
+      </div>
 
 </body>
 </html>

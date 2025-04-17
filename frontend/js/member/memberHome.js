@@ -1,14 +1,62 @@
 export function initMember_home() {
+
+
+    // Load QRCode.js library (optional, only if not in HTML already)
+    const qrScript = document.createElement('script');
+    qrScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+    qrScript.onload = () => console.log('QRCode library loaded');
+    qrScript.onerror = () => console.error('Failed to load QRCode library');
+    document.head.appendChild(qrScript);
+
+    // QR Modal logic
+  const qrModal = document.getElementById("qrModal");
+  const qrCodeDiv = document.getElementById("qrCode");
+  const markAttendanceBtn = document.getElementById("markAttendanceBtn");
+  const closeBtn = document.querySelector(".close-btn");
+
+  if (markAttendanceBtn) {
+    markAttendanceBtn.addEventListener("click", () => {
+    console.log("Mark attendance button clicked");
+      const token = localStorage.getItem('authToken');
+
+      if (!token) {
+        alert("User token not found in localStorage.");
+        return;
+      }
+
+      // Clear any previous QR code
+      qrCodeDiv.innerHTML = "";
+
+      // Show QR modal
+      qrModal.style.display = "flex";
+
+      // Generate QR with token
+      new QRCode(qrCodeDiv, {
+        text: token,
+        width: 200,
+        height: 200
+      });
+    });
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      qrModal.style.display = "none";
+    });
+  }
+
+  window.addEventListener("click", (e) => {
+    if (e.target === qrModal) {
+      qrModal.style.display = "none";
+    }
+  });
+
   const noticeContent = document.getElementById("noticeContent");
   const readCheckbox = document.getElementById("readCheckbox");
   let notices = [];
   let currentNoticeIndex = 0;
 
-  const crowdStatus = document.getElementById("crowdStatus");
-  const memberCount = document.getElementById("memberCount");
-  const crowdIndicator = document.getElementById("crowdIndicator");
   const dateDisplay = document.getElementById("dateDisplay");
-  const toggleCheckbox = document.getElementById("toggle");
   const progressBar = document.getElementById('gymProgress');
 
 
@@ -18,49 +66,44 @@ export function initMember_home() {
   const formattedDate = `${dayOfWeek}, ${today.toLocaleDateString()}`;
   dateDisplay.textContent = formattedDate;
 
-
-  toggleCheckbox.addEventListener("change", function () {
-      const arrived = this.checked ? 1 : 0; 
-      console.log("Arrived:", arrived);
-      updateAttendance(arrived);
-  });
-
-  function updateAttendance(arrived) {
-      const formData = new FormData();
-      formData.append("date", new Date().toISOString().split('T')[0]); // Current date in YYYY-MM-DD format
-      formData.append("time", new Date().toLocaleTimeString()); // Current time
-      formData.append("arrived", arrived);
-      formData.append("action", "update_attendance");
-
-      const authToken = localStorage.getItem("authToken");
-
-      if (!authToken) {
-          console.error("Auth token not found. Please log in.");
-          return;
-      }
-
-      const requestOptions = {
-          method: 'POST',
-          headers: { 'Authorization': `Bearer ${authToken}` },
-          body: formData,
-          redirect: 'follow'
-      };
-
-      fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php", requestOptions)
-          .then(response => {
-              if (!response.ok) throw new Error("Failed to update attendance");
-              return response.json();
-          })
-          .then(result => {
-              console.log("Attendance updated successfully:", result);
-              alert("Attendance updated successfully!");
-          })
-          .catch(error => {
-              console.error("Error updating attendance:", error);
-              alert("Failed to update attendance");
-          });
+  function updateAttendance() {
+    const formData = new FormData();
+    formData.append("action", "update_attendance");
+  
+    const authToken = localStorage.getItem("authToken");
+  
+    if (!authToken) {
+      console.error("Auth token not found. Please log in.");
+      return;
+    }
+  
+    fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php", {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${authToken}` },
+      body: formData,
+      redirect: 'follow'
+    })
+      .then(response => {
+        if (!response.ok) throw new Error("Failed to update attendance");
+        return response.json();
+      })
+      .then(result => {
+        console.log("Attendance updated successfully:", result);
+  
+        // ✅ Update toggle based on result
+        if (result && typeof result.arrived !== "undefined") {
+          const toggleCheckbox = document.getElementById("toggle");
+          toggleCheckbox.checked = result.arrived == 1;
+        } else {
+          // fallback fetch
+          fetchAttendanceStatus();
+        }
+      })
+      .catch(error => {
+        console.error("Error updating attendance:", error);
+        alert("Failed to update attendance");
+      });
   }
-
   fetch("get_notices.php")
    .then(response => response.json())
    .then(data => {
@@ -99,8 +142,9 @@ export function initMember_home() {
   });
 
   function updateGymData() {
+    console.log("Updating gym data...");
       const formData = new FormData();
-      formData.append("action", "get_daily_attendance");
+      formData.append("action", "get_gym_crowd");
 
       const authToken = localStorage.getItem("authToken");
 
@@ -157,13 +201,14 @@ export function initMember_home() {
       script.src = url;
       document.body.appendChild(script);
   }
-
+  updateGymData();
+  updateAttendance()
+  setInterval(updateAttendance, 5000);
   // Loading the calendar component
   window.onload = function () {
       loadHTMLFile('/Group_Project_48/frontend/components/calendar/calendar.html', '#calendar-placeholder');
       loadCSSFile('/Group_Project_48/frontend/components/calendar/calendar.css'); 
       loadJSFile('/Group_Project_48/frontend/components/calendar/calendar.js');
-      updateGymData();
   };
 
 }
