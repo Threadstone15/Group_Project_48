@@ -1485,3 +1485,384 @@
 [2025-04-17 17:26:45] Running userArrivedStatus...
 [2025-04-17 17:26:45] Attendance model initialized with database connection.
 [2025-04-17 17:26:45] Fetching latest Arrived status for User ID: 181
+[2025-04-17 19:14:18] Running auth controller ,login 
+[2025-04-17 19:14:18] running login...in auth controller
+[2025-04-17 19:14:18] login function running...
+[2025-04-17 19:14:18] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:14:18] User class instantiated with database connection.
+[2025-04-17 19:14:18] User Login model running for: owner@gmail.com
+[2025-04-17 19:14:18] Fetching user by email: owner@gmail.com
+[2025-04-17 19:14:19] User found for email: owner@gmail.com
+[2025-04-17 19:14:19] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-17 19:14:19] User status: 1
+[2025-04-17 19:14:19] User login successful: owner@gmail.com with role: owner
+[2025-04-17 19:14:19] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0OTEyODAwfQ==.4ecb910a84de215ba14a2c81507109302457fee999685fd9289b709bc102d33c owner
+[2025-04-17 19:14:19] Database connection closed.
+[2025-04-17 19:14:21] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:14:21] User class instantiated with database connection.
+[2025-04-17 19:14:21] Fetching user role by user ID: 72
+[2025-04-17 19:14:21] User role fetched successfully for user ID: 72
+[2025-04-17 19:14:21] Running owner controller ,get_profile token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0OTEyODAwfQ==.4ecb910a84de215ba14a2c81507109302457fee999685fd9289b709bc102d33c   id - 72 
+[2025-04-17 19:14:21] Running get_profile....in controller
+[2025-04-17 19:14:21] Running get_profile....in handler
+[2025-04-17 19:14:21] User class instantiated with database connection.
+[2025-04-17 19:14:21] Fetching profile for user ID: 72
+[2025-04-17 19:14:21] No profile found for user ID: 72
+[2025-04-17 19:14:21] Database connection closed.
+[2025-04-17 19:14:35] Running auth controller ,login 
+[2025-04-17 19:14:35] running login...in auth controller
+[2025-04-17 19:14:35] login function running...
+[2025-04-17 19:14:35] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:14:35] User class instantiated with database connection.
+[2025-04-17 19:14:35] User Login model running for: sandeep1@gmail.com
+[2025-04-17 19:14:35] Fetching user by email: sandeep1@gmail.com
+[2025-04-17 19:14:36] User found for email: sandeep1@gmail.com
+[2025-04-17 19:14:36] Query bound and ready to execute for login: sandeep1@gmail.com
+[2025-04-17 19:14:36] User status: 1
+[2025-04-17 19:14:36] User login successful: sandeep1@gmail.com with role: member
+[2025-04-17 19:14:36] Login Successful: eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NDkxMjgwMH0=.2f111a2441da638d8db36b983b38ecd8e1ff2d9091e4cb37b67a2b9a1977a0ed member
+[2025-04-17 19:14:36] Payment model initialized
+[2025-04-17 19:14:36] Fetching latest payment record for user_id: 181
+[2025-04-17 19:14:36] Query bound for fetching latest payment of user_id: 181
+[2025-04-17 19:14:36] Fetched latest payment for user_id: 181
+[2025-04-17 19:14:36] Database connection closed.
+[2025-04-17 19:14:37] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:14:37] User class instantiated with database connection.
+[2025-04-17 19:14:37] Fetching user role by user ID: 181
+[2025-04-17 19:14:37] User role fetched successfully for user ID: 181
+[2025-04-17 19:14:37] Running member controller ,get_gym_crowd token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NDkxMjgwMH0=.2f111a2441da638d8db36b983b38ecd8e1ff2d9091e4cb37b67a2b9a1977a0ed   id - 181 
+[2025-04-17 19:14:37] Running get_gym_crowd....in controller
+[2025-04-17 19:14:37] Running getGymCrowd...
+[2025-04-17 19:14:37] Attendance model initialized with database connection.
+[2025-04-17 19:14:37] Fetching number of unique users with latest arrival marked as 1...
+[2025-04-17 19:14:38] Total users with latest Arrived=1: 0
+[2025-04-17 19:14:38] Fetching gym capacity from configuration...
+[2025-04-17 19:14:38] Gym capacity fetched successfully: 50
+[2025-04-17 19:14:38] Gym crowd count: 0 (0%)
+[2025-04-17 19:14:38] Database connection closed.
+[2025-04-17 19:14:38] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:14:38] User class instantiated with database connection.
+[2025-04-17 19:14:38] Fetching user role by user ID: 181
+[2025-04-17 19:14:39] User role fetched successfully for user ID: 181
+[2025-04-17 19:14:39] Running member controller ,update_attendance token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NDkxMjgwMH0=.2f111a2441da638d8db36b983b38ecd8e1ff2d9091e4cb37b67a2b9a1977a0ed   id - 181 
+[2025-04-17 19:14:39] Running member mark_attendance....in controller
+[2025-04-17 19:14:39] Running userArrivedStatus...
+[2025-04-17 19:14:39] Attendance model initialized with database connection.
+[2025-04-17 19:14:39] Fetching latest Arrived status for User ID: 181
+[2025-04-17 19:14:39] Latest Arrived status for User ID 181: 0
+[2025-04-17 19:14:39] Database connection closed.
+[2025-04-17 19:14:42] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:14:42] User class instantiated with database connection.
+[2025-04-17 19:14:42] Fetching user role by user ID: 181
+[2025-04-17 19:14:42] User role fetched successfully for user ID: 181
+[2025-04-17 19:14:42] Running member controller ,update_attendance token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NDkxMjgwMH0=.2f111a2441da638d8db36b983b38ecd8e1ff2d9091e4cb37b67a2b9a1977a0ed   id - 181 
+[2025-04-17 19:14:42] Running member mark_attendance....in controller
+[2025-04-17 19:14:42] Running userArrivedStatus...
+[2025-04-17 19:14:42] Attendance model initialized with database connection.
+[2025-04-17 19:14:42] Fetching latest Arrived status for User ID: 181
+[2025-04-17 19:14:43] Latest Arrived status for User ID 181: 0
+[2025-04-17 19:14:43] Database connection closed.
+[2025-04-17 19:14:47] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:14:47] User class instantiated with database connection.
+[2025-04-17 19:14:47] Fetching user role by user ID: 181
+[2025-04-17 19:14:47] User role fetched successfully for user ID: 181
+[2025-04-17 19:14:47] Running member controller ,update_attendance token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NDkxMjgwMH0=.2f111a2441da638d8db36b983b38ecd8e1ff2d9091e4cb37b67a2b9a1977a0ed   id - 181 
+[2025-04-17 19:14:47] Running member mark_attendance....in controller
+[2025-04-17 19:14:47] Running userArrivedStatus...
+[2025-04-17 19:14:47] Attendance model initialized with database connection.
+[2025-04-17 19:14:47] Fetching latest Arrived status for User ID: 181
+[2025-04-17 19:14:47] Latest Arrived status for User ID 181: 0
+[2025-04-17 19:14:47] Database connection closed.
+[2025-04-17 19:14:52] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:14:52] User class instantiated with database connection.
+[2025-04-17 19:14:52] Fetching user role by user ID: 181
+[2025-04-17 19:14:52] User role fetched successfully for user ID: 181
+[2025-04-17 19:14:52] Running member controller ,update_attendance token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NDkxMjgwMH0=.2f111a2441da638d8db36b983b38ecd8e1ff2d9091e4cb37b67a2b9a1977a0ed   id - 181 
+[2025-04-17 19:14:52] Running member mark_attendance....in controller
+[2025-04-17 19:14:52] Running userArrivedStatus...
+[2025-04-17 19:14:52] Attendance model initialized with database connection.
+[2025-04-17 19:14:52] Fetching latest Arrived status for User ID: 181
+[2025-04-17 19:14:52] Latest Arrived status for User ID 181: 0
+[2025-04-17 19:14:52] Database connection closed.
+[2025-04-17 19:14:57] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:14:57] User class instantiated with database connection.
+[2025-04-17 19:14:57] Fetching user role by user ID: 181
+[2025-04-17 19:14:57] User role fetched successfully for user ID: 181
+[2025-04-17 19:14:57] Running member controller ,update_attendance token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NDkxMjgwMH0=.2f111a2441da638d8db36b983b38ecd8e1ff2d9091e4cb37b67a2b9a1977a0ed   id - 181 
+[2025-04-17 19:14:57] Running member mark_attendance....in controller
+[2025-04-17 19:14:57] Running userArrivedStatus...
+[2025-04-17 19:14:57] Attendance model initialized with database connection.
+[2025-04-17 19:14:57] Fetching latest Arrived status for User ID: 181
+[2025-04-17 19:14:57] Latest Arrived status for User ID 181: 0
+[2025-04-17 19:14:57] Database connection closed.
+[2025-04-17 19:14:58] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:14:58] User class instantiated with database connection.
+[2025-04-17 19:14:58] Fetching user role by user ID: 181
+[2025-04-17 19:14:58] User role fetched successfully for user ID: 181
+[2025-04-17 19:14:58] Running member controller ,payment_list token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NDkxMjgwMH0=.2f111a2441da638d8db36b983b38ecd8e1ff2d9091e4cb37b67a2b9a1977a0ed   id - 181 
+[2025-04-17 19:14:58] Running payment_list....in controller
+[2025-04-17 19:14:58] getSubscriptionOfAMember func running...
+[2025-04-17 19:14:58] Payment model initialized
+[2025-04-17 19:14:58] Fetching payment records for user_id: 181
+[2025-04-17 19:14:59] Query bound for fetching payments of user_id: 181
+[2025-04-17 19:14:59] Fetched 4 payments for user_id: 181
+[2025-04-17 19:14:59] Database connection closed.
+[2025-04-17 19:15:02] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:15:02] User class instantiated with database connection.
+[2025-04-17 19:15:02] Fetching user role by user ID: 181
+[2025-04-17 19:15:02] User role fetched successfully for user ID: 181
+[2025-04-17 19:15:02] Running member controller ,update_attendance token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NDkxMjgwMH0=.2f111a2441da638d8db36b983b38ecd8e1ff2d9091e4cb37b67a2b9a1977a0ed   id - 181 
+[2025-04-17 19:15:02] Running member mark_attendance....in controller
+[2025-04-17 19:15:02] Running userArrivedStatus...
+[2025-04-17 19:15:02] Attendance model initialized with database connection.
+[2025-04-17 19:15:02] Fetching latest Arrived status for User ID: 181
+[2025-04-17 19:15:03] Latest Arrived status for User ID 181: 0
+[2025-04-17 19:15:03] Database connection closed.
+[2025-04-17 19:15:07] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:15:07] User class instantiated with database connection.
+[2025-04-17 19:15:07] Fetching user role by user ID: 181
+[2025-04-17 19:15:07] User role fetched successfully for user ID: 181
+[2025-04-17 19:15:07] Running member controller ,update_attendance token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NDkxMjgwMH0=.2f111a2441da638d8db36b983b38ecd8e1ff2d9091e4cb37b67a2b9a1977a0ed   id - 181 
+[2025-04-17 19:15:07] Running member mark_attendance....in controller
+[2025-04-17 19:15:07] Running userArrivedStatus...
+[2025-04-17 19:15:07] Attendance model initialized with database connection.
+[2025-04-17 19:15:07] Fetching latest Arrived status for User ID: 181
+[2025-04-17 19:15:07] Latest Arrived status for User ID 181: 0
+[2025-04-17 19:15:07] Database connection closed.
+[2025-04-17 19:15:12] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:15:12] User class instantiated with database connection.
+[2025-04-17 19:15:12] Fetching user role by user ID: 181
+[2025-04-17 19:15:12] User role fetched successfully for user ID: 181
+[2025-04-17 19:15:12] Running member controller ,update_attendance token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NDkxMjgwMH0=.2f111a2441da638d8db36b983b38ecd8e1ff2d9091e4cb37b67a2b9a1977a0ed   id - 181 
+[2025-04-17 19:15:12] Running member mark_attendance....in controller
+[2025-04-17 19:15:12] Running userArrivedStatus...
+[2025-04-17 19:15:12] Attendance model initialized with database connection.
+[2025-04-17 19:15:12] Fetching latest Arrived status for User ID: 181
+[2025-04-17 19:15:12] Latest Arrived status for User ID 181: 0
+[2025-04-17 19:15:12] Database connection closed.
+[2025-04-17 19:20:05] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:20:05] User class instantiated with database connection.
+[2025-04-17 19:20:05] Fetching user role by user ID: 181
+[2025-04-17 19:20:06] User role fetched successfully for user ID: 181
+[2025-04-17 19:20:06] Running member controller ,update_attendance token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NDkxMjgwMH0=.2f111a2441da638d8db36b983b38ecd8e1ff2d9091e4cb37b67a2b9a1977a0ed   id - 181 
+[2025-04-17 19:20:06] Running member mark_attendance....in controller
+[2025-04-17 19:20:06] Running userArrivedStatus...
+[2025-04-17 19:20:06] Attendance model initialized with database connection.
+[2025-04-17 19:20:06] Fetching latest Arrived status for User ID: 181
+[2025-04-17 19:20:06] Latest Arrived status for User ID 181: 0
+[2025-04-17 19:20:06] Database connection closed.
+[2025-04-17 19:20:08] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:20:08] User class instantiated with database connection.
+[2025-04-17 19:20:08] Fetching user role by user ID: 181
+[2025-04-17 19:20:09] User role fetched successfully for user ID: 181
+[2025-04-17 19:20:09] Running member controller ,update_attendance token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NDkxMjgwMH0=.2f111a2441da638d8db36b983b38ecd8e1ff2d9091e4cb37b67a2b9a1977a0ed   id - 181 
+[2025-04-17 19:20:09] Running member mark_attendance....in controller
+[2025-04-17 19:20:09] Running userArrivedStatus...
+[2025-04-17 19:20:09] Attendance model initialized with database connection.
+[2025-04-17 19:20:09] Fetching latest Arrived status for User ID: 181
+[2025-04-17 19:20:09] Latest Arrived status for User ID 181: 0
+[2025-04-17 19:20:09] Database connection closed.
+[2025-04-17 19:20:12] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:20:12] User class instantiated with database connection.
+[2025-04-17 19:20:12] Fetching user role by user ID: 181
+[2025-04-17 19:20:12] User role fetched successfully for user ID: 181
+[2025-04-17 19:20:12] Running member controller ,update_attendance token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NDkxMjgwMH0=.2f111a2441da638d8db36b983b38ecd8e1ff2d9091e4cb37b67a2b9a1977a0ed   id - 181 
+[2025-04-17 19:20:12] Running member mark_attendance....in controller
+[2025-04-17 19:20:12] Running userArrivedStatus...
+[2025-04-17 19:20:12] Attendance model initialized with database connection.
+[2025-04-17 19:20:12] Fetching latest Arrived status for User ID: 181
+[2025-04-17 19:20:12] Latest Arrived status for User ID 181: 0
+[2025-04-17 19:20:12] Database connection closed.
+[2025-04-17 19:20:16] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:20:16] User class instantiated with database connection.
+[2025-04-17 19:20:16] Fetching user role by user ID: 181
+[2025-04-17 19:20:16] User role fetched successfully for user ID: 181
+[2025-04-17 19:20:16] Running member controller ,get_profile token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NDkxMjgwMH0=.2f111a2441da638d8db36b983b38ecd8e1ff2d9091e4cb37b67a2b9a1977a0ed   id - 181 
+[2025-04-17 19:20:16] Running get_profile....in controller
+[2025-04-17 19:20:16] Running get_profile....in handler
+[2025-04-17 19:20:16] User class instantiated with database connection.
+[2025-04-17 19:20:16] Fetching profile for user ID: 181
+[2025-04-17 19:20:16] Profile data fetched successfully for user ID: 181
+[2025-04-17 19:20:16] Profile data: {"email":"sandeep1@gmail.com","full_name":"Sandeep Perera","DOB":"1995-03-12","phone":"0712345678","address":"12A, Maliga Perera Mawatha, Colombo","gender":"M"}
+[2025-04-17 19:20:16] Database connection closed.
+[2025-04-17 19:20:17] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:20:17] User class instantiated with database connection.
+[2025-04-17 19:20:17] Fetching user role by user ID: 181
+[2025-04-17 19:20:17] User role fetched successfully for user ID: 181
+[2025-04-17 19:20:17] Running member controller ,update_attendance token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NDkxMjgwMH0=.2f111a2441da638d8db36b983b38ecd8e1ff2d9091e4cb37b67a2b9a1977a0ed   id - 181 
+[2025-04-17 19:20:17] Running member mark_attendance....in controller
+[2025-04-17 19:20:17] Running userArrivedStatus...
+[2025-04-17 19:20:17] Attendance model initialized with database connection.
+[2025-04-17 19:20:17] Fetching latest Arrived status for User ID: 181
+[2025-04-17 19:20:17] Latest Arrived status for User ID 181: 0
+[2025-04-17 19:20:17] Database connection closed.
+[2025-04-17 19:20:22] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:20:22] User class instantiated with database connection.
+[2025-04-17 19:20:22] Fetching user role by user ID: 181
+[2025-04-17 19:20:22] User role fetched successfully for user ID: 181
+[2025-04-17 19:20:22] Running member controller ,update_attendance token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NDkxMjgwMH0=.2f111a2441da638d8db36b983b38ecd8e1ff2d9091e4cb37b67a2b9a1977a0ed   id - 181 
+[2025-04-17 19:20:22] Running member mark_attendance....in controller
+[2025-04-17 19:20:22] Running userArrivedStatus...
+[2025-04-17 19:20:22] Attendance model initialized with database connection.
+[2025-04-17 19:20:22] Fetching latest Arrived status for User ID: 181
+[2025-04-17 19:20:23] Latest Arrived status for User ID 181: 0
+[2025-04-17 19:20:23] Database connection closed.
+[2025-04-17 19:20:27] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:20:27] User class instantiated with database connection.
+[2025-04-17 19:20:27] Fetching user role by user ID: 181
+[2025-04-17 19:20:27] User role fetched successfully for user ID: 181
+[2025-04-17 19:20:27] Running member controller ,update_attendance token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NDkxMjgwMH0=.2f111a2441da638d8db36b983b38ecd8e1ff2d9091e4cb37b67a2b9a1977a0ed   id - 181 
+[2025-04-17 19:20:27] Running member mark_attendance....in controller
+[2025-04-17 19:20:27] Running userArrivedStatus...
+[2025-04-17 19:20:27] Attendance model initialized with database connection.
+[2025-04-17 19:20:27] Fetching latest Arrived status for User ID: 181
+[2025-04-17 19:20:28] Latest Arrived status for User ID 181: 0
+[2025-04-17 19:20:28] Database connection closed.
+[2025-04-17 19:20:45] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:20:45] User class instantiated with database connection.
+[2025-04-17 19:20:45] Fetching user role by user ID: 181
+[2025-04-17 19:20:46] User role fetched successfully for user ID: 181
+[2025-04-17 19:20:46] Running member controller ,update_attendance token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NDkxMjgwMH0=.2f111a2441da638d8db36b983b38ecd8e1ff2d9091e4cb37b67a2b9a1977a0ed   id - 181 
+[2025-04-17 19:20:46] Running member mark_attendance....in controller
+[2025-04-17 19:20:46] Running userArrivedStatus...
+[2025-04-17 19:20:46] Attendance model initialized with database connection.
+[2025-04-17 19:20:46] Fetching latest Arrived status for User ID: 181
+[2025-04-17 19:20:47] Latest Arrived status for User ID 181: 0
+[2025-04-17 19:20:47] Database connection closed.
+[2025-04-17 19:20:48] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:20:48] User class instantiated with database connection.
+[2025-04-17 19:20:48] Fetching user role by user ID: 181
+[2025-04-17 19:20:48] User role fetched successfully for user ID: 181
+[2025-04-17 19:20:48] Running member controller ,get_profile token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NDkxMjgwMH0=.2f111a2441da638d8db36b983b38ecd8e1ff2d9091e4cb37b67a2b9a1977a0ed   id - 181 
+[2025-04-17 19:20:48] Running get_profile....in controller
+[2025-04-17 19:20:48] Running get_profile....in handler
+[2025-04-17 19:20:48] User class instantiated with database connection.
+[2025-04-17 19:20:48] Fetching profile for user ID: 181
+[2025-04-17 19:20:49] Profile data fetched successfully for user ID: 181
+[2025-04-17 19:20:49] Profile data: {"email":"sandeep1@gmail.com","full_name":"Sandeep Perera","DOB":"1995-03-12","phone":"0712345678","address":"12A, Maliga Perera Mawatha, Colombo","gender":"M"}
+[2025-04-17 19:20:49] Database connection closed.
+[2025-04-17 19:21:50] Running auth controller ,login 
+[2025-04-17 19:21:50] running login...in auth controller
+[2025-04-17 19:21:50] login function running...
+[2025-04-17 19:21:50] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:21:50] User class instantiated with database connection.
+[2025-04-17 19:21:50] User Login model running for: staff@gmail.com
+[2025-04-17 19:21:50] Fetching user by email: staff@gmail.com
+[2025-04-17 19:21:50] User found for email: staff@gmail.com
+[2025-04-17 19:21:51] Query bound and ready to execute for login: staff@gmail.com
+[2025-04-17 19:21:51] User status: 1
+[2025-04-17 19:21:51] User login successful: staff@gmail.com with role: staff
+[2025-04-17 19:21:51] Login Successful: eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0OTEyODAwfQ==.0bf3e69e1905c69c8a34b036f5c766d1f6a021203ead9d7a01464f1b4243d7d4 staff
+[2025-04-17 19:21:51] Database connection closed.
+[2025-04-17 19:21:56] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:21:56] User class instantiated with database connection.
+[2025-04-17 19:21:56] Fetching user role by user ID: 68
+[2025-04-17 19:21:56] User role fetched successfully for user ID: 68
+[2025-04-17 19:21:56] Running staff controller ,get_equipment_types token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0OTEyODAwfQ==.0bf3e69e1905c69c8a34b036f5c766d1f6a021203ead9d7a01464f1b4243d7d4   id - 68 
+[2025-04-17 19:21:56] Running get_equip_types....in controller
+[2025-04-17 19:21:56] Fetching equipment types...
+[2025-04-17 19:21:56] EquipmentTypes model initialized with database connection.
+[2025-04-17 19:21:56] Fetching all equipment types...
+[2025-04-17 19:21:57] Equipment types fetched successfully.
+[2025-04-17 19:21:57] Equipment types fetched successfully. Total: 27
+[2025-04-17 19:21:57] Database connection closed.
+[2025-04-17 19:21:57] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:21:57] User class instantiated with database connection.
+[2025-04-17 19:21:57] Fetching user role by user ID: 68
+[2025-04-17 19:21:57] User role fetched successfully for user ID: 68
+[2025-04-17 19:21:57] Running staff controller ,get_equipments token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0OTEyODAwfQ==.0bf3e69e1905c69c8a34b036f5c766d1f6a021203ead9d7a01464f1b4243d7d4   id - 68 
+[2025-04-17 19:21:57] Running get_equip....in controller
+[2025-04-17 19:21:57] get equip function running...
+[2025-04-17 19:21:57] Equipment model initialized with database connection.
+[2025-04-17 19:21:57] Fetching equipment...
+[2025-04-17 19:21:58] Equipment fetched successfully
+[2025-04-17 19:21:58] Equipment data fetched
+[2025-04-17 19:21:58] Database connection closed.
+[2025-04-17 19:22:19] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:22:19] User class instantiated with database connection.
+[2025-04-17 19:22:19] Fetching user role by user ID: 68
+[2025-04-17 19:22:19] User role fetched successfully for user ID: 68
+[2025-04-17 19:22:19] Running staff controller ,get_maintenances token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0OTEyODAwfQ==.0bf3e69e1905c69c8a34b036f5c766d1f6a021203ead9d7a01464f1b4243d7d4   id - 68 
+[2025-04-17 19:22:19] Running get_maintenance....in controller
+[2025-04-17 19:22:19] EquipmentMaintenance model initialized
+[2025-04-17 19:22:19] Fetching maintenance data...
+[2025-04-17 19:22:20] Maintenance data fetched successfully
+[2025-04-17 19:22:20] [{"maintenance_id":24,"equipment_id":94,"maintenance_date":"2025-04-03","details":"htr","next_maintenance_date":"2025-05-02","name":"Kettlebells_1"},{"maintenance_id":25,"equipment_id":97,"maintenance_date":"2025-02-11","details":"vorgorg0","next_maintenance_date":"2025-04-03","name":"Leg Curl Machine_1"},{"maintenance_id":26,"equipment_id":95,"maintenance_date":"2025-05-03","details":"kktyty","next_maintenance_date":"2025-07-13","name":"Chin-Up Bar_1"},{"maintenance_id":27,"equipment_id":93,"maintenance_date":"2025-04-24","details":"dohvftufutfutfu","next_maintenance_date":"2025-05-30","name":"Leg Extension Machine_1"}]
+[2025-04-17 19:22:20] Maintenance data fetched successfully
+[2025-04-17 19:22:20] Database connection closed.
+[2025-04-17 19:22:20] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:22:20] User class instantiated with database connection.
+[2025-04-17 19:22:20] Fetching user role by user ID: 68
+[2025-04-17 19:22:20] User role fetched successfully for user ID: 68
+[2025-04-17 19:22:20] Running staff controller ,get_equipments token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0OTEyODAwfQ==.0bf3e69e1905c69c8a34b036f5c766d1f6a021203ead9d7a01464f1b4243d7d4   id - 68 
+[2025-04-17 19:22:20] Running get_equip....in controller
+[2025-04-17 19:22:20] get equip function running...
+[2025-04-17 19:22:20] Equipment model initialized with database connection.
+[2025-04-17 19:22:20] Fetching equipment...
+[2025-04-17 19:22:21] Equipment fetched successfully
+[2025-04-17 19:22:21] Equipment data fetched
+[2025-04-17 19:22:21] Database connection closed.
+[2025-04-17 19:22:56] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:22:56] User class instantiated with database connection.
+[2025-04-17 19:22:56] Fetching user role by user ID: 68
+[2025-04-17 19:22:57] User role fetched successfully for user ID: 68
+[2025-04-17 19:22:57] Running staff controller ,add_maintenance token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0OTEyODAwfQ==.0bf3e69e1905c69c8a34b036f5c766d1f6a021203ead9d7a01464f1b4243d7d4   id - 68 
+[2025-04-17 19:22:57] Running add_maintenance....in controller
+[2025-04-17 19:22:57] addMaintenance function running...
+[2025-04-17 19:22:57] EquipmentMaintenance model initialized
+[2025-04-17 19:22:57] Received data: equipment_id = 98, maintenance_date = 2025-04-23, details = repaired, next_maintenance_date = 2025-04-30
+[2025-04-17 19:22:57] Adding new maintenance record...
+[2025-04-17 19:22:57] Query bound for adding maintenance for equipment: 98
+[2025-04-17 19:22:57] Maintenance added successfully for equipment: 98
+[2025-04-17 19:22:57] Maintenance added for equipment: 98
+[2025-04-17 19:22:57] Database connection closed.
+[2025-04-17 19:22:57] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:22:57] User class instantiated with database connection.
+[2025-04-17 19:22:57] Fetching user role by user ID: 68
+[2025-04-17 19:22:58] User role fetched successfully for user ID: 68
+[2025-04-17 19:22:58] Running staff controller ,get_maintenances token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0OTEyODAwfQ==.0bf3e69e1905c69c8a34b036f5c766d1f6a021203ead9d7a01464f1b4243d7d4   id - 68 
+[2025-04-17 19:22:58] Running get_maintenance....in controller
+[2025-04-17 19:22:58] EquipmentMaintenance model initialized
+[2025-04-17 19:22:58] Fetching maintenance data...
+[2025-04-17 19:22:59] Maintenance data fetched successfully
+[2025-04-17 19:22:59] [{"maintenance_id":24,"equipment_id":94,"maintenance_date":"2025-04-03","details":"htr","next_maintenance_date":"2025-05-02","name":"Kettlebells_1"},{"maintenance_id":25,"equipment_id":97,"maintenance_date":"2025-02-11","details":"vorgorg0","next_maintenance_date":"2025-04-03","name":"Leg Curl Machine_1"},{"maintenance_id":26,"equipment_id":95,"maintenance_date":"2025-05-03","details":"kktyty","next_maintenance_date":"2025-07-13","name":"Chin-Up Bar_1"},{"maintenance_id":27,"equipment_id":93,"maintenance_date":"2025-04-24","details":"dohvftufutfutfu","next_maintenance_date":"2025-05-30","name":"Leg Extension Machine_1"},{"maintenance_id":28,"equipment_id":98,"maintenance_date":"2025-04-23","details":"repaired","next_maintenance_date":"2025-04-30","name":"Pull-Up Bar_1"}]
+[2025-04-17 19:22:59] Maintenance data fetched successfully
+[2025-04-17 19:22:59] Database connection closed.
+[2025-04-17 19:23:14] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:23:14] User class instantiated with database connection.
+[2025-04-17 19:23:14] Fetching user role by user ID: 68
+[2025-04-17 19:23:14] User role fetched successfully for user ID: 68
+[2025-04-17 19:23:14] Running staff controller ,add_maintenance token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0OTEyODAwfQ==.0bf3e69e1905c69c8a34b036f5c766d1f6a021203ead9d7a01464f1b4243d7d4   id - 68 
+[2025-04-17 19:23:14] Running add_maintenance....in controller
+[2025-04-17 19:23:14] addMaintenance function running...
+[2025-04-17 19:23:14] EquipmentMaintenance model initialized
+[2025-04-17 19:23:14] Received data: equipment_id = 98, maintenance_date = 2025-04-23, details = repaired again, next_maintenance_date = 2025-04-30
+[2025-04-17 19:23:14] Adding new maintenance record...
+[2025-04-17 19:23:14] Query bound for adding maintenance for equipment: 98
+[2025-04-17 19:23:14] Maintenance added successfully for equipment: 98
+[2025-04-17 19:23:14] Maintenance added for equipment: 98
+[2025-04-17 19:23:14] Database connection closed.
+[2025-04-17 19:23:15] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:23:15] User class instantiated with database connection.
+[2025-04-17 19:23:15] Fetching user role by user ID: 68
+[2025-04-17 19:23:15] User role fetched successfully for user ID: 68
+[2025-04-17 19:23:15] Running staff controller ,get_maintenances token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0OTEyODAwfQ==.0bf3e69e1905c69c8a34b036f5c766d1f6a021203ead9d7a01464f1b4243d7d4   id - 68 
+[2025-04-17 19:23:15] Running get_maintenance....in controller
+[2025-04-17 19:23:15] EquipmentMaintenance model initialized
+[2025-04-17 19:23:15] Fetching maintenance data...
+[2025-04-17 19:23:15] Maintenance data fetched successfully
+[2025-04-17 19:23:15] [{"maintenance_id":24,"equipment_id":94,"maintenance_date":"2025-04-03","details":"htr","next_maintenance_date":"2025-05-02","name":"Kettlebells_1"},{"maintenance_id":25,"equipment_id":97,"maintenance_date":"2025-02-11","details":"vorgorg0","next_maintenance_date":"2025-04-03","name":"Leg Curl Machine_1"},{"maintenance_id":26,"equipment_id":95,"maintenance_date":"2025-05-03","details":"kktyty","next_maintenance_date":"2025-07-13","name":"Chin-Up Bar_1"},{"maintenance_id":27,"equipment_id":93,"maintenance_date":"2025-04-24","details":"dohvftufutfutfu","next_maintenance_date":"2025-05-30","name":"Leg Extension Machine_1"},{"maintenance_id":28,"equipment_id":98,"maintenance_date":"2025-04-23","details":"repaired","next_maintenance_date":"2025-04-30","name":"Pull-Up Bar_1"},{"maintenance_id":29,"equipment_id":98,"maintenance_date":"2025-04-23","details":"repaired again","next_maintenance_date":"2025-04-30","name":"Pull-Up Bar_1"}]
+[2025-04-17 19:23:15] Maintenance data fetched successfully
+[2025-04-17 19:23:15] Database connection closed.
+[2025-04-17 19:23:23] Connection established successfully to the database: rad_gymverse
+[2025-04-17 19:23:23] User class instantiated with database connection.
+[2025-04-17 19:23:23] Fetching user role by user ID: 68
+[2025-04-17 19:23:23] User role fetched successfully for user ID: 68
+[2025-04-17 19:23:23] Running staff controller ,get_notices token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ0OTEyODAwfQ==.0bf3e69e1905c69c8a34b036f5c766d1f6a021203ead9d7a01464f1b4243d7d4   id - 68 
+[2025-04-17 19:23:23] Running get_notice....in controller
+[2025-04-17 19:23:23] get notices function running...
+[2025-04-17 19:23:23] Notice model initialized with database connection.
+[2025-04-17 19:23:23] Fetching notices...
+[2025-04-17 19:23:23] Notices fetched successfully
+[2025-04-17 19:23:23] Notices fetched successfully
+[2025-04-17 19:23:23] Database connection closed.

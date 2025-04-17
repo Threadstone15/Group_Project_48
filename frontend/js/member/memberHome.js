@@ -101,7 +101,6 @@ export function initMember_home() {
       })
       .catch(error => {
         console.error("Error updating attendance:", error);
-        alert("Failed to update attendance");
       });
   }
   fetch("get_notices.php")
