@@ -90,4 +90,51 @@
       height: 300px;
     }
   }
+
+  .global-toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    pointer-events: none;
+  }
+  
+  .global-toast {
+    margin-bottom: 10px;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: white;
+    background-color: #333;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    animation: fadeInOut 4s forwards;
+    pointer-events: auto;
+  }
+  
+  .global-toast.success {
+    background-color: #28a745;
+  }
+  
+  .global-toast.error {
+    background-color: #dc3545;
+  }
+  
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+  
+    10%,
+    90% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  
+    100% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+  }
   
