@@ -12,11 +12,15 @@
     
     <div class="content">
 
-    <div class="header">
-        <p class="heading">
-            Member Attendance
-        </p>
-    </div>
+        <div class="header">
+            <div class="header-left">
+                <p class="heading">Member Attendance</p>
+            </div>
+            <div class="header-right">
+                <button id="markAttendanceBtn">Mark Attendance</button>
+            </div>
+        </div>
+        
 
     <div class="table-container">
         <table id="attendanceTable">
@@ -52,5 +56,23 @@
         </table>
     </div>
     </div>
-<!-- <script src="/Group_Project_48/frontend/js/staff/memberAttendance.js"></script> -->
+    <!-- Toast container -->
+    <div id="toast-container" class="toast-container"></div>
+
+
+<!-- QR Scanner Modal -->
+<div id="qrModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <p>Scan Member QR Code</p>
+        <video id="qr-video" width="100%" style="min-height:300px;" autoplay muted playsinline></video>
+        <div class="modal-buttons">
+            <button id="nextScanBtn" disabled>Next Scan</button>
+            <button id="arrivalBtn" disabled>Arrival</button>
+            <button id="leaveBtn" disabled>Leave</button>
+        </div>        
+    </div>
+</div>
+
+
 </body>

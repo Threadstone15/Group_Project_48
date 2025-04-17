@@ -12,6 +12,7 @@ include_once "../../config/database.php";
 include_once "equipmentHandler.php";
 include_once "equipmentMaintenanceHandler.php";
 include_once "noticeHandler.php";
+include_once "markAttendanceHandler.php";
 include_once "../models/User.php";
 include_once "./accountDetailHandler.php";
 
@@ -108,6 +109,23 @@ switch ($action) {
     case 'change_password':
         logMessage("Running change_password....in controller");
         changePassword($user_id);
+        break;
+
+
+    case 'mark_attendance':
+        logMessage("Running mark_attendance....in controller");
+        // Read and decode JSON input
+        $rawInput = file_get_contents("php://input");
+        $jsonData = json_decode($rawInput, true);
+        if (!isset($jsonData['data'])) {
+            http_response_code(400);
+            echo json_encode(["error" => "Missing data field"]);
+            exit;
+        }
+        $mem_token = $jsonData['data'];
+        $mem_user_id = getUserIdFromTokenNoVerify($mem_token);;
+        logMessage("Marking attendance for User ID: $mem_user_id");
+        markAttendance($mem_user_id, $jsonData);
         break;
 
 
