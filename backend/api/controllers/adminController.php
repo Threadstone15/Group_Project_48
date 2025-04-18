@@ -16,8 +16,8 @@ include_once "../models/Staff.php";
 include_once "./accountDetailHandler.php";
 include_once "./trainerClassHandler.php";
 include_once "./markAttendanceHandler.php";
+include_once "./systemHistoryHandler.php";
 
-$conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     logMessage("Handling preflight OPTIONS request.");
     http_response_code(204);
@@ -55,12 +55,12 @@ switch ($action) {
 
 
     //for accounts section
-    case 'get_members_by_role':
+    case 'get_members_by_role': //fetching
         $role = $_POST['role'] ?? $_GET['role'] ?? null;
         logMessage("Running get_members_by_role....in controller");
         getStaff($role);
         break;
-    case 'deactivate_staff':
+    case 'deactivate_staff': //deactivate
         $deleted_by = $user_id;
         logMessage("Running delete_staff....in controller");
         $input = json_decode(file_get_contents('php://input'), true);
@@ -69,7 +69,7 @@ switch ($action) {
         logMessage("User ID: $user_id, Remark: $remark, Deleted By: $deleted_by");
         deactivateStaff($user_id, $remark, $deleted_by);
         break;
-    case 'reactivate_staff':
+    case 'reactivate_staff': //reactivate
         $reactivated_by = $user_id;
         logMessage("Running reactivate_staff....in controller");
         $input = json_decode(file_get_contents('php://input'), true);
@@ -78,11 +78,16 @@ switch ($action) {
         logMessage("User ID: $user_id, Remark: $remark, Reactivated By: $reactivated_by");
         reactivateStaff($user_id, $remark, $reactivated_by);
         break;
-    case 'add_staff':
+    case 'add_staff': //add
         logMessage("Running add_staff....in controller");
         addStaff();
         break;
 
+    //for systemHistory
+    case 'get_history':
+        logMessage("Running get_history....in controller");
+        getHistory();
+        break;
 
 
     case 'get_all_payments':

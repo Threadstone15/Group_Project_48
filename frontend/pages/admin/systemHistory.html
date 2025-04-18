@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System History</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="profile-container">
+    <div class="profile-header">
+      <h2>System History</h2>
+    </div>
+    <div class="cards-grid">
+      <div class="card" onclick="openPopup('Equipments')">Equipments</div>
+      <div class="card" onclick="openPopup('Maintenance')">Maintenance Records</div>
+      <div class="card" onclick="openPopup('Applications')">Trainer Applications</div>
+      <div class="card" onclick="openPopup('Jobs')">Jobs</div>
+      <div class="card" onclick="openPopup('Attendance')">Attendance</div>
+    </div>
+  </div>
+
+  <!-- Popup -->
+  <div class="popup hidden" id="popup">
+    <div class="popup-content">
+      <h3 id="popup-title">Table Title</h3>
+      <input type="text" id="search-input" placeholder="Search..." oninput="searchTable()">
+      <table id="popup-table">
+        <thead>
+          <tr id="table-headers"></tr>
+        </thead>
+        <tbody id="table-body">
+          <!-- Dynamic rows -->
+        </tbody>
+      </table>
+      <div class="popup-buttons">
+        <button class="close-popup" onclick="closePopup()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Spinner -->
+<div id="loading-spinner" class="spinner hidden">
+    <div class="spinner-circle"></div>
+  </div>
+
+
+</body>
+</html>
