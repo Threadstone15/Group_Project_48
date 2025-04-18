@@ -14,6 +14,7 @@ include_once "../models/User.php";
 include_once "./subscriptionHandler.php";
 include_once "./markAttendanceHandler.php";
 include_once "./accountDetailHandler.php";
+include_once "./assignedTrainerHandler.php";
 
 $conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -92,7 +93,23 @@ switch ($action) {
         logMessage("Running change_password....in controller");
         changePassword($user_id);
         break;
-
+    
+    case 'select_trainer' :
+        logMessage("Running select_trainer....in controller");
+        selectTrainer($user_id);
+        break;
+    case 'get_assigned_trainer' : 
+        logMessage("Running get_assigned_trainer....in controller");
+        getAssignedTrainer($user_id);
+        break;
+    case 'change_assigned_trainer' :
+        logMessage("Running change_trainer....in controller");
+        changeTrainer($user_id);
+        break;
+    case 'remove_assigned_trainer' :
+        logMessage("Running remove_trainer....in controller");
+        removeTrainer($user_id);
+        break;
 
 
     default:
