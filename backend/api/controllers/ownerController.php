@@ -38,18 +38,10 @@ logMessage("Running owner controller ,$action token - $token   id - $user_id ");
 
 switch ($action) {
     //for accounts section
-    case 'get_all_emails':
-        logMessage("Running get_all_emails....in controller");
-        getAllEmails();
-        break;
     case 'get_members_by_role':
         $role = $_POST['role'] ?? $_GET['role'] ?? null;
         logMessage("Running get_members_by_role....in controller");
         getStaff($role);
-        break;
-    case 'update_staff':
-        logMessage("Running update_staff....in controller");
-        updateStaff();
         break;
     case 'deactivate_staff':
         $deleted_by = $user_id;
@@ -69,7 +61,6 @@ switch ($action) {
         logMessage("User ID: $user_id, Remark: $remark, Reactivated By: $reactivated_by");
         reactivateStaff($user_id, $remark, $reactivated_by);
         break;
-
     case 'add_staff':
         logMessage("Running add_staff....in controller");
         addStaff();
