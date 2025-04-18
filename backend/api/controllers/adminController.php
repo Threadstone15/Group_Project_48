@@ -15,6 +15,7 @@ include_once "../models/User.php";
 include_once "../models/Staff.php";
 include_once "./accountDetailHandler.php";
 include_once "./trainerClassHandler.php";
+include_once "./markAttendanceHandler.php";
 
 $conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -114,6 +115,13 @@ switch ($action) {
         logMessage("Running delete_class....in controller");
         deleteTrainerClass();
         break;
+
+    case 'get_gym_crowd': // from adminHome
+        logMessage("Running get_gym_crowd....in controller");
+        getGymCrowd();
+        break;
+
+
 
 
     default:
