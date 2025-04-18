@@ -1,5 +1,6 @@
 export function initAdmin_accounts() {
     console.log("initlaizing accounts page...");
+    const spinner = document.getElementById("loading-spinner");
     let searchTimeout = null;
     let role = 'member';
     let type = 'active';
@@ -47,6 +48,7 @@ export function initAdmin_accounts() {
 
     async function fetchMembersByRole(role, type) {
     try {
+        spinner.classList.remove("hidden");
         console.log("Selected role: ", role);
         const response = await fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=get_members_by_role&role=${role}`, {
             method: 'GET',
@@ -60,11 +62,14 @@ export function initAdmin_accounts() {
             const members = await response.json();
             console.log("response: ", members);
             currentMembers = members;
+            spinner.classList.add("hidden");
             populateTable(members, type);  // Passing type to filter the results
         } else {
+            spinner.classList.add("hidden");
             console.error('Failed to fetch members by role, HTTP status:', response.status);
         }
     } catch (error) {
+        spinner.classList.add("hidden");
         console.error('Error fetching members by role:', error);
     }
     }
@@ -305,6 +310,7 @@ export function initAdmin_accounts() {
     async function deactivateMember(userId, reason) {
         console.log("Deactivating member with ID:(Fetch)", userId);
         try {
+            spinner.classList.remove("hidden");
             const response = await fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=deactivate_staff`, {
                 method: 'POST',
                 headers: {
@@ -318,12 +324,15 @@ export function initAdmin_accounts() {
             });
 
             if (response.ok) {
+                spinner.classList.add("hidden");
                 showToast("Member deactivated successfully", "success");
                 fetchMembersByRole(role, type); // Refresh table with current filters
             } else {
+                spinner.classList.add("hidden");
                 showToast("Failed to deactivate member", "error");
             }
         } catch (error) {
+            spinner.classList.add("hidden");
             console.error('Error deactivating member:', error);
             showToast("An error occurred", "error");
         }
@@ -332,6 +341,7 @@ export function initAdmin_accounts() {
     // Reactivate member function
     async function reactivateMember(userId, reason) {
         try {
+            spinner.classList.remove("hidden");
             const response = await fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=reactivate_staff`, {
                 method: 'POST',
                 headers: {
@@ -345,13 +355,16 @@ export function initAdmin_accounts() {
             });
 
             if (response.ok) {
+                spinner.classList.add("hidden");
                 showToast("Member reactivated successfully", "success");
                 fetchMembersByRole(role, type); // Refresh table with current filters
             } else {
+                spinner.classList.add("hidden");
                 showToast("Failed to reactivate member", "error");
             }
         } catch (error) {
             console.error('Error reactivating member:', error);
+            spinner.classList.add("hidden");
             showToast("An error occurred", "error");
         }
     }
