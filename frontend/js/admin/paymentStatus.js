@@ -3,9 +3,12 @@ export function initAdmin_paymentStat() {
 
     let payments = [];
 
+    const spinner = document.getElementById("loading-spinner");
+
     
 
     function fetchPaymentsFromBackend() {
+        spinner.classList.remove("hidden");
         const authToken = localStorage.getItem("authToken");
         if (!authToken) {
             console.error("Auth token not found. Please log in.");
@@ -35,7 +38,7 @@ export function initAdmin_paymentStat() {
                     console.error("Unexpected data format", data);
                     payments = [];
                 }
-            
+                spinner.classList.add("hidden");
                 populateTable();
             })
             

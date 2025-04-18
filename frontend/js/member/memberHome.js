@@ -176,6 +176,7 @@ export function initMember_home() {
           })
           .catch(error => console.error("Error fetching gym data:", error));
   }
+
   function loadHTMLFile(url, targetElement) {
       fetch(url)
           .then(response => response.text())

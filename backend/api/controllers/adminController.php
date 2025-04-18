@@ -15,8 +15,9 @@ include_once "../models/User.php";
 include_once "../models/Staff.php";
 include_once "./accountDetailHandler.php";
 include_once "./trainerClassHandler.php";
+include_once "./markAttendanceHandler.php";
+include_once "./systemHistoryHandler.php";
 
-$conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     logMessage("Handling preflight OPTIONS request.");
     http_response_code(204);
@@ -53,29 +54,39 @@ switch ($action) {
         break;
 
 
-    case 'add_staff':
-        logMessage("Running add_staff....in controller");
-        addStaff();
-        break;
-    case 'get_members_by_role':
+    //for accounts section
+    case 'get_members_by_role': //fetching
         $role = $_POST['role'] ?? $_GET['role'] ?? null;
         logMessage("Running get_members_by_role....in controller");
         getStaff($role);
         break;
-    case 'update_staff':
-        logMessage("Running update_staff....in controller");
-        updateStaff();
-        break;
-    case 'delete_staff':
+    case 'deactivate_staff': //deactivate
+        $deleted_by = $user_id;
         logMessage("Running delete_staff....in controller");
-        $user_id = $_POST['userID'] ?? $_GET['userID'] ?? null;
-        deleteStaff($user_id);
+        $input = json_decode(file_get_contents('php://input'), true);
+        $user_id = $input['userId'] ?? null;
+        $remark = $input['reason'] ?? null;
+        logMessage("User ID: $user_id, Remark: $remark, Deleted By: $deleted_by");
+        deactivateStaff($user_id, $remark, $deleted_by);
+        break;
+    case 'reactivate_staff': //reactivate
+        $reactivated_by = $user_id;
+        logMessage("Running reactivate_staff....in controller");
+        $input = json_decode(file_get_contents('php://input'), true);
+        $user_id = $input['userId'] ?? null;
+        $remark = $input['reason'] ?? null;
+        logMessage("User ID: $user_id, Remark: $remark, Reactivated By: $reactivated_by");
+        reactivateStaff($user_id, $remark, $reactivated_by);
+        break;
+    case 'add_staff': //add
+        logMessage("Running add_staff....in controller");
+        addStaff();
         break;
 
-
-    case 'get_all_emails':
-        logMessage("Running get_all_emails....in controller");
-        getAllEmails();
+    //for systemHistory
+    case 'get_history':
+        logMessage("Running get_history....in controller");
+        getHistory();
         break;
 
 
@@ -114,6 +125,13 @@ switch ($action) {
         logMessage("Running delete_class....in controller");
         deleteTrainerClass();
         break;
+
+    case 'get_gym_crowd': // from adminHome
+        logMessage("Running get_gym_crowd....in controller");
+        getGymCrowd();
+        break;
+
+
 
 
     default:

@@ -267,7 +267,7 @@ function updateStaff()
 
 
 // Delete staff
-function deactivateStaffStaff($user_id, $remark, $deleted_by)
+function deactivateStaff($user_id, $remark, $deleted_by)
 {
     // Concatenate the remark with the "Deleted by" info
     $remark = $remark . " (Deleted by: " . $deleted_by . ")";
