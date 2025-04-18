@@ -2,6 +2,8 @@
 export function initAdmin_jobs() {
     console.log("initializing trainer jobs page");
 
+    const spinner = document.getElementById("loading-spinner");
+
     const jobsTable = document.getElementById("jobsTable");
 
     // Initialize jobs data if the table exists
@@ -14,19 +16,21 @@ export function initAdmin_jobs() {
     // Fetch the list of jobs from the backend
     function fetchJobsList() {
         console.log("Fetching Jobs List");
-
+    
         const authToken = localStorage.getItem("authToken");
         if (!authToken) {
             console.error("Auth token not found. Please log in.");
             return;
         }
-
+    
         const requestOptions = {
             method: "GET",
             headers: { Authorization: `Bearer ${authToken}` },
             redirect: "follow",
         };
-
+    
+        spinner.classList.remove("hidden"); // Show spinner
+    
         fetch(
             "http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=get_trainer_career",
             requestOptions
@@ -37,30 +41,29 @@ export function initAdmin_jobs() {
             })
             .then((data) => {
                 console.log("Fetched jobs list:", data);
-
+    
                 const tableBody = jobsTable.getElementsByTagName("tbody")[0];
                 tableBody.innerHTML = "";
-
+    
                 if (data.length > 0) {
                     data.forEach((job) => {
                         const row = document.createElement("tr");
-
+    
                         row.innerHTML = `
-                        <td>${job["career_id"]}</td>
-                        <td>${job["job_role"]}</td>
-                        <td>${job["requirements"]}</td>
-                        <td>
-                            <button class="update-button"
-                                data-job-id="${job["career_id"]}"
-                                data-job-role="${job["job_role"]}"
-                                data-job-requirements="${job["requirements"]}">
-                                Update
-                            </button>
-
-                            <button class="delete-button" data-id="${job["career_id"]}">Remove</button>
-                        </td>
-                    `;
-
+                            <td>${job["career_id"]}</td>
+                            <td>${job["job_role"]}</td>
+                            <td>${job["requirements"]}</td>
+                            <td>
+                                <button class="update-button"
+                                    data-job-id="${job["career_id"]}"
+                                    data-job-role="${job["job_role"]}"
+                                    data-job-requirements="${job["requirements"]}">
+                                    Update
+                                </button>
+                                <button class="delete-button" data-id="${job["career_id"]}">Remove</button>
+                            </td>
+                        `;
+    
                         tableBody.appendChild(row);
                     });
                 } else {
@@ -69,8 +72,14 @@ export function initAdmin_jobs() {
                     tableBody.appendChild(noDataRow);
                 }
             })
-            .catch((error) => console.error("Error fetching jobs list:", error));
+            .catch((error) => {
+                console.error("Error fetching jobs list:", error);
+            })
+            .finally(() => {
+                spinner.classList.add("hidden"); // Always hide spinner at the end
+            });
     }
+    
 
     // Add a new job
     document.getElementById("publishBtn").addEventListener("click", function () {

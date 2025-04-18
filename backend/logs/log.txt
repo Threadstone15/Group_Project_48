@@ -6880,3 +6880,168 @@
 [2025-04-18 20:20:37] Member details fetched successfully.
 [2025-04-18 20:20:37] Member details fetched successfully.
 [2025-04-18 20:20:37] Database connection closed.
+[2025-04-18 20:21:05] Connection established successfully to the database: rad_gymverse
+[2025-04-18 20:21:05] User class instantiated with database connection.
+[2025-04-18 20:21:05] Fetching user role by user ID: 75
+[2025-04-18 20:21:05] User role fetched successfully for user ID: 75
+[2025-04-18 20:21:05] Running admin controller ,get_gym_crowd token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MDAyODAwfQ==.6102545a66ae53e59cf3fbbcd8986c8ef34b7021eb3c6bad5808d082e4dc03d6   id - 75 
+[2025-04-18 20:21:05] Running get_gym_crowd....in controller
+[2025-04-18 20:21:05] Running getGymCrowd...
+[2025-04-18 20:21:05] Attendance model initialized with database connection.
+[2025-04-18 20:21:05] Fetching number of unique users with latest arrival marked as 1...
+[2025-04-18 20:21:05] Total users with latest Arrived=1: 1
+[2025-04-18 20:21:05] Fetching gym capacity from configuration...
+[2025-04-18 20:21:06] Gym capacity fetched successfully: 50
+[2025-04-18 20:21:06] Gym crowd count: 1 (2%)
+[2025-04-18 20:21:06] Database connection closed.
+[2025-04-18 20:21:06] Connection established successfully to the database: rad_gymverse
+[2025-04-18 20:21:06] User class instantiated with database connection.
+[2025-04-18 20:21:06] Fetching user role by user ID: 75
+[2025-04-18 20:21:07] User role fetched successfully for user ID: 75
+[2025-04-18 20:21:07] Running admin controller ,get_classes token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MDAyODAwfQ==.6102545a66ae53e59cf3fbbcd8986c8ef34b7021eb3c6bad5808d082e4dc03d6   id - 75 
+[2025-04-18 20:21:07] Running get_classes....in controller
+[2025-04-18 20:21:07] TrainerClass model initialized with database conection
+[2025-04-18 20:21:07] fetching all classes.....
+[2025-04-18 20:21:07] Classes fetched successfully
+[2025-04-18 20:21:07] classes retrieved successfully
+[2025-04-18 20:21:07] Database connection closed.
+[2025-04-18 20:21:11] Connection established successfully to the database: rad_gymverse
+[2025-04-18 20:21:11] User class instantiated with database connection.
+[2025-04-18 20:21:11] Fetching user role by user ID: 75
+[2025-04-18 20:21:11] User role fetched successfully for user ID: 75
+[2025-04-18 20:21:11] Running admin controller ,get_trainer_career token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MDAyODAwfQ==.6102545a66ae53e59cf3fbbcd8986c8ef34b7021eb3c6bad5808d082e4dc03d6   id - 75 
+[2025-04-18 20:21:11] Running get_trainer_career....in controller
+[2025-04-18 20:21:11] TrainerCareer model initialized with database connection.
+[2025-04-18 20:21:11] Fetching trainer careers...
+[2025-04-18 20:21:11] Trainer careers fetched successfully.
+[2025-04-18 20:21:11] Database connection closed.
+[2025-04-18 20:21:15] Connection established successfully to the database: rad_gymverse
+[2025-04-18 20:21:15] User class instantiated with database connection.
+[2025-04-18 20:21:15] Fetching user role by user ID: 75
+[2025-04-18 20:21:15] User role fetched successfully for user ID: 75
+[2025-04-18 20:21:15] Running admin controller ,get_all_payments token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MDAyODAwfQ==.6102545a66ae53e59cf3fbbcd8986c8ef34b7021eb3c6bad5808d082e4dc03d6   id - 75 
+[2025-04-18 20:21:15] Running get_all_payments....in controller
+[2025-04-18 20:21:15] Running get_all_payments....in controller
+[2025-04-18 20:21:15] Payment model initialized
+[2025-04-18 20:21:15] Fetching all payment records using stored procedure...
+[2025-04-18 20:21:16] Fetched 1002 payments from stored procedure
+[2025-04-18 20:21:16] Payment fetched successfully.
+[2025-04-18 20:21:16] Database connection closed.
+[2025-04-18 20:21:21] Connection established successfully to the database: rad_gymverse
+[2025-04-18 20:21:21] User class instantiated with database connection.
+[2025-04-18 20:21:21] Fetching user role by user ID: 75
+[2025-04-18 20:21:22] User role fetched successfully for user ID: 75
+[2025-04-18 20:21:22] Running admin controller ,get_history token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MDAyODAwfQ==.6102545a66ae53e59cf3fbbcd8986c8ef34b7021eb3c6bad5808d082e4dc03d6   id - 75 
+[2025-04-18 20:21:22] Running get_history....in controller
+[2025-04-18 20:21:22] Running get_history....in controller
+[2025-04-18 20:21:22] Fetching history for type: equipments
+[2025-04-18 20:21:22] SystemHistory model initialized
+[2025-04-18 20:21:22] Fetching equipment history...
+[2025-04-18 20:21:22] Procedure GetAllEquipment executed. 5 rows fetched.
+[2025-04-18 20:21:22] Database connection closed.
+[2025-04-18 20:22:41] Connection established successfully to the database: rad_gymverse
+[2025-04-18 20:22:41] User class instantiated with database connection.
+[2025-04-18 20:22:41] Fetching user role by user ID: 75
+[2025-04-18 20:22:42] User role fetched successfully for user ID: 75
+[2025-04-18 20:22:42] Running admin controller ,get_trainer_career token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MDAyODAwfQ==.6102545a66ae53e59cf3fbbcd8986c8ef34b7021eb3c6bad5808d082e4dc03d6   id - 75 
+[2025-04-18 20:22:42] Running get_trainer_career....in controller
+[2025-04-18 20:22:42] TrainerCareer model initialized with database connection.
+[2025-04-18 20:22:42] Fetching trainer careers...
+[2025-04-18 20:22:42] Trainer careers fetched successfully.
+[2025-04-18 20:22:42] Database connection closed.
+[2025-04-18 20:26:12] Running auth controller ,login 
+[2025-04-18 20:26:12] running login...in auth controller
+[2025-04-18 20:26:12] login function running...
+[2025-04-18 20:26:13] Connection established successfully to the database: rad_gymverse
+[2025-04-18 20:26:13] User class instantiated with database connection.
+[2025-04-18 20:26:13] User Login model running for: admin@gmail.com
+[2025-04-18 20:26:13] Fetching user by email: admin@gmail.com
+[2025-04-18 20:26:13] User found for email: admin@gmail.com
+[2025-04-18 20:26:13] Query bound and ready to execute for login: admin@gmail.com
+[2025-04-18 20:26:14] User status: 1
+[2025-04-18 20:26:14] User login successful: admin@gmail.com with role: admin
+[2025-04-18 20:26:14] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MDAyODAwfQ==.6102545a66ae53e59cf3fbbcd8986c8ef34b7021eb3c6bad5808d082e4dc03d6 admin
+[2025-04-18 20:26:14] Database connection closed.
+[2025-04-18 20:26:14] Connection established successfully to the database: rad_gymverse
+[2025-04-18 20:26:14] User class instantiated with database connection.
+[2025-04-18 20:26:14] Fetching user role by user ID: 75
+[2025-04-18 20:26:14] User role fetched successfully for user ID: 75
+[2025-04-18 20:26:14] Running admin controller ,get_gym_crowd token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MDAyODAwfQ==.6102545a66ae53e59cf3fbbcd8986c8ef34b7021eb3c6bad5808d082e4dc03d6   id - 75 
+[2025-04-18 20:26:14] Running get_gym_crowd....in controller
+[2025-04-18 20:26:14] Running getGymCrowd...
+[2025-04-18 20:26:14] Attendance model initialized with database connection.
+[2025-04-18 20:26:14] Fetching number of unique users with latest arrival marked as 1...
+[2025-04-18 20:26:15] Total users with latest Arrived=1: 1
+[2025-04-18 20:26:15] Fetching gym capacity from configuration...
+[2025-04-18 20:26:15] Gym capacity fetched successfully: 50
+[2025-04-18 20:26:15] Gym crowd count: 1 (2%)
+[2025-04-18 20:26:15] Database connection closed.
+[2025-04-18 20:26:16] Connection established successfully to the database: rad_gymverse
+[2025-04-18 20:26:16] User class instantiated with database connection.
+[2025-04-18 20:26:16] Fetching user role by user ID: 75
+[2025-04-18 20:26:16] User role fetched successfully for user ID: 75
+[2025-04-18 20:26:16] Running admin controller ,get_classes token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MDAyODAwfQ==.6102545a66ae53e59cf3fbbcd8986c8ef34b7021eb3c6bad5808d082e4dc03d6   id - 75 
+[2025-04-18 20:26:16] Running get_classes....in controller
+[2025-04-18 20:26:16] TrainerClass model initialized with database conection
+[2025-04-18 20:26:16] fetching all classes.....
+[2025-04-18 20:26:16] Classes fetched successfully
+[2025-04-18 20:26:16] classes retrieved successfully
+[2025-04-18 20:26:16] Database connection closed.
+[2025-04-18 20:26:18] Connection established successfully to the database: rad_gymverse
+[2025-04-18 20:26:18] User class instantiated with database connection.
+[2025-04-18 20:26:18] Fetching user role by user ID: 75
+[2025-04-18 20:26:18] User role fetched successfully for user ID: 75
+[2025-04-18 20:26:18] Running admin controller ,get_trainer_career token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MDAyODAwfQ==.6102545a66ae53e59cf3fbbcd8986c8ef34b7021eb3c6bad5808d082e4dc03d6   id - 75 
+[2025-04-18 20:26:18] Running get_trainer_career....in controller
+[2025-04-18 20:26:18] TrainerCareer model initialized with database connection.
+[2025-04-18 20:26:18] Fetching trainer careers...
+[2025-04-18 20:26:19] Trainer careers fetched successfully.
+[2025-04-18 20:26:19] Database connection closed.
+[2025-04-18 20:28:02] Running auth controller ,login 
+[2025-04-18 20:28:02] running login...in auth controller
+[2025-04-18 20:28:02] login function running...
+[2025-04-18 20:28:02] Connection established successfully to the database: rad_gymverse
+[2025-04-18 20:28:02] User class instantiated with database connection.
+[2025-04-18 20:28:02] User Login model running for: admin@gmail.com
+[2025-04-18 20:28:02] Fetching user by email: admin@gmail.com
+[2025-04-18 20:28:03] User found for email: admin@gmail.com
+[2025-04-18 20:28:03] Query bound and ready to execute for login: admin@gmail.com
+[2025-04-18 20:28:03] User status: 1
+[2025-04-18 20:28:03] User login successful: admin@gmail.com with role: admin
+[2025-04-18 20:28:03] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MDAyODAwfQ==.6102545a66ae53e59cf3fbbcd8986c8ef34b7021eb3c6bad5808d082e4dc03d6 admin
+[2025-04-18 20:28:03] Database connection closed.
+[2025-04-18 20:28:04] Connection established successfully to the database: rad_gymverse
+[2025-04-18 20:28:04] User class instantiated with database connection.
+[2025-04-18 20:28:04] Fetching user role by user ID: 75
+[2025-04-18 20:28:04] User role fetched successfully for user ID: 75
+[2025-04-18 20:28:04] Running admin controller ,get_gym_crowd token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MDAyODAwfQ==.6102545a66ae53e59cf3fbbcd8986c8ef34b7021eb3c6bad5808d082e4dc03d6   id - 75 
+[2025-04-18 20:28:04] Running get_gym_crowd....in controller
+[2025-04-18 20:28:04] Running getGymCrowd...
+[2025-04-18 20:28:04] Attendance model initialized with database connection.
+[2025-04-18 20:28:04] Fetching number of unique users with latest arrival marked as 1...
+[2025-04-18 20:28:04] Total users with latest Arrived=1: 1
+[2025-04-18 20:28:04] Fetching gym capacity from configuration...
+[2025-04-18 20:28:05] Gym capacity fetched successfully: 50
+[2025-04-18 20:28:05] Gym crowd count: 1 (2%)
+[2025-04-18 20:28:05] Database connection closed.
+[2025-04-18 20:28:05] Connection established successfully to the database: rad_gymverse
+[2025-04-18 20:28:05] User class instantiated with database connection.
+[2025-04-18 20:28:05] Fetching user role by user ID: 75
+[2025-04-18 20:28:05] User role fetched successfully for user ID: 75
+[2025-04-18 20:28:05] Running admin controller ,get_classes token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MDAyODAwfQ==.6102545a66ae53e59cf3fbbcd8986c8ef34b7021eb3c6bad5808d082e4dc03d6   id - 75 
+[2025-04-18 20:28:05] Running get_classes....in controller
+[2025-04-18 20:28:05] TrainerClass model initialized with database conection
+[2025-04-18 20:28:05] fetching all classes.....
+[2025-04-18 20:28:06] Classes fetched successfully
+[2025-04-18 20:28:06] classes retrieved successfully
+[2025-04-18 20:28:06] Database connection closed.
+[2025-04-18 20:28:06] Connection established successfully to the database: rad_gymverse
+[2025-04-18 20:28:06] User class instantiated with database connection.
+[2025-04-18 20:28:06] Fetching user role by user ID: 75
+[2025-04-18 20:28:07] User role fetched successfully for user ID: 75
+[2025-04-18 20:28:07] Running admin controller ,get_trainer_career token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MDAyODAwfQ==.6102545a66ae53e59cf3fbbcd8986c8ef34b7021eb3c6bad5808d082e4dc03d6   id - 75 
+[2025-04-18 20:28:07] Running get_trainer_career....in controller
+[2025-04-18 20:28:07] TrainerCareer model initialized with database connection.
+[2025-04-18 20:28:07] Fetching trainer careers...
+[2025-04-18 20:28:07] Trainer careers fetched successfully.
+[2025-04-18 20:28:07] Database connection closed.
