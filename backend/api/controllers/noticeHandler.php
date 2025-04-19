@@ -4,14 +4,16 @@
 include_once "../models/Notice.php";
 include_once "../../logs/save.php";
 
-function addNotice($publisher_id) {
+function addNotice($publisher_id)
+{
     logMessage("add notice function running...");
 
     $notice = new Notice();
     $title = filter_var($_POST['title'], FILTER_SANITIZE_STRING);
     $description = filter_var($_POST['description'], FILTER_SANITIZE_STRING);
+    $duration = filter_var($_POST['duration'], FILTER_SANITIZE_STRING);
 
-    if ($notice->addNotice($publisher_id, $title, $description)) {
+    if ($notice->addNotice($publisher_id, $title, $description, $duration)) {
         logMessage("Notice added successfully: $title");
         echo json_encode(["message" => "Notice added successfully"]);
     } else {
@@ -20,7 +22,8 @@ function addNotice($publisher_id) {
     }
 }
 
-function getNotices() {
+function getNotices()
+{
     logMessage("get notices function running...");
 
     $notice = new Notice();
@@ -36,7 +39,8 @@ function getNotices() {
     }
 }
 
-function updateNotice($publisher_id) {
+function updateNotice($publisher_id)
+{
     logMessage("update notice function running...");
 
     $notice = new Notice();
@@ -44,8 +48,9 @@ function updateNotice($publisher_id) {
     $notice_id = intval($data['notice_id']);
     $title = filter_var($data['title'], FILTER_SANITIZE_STRING);
     $description = filter_var($data['description'], FILTER_SANITIZE_STRING);
+    $duration = filter_var($data['duration'], FILTER_SANITIZE_STRING);
 
-    if ($notice->updateNotice($notice_id, $publisher_id, $title, $description)) {
+    if ($notice->updateNotice($notice_id, $publisher_id, $title, $description, $duration)) {
         logMessage("Notice updated successfully: $notice_id");
         echo json_encode(["message" => "Notice updated successfully"]);
     } else {
@@ -54,7 +59,8 @@ function updateNotice($publisher_id) {
     }
 }
 
-function deleteNotice() {
+function deleteNotice()
+{
     logMessage("delete notice function running...");
 
     $notice = new Notice();
@@ -68,4 +74,3 @@ function deleteNotice() {
         echo json_encode(["error" => "Notice deletion failed"]);
     }
 }
-?>

@@ -46,6 +46,8 @@ export function initStaff_publishNotice() {
                         <td>${notice['publisher_id']}</td>
                         <td>${notice['title']}</td>
                         <td>${notice['description']}</td>
+                        <td>${notice['duration']}</td>
+                        <td>${notice['PublishDate']}</td>
                         <td>
                             <button class="update-button" onclick="openUpdatePopup(this)">Update</button>
                             <button class="delete-button" onclick="deleteNotice('${notice['notice_id']}')">Remove</button>
@@ -67,6 +69,7 @@ export function initStaff_publishNotice() {
     document.getElementById("publishBtn").addEventListener("click", function () {
         const noticeInput = document.getElementById("noticeInput").value;
         const noticeInputTopic = document.getElementById("noticeInputTopic").value;
+        const noticeDuration = document.getElementById("noticeDuration").value;
 
         if (!noticeInput.trim()) {
             alert("Notice content cannot be empty!");
@@ -74,6 +77,10 @@ export function initStaff_publishNotice() {
         }
         if (!noticeInputTopic.trim()) {
             alert("Notice title cannot be empty!");
+            return;
+        }
+        if (!noticeDuration.trim() || isNaN(noticeDuration) || noticeDuration <= 0) {
+            alert("Notice duration must be a positive integer!");
             return;
         }
 
@@ -86,6 +93,7 @@ export function initStaff_publishNotice() {
         const formData = new FormData();
         formData.append("title", noticeInputTopic);
         formData.append("description", noticeInput);
+        formData.append("duration", noticeDuration);
         formData.append("action", "add_notice");
 
         const requestOptions = {
@@ -174,6 +182,7 @@ export function initStaff_publishNotice() {
         //const publisherId = row.cells[1].textContent;
         const title = row.cells[2].textContent;
         const description = row.cells[3].textContent;
+        const duration = row.cells[4].textContent;
 
 
         document.getElementById("overlay").style.display = "block";
@@ -183,6 +192,7 @@ export function initStaff_publishNotice() {
         //document.getElementById("updatePublisherId").value = publisherId;
         document.getElementById("updateNoticeTitle").value = title;
         document.getElementById("updateNoticeDescription").value = description;
+        document.getElementById("updateNoticeDuration").value = duration;
 
         document.getElementById("updatePopup").style.display = "block";
         
@@ -202,6 +212,13 @@ export function initStaff_publishNotice() {
         const noticeId = document.getElementById("updateNoticeId").value;
         const title = document.getElementById("updateNoticeTitle").value;
         const description = document.getElementById("updateNoticeDescription").value;
+        const duration = document.getElementById("updateNoticeDuration").value;
+
+        if (!duration.trim() || isNaN(duration) || duration <= 0) {
+            alert("Notice duration must be a positive integer!");
+            return;
+        }
+
 
         const authToken = localStorage.getItem("authToken");
         if (!authToken) {
@@ -212,7 +229,8 @@ export function initStaff_publishNotice() {
         const formData = JSON.stringify({
             notice_id: noticeId,
             title: title,
-            description: description
+            description: description,
+            duration: duration
         });
 
         const requestOptions = {

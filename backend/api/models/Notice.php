@@ -1,19 +1,22 @@
 <?php
 // api/models/Notice.php
 
-include_once "../../logs/save.php"; 
-require_once "../../config/database.php"; 
+include_once "../../logs/save.php";
+require_once "../../config/database.php";
 
-class Notice {
+class Notice
+{
     private $conn;
     private $table = "notice";
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->conn = DatabaseConnection::getInstance()->getConnection();
         logMessage("Notice model initialized with database connection.");
     }
 
-    public function addNotice($publisher_id, $title, $description) {
+    public function addNotice($publisher_id, $title, $description, $duration)
+    {
         logMessage("Adding new notice...");
 
         if (!$this->conn) {
@@ -21,7 +24,7 @@ class Notice {
             return false;
         }
 
-        $query = "INSERT INTO " . $this->table . " (publisher_id, title, description) VALUES (?, ?, ?)";
+        $query = "INSERT INTO " . $this->table . " (publisher_id, title, description, duration) VALUES (?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
 
         if ($stmt === false) {
@@ -29,7 +32,7 @@ class Notice {
             return false;
         }
 
-        if (!$stmt->bind_param("iss", $publisher_id, $title, $description)) {
+        if (!$stmt->bind_param("issi", $publisher_id, $title, $description, $duration)) {
             logMessage("Error binding parameters for notice insertion: " . $stmt->error);
             return false;
         }
@@ -44,7 +47,8 @@ class Notice {
         }
     }
 
-    public function getNotices() {
+    public function getNotices()
+    {
         logMessage("Fetching notices...");
 
         $query = "SELECT * FROM " . $this->table;
@@ -71,10 +75,11 @@ class Notice {
         }
     }
 
-    public function updateNotice($notice_id, $publisher_id, $title, $description) {
+    public function updateNotice($notice_id, $publisher_id, $title, $description, $duration)
+    {
         logMessage("Updating notice with ID: $notice_id");
 
-        $query = "UPDATE " . $this->table . " SET publisher_id = ?,title = ?, description = ? WHERE notice_id = ?";
+        $query = "UPDATE " . $this->table . " SET publisher_id = ?,title = ?, description = ?, duration = ? WHERE notice_id = ?";
         $stmt = $this->conn->prepare($query);
 
         if ($stmt === false) {
@@ -82,7 +87,7 @@ class Notice {
             return false;
         }
 
-        if (!$stmt->bind_param("issi",$publisher_id, $title, $description, $notice_id)) {
+        if (!$stmt->bind_param("issii", $publisher_id, $title, $description, $duration, $notice_id)) {
             logMessage("Error binding parameters for updating notice: " . $stmt->error);
             return false;
         }
@@ -97,7 +102,8 @@ class Notice {
         }
     }
 
-    public function deleteNotice($notice_id) {
+    public function deleteNotice($notice_id)
+    {
         logMessage("Deleting notice with ID: $notice_id");
 
         $query = "DELETE FROM " . $this->table . " WHERE notice_id = ?";
@@ -123,4 +129,3 @@ class Notice {
         }
     }
 }
-?>
