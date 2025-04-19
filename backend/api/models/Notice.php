@@ -8,6 +8,7 @@ class Notice
 {
     private $conn;
     private $table = "notice";
+    private $read_table = "notice_reads";
 
     public function __construct()
     {
@@ -170,6 +171,33 @@ class Notice
             return $notices;
         } catch (Exception $e) {
             logMessage("Error fetching personal notices: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function markNoticeAsRead($user_id, $notice_id)
+    {
+        logMessage("Marking notice as read for user ID: $user_id and notice ID: $notice_id");
+
+        $query = "INSERT INTO $this->read_table (user_id, notice_id) VALUES (?, ?)";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing statement for marking notice as read: " . $this->conn->error);
+            return false;
+        }
+
+        if (!$stmt->bind_param("ii", $user_id, $notice_id)) {
+            logMessage("Error binding parameters for marking notice as read: " . $stmt->error);
+            return false;
+        }
+        logMessage("Query bound for marking notice as read: $notice_id");
+
+        if ($stmt->execute()) {
+            logMessage("Notice marked as read successfully for user ID: $user_id and notice ID: $notice_id");
+            return true;
+        } else {
+            logMessage("Notice marking as read failed: " . $stmt->error);
             return false;
         }
     }

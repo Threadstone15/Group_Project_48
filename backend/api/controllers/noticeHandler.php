@@ -90,3 +90,21 @@ function getPersonalNotices($user_id)
         echo json_encode(["error" => "No personal notices found"]);
     }
 }
+
+function markNoticeAsRead($user_id)
+{
+    logMessage("mark notice as read function running...");
+
+    $notice = new Notice();
+    $data = json_decode(file_get_contents("php://input"), true);
+    $notice_id = $data['notice_id'];
+    logMessage("Notice ID: $notice_id User ID: $user_id");
+
+    if ($notice->markNoticeAsRead($user_id, $notice_id)) {
+        logMessage("Notice marked as read successfully");
+        echo json_encode(["message" => "Notice marked as read successfully"]);
+    } else {
+        logMessage("Failed to mark notice as read");
+        echo json_encode(["error" => "Failed to mark notice as read"]);
+    }
+}

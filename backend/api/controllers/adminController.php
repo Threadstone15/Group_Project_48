@@ -139,6 +139,10 @@ switch ($action) {
         logMessage("Running get_gym_crowd....in controller");
         getGymCrowd();
         break;
+    case 'mark_notice_as_read':
+        logMessage("Running mark_notice_read....in controller");
+        markNoticeAsRead($user_id);
+        break;
 
     case 'get_notices':
         logMessage("Running get_notices....in controller");

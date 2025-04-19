@@ -17,6 +17,10 @@ export function initAdmin_home() {
     const formattedDate = `${dayOfWeek}, ${today.toLocaleDateString()}`;
     dateDisplay.textContent = formattedDate;
 
+    document.getElementById("viewNoticesBtn").onclick = function () {
+            displayNotice();
+    };
+
     document.getElementById("prevNoticeBtn").onclick = function () {
         if (currentNoticeIndex > 0) {
             currentNoticeIndex--;
@@ -62,7 +66,7 @@ export function initAdmin_home() {
             currentNoticeIndex = 0;
             // ✅ Update notice count
             noticeCountText.textContent = `Notices Available: ${notices.length}`;
-            displayNotice();
+
         })
         .catch(error => {
             console.error("Failed to load notices:", error);
@@ -107,33 +111,34 @@ export function initAdmin_home() {
     };
 
     function markNoticeAsRead(noticeId) {
+        console.log("Marking notice as read... ", noticeId);
         const authToken = localStorage.getItem("authToken");
         if (!authToken) return console.error("Auth token not found. Please log in.");
-
-        fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php", {
+    
+        fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=mark_notice_as_read", {
             method: "POST",
             headers: {
-                "Authorization": `Bearer ${authToken}`,
-                "Content-Type": "application/json"
+                'Authorization': `Bearer ${authToken}`,
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ action: "mark_notice_read", notice_id: noticeId })
+            body: JSON.stringify({ notice_id: noticeId })
         })
         .then(res => res.json())
         .then(data => {
-            if (data.success) {
+            if (data.message) {
                 console.log("Notice marked as read.");
                 currentNoticeIndex++;
-                // ✅ Update the count after marking as read
                 noticeCountText.textContent = `Notices Available: ${notices.length - currentNoticeIndex}`;
-                displayNotice();  // show next one
+                displayNotice();  // show next
             } else {
-                console.error("Failed to mark notice as read.");
+                console.error("Failed to mark notice as read.", data);
             }
         })
         .catch(err => {
             console.error("Error marking notice as read:", err);
         });
     }
+    
 
     function updateGymData() {
         console.log("Updating gym data...");
