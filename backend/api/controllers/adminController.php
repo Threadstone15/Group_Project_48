@@ -17,6 +17,7 @@ include_once "./accountDetailHandler.php";
 include_once "./trainerClassHandler.php";
 include_once "./markAttendanceHandler.php";
 include_once "./systemHistoryHandler.php";
+include_once "./noticeHandler.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     logMessage("Handling preflight OPTIONS request.");
@@ -95,6 +96,8 @@ switch ($action) {
         getAllPayments(); //staffHandler
         break;
 
+    //
+
 
     case 'account_delete':
         logMessage('running account delete...in controller');
@@ -126,12 +129,25 @@ switch ($action) {
         deleteTrainerClass();
         break;
 
-    case 'get_gym_crowd': // from adminHome
+
+    // from adminHome
+    case 'get_personal_notices':
+        logMessage("Running get_personal_notices....in controller");
+        getPersonalNotices($user_id);
+        break;
+    case 'get_gym_crowd':
         logMessage("Running get_gym_crowd....in controller");
         getGymCrowd();
         break;
+    case 'mark_notice_as_read':
+        logMessage("Running mark_notice_read....in controller");
+        markNoticeAsRead($user_id);
+        break;
 
-
+    case 'get_notices':
+        logMessage("Running get_notices....in controller");
+        getNotices();
+        break;
 
 
     default:

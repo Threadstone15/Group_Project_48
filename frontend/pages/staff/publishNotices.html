@@ -23,6 +23,7 @@
         <div class="notice-form">
             <textarea id="noticeInputTopic" placeholder="Enter the Title" rows="1"></textarea>
             <textarea id="noticeInput" placeholder="Enter your notice here..." rows="5"></textarea>
+            <input type="number" id="noticeDuration" placeholder="Enter notice duration in days">
             <button id="publishBtn">Publish Notice</button>
         </div>
 
@@ -35,6 +36,8 @@
                         <th>Publisher ID</th>
                         <th>Title</th>
                         <th>Description</th>
+                        <th>Notice Duration (Days)</th>
+                        <th>Published Date</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -72,6 +75,10 @@
                     <div class="form-group">
                         <label for="updateNoticeDescription">Description:</label>
                         <input type="text" id="updateNoticeDescription" rows="5" class="form-input" />
+                    </div>
+                    <div class="form-group">
+                        <label for="updateNoticeDuration">Notice Duration (Days):</label>
+                        <input type="number" id="updateNoticeDuration" class="form-input" />
                     </div>
                     <button type="submit" class="submit-button">Update Notice</button>
                 </form>

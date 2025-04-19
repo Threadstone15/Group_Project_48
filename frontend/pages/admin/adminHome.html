@@ -14,23 +14,23 @@
     <div class="content">
 
         <div class="card-container">
-            
+
             <div class="notice-container">
                 <h2>Notices</h2>
-                <div id="noticeContent"></div>
-                <label>
-                    <input type="checkbox" id="readCheckbox"> Mark as Read
-                </label>
-            </div>
-
+                <button id="viewNoticesBtn">View Notices</button>
+                <p id="noticeCount" style="margin-top: 8px;">Notices Available: 0</p>
+              </div>
+              
+        
             <div class="gym-card">
                 <h2>Gym Crowd</h2>
                 <p class="date" id="dateDisplay">Friday</p>
                 <progress id="gymProgress" value="0" max="100"></progress>
                 <p class="member-count" id="memberCount">Members Present: 0</p>
             </div>
-
+        
         </div>
+        
       
 
         <div class="content-bottom">
@@ -42,6 +42,23 @@
         </div>
         <div id="global-toast-container" class="global-toast-container"></div>
     </div>
+
+    <div id="noticeModal" class="notice-modal" style="display:none;">
+        <div class="modal-content">
+          <span id="closeModal" class="close-button">&times;</span>
+          <h3 id="modalNoticeTitle"></h3>
+          <p id="modalNoticeDescription"></p>
+      
+          <div style="margin: 10px 0;">
+            <button id="prevNoticeBtn">Previous</button>
+            <span id="noticeIndexDisplay" style="margin: 0 10px;">1 of 1</span>
+            <button id="nextNoticeBtn">Next</button>
+          </div>
+      
+          <button id="markAsReadBtn">Mark as Read</button>
+        </div>
+      </div>
+      
   
 
 </body>

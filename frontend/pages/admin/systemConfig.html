@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>System Configuration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="system-config.css" />
+</head>
+<body>
+
+  <div class="profile-container">
+    <div class="profile-header">
+      <h2>System Configuration</h2>
+    </div>
+
+    <form id="system-config-form" class="config-form">
+      <div class="form-group">
+        <label>Support Email</label>
+        <input type="email" name="supportEmail" placeholder="support@example.com" required />
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" name="supportPhone" placeholder="+1 234 567 8900" required />
+      </div>
+      <div class="form-group">
+        <label>Physical Address</label>
+        <textarea name="address" placeholder="123 Main St, City, Country"></textarea>
+      </div>
+      <div class="form-group">
+        <label>Default Currency</label>
+        <select name="currency">
+          <option value="USD">$ - USD</option>
+          <option value="LKR">Rs - LKR</option>
+          <option value="EUR">€ - EUR</option>
+          <option value="GBP">£ - GBP</option>
+        </select>
+      </div>
+      <div class="form-group toggle-group">
+        <label>Activate Maintenance Mode</label>
+        <input type="checkbox" name="maintenanceMode"/>
+      </div>
+      <div class="form-group toggle-group">
+        <label>Enable Notifications</label>
+        <input type="checkbox" name="notifications"/>
+      </div>
+      <div class="form-group toggle-group">
+        <label>Daily Attendance</label>
+        <input type="checkbox" name="dailyAttendance"/>
+      </div>
+      <div class="form-group toggle-group">
+        <label>Show Earnings Summary</label>
+        <input type="checkbox" name="earningsSummary"/>
+      </div>
+      <div class="form-group">
+        <label>Session Timeout Duration (minutes)</label>
+        <input type="number" name="sessionTimeout" min="1" placeholder="30" required />
+      </div>
+
+      <div class="popup-buttons">
+        <button type="submit">Save Settings</button>
+      </div>
+    </form>
+  </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="spinner hidden">
+    <div class="spinner-circle"></div>
+    </div>
+
+</body>
+</html>

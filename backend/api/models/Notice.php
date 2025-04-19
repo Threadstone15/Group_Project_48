@@ -1,19 +1,23 @@
 <?php
 // api/models/Notice.php
 
-include_once "../../logs/save.php"; 
-require_once "../../config/database.php"; 
+include_once "../../logs/save.php";
+require_once "../../config/database.php";
 
-class Notice {
+class Notice
+{
     private $conn;
     private $table = "notice";
+    private $read_table = "notice_reads";
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->conn = DatabaseConnection::getInstance()->getConnection();
         logMessage("Notice model initialized with database connection.");
     }
 
-    public function addNotice($publisher_id, $title, $description) {
+    public function addNotice($publisher_id, $title, $description, $duration)
+    {
         logMessage("Adding new notice...");
 
         if (!$this->conn) {
@@ -21,7 +25,7 @@ class Notice {
             return false;
         }
 
-        $query = "INSERT INTO " . $this->table . " (publisher_id, title, description) VALUES (?, ?, ?)";
+        $query = "INSERT INTO " . $this->table . " (publisher_id, title, description, duration) VALUES (?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
 
         if ($stmt === false) {
@@ -29,7 +33,7 @@ class Notice {
             return false;
         }
 
-        if (!$stmt->bind_param("iss", $publisher_id, $title, $description)) {
+        if (!$stmt->bind_param("issi", $publisher_id, $title, $description, $duration)) {
             logMessage("Error binding parameters for notice insertion: " . $stmt->error);
             return false;
         }
@@ -44,7 +48,8 @@ class Notice {
         }
     }
 
-    public function getNotices() {
+    public function getNotices()
+    {
         logMessage("Fetching notices...");
 
         $query = "SELECT * FROM " . $this->table;
@@ -71,10 +76,11 @@ class Notice {
         }
     }
 
-    public function updateNotice($notice_id, $publisher_id, $title, $description) {
+    public function updateNotice($notice_id, $publisher_id, $title, $description, $duration)
+    {
         logMessage("Updating notice with ID: $notice_id");
 
-        $query = "UPDATE " . $this->table . " SET publisher_id = ?,title = ?, description = ? WHERE notice_id = ?";
+        $query = "UPDATE " . $this->table . " SET publisher_id = ?,title = ?, description = ?, duration = ? WHERE notice_id = ?";
         $stmt = $this->conn->prepare($query);
 
         if ($stmt === false) {
@@ -82,7 +88,7 @@ class Notice {
             return false;
         }
 
-        if (!$stmt->bind_param("issi",$publisher_id, $title, $description, $notice_id)) {
+        if (!$stmt->bind_param("issii", $publisher_id, $title, $description, $duration, $notice_id)) {
             logMessage("Error binding parameters for updating notice: " . $stmt->error);
             return false;
         }
@@ -97,7 +103,8 @@ class Notice {
         }
     }
 
-    public function deleteNotice($notice_id) {
+    public function deleteNotice($notice_id)
+    {
         logMessage("Deleting notice with ID: $notice_id");
 
         $query = "DELETE FROM " . $this->table . " WHERE notice_id = ?";
@@ -122,5 +129,76 @@ class Notice {
             return false;
         }
     }
+
+    public function getPersonalNotices($user_id)
+    {
+        logMessage("Fetching personal notices for user ID: $user_id");
+
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
+        try {
+            // Step 1: Call ExpireOldNotices to clean expired ones
+            $expireStmt = $this->conn->prepare("CALL ExpireOldNotices()");
+            if (!$expireStmt) {
+                logMessage("Failed to prepare ExpireOldNotices: " . $this->conn->error);
+                return false;
+            }
+            $expireStmt->execute();
+            $expireStmt->close();
+            logMessage("Expired notices removed.");
+
+            // Step 2: Call GetUnreadNoticesForUser
+            $stmt = $this->conn->prepare("CALL GetUnreadNoticesForUser(?)");
+            if (!$stmt) {
+                logMessage("Failed to prepare GetUnreadNoticesForUser: " . $this->conn->error);
+                return false;
+            }
+            $stmt->bind_param("i", $user_id);
+            $stmt->execute();
+
+            $result = $stmt->get_result();
+            $notices = [];
+
+            while ($row = $result->fetch_assoc()) {
+                $notices[] = $row;
+            }
+
+            $stmt->close();
+            logMessage("Fetched " . count($notices) . " unread notices for user ID: $user_id");
+            return $notices;
+        } catch (Exception $e) {
+            logMessage("Error fetching personal notices: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function markNoticeAsRead($user_id, $notice_id)
+    {
+        logMessage("Marking notice as read for user ID: $user_id and notice ID: $notice_id");
+
+        $query = "INSERT INTO $this->read_table (user_id, notice_id) VALUES (?, ?)";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing statement for marking notice as read: " . $this->conn->error);
+            return false;
+        }
+
+        if (!$stmt->bind_param("ii", $user_id, $notice_id)) {
+            logMessage("Error binding parameters for marking notice as read: " . $stmt->error);
+            return false;
+        }
+        logMessage("Query bound for marking notice as read: $notice_id");
+
+        if ($stmt->execute()) {
+            logMessage("Notice marked as read successfully for user ID: $user_id and notice ID: $notice_id");
+            return true;
+        } else {
+            logMessage("Notice marking as read failed: " . $stmt->error);
+            return false;
+        }
+    }
 }
-?>
