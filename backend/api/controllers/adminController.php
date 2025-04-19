@@ -131,16 +131,19 @@ switch ($action) {
 
 
     // from adminHome
-    case 'get_notices':
-        logMessage("Running get_notices....in controller");
-        getNotices();
+    case 'get_personal_notices':
+        logMessage("Running get_personal_notices....in controller");
+        getPersonalNotices($user_id);
         break;
     case 'get_gym_crowd':
         logMessage("Running get_gym_crowd....in controller");
         getGymCrowd();
         break;
 
-
+    case 'get_notices':
+        logMessage("Running get_notices....in controller");
+        getNotices();
+        break;
 
 
     default:

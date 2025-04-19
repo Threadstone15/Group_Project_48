@@ -74,3 +74,19 @@ function deleteNotice()
         echo json_encode(["error" => "Notice deletion failed"]);
     }
 }
+
+function getPersonalNotices($user_id)
+{
+    logMessage("get personal notices function running...");
+
+    $notice = new Notice();
+
+    $notices = $notice->getPersonalNotices($user_id);
+    if ($notices) {
+        logMessage("Personal notices fetched successfully");
+        echo json_encode($notices);
+    } else {
+        logMessage("No personal notices found");
+        echo json_encode(["error" => "No personal notices found"]);
+    }
+}

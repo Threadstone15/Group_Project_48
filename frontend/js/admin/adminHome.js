@@ -20,7 +20,7 @@ export function initAdmin_home() {
 
         console.log("Fetching notices...");
         const formData = new FormData();
-        formData.append("action", "get_notices");
+        formData.append("action", "get_personal_notices");
 
         const authToken = localStorage.getItem("authToken");
         if (!authToken) return console.error("Auth token not found. Please log in.");

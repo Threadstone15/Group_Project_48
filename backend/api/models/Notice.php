@@ -128,4 +128,49 @@ class Notice
             return false;
         }
     }
+
+    public function getPersonalNotices($user_id)
+    {
+        logMessage("Fetching personal notices for user ID: $user_id");
+
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
+        try {
+            // Step 1: Call ExpireOldNotices to clean expired ones
+            $expireStmt = $this->conn->prepare("CALL ExpireOldNotices()");
+            if (!$expireStmt) {
+                logMessage("Failed to prepare ExpireOldNotices: " . $this->conn->error);
+                return false;
+            }
+            $expireStmt->execute();
+            $expireStmt->close();
+            logMessage("Expired notices removed.");
+
+            // Step 2: Call GetUnreadNoticesForUser
+            $stmt = $this->conn->prepare("CALL GetUnreadNoticesForUser(?)");
+            if (!$stmt) {
+                logMessage("Failed to prepare GetUnreadNoticesForUser: " . $this->conn->error);
+                return false;
+            }
+            $stmt->bind_param("i", $user_id);
+            $stmt->execute();
+
+            $result = $stmt->get_result();
+            $notices = [];
+
+            while ($row = $result->fetch_assoc()) {
+                $notices[] = $row;
+            }
+
+            $stmt->close();
+            logMessage("Fetched " . count($notices) . " unread notices for user ID: $user_id");
+            return $notices;
+        } catch (Exception $e) {
+            logMessage("Error fetching personal notices: " . $e->getMessage());
+            return false;
+        }
+    }
 }
