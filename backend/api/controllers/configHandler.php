@@ -11,13 +11,12 @@ function getAllSystemConfigs()
         $config = new Config();
 
         $keys = [
-            "currency",
             "gym_address",
             "gym_capacity",
             "gym_email",
             "gym_no",
-            "maintaince_mode",
-            "notifications",
+            //"maintaince_mode",
+            //"notifications",
             "session_time"
         ];
 
