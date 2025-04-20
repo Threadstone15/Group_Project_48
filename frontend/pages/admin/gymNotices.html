@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publish Notices</title>
+    <!-- <link rel="stylesheet" href="/Group_Project_48/frontend/css/staff/publishNotices.css">
+    <link rel="stylesheet" href="/Group_Project_48/frontend/css/globals.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="overlay" class="overlay"></div>
+    <div class="container">
+        
+        
+        <div class="header">
+        <p class="heading">
+            Publish Notices
+        </p>
+        </div>
+        
+        <!-- Notice Form -->
+        <div class="notice-form">
+            <textarea id="noticeInputTopic" placeholder="Enter the Title" rows="1"></textarea>
+            <textarea id="noticeInput" placeholder="Enter your notice here..." rows="5"></textarea>
+            <input type="number" id="noticeDuration" placeholder="Enter notice duration in days">
+            <button id="publishBtn">Publish Notice</button>
+        </div>
+
+        <!-- Notices Table -->
+        <div class="table-container">
+            <table id="equipmentsTable">
+                <thead>
+                    <tr>
+                        <th>Notice ID</th>
+                        <th>Publisher ID</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Notice Duration (Days)</th>
+                        <th>Published Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- JavaScript will insert rows here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Delete confirmation popup -->
+        <div id="deletePopup" class="popup" style="display: none;">
+            <button id="closePopup" class="close-button">&times;</button> <!-- Close button -->
+            <div class="popup-content">
+                <h2>Confirm Removal</h2>
+                <p>Are you sure you want to remove this equipment?</p>
+                <div class="popup-buttons">
+                    <button id="confirmDelete" class="popup-confirm">Yes</button>
+                    <button id="cancelDelete" class="popup-cancel">No</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Update equipment popup -->
+        <div id="updatePopup" class="popup" style="display: none;">
+            <button id="closeUpdatePopup" class="close-button">&times;</button> <!-- Close button -->
+            <div class="popup-content">
+                <h2>Update Notice</h2>
+                <form id="updateForm">
+                    <input type="hidden" id="updateNoticeId">
+                    <input type="hidden" id="uupdatePublisherId">
+                    <div class="form-group">
+                        <label for="updateNoticeTitle">Title:</label>
+                        <input type="text" id="updateNoticeTitle" rows="1" class="form-input" />
+                    </div>
+                    <div class="form-group">
+                        <label for="updateNoticeDescription">Description:</label>
+                        <input type="text" id="updateNoticeDescription" rows="5" class="form-input" />
+                    </div>
+                    <div class="form-group">
+                        <label for="updateNoticeDuration">Notice Duration (Days):</label>
+                        <input type="number" id="updateNoticeDuration" class="form-input" />
+                    </div>
+                    <button type="submit" class="submit-button">Update Notice</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    </div>
+
+    <!-- <script src="/Group_Project_48/frontend/js/staff/publishNotices.js"></script> -->
+</body>
+</html>

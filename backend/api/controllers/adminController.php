@@ -18,6 +18,7 @@ include_once "./trainerClassHandler.php";
 include_once "./markAttendanceHandler.php";
 include_once "./systemHistoryHandler.php";
 include_once "./noticeHandler.php";
+include_once "./configHandler.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     logMessage("Handling preflight OPTIONS request.");
@@ -89,6 +90,15 @@ switch ($action) {
         logMessage("Running get_history....in controller");
         getHistory();
         break;
+    //for systemConfig
+    case 'get_system_config':
+        logMessage("Running get_system_config....in controller");
+        getSystemConfig();
+        break;
+    case 'update_system_config':
+        logMessage("Running update_system_config....in controller");
+        updateSystemConfig();
+        break;
 
 
     case 'get_all_payments':
@@ -143,10 +153,22 @@ switch ($action) {
         logMessage("Running mark_notice_read....in controller");
         markNoticeAsRead($user_id);
         break;
-
+    //from adminGymNotices
     case 'get_notices':
         logMessage("Running get_notices....in controller");
         getNotices();
+        break;
+    case 'add_notice':
+        logMessage("Running add_notice....in controller");
+        addNotice($user_id);
+        break;
+    case 'update_notice':
+        logMessage("Running update_notice....in controller");
+        updateNotice($user_id);
+        break;
+    case 'delete_notice':
+        logMessage("Running delete_notice....in controller");
+        deleteNotice();
         break;
 
 

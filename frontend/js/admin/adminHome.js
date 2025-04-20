@@ -1,6 +1,6 @@
 export function initAdmin_home() {
     console.log("Initializing adminHome.js");
-
+    
     const noticeContent = document.getElementById("noticeContent");
     const readCheckbox = document.getElementById("readCheckbox");
     const dateDisplay = document.getElementById("dateDisplay");

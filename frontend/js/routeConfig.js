@@ -40,6 +40,7 @@ import { initAdmin_myAcnt } from "./admin/myAcnt.js";
 import { initAdmin_paymentStat } from "./admin/paymentStatus.js";
 import { initAdmin_systemHistory } from "./admin/systemHistory.js";
 import { initAdmin_systemConfig } from "./admin/systemConfig.js";
+import { initAdmim_gymNotices } from "./admin/gymNotices.js";
 
 //importing member dashboardPg js funcs
 import { initMember_createPlan } from "./member/createPlan.js";
@@ -107,7 +108,8 @@ export const validRoutes = {
             "admin/paymentStatus",
             "admin/myAcnt",
             "admin/systemHistory",
-            "admin/systemConfig"
+            "admin/systemConfig",
+            "admin/gymNotices"
         ],
         staff: [
             "staff/staffHome",
@@ -156,6 +158,7 @@ export function runDashboardPgJS(role, page) {
             case 'paymentStatus' : initAdmin_paymentStat(); break;
             case 'systemHistory' : initAdmin_systemHistory(); break;
             case 'systemConfig' : initAdmin_systemConfig(); break;
+            case 'gymNotices' : initAdmim_gymNotices(); break;
             default : console.error("Undefined admin dashboard page js func"); break;
         }
     }

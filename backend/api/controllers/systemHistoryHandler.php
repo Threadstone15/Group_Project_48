@@ -35,6 +35,9 @@ function getHistory()
         case 'equipments':
             $result = $systemHistory->getEquipmentsHistory();
             break;
+        case 'notices':
+            $result = $systemHistory->getNoticesHistory();
+            break;
         default:
             logMessage("Invalid history type: $type");
             http_response_code(400);
