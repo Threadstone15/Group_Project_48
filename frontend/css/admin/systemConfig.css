@@ -1,83 +1,142 @@
-/* system-config.css */
-
-/* Base Reset */
-* {
+/* Confirmation Modal */
+/* General Styles */
+body {
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
-  box-sizing: border-box;
-}
-
-body {
-  height: 100vh;
-  background-color: #f9f9f9;
-  padding: 20px;
+  background-color: #f4f7fc;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Main container styling */
 .profile-container {
-  margin-top: 60px;
-  width: 90%;
-  max-width: 1100px;
-  background: white;
-  border-radius: 15px;
-  padding: 30px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
 }
 
-/* Header */
+.profile-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
 .profile-header h2 {
-  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
 }
 
-/* Configuration form styling */
+/* Config List Styles */
 .config-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* Each config item */
-.config-item {
+.form-group {
   display: flex;
   flex-direction: column;
-  gap: 8px;
 }
 
-.config-item label {
-  font-weight: 600;
+label {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
   color: #333;
 }
 
-.config-item input, 
-.config-item select {
+input, select {
   padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  background-color: #f9f9f9;
   font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  outline: none;
 }
 
-/* Save button */
-.save-config-btn {
-  margin-top: 30px;
-  align-self: flex-end;
-  background-color: #ff5f00;
+input:focus, select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #007bff;
   color: white;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: 600;
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.save-config-btn:hover {
-  background-color: #e65100;
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Toast Container */
+.toast-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+}
+
+.toast {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+
+#confirmation-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#confirmation-modal div {
+  width: 100%;
+  max-width: 400px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#confirmation-modal p {
+  font-size: 16px;
+  color: #333;
+}
+
+#confirm-btn, #cancel-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#confirm-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+#confirm-btn:hover {
+  background-color: #218838;
+}
+
+#cancel-btn {
+  background-color: #6c757d;
+  color: white;
+}
+
+#cancel-btn:hover {
+  background-color: #5a6268;
 }
 
 /* Spinner */

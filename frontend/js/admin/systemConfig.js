@@ -12,21 +12,18 @@ export async function initAdmin_systemConfig() {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${localStorage.getItem("authToken")}`
       },
-      body: JSON.stringify({
-        action: "get_all_system_configs"
-      })
+      body: JSON.stringify({ action: "get_all_system_configs" })
     });
 
     const data = await res.json();
     console.log("Response data:", data);
 
     if (res.ok && data.success) {
-      const configs = data.configs; // should be a key-value object
+      const configs = data.configs;
       Object.keys(configs).forEach(key => {
         renderConfigField(key, configs[key]);
       });
     } else {
-      console.warn("Failed to fetch system configs:", data);
       alert("Could not load configuration settings.");
     }
   } catch (error) {
@@ -43,18 +40,64 @@ export async function initAdmin_systemConfig() {
     const label = document.createElement("label");
     label.textContent = key.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
 
-    const input = document.createElement("input");
-    input.type = "text";
-    input.name = key;
-    input.value = value;
-    input.className = "form-control";
+    let input;
+
+    if (key === "maintaince_mode" || key === "notifications") {
+      input = document.createElement("select");
+      input.className = "form-control";
+      ["enabled", "disabled"].forEach(optVal => {
+        const opt = document.createElement("option");
+        opt.value = optVal;
+        opt.textContent = optVal.charAt(0).toUpperCase() + optVal.slice(1);
+        if (value === optVal) opt.selected = true;
+        input.appendChild(opt);
+      });
+    } else if (key === "currency") {
+      input = document.createElement("select");
+      input.className = "form-control";
+      ["USD", "LKR", "INR", "EUR", "GBP"].forEach(curr => {
+        const opt = document.createElement("option");
+        opt.value = curr;
+        opt.textContent = curr;
+        if (value === curr) opt.selected = true;
+        input.appendChild(opt);
+      });
+    } else {
+      input = document.createElement("input");
+      input.type = "text";
+      input.value = value;
+      input.name = key;
+      input.className = "form-control";
+    }
 
     const button = document.createElement("button");
     button.textContent = "Update";
     button.className = "btn btn-primary mt-2";
 
     button.addEventListener("click", () => {
-      updateConfigValue(key, input.value);
+      const newValue = input.value.trim();
+
+      // Validation
+      if ((key === "gym_capacity" || key === "session_time") && !/^[1-9]\d*$/.test(newValue)) {
+        alert("Please enter a valid positive integer for " + label.textContent);
+        return;
+      }
+
+      if (key === "gym_no" && !/^\d{10}$/.test(newValue)) {
+        alert("Phone number must be exactly 10 digits.");
+        return;
+      }
+
+      if (key === "gym_email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newValue)) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+      
+
+      // Show custom confirmation modal
+      showConfirmationPopup(label.textContent, newValue, () => {
+        updateConfigValue(key, newValue);
+      });
     });
 
     wrapper.appendChild(label);
@@ -85,12 +128,31 @@ export async function initAdmin_systemConfig() {
       if (res.ok && data.success) {
         alert("Configuration updated successfully!");
       } else {
-        console.warn("Update failed:", data);
         alert(data.message || "Failed to update configuration.");
       }
     } catch (err) {
-      console.error("Network or server error during update:", err);
+      console.error("Update error:", err);
       alert("An error occurred while updating configuration.");
     }
+  }
+
+  // Custom confirmation popup
+  function showConfirmationPopup(field, value, onConfirm) {
+    const modal = document.getElementById("confirmation-modal");
+    const message = document.getElementById("confirmation-message");
+    const confirmBtn = document.getElementById("confirm-btn");
+    const cancelBtn = document.getElementById("cancel-btn");
+
+    message.textContent = `Are you sure you want to update "${field}" to "${value}"?`;
+    modal.style.display = "block";
+
+    confirmBtn.onclick = () => {
+      modal.style.display = "none";
+      onConfirm();
+    };
+
+    cancelBtn.onclick = () => {
+      modal.style.display = "none";
+    };
   }
 }
