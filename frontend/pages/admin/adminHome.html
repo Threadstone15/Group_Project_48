@@ -44,20 +44,31 @@
     </div>
 
     <div id="noticeModal" class="notice-modal" style="display:none;">
-        <div class="modal-content">
-          <span id="closeModal" class="close-button">&times;</span>
+      <div class="modal-content">
+        <span id="closeModal" class="close-button">&times;</span>
+        <div class="notice-body">
           <h3 id="modalNoticeTitle"></h3>
           <p id="modalNoticeDescription"></p>
-      
-          <div style="margin: 10px 0;">
-            <button id="prevNoticeBtn">Previous</button>
-            <span id="noticeIndexDisplay" style="margin: 0 10px;">1 of 1</span>
-            <button id="nextNoticeBtn">Next</button>
-          </div>
-      
-          <button id="markAsReadBtn">Mark as Read</button>
         </div>
+    
+        <div class="notice-navigation">
+          <button id="prevNoticeBtn">Previous</button>
+          <span id="noticeIndexDisplay">1 of 1</span>
+          <button id="nextNoticeBtn">Next</button>
+        </div>
+    
+        <button id="markAsReadBtn">Mark as Read</button>
       </div>
+    </div>
+
+    <!-- Toast container -->
+    <div id="toast-container" class="toast-container"></div>
+
+      <!-- Loading Spinner -->
+    <div id="loading-spinner" class="spinner hidden">
+    <div class="spinner-circle"></div>
+    </div>
+    
       
   
 

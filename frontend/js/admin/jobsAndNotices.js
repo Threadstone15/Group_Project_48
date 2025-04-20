@@ -1,54 +1,57 @@
-// Sample test data
 export function initAdmin_jobs() {
     console.log("initializing trainer jobs page");
 
     const spinner = document.getElementById("loading-spinner");
-
     const jobsTable = document.getElementById("jobsTable");
 
-    // Initialize jobs data if the table exists
     if (jobsTable) {
         fetchJobsList();
     } else {
         console.warn("Jobs table not found. Skipping fetch.");
     }
 
-    // Fetch the list of jobs from the backend
+    function showToast(message, type = 'success') {
+        const container = document.getElementById('toast-container');
+        const toast = document.createElement('div');
+        toast.className = `toast ${type}`;
+        toast.innerText = message;
+        container.appendChild(toast);
+
+        setTimeout(() => {
+            toast.remove();
+        }, 4000);
+    }
+
     function fetchJobsList() {
         console.log("Fetching Jobs List");
-    
+
         const authToken = localStorage.getItem("authToken");
         if (!authToken) {
-            console.error("Auth token not found. Please log in.");
+            showToast("Please log in to continue", "error");
             return;
         }
-    
-        const requestOptions = {
-            method: "GET",
-            headers: { Authorization: `Bearer ${authToken}` },
-            redirect: "follow",
-        };
-    
-        spinner.classList.remove("hidden"); // Show spinner
-    
+
+        spinner.classList.remove("hidden");
+
         fetch(
             "http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=get_trainer_career",
-            requestOptions
+            {
+                method: "GET",
+                headers: { Authorization: `Bearer ${authToken}` },
+                redirect: "follow",
+            }
         )
             .then((response) => {
                 if (!response.ok) throw new Error("Failed to fetch jobs list");
                 return response.json();
             })
             .then((data) => {
-                console.log("Fetched jobs list:", data);
-    
                 const tableBody = jobsTable.getElementsByTagName("tbody")[0];
                 tableBody.innerHTML = "";
-    
+
                 if (data.length > 0) {
                     data.forEach((job) => {
                         const row = document.createElement("tr");
-    
                         row.innerHTML = `
                             <td>${job["career_id"]}</td>
                             <td>${job["job_role"]}</td>
@@ -63,85 +66,76 @@ export function initAdmin_jobs() {
                                 <button class="delete-button" data-id="${job["career_id"]}">Remove</button>
                             </td>
                         `;
-    
                         tableBody.appendChild(row);
                     });
                 } else {
                     const noDataRow = document.createElement("tr");
-                    noDataRow.innerHTML = `<td colspan="5" style="text-align: center;">No notices found</td>`;
+                    noDataRow.innerHTML = `<td colspan="4" style="text-align: center;">No jobs found</td>`;
                     tableBody.appendChild(noDataRow);
                 }
             })
             .catch((error) => {
                 console.error("Error fetching jobs list:", error);
+                showToast("Failed to load jobs. Try again.", "error");
             })
             .finally(() => {
-                spinner.classList.add("hidden"); // Always hide spinner at the end
+                spinner.classList.add("hidden");
             });
     }
-    
 
-    // Add a new job
-    document.getElementById("publishBtn").addEventListener("click", function () {
-        const jobInput = document.getElementById("jobInput").value;
-        console.log("Job input:", jobInput);
-        const jobInputTopic = document.getElementById("jobInputTopic").value;
-        console.log("Job input topic:", jobInputTopic);
-        if (!jobInput.trim()) {
-            alert("Job content cannot be empty!");
-            return;
-        }
-        if (!jobInputTopic.trim()) {
-            alert("Job title cannot be empty!");
+    document.getElementById("publishBtn").addEventListener("click", () => {
+        const jobInput = document.getElementById("jobInput").value.trim();
+        const jobInputTopic = document.getElementById("jobInputTopic").value.trim();
+
+        if (!jobInputTopic || !jobInput) {
+            showToast("Both job title and content are required", "error");
             return;
         }
 
         const authToken = localStorage.getItem("authToken");
         if (!authToken) {
-            console.error("Auth token not found. Please log in.");
+            showToast("Please log in to continue", "error");
             return;
         }
 
         const payload = {
-            "job_role": jobInputTopic,
-            "requirements": jobInput,
+            job_role: jobInputTopic,
+            requirements: jobInput,
         };
 
-        console.log("Payload:", JSON.stringify(payload));
-        {/*const formData = new FormData();
-  formData.append("title", jobInputTopic);
-  formData.append("description", jobInput);
-  formData.append("action", "add_jobs");*/}
-
-        const requestOptions = {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${authToken}`,
-            },
-            body: JSON.stringify(payload),
-        };
+        spinner.classList.remove("hidden");
 
         fetch(
             "http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=add_trainer_career",
-            requestOptions
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${authToken}`,
+                },
+                body: JSON.stringify(payload),
+            }
         )
             .then((response) => {
                 if (!response.ok) throw new Error("Failed to add job");
                 return response.text();
             })
-            .then((result) => {
-                console.log("Job added successfully:", result);
-                alert("Job added successfully!");
-                fetchJobsList(); // Refresh the jobs list
-                document.getElementById("jobInput").value = ""; // Clear the input field
-                location.reload();
+            .then(() => {
+                showToast("Job added successfully!");
+                document.getElementById("jobInput").value = "";
+                document.getElementById("jobInputTopic").value = "";
+                fetchJobsList();
             })
-            .catch((error) => console.error("Error adding job:", error));
+            .catch((error) => {
+                console.error("Error adding job:", error);
+                showToast("Failed to add job. Try again.", "error");
+            })
+            .finally(() => {
+                spinner.classList.add("hidden");
+            });
     });
 
-    //event-listner for delete and update buttons
-    document.addEventListener("click", function (event) {
+    document.addEventListener("click", (event) => {
         if (event.target.classList.contains("delete-button")) {
             const jobId = event.target.getAttribute("data-id");
             deleteJob(jobId);
@@ -153,55 +147,59 @@ export function initAdmin_jobs() {
             openUpdatePopup(jobId, jobTitle, jobDescription);
         }
     });
-    // Delete a job
+
     function deleteJob(jobId) {
-        console.log(`Delete button clicked for job ID: ${jobId}`);
-
         const deletePopup = document.getElementById("deletePopup");
-        deletePopup.style.display = "block";
+        const overlay = document.getElementById("overlay");
 
-        document.getElementById("overlay").style.display = "block";
+        deletePopup.style.display = "block";
+        overlay.style.display = "block";
 
         document.getElementById("confirmDelete").onclick = () => {
             const authToken = localStorage.getItem("authToken");
             if (!authToken) {
-                console.error("Auth token not found. Please log in.");
+                showToast("Please log in to continue", "error");
                 return;
             }
 
-            const requestOptions = {
-                method: "DELETE",
-                headers: {
-                    Authorization: `Bearer ${authToken}`,
-                    "Content-Type": "application/json",
-                },
-                redirect: "follow",
-            };
+            spinner.classList.remove("hidden");
 
             fetch(
                 `http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=delete_trainer_career&career_id=${jobId}`,
-                requestOptions
+                {
+                    method: "DELETE",
+                    headers: {
+                        Authorization: `Bearer ${authToken}`,
+                        "Content-Type": "application/json",
+                    },
+                    redirect: "follow",
+                }
             )
                 .then((response) => {
                     if (!response.ok) throw new Error("Failed to delete job");
                     return response.json();
                 })
-                .then((result) => {
-                    console.log("Job deleted successfully:", result);
-                    fetchJobsList(); // Refresh the jobs list
-                    document.getElementById("overlay").style.display = "none";
+                .then(() => {
+                    showToast("Job deleted successfully!");
+                    fetchJobsList();
                     deletePopup.style.display = "none";
+                    overlay.style.display = "none";
                 })
-                .catch((error) => console.error("Error deleting notice:", error));
+                .catch((error) => {
+                    console.error("Error deleting job:", error);
+                    showToast("Failed to delete job", "error");
+                })
+                .finally(() => {
+                    spinner.classList.add("hidden");
+                });
         };
 
         document.getElementById("cancelDelete").onclick = () => {
             deletePopup.style.display = "none";
-            document.getElementById("overlay").style.display = "none";
+            overlay.style.display = "none";
         };
     }
 
-    // Open the update popup for editing a job
     function openUpdatePopup(jobId, jobTitle, jobDescription) {
         document.getElementById("updatePopup").style.display = "block";
         document.getElementById("overlay").style.display = "block";
@@ -209,76 +207,70 @@ export function initAdmin_jobs() {
         document.getElementById("updateJobTitle").value = jobTitle;
         document.getElementById("updateJobDescription").value = jobDescription;
 
-        document.getElementById("updatePopup").style.display = "block";
-
         document.getElementById("closeUpdatePopup").onclick = () => {
             document.getElementById("updatePopup").style.display = "none";
             document.getElementById("overlay").style.display = "none";
         };
-
-
     }
 
-    // Update a job
-    document
-        .getElementById("updateForm")
-        .addEventListener("submit", function (event) {
-            event.preventDefault();
+    document.getElementById("updateForm").addEventListener("submit", (event) => {
+        event.preventDefault();
 
-            const jobId = document.getElementById("updateJobId").value;
-            const title = document.getElementById("updateJobTitle").value;
-            const description = document.getElementById("updateJobDescription").value;
+        const jobId = document.getElementById("updateJobId").value;
+        const title = document.getElementById("updateJobTitle").value.trim();
+        const description = document.getElementById("updateJobDescription").value.trim();
 
-            const authToken = localStorage.getItem("authToken");
-            if (!authToken) {
-                console.error("Auth token not found. Please log in.");
-                return;
-            }
+        if (!title || !description) {
+            showToast("Job title and description cannot be empty", "error");
+            return;
+        }
 
-            const payload = {
-                "career_id": jobId,
-                "job_role": title,
-                "requirements": description
-            };
+        const authToken = localStorage.getItem("authToken");
+        if (!authToken) {
+            showToast("Please log in to continue", "error");
+            return;
+        }
 
-            console.log("Payload:", JSON.stringify(payload));
+        const payload = {
+            career_id: jobId,
+            job_role: title,
+            requirements: description,
+        };
 
-            {/*const formData = JSON.stringify({
-      job_id: jobId,
-      title: title,
-      description: description,
-    });*/}
+        spinner.classList.remove("hidden");
 
-            const requestOptions = {
+        fetch(
+            "http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=update_trainer_career",
+            {
                 method: "PUT",
                 headers: {
                     Authorization: `Bearer ${authToken}`,
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(payload),
-            };
+            }
+        )
+            .then((response) => {
+                if (!response.ok) throw new Error("Failed to update job");
+                return response.json();
+            })
+            .then(() => {
+                showToast("Job updated successfully!");
+                document.getElementById("updatePopup").style.display = "none";
+                document.getElementById("overlay").style.display = "none";
+                fetchJobsList();
+            })
+            .catch((error) => {
+                console.error("Error updating job:", error);
+                showToast("Failed to update job", "error");
+            })
+            .finally(() => {
+                spinner.classList.add("hidden");
+            });
+    });
 
-            fetch(
-                "http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=update_trainer_career",
-                requestOptions
-            )
-                .then((response) => {
-                    if (!response.ok) throw new Error("Failed to update job");
-                    return response.json();
-                })
-                .then((result) => {
-                    console.log("Job updated successfully:", result);
-                    fetchJobsList(); // Refresh the job list
-                    document.getElementById("updatePopup").style.display = "none";
-                    document.getElementById("overlay").style.display = "none";
-                })
-                .catch((error) => console.error("Error updating job:", error));
-        });
-
-    // Close the delete popup
-    document.getElementById("closePopup").addEventListener("click", function () {
-        const popup = document.getElementById("deletePopup");
-        popup.style.display = "none";
+    document.getElementById("closePopup").addEventListener("click", () => {
+        document.getElementById("deletePopup").style.display = "none";
         document.getElementById("overlay").style.display = "none";
     });
 }
