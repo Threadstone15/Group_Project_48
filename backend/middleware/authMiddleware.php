@@ -1,19 +1,37 @@
 <?php
 $secretkey = 'your-secret-key';
+require_once __DIR__ . '/../api/models/config.php';
+
+
+
+function getTokenTimeout()
+{
+    $config = new Config();
+    $value = $config->getConfigValue('session_time');
+
+    if ($value !== null) {
+        return (int)$value;
+    }
+
+    // Default to 1 hour if config not found
+    return 1;
+}
+
 
 function generateToken($user_id)
 {
     global $secretkey;
 
-    $timestamp = floor(time() / 3600) * 3600;
+    $timeoutHours = getTokenTimeout();          // 1, 2, 3, etc.
+    $timeoutSeconds = $timeoutHours * 3600;     // Convert to seconds
+    $timestamp = floor(time() / 3600) * 3600;    // Start of current hour
 
     $payload = json_encode([
         'user_id' => $user_id,
-        'exp' => $timestamp + 3600
+        'exp' => $timestamp + $timeoutSeconds
     ]);
 
     $base64Payload = base64_encode($payload);
-
     $signature = hash_hmac('sha256', $base64Payload, $secretkey);
 
     return $base64Payload . '.' . $signature;

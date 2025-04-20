@@ -155,7 +155,8 @@ export function initAdmin_accounts() {
         const filtered = currentMembers.filter(member => {
             const fullName = `${member.firstName} ${member.lastName}`.toLowerCase();
             const email = member.email.toLowerCase();
-            return fullName.includes(term) || email.includes(term);
+            const roleID = member.userID.toLowerCase();
+            return fullName.includes(term) || email.includes(term) || roleID.includes(term);
         });
         
         const tbody = document.querySelector("#equipmentsTable tbody");
@@ -166,13 +167,15 @@ export function initAdmin_accounts() {
                 const row = document.createElement('tr');
                 const fullName = `${member.firstName} ${member.lastName}`;
                 const email = member.email;
+                const roleID = member.userID;
                 
                 // Highlight matching text
                 const highlightedName = highlightMatch(fullName, term);
                 const highlightedEmail = highlightMatch(email, term);
+                const highlightedRoleID = highlightMatch(roleID, term);
                 
                 row.innerHTML = `
-                    <td>${member.userID}</td>
+                    <td>${highlightedRoleID}</td>
                     <td>${highlightedName}</td>
                     <td>${highlightedEmail}</td>
                     <td>${member.phone}</td>

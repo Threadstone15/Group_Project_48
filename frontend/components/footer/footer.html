@@ -1,24 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   </head>
   <body>
     <footer class="footer">
-        <div class="footer-content">
-          <div class="footer-main">
-            <h2 class="footer-logo">GymVerse</h2>
-            <nav class="footer-nav">
-
+      <div class="footer-content">
+        <div class="footer-main">
+          <h2 class="footer-logo">GymVerse</h2>
+          <nav class="footer-nav">
+            <div class="footer-columns">
+              <!-- Column 1: Static info -->
               <ul class="footer-nav-list">
                 <li>© 2024 All rights reserved</li>
                 <li>Developed by Group_48</li>
-
               </ul>
-            </nav>
-          </div>
+    
+              <!-- Column 2: Dynamic info -->
+              <ul class="footer-nav-list">
+                <li id="footer-address"></li>
+                <li id="footer-email"></li>
+                <li id="footer-phone"></li>
+              </ul>
+            </div>
+          </nav>
         </div>
-      </footer>
+      </div>
+    </footer>
+    
+
+    <script>
+      // Fetch footer info from backend and update dynamically
+      async function fetchFooterInfo() {
+        console.log("Fetching footer info...");
+        try {
+          const res = await fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/footerController.php?action=get_footer_info", {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${localStorage.getItem("authToken")}` // Optional: Use if authentication is needed
+            }
+          });
+
+          const data = await res.json();
+          if (res.ok && data.success) {
+            // Update the footer with the fetched data
+            document.getElementById("footer-address").textContent = `Address: ${data.address}`;
+            document.getElementById("footer-email").textContent = `Email: ${data.email}`;
+            document.getElementById("footer-phone").textContent = `Phone: ${data.phone}`;
+          } else {
+            console.warn("Failed to fetch footer info:", data);
+          }
+        } catch (error) {
+          console.error("Error fetching footer info:", error);
+        }
+      }
+
+      // Call the function to fetch footer info
+      fetchFooterInfo();
+    </script>
   </body>
 </html>

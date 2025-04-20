@@ -12,12 +12,12 @@ export function initAdmin_systemHistory() {
   
     const tableMeta = {
       Equipments: {
-        headers: [ "Equipment", "Purchase Date", "Status", "Maintaince Frequency", "Removed Date"],
+        headers: [ "Equipment", "Purchase Date", "Status", "Maintaince Frequency", "Removed Date & Time"],
         type: "equipments",
         searchColumns: [1, 2],
       },
       Maintenance: {
-        headers: ["Record ID", "Equipment", "Maintained Date", "Details", "Next Maintaince Date", "Deleted Date"],
+        headers: ["Record ID", "Equipment", "Maintained Date", "Details", "Next Maintaince Date", "Removed Date & Time"],
         type: "maintenance",
         searchColumns: [1],
       },
@@ -27,7 +27,7 @@ export function initAdmin_systemHistory() {
         searchColumns: [1, 2],
       },
       Jobs: {
-        headers: ["Career ID", "Job Role", "Requirements", "Removed Date"],
+        headers: ["Career ID", "Job Role", "Requirements", "Removed Date & Time"],
         type: "jobs",
         searchColumns: [2],
       },
@@ -35,6 +35,11 @@ export function initAdmin_systemHistory() {
         headers: ["Member ID", "Full Name", "Date", "Time", "Status"],
         type: "attendance",
         searchColumns: [2,3],
+      },
+      Notices: {
+        headers: ["Full Name", "Phone", "Title", "Description", "Duration(Days)", "Published Date", "Removed Date & Time"],
+        type: "notices",
+        searchColumns: [1,3],
       },
     };
   

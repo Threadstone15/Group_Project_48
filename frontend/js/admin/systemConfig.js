@@ -1,128 +1,158 @@
-export function initAdmin_systemConfig() {
-    console.log("Initializing systemConfig.js");
-  
-    const spinner = document.getElementById("loading-spinner");
-    const popup = document.getElementById("popup");
-    const popupTitle = document.getElementById("popup-title");
-    const tableHeaders = document.getElementById("table-headers");
-    const tableBody = document.getElementById("table-body");
-    const searchInput = document.getElementById("search-input");
-  
-    const tableMeta = {
-      "Support Email": {
-        headers: ["Config ID", "Email", "Updated Date"],
-        type: "supportEmail",
-        searchColumns: [1],
+export async function initAdmin_systemConfig() {
+  console.log("Initializing systemConfig.js");
+
+  const configList = document.getElementById("config-list");
+  const spinner = document.getElementById("loading-spinner");
+  spinner.classList.remove("hidden");
+
+  try {
+    const res = await fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=get_all_system_configs", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${localStorage.getItem("authToken")}`
       },
-      "Phone Number": {
-        headers: ["Config ID", "Phone Number", "Updated Date"],
-        type: "phoneNumber",
-        searchColumns: [1],
-      },
-      "Physical Address": {
-        headers: ["Config ID", "Address", "Updated Date"],
-        type: "physicalAddress",
-        searchColumns: [1],
-      },
-      "Default Currency": {
-        headers: ["Config ID", "Currency", "Symbol", "Updated Date"],
-        type: "defaultCurrency",
-        searchColumns: [1],
-      },
-      "Maintenance Mode": {
-        headers: ["Config ID", "Status", "Activated Date", "Deactivated Date"],
-        type: "maintenanceMode",
-        searchColumns: [1],
-      },
-      "Notifications": {
-        headers: ["Config ID", "Enabled", "Last Toggled"],
-        type: "notifications",
-        searchColumns: [1],
-      },
-      "Daily Attendance": {
-        headers: ["Date", "Total Present", "Total Absent", "Checked By"],
-        type: "dailyAttendance",
-        searchColumns: [0, 3],
-      },
-      "Earnings Summary": {
-        headers: ["Date", "Total Earnings", "Source", "Handled By"],
-        type: "earningsSummary",
-        searchColumns: [0, 2],
-      },
-      "Session Timeout Duration": {
-        headers: ["Config ID", "Timeout Duration (min)", "Updated Date"],
-        type: "sessionTimeout",
-        searchColumns: [1],
-      },
-    };
-  
-    let currentRows = [];
-  
-    async function openPopup(configType) {
-      const { headers, type, searchColumns } = tableMeta[configType];
-  
-      popupTitle.textContent = configType + " Settings";
-      tableHeaders.innerHTML = headers.map((h) => `<th>${h}</th>`).join("");
-      searchInput.value = "";
-      spinner.classList.remove("hidden");
-  
-      try {
-        const response = await fetch(
-          `http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=get_config&type=${type}`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-            },
-          }
-        );
-  
-        if (!response.ok) {
-          throw new Error("Failed to fetch config data");
-        }
-  
-        const data = await response.json();
-        spinner.classList.add("hidden");
-        currentRows = data;
-  
-        tableBody.innerHTML = data
-          .map((row) => `<tr>${row.map((cell) => `<td>${cell}</td>`).join("")}</tr>`)
-          .join("");
-  
-        popup.dataset.currentTable = configType;
-        popup.dataset.searchColumns = JSON.stringify(searchColumns);
-        popup.classList.remove("hidden");
-  
-      } catch (error) {
-        console.error(`Error loading ${type} config:`, error);
-        spinner.classList.add("hidden");
-      }
+      body: JSON.stringify({ action: "get_all_system_configs" })
+    });
+
+    const data = await res.json();
+    console.log("Response data:", data);
+
+    if (res.ok && data.success) {
+      const configs = data.configs;
+      Object.keys(configs).forEach(key => {
+        renderConfigField(key, configs[key]);
+      });
+    } else {
+      alert("Could not load configuration settings.");
     }
-  
-    function closePopup() {
-      popup.classList.add("hidden");
-    }
-  
-    function searchTable() {
-      const term = searchInput.value.toLowerCase();
-      const configType = popup.dataset.currentTable;
-      const searchColumns = tableMeta[configType].searchColumns;
-  
-      const filteredRows = currentRows.filter((row) =>
-        searchColumns.some(
-          (i) => String(row[i]).toLowerCase().indexOf(term) !== -1
-        )
-      );
-  
-      tableBody.innerHTML = filteredRows
-        .map((row) => `<tr>${row.map((cell) => `<td>${cell}</td>`).join("")}</tr>`)
-        .join("");
-    }
-  
-    // Make functions globally accessible
-    window.openPopup = openPopup;
-    window.closePopup = closePopup;
-    window.searchTable = searchTable;
+  } catch (error) {
+    console.error("Error fetching configs:", error);
+    alert("An error occurred while loading settings.");
   }
-  
+
+  spinner.classList.add("hidden");
+
+  function renderConfigField(key, value) {
+    const wrapper = document.createElement("div");
+    wrapper.className = "form-group mb-3";
+
+    const label = document.createElement("label");
+    label.textContent = key.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+
+    let input;
+
+    if (key === "maintaince_mode" || key === "notifications") {
+      input = document.createElement("select");
+      input.className = "form-control";
+      ["enabled", "disabled"].forEach(optVal => {
+        const opt = document.createElement("option");
+        opt.value = optVal;
+        opt.textContent = optVal.charAt(0).toUpperCase() + optVal.slice(1);
+        if (value === optVal) opt.selected = true;
+        input.appendChild(opt);
+      });
+    } else if (key === "currency") {
+      input = document.createElement("select");
+      input.className = "form-control";
+      ["USD", "LKR", "INR", "EUR", "GBP"].forEach(curr => {
+        const opt = document.createElement("option");
+        opt.value = curr;
+        opt.textContent = curr;
+        if (value === curr) opt.selected = true;
+        input.appendChild(opt);
+      });
+    } else {
+      input = document.createElement("input");
+      input.type = "text";
+      input.value = value;
+      input.name = key;
+      input.className = "form-control";
+    }
+
+    const button = document.createElement("button");
+    button.textContent = "Update";
+    button.className = "btn btn-primary mt-2";
+
+    button.addEventListener("click", () => {
+      const newValue = input.value.trim();
+
+      // Validation
+      if ((key === "gym_capacity" || key === "session_time") && !/^[1-9]\d*$/.test(newValue)) {
+        alert("Please enter a valid positive integer for " + label.textContent);
+        return;
+      }
+
+      if (key === "gym_no" && !/^\d{10}$/.test(newValue)) {
+        alert("Phone number must be exactly 10 digits.");
+        return;
+      }
+
+      if (key === "gym_email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newValue)) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+      
+
+      // Show custom confirmation modal
+      showConfirmationPopup(label.textContent, newValue, () => {
+        updateConfigValue(key, newValue);
+      });
+    });
+
+    wrapper.appendChild(label);
+    wrapper.appendChild(input);
+    wrapper.appendChild(button);
+    configList.appendChild(wrapper);
+  }
+
+  async function updateConfigValue(key, value) {
+    const payload = {
+      action: "update_system_config",
+      key,
+      value
+    };
+
+    try {
+      const res = await fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=update_system_config", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${localStorage.getItem("authToken")}`
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        alert("Configuration updated successfully!");
+      } else {
+        alert(data.message || "Failed to update configuration.");
+      }
+    } catch (err) {
+      console.error("Update error:", err);
+      alert("An error occurred while updating configuration.");
+    }
+  }
+
+  // Custom confirmation popup
+  function showConfirmationPopup(field, value, onConfirm) {
+    const modal = document.getElementById("confirmation-modal");
+    const message = document.getElementById("confirmation-message");
+    const confirmBtn = document.getElementById("confirm-btn");
+    const cancelBtn = document.getElementById("cancel-btn");
+
+    message.textContent = `Are you sure you want to update "${field}" to "${value}"?`;
+    modal.style.display = "block";
+
+    confirmBtn.onclick = () => {
+      modal.style.display = "none";
+      onConfirm();
+    };
+
+    cancelBtn.onclick = () => {
+      modal.style.display = "none";
+    };
+  }
+}

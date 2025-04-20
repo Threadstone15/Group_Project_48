@@ -43,6 +43,12 @@ class SystemHistory
         return $this->callStoredProcedure("GetAllEquipment");
     }
 
+    public function getNoticesHistory()
+    {
+        logMessage("Fetching notices history...");
+        return $this->callStoredProcedure("GetDeletedNoticesWithPublisher");
+    }
+
     private function callStoredProcedure($procedureName)
     {
         if (!$this->conn) {
