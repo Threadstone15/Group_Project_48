@@ -1,38 +1,54 @@
 <?php
 
-require_once "../../models/config.php";
+require_once "../models/config.php";
 
-$config = new Config();
+
 
 // Handle GET request: ?action=get&key=gym_email
-function getSystemConfig()
+function getAllSystemConfigs()
 {
-    global $config;
+    try {
+        $config = new Config();
 
-    $key = $_GET["key"] ?? null;
-    logMessage("Key: $key");
+        $keys = [
+            "currency",
+            "gym_address",
+            "gym_capacity",
+            "gym_email",
+            "gym_no",
+            "maintaince_mode",
+            "notifications",
+            "session_time"
+        ];
 
-    if ($key) {
-        $value = $config->getConfigValue($key);
-        if ($value !== null) {
-            echo json_encode([
-                "success" => true,
-                "key" => $key,
-                "value" => $value
-            ]);
-        } else {
-            http_response_code(404);
-            echo json_encode(["success" => false, "message" => "Configuration key not found."]);
+        $configs = [];
+
+        foreach ($keys as $key) {
+            $configs[$key] = $config->getConfigValue($key);
         }
-    } else {
-        http_response_code(400);
-        echo json_encode(["success" => false, "message" => "Missing 'key' parameter."]);
+
+        logMessage("Configs: " . json_encode($configs));
+
+        // Return successful JSON response
+        echo json_encode([
+            "success" => true,
+            "configs" => $configs
+        ]);
+    } catch (Exception $e) {
+        // Log error and return failure JSON response
+        logMessage("Error fetching system configs: " . $e->getMessage());
+
+        http_response_code(500);
+        echo json_encode([
+            "success" => false,
+            "message" => "Failed to fetch system configurations."
+        ]);
     }
 }
 
 function updateSystemConfig()
 {
-    global $config;
+    $config = new Config();
 
     $data = json_decode(file_get_contents("php://input"), true);
     $key = $data["key"] ?? null;

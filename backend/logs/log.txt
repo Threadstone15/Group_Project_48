@@ -11116,3 +11116,626 @@
 [2025-04-20 15:26:57] User login successful: admin@gmail.com with role: admin
 [2025-04-20 15:26:57] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTU3NjAwfQ==.0df2b7d695d60088c12367c8ca541653220d1802bba35e78457299497de12253 admin
 [2025-04-20 15:26:57] Database connection closed.
+[2025-04-20 15:58:26] Connection established successfully to the database: rad_gymverse
+[2025-04-20 15:58:26] User class instantiated with database connection.
+[2025-04-20 15:58:26] Fetching user role by user ID: 75
+[2025-04-20 15:58:26] User role fetched successfully for user ID: 75
+[2025-04-20 15:58:26] Running admin controller ,get_personal_notices token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTU3NjAwfQ==.0df2b7d695d60088c12367c8ca541653220d1802bba35e78457299497de12253   id - 75 
+[2025-04-20 15:58:26] Running get_personal_notices....in controller
+[2025-04-20 15:58:26] get personal notices function running...
+[2025-04-20 15:58:26] Notice model initialized with database connection.
+[2025-04-20 15:58:26] Fetching personal notices for user ID: 75
+[2025-04-20 15:58:26] Expired notices removed.
+[2025-04-20 15:58:27] Fetched 3 unread notices for user ID: 75
+[2025-04-20 15:58:27] Personal notices fetched successfully
+[2025-04-20 15:58:27] Database connection closed.
+[2025-04-20 15:58:27] Connection established successfully to the database: rad_gymverse
+[2025-04-20 15:58:27] User class instantiated with database connection.
+[2025-04-20 15:58:27] Fetching user role by user ID: 75
+[2025-04-20 15:58:28] User role fetched successfully for user ID: 75
+[2025-04-20 15:58:28] Running admin controller ,get_gym_crowd token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTU3NjAwfQ==.0df2b7d695d60088c12367c8ca541653220d1802bba35e78457299497de12253   id - 75 
+[2025-04-20 15:58:28] Running get_gym_crowd....in controller
+[2025-04-20 15:58:28] Running getGymCrowd...
+[2025-04-20 15:58:28] Attendance model initialized with database connection.
+[2025-04-20 15:58:28] Fetching number of unique users with latest arrival marked as 1...
+[2025-04-20 15:58:28] Total users with latest Arrived=1: 1
+[2025-04-20 15:58:28] Fetching gym capacity from configuration...
+[2025-04-20 15:58:28] Gym capacity fetched successfully: 50
+[2025-04-20 15:58:28] Gym crowd count: 1 (2%)
+[2025-04-20 15:58:28] Database connection closed.
+[2025-04-20 15:58:29] Connection established successfully to the database: rad_gymverse
+[2025-04-20 15:58:29] User class instantiated with database connection.
+[2025-04-20 15:58:29] Fetching user role by user ID: 75
+[2025-04-20 15:58:29] User role fetched successfully for user ID: 75
+[2025-04-20 15:58:29] Running admin controller ,get_classes token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTU3NjAwfQ==.0df2b7d695d60088c12367c8ca541653220d1802bba35e78457299497de12253   id - 75 
+[2025-04-20 15:58:29] Running get_classes....in controller
+[2025-04-20 15:58:29] TrainerClass model initialized with database conection
+[2025-04-20 15:58:29] fetching all classes.....
+[2025-04-20 15:58:29] Classes fetched successfully
+[2025-04-20 15:58:29] classes retrieved successfully
+[2025-04-20 15:58:29] Database connection closed.
+[2025-04-20 15:59:33] Connection established successfully to the database: rad_gymverse
+[2025-04-20 15:59:33] Config model initialized with database connection.
+[2025-04-20 15:59:33] User class instantiated with database connection.
+[2025-04-20 15:59:33] Fetching user role by user ID: 75
+[2025-04-20 15:59:34] User role fetched successfully for user ID: 75
+[2025-04-20 15:59:34] Running admin controller ,get_gym_crowd token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTU3NjAwfQ==.0df2b7d695d60088c12367c8ca541653220d1802bba35e78457299497de12253   id - 75 
+[2025-04-20 15:59:34] Running get_gym_crowd....in controller
+[2025-04-20 15:59:34] Running getGymCrowd...
+[2025-04-20 15:59:34] Attendance model initialized with database connection.
+[2025-04-20 15:59:34] Fetching number of unique users with latest arrival marked as 1...
+[2025-04-20 15:59:34] Total users with latest Arrived=1: 1
+[2025-04-20 15:59:34] Fetching gym capacity from configuration...
+[2025-04-20 15:59:34] Gym capacity fetched successfully: 50
+[2025-04-20 15:59:34] Gym crowd count: 1 (2%)
+[2025-04-20 15:59:34] Database connection closed.
+[2025-04-20 15:59:35] Connection established successfully to the database: rad_gymverse
+[2025-04-20 15:59:35] Config model initialized with database connection.
+[2025-04-20 15:59:35] User class instantiated with database connection.
+[2025-04-20 15:59:35] Fetching user role by user ID: 75
+[2025-04-20 15:59:35] User role fetched successfully for user ID: 75
+[2025-04-20 15:59:35] Running admin controller ,get_classes token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTU3NjAwfQ==.0df2b7d695d60088c12367c8ca541653220d1802bba35e78457299497de12253   id - 75 
+[2025-04-20 15:59:35] Running get_classes....in controller
+[2025-04-20 15:59:35] TrainerClass model initialized with database conection
+[2025-04-20 15:59:35] fetching all classes.....
+[2025-04-20 15:59:35] Classes fetched successfully
+[2025-04-20 15:59:35] classes retrieved successfully
+[2025-04-20 15:59:35] Database connection closed.
+[2025-04-20 15:59:36] Connection established successfully to the database: rad_gymverse
+[2025-04-20 15:59:36] Config model initialized with database connection.
+[2025-04-20 15:59:36] User class instantiated with database connection.
+[2025-04-20 15:59:36] Fetching user role by user ID: 75
+[2025-04-20 15:59:36] User role fetched successfully for user ID: 75
+[2025-04-20 15:59:36] Running admin controller ,get_personal_notices token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTU3NjAwfQ==.0df2b7d695d60088c12367c8ca541653220d1802bba35e78457299497de12253   id - 75 
+[2025-04-20 15:59:36] Running get_personal_notices....in controller
+[2025-04-20 15:59:36] get personal notices function running...
+[2025-04-20 15:59:36] Notice model initialized with database connection.
+[2025-04-20 15:59:36] Fetching personal notices for user ID: 75
+[2025-04-20 15:59:37] Expired notices removed.
+[2025-04-20 15:59:37] Fetched 3 unread notices for user ID: 75
+[2025-04-20 15:59:37] Personal notices fetched successfully
+[2025-04-20 15:59:37] Database connection closed.
+[2025-04-20 15:59:37] Connection established successfully to the database: rad_gymverse
+[2025-04-20 15:59:37] Config model initialized with database connection.
+[2025-04-20 15:59:37] User class instantiated with database connection.
+[2025-04-20 15:59:37] Fetching user role by user ID: 75
+[2025-04-20 15:59:38] User role fetched successfully for user ID: 75
+[2025-04-20 15:59:38] Running admin controller ,get_system_config token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTU3NjAwfQ==.0df2b7d695d60088c12367c8ca541653220d1802bba35e78457299497de12253   id - 75 
+[2025-04-20 15:59:38] Running get_system_config....in controller
+[2025-04-20 15:59:38] Key: currency
+[2025-04-20 15:59:38] Error fetching config value: Table 'rad_gymverse.config_data' doesn't exist
+[2025-04-20 15:59:38] Database connection closed.
+[2025-04-20 15:59:39] Connection established successfully to the database: rad_gymverse
+[2025-04-20 15:59:39] Config model initialized with database connection.
+[2025-04-20 15:59:39] User class instantiated with database connection.
+[2025-04-20 15:59:39] Fetching user role by user ID: 75
+[2025-04-20 15:59:39] User role fetched successfully for user ID: 75
+[2025-04-20 15:59:39] Running admin controller ,get_system_config token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTU3NjAwfQ==.0df2b7d695d60088c12367c8ca541653220d1802bba35e78457299497de12253   id - 75 
+[2025-04-20 15:59:39] Running get_system_config....in controller
+[2025-04-20 15:59:39] Key: gym_address
+[2025-04-20 15:59:39] Error fetching config value: Table 'rad_gymverse.config_data' doesn't exist
+[2025-04-20 15:59:39] Database connection closed.
+[2025-04-20 15:59:40] Connection established successfully to the database: rad_gymverse
+[2025-04-20 15:59:40] Config model initialized with database connection.
+[2025-04-20 15:59:40] User class instantiated with database connection.
+[2025-04-20 15:59:40] Fetching user role by user ID: 75
+[2025-04-20 15:59:40] User role fetched successfully for user ID: 75
+[2025-04-20 15:59:40] Running admin controller ,get_system_config token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTU3NjAwfQ==.0df2b7d695d60088c12367c8ca541653220d1802bba35e78457299497de12253   id - 75 
+[2025-04-20 15:59:40] Running get_system_config....in controller
+[2025-04-20 15:59:40] Key: gym_capacity
+[2025-04-20 15:59:41] Error fetching config value: Table 'rad_gymverse.config_data' doesn't exist
+[2025-04-20 15:59:41] Database connection closed.
+[2025-04-20 15:59:41] Connection established successfully to the database: rad_gymverse
+[2025-04-20 15:59:41] Config model initialized with database connection.
+[2025-04-20 15:59:41] User class instantiated with database connection.
+[2025-04-20 15:59:41] Fetching user role by user ID: 75
+[2025-04-20 15:59:41] User role fetched successfully for user ID: 75
+[2025-04-20 15:59:41] Running admin controller ,get_system_config token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTU3NjAwfQ==.0df2b7d695d60088c12367c8ca541653220d1802bba35e78457299497de12253   id - 75 
+[2025-04-20 15:59:41] Running get_system_config....in controller
+[2025-04-20 15:59:41] Key: gym_email
+[2025-04-20 15:59:42] Error fetching config value: Table 'rad_gymverse.config_data' doesn't exist
+[2025-04-20 15:59:42] Database connection closed.
+[2025-04-20 15:59:42] Connection established successfully to the database: rad_gymverse
+[2025-04-20 15:59:42] Config model initialized with database connection.
+[2025-04-20 15:59:42] User class instantiated with database connection.
+[2025-04-20 15:59:42] Fetching user role by user ID: 75
+[2025-04-20 15:59:42] User role fetched successfully for user ID: 75
+[2025-04-20 15:59:42] Running admin controller ,get_system_config token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTU3NjAwfQ==.0df2b7d695d60088c12367c8ca541653220d1802bba35e78457299497de12253   id - 75 
+[2025-04-20 15:59:42] Running get_system_config....in controller
+[2025-04-20 15:59:42] Key: gym_no
+[2025-04-20 15:59:43] Error fetching config value: Table 'rad_gymverse.config_data' doesn't exist
+[2025-04-20 15:59:43] Database connection closed.
+[2025-04-20 15:59:43] Connection established successfully to the database: rad_gymverse
+[2025-04-20 15:59:43] Config model initialized with database connection.
+[2025-04-20 15:59:43] User class instantiated with database connection.
+[2025-04-20 15:59:43] Fetching user role by user ID: 75
+[2025-04-20 15:59:44] User role fetched successfully for user ID: 75
+[2025-04-20 15:59:44] Running admin controller ,get_system_config token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTU3NjAwfQ==.0df2b7d695d60088c12367c8ca541653220d1802bba35e78457299497de12253   id - 75 
+[2025-04-20 15:59:44] Running get_system_config....in controller
+[2025-04-20 15:59:44] Key: maintaince_mode
+[2025-04-20 15:59:44] Error fetching config value: Table 'rad_gymverse.config_data' doesn't exist
+[2025-04-20 15:59:44] Database connection closed.
+[2025-04-20 15:59:44] Connection established successfully to the database: rad_gymverse
+[2025-04-20 15:59:44] Config model initialized with database connection.
+[2025-04-20 15:59:44] User class instantiated with database connection.
+[2025-04-20 15:59:44] Fetching user role by user ID: 75
+[2025-04-20 15:59:45] User role fetched successfully for user ID: 75
+[2025-04-20 15:59:45] Running admin controller ,get_system_config token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTU3NjAwfQ==.0df2b7d695d60088c12367c8ca541653220d1802bba35e78457299497de12253   id - 75 
+[2025-04-20 15:59:45] Running get_system_config....in controller
+[2025-04-20 15:59:45] Key: notifications
+[2025-04-20 15:59:45] Error fetching config value: Table 'rad_gymverse.config_data' doesn't exist
+[2025-04-20 15:59:45] Database connection closed.
+[2025-04-20 15:59:45] Connection established successfully to the database: rad_gymverse
+[2025-04-20 15:59:45] Config model initialized with database connection.
+[2025-04-20 15:59:45] User class instantiated with database connection.
+[2025-04-20 15:59:45] Fetching user role by user ID: 75
+[2025-04-20 15:59:46] User role fetched successfully for user ID: 75
+[2025-04-20 15:59:46] Running admin controller ,get_system_config token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTU3NjAwfQ==.0df2b7d695d60088c12367c8ca541653220d1802bba35e78457299497de12253   id - 75 
+[2025-04-20 15:59:46] Running get_system_config....in controller
+[2025-04-20 15:59:46] Key: session_time
+[2025-04-20 15:59:46] Error fetching config value: Table 'rad_gymverse.config_data' doesn't exist
+[2025-04-20 15:59:46] Database connection closed.
+[2025-04-20 16:03:26] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:03:26] Config model initialized with database connection.
+[2025-04-20 16:03:26] Database connection closed.
+[2025-04-20 16:03:26] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:03:26] Config model initialized with database connection.
+[2025-04-20 16:03:26] Database connection closed.
+[2025-04-20 16:03:27] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:03:27] Config model initialized with database connection.
+[2025-04-20 16:03:27] Database connection closed.
+[2025-04-20 16:03:27] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:03:27] Config model initialized with database connection.
+[2025-04-20 16:03:27] Database connection closed.
+[2025-04-20 16:03:28] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:03:28] Config model initialized with database connection.
+[2025-04-20 16:03:28] Database connection closed.
+[2025-04-20 16:03:28] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:03:28] Config model initialized with database connection.
+[2025-04-20 16:03:28] Database connection closed.
+[2025-04-20 16:03:29] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:03:29] Config model initialized with database connection.
+[2025-04-20 16:03:29] Database connection closed.
+[2025-04-20 16:03:29] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:03:29] Config model initialized with database connection.
+[2025-04-20 16:03:29] Database connection closed.
+[2025-04-20 16:03:31] Running auth controller ,login 
+[2025-04-20 16:03:31] running login...in auth controller
+[2025-04-20 16:03:31] login function running...
+[2025-04-20 16:03:31] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:03:31] User class instantiated with database connection.
+[2025-04-20 16:03:31] User Login model running for: admin@gmail.com
+[2025-04-20 16:03:31] Fetching user by email: admin@gmail.com
+[2025-04-20 16:03:31] User found for email: admin@gmail.com
+[2025-04-20 16:03:32] Query bound and ready to execute for login: admin@gmail.com
+[2025-04-20 16:03:32] User status: 1
+[2025-04-20 16:03:32] User login successful: admin@gmail.com with role: admin
+[2025-04-20 16:03:32] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249 admin
+[2025-04-20 16:03:32] Database connection closed.
+[2025-04-20 16:03:32] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:03:32] Config model initialized with database connection.
+[2025-04-20 16:03:32] User class instantiated with database connection.
+[2025-04-20 16:03:32] Fetching user role by user ID: 75
+[2025-04-20 16:03:33] User role fetched successfully for user ID: 75
+[2025-04-20 16:03:33] Running admin controller ,get_gym_crowd token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:03:33] Running get_gym_crowd....in controller
+[2025-04-20 16:03:33] Running getGymCrowd...
+[2025-04-20 16:03:33] Attendance model initialized with database connection.
+[2025-04-20 16:03:33] Fetching number of unique users with latest arrival marked as 1...
+[2025-04-20 16:03:33] Total users with latest Arrived=1: 1
+[2025-04-20 16:03:33] Fetching gym capacity from configuration...
+[2025-04-20 16:03:33] Gym capacity fetched successfully: 50
+[2025-04-20 16:03:33] Gym crowd count: 1 (2%)
+[2025-04-20 16:03:33] Database connection closed.
+[2025-04-20 16:03:34] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:03:34] Config model initialized with database connection.
+[2025-04-20 16:03:34] User class instantiated with database connection.
+[2025-04-20 16:03:34] Fetching user role by user ID: 75
+[2025-04-20 16:03:34] User role fetched successfully for user ID: 75
+[2025-04-20 16:03:34] Running admin controller ,get_personal_notices token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:03:34] Running get_personal_notices....in controller
+[2025-04-20 16:03:34] get personal notices function running...
+[2025-04-20 16:03:34] Notice model initialized with database connection.
+[2025-04-20 16:03:34] Fetching personal notices for user ID: 75
+[2025-04-20 16:03:35] Expired notices removed.
+[2025-04-20 16:03:35] Fetched 3 unread notices for user ID: 75
+[2025-04-20 16:03:35] Personal notices fetched successfully
+[2025-04-20 16:03:35] Database connection closed.
+[2025-04-20 16:03:35] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:03:35] Config model initialized with database connection.
+[2025-04-20 16:03:35] User class instantiated with database connection.
+[2025-04-20 16:03:35] Fetching user role by user ID: 75
+[2025-04-20 16:03:36] User role fetched successfully for user ID: 75
+[2025-04-20 16:03:36] Running admin controller ,get_classes token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:03:36] Running get_classes....in controller
+[2025-04-20 16:03:36] TrainerClass model initialized with database conection
+[2025-04-20 16:03:36] fetching all classes.....
+[2025-04-20 16:03:36] Classes fetched successfully
+[2025-04-20 16:03:36] classes retrieved successfully
+[2025-04-20 16:03:36] Database connection closed.
+[2025-04-20 16:03:37] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:03:37] Config model initialized with database connection.
+[2025-04-20 16:03:37] User class instantiated with database connection.
+[2025-04-20 16:03:37] Fetching user role by user ID: 75
+[2025-04-20 16:03:37] User role fetched successfully for user ID: 75
+[2025-04-20 16:03:37] Running admin controller ,get_system_config token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:03:37] Running get_system_config....in controller
+[2025-04-20 16:03:37] Key: currency
+[2025-04-20 16:03:37] Database connection closed.
+[2025-04-20 16:03:38] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:03:38] Config model initialized with database connection.
+[2025-04-20 16:03:38] User class instantiated with database connection.
+[2025-04-20 16:03:38] Fetching user role by user ID: 75
+[2025-04-20 16:03:38] User role fetched successfully for user ID: 75
+[2025-04-20 16:03:38] Running admin controller ,get_system_config token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:03:38] Running get_system_config....in controller
+[2025-04-20 16:03:38] Key: gym_address
+[2025-04-20 16:03:38] Database connection closed.
+[2025-04-20 16:03:39] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:03:39] Config model initialized with database connection.
+[2025-04-20 16:03:39] User class instantiated with database connection.
+[2025-04-20 16:03:39] Fetching user role by user ID: 75
+[2025-04-20 16:03:39] User role fetched successfully for user ID: 75
+[2025-04-20 16:03:39] Running admin controller ,get_system_config token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:03:39] Running get_system_config....in controller
+[2025-04-20 16:03:39] Key: gym_capacity
+[2025-04-20 16:03:39] Database connection closed.
+[2025-04-20 16:03:40] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:03:40] Config model initialized with database connection.
+[2025-04-20 16:03:40] User class instantiated with database connection.
+[2025-04-20 16:03:40] Fetching user role by user ID: 75
+[2025-04-20 16:03:40] User role fetched successfully for user ID: 75
+[2025-04-20 16:03:40] Running admin controller ,get_system_config token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:03:40] Running get_system_config....in controller
+[2025-04-20 16:03:40] Key: gym_email
+[2025-04-20 16:03:41] Database connection closed.
+[2025-04-20 16:03:41] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:03:41] Config model initialized with database connection.
+[2025-04-20 16:03:41] User class instantiated with database connection.
+[2025-04-20 16:03:41] Fetching user role by user ID: 75
+[2025-04-20 16:03:41] User role fetched successfully for user ID: 75
+[2025-04-20 16:03:41] Running admin controller ,get_system_config token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:03:41] Running get_system_config....in controller
+[2025-04-20 16:03:41] Key: gym_no
+[2025-04-20 16:03:42] Database connection closed.
+[2025-04-20 16:03:42] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:03:42] Config model initialized with database connection.
+[2025-04-20 16:03:42] User class instantiated with database connection.
+[2025-04-20 16:03:42] Fetching user role by user ID: 75
+[2025-04-20 16:03:42] User role fetched successfully for user ID: 75
+[2025-04-20 16:03:42] Running admin controller ,get_system_config token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:03:42] Running get_system_config....in controller
+[2025-04-20 16:03:42] Key: maintaince_mode
+[2025-04-20 16:03:43] Database connection closed.
+[2025-04-20 16:03:43] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:03:43] Config model initialized with database connection.
+[2025-04-20 16:03:43] User class instantiated with database connection.
+[2025-04-20 16:03:43] Fetching user role by user ID: 75
+[2025-04-20 16:03:43] User role fetched successfully for user ID: 75
+[2025-04-20 16:03:43] Running admin controller ,get_system_config token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:03:43] Running get_system_config....in controller
+[2025-04-20 16:03:43] Key: notifications
+[2025-04-20 16:03:44] Database connection closed.
+[2025-04-20 16:03:44] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:03:44] Config model initialized with database connection.
+[2025-04-20 16:03:44] User class instantiated with database connection.
+[2025-04-20 16:03:44] Fetching user role by user ID: 75
+[2025-04-20 16:03:44] User role fetched successfully for user ID: 75
+[2025-04-20 16:03:44] Running admin controller ,get_system_config token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:03:44] Running get_system_config....in controller
+[2025-04-20 16:03:44] Key: session_time
+[2025-04-20 16:03:45] Database connection closed.
+[2025-04-20 16:07:27] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:07:27] Config model initialized with database connection.
+[2025-04-20 16:07:27] User class instantiated with database connection.
+[2025-04-20 16:07:27] Fetching user role by user ID: 75
+[2025-04-20 16:07:27] User role fetched successfully for user ID: 75
+[2025-04-20 16:07:27] Running admin controller ,get_system_config token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:07:27] Running get_system_config....in controller
+[2025-04-20 16:07:27] Key: currency
+[2025-04-20 16:07:27] Database connection closed.
+[2025-04-20 16:07:28] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:07:28] Config model initialized with database connection.
+[2025-04-20 16:07:28] User class instantiated with database connection.
+[2025-04-20 16:07:28] Fetching user role by user ID: 75
+[2025-04-20 16:07:28] User role fetched successfully for user ID: 75
+[2025-04-20 16:07:28] Running admin controller ,get_system_config token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:07:28] Running get_system_config....in controller
+[2025-04-20 16:07:28] Key: gym_address
+[2025-04-20 16:07:28] Database connection closed.
+[2025-04-20 16:07:29] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:07:29] Config model initialized with database connection.
+[2025-04-20 16:07:29] User class instantiated with database connection.
+[2025-04-20 16:07:29] Fetching user role by user ID: 75
+[2025-04-20 16:07:29] User role fetched successfully for user ID: 75
+[2025-04-20 16:07:29] Running admin controller ,get_system_config token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:07:29] Running get_system_config....in controller
+[2025-04-20 16:07:29] Key: gym_capacity
+[2025-04-20 16:07:30] Database connection closed.
+[2025-04-20 16:07:30] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:07:30] Config model initialized with database connection.
+[2025-04-20 16:07:30] User class instantiated with database connection.
+[2025-04-20 16:07:30] Fetching user role by user ID: 75
+[2025-04-20 16:07:30] User role fetched successfully for user ID: 75
+[2025-04-20 16:07:30] Running admin controller ,get_system_config token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:07:30] Running get_system_config....in controller
+[2025-04-20 16:07:30] Key: gym_email
+[2025-04-20 16:07:31] Database connection closed.
+[2025-04-20 16:07:31] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:07:31] Config model initialized with database connection.
+[2025-04-20 16:07:31] User class instantiated with database connection.
+[2025-04-20 16:07:31] Fetching user role by user ID: 75
+[2025-04-20 16:07:32] User role fetched successfully for user ID: 75
+[2025-04-20 16:07:32] Running admin controller ,get_system_config token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:07:32] Running get_system_config....in controller
+[2025-04-20 16:07:32] Key: gym_no
+[2025-04-20 16:07:32] Database connection closed.
+[2025-04-20 16:07:33] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:07:33] Config model initialized with database connection.
+[2025-04-20 16:07:33] User class instantiated with database connection.
+[2025-04-20 16:07:33] Fetching user role by user ID: 75
+[2025-04-20 16:07:33] User role fetched successfully for user ID: 75
+[2025-04-20 16:07:33] Running admin controller ,get_system_config token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:07:33] Running get_system_config....in controller
+[2025-04-20 16:07:33] Key: maintaince_mode
+[2025-04-20 16:07:33] Database connection closed.
+[2025-04-20 16:07:34] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:07:34] Config model initialized with database connection.
+[2025-04-20 16:07:34] User class instantiated with database connection.
+[2025-04-20 16:07:34] Fetching user role by user ID: 75
+[2025-04-20 16:07:34] User role fetched successfully for user ID: 75
+[2025-04-20 16:07:34] Running admin controller ,get_system_config token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:07:34] Running get_system_config....in controller
+[2025-04-20 16:07:34] Key: notifications
+[2025-04-20 16:07:34] Database connection closed.
+[2025-04-20 16:07:35] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:07:35] Config model initialized with database connection.
+[2025-04-20 16:07:35] User class instantiated with database connection.
+[2025-04-20 16:07:35] Fetching user role by user ID: 75
+[2025-04-20 16:07:35] User role fetched successfully for user ID: 75
+[2025-04-20 16:07:35] Running admin controller ,get_system_config token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:07:35] Running get_system_config....in controller
+[2025-04-20 16:07:35] Key: session_time
+[2025-04-20 16:07:35] Database connection closed.
+[2025-04-20 16:12:08] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:12:08] Config model initialized with database connection.
+[2025-04-20 16:12:08] User class instantiated with database connection.
+[2025-04-20 16:12:08] Fetching user role by user ID: 75
+[2025-04-20 16:12:08] User role fetched successfully for user ID: 75
+[2025-04-20 16:12:08] Running admin controller , token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:12:08] Database connection closed.
+[2025-04-20 16:12:56] Running auth controller ,login 
+[2025-04-20 16:12:56] running login...in auth controller
+[2025-04-20 16:12:56] login function running...
+[2025-04-20 16:12:56] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:12:56] User class instantiated with database connection.
+[2025-04-20 16:12:56] User Login model running for: admin@gmail.com
+[2025-04-20 16:12:56] Fetching user by email: admin@gmail.com
+[2025-04-20 16:12:57] User found for email: admin@gmail.com
+[2025-04-20 16:12:57] Query bound and ready to execute for login: admin@gmail.com
+[2025-04-20 16:12:57] User status: 1
+[2025-04-20 16:12:57] User login successful: admin@gmail.com with role: admin
+[2025-04-20 16:12:57] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249 admin
+[2025-04-20 16:12:57] Database connection closed.
+[2025-04-20 16:12:58] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:12:58] Config model initialized with database connection.
+[2025-04-20 16:12:58] User class instantiated with database connection.
+[2025-04-20 16:12:58] Fetching user role by user ID: 75
+[2025-04-20 16:12:58] User role fetched successfully for user ID: 75
+[2025-04-20 16:12:58] Running admin controller ,get_personal_notices token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:12:58] Running get_personal_notices....in controller
+[2025-04-20 16:12:58] get personal notices function running...
+[2025-04-20 16:12:58] Notice model initialized with database connection.
+[2025-04-20 16:12:58] Fetching personal notices for user ID: 75
+[2025-04-20 16:12:58] Expired notices removed.
+[2025-04-20 16:12:59] Fetched 3 unread notices for user ID: 75
+[2025-04-20 16:12:59] Personal notices fetched successfully
+[2025-04-20 16:12:59] Database connection closed.
+[2025-04-20 16:12:59] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:12:59] Config model initialized with database connection.
+[2025-04-20 16:12:59] User class instantiated with database connection.
+[2025-04-20 16:12:59] Fetching user role by user ID: 75
+[2025-04-20 16:13:00] User role fetched successfully for user ID: 75
+[2025-04-20 16:13:00] Running admin controller ,get_gym_crowd token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:13:00] Running get_gym_crowd....in controller
+[2025-04-20 16:13:00] Running getGymCrowd...
+[2025-04-20 16:13:00] Attendance model initialized with database connection.
+[2025-04-20 16:13:00] Fetching number of unique users with latest arrival marked as 1...
+[2025-04-20 16:13:00] Total users with latest Arrived=1: 1
+[2025-04-20 16:13:00] Fetching gym capacity from configuration...
+[2025-04-20 16:13:00] Gym capacity fetched successfully: 50
+[2025-04-20 16:13:00] Gym crowd count: 1 (2%)
+[2025-04-20 16:13:00] Database connection closed.
+[2025-04-20 16:13:01] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:13:01] Config model initialized with database connection.
+[2025-04-20 16:13:01] User class instantiated with database connection.
+[2025-04-20 16:13:01] Fetching user role by user ID: 75
+[2025-04-20 16:13:01] User role fetched successfully for user ID: 75
+[2025-04-20 16:13:01] Running admin controller ,get_classes token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:13:01] Running get_classes....in controller
+[2025-04-20 16:13:01] TrainerClass model initialized with database conection
+[2025-04-20 16:13:01] fetching all classes.....
+[2025-04-20 16:13:02] Classes fetched successfully
+[2025-04-20 16:13:02] classes retrieved successfully
+[2025-04-20 16:13:02] Database connection closed.
+[2025-04-20 16:13:02] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:13:02] Config model initialized with database connection.
+[2025-04-20 16:13:02] User class instantiated with database connection.
+[2025-04-20 16:13:02] Fetching user role by user ID: 75
+[2025-04-20 16:13:02] User role fetched successfully for user ID: 75
+[2025-04-20 16:13:02] Running admin controller , token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:13:02] Database connection closed.
+[2025-04-20 16:14:20] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:14:20] Config model initialized with database connection.
+[2025-04-20 16:14:20] User class instantiated with database connection.
+[2025-04-20 16:14:20] Fetching user role by user ID: 75
+[2025-04-20 16:14:21] User role fetched successfully for user ID: 75
+[2025-04-20 16:14:21] Running admin controller ,get_all_system_configs token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:14:21] Running get_system_config....in controller
+[2025-04-20 16:14:21] Database connection closed.
+[2025-04-20 16:18:51] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:18:51] Config model initialized with database connection.
+[2025-04-20 16:18:51] User class instantiated with database connection.
+[2025-04-20 16:18:51] Fetching user role by user ID: 75
+[2025-04-20 16:18:51] User role fetched successfully for user ID: 75
+[2025-04-20 16:18:51] Running admin controller ,get_all_system_configs token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:18:51] Running get_system_config....in controller
+[2025-04-20 16:18:51] Database connection closed.
+[2025-04-20 16:19:33] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:19:33] Config model initialized with database connection.
+[2025-04-20 16:19:33] User class instantiated with database connection.
+[2025-04-20 16:19:33] Fetching user role by user ID: 75
+[2025-04-20 16:19:33] User role fetched successfully for user ID: 75
+[2025-04-20 16:19:33] Running admin controller ,get_all_system_configs token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:19:33] Running get_system_config....in controller
+[2025-04-20 16:19:33] Database connection closed.
+[2025-04-20 16:20:25] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:20:25] User class instantiated with database connection.
+[2025-04-20 16:20:25] Fetching user role by user ID: 75
+[2025-04-20 16:20:25] User role fetched successfully for user ID: 75
+[2025-04-20 16:20:25] Running admin controller ,get_all_system_configs token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:20:25] Running get_system_config....in controller
+[2025-04-20 16:20:25] Config model initialized with database connection.
+[2025-04-20 16:20:28] Database connection closed.
+[2025-04-20 16:21:18] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:21:18] User class instantiated with database connection.
+[2025-04-20 16:21:18] Fetching user role by user ID: 75
+[2025-04-20 16:21:18] User role fetched successfully for user ID: 75
+[2025-04-20 16:21:18] Running admin controller ,get_all_system_configs token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:21:18] Running get_system_config....in controller
+[2025-04-20 16:21:18] Config model initialized with database connection.
+[2025-04-20 16:21:21] Configs: {"currency":"LKR","gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_capacity":"50","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754","maintaince_mode":"disabled","notifications":"enabled","session_time":"3"}
+[2025-04-20 16:21:21] Database connection closed.
+[2025-04-20 16:22:23] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:22:23] User class instantiated with database connection.
+[2025-04-20 16:22:23] Fetching user role by user ID: 75
+[2025-04-20 16:22:23] User role fetched successfully for user ID: 75
+[2025-04-20 16:22:23] Running admin controller ,get_all_system_configs token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:22:23] Running get_system_config....in controller
+[2025-04-20 16:22:23] Config model initialized with database connection.
+[2025-04-20 16:22:26] Configs: {"currency":"LKR","gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_capacity":"50","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754","maintaince_mode":"disabled","notifications":"enabled","session_time":"3"}
+[2025-04-20 16:22:26] Database connection closed.
+[2025-04-20 16:23:58] Running auth controller ,login 
+[2025-04-20 16:23:58] running login...in auth controller
+[2025-04-20 16:23:58] login function running...
+[2025-04-20 16:23:59] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:23:59] User class instantiated with database connection.
+[2025-04-20 16:23:59] User Login model running for: admin@gmail.com
+[2025-04-20 16:23:59] Fetching user by email: admin@gmail.com
+[2025-04-20 16:23:59] User found for email: admin@gmail.com
+[2025-04-20 16:23:59] Query bound and ready to execute for login: admin@gmail.com
+[2025-04-20 16:24:00] User status: 1
+[2025-04-20 16:24:00] User login successful: admin@gmail.com with role: admin
+[2025-04-20 16:24:00] Login Successful: eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249 admin
+[2025-04-20 16:24:00] Database connection closed.
+[2025-04-20 16:24:00] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:24:00] User class instantiated with database connection.
+[2025-04-20 16:24:00] Fetching user role by user ID: 75
+[2025-04-20 16:24:01] User role fetched successfully for user ID: 75
+[2025-04-20 16:24:01] Running admin controller ,get_personal_notices token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:24:01] Running get_personal_notices....in controller
+[2025-04-20 16:24:01] get personal notices function running...
+[2025-04-20 16:24:01] Notice model initialized with database connection.
+[2025-04-20 16:24:01] Fetching personal notices for user ID: 75
+[2025-04-20 16:24:01] Expired notices removed.
+[2025-04-20 16:24:01] Fetched 3 unread notices for user ID: 75
+[2025-04-20 16:24:01] Personal notices fetched successfully
+[2025-04-20 16:24:01] Database connection closed.
+[2025-04-20 16:24:02] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:24:02] User class instantiated with database connection.
+[2025-04-20 16:24:02] Fetching user role by user ID: 75
+[2025-04-20 16:24:02] User role fetched successfully for user ID: 75
+[2025-04-20 16:24:02] Running admin controller ,get_gym_crowd token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:24:02] Running get_gym_crowd....in controller
+[2025-04-20 16:24:02] Running getGymCrowd...
+[2025-04-20 16:24:02] Attendance model initialized with database connection.
+[2025-04-20 16:24:02] Fetching number of unique users with latest arrival marked as 1...
+[2025-04-20 16:24:02] Total users with latest Arrived=1: 1
+[2025-04-20 16:24:02] Fetching gym capacity from configuration...
+[2025-04-20 16:24:03] Gym capacity fetched successfully: 50
+[2025-04-20 16:24:03] Gym crowd count: 1 (2%)
+[2025-04-20 16:24:03] Database connection closed.
+[2025-04-20 16:24:03] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:24:03] User class instantiated with database connection.
+[2025-04-20 16:24:03] Fetching user role by user ID: 75
+[2025-04-20 16:24:03] User role fetched successfully for user ID: 75
+[2025-04-20 16:24:03] Running admin controller ,get_classes token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:24:03] Running get_classes....in controller
+[2025-04-20 16:24:03] TrainerClass model initialized with database conection
+[2025-04-20 16:24:03] fetching all classes.....
+[2025-04-20 16:24:04] Classes fetched successfully
+[2025-04-20 16:24:04] classes retrieved successfully
+[2025-04-20 16:24:04] Database connection closed.
+[2025-04-20 16:24:04] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:24:04] User class instantiated with database connection.
+[2025-04-20 16:24:04] Fetching user role by user ID: 75
+[2025-04-20 16:24:05] User role fetched successfully for user ID: 75
+[2025-04-20 16:24:05] Running admin controller ,get_all_system_configs token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:24:05] Running get_system_config....in controller
+[2025-04-20 16:24:05] Config model initialized with database connection.
+[2025-04-20 16:24:07] Configs: {"currency":"LKR","gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_capacity":"50","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754","maintaince_mode":"disabled","notifications":"enabled","session_time":"3"}
+[2025-04-20 16:24:07] Database connection closed.
+[2025-04-20 16:26:19] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:26:19] User class instantiated with database connection.
+[2025-04-20 16:26:19] Fetching user role by user ID: 75
+[2025-04-20 16:26:19] User role fetched successfully for user ID: 75
+[2025-04-20 16:26:19] Running admin controller ,get_all_system_configs token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:26:19] Running get_system_config....in controller
+[2025-04-20 16:26:19] Config model initialized with database connection.
+[2025-04-20 16:26:22] Configs: {"currency":"LKR","gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_capacity":"50","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754","maintaince_mode":"disabled","notifications":"enabled","session_time":"3"}
+[2025-04-20 16:26:22] Database connection closed.
+[2025-04-20 16:26:40] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:26:40] User class instantiated with database connection.
+[2025-04-20 16:26:40] Fetching user role by user ID: 75
+[2025-04-20 16:26:41] User role fetched successfully for user ID: 75
+[2025-04-20 16:26:41] Running admin controller , token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:26:41] Database connection closed.
+[2025-04-20 16:26:49] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:26:49] User class instantiated with database connection.
+[2025-04-20 16:26:49] Fetching user role by user ID: 75
+[2025-04-20 16:26:49] User role fetched successfully for user ID: 75
+[2025-04-20 16:26:49] Running admin controller , token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:26:49] Database connection closed.
+[2025-04-20 16:27:22] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:27:22] User class instantiated with database connection.
+[2025-04-20 16:27:22] Fetching user role by user ID: 75
+[2025-04-20 16:27:22] User role fetched successfully for user ID: 75
+[2025-04-20 16:27:22] Running admin controller ,get_all_system_configs token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:27:22] Running get_system_config....in controller
+[2025-04-20 16:27:22] Config model initialized with database connection.
+[2025-04-20 16:27:24] Configs: {"currency":"LKR","gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_capacity":"50","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754","maintaince_mode":"disabled","notifications":"enabled","session_time":"3"}
+[2025-04-20 16:27:24] Database connection closed.
+[2025-04-20 16:27:29] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:27:29] User class instantiated with database connection.
+[2025-04-20 16:27:29] Fetching user role by user ID: 75
+[2025-04-20 16:27:30] User role fetched successfully for user ID: 75
+[2025-04-20 16:27:30] Running admin controller ,update_system_config token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:27:30] Running update_system_config....in controller
+[2025-04-20 16:27:30] Key: gym_capacity, Value: 50
+[2025-04-20 16:27:30] Database connection closed.
+[2025-04-20 16:27:36] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:27:36] User class instantiated with database connection.
+[2025-04-20 16:27:36] Fetching user role by user ID: 75
+[2025-04-20 16:27:37] User role fetched successfully for user ID: 75
+[2025-04-20 16:27:37] Running admin controller ,update_system_config token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:27:37] Running update_system_config....in controller
+[2025-04-20 16:27:37] Key: gym_capacity, Value: 51
+[2025-04-20 16:27:37] Database connection closed.
+[2025-04-20 16:28:08] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:28:08] User class instantiated with database connection.
+[2025-04-20 16:28:08] Fetching user role by user ID: 75
+[2025-04-20 16:28:08] User role fetched successfully for user ID: 75
+[2025-04-20 16:28:08] Running admin controller ,update_system_config token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:28:08] Running update_system_config....in controller
+[2025-04-20 16:28:08] Config model initialized with database connection.
+[2025-04-20 16:28:08] Key: gym_capacity, Value: 51
+[2025-04-20 16:28:08] Database connection closed.
+[2025-04-20 16:28:12] Connection established successfully to the database: rad_gymverse
+[2025-04-20 16:28:12] User class instantiated with database connection.
+[2025-04-20 16:28:12] Fetching user role by user ID: 75
+[2025-04-20 16:28:13] User role fetched successfully for user ID: 75
+[2025-04-20 16:28:13] Running admin controller ,get_all_system_configs token - eyJ1c2VyX2lkIjo3NSwiZXhwIjoxNzQ1MTYxMjAwfQ==.576ca3c3effb793041c2edf62c33f9b55d7e59a586d74a60dc23f92a1cda6249   id - 75 
+[2025-04-20 16:28:13] Running get_system_config....in controller
+[2025-04-20 16:28:13] Config model initialized with database connection.
+[2025-04-20 16:28:16] Configs: {"currency":"LKR","gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_capacity":"51","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754","maintaince_mode":"disabled","notifications":"enabled","session_time":"3"}
+[2025-04-20 16:28:16] Database connection closed.

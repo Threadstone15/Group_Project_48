@@ -91,9 +91,9 @@ switch ($action) {
         getHistory();
         break;
     //for systemConfig
-    case 'get_system_config':
+    case 'get_all_system_configs':
         logMessage("Running get_system_config....in controller");
-        getSystemConfig();
+        getAllSystemConfigs();
         break;
     case 'update_system_config':
         logMessage("Running update_system_config....in controller");
