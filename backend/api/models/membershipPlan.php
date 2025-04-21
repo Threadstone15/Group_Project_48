@@ -11,7 +11,7 @@ class MembershipPlan {
         $this->conn = DatabaseConnection::getInstance()->getConnection();
         logMessage("Membership plan model initialized with database connection.");
     }
-
+ 
     private function generatePlanID() {
         // Use SUBSTRING to extract the numeric part and ORDER BY it as an integer
         $query = "SELECT membership_plan_id 

@@ -165,5 +165,185 @@ export function initMember_workoutMealPlan() {
 
   // Attach event listener
   generatePlannerButton.addEventListener('click', generateWorkoutPlanner);
+  
+}
 
+  // =============Meal Planner=============
+
+// Function to initialize meal planner
+export function initMember_mealPlan() {
+  console.log('initializing mealPlan.js');
+  
+  // Get DOM Elements
+  const mealDaysContainer = document.querySelector('.meal-days-container');
+  const mealPlannerContainer = document.getElementById('meal-planner');
+  const generateMealPlanButton = document.getElementById('generate-meal-plan');
+  const mealDaysInput = document.getElementById('meal-days');
+
+  // Function to generate the meal planner
+  function generateMealPlanner() {
+    const mealDays = parseInt(mealDaysInput.value);
+
+    if (!mealDays || mealDays < 1 || mealDays > 7) {
+      alert('Please enter a valid number of days (1-7).');
+      return;
+    }
+
+    mealDaysContainer.style.display = 'none';
+    mealPlannerContainer.innerHTML = '';
+
+    // Generate planner columns for each day
+    for (let i = 1; i <= mealDays; i++) {
+      const column = document.createElement('div');
+      column.className = 'day-column';
+
+      const title = document.createElement('h3');
+      title.textContent = `Day ${i}`;
+      column.appendChild(title);
+
+      // Add meal type dropdown
+      const mealTypeSelect = document.createElement('select');
+      mealTypeSelect.className = 'meal-type';
+      ['Breakfast', 'Lunch', 'Dinner', 'Snack'].forEach(type => {
+        const option = document.createElement('option');
+        option.value = type.toLowerCase();
+        option.textContent = type;
+        mealTypeSelect.appendChild(option);
+      });
+      column.appendChild(mealTypeSelect);
+
+      // Create meal table
+      const mealTable = document.createElement('table');
+      mealTable.className = 'meal-table';
+      mealTable.innerHTML = `
+        <thead>
+          <tr>
+            <th>Meal</th>
+            <th>Ingredients</th>
+            <th>Grams/Quantity</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      `;
+      column.appendChild(mealTable);
+
+      // Add initial meal row
+      addMealRow(mealTable.querySelector('tbody'));
+
+      // Add "Add Meal" button
+      const addMealButton = document.createElement('button');
+      addMealButton.className = 'add-meal-btn';
+      addMealButton.textContent = `Add ${mealTypeSelect.value}`;
+      addMealButton.addEventListener('click', () => 
+        addMealRow(mealTable.querySelector('tbody'))
+      );
+      
+      // Update button text when meal type changes
+      mealTypeSelect.addEventListener('change', () => {
+        addMealButton.textContent = `Add ${mealTypeSelect.value}`;
+      });
+
+      column.appendChild(addMealButton);
+      mealPlannerContainer.appendChild(column);
+    }
+
+    // Add save button
+    const saveButton = document.createElement('button');
+    saveButton.className = 'save-plan-btn';
+    saveButton.textContent = 'Save Meal Plan';
+    saveButton.addEventListener('click', saveMealPlan);
+    mealPlannerContainer.appendChild(saveButton);
+  }
+
+  // Function to add a meal row
+  function addMealRow(tbody) {
+    const mealRow = document.createElement('tr');
+    mealRow.className = 'meal-row';
+
+    mealRow.innerHTML = `
+      <td><input type="text" placeholder="Meal name" class="meal-name"></td>
+      <td><input type="text" placeholder="Ingredients" class="meal-ingredients"></td>
+      <td><input type="text" placeholder="Amount" class="meal-quantity"></td>
+    `;
+
+    const editButton = document.createElement('button');
+    editButton.className = 'edit-meal-btn';
+    editButton.textContent = 'Edit';
+    editButton.addEventListener('click', () =>
+      showEditMealModal(
+        mealRow.querySelector('.meal-name'),
+        mealRow.querySelector('.meal-ingredients'),
+        mealRow.querySelector('.meal-quantity')
+      )
+    );
+
+    const deleteButton = document.createElement('button');
+    deleteButton.className = 'delete-meal-btn';
+    deleteButton.textContent = 'Delete';
+    deleteButton.addEventListener('click', () => showDeleteModal(mealRow));
+
+    const actionCell = document.createElement('td');
+    actionCell.appendChild(editButton);
+    actionCell.appendChild(deleteButton);
+    mealRow.appendChild(actionCell);
+
+    tbody.appendChild(mealRow);
+  }
+
+  // Function to show edit meal modal
+  function showEditMealModal(mealInput, ingredientsInput, quantityInput) {
+    const content = `
+      <label>Meal Name:</label>
+      <input type="text" value="${mealInput.value}" id="edit-meal-name">
+      <label>Ingredients:</label>
+      <input type="text" value="${ingredientsInput.value}" id="edit-ingredients">
+      <label>Quantity:</label>
+      <input type="text" value="${quantityInput.value}" id="edit-quantity">
+    `;
+    showModal({
+      title: 'Edit Meal',
+      content,
+      onConfirm: () => {
+        mealInput.value = document.getElementById('edit-meal-name').value;
+        ingredientsInput.value = document.getElementById('edit-ingredients').value;
+        quantityInput.value = document.getElementById('edit-quantity').value;
+        alert('Meal updated successfully!');
+      },
+      onCancel: () => console.log('Edit canceled.'),
+    });
+  }
+
+  // Function to save meal plan (reusing the same showModal function from workout planner)
+  function saveMealPlan() {
+    const mealPlans = [];
+    const dayColumns = document.querySelectorAll('.day-column');
+    
+    dayColumns.forEach(column => {
+      const dayNumber = column.querySelector('h3').textContent.replace('Day ', '');
+      const mealType = column.querySelector('.meal-type').value;
+      const meals = [];
+      
+      column.querySelectorAll('.meal-row').forEach(row => {
+        meals.push({
+          name: row.querySelector('.meal-name').value,
+          ingredients: row.querySelector('.meal-ingredients').value,
+          quantity: row.querySelector('.meal-quantity').value
+        });
+      });
+      
+      mealPlans.push({
+        day: dayNumber,
+        mealType,
+        meals
+      });
+    });
+
+    console.log('Meal Plan to Save:', mealPlans);
+    alert('Meal plan saved successfully!');
+  }
+
+  // Attach event listener
+  generateMealPlanButton.addEventListener('click', generateMealPlanner);
 }
