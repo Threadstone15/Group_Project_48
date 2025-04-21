@@ -110,7 +110,14 @@ switch ($action) {
         logMessage("Running remove_trainer....in controller");
         removeTrainer($user_id);
         break;
-
+    case 'get_assignedMemberCount_of_trainers' :
+        logMessage("Running get_assignedMemberCount_of_trainers....in controller");
+        getAssignedMemberCountOfTrainer();
+        break;
+    case 'get_trainers_details' :
+        logMessage("Running get_trainers_details....in controller");
+        getTrainersDetails();
+        break;
 
     default:
         echo json_encode(["error" => "Invalid action"]);
