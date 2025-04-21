@@ -1,9 +1,12 @@
 <?php
 
-// Set necessary headers for CORS and JSON responses
+// Allow cross-origin requests from any origin
 header("Access-Control-Allow-Origin: *");
+// Allow specific HTTP methods
 header("Access-Control-Allow-Methods: POST, GET, PUT, DELETE, OPTIONS");
+// Allow specific headers
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
+// Set the response content type to JSON
 header('Content-Type: application/json');
 
 // Start the PHP session

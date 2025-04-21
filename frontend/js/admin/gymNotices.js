@@ -62,7 +62,7 @@ export function initAdmim_gymNotices() {
                             <td>${notice.PublisherFullName}</td>
                             <td>${notice.Phone}</td>
                             <td>${notice.Duration}</td>
-                            <td>${notice.PublishDate}</td>
+                            <td>${notice.PublishedDate}</td>
                             <td>
                                 <button class="update-button" onclick="openUpdatePopup(this)">Update</button>
                                 <button class="delete-button" onclick="deleteNotice('${notice.notice_id}')">Remove</button>
@@ -250,3 +250,4 @@ export function initAdmim_gymNotices() {
             .finally(hideSpinner);
     });
 }
+

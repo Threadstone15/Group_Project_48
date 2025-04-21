@@ -1,12 +1,18 @@
 <?php
 
+// Allow cross-origin requests from any origin
 header("Access-Control-Allow-Origin: *");
+// Allow specific HTTP methods
 header("Access-Control-Allow-Methods: POST, GET, PUT, DELETE, OPTIONS");
+// Allow specific headers
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
+// Set the response content type to JSON
 header('Content-Type: application/json');
 
+// Start the session
 session_start();
 
+// Include middleware and handler files
 include_once "../../middleware/authMiddleware.php";
 include_once "../../config/database.php";
 include_once "equipmentHandler.php";
@@ -17,24 +23,49 @@ include_once "../models/User.php";
 include_once "./accountDetailHandler.php";
 include_once "./trainerClassHandler.php";
 
+// Establish database connection
 $conn = include_once "../../config/database.php";
+
+// Handle preflight OPTIONS requests
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     logMessage("Handling preflight OPTIONS request.");
     http_response_code(204);
     exit();
 }
 
+// Determine the HTTP method and action
 $request_method = $_SERVER['REQUEST_METHOD'];
 $action = $_POST['action'] ?? $_GET['action'] ?? null;
 
+// Authenticate request
 $token = getBearerToken();
 $requiredRole = "staff";
 verifyRequest($requiredRole, $token);
 $user_id  = getUserIdFromToken($token);
 
+// Log incoming request details
 logMessage("Running staff controller ,$action token - $token   id - $user_id ");
 
+// Route the request based on the 'action' parameter
 switch ($action) {
+    // Staff Home Page Features
+    case 'get_personal_notices':
+        logMessage("Running get_personal_notices....in controller");
+        getPersonalNotices($user_id);
+        break;
+
+    case 'get_gym_crowd':
+        logMessage("Running get_gym_crowd....in controller");
+        getGymCrowd();
+        break;
+
+    case 'mark_notice_as_read':
+        logMessage("Running mark_notice_read....in controller");
+        markNoticeAsRead($user_id);
+        break;
+
+
+    // Equipment Management
     case 'add_equipment':
         logMessage("Running add_equip....in controller");
         addEquipment();
@@ -56,7 +87,7 @@ switch ($action) {
         deleteEquipment();
         break;
 
-
+    // Maintenance Management
     case 'add_maintenance':
         logMessage("Running add_maintenance....in controller");
         addMaintenance();
@@ -74,7 +105,7 @@ switch ($action) {
         deleteMaintenance();
         break;
 
-
+    // Notice Management
     case 'add_notice':
         logMessage("Running add_notice....in controller");
         addNotice($user_id);
@@ -92,9 +123,7 @@ switch ($action) {
         deleteNotice();
         break;
 
-
-
-
+    // Account Management
     case 'account_delete':
         logMessage('running account delete...in controller');
         deleteUserAccount($user_id);
@@ -112,29 +141,6 @@ switch ($action) {
         changePassword($user_id);
         break;
 
-
+    // Attendance Management
     case 'mark_attendance':
-        logMessage("Running mark_attendance....in controller");
-        // Read and decode JSON input
-        $rawInput = file_get_contents("php://input");
-        $jsonData = json_decode($rawInput, true);
-        if (!isset($jsonData['data'])) {
-            http_response_code(400);
-            echo json_encode(["error" => "Missing data field"]);
-            exit;
-        }
-        $mem_token = $jsonData['data'];
-        $mem_user_id = getUserIdFromTokenNoVerify($mem_token);;
-        logMessage("Marking attendance for User ID: $mem_user_id");
-        markAttendance($mem_user_id, $jsonData);
-        break;
-    
-    case 'get_classes':
-        logMessage("Running get_classes....in controller");
-        getTrainerClasses();
-        break;
-
-
-    default:
-        echo json_encode(["error" => "Invalid action"]);
 }
