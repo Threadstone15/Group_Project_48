@@ -24,14 +24,22 @@ class AssignedTrainer
             return false;
         }
 
-        $query = "INSERT INTO " . $this->table . " (member_id, trainer_id) 
-        VALUES (?, ?)";
+        $query = "INSERT INTO " . $this->table . " (member_id, trainer_id, assigned_date) 
+        VALUES (?, ?, ?)";
         $stmt = $this->conn->prepare($query);
         if ($stmt === false) {
             logMessage("Error preparing statement for selecting a trainer: " . $this->conn->error);
             return false;
         }
-        $stmt->bind_param("ss", $member_id, $trainer_id);
+        $current_time = new DateTime('now', new DateTimeZone('Asia/Colombo'));
+        $assigned_date = $current_time->format('Y-m-d H:i:s');
+
+        $stmt->bind_param(
+            "sss", 
+            $member_id, 
+            $trainer_id,
+            $assigned_date
+        );
         if ($stmt->execute()) {
             logMessage("Assigned Trainer record added successfully for member : $member_id");
             return true;
@@ -63,8 +71,7 @@ class AssignedTrainer
                 $row = $result->fetch_assoc();
                 return $row;
             }else{
-                logMessage("No Trainer assigened");
-                return "noAssignedTrainer";
+                return null;
             }
         }else{
             logMessage("Error executing query for checking trainer assignment: " . $stmt->error);
@@ -79,13 +86,16 @@ class AssignedTrainer
             logMessage("Database connection is not valid.");
             return false;
         }
-        $query = "UPDATE " . $this->table . " SET trainer_id = ? , assigned_date = NOW() WHERE member_id = ? ";
+        $query = "UPDATE " . $this->table . " SET trainer_id = ? , assigned_date = ? WHERE member_id = ? ";
         $stmt = $this->conn->prepare($query);
         if ($stmt === false) {
             logMessage("Error preparing statement for changing trainer: " . $this->conn->error);
             return false;
         }
-        $stmt->bind_param("ss", $newTrainer_id, $member_id);
+        $current_time = new DateTime('now', new DateTimeZone('Asia/Colombo'));
+        $assigned_date = $current_time->format('Y-m-d H:i:s');
+
+        $stmt->bind_param("sss", $newTrainer_id, $assigned_date, $member_id);
         if($stmt->execute()){
             return true;
         }else{
@@ -140,6 +150,32 @@ class AssignedTrainer
             }
         }else{
             logMessage("Error executing query for getting count of assigned members of trainer: " . $stmt->error);
+            return false;
+        }
+    }
+
+    public function getAssignedMemberCountOfTrainers()
+    {
+        if(!$this->conn){
+            logMessage("Database connection is not valid.");
+        }
+        $query = "SELECT COUNT(member_id), trainer_id FROM " . $this->table . " GROUP BY trainer_id ";
+        $stmt = $this->conn->prepare($query);
+        if ($stmt === false) {
+            logMessage("Error preparing statement for getting assigned member count of trainers: " . $this->conn->error);
+            return false;
+        }
+        if($stmt->execute()){
+            $result = $stmt->get_result();
+            if($result->num_rows > 0){
+                $memberCounts = $result->fetch_all(MYSQLI_ASSOC);
+                return $memberCounts;
+            }else{
+                logMessage("No records found in assigned_trainer table");
+                return [];
+            }
+        }else{
+            logMessage("Error executing query for getting assigned member count of trainers: " . $stmt->error);
             return false;
         }
     }
