@@ -50,9 +50,9 @@ class Notice
 
     public function getNotices()
     {
-        logMessage("Fetching notices...");
+        logMessage("Fetching notices using stored procedure...");
 
-        $query = "SELECT * FROM " . $this->table;
+        $query = "CALL GetAllActiveNotices()";
         $stmt = $this->conn->prepare($query);
 
         if ($stmt === false) {
@@ -64,17 +64,18 @@ class Notice
             $result = $stmt->get_result();
             if ($result && $result->num_rows > 0) {
                 $notices = $result->fetch_all(MYSQLI_ASSOC);
-                logMessage("Notices fetched successfully");
+                logMessage("Notices fetched successfully via stored procedure");
                 return $notices;
             } else {
-                logMessage("No notices found");
+                logMessage("No notices found via stored procedure");
                 return [];
             }
         } else {
-            logMessage("Error fetching notices: " . $stmt->error);
+            logMessage("Error executing stored procedure: " . $stmt->error);
             return false;
         }
     }
+
 
     public function updateNotice($notice_id, $publisher_id, $title, $description, $duration)
     {

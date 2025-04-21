@@ -56,11 +56,12 @@ export function initAdmim_gymNotices() {
                     data.forEach(notice => {
                         const row = document.createElement("tr");
                         row.innerHTML = `
-                            <td>${notice.notice_id}</td>
-                            <td>${notice.publisher_id}</td>
-                            <td>${notice.title}</td>
-                            <td>${notice.description}</td>
-                            <td>${notice.duration}</td>
+                            <td style="display: none;">${notice.notice_id}</td> <!-- hidden notice_id column -->
+                            <td>${notice.Title}</td>
+                            <td>${notice.Description}</td>
+                            <td>${notice.PublisherFullName}</td>
+                            <td>${notice.Phone}</td>
+                            <td>${notice.Duration}</td>
                             <td>${notice.PublishDate}</td>
                             <td>
                                 <button class="update-button" onclick="openUpdatePopup(this)">Update</button>
@@ -187,9 +188,9 @@ export function initAdmim_gymNotices() {
     window.openUpdatePopup = function (button) {
         const row = button.closest("tr");
         document.getElementById("updateNoticeId").value = row.cells[0].textContent;
-        document.getElementById("updateNoticeTitle").value = row.cells[2].textContent;
-        document.getElementById("updateNoticeDescription").value = row.cells[3].textContent;
-        document.getElementById("updateNoticeDuration").value = row.cells[4].textContent;
+        document.getElementById("updateNoticeTitle").value = row.cells[1].textContent;
+        document.getElementById("updateNoticeDescription").value = row.cells[2].textContent;
+        document.getElementById("updateNoticeDuration").value = row.cells[5].textContent;
 
         document.getElementById("overlay").style.display = "block";
         document.getElementById("updatePopup").style.display = "block";
