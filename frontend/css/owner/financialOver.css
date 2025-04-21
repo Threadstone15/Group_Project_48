@@ -1,41 +1,130 @@
-.financial-container {
-    display: flex;
-    background: transparent;
-    flex-direction: row;
-    padding: 0 10px;
-    gap: 20px;
-    margin: 20px 0;
-  }
-  
-  body {
-    display: flex;
-    background: transparent;
-    padding: 0 10px;
-  }
-  
-  
-  .total-income-container, .total-expenses-container {
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 50px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
+/* Shared styles for all card elements */
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 30%;
+  margin-top: 20px;
+  gap: 20px;
+  margin-left: 60px;
+  position: relative;
+  display: block;
+}
 
-  
-  h2 {
-    color: #FF5F00;
-    font-size: 28px;
-  }
-  
-  
-  /* Responsive design */
-  @media (max-width: 768px) {
-    
-  
-    .total-income, .total-expenses {
-        flex-basis: 100%;
-    }
+.card h2 {
+margin: 0;
+color: #FF5F00;
+font-size: 22px;
+font-weight: bold;
+}
 
-  }
+.card p {
+color: #666;
+font-size: 15px;
+margin: 4px 0;
+}
+
+.card .date {
+font-size: 16px;
+font-weight: 1000;
+}
+
+.total-income{
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex-basis: 33.3%;
+  text-align: center;
+  margin-top: 50px;
+  width: 100%;
+}
+
+.total-count{
+  font-weight: 500;
+}
+
+h2 {
+  color: #FF5F00;
+}
+
+.button-container {
+  position: relative;
+  top: auto;
+  right: auto;
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px; /* Space between buttons */
+}
   
+
+.infoBtn {
+  background-color: white; /* Orange background */
+  color: #FF5F00; /* White text */
+  border: 2px solid #FF5F00; /* Orange border */
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: poppins, sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.infoBtnMain {
+  background-color: #FF5F00; /* Orange background */
+  color: white; /* White text */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: poppins, sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+/* Hover effect */
+.infoBtnMain:hover {
+  background-color: #E55600; /* Slightly darker orange */
+}
+
+/* Active/focus states */
+.infoBtnMain:active,
+.infoBtnMain:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 95, 0, 0.3);
+}
+
+/* Hover effect */
+.infoBtn:hover {
+  background-color: #E55600; /* Slightly darker orange */
+  color: white;
+}
+
+/* Active/focus states */
+.infoBtn:active,
+.infoBtn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 95, 0, 0.3);
+}
+
+.infoChart{
+  margin-top: 20px;
+  margin-left: 60px
+}
+
+.button-container-chart {
+  position: relative;
+  top: auto;
+  right: auto;
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px; /* Space between buttons */
+  margin-top: 20px;
+}
+
+.chart-container {
+  height: 400px; /* Fixed height for the chart */
+  width: 100%;
+}

@@ -9,27 +9,34 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="dashboard-container">
-    <!-- Main content area -->
-    <div class="content-area">
-      <div class="financial-summary">
-        <div class="summary-card">
-          <h2>Total Income</h2>
-          <p id="totalIncomeDisplay">Rs. Loading...</p>
+  <div class="content-container">
+
+      <div class="card-container">
+        <div class="button-container">
+            <button class="infoBtnMain" id="daily">Today</button>
+            <button class="infoBtnMain" id="weekly">Weekly</button>
+            <button class="infoBtnMain" id="monthly">Monthly</button>
         </div>
-        <div class="summary-card">
-          <h2>Total Expenses</h2>
-          <p id="totalExpensesDisplay">Rs. Loading...</p>
-        </div>
+        <div class="total-income">
+            <h2>Total Income</h2>
+            <p class="total-count" id="totalCount">Amount fetched</p>
+        </div>           
       </div>
-      
-      <div class="chart-section">
-        <h2>Monthly Financial Overview</h2>
-        <div class="chart-container">
+
+      <div class="infoChart">
+        
+        <div class="button-container-chart">
+          <button class="infoBtn" id="Income">Income</button>
+          <button class="infoBtn" id="Count">Payment Count</button>
+          <button class="infoBtn" id="Growth">Growth</button>
+        </div>
+        <div class="chart-container" id="chartContainer">
           <canvas id="financialChart"></canvas>
         </div>
       </div>
-    </div>
+      
+
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>

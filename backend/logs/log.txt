@@ -1,0 +1,1128 @@
+[2025-04-16 18:38:52] Running auth controller ,login 
+[2025-04-16 18:38:52] running login...in auth controller
+[2025-04-16 18:38:52] login function running...
+[2025-04-16 18:38:53] Connection established successfully to the database: rad_gymverse
+[2025-04-16 18:38:53] User class instantiated with database connection.
+[2025-04-16 18:38:53] User Login model running for: owner@gmail.com
+[2025-04-16 18:38:53] Fetching user by email: owner@gmail.com
+[2025-04-16 18:38:53] User found for email: owner@gmail.com
+[2025-04-16 18:38:53] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-16 18:38:53] User status: 1
+[2025-04-16 18:38:53] User login successful: owner@gmail.com with role: owner
+[2025-04-16 18:38:53] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0ODIyODAwfQ==.c22ce1279c442cdf5339e50674f8070530485d7af2323b795632a1caf9e30b43 owner
+[2025-04-16 18:38:53] Database connection closed.
+[2025-04-16 18:39:03] Connection established successfully to the database: rad_gymverse
+[2025-04-16 18:39:03] User class instantiated with database connection.
+[2025-04-16 18:39:03] Fetching user role by user ID: 72
+[2025-04-16 18:39:03] User role fetched successfully for user ID: 72
+[2025-04-16 18:39:03] Running owner controller ,get_membershipPlans token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0ODIyODAwfQ==.c22ce1279c442cdf5339e50674f8070530485d7af2323b795632a1caf9e30b43   id - 72 
+[2025-04-16 18:39:03] Running get_membership plan....in controller
+[2025-04-16 18:39:03] get membership plans running running...
+[2025-04-16 18:39:03] Membership plan model initialized with database connection.
+[2025-04-16 18:39:03] Fetching membership plan...
+[2025-04-16 18:39:03] Membership Plans fetched successfully
+[2025-04-16 18:39:03] Membership plans fetched
+[2025-04-16 18:39:03] Database connection closed.
+[2025-04-16 18:39:07] Connection established successfully to the database: rad_gymverse
+[2025-04-16 18:39:07] User class instantiated with database connection.
+[2025-04-16 18:39:07] Fetching user role by user ID: 72
+[2025-04-16 18:39:07] User role fetched successfully for user ID: 72
+[2025-04-16 18:39:07] Running owner controller ,get_profile token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0ODIyODAwfQ==.c22ce1279c442cdf5339e50674f8070530485d7af2323b795632a1caf9e30b43   id - 72 
+[2025-04-16 18:39:07] Running get_profile....in controller
+[2025-04-16 18:39:07] Running get_profile....in handler
+[2025-04-16 18:39:07] User class instantiated with database connection.
+[2025-04-16 18:39:07] Fetching profile for user ID: 72
+[2025-04-16 18:39:08] No profile found for user ID: 72
+[2025-04-16 18:39:08] Database connection closed.
+[2025-04-18 09:40:37] Running auth controller ,login 
+[2025-04-18 09:40:37] running login...in auth controller
+[2025-04-18 09:40:37] login function running...
+[2025-04-18 09:40:38] Connection established successfully to the database: rad_gymverse
+[2025-04-18 09:40:38] User class instantiated with database connection.
+[2025-04-18 09:40:38] User Login model running for: owner@gmail.com
+[2025-04-18 09:40:38] Fetching user by email: owner@gmail.com
+[2025-04-18 09:40:38] User found for email: owner@gmail.com
+[2025-04-18 09:40:39] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-18 09:40:39] User status: 1
+[2025-04-18 09:40:39] User login successful: owner@gmail.com with role: owner
+[2025-04-18 09:40:39] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0OTYzMjAwfQ==.3bf090be4323bc4b7b5182db8cbcf4ba2c0b023115e9fe9e7fe595bafc4d5b94 owner
+[2025-04-18 09:40:39] Database connection closed.
+[2025-04-18 09:47:48] Running auth controller ,login 
+[2025-04-18 09:47:48] running login...in auth controller
+[2025-04-18 09:47:48] login function running...
+[2025-04-18 09:47:49] Connection established successfully to the database: rad_gymverse
+[2025-04-18 09:47:49] User class instantiated with database connection.
+[2025-04-18 09:47:49] User Login model running for: owner@gmail.com
+[2025-04-18 09:47:49] Fetching user by email: owner@gmail.com
+[2025-04-18 09:47:49] User found for email: owner@gmail.com
+[2025-04-18 09:47:49] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-18 09:47:50] User status: 1
+[2025-04-18 09:47:50] User login successful: owner@gmail.com with role: owner
+[2025-04-18 09:47:50] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0OTYzMjAwfQ==.3bf090be4323bc4b7b5182db8cbcf4ba2c0b023115e9fe9e7fe595bafc4d5b94 owner
+[2025-04-18 09:47:50] Database connection closed.
+[2025-04-18 10:58:36] Running auth controller ,login 
+[2025-04-18 10:58:36] running login...in auth controller
+[2025-04-18 10:58:36] login function running...
+[2025-04-18 10:58:36] Running auth controller ,login 
+[2025-04-18 10:58:36] running login...in auth controller
+[2025-04-18 10:58:36] login function running...
+[2025-04-18 10:58:36] Connection established successfully to the database: rad_gymverse
+[2025-04-18 10:58:36] User class instantiated with database connection.
+[2025-04-18 10:58:36] User Login model running for: owner@gmail.com
+[2025-04-18 10:58:36] Fetching user by email: owner@gmail.com
+[2025-04-18 10:58:37] User found for email: owner@gmail.com
+[2025-04-18 10:58:37] Connection established successfully to the database: rad_gymverse
+[2025-04-18 10:58:37] User class instantiated with database connection.
+[2025-04-18 10:58:37] User Login model running for: owner@gmail.com
+[2025-04-18 10:58:37] Fetching user by email: owner@gmail.com
+[2025-04-18 10:58:37] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-18 10:58:37] User found for email: owner@gmail.com
+[2025-04-18 10:58:37] User status: 1
+[2025-04-18 10:58:37] User login successful: owner@gmail.com with role: owner
+[2025-04-18 10:58:37] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0OTY2ODAwfQ==.2c579ceda72c3fa795d28e078a0a31aa4de65b7dfe795da09a2375093e50a834 owner
+[2025-04-18 10:58:37] Database connection closed.
+[2025-04-18 10:58:37] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-18 10:58:37] User status: 1
+[2025-04-18 10:58:37] User login successful: owner@gmail.com with role: owner
+[2025-04-18 10:58:37] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0OTY2ODAwfQ==.2c579ceda72c3fa795d28e078a0a31aa4de65b7dfe795da09a2375093e50a834 owner
+[2025-04-18 10:58:37] Database connection closed.
+[2025-04-18 11:31:22] Running auth controller ,login 
+[2025-04-18 11:31:22] running login...in auth controller
+[2025-04-18 11:31:22] login function running...
+[2025-04-18 11:31:22] Connection established successfully to the database: rad_gymverse
+[2025-04-18 11:31:22] User class instantiated with database connection.
+[2025-04-18 11:31:22] User Login model running for: owner@gmail.com
+[2025-04-18 11:31:22] Fetching user by email: owner@gmail.com
+[2025-04-18 11:31:23] User found for email: owner@gmail.com
+[2025-04-18 11:31:23] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-18 11:31:23] User status: 1
+[2025-04-18 11:31:23] User login successful: owner@gmail.com with role: owner
+[2025-04-18 11:31:23] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0OTcwNDAwfQ==.096c49ade9263fa3dd6d9e3a188b238886cc612e252cc0202ae8e4456392c1aa owner
+[2025-04-18 11:31:23] Database connection closed.
+[2025-04-18 12:25:14] Running auth controller ,login 
+[2025-04-18 12:25:14] running login...in auth controller
+[2025-04-18 12:25:14] login function running...
+[2025-04-18 12:25:15] Connection established successfully to the database: rad_gymverse
+[2025-04-18 12:25:15] User class instantiated with database connection.
+[2025-04-18 12:25:15] User Login model running for: owner@gmail.com
+[2025-04-18 12:25:15] Fetching user by email: owner@gmail.com
+[2025-04-18 12:25:15] User found for email: owner@gmail.com
+[2025-04-18 12:25:15] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-18 12:25:16] User status: 1
+[2025-04-18 12:25:16] User login successful: owner@gmail.com with role: owner
+[2025-04-18 12:25:16] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0OTc0MDAwfQ==.1333756d3383ff80c8d247bfffef5153035730e561505ef33df732320a1bb830 owner
+[2025-04-18 12:25:16] Database connection closed.
+[2025-04-18 12:25:16] Running auth controller ,login 
+[2025-04-18 12:25:16] running login...in auth controller
+[2025-04-18 12:25:16] login function running...
+[2025-04-18 12:25:17] Connection established successfully to the database: rad_gymverse
+[2025-04-18 12:25:17] User class instantiated with database connection.
+[2025-04-18 12:25:17] User Login model running for: owner@gmail.com
+[2025-04-18 12:25:17] Fetching user by email: owner@gmail.com
+[2025-04-18 12:25:17] User found for email: owner@gmail.com
+[2025-04-18 12:25:17] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-18 12:25:18] User status: 1
+[2025-04-18 12:25:18] User login successful: owner@gmail.com with role: owner
+[2025-04-18 12:25:18] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0OTc0MDAwfQ==.1333756d3383ff80c8d247bfffef5153035730e561505ef33df732320a1bb830 owner
+[2025-04-18 12:25:18] Database connection closed.
+[2025-04-18 12:26:43] Running auth controller ,login 
+[2025-04-18 12:26:43] running login...in auth controller
+[2025-04-18 12:26:43] login function running...
+[2025-04-18 12:26:44] Connection established successfully to the database: rad_gymverse
+[2025-04-18 12:26:44] User class instantiated with database connection.
+[2025-04-18 12:26:44] User Login model running for: owner@gmail.com
+[2025-04-18 12:26:44] Fetching user by email: owner@gmail.com
+[2025-04-18 12:26:44] User found for email: owner@gmail.com
+[2025-04-18 12:26:44] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-18 12:26:45] User status: 1
+[2025-04-18 12:26:45] User login successful: owner@gmail.com with role: owner
+[2025-04-18 12:26:45] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ0OTc0MDAwfQ==.1333756d3383ff80c8d247bfffef5153035730e561505ef33df732320a1bb830 owner
+[2025-04-18 12:26:45] Database connection closed.
+[2025-04-19 06:54:39] Running auth controller ,login 
+[2025-04-19 06:54:39] running login...in auth controller
+[2025-04-19 06:54:39] login function running...
+[2025-04-19 06:54:40] Connection established successfully to the database: rad_gymverse
+[2025-04-19 06:54:40] User class instantiated with database connection.
+[2025-04-19 06:54:40] User Login model running for: owner@gmail.com
+[2025-04-19 06:54:40] Fetching user by email: owner@gmail.com
+[2025-04-19 06:54:40] User found for email: owner@gmail.com
+[2025-04-19 06:54:40] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-19 06:54:41] User status: 1
+[2025-04-19 06:54:41] User login successful: owner@gmail.com with role: owner
+[2025-04-19 06:54:41] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MDM4ODAwfQ==.e93f9d1ab012f83ad87380200ed51a693a60df5d56847be44e90d59ce2d3df36 owner
+[2025-04-19 06:54:41] Database connection closed.
+[2025-04-20 17:42:24] Running auth controller ,login 
+[2025-04-20 17:42:24] running login...in auth controller
+[2025-04-20 17:42:24] login function running...
+[2025-04-20 17:42:25] Connection established successfully to the database: rad_gymverse
+[2025-04-20 17:42:25] User class instantiated with database connection.
+[2025-04-20 17:42:25] User Login model running for: owner@gmail.com
+[2025-04-20 17:42:25] Fetching user by email: owner@gmail.com
+[2025-04-20 17:42:25] User found for email: owner@gmail.com
+[2025-04-20 17:42:26] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-20 17:42:26] User status: 1
+[2025-04-20 17:42:26] User login successful: owner@gmail.com with role: owner
+[2025-04-20 17:42:26] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MTY0ODAwfQ==.ff4678f52dcbcaf3013f02f3c3a2bc9284caf5b02451fd9a00dfdc726c32b768 owner
+[2025-04-20 17:42:26] Database connection closed.
+[2025-04-21 14:46:41] Running auth controller ,login 
+[2025-04-21 14:46:41] running login...in auth controller
+[2025-04-21 14:46:41] login function running...
+[2025-04-21 14:46:44] Running auth controller ,login 
+[2025-04-21 14:46:44] running login...in auth controller
+[2025-04-21 14:46:44] login function running...
+[2025-04-21 14:46:46] Running auth controller ,login 
+[2025-04-21 14:46:46] running login...in auth controller
+[2025-04-21 14:46:46] login function running...
+[2025-04-21 14:46:46] Running auth controller ,login 
+[2025-04-21 14:46:46] running login...in auth controller
+[2025-04-21 14:46:46] login function running...
+[2025-04-21 14:46:46] Running auth controller ,login 
+[2025-04-21 14:46:46] running login...in auth controller
+[2025-04-21 14:46:46] login function running...
+[2025-04-21 14:46:47] Running auth controller ,login 
+[2025-04-21 14:46:47] running login...in auth controller
+[2025-04-21 14:46:47] login function running...
+[2025-04-21 14:46:49] Connection established successfully to the database: rad_gymverse
+[2025-04-21 14:46:49] Connection established successfully to the database: rad_gymverse
+[2025-04-21 14:46:49] User class instantiated with database connection.
+[2025-04-21 14:46:49] User Login model running for: owner@gmail.com
+[2025-04-21 14:46:49] User Login model running for: owner@gmail.com
+[2025-04-21 14:46:49] Fetching user by email: owner@gmail.com
+[2025-04-21 14:46:49] Fetching user by email: owner@gmail.com
+[2025-04-21 14:46:49] Connection established successfully to the database: rad_gymverse
+[2025-04-21 14:46:49] Connection established successfully to the database: rad_gymverse
+[2025-04-21 14:46:49] Connection established successfully to the database: rad_gymverse
+[2025-04-21 14:46:49] User class instantiated with database connection.
+[2025-04-21 14:46:49] User Login model running for: owner@gmail.com
+n.
+[2025-04-21 14:46:49] User class instantiated with database connection.
+[2025-04-21 14:46:49] User Login model running for: owner@gmail.com
+[2025-04-21 14:46:49] Fetching user by email: owner@gmail.com
+[2025-04-21 14:46:49] Fetching user by email: owner@gmail.com
+[2025-04-21 14:46:49] Connection established successfully to the database: rad_gymverse
+[2025-04-21 14:46:49] User class instantiated with database connection.
+[2025-04-21 14:46:49] User Login model running for: owner@gmail.com
+[2025-04-21 14:46:49] Fetching user by email: owner@gmail.com
+[2025-04-21 14:46:49] User found for email: owner@gmail.com
+[2025-04-21 14:46:49] User found for email: owner@gmail.com
+[2025-04-21 14:46:49] User found for email: owner@gmail.com
+[2025-04-21 14:46:49] User found for email: owner@gmail.com
+[2025-04-21 14:46:49] User found for email: owner@gmail.com
+[2025-04-21 14:46:49] User found for email: owner@gmail.com
+[2025-04-21 14:46:50] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-21 14:46:50] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-21 14:46:50] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-21 14:46:50] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-21 14:46:50] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-21 14:46:50] User status: 1
+[2025-04-21 14:46:50] User login successful: owner@gmail.com with role: owner
+[2025-04-21 14:46:50] User status: 1
+[2025-04-21 14:46:50] User login successful: owner@gmail.com with role: owner
+[2025-04-21 14:46:50] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MjQwNDAwfQ==.7fd276f6038db6625bdbe53473e882a84c1aac338e7ab2068a1ce5066109d76e owner
+[2025-04-21 14:46:50] Database connection closed.
+[2025-04-21 14:46:50] User status: 1
+[2025-04-21 14:46:50] User login successful: owner@gmail.com with role: owner
+[2025-04-21 14:46:50] User status: 1
+[2025-04-21 14:46:50] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MjQwNDAwfQ==.7fd276f6038db6625bdbe53473e882a84c1aac338e7ab2068a1ce5066109d76e owner
+[2025-04-21 14:46:50] Database connection closed.
+[2025-04-21 14:46:50] User login successful: owner@gmail.com with role: owner
+[2025-04-21 14:46:50] Running auth controller ,login 
+[2025-04-21 14:46:50] running login...in auth controller
+[2025-04-21 14:46:50] login function running...
+[2025-04-21 14:46:50] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MjQwNDAwfQ==.7fd276f6038db6625bdbe53473e882a84c1aac338e7ab2068a1ce5066109d76e owner
+[2025-04-21 14:46:50] Database connection closed.
+[2025-04-21 14:46:50] User status: 1
+[2025-04-21 14:46:50] User login successful: owner@gmail.com with role: owner
+[2025-04-21 14:46:50] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MjQwNDAwfQ==.7fd276f6038db6625bdbe53473e882a84c1aac338e7ab2068a1ce5066109d76e owner
+[2025-04-21 14:46:50] Database connection closed.
+[2025-04-21 14:46:50] Running auth controller ,login 
+[2025-04-21 14:46:50] running login...in auth controller
+[2025-04-21 14:46:50] login function running...
+[2025-04-21 14:46:50] User status: 1
+[2025-04-21 14:46:50] User login successful: owner@gmail.com with role: owner
+[2025-04-21 14:46:50] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MjQwNDAwfQ==.7fd276f6038db6625bdbe53473e882a84c1aac338e7ab2068a1ce5066109d76e owner
+[2025-04-21 14:46:50] Database connection closed.
+[2025-04-21 14:46:50] Connection established successfully to the database: rad_gymverse
+[2025-04-21 14:46:50] User class instantiated with database connection.
+[2025-04-21 14:46:50] User Login model running for: owner@gmail.com
+[2025-04-21 14:46:50] Fetching user by email: owner@gmail.com
+[2025-04-21 14:46:50] Connection established successfully to the database: rad_gymverse
+[2025-04-21 14:46:50] User class instantiated with database connection.
+[2025-04-21 14:46:50] User Login model running for: owner@gmail.com
+[2025-04-21 14:46:50] Fetching user by email: owner@gmail.com
+[2025-04-21 14:46:51] User found for email: owner@gmail.com
+[2025-04-21 14:46:51] User found for email: owner@gmail.com
+[2025-04-21 14:46:51] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-21 14:46:51] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-21 14:46:51] User status: 1
+[2025-04-21 14:46:51] User login successful: owner@gmail.com with role: owner
+[2025-04-21 14:46:51] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MjQwNDAwfQ==.7fd276f6038db6625bdbe53473e882a84c1aac338e7ab2068a1ce5066109d76e owner
+[2025-04-21 14:46:51] Database connection closed.
+[2025-04-21 14:46:51] User status: 1
+[2025-04-21 14:46:51] User login successful: owner@gmail.com with role: owner
+[2025-04-21 14:46:51] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MjQwNDAwfQ==.7fd276f6038db6625bdbe53473e882a84c1aac338e7ab2068a1ce5066109d76e owner
+[2025-04-21 14:46:51] Database connection closed.
+[2025-04-21 14:54:14] Running auth controller ,login 
+[2025-04-21 14:54:14] running login...in auth controller
+[2025-04-21 14:54:14] login function running...
+[2025-04-21 14:54:15] Connection established successfully to the database: rad_gymverse
+[2025-04-21 14:54:15] User class instantiated with database connection.
+[2025-04-21 14:54:15] User Login model running for: owner@gmail.com
+[2025-04-21 14:54:15] Fetching user by email: owner@gmail.com
+[2025-04-21 14:54:15] User found for email: owner@gmail.com
+[2025-04-21 14:54:15] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-21 14:54:16] User status: 1
+[2025-04-21 14:54:16] User login successful: owner@gmail.com with role: owner
+[2025-04-21 14:54:16] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MjQwNDAwfQ==.7fd276f6038db6625bdbe53473e882a84c1aac338e7ab2068a1ce5066109d76e owner
+[2025-04-21 14:54:16] Database connection closed.
+[2025-04-21 14:54:30] Connection established successfully to the database: rad_gymverse
+[2025-04-21 14:54:30] User class instantiated with database connection.
+[2025-04-21 14:54:30] Fetching user role by user ID: 72
+[2025-04-21 14:54:30] User role fetched successfully for user ID: 72
+[2025-04-21 14:54:30] Running owner controller ,get_trainerAppliedCareers token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MjQwNDAwfQ==.7fd276f6038db6625bdbe53473e882a84c1aac338e7ab2068a1ce5066109d76e   id - 72 
+[2025-04-21 14:54:30] Running get_trainerAppliedCareers....in controller
+[2025-04-21 14:54:30] TrainerCareer model initialized with database connection.
+[2025-04-21 14:54:30] Fetching trainer applications...
+[2025-04-21 14:54:30] Trainer applicatins fetched successfully.
+[2025-04-21 14:54:30] TrainerCareer model initialized with database connection.
+[2025-04-21 14:54:30] Fetching trainer applied careers...
+[2025-04-21 14:54:30] Trainer applied careers fetched successfully.
+[2025-04-21 14:54:30] Database connection closed.
+[2025-04-21 14:54:31] Connection established successfully to the database: rad_gymverse
+[2025-04-21 14:54:31] User class instantiated with database connection.
+[2025-04-21 14:54:31] Fetching user role by user ID: 72
+[2025-04-21 14:54:31] User role fetched successfully for user ID: 72
+[2025-04-21 14:54:31] Running owner controller ,get_trainerApplications token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MjQwNDAwfQ==.7fd276f6038db6625bdbe53473e882a84c1aac338e7ab2068a1ce5066109d76e   id - 72 
+[2025-04-21 14:54:31] Running get_trainer_applications....in controller
+[2025-04-21 14:54:31] TrainerCareer model initialized with database connection.
+[2025-04-21 14:54:31] Fetching trainer applications...
+[2025-04-21 14:54:31] Trainer applicatins fetched successfully.
+[2025-04-21 14:54:31] Database connection closed.
+[2025-04-21 15:03:29] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:03:29] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:03:29] FinancialOverviewController initialized with model.
+[2025-04-21 15:03:29] Controller: Fetching financial overview data.
+[2025-04-21 15:03:29] Error: Invalid period type. Valid options are: daily, weekly, monthly
+[2025-04-21 15:03:29] Database connection closed.
+[2025-04-21 15:03:29] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:03:29] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:03:29] FinancialOverviewController initialized with model.
+[2025-04-21 15:03:29] Controller: Fetching financial overview data.
+[2025-04-21 15:03:29] Error: Invalid period type. Valid options are: daily, weekly, monthly
+[2025-04-21 15:03:29] Database connection closed.
+[2025-04-21 15:03:30] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:03:30] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:03:30] FinancialOverviewController initialized with model.
+[2025-04-21 15:03:30] Controller: Fetching financial overview data.
+[2025-04-21 15:03:30] Error: Invalid period type. Valid options are: daily, weekly, monthly
+[2025-04-21 15:03:30] Database connection closed.
+[2025-04-21 15:03:30] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:03:30] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:03:30] FinancialOverviewController initialized with model.
+[2025-04-21 15:03:30] Controller: Fetching financial overview data.
+[2025-04-21 15:03:30] Error: Invalid period type. Valid options are: daily, weekly, monthly
+[2025-04-21 15:03:30] Database connection closed.
+[2025-04-21 15:04:16] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:04:16] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:04:16] FinancialOverviewController initialized with model.
+[2025-04-21 15:04:16] Controller: Fetching financial overview data.
+[2025-04-21 15:04:16] Error: Invalid period type. Valid options are: daily, weekly, monthly
+[2025-04-21 15:04:16] Database connection closed.
+[2025-04-21 15:04:20] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:04:20] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:04:20] FinancialOverviewController initialized with model.
+[2025-04-21 15:04:20] Controller: Fetching financial overview data.
+[2025-04-21 15:04:20] Error: Invalid period type. Valid options are: daily, weekly, monthly
+[2025-04-21 15:04:20] Database connection closed.
+[2025-04-21 15:04:21] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:04:21] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:04:21] FinancialOverviewController initialized with model.
+[2025-04-21 15:04:21] Controller: Fetching financial overview data.
+[2025-04-21 15:04:21] Error: Invalid period type. Valid options are: daily, weekly, monthly
+[2025-04-21 15:04:21] Database connection closed.
+[2025-04-21 15:11:25] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:11:25] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:11:25] FinancialOverviewController initialized with model.
+[2025-04-21 15:11:25] Controller: Fetching financial overview data.
+[2025-04-21 15:11:25] Fetching aggregated financial data for period: weekly
+[2025-04-21 15:11:25] Financial overview data fetched successfully.
+[2025-04-21 15:11:25] Database connection closed.
+[2025-04-21 15:11:25] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:11:25] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:11:25] FinancialOverviewController initialized with model.
+[2025-04-21 15:11:25] Controller: Fetching financial overview data.
+[2025-04-21 15:11:25] Fetching aggregated financial data for period: monthly
+[2025-04-21 15:11:25] Financial overview data fetched successfully.
+[2025-04-21 15:11:25] Database connection closed.
+[2025-04-21 15:11:25] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:11:25] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:11:25] FinancialOverviewController initialized with model.
+[2025-04-21 15:11:25] Controller: Fetching financial overview data.
+[2025-04-21 15:11:25] Fetching aggregated financial data for period: daily
+[2025-04-21 15:11:26] Financial overview data fetched successfully.
+[2025-04-21 15:11:26] Database connection closed.
+[2025-04-21 15:11:46] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:11:46] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:11:46] FinancialOverviewController initialized with model.
+[2025-04-21 15:11:46] Controller: Fetching financial overview data.
+[2025-04-21 15:11:46] Fetching aggregated financial data for period: daily
+[2025-04-21 15:11:47] Financial overview data fetched successfully.
+[2025-04-21 15:11:47] Database connection closed.
+[2025-04-21 15:11:51] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:11:51] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:11:51] FinancialOverviewController initialized with model.
+[2025-04-21 15:11:51] Controller: Fetching financial overview data.
+[2025-04-21 15:11:51] Fetching aggregated financial data for period: weekly
+[2025-04-21 15:11:51] Financial overview data fetched successfully.
+[2025-04-21 15:11:51] Database connection closed.
+[2025-04-21 15:11:53] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:11:53] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:11:53] FinancialOverviewController initialized with model.
+[2025-04-21 15:11:53] Controller: Fetching financial overview data.
+[2025-04-21 15:11:53] Fetching aggregated financial data for period: daily
+[2025-04-21 15:11:54] Financial overview data fetched successfully.
+[2025-04-21 15:11:54] Database connection closed.
+[2025-04-21 15:11:54] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:11:54] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:11:54] FinancialOverviewController initialized with model.
+[2025-04-21 15:11:54] Controller: Fetching financial overview data.
+[2025-04-21 15:11:54] Fetching aggregated financial data for period: weekly
+[2025-04-21 15:11:55] Financial overview data fetched successfully.
+[2025-04-21 15:11:55] Database connection closed.
+[2025-04-21 15:11:55] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:11:55] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:11:55] FinancialOverviewController initialized with model.
+[2025-04-21 15:11:55] Controller: Fetching financial overview data.
+[2025-04-21 15:11:55] Fetching aggregated financial data for period: monthly
+[2025-04-21 15:11:55] Financial overview data fetched successfully.
+[2025-04-21 15:11:55] Database connection closed.
+[2025-04-21 15:18:00] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:18:00] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:18:00] FinancialOverviewController initialized with model.
+[2025-04-21 15:18:00] Controller: Fetching financial overview data.
+[2025-04-21 15:18:00] Fetching aggregated financial data for period: daily
+[2025-04-21 15:18:00] Financial overview data fetched successfully.
+[2025-04-21 15:18:00] Database connection closed.
+[2025-04-21 15:18:02] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:18:02] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:18:02] FinancialOverviewController initialized with model.
+[2025-04-21 15:18:02] Controller: Fetching financial overview data.
+[2025-04-21 15:18:02] Fetching aggregated financial data for period: weekly
+[2025-04-21 15:18:03] Financial overview data fetched successfully.
+[2025-04-21 15:18:03] Database connection closed.
+[2025-04-21 15:18:04] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:18:04] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:18:04] FinancialOverviewController initialized with model.
+[2025-04-21 15:18:04] Controller: Fetching financial overview data.
+[2025-04-21 15:18:04] Fetching aggregated financial data for period: monthly
+[2025-04-21 15:18:05] Financial overview data fetched successfully.
+[2025-04-21 15:18:05] Database connection closed.
+[2025-04-21 15:19:49] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:19:49] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:19:49] FinancialOverviewController initialized with model.
+[2025-04-21 15:19:49] Controller: Fetching financial overview data.
+[2025-04-21 15:19:49] Fetching aggregated financial data for period: daily
+[2025-04-21 15:19:49] Financial overview data fetched successfully.
+[2025-04-21 15:19:49] Database connection closed.
+[2025-04-21 15:19:50] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:19:50] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:19:50] FinancialOverviewController initialized with model.
+[2025-04-21 15:19:50] Controller: Fetching financial overview data.
+[2025-04-21 15:19:50] Fetching aggregated financial data for period: weekly
+[2025-04-21 15:19:50] Financial overview data fetched successfully.
+[2025-04-21 15:19:50] Database connection closed.
+[2025-04-21 15:19:50] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:19:50] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:19:50] FinancialOverviewController initialized with model.
+[2025-04-21 15:19:50] Controller: Fetching financial overview data.
+[2025-04-21 15:19:50] Fetching aggregated financial data for period: monthly
+[2025-04-21 15:19:51] Financial overview data fetched successfully.
+[2025-04-21 15:19:51] Database connection closed.
+[2025-04-21 15:19:52] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:19:52] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:19:52] FinancialOverviewController initialized with model.
+[2025-04-21 15:19:52] Controller: Fetching financial overview data.
+[2025-04-21 15:19:52] Fetching aggregated financial data for period: monthly
+[2025-04-21 15:19:52] Financial overview data fetched successfully.
+[2025-04-21 15:19:52] Database connection closed.
+[2025-04-21 15:19:52] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:19:52] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:19:52] FinancialOverviewController initialized with model.
+[2025-04-21 15:19:52] Controller: Fetching financial overview data.
+[2025-04-21 15:19:52] Fetching aggregated financial data for period: weekly
+[2025-04-21 15:19:53] Financial overview data fetched successfully.
+[2025-04-21 15:19:53] Database connection closed.
+[2025-04-21 15:19:53] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:19:53] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:19:53] FinancialOverviewController initialized with model.
+[2025-04-21 15:19:53] Controller: Fetching financial overview data.
+[2025-04-21 15:19:53] Fetching aggregated financial data for period: daily
+[2025-04-21 15:19:53] Financial overview data fetched successfully.
+[2025-04-21 15:19:53] Database connection closed.
+[2025-04-21 15:20:00] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:20:00] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:20:00] FinancialOverviewController initialized with model.
+[2025-04-21 15:20:00] Controller: Fetching financial overview data.
+[2025-04-21 15:20:00] Fetching aggregated financial data for period: daily
+[2025-04-21 15:20:00] Financial overview data fetched successfully.
+[2025-04-21 15:20:00] Database connection closed.
+[2025-04-21 15:20:00] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:20:00] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:20:00] FinancialOverviewController initialized with model.
+[2025-04-21 15:20:00] Controller: Fetching financial overview data.
+[2025-04-21 15:20:00] Fetching aggregated financial data for period: weekly
+[2025-04-21 15:20:00] Financial overview data fetched successfully.
+[2025-04-21 15:20:00] Database connection closed.
+[2025-04-21 15:20:01] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:20:01] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:20:01] FinancialOverviewController initialized with model.
+[2025-04-21 15:20:01] Controller: Fetching financial overview data.
+[2025-04-21 15:20:01] Fetching aggregated financial data for period: monthly
+[2025-04-21 15:20:01] Financial overview data fetched successfully.
+[2025-04-21 15:20:01] Database connection closed.
+[2025-04-21 15:20:06] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:20:06] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:20:06] FinancialOverviewController initialized with model.
+[2025-04-21 15:20:06] Controller: Fetching financial overview data.
+[2025-04-21 15:20:06] Fetching aggregated financial data for period: daily
+[2025-04-21 15:20:06] Financial overview data fetched successfully.
+[2025-04-21 15:20:06] Database connection closed.
+[2025-04-21 15:20:06] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:20:06] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:20:06] FinancialOverviewController initialized with model.
+[2025-04-21 15:20:06] Controller: Fetching financial overview data.
+[2025-04-21 15:20:06] Fetching aggregated financial data for period: weekly
+[2025-04-21 15:20:06] Financial overview data fetched successfully.
+[2025-04-21 15:20:06] Database connection closed.
+[2025-04-21 15:20:07] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:20:07] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:20:07] FinancialOverviewController initialized with model.
+[2025-04-21 15:20:07] Controller: Fetching financial overview data.
+[2025-04-21 15:20:07] Fetching aggregated financial data for period: monthly
+[2025-04-21 15:20:07] Financial overview data fetched successfully.
+[2025-04-21 15:20:07] Database connection closed.
+[2025-04-21 15:20:10] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:20:10] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:20:10] FinancialOverviewController initialized with model.
+[2025-04-21 15:20:10] Controller: Fetching financial overview data.
+[2025-04-21 15:20:10] Fetching aggregated financial data for period: weekly
+[2025-04-21 15:20:10] Financial overview data fetched successfully.
+[2025-04-21 15:20:10] Database connection closed.
+[2025-04-21 15:20:10] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:20:10] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:20:10] FinancialOverviewController initialized with model.
+[2025-04-21 15:20:10] Controller: Fetching financial overview data.
+[2025-04-21 15:20:10] Fetching aggregated financial data for period: daily
+[2025-04-21 15:20:11] Financial overview data fetched successfully.
+[2025-04-21 15:20:11] Database connection closed.
+[2025-04-21 15:20:11] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:20:11] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:20:11] FinancialOverviewController initialized with model.
+[2025-04-21 15:20:11] Controller: Fetching financial overview data.
+[2025-04-21 15:20:11] Fetching aggregated financial data for period: monthly
+[2025-04-21 15:20:11] Financial overview data fetched successfully.
+[2025-04-21 15:20:11] Database connection closed.
+[2025-04-21 15:20:40] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:20:40] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:20:40] FinancialOverviewController initialized with model.
+[2025-04-21 15:20:40] Controller: Fetching financial overview data.
+[2025-04-21 15:20:40] Fetching aggregated financial data for period: weekly
+[2025-04-21 15:20:41] Financial overview data fetched successfully.
+[2025-04-21 15:20:41] Database connection closed.
+[2025-04-21 15:20:41] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:20:41] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:20:41] FinancialOverviewController initialized with model.
+[2025-04-21 15:20:41] Controller: Fetching financial overview data.
+[2025-04-21 15:20:41] Fetching aggregated financial data for period: monthly
+[2025-04-21 15:20:41] Financial overview data fetched successfully.
+[2025-04-21 15:20:41] Database connection closed.
+[2025-04-21 15:20:41] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:20:41] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:20:41] FinancialOverviewController initialized with model.
+[2025-04-21 15:20:41] Controller: Fetching financial overview data.
+[2025-04-21 15:20:41] Fetching aggregated financial data for period: daily
+[2025-04-21 15:20:42] Financial overview data fetched successfully.
+[2025-04-21 15:20:42] Database connection closed.
+[2025-04-21 15:21:05] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:21:05] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:21:05] FinancialOverviewController initialized with model.
+[2025-04-21 15:21:05] Controller: Fetching financial overview data.
+[2025-04-21 15:21:05] Fetching aggregated financial data for period: weekly
+[2025-04-21 15:21:05] Financial overview data fetched successfully.
+[2025-04-21 15:21:05] Database connection closed.
+[2025-04-21 15:21:31] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:21:31] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:21:31] FinancialOverviewController initialized with model.
+[2025-04-21 15:21:31] Controller: Fetching financial overview data.
+[2025-04-21 15:21:31] Fetching aggregated financial data for period: daily
+[2025-04-21 15:21:32] Financial overview data fetched successfully.
+[2025-04-21 15:21:32] Database connection closed.
+[2025-04-21 15:21:32] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:21:32] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:21:32] FinancialOverviewController initialized with model.
+[2025-04-21 15:21:32] Controller: Fetching financial overview data.
+[2025-04-21 15:21:32] Fetching aggregated financial data for period: weekly
+[2025-04-21 15:21:33] Financial overview data fetched successfully.
+[2025-04-21 15:21:33] Database connection closed.
+[2025-04-21 15:21:33] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:21:33] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:21:33] FinancialOverviewController initialized with model.
+[2025-04-21 15:21:33] Controller: Fetching financial overview data.
+[2025-04-21 15:21:33] Fetching aggregated financial data for period: monthly
+[2025-04-21 15:21:33] Financial overview data fetched successfully.
+[2025-04-21 15:21:33] Database connection closed.
+[2025-04-21 15:23:47] Running auth controller ,login 
+[2025-04-21 15:23:47] running login...in auth controller
+[2025-04-21 15:23:47] login function running...
+[2025-04-21 15:23:48] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:23:48] User class instantiated with database connection.
+[2025-04-21 15:23:48] User Login model running for: owner@gmail.com
+[2025-04-21 15:23:48] Fetching user by email: owner@gmail.com
+[2025-04-21 15:23:48] User found for email: owner@gmail.com
+[2025-04-21 15:23:49] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-21 15:23:49] User status: 1
+[2025-04-21 15:23:49] User login successful: owner@gmail.com with role: owner
+[2025-04-21 15:23:49] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MjQ0MDAwfQ==.0ce281cd31ee56c60d5007319e7fa7558ad6be040be48bbaeeb79ed8e31299d8 owner
+[2025-04-21 15:23:49] Database connection closed.
+[2025-04-21 15:23:54] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:23:54] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:23:54] FinancialOverviewController initialized with model.
+[2025-04-21 15:23:54] Controller: Fetching financial overview data.
+[2025-04-21 15:23:54] Fetching aggregated financial data for period: weekly
+[2025-04-21 15:23:55] Financial overview data fetched successfully.
+[2025-04-21 15:23:55] Database connection closed.
+[2025-04-21 15:23:55] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:23:55] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:23:55] FinancialOverviewController initialized with model.
+[2025-04-21 15:23:55] Controller: Fetching financial overview data.
+[2025-04-21 15:23:55] Fetching aggregated financial data for period: monthly
+[2025-04-21 15:23:55] Financial overview data fetched successfully.
+[2025-04-21 15:23:55] Database connection closed.
+[2025-04-21 15:23:55] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:23:55] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:23:55] FinancialOverviewController initialized with model.
+[2025-04-21 15:23:55] Controller: Fetching financial overview data.
+[2025-04-21 15:23:55] Fetching aggregated financial data for period: daily
+[2025-04-21 15:23:56] Financial overview data fetched successfully.
+[2025-04-21 15:23:56] Database connection closed.
+[2025-04-21 15:28:36] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:28:36] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:28:36] FinancialOverviewController initialized with model.
+[2025-04-21 15:28:36] Controller: Fetching financial overview data.
+[2025-04-21 15:28:36] Fetching aggregated financial data for period: weekly
+[2025-04-21 15:28:36] Financial overview data fetched successfully.
+[2025-04-21 15:28:36] Database connection closed.
+[2025-04-21 15:28:36] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:28:36] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:28:36] FinancialOverviewController initialized with model.
+[2025-04-21 15:28:36] Controller: Fetching financial overview data.
+[2025-04-21 15:28:36] Fetching aggregated financial data for period: daily
+[2025-04-21 15:28:37] Financial overview data fetched successfully.
+[2025-04-21 15:28:37] Database connection closed.
+[2025-04-21 15:28:37] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:28:37] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:28:37] FinancialOverviewController initialized with model.
+[2025-04-21 15:28:37] Controller: Fetching financial overview data.
+[2025-04-21 15:28:37] Fetching aggregated financial data for period: monthly
+[2025-04-21 15:28:38] Financial overview data fetched successfully.
+[2025-04-21 15:28:38] Database connection closed.
+[2025-04-21 15:28:39] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:28:39] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:28:39] FinancialOverviewController initialized with model.
+[2025-04-21 15:28:39] Controller: Fetching financial overview data.
+[2025-04-21 15:28:39] Fetching aggregated financial data for period: weekly
+[2025-04-21 15:28:39] Financial overview data fetched successfully.
+[2025-04-21 15:28:39] Database connection closed.
+[2025-04-21 15:28:41] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:28:41] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:28:41] FinancialOverviewController initialized with model.
+[2025-04-21 15:28:41] Controller: Fetching financial overview data.
+[2025-04-21 15:28:41] Fetching aggregated financial data for period: daily
+[2025-04-21 15:28:41] Financial overview data fetched successfully.
+[2025-04-21 15:28:41] Database connection closed.
+[2025-04-21 15:37:00] Running auth controller ,login 
+[2025-04-21 15:37:00] running login...in auth controller
+[2025-04-21 15:37:00] login function running...
+[2025-04-21 15:37:00] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:37:00] User class instantiated with database connection.
+[2025-04-21 15:37:00] User Login model running for: owner@gmail.com
+[2025-04-21 15:37:00] Fetching user by email: owner@gmail.com
+[2025-04-21 15:37:00] User found for email: owner@gmail.com
+[2025-04-21 15:37:00] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-21 15:37:01] User status: 1
+[2025-04-21 15:37:01] User login successful: owner@gmail.com with role: owner
+[2025-04-21 15:37:01] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MjQ0MDAwfQ==.0ce281cd31ee56c60d5007319e7fa7558ad6be040be48bbaeeb79ed8e31299d8 owner
+[2025-04-21 15:37:01] Database connection closed.
+[2025-04-21 15:38:45] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:38:45] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:38:45] FinancialOverviewController initialized with model.
+[2025-04-21 15:38:45] Controller: Fetching financial overview data.
+[2025-04-21 15:38:45] Fetching aggregated financial data for period: daily
+[2025-04-21 15:38:46] Financial overview data fetched successfully.
+[2025-04-21 15:38:46] Database connection closed.
+[2025-04-21 15:47:45] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:47:45] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:47:45] FinancialOverviewController initialized with model.
+[2025-04-21 15:47:45] Controller: Fetching financial overview data.
+[2025-04-21 15:47:45] Fetching aggregated financial data for period: weekly
+[2025-04-21 15:47:45] Financial overview data fetched successfully.
+[2025-04-21 15:47:45] Database connection closed.
+[2025-04-21 15:47:48] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:47:48] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:47:48] FinancialOverviewController initialized with model.
+[2025-04-21 15:47:48] Controller: Fetching financial overview data.
+[2025-04-21 15:47:48] Fetching aggregated financial data for period: daily
+[2025-04-21 15:47:48] Financial overview data fetched successfully.
+[2025-04-21 15:47:48] Database connection closed.
+[2025-04-21 15:47:50] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:47:50] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:47:50] FinancialOverviewController initialized with model.
+[2025-04-21 15:47:50] Controller: Fetching financial overview data.
+[2025-04-21 15:47:50] Fetching aggregated financial data for period: monthly
+[2025-04-21 15:47:51] Financial overview data fetched successfully.
+[2025-04-21 15:47:51] Database connection closed.
+[2025-04-21 15:47:52] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:47:52] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:47:52] FinancialOverviewController initialized with model.
+[2025-04-21 15:47:52] Controller: Fetching financial overview data.
+[2025-04-21 15:47:52] Fetching aggregated financial data for period: weekly
+[2025-04-21 15:47:52] Financial overview data fetched successfully.
+[2025-04-21 15:47:52] Database connection closed.
+[2025-04-21 15:47:54] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:47:54] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:47:54] FinancialOverviewController initialized with model.
+[2025-04-21 15:47:54] Controller: Fetching financial overview data.
+[2025-04-21 15:47:54] Fetching aggregated financial data for period: daily
+[2025-04-21 15:47:54] Financial overview data fetched successfully.
+[2025-04-21 15:47:54] Database connection closed.
+[2025-04-21 15:47:55] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:47:55] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:47:55] FinancialOverviewController initialized with model.
+[2025-04-21 15:47:55] Controller: Fetching financial overview data.
+[2025-04-21 15:47:55] Fetching aggregated financial data for period: weekly
+[2025-04-21 15:47:55] Financial overview data fetched successfully.
+[2025-04-21 15:47:55] Database connection closed.
+[2025-04-21 15:47:56] Connection established successfully to the database: rad_gymverse
+[2025-04-21 15:47:56] FinancialOverviewModel initialized with database connection.
+[2025-04-21 15:47:56] FinancialOverviewController initialized with model.
+[2025-04-21 15:47:56] Controller: Fetching financial overview data.
+[2025-04-21 15:47:56] Fetching aggregated financial data for period: monthly
+[2025-04-21 15:47:56] Financial overview data fetched successfully.
+[2025-04-21 15:47:56] Database connection closed.
+[2025-04-21 16:09:03] Running auth controller ,login 
+[2025-04-21 16:09:03] running login...in auth controller
+[2025-04-21 16:09:03] login function running...
+[2025-04-21 16:09:03] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:09:03] User class instantiated with database connection.
+[2025-04-21 16:09:03] User Login model running for: owner@gmail.com
+[2025-04-21 16:09:03] Fetching user by email: owner@gmail.com
+[2025-04-21 16:09:03] User found for email: owner@gmail.com
+[2025-04-21 16:09:04] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-21 16:09:04] User status: 1
+[2025-04-21 16:09:04] User login successful: owner@gmail.com with role: owner
+[2025-04-21 16:09:04] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MjQ3NjAwfQ==.960cb8eb62b586927139b5fe1305889741b42f6ec71e97fa700cc0ab3a52c069 owner
+[2025-04-21 16:09:04] Database connection closed.
+[2025-04-21 16:18:50] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:18:50] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:18:50] FinancialOverviewController initialized with model.
+[2025-04-21 16:18:50] Controller: Fetching financial overview data.
+[2025-04-21 16:18:50] Fetching aggregated financial data for period: daily
+[2025-04-21 16:18:51] Financial overview data fetched successfully.
+[2025-04-21 16:18:51] Database connection closed.
+[2025-04-21 16:18:56] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:18:56] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:18:56] FinancialOverviewController initialized with model.
+[2025-04-21 16:18:56] Controller: Fetching financial overview data.
+[2025-04-21 16:18:56] Fetching aggregated financial data for period: weekly
+[2025-04-21 16:18:56] Financial overview data fetched successfully.
+[2025-04-21 16:18:56] Database connection closed.
+[2025-04-21 16:18:57] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:18:57] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:18:57] FinancialOverviewController initialized with model.
+[2025-04-21 16:18:57] Controller: Fetching financial overview data.
+[2025-04-21 16:18:57] Fetching aggregated financial data for period: monthly
+[2025-04-21 16:18:57] Financial overview data fetched successfully.
+[2025-04-21 16:18:57] Database connection closed.
+[2025-04-21 16:18:58] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:18:58] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:18:58] FinancialOverviewController initialized with model.
+[2025-04-21 16:18:58] Controller: Fetching financial overview data.
+[2025-04-21 16:18:58] Fetching aggregated financial data for period: daily
+[2025-04-21 16:18:58] Financial overview data fetched successfully.
+[2025-04-21 16:18:58] Database connection closed.
+[2025-04-21 16:19:15] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:19:15] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:19:15] FinancialOverviewController initialized with model.
+[2025-04-21 16:19:15] Controller: Fetching financial overview data.
+[2025-04-21 16:19:15] Fetching aggregated financial data for period: daily
+[2025-04-21 16:19:16] Financial overview data fetched successfully.
+[2025-04-21 16:19:16] Database connection closed.
+[2025-04-21 16:19:16] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:19:16] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:19:16] FinancialOverviewController initialized with model.
+[2025-04-21 16:19:16] Controller: Fetching financial overview data.
+[2025-04-21 16:19:16] Fetching aggregated financial data for period: weekly
+[2025-04-21 16:19:16] Financial overview data fetched successfully.
+[2025-04-21 16:19:16] Database connection closed.
+[2025-04-21 16:19:17] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:19:17] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:19:17] FinancialOverviewController initialized with model.
+[2025-04-21 16:19:17] Controller: Fetching financial overview data.
+[2025-04-21 16:19:17] Fetching aggregated financial data for period: weekly
+[2025-04-21 16:19:17] Financial overview data fetched successfully.
+[2025-04-21 16:19:17] Database connection closed.
+[2025-04-21 16:19:18] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:19:18] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:19:18] FinancialOverviewController initialized with model.
+[2025-04-21 16:19:18] Controller: Fetching financial overview data.
+[2025-04-21 16:19:18] Fetching aggregated financial data for period: monthly
+[2025-04-21 16:19:18] Financial overview data fetched successfully.
+[2025-04-21 16:19:18] Database connection closed.
+[2025-04-21 16:19:42] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:19:42] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:19:42] FinancialOverviewController initialized with model.
+[2025-04-21 16:19:42] Controller: Fetching financial overview data.
+[2025-04-21 16:19:42] Fetching aggregated financial data for period: weekly
+[2025-04-21 16:19:42] Financial overview data fetched successfully.
+[2025-04-21 16:19:42] Database connection closed.
+[2025-04-21 16:19:42] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:19:42] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:19:42] FinancialOverviewController initialized with model.
+[2025-04-21 16:19:42] Controller: Fetching financial overview data.
+[2025-04-21 16:19:42] Fetching aggregated financial data for period: weekly
+[2025-04-21 16:19:43] Financial overview data fetched successfully.
+[2025-04-21 16:19:43] Database connection closed.
+[2025-04-21 16:19:43] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:19:43] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:19:43] FinancialOverviewController initialized with model.
+[2025-04-21 16:19:43] Controller: Fetching financial overview data.
+[2025-04-21 16:19:43] Fetching aggregated financial data for period: weekly
+[2025-04-21 16:19:43] Financial overview data fetched successfully.
+[2025-04-21 16:19:43] Database connection closed.
+[2025-04-21 16:19:47] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:19:47] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:19:47] FinancialOverviewController initialized with model.
+[2025-04-21 16:19:47] Controller: Fetching financial overview data.
+[2025-04-21 16:19:47] Fetching aggregated financial data for period: monthly
+[2025-04-21 16:19:48] Financial overview data fetched successfully.
+[2025-04-21 16:19:48] Database connection closed.
+[2025-04-21 16:19:49] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:19:49] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:19:49] FinancialOverviewController initialized with model.
+[2025-04-21 16:19:49] Controller: Fetching financial overview data.
+[2025-04-21 16:19:49] Fetching aggregated financial data for period: daily
+[2025-04-21 16:19:49] Financial overview data fetched successfully.
+[2025-04-21 16:19:49] Database connection closed.
+[2025-04-21 16:19:49] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:19:49] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:19:49] FinancialOverviewController initialized with model.
+[2025-04-21 16:19:49] Controller: Fetching financial overview data.
+[2025-04-21 16:19:49] Fetching aggregated financial data for period: daily
+[2025-04-21 16:19:50] Financial overview data fetched successfully.
+[2025-04-21 16:19:50] Database connection closed.
+[2025-04-21 16:19:53] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:19:53] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:19:53] FinancialOverviewController initialized with model.
+[2025-04-21 16:19:53] Controller: Fetching financial overview data.
+[2025-04-21 16:19:53] Fetching aggregated financial data for period: monthly
+[2025-04-21 16:19:53] Financial overview data fetched successfully.
+[2025-04-21 16:19:53] Database connection closed.
+[2025-04-21 16:19:56] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:19:56] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:19:56] FinancialOverviewController initialized with model.
+[2025-04-21 16:19:56] Controller: Fetching financial overview data.
+[2025-04-21 16:19:56] Fetching aggregated financial data for period: monthly
+[2025-04-21 16:19:56] Financial overview data fetched successfully.
+[2025-04-21 16:19:56] Database connection closed.
+[2025-04-21 16:23:32] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:23:32] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:23:32] FinancialOverviewController initialized with model.
+[2025-04-21 16:23:32] Controller: Fetching financial overview data.
+[2025-04-21 16:23:32] Fetching aggregated financial data for period: daily
+[2025-04-21 16:23:32] Financial overview data fetched successfully.
+[2025-04-21 16:23:32] Database connection closed.
+[2025-04-21 16:25:53] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:25:53] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:25:53] FinancialOverviewController initialized with model.
+[2025-04-21 16:25:53] Controller: Fetching financial overview data.
+[2025-04-21 16:25:53] Fetching aggregated financial data for period: daily
+[2025-04-21 16:25:53] Financial overview data fetched successfully.
+[2025-04-21 16:25:53] Database connection closed.
+[2025-04-21 16:26:58] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:26:58] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:26:58] FinancialOverviewController initialized with model.
+[2025-04-21 16:26:58] Controller: Fetching financial overview data.
+[2025-04-21 16:26:58] Fetching aggregated financial data for period: daily
+[2025-04-21 16:26:59] Financial overview data fetched successfully.
+[2025-04-21 16:26:59] Database connection closed.
+[2025-04-21 16:28:16] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:28:16] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:28:16] FinancialOverviewController initialized with model.
+[2025-04-21 16:28:16] Controller: Fetching financial overview data.
+[2025-04-21 16:28:16] Fetching aggregated financial data for period: daily
+[2025-04-21 16:28:16] Financial overview data fetched successfully.
+[2025-04-21 16:28:16] Database connection closed.
+[2025-04-21 16:30:52] Running auth controller ,login 
+[2025-04-21 16:30:52] running login...in auth controller
+[2025-04-21 16:30:52] login function running...
+[2025-04-21 16:30:53] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:30:53] User class instantiated with database connection.
+[2025-04-21 16:30:53] User Login model running for: owner@gmail.com
+[2025-04-21 16:30:53] Fetching user by email: owner@gmail.com
+[2025-04-21 16:30:53] User found for email: owner@gmail.com
+[2025-04-21 16:30:53] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-21 16:30:54] User status: 1
+[2025-04-21 16:30:54] User login successful: owner@gmail.com with role: owner
+[2025-04-21 16:30:54] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MjQ3NjAwfQ==.960cb8eb62b586927139b5fe1305889741b42f6ec71e97fa700cc0ab3a52c069 owner
+[2025-04-21 16:30:54] Database connection closed.
+[2025-04-21 16:33:12] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:33:12] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:33:12] FinancialOverviewController initialized with model.
+[2025-04-21 16:33:12] Controller: Fetching financial overview data.
+[2025-04-21 16:33:12] Fetching aggregated financial data for period: daily
+[2025-04-21 16:33:13] Financial overview data fetched successfully.
+[2025-04-21 16:33:13] Database connection closed.
+[2025-04-21 16:35:07] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:35:07] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:35:07] FinancialOverviewController initialized with model.
+[2025-04-21 16:35:07] Controller: Fetching financial overview data.
+[2025-04-21 16:35:07] Fetching aggregated financial data for period: weekly
+[2025-04-21 16:35:07] Financial overview data fetched successfully.
+[2025-04-21 16:35:07] Database connection closed.
+[2025-04-21 16:35:12] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:35:12] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:35:12] FinancialOverviewController initialized with model.
+[2025-04-21 16:35:12] Controller: Fetching financial overview data.
+[2025-04-21 16:35:12] Fetching aggregated financial data for period: daily
+[2025-04-21 16:35:12] Financial overview data fetched successfully.
+[2025-04-21 16:35:12] Database connection closed.
+[2025-04-21 16:35:12] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:35:12] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:35:12] FinancialOverviewController initialized with model.
+[2025-04-21 16:35:12] Controller: Fetching financial overview data.
+[2025-04-21 16:35:12] Fetching aggregated financial data for period: weekly
+[2025-04-21 16:35:13] Financial overview data fetched successfully.
+[2025-04-21 16:35:13] Database connection closed.
+[2025-04-21 16:35:13] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:35:13] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:35:13] FinancialOverviewController initialized with model.
+[2025-04-21 16:35:13] Controller: Fetching financial overview data.
+[2025-04-21 16:35:13] Fetching aggregated financial data for period: monthly
+[2025-04-21 16:35:13] Financial overview data fetched successfully.
+[2025-04-21 16:35:13] Database connection closed.
+[2025-04-21 16:35:14] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:35:14] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:35:14] FinancialOverviewController initialized with model.
+[2025-04-21 16:35:14] Controller: Fetching financial overview data.
+[2025-04-21 16:35:14] Fetching aggregated financial data for period: monthly
+[2025-04-21 16:35:14] Financial overview data fetched successfully.
+[2025-04-21 16:35:14] Database connection closed.
+[2025-04-21 16:35:41] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:35:41] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:35:41] FinancialOverviewController initialized with model.
+[2025-04-21 16:35:41] Controller: Fetching financial overview data.
+[2025-04-21 16:35:41] Fetching aggregated financial data for period: daily
+[2025-04-21 16:35:41] Financial overview data fetched successfully.
+[2025-04-21 16:35:41] Database connection closed.
+[2025-04-21 16:35:47] Running auth controller ,login 
+[2025-04-21 16:35:47] running login...in auth controller
+[2025-04-21 16:35:47] login function running...
+[2025-04-21 16:35:47] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:35:47] User class instantiated with database connection.
+[2025-04-21 16:35:47] User Login model running for: owner@gmail.com
+[2025-04-21 16:35:47] Fetching user by email: owner@gmail.com
+[2025-04-21 16:35:48] User found for email: owner@gmail.com
+[2025-04-21 16:35:48] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-21 16:35:48] User status: 1
+[2025-04-21 16:35:48] User login successful: owner@gmail.com with role: owner
+[2025-04-21 16:35:48] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MjQ3NjAwfQ==.960cb8eb62b586927139b5fe1305889741b42f6ec71e97fa700cc0ab3a52c069 owner
+[2025-04-21 16:35:48] Database connection closed.
+[2025-04-21 16:36:00] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:36:00] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:36:00] FinancialOverviewController initialized with model.
+[2025-04-21 16:36:00] Controller: Fetching financial overview data.
+[2025-04-21 16:36:00] Fetching aggregated financial data for period: daily
+[2025-04-21 16:36:00] Financial overview data fetched successfully.
+[2025-04-21 16:36:00] Database connection closed.
+[2025-04-21 16:36:13] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:36:13] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:36:13] FinancialOverviewController initialized with model.
+[2025-04-21 16:36:13] Controller: Fetching financial overview data.
+[2025-04-21 16:36:13] Fetching aggregated financial data for period: weekly
+[2025-04-21 16:36:13] Financial overview data fetched successfully.
+[2025-04-21 16:36:13] Database connection closed.
+[2025-04-21 16:36:14] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:36:14] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:36:14] FinancialOverviewController initialized with model.
+[2025-04-21 16:36:14] Controller: Fetching financial overview data.
+[2025-04-21 16:36:14] Fetching aggregated financial data for period: monthly
+[2025-04-21 16:36:14] Financial overview data fetched successfully.
+[2025-04-21 16:36:14] Database connection closed.
+[2025-04-21 16:36:15] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:36:15] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:36:15] FinancialOverviewController initialized with model.
+[2025-04-21 16:36:15] Controller: Fetching financial overview data.
+[2025-04-21 16:36:15] Fetching aggregated financial data for period: daily
+[2025-04-21 16:36:15] Financial overview data fetched successfully.
+[2025-04-21 16:36:15] Database connection closed.
+[2025-04-21 16:36:17] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:36:17] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:36:17] FinancialOverviewController initialized with model.
+[2025-04-21 16:36:17] Controller: Fetching financial overview data.
+[2025-04-21 16:36:17] Fetching aggregated financial data for period: daily
+[2025-04-21 16:36:17] Financial overview data fetched successfully.
+[2025-04-21 16:36:17] Database connection closed.
+[2025-04-21 16:36:18] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:36:18] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:36:18] FinancialOverviewController initialized with model.
+[2025-04-21 16:36:18] Controller: Fetching financial overview data.
+[2025-04-21 16:36:18] Fetching aggregated financial data for period: monthly
+[2025-04-21 16:36:18] Financial overview data fetched successfully.
+[2025-04-21 16:36:18] Database connection closed.
+[2025-04-21 16:36:19] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:36:19] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:36:19] FinancialOverviewController initialized with model.
+[2025-04-21 16:36:19] Controller: Fetching financial overview data.
+[2025-04-21 16:36:19] Fetching aggregated financial data for period: daily
+[2025-04-21 16:36:19] Financial overview data fetched successfully.
+[2025-04-21 16:36:19] Database connection closed.
+[2025-04-21 16:36:19] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:36:19] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:36:19] FinancialOverviewController initialized with model.
+[2025-04-21 16:36:19] Controller: Fetching financial overview data.
+[2025-04-21 16:36:19] Fetching aggregated financial data for period: weekly
+[2025-04-21 16:36:20] Financial overview data fetched successfully.
+[2025-04-21 16:36:20] Database connection closed.
+[2025-04-21 16:36:20] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:36:20] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:36:20] FinancialOverviewController initialized with model.
+[2025-04-21 16:36:20] Controller: Fetching financial overview data.
+[2025-04-21 16:36:20] Fetching aggregated financial data for period: monthly
+[2025-04-21 16:36:20] Financial overview data fetched successfully.
+[2025-04-21 16:36:20] Database connection closed.
+[2025-04-21 16:37:17] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:37:17] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:37:17] FinancialOverviewController initialized with model.
+[2025-04-21 16:37:17] Controller: Fetching financial overview data.
+[2025-04-21 16:37:17] Fetching aggregated financial data for period: monthly
+[2025-04-21 16:37:18] Financial overview data fetched successfully.
+[2025-04-21 16:37:18] Database connection closed.
+[2025-04-21 16:37:19] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:37:19] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:37:19] FinancialOverviewController initialized with model.
+[2025-04-21 16:37:19] Controller: Fetching financial overview data.
+[2025-04-21 16:37:19] Fetching aggregated financial data for period: monthly
+[2025-04-21 16:37:19] Financial overview data fetched successfully.
+[2025-04-21 16:37:19] Database connection closed.
+[2025-04-21 16:37:20] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:37:20] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:37:20] FinancialOverviewController initialized with model.
+[2025-04-21 16:37:20] Controller: Fetching financial overview data.
+[2025-04-21 16:37:20] Fetching aggregated financial data for period: monthly
+[2025-04-21 16:37:20] Financial overview data fetched successfully.
+[2025-04-21 16:37:20] Database connection closed.
+[2025-04-21 16:37:20] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:37:20] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:37:20] FinancialOverviewController initialized with model.
+[2025-04-21 16:37:20] Controller: Fetching financial overview data.
+[2025-04-21 16:37:20] Fetching aggregated financial data for period: monthly
+[2025-04-21 16:37:21] Financial overview data fetched successfully.
+[2025-04-21 16:37:21] Database connection closed.
+[2025-04-21 16:37:21] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:37:21] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:37:21] FinancialOverviewController initialized with model.
+[2025-04-21 16:37:21] Controller: Fetching financial overview data.
+[2025-04-21 16:37:21] Fetching aggregated financial data for period: weekly
+[2025-04-21 16:37:22] Financial overview data fetched successfully.
+[2025-04-21 16:37:22] Database connection closed.
+[2025-04-21 16:37:22] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:37:22] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:37:22] FinancialOverviewController initialized with model.
+[2025-04-21 16:37:22] Controller: Fetching financial overview data.
+[2025-04-21 16:37:22] Fetching aggregated financial data for period: weekly
+[2025-04-21 16:37:22] Financial overview data fetched successfully.
+[2025-04-21 16:37:22] Database connection closed.
+[2025-04-21 16:37:26] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:37:26] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:37:26] FinancialOverviewController initialized with model.
+[2025-04-21 16:37:26] Controller: Fetching financial overview data.
+[2025-04-21 16:37:26] Fetching aggregated financial data for period: daily
+[2025-04-21 16:37:26] Financial overview data fetched successfully.
+[2025-04-21 16:37:26] Database connection closed.
+[2025-04-21 16:37:30] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:37:30] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:37:30] FinancialOverviewController initialized with model.
+[2025-04-21 16:37:30] Controller: Fetching financial overview data.
+[2025-04-21 16:37:30] Fetching aggregated financial data for period: monthly
+[2025-04-21 16:37:31] Financial overview data fetched successfully.
+[2025-04-21 16:37:31] Database connection closed.
+[2025-04-21 16:37:34] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:37:34] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:37:34] FinancialOverviewController initialized with model.
+[2025-04-21 16:37:34] Controller: Fetching financial overview data.
+[2025-04-21 16:37:34] Fetching aggregated financial data for period: daily
+[2025-04-21 16:37:35] Financial overview data fetched successfully.
+[2025-04-21 16:37:35] Database connection closed.
+[2025-04-21 16:37:42] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:37:42] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:37:42] FinancialOverviewController initialized with model.
+[2025-04-21 16:37:42] Controller: Fetching financial overview data.
+[2025-04-21 16:37:42] Fetching aggregated financial data for period: daily
+[2025-04-21 16:37:42] Financial overview data fetched successfully.
+[2025-04-21 16:37:42] Database connection closed.
+[2025-04-21 16:37:43] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:37:43] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:37:43] FinancialOverviewController initialized with model.
+[2025-04-21 16:37:43] Controller: Fetching financial overview data.
+[2025-04-21 16:37:43] Fetching aggregated financial data for period: daily
+[2025-04-21 16:37:44] Financial overview data fetched successfully.
+[2025-04-21 16:37:44] Database connection closed.
+[2025-04-21 16:37:45] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:37:45] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:37:45] FinancialOverviewController initialized with model.
+[2025-04-21 16:37:45] Controller: Fetching financial overview data.
+[2025-04-21 16:37:45] Fetching aggregated financial data for period: weekly
+[2025-04-21 16:37:46] Financial overview data fetched successfully.
+[2025-04-21 16:37:46] Database connection closed.
+[2025-04-21 16:37:49] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:37:49] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:37:49] FinancialOverviewController initialized with model.
+[2025-04-21 16:37:49] Controller: Fetching financial overview data.
+[2025-04-21 16:37:49] Fetching aggregated financial data for period: monthly
+[2025-04-21 16:37:49] Financial overview data fetched successfully.
+[2025-04-21 16:37:49] Database connection closed.
+[2025-04-21 16:38:33] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:38:33] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:38:33] FinancialOverviewController initialized with model.
+[2025-04-21 16:38:33] Controller: Fetching financial overview data.
+[2025-04-21 16:38:33] Fetching aggregated financial data for period: weekly
+[2025-04-21 16:38:33] Financial overview data fetched successfully.
+[2025-04-21 16:38:33] Database connection closed.
+[2025-04-21 16:38:34] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:38:34] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:38:34] FinancialOverviewController initialized with model.
+[2025-04-21 16:38:34] Controller: Fetching financial overview data.
+[2025-04-21 16:38:34] Fetching aggregated financial data for period: weekly
+[2025-04-21 16:38:34] Financial overview data fetched successfully.
+[2025-04-21 16:38:34] Database connection closed.
+[2025-04-21 16:38:35] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:38:35] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:38:35] FinancialOverviewController initialized with model.
+[2025-04-21 16:38:35] Controller: Fetching financial overview data.
+[2025-04-21 16:38:35] Fetching aggregated financial data for period: monthly
+[2025-04-21 16:38:36] Financial overview data fetched successfully.
+[2025-04-21 16:38:36] Database connection closed.
+[2025-04-21 16:38:37] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:38:37] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:38:37] FinancialOverviewController initialized with model.
+[2025-04-21 16:38:37] Controller: Fetching financial overview data.
+[2025-04-21 16:38:37] Fetching aggregated financial data for period: daily
+[2025-04-21 16:38:37] Financial overview data fetched successfully.
+[2025-04-21 16:38:37] Database connection closed.
+[2025-04-21 16:38:41] Connection established successfully to the database: rad_gymverse
+[2025-04-21 16:38:41] FinancialOverviewModel initialized with database connection.
+[2025-04-21 16:38:41] FinancialOverviewController initialized with model.
+[2025-04-21 16:38:41] Controller: Fetching financial overview data.
+[2025-04-21 16:38:41] Fetching aggregated financial data for period: monthly
+[2025-04-21 16:38:42] Financial overview data fetched successfully.
+[2025-04-21 16:38:42] Database connection closed.
