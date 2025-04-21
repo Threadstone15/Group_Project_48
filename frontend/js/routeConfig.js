@@ -48,6 +48,7 @@ import { initMember_upgradePlan } from "./member/upgradePlan.js";
 import { initMember_viewPlan } from "./member/viewPlan.js";
 import { initMember_workoutMealPlan } from "./member/workoutMealPlans.js";
 import { initMember_payments } from "./member/payments.js";
+import { initMember_getATrainer } from "./member/getATrainer.js";
 
 //importing staff dashboardPg js funcs
 import { initStaff_equipmentMaintain } from "./staff/equipMaintainance.js";
@@ -175,6 +176,7 @@ export function runDashboardPgJS(role, page) {
             case 'upgradePlan' : initMember_upgradePlan(); break;
             case 'viewPlan' : initMember_viewPlan(); break;
             case 'workoutMealPlans' : initMember_workoutMealPlan(); break;
+            case 'getATrainer' : initMember_getATrainer(); break;
             default : console.error("Undefined member dashboard page js func"); break;
         }
     }

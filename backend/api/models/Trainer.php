@@ -95,7 +95,11 @@ class Trainer
                     t.trainer_id as userID, 
                     t.firstName, 
                     t.lastName, 
-                    t.phone,  
+                    t.phone, 
+                    t.specialties,
+                    t.gender,
+                    t.DOB,
+                    t.years_of_experience, 
                     u.user_id,
                     u.email,
                     u.status
