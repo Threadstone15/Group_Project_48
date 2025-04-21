@@ -6,6 +6,7 @@ export function initStaff_equipment() {
     const equipmentTable = document.getElementById("equipmentsTable");
     const deletePopup = document.getElementById("deletePopup");
     const updatePopup = document.getElementById("updatePopup");
+    const spinner = document.getElementById("loading-spinner");
 
     if (equipmentTable) {
         fetchEquipmentList();
@@ -35,6 +36,7 @@ export function initStaff_equipment() {
 
     function fetchEquipmentList() {
         console.log("Fetching Equipments");
+        spinner.classList.remove("hidden");
 
         const authToken = localStorage.getItem("authToken");
         if (!authToken) {
@@ -55,6 +57,7 @@ export function initStaff_equipment() {
             })
             .then(data => {
                 console.log("Fetched equipment list:", data);
+                spinner.classList.add("hidden");
 
                 const tableBody = equipmentTable.getElementsByTagName("tbody")[0];
                 tableBody.innerHTML = "";
@@ -117,6 +120,7 @@ export function initStaff_equipment() {
         document.getElementById("overlay").style.display = "block";
 
         document.getElementById("confirmDelete").onclick = () => {
+            spinner.classList.remove("hidden");
             const authToken = localStorage.getItem("authToken");
             if (!authToken) {
                 console.error("Auth token not found. Please log in.");
@@ -145,11 +149,14 @@ export function initStaff_equipment() {
                 })
                 .then(result => {
                     window.closeDeletePopup();// Close popup on success
-                    fetchEquipmentList(); // Refresh the equipment list after deletion
+                    fetchEquipmentList();
+                    spinner.classList.add("hidden");
+                    showToast("Equipment deleted successfully", "success");
             })
                 .catch(error => {
                     console.error("Error deleting equipment:", error)
-                    alert("Failed to remove the equipment");
+                    spinner.classList.add("hidden");
+                    showToast("Failed to delete equipment", "error");
                 });
         };
 
@@ -221,7 +228,7 @@ export function initStaff_equipment() {
             alert("Maintenance duration must be a number between 1 and 365.");
             return;
         }
-
+        spinner.classList.remove("hidden");
         const formData = {
             equipment_id: equipmentId,
             name: equipmentName,
@@ -249,10 +256,13 @@ export function initStaff_equipment() {
             })
             .then((data) => {
                 if (data.message) {
-                    window.closeUpdatePopup(); // Close the popup
+                    window.closeUpdatePopup();
+                    spinner.classList.add("hidden"); 
+                    showToast("Equipment updated successfully", "success");
                     fetchEquipmentList();
                 } else {
-                    alert("Failed to update equipment");
+                    spinner.classList.add("hidden");
+                    showToast("Failed to update equipment", "error");
                 }
             })
             .catch((error) => console.error("Error updating equipment:", error));
@@ -357,7 +367,7 @@ export function initStaff_equipment() {
             body: formData,
             redirect: 'follow'
         };
-
+        spinner.classList.remove("hidden");
         fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php", requestOptions)
             .then(response => {
                 if (!response.ok) throw new Error("Failed to add equipment");
@@ -365,10 +375,13 @@ export function initStaff_equipment() {
             })
             .then(result => {
                 fetchEquipmentList();
+                spinner.classList.add("hidden");
+                showToast("Equipment added successfully", "success");
             })
             .catch(error => {
                 console.error("Error adding equipment:", error);
-                alert("Failed to add Equipment");
+                spinner.classList.add("hidden");
+                showToast("Failed to add equipment", "error");
             });
     }
 
@@ -449,5 +462,20 @@ export function initStaff_equipment() {
             }
         });
     }
+
+    function showToast(message, type = 'success') {
+        const container = document.getElementById('toast-container');
+        const toast = document.createElement('div');
+        toast.className = `toast ${type}`;
+        toast.innerText = message;
+    
+        container.appendChild(toast);
+    
+        setTimeout(() => {
+            toast.remove();
+        }, 4000);
+    }
+
+
 
 }
