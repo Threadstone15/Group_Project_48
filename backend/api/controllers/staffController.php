@@ -48,6 +48,22 @@ logMessage("Running staff controller ,$action token - $token   id - $user_id ");
 
 // Route the request based on the 'action' parameter
 switch ($action) {
+    // Staff Home Page Features
+    case 'get_personal_notices':
+        logMessage("Running get_personal_notices....in controller");
+        getPersonalNotices($user_id);
+        break;
+
+    case 'get_gym_crowd':
+        logMessage("Running get_gym_crowd....in controller");
+        getGymCrowd();
+        break;
+
+    case 'mark_notice_as_read':
+        logMessage("Running mark_notice_read....in controller");
+        markNoticeAsRead($user_id);
+        break;
+
 
     // Equipment Management
     case 'add_equipment':
