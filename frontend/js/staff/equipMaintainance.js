@@ -2,6 +2,7 @@ export function initStaff_equipmentMaintain() {
     console.log("initialzing equipMaintainence.js");
 
     const equipmentTable = document.getElementById("equipmentsMaintainceTable");
+    const spinner = document.getElementById("loading-spinner");
 
     if (equipmentsMaintainceTable) {
         fetchEquipmentList();
@@ -32,6 +33,7 @@ export function initStaff_equipmentMaintain() {
     function fetchEquipmentIdList() {
         console.log("Fetching Equipment IDs");
 
+
         const authToken = localStorage.getItem("authToken");
         if (!authToken) {
             console.error("Auth token not found. Please log in.");
@@ -52,6 +54,7 @@ export function initStaff_equipmentMaintain() {
             .then(data => {
                 console.log("Fetched equipment ID list:", data);
 
+
                 // Extract equipment IDs and save them to localStorage
                 const equipmentData = data.map(equipment => ({
                     equipment_id: equipment['equipment_id'],
@@ -66,6 +69,7 @@ export function initStaff_equipmentMaintain() {
 
     function fetchEquipmentList() {
         console.log("Fetching Equipments");
+        spinner.classList.remove("hidden");
 
         const authToken = localStorage.getItem("authToken");
         if (!authToken) {
@@ -86,6 +90,7 @@ export function initStaff_equipmentMaintain() {
             })
             .then(data => {
                 console.log("Fetched equipment list:", data);
+                spinner.classList.add("hidden");
 
                 const tableBody = equipmentTable.getElementsByTagName("tbody")[0];
                 tableBody.innerHTML = "";
@@ -150,6 +155,7 @@ export function initStaff_equipmentMaintain() {
             }
 
             console.log("Auth Token:", authToken); // Debugging log
+            spinner.classList.remove("hidden");
 
             // Set up the request with headers for the DELETE method
             const requestOptions = {
@@ -168,13 +174,19 @@ export function initStaff_equipmentMaintain() {
                         throw new Error("Failed to delete equipment");
                     }
                     return response.json(); // Expecting JSON response
+                    
                 })
                 .then(result => {
                     console.log("Equipment deleted successfully:", result); // Debugging log
                     fetchEquipmentList(); // Refresh the equipment list after deletion
-                    deletePopup.style.display = "none"; // Close the confirmation popup
+                    deletePopup.style.display = "none";
+                    spinner.classList.add("hidden");
+                    showToast("Maintenance record deleted successfully", "success");
                 })
-                .catch(error => console.error("Error deleting equipment:", error));
+                .catch(error => {
+                    console.error("Error adding maintenance record:", error);
+                    spinner.classList.add("hidden");
+                })
         };
 
         // Call this to set up the close handlers
@@ -260,6 +272,7 @@ export function initStaff_equipmentMaintain() {
         };
 
         const authToken = localStorage.getItem("authToken");
+        spinner.classList.remove("hidden");
 
         const requestOptions = {
             method: 'PUT', // Using PUT method for update
@@ -280,8 +293,12 @@ export function initStaff_equipmentMaintain() {
                 if (data.message) {
                     document.getElementById("updatePopup").style.display = "none"; // Close the popup
                     fetchEquipmentList(); // Refresh the equipment list
+                    spinner.classList.add("hidden");
+                    showToast("Maintenance record updated successfully", "success");
                 } else {
-                    alert("Failed to update equipment");
+                    console.error("Error updating equipment:", data);
+                    spinner.classList.add("hidden");
+                    showToast("Error updating maintenance record", "error");
                 }
             })
             .catch(error => console.error("Error updating equipment:", error));
@@ -438,6 +455,8 @@ document.getElementById('equipmentName').classList.remove('has-suggestions');
 
         console.log("Auth Token:", authToken);
 
+        spinner.classList.remove("hidden");
+
         // Set up the request with headers and form data
         const requestOptions = {
             method: 'POST',
@@ -459,8 +478,14 @@ document.getElementById('equipmentName').classList.remove('has-suggestions');
             .then(result => {
                 console.log("Maintenance record added successfully:", result);
                 fetchEquipmentList(); // Refresh equipment list after adding
+                spinner.classList.add("hidden");
+                showToast("Maintenance record added successfully.");
             })
-            .catch(error => console.error("Error adding maintenance record:", error));
+            .catch(error => {
+                console.error("Error adding maintenance record:", error);
+                spinner.classList.add("hidden");
+                showToast("Error: " + error.message);
+            })
     });
 
 
@@ -473,6 +498,21 @@ document.getElementById('equipmentName').classList.remove('has-suggestions');
         const popup = document.getElementById("deletePopup");
         popup.style.display = "none";
     });
+
+    function showToast(message, type = 'success') {
+        const container = document.getElementById('toast-container');
+        const toast = document.createElement('div');
+        toast.className = `toast ${type}`;
+        toast.innerText = message;
+    
+        container.appendChild(toast);
+    
+        setTimeout(() => {
+            toast.remove();
+        }, 4000);
+    }
+
+
 
     
 
