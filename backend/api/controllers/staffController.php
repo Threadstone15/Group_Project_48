@@ -41,7 +41,7 @@ $action = $_POST['action'] ?? $_GET['action'] ?? null;
 $token = getBearerToken();
 $requiredRole = "staff";
 verifyRequest($requiredRole, $token);
-$user_id  = getUserIdFromToken($token);
+$user_id = getUserIdFromToken($token);
 
 // Log incoming request details
 logMessage("Running staff controller ,$action token - $token   id - $user_id ");
@@ -141,6 +141,12 @@ switch ($action) {
         changePassword($user_id);
         break;
 
-    // Attendance Management
-    case 'mark_attendance':
+    // trainer class
+    case 'get_classes':
+        getTrainerClasses();
+        break;
+
+
+    default:
+        echo json_encode(["error" => "Invalid action"]);
 }
