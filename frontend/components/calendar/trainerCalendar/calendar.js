@@ -39,7 +39,7 @@ const months = [
 
 let allClasses = [];
 let classesOfTrainer = [];
-fetchClasses();
+fetchClassesOfTrainer();
 
 //function to add days in days with class day and prev-date next-date on previous month and next month days and active on today
 //generates and displays the calendar grid
@@ -235,7 +235,6 @@ function updateEvents(date) {
     const classDate = dateObj.getDate();
 
     if (date === classDate && month + 1 === classMonth && year === classYear) {
-      const isTrainersClass = classesOfTrainer.includes(classObj.class_id);
       events += `<div class="event">
           <div class="title">
             <i class="fas fa-circle"></i>
@@ -253,13 +252,28 @@ function updateEvents(date) {
           <div class="event-desc">
             <span> No of participants : ${classObj.noOfParticipants}</span>
           </div>
-          ${isTrainersClass ? `
+      `;
+
+      const isTrainersClass = classesOfTrainer.includes(classObj.class_id);
+      if (isTrainersClass) {
+        //checking if class date  & time is 24 hrs ahead in future -> becauz trainer can update/delete class
+        const [startHours, startMinutes] = classObj.start_time.split(':').map(Number);
+        const classDateTime = new Date(classObj.date);
+        classDateTime.setHours(startHours, startMinutes, 0, 0);
+
+        const currentDate = new Date();
+        if (classDateTime > currentDate) {
+          // Class is scheduled for the future, allow updates/deletes
+          events += `
             <div class="event-handle">
-              <button class="update-button" id="updateClass" data-class-id="${classObj.class_id}" >Update</button>
-              <button class="delete-button" id="deleteClass" data-class-id="${classObj.class_id}">Delete</button>
+                <button class="update-button" id="updateClass" data-class-id="${classObj.class_id}" data-class-date="${classObj.date}" data-class-startTime="${classObj.start_time}" >Update</button>
+                <button class="delete-button" id="deleteClass" data-class-id="${classObj.class_id}" data-class-date="${classObj.date}" data-class-startTime="${classObj.start_time}" >Delete</button>
             </div>
-            ` : ''}
-      </div>`;
+          `
+        }
+      }
+
+      events += `</div>`; //adding closing div to make sure all elements are fit inside one div -> for styling
     }
   });
 
@@ -267,18 +281,24 @@ function updateEvents(date) {
     events = `<div class="no-event"><h3>No Classes Scheduled</h3></div>`;
   }
   eventsContainer.innerHTML = events;
-
-  eventsContainer.addEventListener('click', (event) => {
-    if (event.target.id == "updateClass") {
-      const classId = event.target.getAttribute('data-class-id');
-      openUpdatePopup(classId);
-    }
-    if (event.target.id == "deleteClass") {
-      const classId = event.target.getAttribute('data-class-id');
-      openDeletePopup(classId);
-    }
-  });
 }
+
+eventsContainer.addEventListener('click', (event) => {
+  const classId = event.target.getAttribute('data-class-id');
+  const classDate = event.target.getAttribute('data-class-date');
+  const classStartTime = event.target.getAttribute('data-class-startTime');
+
+  if (!classId || !classDate || !classStartTime) {
+    return;
+  }
+
+  if (event.target.id == "updateClass") {
+    openUpdatePopup(classId, classDate, classStartTime);
+  }
+  if (event.target.id == "deleteClass") {
+    openDeletePopup(classId, classDate, classStartTime);
+  }
+});
 
 //function to add event
 addEventBtn.addEventListener("click", () => {
@@ -295,7 +315,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
-//function to add event to eventsArr
+//function to add class
 document.getElementById('scheduleClassForm').addEventListener('submit', (event) => {
   event.preventDefault();
   const className = document.getElementById("className").value;
@@ -386,7 +406,7 @@ document.getElementById('scheduleClassForm').addEventListener('submit', (event) 
         switch (data.message) {
           case "Class is Scheduled Successfully":
             showToast(data.message, "success");
-            fetchClasses();
+            fetchClassesOfTrainer();
             break;
           case "Requested Time Slot is not available":
             showToast(`${data.message} <br> ${data.conflicts}`, "error");
@@ -422,7 +442,18 @@ document.getElementById('scheduleClassForm').addEventListener('submit', (event) 
 });
 
 
-function openUpdatePopup(class_id) {
+function openUpdatePopup(class_id, classDate, classStartTime) {
+  //trainer can update class only if classDate and time is after 24hrs ahead from now on
+  const [startHours, startMinutes] = classStartTime.split(':').map(Number);
+  const classDateTime = new Date(classDate);
+  classDateTime.setHours(startHours, startMinutes, 0, 0);
+
+  const minUpdatePossibleDateTime = new Date();
+  minUpdatePossibleDateTime.setHours(minUpdatePossibleDateTime.getHours() + 24);
+  if (classDateTime < minUpdatePossibleDateTime) {
+    showFormResponse("updateFormResponse", "You cannot update class details within the last 24 hrs. Please contact owner or staff", "error");
+  }
+
   const selectedClass = allClasses.find(cls => cls.class_id === class_id);
 
   document.getElementById("updateClassId").value = selectedClass.class_id;
@@ -512,7 +543,7 @@ document.getElementById("updateForm").addEventListener("submit", function (event
             setTimeout(() => {
               document.getElementById("updatePopup").style.display = "none";
             }, 3000);
-            fetchClasses();
+            fetchClassesOfTrainer();
             break;
           case "Requested Time Slot is not available":
             showToast(`${data.message} <br> ${data.conflicts}`, "error");
@@ -536,9 +567,20 @@ document.getElementById("updateForm").addEventListener("submit", function (event
     });
 });
 
-function openDeletePopup(class_id) {
+function openDeletePopup(class_id, classDate, classStartTime) {
   const deletePopup = document.getElementById("deletePopup");
   deletePopup.style.display = "block";
+
+  //trainer can delete class only if classDate and time is after 24hrs ahead from now on
+  const [startHours, startMinutes] = classStartTime.split(':').map(Number);
+  const classDateTime = new Date(classDate);
+  classDateTime.setHours(startHours, startMinutes, 0, 0);
+
+  const minDeletePossibleDateTime = new Date();
+  minDeletePossibleDateTime.setHours(minDeletePossibleDateTime.getHours() + 24);
+  if (classDateTime < minDeletePossibleDateTime) {
+    showFormResponse("deleteFormResponse", "You cannot remove class within the last 24 hrs. Please contact owner or staff", "error");
+  }
 
   document.getElementById("confirmDelete").onclick = () => {
     const authToken = localStorage.getItem("authToken");
@@ -575,7 +617,7 @@ function openDeletePopup(class_id) {
           setTimeout(() => {
             deletePopup.style.display = "none";
           }, 3000);
-          fetchClasses();
+          fetchClassesOfTrainer();
         }
         if (data.error) {
           showToast(data.error, "error");
@@ -595,10 +637,10 @@ function openDeletePopup(class_id) {
   };
 
   document.getElementById("cancelDelete").onclick = () => {
-    deletePopup.style.display = "none"; 
+    deletePopup.style.display = "none";
   };
   document.getElementById("closeDeletePopup").onclick = () => {
-    deletePopup.style.display = "none"; 
+    deletePopup.style.display = "none";
   };
 }
 
@@ -632,7 +674,7 @@ function fetchClasses() {
       }
       if (data.length > 0) {
         allClasses = data;
-        fetchClassesOfTrainer();
+        // fetchClassesOfTrainer();
         initCalendar();
       }
     })
@@ -676,6 +718,7 @@ function fetchClassesOfTrainer() {
       }
       if (data.length > 0) {
         classesOfTrainer = data.map(obj => obj.class_id);
+        fetchClasses();
       }
     })
     .catch(error => {
@@ -700,7 +743,7 @@ function showToast(message, type) {
       message: message,
       toastType: type
     }, '*');
-  } 
+  }
   // Fallback for direct access
   else {
     const container = document.getElementById('toast-container');
@@ -708,7 +751,7 @@ function showToast(message, type) {
     toast.className = `toast ${type}`;
     toast.textContent = message;
     container.appendChild(toast);
-    
+
     setTimeout(() => toast.remove(), 4000);
   }
 }
