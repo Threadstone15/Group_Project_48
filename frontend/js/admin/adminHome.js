@@ -152,7 +152,7 @@ export function initAdmin_home() {
                     if (notice.length > 1) {
                         currentNoticeIndex++;
                         noticeCountText.textContent = `Notices Available: ${notices.length - currentNoticeIndex}`;
-                        displayNotice();             
+                        displayNotice();
                     }
 
                 } else {
@@ -208,4 +208,18 @@ export function initAdmin_home() {
     // Init
     fetchAndDisplayNotices();
     updateGymData();
+
+    window.addEventListener('message', (event) => {
+        if (event.data.call === 'SHOW_TOAST') {
+            const container = document.getElementById('global-toast-container');
+            const toast = document.createElement('div');
+            toast.className = `global-toast ${event.data.toastType}`;
+            toast.innerHTML = event.data.message;
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.remove();
+            }, 4000);
+        }
+    });
 }

@@ -163,6 +163,17 @@ switch ($action) {
         logMessage("Running delete_notice....in controller");
         deleteNotice();
         break;
+    
+    //trainer class handling
+    case 'get_classes' : 
+        getTrainerClasses();
+        break;
+    case 'update_class' :
+        updateTrainerClass("admin");
+        break;
+    case 'delete_class' :
+        deleteTrainerClass("admin");
+        break;
 
     // Default case for undefined actions
     default:

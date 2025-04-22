@@ -247,11 +247,22 @@ function updateEvents(date) {
           <div class="event-desc">
             <span> No of participants : ${classObj.noOfParticipants}</span>
           </div>
+      `;
+
+      const [startHours, startMinutes] = classObj.start_time.split(':').map(Number);
+      const classDateTime = new Date(classObj.date);
+      classDateTime.setHours(startHours, startMinutes, 0, 0);
+
+      const currentDate = new Date();
+      if (classDateTime > currentDate) {
+        events += `
           <div class="event-handle">
             <button class="update-button" id="updateClass" data-class-id="${classObj.class_id}" >Update</button>
             <button class="delete-button" id="deleteClass" data-class-id="${classObj.class_id}">Delete</button>
           </div>
-      </div>`;
+        `;
+      }
+      events += `</div>`;  //adding closing div to make sure all elements are fit inside one div -> for styling
     }
   });
 
@@ -259,18 +270,19 @@ function updateEvents(date) {
     events = `<div class="no-event"><h3>No Classes Scheduled</h3></div>`;
   }
   eventsContainer.innerHTML = events;
-
-  eventsContainer.addEventListener('click', (event) => {
-    if (event.target.id == "updateClass") {
-      const classId = event.target.getAttribute('data-class-id');
-      openUpdatePopup(classId);
-    }
-    if (event.target.id == "deleteClass") {
-      const classId = event.target.getAttribute('data-class-id');
-      openDeletePopup(classId);
-    }
-  });
 }
+
+//attaching event handlers for class events
+eventsContainer.addEventListener('click', (event) => {
+  if (event.target.id == "updateClass") {
+    const classId = event.target.getAttribute('data-class-id');
+    openUpdatePopup(classId);
+  }
+  if (event.target.id == "deleteClass") {
+    const classId = event.target.getAttribute('data-class-id');
+    openDeletePopup(classId);
+  }
+});
 
 function openUpdatePopup(class_id) {
   const selectedClass = allClasses.find(cls => cls.class_id === class_id);
