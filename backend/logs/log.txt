@@ -19282,3 +19282,27 @@
 [2025-04-21 20:20:00] Equipment fetched successfully
 [2025-04-21 20:20:00] Equipment data fetched
 [2025-04-21 20:20:00] Database connection closed.
+[2025-04-22 12:37:05] Connection established successfully to the database: rad_gymverse
+[2025-04-22 12:37:05] User class instantiated with database connection.
+[2025-04-22 12:37:05] Fetching user role by user ID: 308
+[2025-04-22 12:37:05] User role fetched successfully for user ID: 308
+[2025-04-22 12:37:05] Running staff controller ,get_equipments token - eyJ1c2VyX2lkIjozMDgsImV4cCI6MTc0NTMyNjgwMH0=.703be0c2c58964f60f861be3c74a306e32b18ffca0d300a5d8971e990c07ee04   id - 308 
+[2025-04-22 12:37:05] Running get_equip....in controller
+[2025-04-22 12:37:05] get equip function running...
+[2025-04-22 12:37:05] Equipment model initialized with database connection.
+[2025-04-22 12:37:05] Fetching equipment...
+[2025-04-22 12:37:05] Equipment fetched successfully
+[2025-04-22 12:37:05] Equipment data fetched
+[2025-04-22 12:37:05] Database connection closed.
+[2025-04-22 12:37:06] Connection established successfully to the database: rad_gymverse
+[2025-04-22 12:37:06] User class instantiated with database connection.
+[2025-04-22 12:37:06] Fetching user role by user ID: 308
+[2025-04-22 12:37:06] User role fetched successfully for user ID: 308
+[2025-04-22 12:37:06] Running staff controller ,get_maintenances token - eyJ1c2VyX2lkIjozMDgsImV4cCI6MTc0NTMyNjgwMH0=.703be0c2c58964f60f861be3c74a306e32b18ffca0d300a5d8971e990c07ee04   id - 308 
+[2025-04-22 12:37:06] Running get_maintenance....in controller
+[2025-04-22 12:37:06] EquipmentMaintenance model initialized
+[2025-04-22 12:37:06] Fetching maintenance data...
+[2025-04-22 12:37:06] Maintenance data fetched successfully
+[2025-04-22 12:37:06] [{"maintenance_id":27,"equipment_id":93,"maintenance_date":"2025-04-24","details":"dohvftufutfutfuddcc","next_maintenance_date":"2025-05-30","name":"Leg Extension Machine_1"}]
+[2025-04-22 12:37:06] Maintenance data fetched successfully
+[2025-04-22 12:37:06] Database connection closed.

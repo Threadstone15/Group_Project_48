@@ -1,2 +1,6 @@
-/backend/vendor/
-/backend/logs/log.txt
+# Ignore specific log file
+backend/logs/log.txt
+
+# Ignore Composer lock file
+backend/vendor/composer.lock
+
