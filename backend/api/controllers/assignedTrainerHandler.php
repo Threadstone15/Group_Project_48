@@ -126,7 +126,7 @@ function getAssignedMemberCountOfTrainer()
 {
     logMessage("get assigned member count of trainer func running..");
     $assignTrainer = new AssignedTrainer();
-    $assignedMemberCount = $assignTrainer->getAssignedMemberCountOfTrainers();
+    $assignedMemberCount = $assignTrainer->getTrainersDetailsWithAssignedMemberCount();
     if ($assignedMemberCount === false) {
         logMessage("Error in getting assigned member count");
         echo json_encode(["error" => "Error Getting Assigned Member Count for each trainer"]);
@@ -139,11 +139,11 @@ function getAssignedMemberCountOfTrainer()
     }
 }
 
-function getTrainersDetails()
+function getTrainersDetailsWithMemberCount()
 {
     logMessage("get trainer details func running..");
-    $trainer = new Trainer();
-    $trainerDetails = $trainer->getTrainerDetails();
+    $assignedTrainer = new AssignedTrainer();
+    $trainerDetails = $assignedTrainer->getTrainersDetailsWithAssignedMemberCount();
     if ($trainerDetails === false) {
         logMessage("error fetching trainer details");
         echo json_encode(["error" => "Error Fetching Trainer Details"]);

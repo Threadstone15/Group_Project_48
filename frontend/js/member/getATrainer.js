@@ -3,11 +3,14 @@ import { runSessionTimedOut } from "../routeConfig.js";
 
 export function initMember_getATrainer() {
     console.log("Initializing getATrainer.js");
-    fetchAssignedMember();
+    fetchAssignedTrainer();
 
-    let assignedMemberExists = false;
-    let assignedMember = null;
-    function fetchAssignedMember() {
+    let assignedTrainerExists = false;
+    let assignedTrainer = null;
+    let assignedTrainerInfo = null;
+    let allTrainers = [];
+
+    function fetchAssignedTrainer() {
         const authToken = localStorage.getItem("authToken");
         if (!authToken) {
             showToast("An error has occurred. Please log in again", "error");
@@ -32,13 +35,13 @@ export function initMember_getATrainer() {
             .then(data => {
                 if (data.error) {
                     showToast(data.error, "error");
-                } else if (data.message == "No Assigned Trainer") {
+                } else if (data.message === "No Assigned Trainer") {
+                    document.getElementById("assigned-trainer").innerHTML = '';
+                    assignedTrainerExists = false;
                     fetchDetailsOfTrainers();
                 } else {
-                    if(data.length > 0){
-                        assignedMemberExists = true;
-                        assignedMember = data;
-                    }
+                    assignedTrainerExists = true;
+                    assignedTrainer = data;
                     fetchDetailsOfTrainers();
                 }
             })
@@ -52,7 +55,6 @@ export function initMember_getATrainer() {
             });
     }
 
-    let allTrainers = [];
     function fetchDetailsOfTrainers() {
         const authToken = localStorage.getItem("authToken");
         if (!authToken) {
@@ -71,7 +73,7 @@ export function initMember_getATrainer() {
                     if (data.error && data.error === "Token expired") {
                         throw new Error("Token expired");
                     }
-                    if (!response.ok) throw new Error("Failed to fetch trainer applied careers");
+                    if (!response.ok) throw new Error("Failed to fetch details of trainers");
                     return data;
                 });
             })
@@ -79,71 +81,263 @@ export function initMember_getATrainer() {
                 if (data.error) {
                     showToast(data.error, "error");
                     return;
-                } else if (data.length > 0) {
+                } else {
                     allTrainers = data.filter(trainer => trainer.status === 1); //activated accounts
-                    if (assignedMemberExists) {
-                        allTrainers = allTrainers.filter(trainer => trainer.id !== assignedMember.trainer_id);
+                    if (assignedTrainerExists) {
+                        allTrainers = allTrainers.filter(trainer => trainer.trainer_id !== assignedTrainer.trainer_id);
+                        assignedTrainerInfo = data.find(trainer => trainer.trainer_id === assignedTrainer.trainer_id);
+                        displayAssignedTrainer(assignedTrainerInfo);
                     }
                     displayTrainersInfo(allTrainers);
-                } else {
-                    console.warn("No Trainers Found");
-                    return;
                 }
             })
             .catch(error => {
                 console.error("API Error:", error.message);
                 if (error.message === "Token expired") {
-                    runSessionTimedOut();
+                    showToast("Your session has timed out. Please log in again", "error");
+                    setTimeout(() => {
+                        runSessionTimedOut();
+                    }, 4000);
                 } else {
-                    alert("Error: " + error.message);
+                    showToast(error.message, "error");
                 }
             });
     }
 
-    //do from here
     function displayTrainersInfo(trainers) {
         const trainersCards = document.getElementById("trainers-profiles");
         trainersCards.innerHTML = "";
+
         trainers.forEach(trainer => {
+            let selectChangeTrainerPossible = true;
+            if (Number(trainer.assigned_member_count) >= 50) {
+                selectChangeTrainerPossible = false;
+            }
+
             const trainerProfile = document.createElement("div");
             trainerProfile.className = "trainer-profile";
+
             trainerProfile.innerHTML = `
-            <h2 class="profile-label">${trainer.firstName} ${trainer.lastName}</h2>
-            <p class="profile-name">${trainer.email}</p>
-            <p class="profile-name">${trainer.phone}</p>
-            <p class="profile-label">Specialties : </p>
-            <p class="profile-specialties">: ${trainer.specialties}</p>
-            <p class="profile-name">Experience : ${trainer.years_of_experience} years</p>
-            ${assignedMemberExists ? 
-                `<button class="contact-button" id="changeTrainer" data-trainer-id="${trainer.trainer_id}">
-                    Change Trainer
-                </button>` 
-                : 
-                `<button class="contact-button" id="selectTrainer" data-trainer-id="${trainer.trainer_id}">
-                    Select Trainer
-                </button>`
-            }
+                <h2 class="profile-label">${trainer.firstName} ${trainer.lastName}</h2>
+                <p class="profile-name">${trainer.email}</p>
+                <p class="profile-name">${trainer.phone}</p>
+                <p class="profile-label">Specialties : </p>
+                <p class="profile-specialties">${trainer.specialties}</p>
+                <p class="profile-name">Experience : ${trainer.years_of_experience} years</p>
+                ${assignedTrainerExists ?
+                    `<button class="contact-button" id="changeTrainer" data-trainer-id="${trainer.trainer_id}" 
+                     ${!selectChangeTrainerPossible ? 'disabled' : ''}>
+                        Change Trainer
+                    </button>`
+                    :
+                    `<button class="contact-button" id="selectTrainer" data-trainer-id="${trainer.trainer_id}" 
+                     ${!selectChangeTrainerPossible ? 'disabled' : ''}>
+                        Select Trainer
+                    </button>`
+                }
             `;
+
             trainersCards.appendChild(trainerProfile);
         });
-        trainersCards.addEventListener('click', (event) => {
-            if (event.target.id == "changeTrainer") {
-              const trainerID = event.target.getAttribute('data-trainer-id');
-            //   openUpdatePopup(classId);
-            }
-            if (event.target.id == "selectTrainer") {
-              const trainerID = event.target.getAttribute('data-trainer-id');
-            //   openDeletePopup(classId);
-            }
-          });
     }
 
+    //event listner for buttons
+    document.getElementById("trainers-profiles").addEventListener("click", (event) => {
+        const trainerID = event.target.getAttribute("data-trainer-id");
+        if (!trainerID) return;
+
+        if (event.target.id === "changeTrainer") {
+            changeTrainer(trainerID);
+        }
+        if (event.target.id === "selectTrainer") {
+            selectTrainer(trainerID);
+        }
+    });
+
+    function displayAssignedTrainer(trainer) {
+        const assignedTrainerCard = document.getElementById("assigned-trainer");
+        assignedTrainerCard.innerHTML = "";
+        assignedTrainerCard.innerHTML = `
+        <h1 class="profile-label">Assigned Trainer : </h2>
+        <h2 class="profile-label">${trainer.firstName} ${trainer.lastName}</h2>
+        <p class="profile-name">${trainer.email}</p>
+        <p class="profile-name">${trainer.phone}</p>
+        <p class="profile-label">Specialties : </p>
+        <p class="profile-specialties">${trainer.specialties}</p>
+        <p class="profile-name">Experience : ${trainer.years_of_experience} years</p>
+        <button class="contact-button" id="removeTrainer" data-trainer-id="${trainer.trainer_id}">
+                    Remove Trainer
+        </button>
+        `;
+    }
+
+    //event listner for remove trainer button
+    document.getElementById("assigned-trainer").addEventListener("click", (event) => {
+        const trainerID = event.target.getAttribute("data-trainer-id");
+        if (!trainerID) return;
+
+        if (event.target.id === "removeTrainer") {
+            removeTrainer(trainerID);
+        }
+    });
+
+    function removeTrainer() {
+        const authToken = localStorage.getItem("authToken");
+        if (!authToken) {
+            showToast("An error has occurred. Please log in again", "error");
+            navigate("login");
+            return;
+        }
+        const requestOptions = {
+            method: 'DELETE',
+            headers: { "Authorization": `Bearer ${authToken}` },
+            redirect: 'follow'
+        }
+        fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=remove_assigned_trainer", requestOptions)
+            .then(response => {
+                return response.json().then(data => {
+                    if (data.error && data.error === "Token expired") {
+                        throw new Error("Token expired");
+                    }
+                    if (!response.ok) throw new Error("Failed to remove assigned trainer");
+                    return data;
+                });
+            })
+            .then(data => {
+                if (data.error) {
+                    showToast(data.error, "error");
+                    return;
+                } else {
+                    showToast(data.message, "success");
+                    assignedTrainerExists = false;
+                    fetchAssignedTrainer();
+                    setTimeout(() => {
+                        fetchAssignedTrainer();
+                    }, 2000);
+                }
+            })
+            .catch(error => {
+                console.error("API Error:", error.message);
+                if (error.message === "Token expired") {
+                    showToast("Your session has timed out. Please log in again", "error");
+                    setTimeout(() => {
+                        runSessionTimedOut();
+                    }, 4000);
+                } else {
+                    showToast(error.message, "error");
+                }
+            });
+    }
+
+    function selectTrainer(trainerID) {
+        const authToken = localStorage.getItem("authToken");
+        if (!authToken) {
+            showToast("An error has occurred. Please log in again", "error");
+            navigate("login");
+            return;
+        }
+
+        const payload = {
+            "trainer_id": trainerID
+        };
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                "Authorization": `Bearer ${authToken}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload),
+            redirect: "follow"
+        };
+
+        fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=select_trainer", requestOptions)
+            .then(response => {
+                return response.json().then(data => {
+                    if (data.error && data.error === "Token expired") {
+                        throw new Error("Token expired");
+                    }
+                    if (!response.ok) throw new Error("Failed to assign the trainer");
+                    return data;
+                });
+            })
+            .then(data => {
+                if (data.error) {
+                    showToast(data.error, "error");
+                    return;
+                } else {
+                    showToast(data.message, "success");
+                    setTimeout(() => {
+                        fetchAssignedTrainer();
+                    }, 2000);
+                }
+            })
+            .catch(error => {
+                console.error("API Error:", error.message);
+                if (error.message === "Token expired") {
+                    showToast("Your session has timed out. Please log in again", "error");
+                    setTimeout(() => {
+                        runSessionTimedOut();
+                    }, 4000);
+                } else {
+                    showToast(error.message, "error");
+                }
+            });
+    }
+
+    function changeTrainer(trainerID) {
+        const authToken = localStorage.getItem("authToken");
+        const payload = {
+            "trainer_id": trainerID
+        }
+        const requestOptions = {
+            method: 'PUT',
+            headers: {
+                "Authorization": `Bearer ${authToken}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload),
+            redirect: "follow"
+        }
+        fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=change_assigned_trainer", requestOptions)
+            .then(response => {
+                return response.json().then(data => {
+                    if (data.error && data.error === "Token expired") {
+                        throw new Error("Token expired");
+                    }
+                    if (!response.ok) throw new Error("Failed to change assigned trainer");
+                    return data;
+                });
+            })
+            .then(data => {
+                if (data.error) {
+                    showToast(data.error, "error");
+                    return;
+                } else {
+                    showToast(data.message, "success");
+                    setTimeout(() => {
+                        fetchAssignedTrainer();
+                    }, 2000);
+                }
+            })
+            .catch(error => {
+                console.error("API Error:", error.message);
+                if (error.message === "Token expired") {
+                    showToast("Your session has timed out. Please log in again", "error");
+                    setTimeout(() => {
+                        runSessionTimedOut();
+                    }, 4000);
+                } else {
+                    showToast(error.message, "error");
+                }
+            });
+    }
 
     function showToast(message, type) {
         const container = document.getElementById('toast-container');
         const toast = document.createElement('div');
         toast.className = `toast ${type}`;
-        toast.innerText = message;
+        toast.innerHTML = message;
 
         container.appendChild(toast);
 
