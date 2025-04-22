@@ -15,6 +15,7 @@ include_once "./subscriptionHandler.php";
 include_once "./markAttendanceHandler.php";
 include_once "./accountDetailHandler.php";
 include_once "./assignedTrainerHandler.php";
+include_once "./classBookingHandler.php";
 
 $conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -113,6 +114,22 @@ switch ($action) {
     case 'get_trainers_details' :
         logMessage("Running get_trainers_details....in controller");
         getTrainersDetailsWithMemberCount();
+        break;
+
+    //class booking
+    case 'get_classes_of_assigned_trainer' :
+        logMessage("running get_classes_of_trainer....in controller");
+        getClassesofAssignedTrainer($user_id);
+        break;
+    case 'enroll_class' :
+        logMessage("running enroll_class....in controller");
+        enrollToClass($user_id);
+        break;
+    case 'get_enrolled_classes' : 
+        getEnrolledClasses($user_id);
+        break; 
+    case 'cancel_class_enroll' :
+        cancelEnrollmentToClass($user_id);
         break;
 
     default:

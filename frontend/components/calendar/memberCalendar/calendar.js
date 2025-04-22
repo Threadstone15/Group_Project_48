@@ -1,6 +1,7 @@
+import { navigate } from "../../../js/router.js";
+import { runSessionTimedOut } from "../../../js/routeConfig.js";
 
-
-  const calendar = document.querySelector(".calendar"),
+const calendar = document.querySelector(".calendar"),
   date = document.querySelector(".date"),
   daysContainer = document.querySelector(".days"),
   prev = document.querySelector(".prev"),
@@ -10,14 +11,7 @@
   dateInput = document.querySelector(".date-input"),
   eventDay = document.querySelector(".event-day"),
   eventDate = document.querySelector(".event-date"),
-  eventsContainer = document.querySelector(".events"),
-  addEventBtn = document.querySelector(".add-event"),
-  addEventWrapper = document.querySelector(".add-event-wrapper "),
-  addEventCloseBtn = document.querySelector(".close "),
-  addEventTitle = document.querySelector(".event-name "),
-  addEventFrom = document.querySelector(".event-time-from "),
-  addEventTo = document.querySelector(".event-time-to "),
-  addEventSubmit = document.querySelector(".add-event-btn ");
+  eventsContainer = document.querySelector(".events");
 
 let today = new Date();
 let activeDay;
@@ -39,63 +33,48 @@ const months = [
   "December",
 ];
 
-// const eventsArr = [
-//   {
-//     day: 13,
-//     month: 11,
-//     year: 2022,
-//     events: [
-//       {
-//         title: "Event 1 lorem ipsun dolar sit genfa tersd dsad ",
-//         time: "10:00 AM",
-//       },
-//       {
-//         title: "Event 2",
-//         time: "11:00 AM",
-//       },
-//     ],
-//   },
-// ];
-
-const eventsArr = [];
-getEvents();
-console.log(eventsArr);
+let allClasses = [];
+let enrolledClasses = [];
+fetchEnrolledClasses();
 
 //function to add days in days with class day and prev-date next-date on previous month and next month days and active on today
+//generates and displays the calendar grid
 function initCalendar() {
-  const firstDay = new Date(year, month, 1);
-  const lastDay = new Date(year, month + 1, 0);
-  const prevLastDay = new Date(year, month, 0);
-  const prevDays = prevLastDay.getDate();
-  const lastDate = lastDay.getDate();
-  const day = firstDay.getDay();
-  const nextDays = 7 - lastDay.getDay() - 1;
+  const firstDay = new Date(year, month, 1); // First day of current month
+  const lastDay = new Date(year, month + 1, 0); // Last day of current month
+  const prevLastDay = new Date(year, month, 0); // Last day of previous month
+  const prevDays = prevLastDay.getDate(); // Total days in previous month
+  const lastDate = lastDay.getDate(); // Total days in current month
+  const day = firstDay.getDay(); // Day of week for 1st of month (0=Sun, 6=Sat)
+  const nextDays = 7 - lastDay.getDay() - 1; // Days needed from next month
 
   date.innerHTML = months[month] + " " + year;
 
   let days = "";
 
+  //prev month's days
   for (let x = day; x > 0; x--) {
     days += `<div class="day prev-date">${prevDays - x + 1}</div>`;
   }
 
+  //curent months days
   for (let i = 1; i <= lastDate; i++) {
-    //check if event is present on that day
+    //check if class is present on that day -> here the current day is highlighted and class days are makred
     let event = false;
-    eventsArr.forEach((eventObj) => {
+    allClasses.forEach((classObj) => {
+      const dateObj = new Date(classObj.date);
+      const classYear = dateObj.getFullYear();  // 2025
+      const classMonth = dateObj.getMonth() + 1; // 4 (months are 0 indexed)
+      const classDate = dateObj.getDate();       // 14
       if (
-        eventObj.day === i &&
-        eventObj.month === month + 1 &&
-        eventObj.year === year
+        classDate === i &&
+        classMonth === month + 1 &&
+        classYear === year
       ) {
         event = true;
       }
     });
-    if (
-      i === new Date().getDate() &&
-      year === new Date().getFullYear() &&
-      month === new Date().getMonth()
-    ) {
+    if (i === new Date().getDate() && year === new Date().getFullYear() && month === new Date().getMonth()) {
       activeDay = i;
       getActiveDay(i);
       updateEvents(i);
@@ -104,7 +83,7 @@ function initCalendar() {
       } else {
         days += `<div class="day today active">${i}</div>`;
       }
-    } else {
+    } else { //not current date -> a regular day
       if (event) {
         days += `<div class="day event">${i}</div>`;
       } else {
@@ -113,6 +92,7 @@ function initCalendar() {
     }
   }
 
+  //nexxt month days
   for (let j = 1; j <= nextDays; j++) {
     days += `<div class="day next-date">${j}</div>`;
   }
@@ -218,7 +198,6 @@ dateInput.addEventListener("input", (e) => {
 gotoBtn.addEventListener("click", gotoDate);
 
 function gotoDate() {
-  console.log("here");
   const dateArr = dateInput.value.split("/");
   if (dateArr.length === 2) {
     if (dateArr[0] > 0 && dateArr[0] < 13 && dateArr[1].length === 4) {
@@ -228,7 +207,7 @@ function gotoDate() {
       return;
     }
   }
-  alert("Invalid Date");
+  showToast("Invalid Date", "error");
 }
 
 //function get active day day name and date and update eventday eventdate
@@ -237,225 +216,291 @@ function getActiveDay(date) {
   const dayName = day.toString().split(" ")[0];
   eventDay.innerHTML = dayName;
   eventDate.innerHTML = date + " " + months[month] + " " + year;
+
+  const formattedDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
+  document.getElementById("classDate").dataset.currentDate = formattedDate;
 }
 
-//function update events when a day is active
+//function update events when a day is active  -> displays events for the selected day
 function updateEvents(date) {
   let events = "";
-  eventsArr.forEach((event) => {
-    if (
-      date === event.day &&
-      month + 1 === event.month &&
-      year === event.year
-    ) {
-      event.events.forEach((event) => {
-        events += `<div class="event">
-            <div class="title">
-              <i class="fas fa-circle"></i>
-              <h3 class="event-title">${event.title}</h3>
-            </div>
-            <div class="event-time">
-              <span class="event-time">${event.time}</span>
-            </div>
-        </div>`;
-      });
+  allClasses.forEach((classObj) => {
+    const dateObj = new Date(classObj.date);
+    const classYear = dateObj.getFullYear();
+    const classMonth = dateObj.getMonth() + 1;
+    const classDate = dateObj.getDate();
+
+    if (date === classDate && month + 1 === classMonth && year === classYear) {
+      events += `<div class="event">
+          <div class="title">
+            <i class="fas fa-circle"></i>
+            <h3 class="event-title">${classObj.className}</h3>
+          </div>
+          <div class="event-time">
+            <span>${classObj.start_time} - ${classObj.end_time}</span>
+          </div>
+          <div class="event-trainer">
+            <span> Trainer Name : ${classObj.trainerName}</span>
+          </div>
+          <div class="event-desc">
+            <span>${classObj.description}</span>
+          </div>
+      </div>`;
+
+      //checking if class date  & time is in future -> cuz member can enroll/unenroll from class
+      const [startHours, startMinutes] = classObj.start_time.split(':').map(Number);
+      const classDateTime = new Date(classObj.date);
+      classDateTime.setHours(startHours, startMinutes, 0, 0);
+
+      const currentDate = new Date();
+      //member can enroll if class date and time is not now or not in past
+      if (classDateTime > currentDate) {
+        //checking whether class is already enrolled
+        const enrolledClassIds = enrolledClasses.map(c => c.class_id);
+        const isEnrolledClass = enrolledClassIds.includes(classObj.class_id);
+        if (!isEnrolledClass) {
+          events += `<button class="enroll-btn" id="enrollClass" data-class-id="${classObj.class_id}">Enroll</button>`;
+        } else {
+          events += `<button class="cancel-enroll-btn" id="cancelEnrollClass" data-class-id="${classObj.class_id}">Cancel Enrollment</button>`;
+        }
+      }
     }
   });
+
   if (events === "") {
-    events = `<div class="no-event">
-            <h3>No Events</h3>
-        </div>`;
+    events = `<div class="no-event"><h3>No Classes Scheduled</h3></div>`;
   }
   eventsContainer.innerHTML = events;
-  saveEvents();
 }
 
-//function to add event
-addEventBtn.addEventListener("click", () => {
-  addEventWrapper.classList.toggle("active");
-});
-
-addEventCloseBtn.addEventListener("click", () => {
-  addEventWrapper.classList.remove("active");
-});
-
-document.addEventListener("click", (e) => {
-  if (e.target !== addEventBtn && !addEventWrapper.contains(e.target)) {
-    addEventWrapper.classList.remove("active");
+//attaching event lister to class enroll and unenroll buttons
+eventsContainer.addEventListener('click', (event) => {
+  if (event.target.id == "enrollClass") {
+    const classId = event.target.getAttribute('data-class-id');
+    enrollToClass(classId);
+  }
+  if (event.target.id == "cancelEnrollClass") {
+    const classId = event.target.getAttribute('data-class-id');
+    cancelEnrollmentToClass(classId);
   }
 });
 
-//allow 50 chars in eventtitle
-addEventTitle.addEventListener("input", (e) => {
-  addEventTitle.value = addEventTitle.value.slice(0, 60);
-});
 
-//allow only time in eventtime from and to
-addEventFrom.addEventListener("input", (e) => {
-  addEventFrom.value = addEventFrom.value.replace(/[^0-9:]/g, "");
-  if (addEventFrom.value.length === 2) {
-    addEventFrom.value += ":";
-  }
-  if (addEventFrom.value.length > 5) {
-    addEventFrom.value = addEventFrom.value.slice(0, 5);
-  }
-});
-
-addEventTo.addEventListener("input", (e) => {
-  addEventTo.value = addEventTo.value.replace(/[^0-9:]/g, "");
-  if (addEventTo.value.length === 2) {
-    addEventTo.value += ":";
-  }
-  if (addEventTo.value.length > 5) {
-    addEventTo.value = addEventTo.value.slice(0, 5);
-  }
-});
-
-//function to add event to eventsArr
-addEventSubmit.addEventListener("click", () => {
-  const eventTitle = addEventTitle.value;
-  const eventTimeFrom = addEventFrom.value;
-  const eventTimeTo = addEventTo.value;
-  if (eventTitle === "" || eventTimeFrom === "" || eventTimeTo === "") {
-    alert("Please fill all the fields");
+//fetching the classes
+function fetchClasses() {
+  const authToken = localStorage.getItem("authToken");
+  if (!authToken) {
+    showToast("Auth token not found. Please log in.", "error");
+    navigate("login");
     return;
   }
 
-  //check correct time format 24 hour
-  const timeFromArr = eventTimeFrom.split(":");
-  const timeToArr = eventTimeTo.split(":");
-  if (
-    timeFromArr.length !== 2 ||
-    timeToArr.length !== 2 ||
-    timeFromArr[0] > 23 ||
-    timeFromArr[1] > 59 ||
-    timeToArr[0] > 23 ||
-    timeToArr[1] > 59
-  ) {
-    alert("Invalid Time Format");
-    return;
-  }
-
-  const timeFrom = convertTime(eventTimeFrom);
-  const timeTo = convertTime(eventTimeTo);
-
-  //check if event is already added
-  let eventExist = false;
-  eventsArr.forEach((event) => {
-    if (
-      event.day === activeDay &&
-      event.month === month + 1 &&
-      event.year === year
-    ) {
-      event.events.forEach((event) => {
-        if (event.title === eventTitle) {
-          eventExist = true;
-        }
-      });
-    }
-  });
-  if (eventExist) {
-    alert("Event already added");
-    return;
-  }
-  const newEvent = {
-    title: eventTitle,
-    time: timeFrom + " - " + timeTo,
+  const requestOptions = {
+    method: 'GET',
+    headers: {
+      "Authorization": `Bearer ${authToken}`,
+    },
+    redirect: "follow"
   };
-  console.log(newEvent);
-  console.log(activeDay);
-  let eventAdded = false;
-  if (eventsArr.length > 0) {
-    eventsArr.forEach((item) => {
-      if (
-        item.day === activeDay &&
-        item.month === month + 1 &&
-        item.year === year
-      ) {
-        item.events.push(newEvent);
-        eventAdded = true;
+  fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=get_classes_of_assigned_trainer", requestOptions)
+    .then(response => {
+      return response.json().then(data => {
+        if (data.error && data.error === "Token expired") {
+          throw new Error("Token expired");
+        }
+        if (!response.ok) throw new Error("Failed to fetch trainer classes/sessions");
+        return data;
+      });
+    })
+    .then(data => {
+      if (data.error) {
+        showToast(data.error, "error");
+      }
+      if (data.length > 0) {
+        allClasses = data;
+        initCalendar();
+      }
+    })
+    .catch(error => {
+      console.warn(error.message, "error");
+      if (error.message === "Token expired") {
+        showToast("Your session has timed out. Please log in again", "error");
+        setTimeout(() => {
+          runSessionTimedOut();
+        }, 4000);
+      } else {
+        console.error("Error: " + error.message);
       }
     });
-  }
-
-  if (!eventAdded) {
-    eventsArr.push({
-      day: activeDay,
-      month: month + 1,
-      year: year,
-      events: [newEvent],
-    });
-  }
-
-  console.log(eventsArr);
-  addEventWrapper.classList.remove("active");
-  addEventTitle.value = "";
-  addEventFrom.value = "";
-  addEventTo.value = "";
-  updateEvents(activeDay);
-  //select active day and add event class if not added
-  const activeDayEl = document.querySelector(".day.active");
-  if (!activeDayEl.classList.contains("event")) {
-    activeDayEl.classList.add("event");
-  }
-});
-
-//function to delete event when clicked on event
-eventsContainer.addEventListener("click", (e) => {
-  if (e.target.classList.contains("event")) {
-    if (confirm("Are you sure you want to delete this event?")) {
-      const eventTitle = e.target.children[0].children[1].innerHTML;
-      eventsArr.forEach((event) => {
-        if (
-          event.day === activeDay &&
-          event.month === month + 1 &&
-          event.year === year
-        ) {
-          event.events.forEach((item, index) => {
-            if (item.title === eventTitle) {
-              event.events.splice(index, 1);
-            }
-          });
-          //if no events left in a day then remove that day from eventsArr
-          if (event.events.length === 0) {
-            eventsArr.splice(eventsArr.indexOf(event), 1);
-            //remove event class from day
-            const activeDayEl = document.querySelector(".day.active");
-            if (activeDayEl.classList.contains("event")) {
-              activeDayEl.classList.remove("event");
-            }
-          }
-        }
-      });
-      updateEvents(activeDay);
-    }
-  }
-});
-
-//function to save events in local storage
-function saveEvents() {
-  localStorage.setItem("events", JSON.stringify(eventsArr));
 }
 
-//function to get events from local storage
-function getEvents() {
-  //check if events are already saved in local storage then return event else nothing
-  if (localStorage.getItem("events") === null) {
+function fetchEnrolledClasses() {
+  const authToken = localStorage.getItem("authToken");
+  if (!authToken) {
+    showToast("Auth token not found. Please log in.", "error");
+    navigate("login");
     return;
   }
-  eventsArr.push(...JSON.parse(localStorage.getItem("events")));
+
+  const requestOptions = {
+    method: 'GET',
+    headers: {
+      "Authorization": `Bearer ${authToken}`,
+    },
+    redirect: "follow"
+  };
+  fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=get_enrolled_classes", requestOptions)
+    .then(response => {
+      return response.json().then(data => {
+        if (data.error && data.error === "Token expired") {
+          throw new Error("Token expired");
+        }
+        if (!response.ok) throw new Error("Failed to fetch trainer classes/sessions");
+        return data;
+      });
+    })
+    .then(data => {
+      if (data.error) {
+        showToast(data.error, "error");
+      } else {
+        enrolledClasses = data;
+        fetchClasses();
+      }
+    })
+    .catch(error => {
+      console.warn(error.message, "error");
+      if (error.message === "Token expired") {
+        showToast("Your session has timed out. Please log in again", "error");
+        setTimeout(() => {
+          runSessionTimedOut();
+        }, 4000);
+      } else {
+        console.error("Error: " + error.message);
+      }
+    });
 }
 
-function convertTime(time) {
-  //convert time to 24 hour format
-  let timeArr = time.split(":");
-  let timeHour = timeArr[0];
-  let timeMin = timeArr[1];
-  let timeFormat = timeHour >= 12 ? "PM" : "AM";
-  timeHour = timeHour % 12 || 12;
-  time = timeHour + ":" + timeMin + " " + timeFormat;
-  return time;
+function cancelEnrollmentToClass(classId) {
+  const authToken = localStorage.getItem("authToken");
+  if (!authToken) {
+    showToast("Auth token not found. Please log in again.", "error");
+    navigate("login");
+    return;
+  }
+  const payload = {
+    "class_id": classId
+  }
+
+  const requestOptions = {
+    method: 'DELETE',
+    headers: {
+      "Authorization": `Bearer ${authToken}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(payload)
+  }
+
+  fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=cancel_class_enroll", requestOptions)
+    .then(response => {
+      return response.json().then(data => {
+        if (data.error && data.error === "Token expired") {
+          throw new Error("Token expired");
+        }
+        if (!response.ok) throw new Error("Failed to fetch trainer classes/sessions");
+        return data;
+      });
+    })
+    .then(data => {
+      if (data.error) {
+        showToast(data.error, "error");
+      } else {
+        showToast(data.message, "success");
+        fetchEnrolledClasses();
+      }
+    })
+    .catch(error => {
+      console.warn(error.message, "error");
+      if (error.message === "Token expired") {
+        showToast("Your session has timed out. Please log in again", "error");
+        setTimeout(() => {
+          runSessionTimedOut();
+        }, 4000);
+      } else {
+        console.error("Error: " + error.message);
+      }
+    });
 }
 
+function enrollToClass(classId) {
+  const authToken = localStorage.getItem("authToken");
+  if (!authToken) {
+    showToast("Auth token not found. Please log in again.", "error");
+    navigate("login");
+    return;
+  }
+  const payload = {
+    "class_id": classId
+  }
+
+  const requestOptions = {
+    method: 'POST',
+    headers: {
+      "Authorization": `Bearer ${authToken}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(payload)
+  }
+
+  fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=enroll_class", requestOptions)
+    .then(response => {
+      return response.json().then(data => {
+        if (data.error && data.error === "Token expired") {
+          throw new Error("Token expired");
+        }
+        if (!response.ok) throw new Error("Failed to fetch trainer classes/sessions");
+        return data;
+      });
+    })
+    .then(data => {
+      if (data.error) {
+        showToast(data.error, "error");
+      } else {
+        showToast(data.message, "success");
+        fetchEnrolledClasses();
+      }
+    })
+    .catch(error => {
+      console.warn(error.message, "error");
+      if (error.message === "Token expired") {
+        showToast("Your session has timed out. Please log in again", "error");
+        setTimeout(() => {
+          runSessionTimedOut();
+        }, 4000);
+      } else {
+        console.error("Error: " + error.message);
+      }
+    });
+}
+
+function showToast(message, type) {
+  // invoking toast container of parent window-> ownerHome.html
+  if (window.parent !== window) {
+    window.parent.postMessage({
+      call: 'SHOW_TOAST',
+      message: message,
+      toastType: type
+    }, '*');
+  }
+  // Fallback for direct access
+  else {
+    const container = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.textContent = message;
+    container.appendChild(toast);
+
+    setTimeout(() => toast.remove(), 4000);
+  }
+}
 
 
