@@ -4,6 +4,7 @@ include_once "../models/assignedTrainer.php";
 include_once "../models/Member.php";
 include_once "../../logs/save.php";
 include_once "../models/Trainer.php";
+include_once "../models/bookTrainerClass.php";
 
 function selectTrainer($user_id)
 {
@@ -62,7 +63,14 @@ function changeTrainer($user_id)
         isset($data['trainer_id'])
     ) {
         $newTrainer_id = $data['trainer_id'];
-        //needs to check whether user has joined any upcoming sessions of prev trainer -> do it later
+        //checking whether user has joined any upcoming sessions of prev trainer
+        $bookTrainerClass = new BookTrainerClass();
+        $joinedClasses = $bookTrainerClass->getEnrolledClasses($member_id);
+        if (!empty($joinedClasses)) {
+            logMessage("User has joined upcoming sessions with the previous trainer. Cannot change trainer.");
+            echo json_encode(["error" => "You cannot change your trainer as you have joined with upcoming classes with the current trainer."]);
+            exit();
+        }
 
         //checking whether new trainer has reached max no of trainers
         $memberCountOfTrainer = $assignTrainer->getCountOfAssignedMembersOfTrainer($newTrainer_id);
@@ -90,7 +98,14 @@ function removeTrainer($user_id)
     $member_id = $member_data['member_id'];
     $assignTrainer = new AssignedTrainer();
 
-    //needs to check whether user has joined any upcoming sessions of prev trainer -> do it later
+    //checking whether user has joined any upcoming sessions of prev trainer->do it later
+    $bookTrainerClass = new BookTrainerClass();
+    $joinedClasses = $bookTrainerClass->getEnrolledClasses($member_id);
+    if (!empty($joinedClasses)) {
+        logMessage("User has joined upcoming sessions with the previous trainer. Cannot remove trainer.");
+        echo json_encode(["error" => "You cannot remove your trainer as you have joined with upcoming classes with the current trainer."]);
+        exit();
+    }
 
     if ($assignTrainer->removeTrainer($member_id)) {
         logMessage("Trainer removed successfully");
