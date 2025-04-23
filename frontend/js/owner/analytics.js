@@ -124,4 +124,67 @@ export function initOwner_analytics() {
         });
         console.log("Chart rendered successfully");        
     }
+
+    
+    function loadHtml2PdfScript() {
+        return new Promise((resolve, reject) => {
+            if (window.html2pdf) {
+                resolve();
+                return;
+            }
+            const script = document.createElement("script");
+            script.src = "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+        });
+    }
+
+
+    //extra functionality for pdf download
+    const pdfBtn = document.getElementById("pdfBtn");
+
+    if (pdfBtn) {
+        pdfBtn.addEventListener("click", async () => {
+            console.log("PDF button clicked");
+        
+            try {
+                await loadHtml2PdfScript();
+        
+                const contentElement = document.querySelector(".content-container");
+                const pdfButton = document.getElementById("pdfBtn");
+                const filterButtons = document.querySelector(".button-container-chart");
+        
+                // Hide the PDF button and filter buttons
+                pdfButton.style.display = "none";
+                if (filterButtons) filterButtons.style.display = "none";
+        
+                const opt = {
+                    margin: 0.5,
+                    filename: `attendance-report-${new Date().toISOString().split('T')[0]}.pdf`,
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2 },
+                    jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+                };
+        
+                await html2pdf().set(opt).from(contentElement).save();
+        
+                // Restore visibility
+                pdfButton.style.display = "inline-block";
+                if (filterButtons) filterButtons.style.display = "flex";
+        
+            } catch (error) {
+                console.error("PDF generation failed:", error);
+                // Restore just in case
+                pdfButton.style.display = "inline-block";
+                if (filterButtons) filterButtons.style.display = "flex";
+            }
+        });
+        
+}
+
+
+
+    
+    
 }
