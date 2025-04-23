@@ -4,31 +4,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Workout Planner</title>
-  <!-- <link rel="stylesheet" href="/Group_Project_48/frontend/css/member/workoutMealPlans.css">
-  <link rel="stylesheet" href="/Group_Project_48/frontend/css/globals.css"> -->
+  <title>Meal Planner</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <div class="content">
-    <!-- Number of Workout Days Section -->
-    <div class="workout-days-container">
-      <h1>Create your own workout plan</h1>
-      <div class="input-row">
-        <label for="workout-days">How many workout days?</label>
-        <input type="number" id="workout-days" min="1" max="7" placeholder="Enter number of days">
-      </div>
-      <button id="generate-planner">Generate Planner</button>
+    <!-- Number of Meal Days Section -->
+    <div class="meal-days-container">
+      <h1>Create your own meal plan</h1>
+      <button id="generate-meal-planner">Generate Meal Planner</button>
     </div>
 
-    <!-- Workout Planner Section -->
-    <div class="workout-table-wrapper">
-      <div id="workout-planner" class="workout-planner"></div>
+    <!-- Meal Planner Section -->
+    <div class="meal-table-wrapper">
+      <div id="meal-planner" class="meal-planner"></div>
+    </div>
+  </div>
+  <div class="request-plan-container">
+    <h1>Request a Plan from your Trainer</h1>
+    <button id="request-planner">Request Plan</button>
+  </div>
+
+  <div id="requestModal" class="modal1 hidden1">
+    <div class="modal1-content">
+      <span class="close1-btn">&times;</span>
+      <h2 id="modal1-title">Request a Meal Plan</h2>
+      <div id="modal1-message-area">
+        <textarea id="trainerMessage" placeholder="Write your message here..." rows="4" style="width: 100%;"></textarea>
+        <button id="sendMessageBtn">Send</button>
+      </div>
+      <p id="no-trainer-msg" class="hidden1">Sorry, you don't have any trainers assigned.</p>
     </div>
   </div>
 
-  <!-- <script src="/Group_Project_48/frontend/js/member/workoutMealPlans.js"></script> -->
+  <!-- Optional JavaScript if you're dynamically generating plans -->
+  <!-- <script src="mealPlans.js"></script> -->
 </body>
 
 </html>

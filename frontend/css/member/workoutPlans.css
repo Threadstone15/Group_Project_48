@@ -1,34 +1,42 @@
 /* Global Styles */
-body {
+* {
   margin: 0;
   padding: 0;
-  display: flex;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 100vw;
 }
 
-.container {
-  background-color: #fff;
-  border-radius: 15px;
-  padding: 30px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  max-width: 1200px;
-  overflow-y: auto;
-  margin-top: 60px;
-  margin-left: 30px;
+body {
+  height: 100%;
+  padding: 0 10px;
+  background-color: transparent;
+  display: flex;
+  min-height: 100vh;
 }
 
 /* Workout Days Section */
 .workout-days-container {
-  text-align: center;
-  margin-bottom: 40px;
+  text-align: left;
+  margin-top: 90px;
+  margin-left: 80px;
+  align-items: left;
+  margin-bottom: 50px;
 }
 
 .workout-days-container h1 {
-  font-size: 24px;
+  font-size: 32px;
+  font-weight: 600;
+  color: #333;
+  margin: 20px 0;
+}
+
+.request-plan-container {
+  text-align: left;
+  margin-top: 90px;
+  margin-left: 80px;
+  align-items: left;
+}
+
+.request-plan-container h1 {
+  font-size: 32px;
   font-weight: 600;
   color: #333;
   margin: 20px 0;
@@ -36,10 +44,10 @@ body {
 
 .input-row {
   display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 15px;
-  margin-bottom: 20px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  align-items: center;
 }
 
 .input-row label {
@@ -49,8 +57,8 @@ body {
 }
 
 .input-row input {
-  width: 190px;
-  padding: 10px;  
+  width: 220px;
+  padding: 15px;  
   font-size: 14px;
   border: 2px solid #ddd;
   border-radius: 8px;
@@ -78,6 +86,24 @@ button#generate-planner {
 }
 
 button#generate-planner:hover {
+  background-color: #e65400;
+}
+
+button#request-planner {
+  padding: 12px 20px;
+  font-size: 16px;
+  background-color: #ff5f00;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  width: 30%;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+button#request-planner:hover {
   background-color: #e65400;
 }
 
@@ -302,4 +328,28 @@ button#generate-planner:hover {
 
 .cancel-btn:hover {
   background-color: #e53935;
+}
+
+.modal1 {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 999;
+}
+.modal1-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 400px;
+  text-align: center;
+}
+.hidden1 {
+  display: none;
+}
+.close1-btn {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
 }

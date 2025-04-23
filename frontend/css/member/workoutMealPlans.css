@@ -1,298 +1,229 @@
 /* Global Styles */
 * {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  height: 100%;
-  padding: 0 10px;
-  background-color: transparent;
-  display: flex;
-  min-height: 100vh;
-}
-
-/* Workout Days Section */
-.workout-days-container {
-  text-align: left;
-  margin-top: 90px;
-  margin-left: 60px;
-  align-items: left;
-}
-
-.workout-days-container h1 {
-  font-size: 32px;
-  font-weight: 600;
-  color: #333;
-  margin: 20px 0;
-}
-
-.input-row {
-  display: flex;
-  gap: 15px;
-  margin-top: 30px;
-  margin-bottom: 40px;
-  align-items: center;
-}
-
-.input-row label {
-  font-size: 16px;
-  font-weight: 500;
-  color: #555;
-}
-
-.input-row input {
-  width: 220px;
-  padding: 15px;  
-  font-size: 14px;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  font-family: 'Poppins', sans-serif;
-  transition: border-color 0.3s;
-}
-
-.input-row input:focus {
-  outline: none;
-  border-color: #ff5f00;
-}
-
-button#generate-planner {
-  padding: 12px 20px;
-  font-size: 16px;
-  background-color: #ff5f00;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  width: 30%;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-  font-family: 'Poppins', sans-serif;
-}
-
-button#generate-planner:hover {
-  background-color: #e65400;
-}
-
-/* Workout Planner Section */
-.workout-planner {
-  display: flex;
-  flex-direction: column;
-  gap: 20px; /* Add spacing between days */
-}
-
-.workout-column {
-  width: 100%; /* Full width */
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
-}
-
-.workout-column h3 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 15px;
-  text-align: center;
-  background-color: #fff;
-  color: #ff5f00;
-  padding: 8px;
-  border-radius: 5px;
-}
-
-.exercise-container {
-  margin-bottom: 15px;
-}
-
-.exercise-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.exercise-row input {
-  flex: 1; /* Adjust widths to fit */
-  padding: 8px;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  font-size: 12px;
-  transition: border-color 0.3s;
-  font-family: 'Poppins', sans-serif;
-}
-
-.exercise-row input:focus {
-  outline: none;
-  border-color: #ff5f00;
-}
-
-/* Add buttons to each row */
-.exercise-row .edit-exercise-btn,
-.exercise-row .delete-exercise-btn {
-  padding: 5px 10px;
-  font-size: 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  border: none;
-}
-
-.exercise-row .edit-exercise-btn {
-  background-color: #28a745;
-  color: #fff;
-}
-
-.exercise-row .edit-exercise-btn:hover {
-  background-color: #186129;
-  color: white;
-}
-
-.exercise-row .delete-exercise-btn {
-  background-color: #dc3545;
-  color: white;
-}
-
-.exercise-row .delete-exercise-btn:hover {
-  background-color: #671a22;
-  color: white;
-}
-
-.add-exercise-btn {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  margin: 0 auto;
-  font-size: 14px;
-  background-color: #fff;
-  color: #ff5f00;
-  border: 2px solid #ff5f00;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-  font-family: 'Poppins', sans-serif;
-}
-
-.add-exercise-btn:hover {
-  background-color: #ff5f00;
-  color: white;
-}
-
-/* Scrollbar Hiding */
-.container::-webkit-scrollbar {
-  display: none;
-}
-.container {
-  scrollbar-width: none;
-}
-
-/* Responsiveness */
-@media (max-width: 768px) {
-  .exercise-row {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    height: 100%;
+    padding: 0 10px;
+    background-color: transparent;
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  /* Meal Days Section */
+  .meal-days-container {
+    text-align: left;
+    margin-top: 90px;
+    margin-left: 60px;
+  }
+  
+  .meal-days-container h1 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #333;
+    margin: 20px 0;
+  }
+  
+  .input-row {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    align-items: center;
+  }
+  
+  .input-row label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #555;
+  }
+  
+  .input-row input {
+    width: 220px;
+    padding: 15px;  
+    font-size: 14px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s;
+  }
+  
+  .input-row input:focus {
+    outline: none;
+    border-color: #ff5f00;
+  }
+  
+  button#generate-meal-planner {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #ff5f00;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 30%;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  button#generate-meal-planner:hover {
+    background-color: #e65400;
+  }
+  
+  /* Meal Planner Section */
+  .meal-planner {
+    display: flex;
     flex-direction: column;
-    align-items: stretch;
+    gap: 20px;
   }
-
-  .exercise-row input {
+  
+  .meal-column {
     width: 100%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
   }
-}
+  
+  .meal-column h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-align: center;
+    background-color: #fff;
+    color: #ff5f00;
+    padding: 8px;
+    border-radius: 5px;
+  }
+  
+  .meal-container {
+    margin-bottom: 15px;
+  }
+  
+  .meal-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .meal-row input {
+    flex: 1;
+    padding: 8px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s;
+  }
+  
+  .meal-row input:focus {
+    outline: none;
+    border-color: #ff5f00;
+  }
+  
+  .meal-row .edit-meal-btn,
+  .meal-row .delete-meal-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+  }
+  
+  .meal-row .edit-meal-btn {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .meal-row .edit-meal-btn:hover {
+    background-color: #186129;
+  }
+  
+  .meal-row .delete-meal-btn {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .meal-row .delete-meal-btn:hover {
+    background-color: #671a22;
+  }
+  
+  .add-meal-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    background-color: #fff;
+    color: #ff5f00;
+    border: 2px solid #ff5f00;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .add-meal-btn:hover {
+    background-color: #ff5f00;
+    color: white;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .meal-row {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .meal-row input {
+      width: 100%;
+    }
+  }
+  
+  .modal1 {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 999;
+  }
+  .modal1-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+  }
+  .hidden1 {
+    display: none;
+  }
+  .close1-btn {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+  }
 
-/*poups*/
-/* Modal Styles */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-/* Modal Styling */
-.modal {
-  position: relative;
-  width: 500px;
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  text-align: center;
-}
-
-/* Modal Header */
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
-}
-
-/* Close Button */
-.modal-header .close-btn {
-  background: none;
-  border: none;
-  font-size: 18px;
-  color: #666;
-  cursor: pointer;
-}
-
-.modal-header .close-btn:hover {
-  color: #ff5f00;
-}
-
-/* Modal Content */
-.modal-content {
-  display: flex;
-  flex-direction: column;
-  gap: 10px; /* Adds space between input fields */
-  margin-top: 20px;
-}
-
-.modal-content input {
-  width: 100%;
-  padding: 10px;
-  font-size: 14px;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  font-family: 'Poppins', sans-serif;
-  transition: border-color 0.3s;
-}
-/* Modal Footer */
-.modal-footer {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.modal-footer button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-}
-
-.confirm-btn {
-  background-color: #4caf50;
-  color: white;
-}
-
-.confirm-btn:hover {
-  background-color: #45a049;
-}
-
-.cancel-btn {
-  background-color: #f44336;
-  color: white;
-}
-
-.cancel-btn:hover {
-  background-color: #e53935;
-}
+  button#request-planner {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #ff5f00;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 30%;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  button#request-planner:hover {
+    background-color: #e65400;
+  }

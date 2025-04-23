@@ -178,7 +178,7 @@ export function initMember_home() {
   }
   updateGymData();
   updateAttendance()
-  setInterval(updateAttendance, 5000);
+  //setInterval(updateAttendance, 5000);
 
   window.addEventListener('message', (event) => {
     if (event.data.call === 'SHOW_TOAST') {

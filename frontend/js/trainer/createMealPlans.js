@@ -1,4 +1,4 @@
-export function initTrainer_workoutMealPlans() {
+export function initTrainer_createMealPlans() {
   console.log("initializing workout meal plans");
   // Get DOM Elements
   const workoutDaysContainer = document.querySelector('.workout-days-container');
