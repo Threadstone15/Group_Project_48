@@ -14,9 +14,10 @@ class BookTrainerClass
         logMessage("BookTrainerClass model initialized with database conection");
     }
 
-    public function enrollToClass($member_id, $class_id){
+    public function enrollToClass($member_id, $class_id)
+    {
         logMessage("enrolling to a class");
-        if(!$this->conn){
+        if (!$this->conn) {
             logMessage("db connection failed");
             return false;
         }
@@ -35,21 +36,22 @@ class BookTrainerClass
         if ($stmt->execute()) {
             logMessage("Successfully enrolled member $member_id to class $class_id");
             return true;
-        }else{
+        } else {
             logMessage("Failed to execute statement for class enrollment: " . $stmt->error);
             return false;
         }
     }
 
-    public function getEnrolledClasses($member_id){
+    public function getEnrolledClasses($member_id)
+    {
         logMessage("getting member enrolled classes");
-        if(!$this->conn){
+        if (!$this->conn) {
             logMessage("db connection failed");
             return false;
         }
         $current_time = new DateTime('now', new DateTimeZone('Asia/Colombo'));
         $current_date = $current_time->format('Y-m-d');
-        
+
         $query = "SELECT class_id FROM " . $this->table . " 
         WHERE member_id = ? 
         AND class_id IN
@@ -87,5 +89,26 @@ class BookTrainerClass
             logMessage("Failed to execute statement for canceling enrollment: " . $stmt->error);
             return false;
         }
+    }
+
+    public function getEnrolledListOfClass($class_id)
+    {
+        logMessage("retrieving participant list for class $class_id");
+        $query = "SELECT C.member_id , CONCAT(M.firstName, ' ', M.lastName) AS fullName, M.phone FROM " . $this->table . " C, member M 
+        WHERE C.member_id = M.member_id AND C.class_id = ?";
+        $stmt = $this->conn->prepare($query);
+        if ($stmt === false) {
+            logMessage("Failed to prepare statement for retrieving participant list");
+            return false;
+        }
+        $stmt->bind_param("s", $class_id);
+        if ($stmt->execute()) {
+            logMessage("Successfully retrieved participant list for class $class_id");
+            return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        } else {
+            logMessage("Failed to execute statement for retrieving participant list: " . $stmt->error);
+            return false;
+        }
+
     }
 }

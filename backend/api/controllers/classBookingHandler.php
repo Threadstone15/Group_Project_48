@@ -110,3 +110,20 @@ function cancelEnrollmentToClass($user_id){
         echo json_encode(["error" => "Invalid input for class enrollment cancellation"]);
     }
 }
+
+function getEnrolledMemberListOfClass()
+{
+    logMessage("get enrolled list of class function running.......");
+    $data = json_decode(file_get_contents("php://input"), true);
+
+    if(isset($data['class_id'])){
+        $class_id = $data['class_id'];
+        $bookTrainerClass = new BookTrainerClass();
+        $enrolledList = $bookTrainerClass->getEnrolledListOfClass($class_id);
+        if($enrolledList === false){
+            echo json_encode(["error" => "Failed to retrieve enrolled list for the class."]);
+        }else{
+            echo json_encode($enrolledList);
+        }
+    }
+}

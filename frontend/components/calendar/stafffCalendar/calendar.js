@@ -247,6 +247,13 @@ function updateEvents(date) {
           <div class="event-desc">
             <span> No of participants : ${classObj.noOfParticipants}</span>
           </div>
+          ${Number(classObj.noOfParticipants) > 0 ?
+          `
+          <div class="event-handle">
+            <button class="view-button" id="viewEnrolledList" data-class-id="${classObj.class_id}">View Enrolled List</button>
+          </div>
+        ` : ``
+        }
       </div>`;
     }
   });
@@ -256,6 +263,14 @@ function updateEvents(date) {
   }
   eventsContainer.innerHTML = events;
 }
+
+//attaching event handlers for class events
+eventsContainer.addEventListener('click', (event) => {
+  if (event.target.id == "viewEnrolledList") {
+    const classId = event.target.getAttribute('data-class-id');
+    fetchEnrolledMemberListOfClass(classId);
+  }
+});
 
 //fetching the classes
 function fetchClasses() {
@@ -302,6 +317,82 @@ function fetchClasses() {
       }
     });
 }
+
+function fetchEnrolledMemberListOfClass(classId) {
+  const authToken = localStorage.getItem("authToken");
+  if (!authToken) {
+    showToast("Auth token not found. Please log in.", "error");
+    navigate("login");
+    return;
+  }
+  const payload = {
+    "class_id": classId
+  }
+
+  const requestOptions = {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${authToken}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(payload),
+  }
+
+  fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php?action=get_enrolled_member_list_of_class", requestOptions)
+    .then(response => {
+      return response.json().then(data => {
+        if (data.error && data.error === "Token expired") {
+          throw new Error("Token expired");
+        }
+        if (!response.ok) throw new Error("Failed to fetch enrolled list of members");
+        return data;
+      });
+    })
+    .then(data => {
+      if (data.error) {
+        showToast(data.error, "error");
+      } else {
+        console.log(data);
+        displayEnrolledMemberList(data);
+      }
+    })
+    .catch(error => {
+      console.warn(error.message, "error");
+      if (error.message === "Token expired") {
+        showToast("Your session has timed out. Please log in again", "error");
+        setTimeout(() => {
+          runSessionTimedOut();
+        }, 4000);
+      } else {
+        console.error("Error: " + error.message);
+      }
+    });
+}
+
+function displayEnrolledMemberList(participants) {
+  const participantsTable = document.getElementById("participantsTable");
+  //clearing table body
+  const participantsTableBody = participantsTable.getElementsByTagName("tbody")[0];
+  participantsTableBody.innerHTML = '';
+
+  participants.forEach(participant => {
+    console.log(participant.member_id);
+    console.log(participant.phone);
+    const row = document.createElement("tr");
+    row.innerHTML = `
+            <td>${participant['fullName']}</td>
+            <td>${participant['phone']}</td>
+        `;
+    participantsTableBody.appendChild(row);
+  });
+
+  //displaying the popup
+  document.getElementById("view-enrolled-members-popup").style.display = "block";
+}
+
+document.getElementById("close-enrolled-members-popup").onclick = () => {
+  document.getElementById("view-enrolled-members-popup").style.display = "none";
+};
 
 function showToast(message, type) {
   // invoking toast container of parent window-> ownerHome.html

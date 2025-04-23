@@ -22,6 +22,7 @@ include_once "markAttendanceHandler.php";
 include_once "../models/User.php";
 include_once "./accountDetailHandler.php";
 include_once "./trainerClassHandler.php";
+include_once "./classBookingHandler.php";
 
 // Establish database connection
 $conn = include_once "../../config/database.php";
@@ -145,6 +146,10 @@ switch ($action) {
     case 'get_classes':
         getTrainerClasses();
         break;
+    case 'get_enrolled_member_list_of_class' :
+        getEnrolledMemberListOfClass();
+        break;
+        
 
 
     default:

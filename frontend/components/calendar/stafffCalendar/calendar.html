@@ -48,9 +48,29 @@
         <div class="event-date" id="classDate" currentDate=""></div>
       </div>
       <div class="events"></div>
-  </div>
-  <div id="toast-container" class="toast-container"></div>
-  <script type="module" src="/Group_Project_48/frontend/components/calendar/stafffCalendar/calendar.js"></script>
+    </div>
+    <!-- view enrolled member list popup -->
+    <div id="view-enrolled-members-popup" class="popup" style="display: none;">
+      <button id="close-enrolled-members-popup" class="close-button">&times;</button> <!-- Close button -->
+      <div class="popup-content">
+        <h2>Enrolled Member List</h2>
+        <div class="table-container">
+          <table id="participantsTable">
+            <thead>
+              <tr>
+                <th>Member Name</th>
+                <th>Contact Number</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- JavaScript will insert rows here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div id="toast-container" class="toast-container"></div>
+    <script type="module" src="/Group_Project_48/frontend/components/calendar/stafffCalendar/calendar.js"></script>
 </body>
 
 </html>
