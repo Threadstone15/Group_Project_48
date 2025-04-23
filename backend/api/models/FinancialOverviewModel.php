@@ -141,3 +141,5 @@ class FinancialOverviewModel{
         logMessage("$periodType query executed successfully.");
     }
 }
+?>
+<?php

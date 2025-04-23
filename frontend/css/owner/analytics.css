@@ -1,20 +1,139 @@
-body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
+/* Shared styles for all card elements */
+.card-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f8f9fa;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 30%;
+    margin-top: 20px;
+    gap: 20px;
+    position: relative;
+    display: block;
+  }
+  
+  .card h2 {
+  margin: 0;
+  color: #FF5F00;
+  font-size: 22px;
+  font-weight: bold;
+  }
+  
+  .card p {
+  color: #666;
+  font-size: 15px;
+  margin: 4px 0;
+  }
+  
+  .card .date {
+  font-size: 16px;
+  font-weight: 1000;
+  }
+  
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 60px;
+    margin-top: 20px;
+  }
+  
+  .total-attendance{
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-basis: 33.3%;
+    text-align: center;
+    margin-top: 50px;
+    width: auto;
+    flex-shrink: 0;
+  }
+  
+  .total-count{
+    font-weight: 500;
+  }
+  
+  h2 {
+    color: #FF5F00;
+  }
+  
+  .button-container {
+    position: relative;
+    top: auto;
+    right: auto;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+    gap: 8px; /* Space between buttons */
+  }
+    
+  
+  .infoBtn {
+    background-color: white; /* Orange background */
+    color: #FF5F00; /* White text */
+    border: 2px solid #FF5F00; /* Orange border */
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: poppins, sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .pdfBtn {
+    background-color: #FF5F00; /* Orange background */
+    color: white; /* White text */
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: poppins, sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  /* Hover effect */
+  .pdfBtn:hover {
+    background-color: #E55600; /* Slightly darker orange */
+  }
+  
+  /* Active/focus states */
+  .pdfBtn:active,
+  .pdfBtn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 95, 0, 0.3);
+  }
+  
+  /* Hover effect */
+  .infoBtn:hover {
+    background-color: #E55600; /* Slightly darker orange */
+    color: white;
+  }
+  
+  /* Active/focus states */
+  .infoBtn:active,
+  .infoBtn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 95, 0, 0.3);
+  }
+  
+  .infoChart{
+    margin-top: 20px;
+    margin-left: 60px
+  }
+  
+  .button-container-chart {
+    position: relative;
+    top: auto;
+    right: auto;
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px; /* Space between buttons */
+    margin-top: 20px;
   }
   
   .chart-container {
-    width: 80%;
-    max-width: 800px;
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    height: 400px; /* Fixed height for the chart */
+    width: 100%;
   }
-  

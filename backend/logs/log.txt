@@ -1126,3 +1126,431 @@ n.
 [2025-04-21 16:38:41] Fetching aggregated financial data for period: monthly
 [2025-04-21 16:38:42] Financial overview data fetched successfully.
 [2025-04-21 16:38:42] Database connection closed.
+[2025-04-21 18:43:49] Connection established successfully to the database: rad_gymverse
+[2025-04-21 18:43:49] FinancialOverviewModel initialized with database connection.
+[2025-04-21 18:43:49] FinancialOverviewController initialized with model.
+[2025-04-21 18:43:49] Controller: Fetching financial overview data.
+[2025-04-21 18:43:49] Fetching aggregated financial data for period: daily
+[2025-04-21 18:43:49] Financial overview data fetched successfully.
+[2025-04-21 18:43:49] Database connection closed.
+[2025-04-21 18:43:57] Connection established successfully to the database: rad_gymverse
+[2025-04-21 18:43:57] FinancialOverviewModel initialized with database connection.
+[2025-04-21 18:43:57] FinancialOverviewController initialized with model.
+[2025-04-21 18:43:57] Controller: Fetching financial overview data.
+[2025-04-21 18:43:57] Fetching aggregated financial data for period: weekly
+[2025-04-21 18:43:58] Financial overview data fetched successfully.
+[2025-04-21 18:43:58] Database connection closed.
+[2025-04-21 18:44:05] Connection established successfully to the database: rad_gymverse
+[2025-04-21 18:44:05] FinancialOverviewModel initialized with database connection.
+[2025-04-21 18:44:05] FinancialOverviewController initialized with model.
+[2025-04-21 18:44:05] Controller: Fetching financial overview data.
+[2025-04-21 18:44:05] Fetching aggregated financial data for period: monthly
+[2025-04-21 18:44:05] Financial overview data fetched successfully.
+[2025-04-21 18:44:05] Database connection closed.
+[2025-04-21 19:04:32] Running auth controller ,login 
+[2025-04-21 19:04:32] running login...in auth controller
+[2025-04-21 19:04:32] login function running...
+[2025-04-21 19:04:33] Connection established successfully to the database: rad_gymverse
+[2025-04-21 19:04:33] User class instantiated with database connection.
+[2025-04-21 19:04:33] User Login model running for: owner@gmail.com
+[2025-04-21 19:04:33] Fetching user by email: owner@gmail.com
+[2025-04-21 19:04:33] User found for email: owner@gmail.com
+[2025-04-21 19:04:33] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-21 19:04:33] User status: 1
+[2025-04-21 19:04:33] User login successful: owner@gmail.com with role: owner
+[2025-04-21 19:04:33] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MjU4NDAwfQ==.f9612c6d48a1cb36451f3e2db18b31f76f6be90dc1f658b3249253bd0ce58474 owner
+[2025-04-21 19:04:33] Database connection closed.
+[2025-04-22 07:30:56] Running auth controller ,login 
+[2025-04-22 07:30:56] running login...in auth controller
+[2025-04-22 07:30:56] login function running...
+[2025-04-22 07:30:57] Connection established successfully to the database: rad_gymverse
+[2025-04-22 07:30:57] User class instantiated with database connection.
+[2025-04-22 07:30:57] User Login model running for: owner@gmail.com
+[2025-04-22 07:30:57] Fetching user by email: owner@gmail.com
+[2025-04-22 07:30:57] User found for email: owner@gmail.com
+[2025-04-22 07:30:58] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-22 07:30:58] User status: 1
+[2025-04-22 07:30:58] User login successful: owner@gmail.com with role: owner
+[2025-04-22 07:30:58] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MzAxNjAwfQ==.fd554a3bd011f1e719507b80312e83aece8dbb735fdf2031d355c39171382a8a owner
+[2025-04-22 07:30:58] Database connection closed.
+[2025-04-22 07:56:01] Running auth controller ,login 
+[2025-04-22 07:56:01] running login...in auth controller
+[2025-04-22 07:56:01] login function running...
+[2025-04-22 07:56:02] Connection established successfully to the database: rad_gymverse
+[2025-04-22 07:56:02] User class instantiated with database connection.
+[2025-04-22 07:56:02] User Login model running for: staff@gmail.com
+[2025-04-22 07:56:02] Fetching user by email: staff@gmail.com
+[2025-04-22 07:56:03] User found for email: staff@gmail.com
+[2025-04-22 07:56:03] Query bound and ready to execute for login: staff@gmail.com
+[2025-04-22 07:56:03] User status: 1
+[2025-04-22 07:56:03] User login successful: staff@gmail.com with role: staff
+[2025-04-22 07:56:03] Login Successful: eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1MzAxNjAwfQ==.57464734482661cb1d6bc9254e8617b86efac99ecc901497d9a6077d84ded079 staff
+[2025-04-22 07:56:03] Database connection closed.
+[2025-04-22 07:58:29] Running auth controller ,login 
+[2025-04-22 07:58:29] running login...in auth controller
+[2025-04-22 07:58:29] login function running...
+[2025-04-22 07:58:29] Connection established successfully to the database: rad_gymverse
+[2025-04-22 07:58:29] User class instantiated with database connection.
+[2025-04-22 07:58:29] User Login model running for: staff@gmail.com
+[2025-04-22 07:58:29] Fetching user by email: staff@gmail.com
+[2025-04-22 07:58:30] User found for email: staff@gmail.com
+[2025-04-22 07:58:30] Query bound and ready to execute for login: staff@gmail.com
+[2025-04-22 07:58:30] User status: 1
+[2025-04-22 07:58:30] User login successful: staff@gmail.com with role: staff
+[2025-04-22 07:58:30] Login Successful: eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1MzAxNjAwfQ==.57464734482661cb1d6bc9254e8617b86efac99ecc901497d9a6077d84ded079 staff
+[2025-04-22 07:58:30] Database connection closed.
+[2025-04-22 07:58:40] Running auth controller ,login 
+[2025-04-22 07:58:40] running login...in auth controller
+[2025-04-22 07:58:40] login function running...
+[2025-04-22 07:58:40] Connection established successfully to the database: rad_gymverse
+[2025-04-22 07:58:40] User class instantiated with database connection.
+[2025-04-22 07:58:40] User Login model running for: owner@gmail.com
+[2025-04-22 07:58:40] Fetching user by email: owner@gmail.com
+[2025-04-22 07:58:41] User found for email: owner@gmail.com
+[2025-04-22 07:58:41] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-22 07:58:41] User status: 1
+[2025-04-22 07:58:41] User login successful: owner@gmail.com with role: owner
+[2025-04-22 07:58:41] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MzAxNjAwfQ==.fd554a3bd011f1e719507b80312e83aece8dbb735fdf2031d355c39171382a8a owner
+[2025-04-22 07:58:41] Database connection closed.
+[2025-04-22 07:58:47] Connection established successfully to the database: rad_gymverse
+[2025-04-22 07:58:47] User class instantiated with database connection.
+[2025-04-22 07:58:47] Fetching user role by user ID: 72
+[2025-04-22 07:58:47] User role fetched successfully for user ID: 72
+[2025-04-22 07:58:47] Running owner controller ,get_profile token - eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MzAxNjAwfQ==.fd554a3bd011f1e719507b80312e83aece8dbb735fdf2031d355c39171382a8a   id - 72 
+[2025-04-22 07:58:47] Running get_profile....in controller
+[2025-04-22 07:58:47] Running get_profile....in handler
+[2025-04-22 07:58:47] User class instantiated with database connection.
+[2025-04-22 07:58:47] Fetching profile for user ID: 72
+[2025-04-22 07:58:48] No profile found for user ID: 72
+[2025-04-22 07:58:48] Database connection closed.
+[2025-04-22 08:41:00] Running auth controller ,login 
+[2025-04-22 08:41:00] running login...in auth controller
+[2025-04-22 08:41:00] login function running...
+[2025-04-22 08:41:01] Connection established successfully to the database: rad_gymverse
+[2025-04-22 08:41:01] User class instantiated with database connection.
+[2025-04-22 08:41:01] User Login model running for: owner@gmail.com
+[2025-04-22 08:41:01] Fetching user by email: owner@gmail.com
+[2025-04-22 08:41:01] User found for email: owner@gmail.com
+[2025-04-22 08:41:01] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-22 08:41:01] User status: 1
+[2025-04-22 08:41:01] User login successful: owner@gmail.com with role: owner
+[2025-04-22 08:41:01] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MzA1MjAwfQ==.49fb83baf740f26b4e112fbf22810ad6d636b05228ccd95edd3054597960d537 owner
+[2025-04-22 08:41:01] Database connection closed.
+[2025-04-22 10:56:05] Running auth controller ,login 
+[2025-04-22 10:56:05] running login...in auth controller
+[2025-04-22 10:56:05] login function running...
+[2025-04-22 10:56:05] Connection established successfully to the database: rad_gymverse
+[2025-04-22 10:56:05] User class instantiated with database connection.
+[2025-04-22 10:56:05] User Login model running for: staff@gmail.com
+[2025-04-22 10:56:05] Fetching user by email: staff@gmail.com
+[2025-04-22 10:56:05] User found for email: staff@gmail.com
+[2025-04-22 10:56:05] Query bound and ready to execute for login: staff@gmail.com
+[2025-04-22 10:56:06] User status: 1
+[2025-04-22 10:56:06] User login successful: staff@gmail.com with role: staff
+[2025-04-22 10:56:06] Login Successful: eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1MzEyNDAwfQ==.6c9d22443ad7846098508f5bd724383de68c7f15a84cda88afca30cdc2d3571f staff
+[2025-04-22 10:56:06] Database connection closed.
+[2025-04-22 10:56:59] Running auth controller ,login 
+[2025-04-22 10:56:59] running login...in auth controller
+[2025-04-22 10:56:59] login function running...
+[2025-04-22 10:56:59] Connection established successfully to the database: rad_gymverse
+[2025-04-22 10:56:59] User class instantiated with database connection.
+[2025-04-22 10:56:59] User Login model running for: owner@gmail.com
+[2025-04-22 10:56:59] Fetching user by email: owner@gmail.com
+[2025-04-22 10:57:00] User found for email: owner@gmail.com
+[2025-04-22 10:57:00] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-22 10:57:00] User status: 1
+[2025-04-22 10:57:00] User login successful: owner@gmail.com with role: owner
+[2025-04-22 10:57:00] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MzEyNDAwfQ==.04079096c2f4ef04254303ee81ccea9c265a0b9c5601323e2d33b178ce53c2a2 owner
+[2025-04-22 10:57:00] Database connection closed.
+[2025-04-22 11:14:43] Running auth controller ,login 
+[2025-04-22 11:14:43] running login...in auth controller
+[2025-04-22 11:14:43] login function running...
+[2025-04-22 11:14:44] Connection established successfully to the database: rad_gymverse
+[2025-04-22 11:14:44] User class instantiated with database connection.
+[2025-04-22 11:14:44] User Login model running for: indika@gmail.com
+[2025-04-22 11:14:44] Fetching user by email: indika@gmail.com
+[2025-04-22 11:14:45] User found for email: indika@gmail.com
+[2025-04-22 11:14:45] Query bound and ready to execute for login: indika@gmail.com
+[2025-04-22 11:14:45] User status: 1
+[2025-04-22 11:14:45] User login successful: indika@gmail.com with role: trainer
+[2025-04-22 11:14:45] Login Successful: eyJ1c2VyX2lkIjozMjEsImV4cCI6MTc0NTMxNjAwMH0=.6c08b6f9869adc7f6de302e65194f3210a8953aede09d0431de7d9fe2255ed08 trainer
+[2025-04-22 11:14:45] Database connection closed.
+[2025-04-22 11:16:38] Running auth controller ,login 
+[2025-04-22 11:16:38] running login...in auth controller
+[2025-04-22 11:16:38] login function running...
+[2025-04-22 11:16:39] Connection established successfully to the database: rad_gymverse
+[2025-04-22 11:16:39] User class instantiated with database connection.
+[2025-04-22 11:16:39] User Login model running for: nalaka@gmail.com
+[2025-04-22 11:16:39] Fetching user by email: nalaka@gmail.com
+[2025-04-22 11:16:39] User found for email: nalaka@gmail.com
+[2025-04-22 11:16:39] Query bound and ready to execute for login: nalaka@gmail.com
+[2025-04-22 11:16:39] User status: 1
+[2025-04-22 11:16:39] User login successful: nalaka@gmail.com with role: trainer
+[2025-04-22 11:16:39] Login Successful: eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTMxNjAwMH0=.4b1e22a9f46174efdf78332e6d14476d82233854019ed0f0cffce40af99707aa trainer
+[2025-04-22 11:16:39] Database connection closed.
+[2025-04-22 14:16:09] Running auth controller ,login 
+[2025-04-22 14:16:09] running login...in auth controller
+[2025-04-22 14:16:09] login function running...
+[2025-04-22 14:16:10] Connection established successfully to the database: rad_gymverse
+[2025-04-22 14:16:10] User class instantiated with database connection.
+[2025-04-22 14:16:10] User Login model running for: owner@gmail.com
+[2025-04-22 14:16:10] Fetching user by email: owner@gmail.com
+[2025-04-22 14:16:10] User found for email: owner@gmail.com
+[2025-04-22 14:16:10] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-22 14:16:11] User status: 1
+[2025-04-22 14:16:11] User login successful: owner@gmail.com with role: owner
+[2025-04-22 14:16:11] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MzI2ODAwfQ==.67e156bd9fbf7de0377721205324a33264b1c4b29305ed6c4c38e10c6ebbf237 owner
+[2025-04-22 14:16:11] Database connection closed.
+[2025-04-22 14:20:38] Running auth controller ,login 
+[2025-04-22 14:20:38] running login...in auth controller
+[2025-04-22 14:20:38] login function running...
+[2025-04-22 14:20:39] Connection established successfully to the database: rad_gymverse
+[2025-04-22 14:20:39] User class instantiated with database connection.
+[2025-04-22 14:20:39] User Login model running for: owner@gmail.com
+[2025-04-22 14:20:39] Fetching user by email: owner@gmail.com
+[2025-04-22 14:20:39] User found for email: owner@gmail.com
+[2025-04-22 14:20:39] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-22 14:20:40] User status: 1
+[2025-04-22 14:20:40] User login successful: owner@gmail.com with role: owner
+[2025-04-22 14:20:40] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MzI2ODAwfQ==.67e156bd9fbf7de0377721205324a33264b1c4b29305ed6c4c38e10c6ebbf237 owner
+[2025-04-22 14:20:40] Database connection closed.
+[2025-04-22 14:47:05] Connection established successfully to the database: rad_gymverse
+[2025-04-22 14:47:05] FinancialOverviewModel initialized with database connection.
+[2025-04-22 14:47:05] FinancialOverviewController initialized with model.
+[2025-04-22 14:47:05] Controller: Fetching financial overview data.
+[2025-04-22 14:47:05] Fetching aggregated financial data for period: daily
+[2025-04-22 14:47:05] Financial overview data fetched successfully.
+[2025-04-22 14:47:05] Database connection closed.
+[2025-04-22 14:47:10] Connection established successfully to the database: rad_gymverse
+[2025-04-22 14:47:10] FinancialOverviewModel initialized with database connection.
+[2025-04-22 14:47:10] FinancialOverviewController initialized with model.
+[2025-04-22 14:47:10] Controller: Fetching financial overview data.
+[2025-04-22 14:47:10] Fetching aggregated financial data for period: monthly
+[2025-04-22 14:47:11] Financial overview data fetched successfully.
+[2025-04-22 14:47:11] Database connection closed.
+[2025-04-22 14:47:14] Connection established successfully to the database: rad_gymverse
+[2025-04-22 14:47:14] FinancialOverviewModel initialized with database connection.
+[2025-04-22 14:47:14] FinancialOverviewController initialized with model.
+[2025-04-22 14:47:14] Controller: Fetching financial overview data.
+[2025-04-22 14:47:14] Fetching aggregated financial data for period: weekly
+[2025-04-22 14:47:15] Financial overview data fetched successfully.
+[2025-04-22 14:47:15] Database connection closed.
+[2025-04-22 14:47:15] Connection established successfully to the database: rad_gymverse
+[2025-04-22 14:47:15] FinancialOverviewModel initialized with database connection.
+[2025-04-22 14:47:15] FinancialOverviewController initialized with model.
+[2025-04-22 14:47:15] Controller: Fetching financial overview data.
+[2025-04-22 14:47:15] Fetching aggregated financial data for period: weekly
+[2025-04-22 14:47:16] Financial overview data fetched successfully.
+[2025-04-22 14:47:16] Database connection closed.
+[2025-04-22 15:53:27] Running auth controller ,login 
+[2025-04-22 15:53:27] running login...in auth controller
+[2025-04-22 15:53:27] login function running...
+[2025-04-22 15:53:28] Connection established successfully to the database: rad_gymverse
+[2025-04-22 15:53:28] User class instantiated with database connection.
+[2025-04-22 15:53:28] User Login model running for: owner@gmail.com
+[2025-04-22 15:53:28] Fetching user by email: owner@gmail.com
+[2025-04-22 15:53:28] User found for email: owner@gmail.com
+[2025-04-22 15:53:28] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-22 15:53:28] User status: 1
+[2025-04-22 15:53:28] User login successful: owner@gmail.com with role: owner
+[2025-04-22 15:53:28] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MzMwNDAwfQ==.31eec6b2841533d7e226ccaa82452d065ea00594c08a22b49def66e4a7776838 owner
+[2025-04-22 15:53:28] Database connection closed.
+[2025-04-22 15:54:49] Running auth controller ,login 
+[2025-04-22 15:54:49] running login...in auth controller
+[2025-04-22 15:54:49] login function running...
+[2025-04-22 15:54:50] Connection established successfully to the database: rad_gymverse
+[2025-04-22 15:54:50] User class instantiated with database connection.
+[2025-04-22 15:54:50] User Login model running for: owner@gmail.com
+[2025-04-22 15:54:50] Fetching user by email: owner@gmail.com
+[2025-04-22 15:54:50] User found for email: owner@gmail.com
+[2025-04-22 15:54:50] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-22 15:54:50] User status: 1
+[2025-04-22 15:54:50] User login successful: owner@gmail.com with role: owner
+[2025-04-22 15:54:50] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MzMwNDAwfQ==.31eec6b2841533d7e226ccaa82452d065ea00594c08a22b49def66e4a7776838 owner
+[2025-04-22 15:54:50] Database connection closed.
+[2025-04-22 16:06:05] Running auth controller ,login 
+[2025-04-22 16:06:05] running login...in auth controller
+[2025-04-22 16:06:05] login function running...
+[2025-04-22 16:06:05] Connection established successfully to the database: rad_gymverse
+[2025-04-22 16:06:05] User class instantiated with database connection.
+[2025-04-22 16:06:05] User Login model running for: owner@gmail.com
+[2025-04-22 16:06:05] Fetching user by email: owner@gmail.com
+[2025-04-22 16:06:06] User found for email: owner@gmail.com
+[2025-04-22 16:06:06] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-22 16:06:06] User status: 1
+[2025-04-22 16:06:06] User login successful: owner@gmail.com with role: owner
+[2025-04-22 16:06:06] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MzM0MDAwfQ==.9ad802a9234e7a287c5bae0ec8533d575190b7775ad8cc7f236bea3bc291d951 owner
+[2025-04-22 16:06:06] Database connection closed.
+[2025-04-22 16:28:25] Running auth controller ,login 
+[2025-04-22 16:28:25] running login...in auth controller
+[2025-04-22 16:28:25] login function running...
+[2025-04-22 16:28:26] Connection established successfully to the database: rad_gymverse
+[2025-04-22 16:28:26] User class instantiated with database connection.
+[2025-04-22 16:28:26] User Login model running for: owner@gmail.com
+[2025-04-22 16:28:26] Fetching user by email: owner@gmail.com
+[2025-04-22 16:28:26] User found for email: owner@gmail.com
+[2025-04-22 16:28:26] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-22 16:28:26] User status: 1
+[2025-04-22 16:28:26] User login successful: owner@gmail.com with role: owner
+[2025-04-22 16:28:26] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1MzM0MDAwfQ==.9ad802a9234e7a287c5bae0ec8533d575190b7775ad8cc7f236bea3bc291d951 owner
+[2025-04-22 16:28:26] Database connection closed.
+[2025-04-23 04:07:23] Running auth controller ,login 
+[2025-04-23 04:07:23] running login...in auth controller
+[2025-04-23 04:07:23] login function running...
+[2025-04-23 04:07:24] Connection established successfully to the database: rad_gymverse
+[2025-04-23 04:07:24] User class instantiated with database connection.
+[2025-04-23 04:07:24] User Login model running for: owner@gmail.com
+[2025-04-23 04:07:24] Fetching user by email: owner@gmail.com
+[2025-04-23 04:07:24] User found for email: owner@gmail.com
+[2025-04-23 04:07:24] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-23 04:07:25] User status: 1
+[2025-04-23 04:07:25] User login successful: owner@gmail.com with role: owner
+[2025-04-23 04:07:25] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1Mzc3MjAwfQ==.e2bffdd8cc0e4f3e13e44ca62b510776abded7133728af9f4918e23a4bf7eb1d owner
+[2025-04-23 04:07:25] Database connection closed.
+[2025-04-23 04:15:09] Connection established successfully to the database: rad_gymverse
+[2025-04-23 04:15:09] AttendanceOverviewModel initialized with database connection.
+[2025-04-23 04:15:09] AttendanceOverviewController initialized with model.
+[2025-04-23 04:15:09] Controller: Fetching attendance overview data.
+[2025-04-23 04:15:09] Invalid period type provided: today
+[2025-04-23 04:15:09] Error: Failed to fetch attendance overview data.
+[2025-04-23 04:15:09] Database connection closed.
+[2025-04-23 04:19:39] Connection established successfully to the database: rad_gymverse
+[2025-04-23 04:19:39] AttendanceOverviewModel initialized with database connection.
+[2025-04-23 04:19:39] AttendanceOverviewController initialized with model.
+[2025-04-23 04:19:39] Controller: Fetching attendance overview data.
+[2025-04-23 04:19:39] Invalid period type provided: today
+[2025-04-23 04:19:39] Error: Failed to fetch attendance overview data.
+[2025-04-23 04:19:39] Database connection closed.
+[2025-04-23 04:21:03] Running auth controller ,login 
+[2025-04-23 04:21:03] running login...in auth controller
+[2025-04-23 04:21:03] login function running...
+[2025-04-23 04:21:03] Connection established successfully to the database: rad_gymverse
+[2025-04-23 04:21:03] User class instantiated with database connection.
+[2025-04-23 04:21:03] User Login model running for: owner@gmail.com
+[2025-04-23 04:21:03] Fetching user by email: owner@gmail.com
+[2025-04-23 04:21:04] User found for email: owner@gmail.com
+[2025-04-23 04:21:04] Query bound and ready to execute for login: owner@gmail.com
+[2025-04-23 04:21:04] User status: 1
+[2025-04-23 04:21:04] User login successful: owner@gmail.com with role: owner
+[2025-04-23 04:21:04] Login Successful: eyJ1c2VyX2lkIjo3MiwiZXhwIjoxNzQ1Mzc3MjAwfQ==.e2bffdd8cc0e4f3e13e44ca62b510776abded7133728af9f4918e23a4bf7eb1d owner
+[2025-04-23 04:21:04] Database connection closed.
+[2025-04-23 04:21:09] Connection established successfully to the database: rad_gymverse
+[2025-04-23 04:21:09] AttendanceOverviewModel initialized with database connection.
+[2025-04-23 04:21:09] AttendanceOverviewController initialized with model.
+[2025-04-23 04:21:09] Controller: Fetching attendance overview data.
+[2025-04-23 04:21:09] Invalid period type provided: today
+[2025-04-23 04:21:09] Error: Failed to fetch attendance overview data.
+[2025-04-23 04:21:09] Database connection closed.
+[2025-04-23 04:21:10] Connection established successfully to the database: rad_gymverse
+[2025-04-23 04:21:10] AttendanceOverviewModel initialized with database connection.
+[2025-04-23 04:21:10] AttendanceOverviewController initialized with model.
+[2025-04-23 04:21:10] Controller: Fetching attendance overview data.
+[2025-04-23 04:21:10] Invalid period type provided: week
+[2025-04-23 04:21:10] Error: Failed to fetch attendance overview data.
+[2025-04-23 04:21:10] Database connection closed.
+[2025-04-23 04:21:10] Connection established successfully to the database: rad_gymverse
+[2025-04-23 04:21:10] AttendanceOverviewModel initialized with database connection.
+[2025-04-23 04:21:10] AttendanceOverviewController initialized with model.
+[2025-04-23 04:21:10] Controller: Fetching attendance overview data.
+[2025-04-23 04:21:10] Invalid period type provided: month
+[2025-04-23 04:21:10] Error: Failed to fetch attendance overview data.
+[2025-04-23 04:21:10] Database connection closed.
+[2025-04-23 04:21:11] Connection established successfully to the database: rad_gymverse
+[2025-04-23 04:21:11] AttendanceOverviewModel initialized with database connection.
+[2025-04-23 04:21:11] AttendanceOverviewController initialized with model.
+[2025-04-23 04:21:11] Controller: Fetching attendance overview data.
+[2025-04-23 04:21:11] Invalid period type provided: today
+[2025-04-23 04:21:11] Error: Failed to fetch attendance overview data.
+[2025-04-23 04:21:11] Database connection closed.
+[2025-04-23 04:22:06] Connection established successfully to the database: rad_gymverse
+[2025-04-23 04:22:06] AttendanceOverviewModel initialized with database connection.
+[2025-04-23 04:22:06] AttendanceOverviewController initialized with model.
+[2025-04-23 04:22:06] Controller: Fetching attendance overview data.
+[2025-04-23 04:22:06] Invalid period type provided: today
+[2025-04-23 04:22:06] Error: Failed to fetch attendance overview data.
+[2025-04-23 04:22:06] Database connection closed.
+[2025-04-23 04:22:35] Connection established successfully to the database: rad_gymverse
+[2025-04-23 04:22:35] AttendanceOverviewModel initialized with database connection.
+[2025-04-23 04:22:35] AttendanceOverviewController initialized with model.
+[2025-04-23 04:22:35] Controller: Fetching attendance overview data.
+[2025-04-23 04:22:35] Database connection closed.
+[2025-04-23 04:22:44] Connection established successfully to the database: rad_gymverse
+[2025-04-23 04:22:44] AttendanceOverviewModel initialized with database connection.
+[2025-04-23 04:22:44] AttendanceOverviewController initialized with model.
+[2025-04-23 04:22:44] Controller: Fetching attendance overview data.
+[2025-04-23 04:22:44] Database connection closed.
+[2025-04-23 04:22:46] Connection established successfully to the database: rad_gymverse
+[2025-04-23 04:22:46] AttendanceOverviewModel initialized with database connection.
+[2025-04-23 04:22:46] AttendanceOverviewController initialized with model.
+[2025-04-23 04:22:46] Controller: Fetching attendance overview data.
+[2025-04-23 04:22:46] Database connection closed.
+[2025-04-23 04:22:48] Connection established successfully to the database: rad_gymverse
+[2025-04-23 04:22:48] AttendanceOverviewModel initialized with database connection.
+[2025-04-23 04:22:48] AttendanceOverviewController initialized with model.
+[2025-04-23 04:22:48] Controller: Fetching attendance overview data.
+[2025-04-23 04:22:48] Database connection closed.
+[2025-04-23 04:23:05] Connection established successfully to the database: rad_gymverse
+[2025-04-23 04:23:05] AttendanceOverviewModel initialized with database connection.
+[2025-04-23 04:23:05] AttendanceOverviewController initialized with model.
+[2025-04-23 04:23:05] Controller: Fetching attendance overview data.
+[2025-04-23 04:23:05] Database connection closed.
+[2025-04-23 04:23:06] Connection established successfully to the database: rad_gymverse
+[2025-04-23 04:23:06] AttendanceOverviewModel initialized with database connection.
+[2025-04-23 04:23:06] AttendanceOverviewController initialized with model.
+[2025-04-23 04:23:06] Controller: Fetching attendance overview data.
+[2025-04-23 04:23:06] Database connection closed.
+[2025-04-23 04:24:52] Connection established successfully to the database: rad_gymverse
+[2025-04-23 04:24:52] AttendanceOverviewModel initialized with database connection.
+[2025-04-23 04:24:52] AttendanceOverviewController initialized with model.
+[2025-04-23 04:24:52] Controller: Fetching attendance overview data.
+[2025-04-23 04:24:53] Database connection closed.
+[2025-04-23 04:24:54] Connection established successfully to the database: rad_gymverse
+[2025-04-23 04:24:54] AttendanceOverviewModel initialized with database connection.
+[2025-04-23 04:24:54] AttendanceOverviewController initialized with model.
+[2025-04-23 04:24:54] Controller: Fetching attendance overview data.
+[2025-04-23 04:24:54] Database connection closed.
+[2025-04-23 04:24:55] Connection established successfully to the database: rad_gymverse
+[2025-04-23 04:24:55] AttendanceOverviewModel initialized with database connection.
+[2025-04-23 04:24:55] AttendanceOverviewController initialized with model.
+[2025-04-23 04:24:55] Controller: Fetching attendance overview data.
+[2025-04-23 04:24:55] Database connection closed.
+[2025-04-23 04:24:56] Connection established successfully to the database: rad_gymverse
+[2025-04-23 04:24:56] AttendanceOverviewModel initialized with database connection.
+[2025-04-23 04:24:56] AttendanceOverviewController initialized with model.
+[2025-04-23 04:24:56] Controller: Fetching attendance overview data.
+[2025-04-23 04:24:56] Database connection closed.
+[2025-04-23 04:24:58] Connection established successfully to the database: rad_gymverse
+[2025-04-23 04:24:58] AttendanceOverviewModel initialized with database connection.
+[2025-04-23 04:24:58] AttendanceOverviewController initialized with model.
+[2025-04-23 04:24:58] Controller: Fetching attendance overview data.
+[2025-04-23 04:24:59] Database connection closed.
+[2025-04-23 04:25:02] Connection established successfully to the database: rad_gymverse
+[2025-04-23 04:25:02] AttendanceOverviewModel initialized with database connection.
+[2025-04-23 04:25:02] AttendanceOverviewController initialized with model.
+[2025-04-23 04:25:02] Controller: Fetching attendance overview data.
+[2025-04-23 04:25:03] Database connection closed.
+[2025-04-23 04:25:03] Connection established successfully to the database: rad_gymverse
+[2025-04-23 04:25:03] AttendanceOverviewModel initialized with database connection.
+[2025-04-23 04:25:03] AttendanceOverviewController initialized with model.
+[2025-04-23 04:25:03] Controller: Fetching attendance overview data.
+[2025-04-23 04:25:04] Database connection closed.
+[2025-04-23 04:25:08] Connection established successfully to the database: rad_gymverse
+[2025-04-23 04:25:08] AttendanceOverviewModel initialized with database connection.
+[2025-04-23 04:25:08] AttendanceOverviewController initialized with model.
+[2025-04-23 04:25:08] Controller: Fetching attendance overview data.
+[2025-04-23 04:25:08] Database connection closed.
+[2025-04-23 04:25:23] Connection established successfully to the database: rad_gymverse
+[2025-04-23 04:25:23] AttendanceOverviewModel initialized with database connection.
+[2025-04-23 04:25:23] AttendanceOverviewController initialized with model.
+[2025-04-23 04:25:23] Controller: Fetching attendance overview data.
+[2025-04-23 04:25:24] Database connection closed.
+[2025-04-23 04:25:25] Connection established successfully to the database: rad_gymverse
+[2025-04-23 04:25:25] AttendanceOverviewModel initialized with database connection.
+[2025-04-23 04:25:25] AttendanceOverviewController initialized with model.
+[2025-04-23 04:25:25] Controller: Fetching attendance overview data.
+[2025-04-23 04:25:25] Database connection closed.
+[2025-04-23 04:25:26] Connection established successfully to the database: rad_gymverse
+[2025-04-23 04:25:26] AttendanceOverviewModel initialized with database connection.
+[2025-04-23 04:25:26] AttendanceOverviewController initialized with model.
+[2025-04-23 04:25:26] Controller: Fetching attendance overview data.
+[2025-04-23 04:25:26] Database connection closed.
