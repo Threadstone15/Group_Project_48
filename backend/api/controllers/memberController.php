@@ -145,6 +145,18 @@ switch ($action) {
         createMealPlan($user_id);
         break;
 
+    // get plans
+    // workout plans
+    case 'get_workout_plans':
+        logMessage("Running get_workout_plans....in controller");
+        getWorkoutPlans($user_id);
+        break;
+    // meal plans
+    case 'get_meal_plans':
+        logMessage("Running get_meal_plans....in controller");
+        getMealPlans($user_id);
+        break;
+
 
     default:
         echo json_encode(["error" => "Invalid action"]);

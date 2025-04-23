@@ -8,18 +8,32 @@
 </head>
 <body>
 
-  <div class="container">
-    <h1 class="plan-title">Workout Plan</h1>
-    
-    <div class="workout-plan">
-      <h2 class="plan-header">Today's Exercises</h2>
-
-      <div id="exercise-list" class="exercise-list">
-        <!-- Exercises will be added here dynamically -->
+    <div class="container">
+      <h1 class="title">Choose a Plan</h1>
+      <div class="main-buttons">
+        <button id="workoutBtn" class="primary-btn">Workout Plans</button>
+        <button id="mealBtn" class="primary-btn">Meal Plans</button>
       </div>
-      
-      <button id="show-more-btn" class="show-more-btn">Show More Exercises</button>
     </div>
-  </div>
-</body>
+  
+    <!-- Plan Type Popup -->
+    <div id="planTypeModal" class="modal hidden">
+      <div class="modal-content">
+        <h2>Select Plan Type</h2>
+        <button class="secondary-btn" data-type="personal">Personal Plan</button>
+        <button class="secondary-btn" data-type="trainer">From Trainer</button>
+        <button class="close-btn">Close</button>
+      </div>
+    </div>
+  
+    <!-- Plan List Popup -->
+    <div id="planListModal" class="modal hidden">
+      <div class="modal-content">
+        <h2 id="planListTitle"></h2>
+        <div id="plansContainer" class="plans-container"></div>
+        <button class="close-btn">Close</button>
+      </div>
+    </div>
+
+  </body>
 </html>

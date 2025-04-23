@@ -52,86 +52,40 @@ class WorkoutPlan
         }
     }
 
-
-    public function getWorkoutPlans()
+    public function getWorkoutPlansByUserId($user_id)
     {
-        logMessage("Fetching workout plans...");
+        logMessage("Fetching workout plans for user_id: $user_id");
 
-        // Query to get all workout plans
-        $query = "SELECT * FROM " . $this->table;
-        $stmt = $this->conn->prepare($query);
-
-        if ($stmt === false) {
-            logMessage("Error preparing statement for fetching all workout plans: " . $this->conn->error);
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
             return false;
         }
 
-        // Execute the query
+        $query = "CALL GetWorkoutPlansByUserId(?)";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing stored procedure call: " . $this->conn->error);
+            return false;
+        }
+
+        if (!$stmt->bind_param("i", $user_id)) {
+            logMessage("Error binding parameter for stored procedure call: " . $stmt->error);
+            return false;
+        }
+
         if ($stmt->execute()) {
             $result = $stmt->get_result();
-            if ($result && $result->num_rows > 0) {
-                $workoutPlans = $result->fetch_all(MYSQLI_ASSOC);
-                logMessage("Workout plans fetched successfully");
-                return $workoutPlans;
-            } else {
-                logMessage("No workout plans found");
-                return [];
+            $plans = [];
+
+            while ($row = $result->fetch_assoc()) {
+                $plans[] = $row;
             }
+
+            logMessage("Workout plans fetched successfully for user_id: $user_id");
+            return $plans;
         } else {
-            logMessage("Error fetching workout plans: " . $stmt->error);
-            return false;
-        }
-    }
-
-    public function updateWorkoutPlan($workout_plan_id, $trainer_id, $name, $description)
-    {
-        logMessage("Updating workout plan with ID: $workout_plan_id");
-
-        $query = "UPDATE " . $this->table . " 
-                  SET trainer_id = ?, name = ?, description = ? 
-                  WHERE workout_plan_id = ?";
-        $stmt = $this->conn->prepare($query);
-
-        if ($stmt === false) {
-            logMessage("Error preparing statement for updating workout plan: " . $this->conn->error);
-            return false;
-        }
-
-        if (!$stmt->bind_param("sssi", $trainer_id, $name, $description, $workout_plan_id)) {
-            logMessage("Error binding parameters for updating workout plan: " . $stmt->error);
-            return false;
-        }
-        logMessage("Query bound for updating workout plan ID: $workout_plan_id");
-
-        if ($stmt->execute()) {
-            logMessage("Workout plan updated successfully for ID: $workout_plan_id");
-            return true;
-        } else {
-            logMessage("Error updating workout plan: " . $stmt->error);
-            return false;
-        }
-    }
-
-    public function deleteWorkoutPlan($workout_plan_id)
-    {
-        logMessage("Deleting workout plan with ID: $workout_plan_id");
-
-        $query = "DELETE FROM " . $this->table . " WHERE workout_plan_id = ?";
-        $stmt = $this->conn->prepare($query);
-
-        if ($stmt === false) {
-            logMessage("Error preparing statement for deleting workout plan: " . $this->conn->error);
-            return false;
-        }
-
-        $stmt->bind_param("i", $workout_plan_id);
-        logMessage("Query bound for deleting workout plan ID: $workout_plan_id");
-
-        if ($stmt->execute()) {
-            logMessage("Workout plan deleted successfully with ID: $workout_plan_id");
-            return true;
-        } else {
-            logMessage("Error deleting workout plan: " . $stmt->error);
+            logMessage("Stored procedure execution failed: " . $stmt->error);
             return false;
         }
     }

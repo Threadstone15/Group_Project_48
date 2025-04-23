@@ -48,4 +48,42 @@ class MealPlan
             return false;
         }
     }
+
+    public function getMealPlansByUserId($user_id)
+    {
+        logMessage("Fetching meal plans for user_id: $user_id");
+
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
+        $query = "CALL GetMealPlansByUserId(?)";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing stored procedure call: " . $this->conn->error);
+            return false;
+        }
+
+        if (!$stmt->bind_param("i", $user_id)) {
+            logMessage("Error binding parameter for stored procedure call: " . $stmt->error);
+            return false;
+        }
+
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            $plans = [];
+
+            while ($row = $result->fetch_assoc()) {
+                $plans[] = $row;
+            }
+
+            logMessage("Meal plans fetched successfully for user_id: $user_id");
+            return $plans;
+        } else {
+            logMessage("Stored procedure execution failed: " . $stmt->error);
+            return false;
+        }
+    }
 }

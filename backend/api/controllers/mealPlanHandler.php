@@ -29,3 +29,19 @@ function createMealPlan($user_id)
         echo json_encode(["message" => "Failed to create workout plan."]);
     }
 }
+
+function getMealPlans($user_id)
+{
+    logMessage("get meal plans function running...");
+    $mealPlan = new MealPlan();
+
+    $result = $mealPlan->getMealPlansByUserId($user_id);
+
+    if ($result) {
+        logMessage("Meal plans data fetched");
+        echo json_encode($result);
+    } else {
+        logMessage("No meal plans found");
+        echo json_encode(["error" => "No meal plans found"]);
+    }
+}
