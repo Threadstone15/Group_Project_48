@@ -107,3 +107,22 @@ body {
   font-size: 16px;
   color: #333;
 }
+.plans-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.plans-table th, .plans-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.edit-btn, .delete-btn {
+  padding: 4px 8px;
+  margin-right: 5px;
+  cursor: pointer;
+}

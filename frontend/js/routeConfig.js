@@ -67,7 +67,9 @@ import { initTrainer_assignedMembers } from "./trainer/assignedMembers.js";
 import { initTrainer_classSchedule } from "./trainer/classSchedule.js";
 import { initTrainer_myAcnt } from "./trainer/myAcnt.js";
 import { initTrainer_home } from "./trainer/trainerHome.js";
-import { initTrainer_workoutMealPlans } from "./trainer/workoutMealPlans.js";
+import { initTrainer_createMealPlans } from "./trainer/createMealPlans.js";
+import { initTrainer_createWorkoutPlans } from "./trainer/createWorkoutPlans.js";
+import { initTrainer_planRequests } from "./trainer/planRequests.js";
 
 import { navigate } from "./router.js";
 
@@ -126,9 +128,11 @@ export const validRoutes = {
         trainer: [
             "trainer/trainerHome",
             "trainer/assignedMembers",
-            "trainer/workoutMealPlans",
             "trainer/myAcnt",
-            "trainer/classSchedule"
+            "trainer/classSchedule",
+            "trainer/createWorkoutPlans",
+            "trainer/createMealPlans",
+            "trainer/planRequests"
         ]
     }
 };
@@ -210,7 +214,11 @@ export function runDashboardPgJS(role, page) {
             case 'classSchedule' : initTrainer_classSchedule(); break;
             case 'myAcnt' : initTrainer_myAcnt(); break;
             case 'trainerHome' : initTrainer_home(); break;
-            case 'workoutMealPlans' : initTrainer_workoutMealPlans(); break;
+            case 'createWorkoutPlans' : initTrainer_createWorkoutPlans(); break;
+            case 'createMealPlans' : initTrainer_createMealPlans(); break;
+            case 'planRequests' : initTrainer_planRequests(); break;
+
+
             default : console.error("Undefined trainer dashboard "); break;
         }
     }

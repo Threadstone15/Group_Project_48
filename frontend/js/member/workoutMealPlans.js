@@ -3,6 +3,74 @@ export function initMember_workoutMealPlans() {
 
   const mealPlannerContainer = document.getElementById('meal-planner');
   const generatePlannerButton = document.getElementById('generate-meal-planner');
+  const requestBtn = document.getElementById('request-planner');
+  const modal = document.getElementById('requestModal');
+  const closeBtn = document.querySelector('.close1-btn');
+  const messageArea = document.getElementById('modal1-message-area');
+  const noTrainerMsg = document.getElementById('no-trainer-msg');
+  const sendMessageBtn = document.getElementById('sendMessageBtn');
+  const trainerMessage = document.getElementById('trainerMessage');
+
+  const authToken = localStorage.getItem('authToken');
+  let assignedTrainerId = null;
+
+  requestBtn.addEventListener('click', async () => {
+    try {
+      const res = await fetch('http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=check_trainer', {
+        headers: {
+          'Authorization': `Bearer ${authToken}`
+        }
+      });
+      const data = await res.json();
+      console.log(data);
+      modal.classList.remove('hidden1');
+      if (data && data.trainer_id) {
+        assignedTrainerId = data.trainer_id;
+        messageArea.classList.remove('hidden1');
+        noTrainerMsg.classList.add('hidden1');
+      } else {
+        messageArea.classList.add('hidden1');
+        noTrainerMsg.classList.remove('hidden1');
+      }
+    } catch (err) {
+      alert('Error checking trainer status.');
+      console.error(err);
+    }
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.classList.add('hidden1');
+    trainerMessage.value = '';
+  });
+
+  sendMessageBtn.addEventListener('click', async () => {
+    const message = trainerMessage.value.trim();
+    if (!message) return alert('Please enter a message.');
+
+    try {
+      const res = await fetch('http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=request_meal_plan', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${authToken}`,
+        },
+        body: JSON.stringify({ 
+          message: message,
+          trainer_id: assignedTrainerId
+        })
+      });
+
+      const result = await res.json();
+      if (!res.ok) throw new Error(result.message || 'Failed to send message.');
+
+      alert('Request sent successfully!');
+      modal.classList.add('hidden1');
+      trainerMessage.value = '';
+    } catch (err) {
+      console.error(err);
+      alert('Failed to send message.');
+    }
+  });
 
   const mealTypes = ['Breakfast', 'Lunch', 'Dinner', 'Snacks'];
 

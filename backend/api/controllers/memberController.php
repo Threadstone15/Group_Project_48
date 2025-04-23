@@ -18,6 +18,7 @@ include_once "./assignedTrainerHandler.php";
 include_once "./classBookingHandler.php";
 include_once "./workoutPlanHandler.php";
 include_once "./mealPlanHandler.php";
+include_once "./planRequestHandler.php";
 
 $conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -146,16 +147,40 @@ switch ($action) {
         break;
 
     // get plans
+    // check trainer for trainer plans
+    case 'check_trainer':
+        logMessage("Running check_trainer....in controller");
+        getAssignedTrainer($user_id);
+        break;
     // workout plans
+    // personal or assigned workout plans
     case 'get_workout_plans':
         logMessage("Running get_workout_plans....in controller");
         getWorkoutPlans($user_id);
         break;
+    // request workout plan from trainer
+    case 'request_workout_plan':
+        logMessage("Running request_workout_plan....in controller");
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        requestWorkoutPlan($user_id, $data);
+        break;
+
     // meal plans
     case 'get_meal_plans':
         logMessage("Running get_meal_plans....in controller");
         getMealPlans($user_id);
         break;
+    case 'request_meal_plan':
+        logMessage("Running request_meal_plan....in controller");
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        requestMealPlan($user_id, $data);
+        break;
+
+    // check trainer
+
+
 
 
     default:

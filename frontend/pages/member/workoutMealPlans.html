@@ -21,6 +21,22 @@
       <div id="meal-planner" class="meal-planner"></div>
     </div>
   </div>
+  <div class="request-plan-container">
+    <h1>Request a Plan from your Trainer</h1>
+    <button id="request-planner">Request Plan</button>
+  </div>
+
+  <div id="requestModal" class="modal1 hidden1">
+    <div class="modal1-content">
+      <span class="close1-btn">&times;</span>
+      <h2 id="modal1-title">Request a Meal Plan</h2>
+      <div id="modal1-message-area">
+        <textarea id="trainerMessage" placeholder="Write your message here..." rows="4" style="width: 100%;"></textarea>
+        <button id="sendMessageBtn">Send</button>
+      </div>
+      <p id="no-trainer-msg" class="hidden1">Sorry, you don't have any trainers assigned.</p>
+    </div>
+  </div>
 
   <!-- Optional JavaScript if you're dynamically generating plans -->
   <!-- <script src="mealPlans.js"></script> -->

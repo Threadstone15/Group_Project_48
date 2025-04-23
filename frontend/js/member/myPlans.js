@@ -5,7 +5,6 @@ export function initMember_myPlans() {
     const mealBtn = document.getElementById('mealBtn');
     const planTypeModal = document.getElementById('planTypeModal');
     const planListModal = document.getElementById('planListModal');
-    const plansContainer = document.getElementById('plansContainer');
     const planListTitle = document.getElementById('planListTitle');
   
     let selectedCategory = ''; // "workout" or "meal"
@@ -46,6 +45,41 @@ export function initMember_myPlans() {
     planListModal.addEventListener('click', (e) => {
       if (e.target.classList.contains('close-btn')) {
         planListModal.classList.add('hidden');
+      } else if (e.target.classList.contains('delete-btn')) {
+        const id = e.target.dataset.id;
+        const category = e.target.dataset.category;
+        if (confirm("Are you sure you want to delete this plan?")) {
+          deletePlan(id, category);
+        }
+      } else if (e.target.classList.contains('edit-btn')) {
+        const id = e.target.dataset.id;
+        const category = e.target.dataset.category;
+        const allPlans = JSON.parse(localStorage.getItem(`${category}_plans`)) || [];
+        const plan = allPlans.find(plan => plan.id == id);
+    
+        if (plan) {
+          document.getElementById('editPlanId').value = plan.id;
+          document.getElementById('editPlanCategory').value = category;
+          document.getElementById('planName').value = plan.name;
+    
+          try {
+            const parsedDescription = JSON.parse(plan.description);
+            if (category === 'meal') {
+              document.getElementById('mealDetails').classList.remove('hidden');
+              document.getElementById('workoutDetails').classList.add('hidden');
+              renderMealInputs(parsedDescription);
+            } else {
+              document.getElementById('workoutDetails').classList.remove('hidden');
+              document.getElementById('mealDetails').classList.add('hidden');
+              renderWorkoutInputs(parsedDescription);
+            }
+          } catch (e) {
+            console.error("Error parsing plan description:", e);
+            alert("Error loading plan details. The format may be invalid.");
+          }
+    
+          document.getElementById('editPlanModal').classList.remove('hidden');
+        }
       }
     });
   
@@ -75,7 +109,6 @@ export function initMember_myPlans() {
         if (!response.ok) throw new Error(data.message || "Failed to fetch plans.");
         console.log("Data received from backend:", data);
   
-        // Save all plans to localStorage
         localStorage.setItem(`${category}_plans`, JSON.stringify(data));
       } catch (error) {
         console.error("Error fetching plans:", error);
@@ -84,43 +117,229 @@ export function initMember_myPlans() {
     }
   
     function renderPlans(category, plans) {
-      plansContainer.innerHTML = '';
+      const tableBody = document.getElementById('plansTableBody');
+      tableBody.innerHTML = ''; // Clear existing rows
   
-      plans.forEach(plan => {
-        const div = document.createElement('div');
-        div.classList.add('plan-item');
+      plans.forEach((plan, index) => {
+        const row = document.createElement('tr');
   
-        if (category === 'workout') {
-          try {
-            const description = JSON.parse(plan.description);
-            description.forEach(day => {
-              const dayDiv = document.createElement('div');
-              dayDiv.innerHTML = `<strong>Day ${day.day}:</strong>`;
-              day.exercises.forEach(ex => {
-                const exDiv = document.createElement('div');
-                exDiv.textContent = `${ex.name} - ${ex.sets} sets x ${ex.reps} reps`;
-                dayDiv.appendChild(exDiv);
+        const trainerText = plan.trainer_id ? `Trainer #${plan.trainer_id}` : 'Personal';
+  
+        let details = '';
+        try {
+          const parsed = JSON.parse(plan.description);
+          if (category === 'workout') {
+            if (Array.isArray(parsed)) {
+              parsed.forEach(day => {
+                details += `<strong>Day ${day.day}:</strong><br>`;
+                if (day.exercises && Array.isArray(day.exercises)) {
+                  day.exercises.forEach(ex => {
+                    details += `${ex.name} - ${ex.sets} sets x ${ex.reps} reps<br>`;
+                  });
+                }
               });
-              div.appendChild(dayDiv);
-            });
-          } catch (e) {
-            div.textContent = "Invalid workout plan format.";
+            }
+          } else {
+            if (typeof parsed === 'object' && parsed !== null) {
+              Object.entries(parsed).forEach(([mealType, mealData]) => {
+                details += `<strong>${mealType}</strong> - ${mealData.name || ''}<br>
+                            <em>Time:</em> ${mealData.time || ''} | <em>Calories:</em> ${mealData.calories || ''}<br>`;
+              });
+            }
           }
-        } else {
-          try {
-            const meals = JSON.parse(plan.description);
-            meals.forEach(meal => {
-              const mealDiv = document.createElement('div');
-              mealDiv.innerHTML = `<strong>${meal.meal}:</strong> ${meal.items}`;
-              div.appendChild(mealDiv);
-            });
-          } catch (e) {
-            div.textContent = plan.description;
-          }
+        } catch (e) {
+          console.error("Error parsing plan description:", e);
+          details = plan.description || "Invalid format or empty description.";
         }
   
-        plansContainer.appendChild(div);
+        row.innerHTML = `
+          <td>${index + 1}</td>
+          <td>${details}</td>
+          <td>${trainerText}</td>
+          <td>${new Date(plan.created_at).toLocaleString()}</td>
+          <td>
+            <button class="edit-btn" data-id="${plan.id}" data-category="${category}">Edit</button>
+            <button class="delete-btn" data-id="${plan.id}" data-category="${category}">Remove</button>
+          </td>
+        `;
+  
+        tableBody.appendChild(row);
+      });  
+    }
+  
+    function renderMealInputs(description) {
+      const meals = ['breakfast', 'lunch', 'dinner', 'snack'];
+      const container = document.getElementById('mealInputs');
+      container.innerHTML = '';
+    
+      meals.forEach(meal => {
+        const data = description[meal] || { time: '', calories: '', name: '' };
+        container.innerHTML += `
+          <div>
+            <label>${meal.charAt(0).toUpperCase() + meal.slice(1)}:</label>
+            <input type="text" name="${meal}_name" placeholder="Meal Name" value="${data.name || ''}">
+            <input type="text" name="${meal}_time" placeholder="Time" value="${data.time || ''}">
+            <input type="number" name="${meal}_calories" placeholder="Calories" value="${data.calories || ''}">
+          </div>
+        `;
       });
     }
-  }
   
+    function renderWorkoutInputs(description) {
+      const container = document.getElementById('workoutInputs');
+      container.innerHTML = '';
+    
+      if (Array.isArray(description)) {
+        description.forEach((day, i) => {
+          const dayHeader = document.createElement('h4');
+          dayHeader.textContent = `Day ${day.day || i + 1}`;
+          container.appendChild(dayHeader);
+          
+          if (day.exercises && Array.isArray(day.exercises)) {
+            day.exercises.forEach((ex, j) => {
+              const exerciseDiv = document.createElement('div');
+              exerciseDiv.className = 'exercise-row';
+              exerciseDiv.innerHTML = `
+                <input type="text" name="exercise_day_${i}_name_${j}" placeholder="Exercise Name" value="${ex.name || ''}">
+                <input type="number" name="exercise_day_${i}_sets_${j}" placeholder="Sets" value="${ex.sets || ''}">
+                <input type="number" name="exercise_day_${i}_reps_${j}" placeholder="Reps" value="${ex.reps || ''}">
+              `;
+              container.appendChild(exerciseDiv);
+            });
+          }
+        });
+      }
+    }
+  
+    document.getElementById('addWorkoutRow').addEventListener('click', () => {
+      const container = document.getElementById('workoutInputs');
+      const dayCount = container.querySelectorAll('h4').length;
+      const exerciseCount = container.querySelectorAll('.exercise-row').length;
+      
+      const exerciseDiv = document.createElement('div');
+      exerciseDiv.className = 'exercise-row';
+      exerciseDiv.innerHTML = `
+        <input type="text" name="exercise_day_${dayCount}_name_${exerciseCount}" placeholder="Exercise Name">
+        <input type="number" name="exercise_day_${dayCount}_sets_${exerciseCount}" placeholder="Sets">
+        <input type="number" name="exercise_day_${dayCount}_reps_${exerciseCount}" placeholder="Reps">
+      `;
+      container.appendChild(exerciseDiv);
+    });
+  
+    document.getElementById('editPlanForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const planId = document.getElementById('editPlanId').value;
+      const category = document.getElementById('editPlanCategory').value;
+      const planName = document.getElementById('planName').value;
+      const authToken = localStorage.getItem('authToken');
+    
+      let description = {};
+    
+      if (category === 'meal') {
+        description = ['breakfast', 'lunch', 'dinner', 'snack'].reduce((acc, meal) => {
+          acc[meal] = {
+            name: document.querySelector(`[name="${meal}_name"]`).value,
+            time: document.querySelector(`[name="${meal}_time"]`).value,
+            calories: parseInt(document.querySelector(`[name="${meal}_calories"]`).value) || 0
+          };
+          return acc;
+        }, {});
+      } else {
+        description = [];
+        const dayHeaders = document.querySelectorAll('#workoutInputs h4');
+        
+        dayHeaders.forEach((header, dayIndex) => {
+          const dayExercises = [];
+          const exerciseRows = header.nextElementSibling.querySelectorAll('.exercise-row') || [];
+          
+          exerciseRows.forEach(row => {
+            dayExercises.push({
+              name: row.querySelector(`[name^="exercise_day_${dayIndex}_name_"]`).value,
+              sets: parseInt(row.querySelector(`[name^="exercise_day_${dayIndex}_sets_"]`).value) || 0,
+              reps: parseInt(row.querySelector(`[name^="exercise_day_${dayIndex}_reps_"]`).value) || 0
+            });
+          });
+          
+          description.push({
+            day: dayIndex + 1,
+            exercises: dayExercises
+          });
+        });
+      }
+    
+      const updatedPlan = {
+        id: planId,
+        name: planName,
+        description: JSON.stringify(description),
+      };
+    
+      const endpoint = category === 'workout'
+        ? `http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=update_workout_plan`
+        : `http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=update_meal_plan`;
+    
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${authToken}`,
+          },
+          body: JSON.stringify(updatedPlan),
+        });
+    
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.message || 'Failed to update plan.');
+    
+        document.getElementById('editPlanModal').classList.add('hidden');
+        await fetchPlansFromBackend(category);
+        alert('Plan updated successfully!');
+      } catch (error) {
+        console.error('Error updating plan:', error);
+        alert('An error occurred while updating the plan.');
+      }
+    });
+  
+    async function deletePlan(planId, category) {
+      const authToken = localStorage.getItem("authToken");
+      const endpoint = category === 'workout'
+        ? `http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=delete_workout_plan`
+        : `http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=delete_meal_plan`;
+  
+      try {
+        const response = await fetch(endpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${authToken}`
+          },
+          body: JSON.stringify({ id: planId })
+        });
+  
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.message || "Failed to delete plan.");
+        alert("Plan deleted successfully.");
+  
+        await fetchPlansFromBackend(category);
+        const updatedPlans = JSON.parse(localStorage.getItem(`${category}_plans`)) || [];
+        renderPlans(category, updatedPlans);
+      } catch (error) {
+        console.error("Error deleting plan:", error);
+        alert("An error occurred while deleting the plan.");
+      }
+    }
+  
+    // Close modal when clicking outside of it
+    document.querySelectorAll('.modal').forEach(modal => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.add('hidden');
+        }
+      });
+    });
+  
+    document.querySelectorAll('.close-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.closest('.modal').classList.add('hidden');
+      });
+    });
+}
