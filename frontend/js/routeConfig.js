@@ -48,7 +48,7 @@ import { initMember_home } from "./member/memberHome.js";
 import { initMember_myAcnt } from "./member/myAcnt.js";
 import { initMember_trackProgress } from "./member/trackYourProgress.js";
 import { initMember_upgradePlan } from "./member/upgradePlan.js";
-import { initMember_viewPlan } from "./member/viewPlan.js";
+import { initMember_myPlans } from "./member/myPlans.js";
 import { initMember_workoutPlans } from "./member/workoutPlans.js";
 import { initMember_workoutMealPlans } from "./member/workoutMealPlans.js";
 import { initMember_payments } from "./member/payments.js";
@@ -103,6 +103,7 @@ export const validRoutes = {
             "member/workoutMealPlans",
             "member/upgradePlan",
             "member/myAcnt",
+            "member/myPlans",
         ],
         admin: [
             "admin/adminHome",
@@ -185,7 +186,7 @@ export function runDashboardPgJS(role, page) {
             case 'trackYourProgress' : initMember_trackProgress(); break;
             case 'payments' : initMember_payments(); break;
             case 'upgradePlan' : initMember_upgradePlan(); break;
-            case 'viewPlan' : initMember_viewPlan(); break;
+            case 'myPlans' : initMember_myPlans(); break;
             case 'workoutPlans' : initMember_workoutPlans(); break;
             case 'workoutMealPlans' : initMember_workoutMealPlans(); break;
             case 'getATrainer' : initMember_getATrainer(); break;
