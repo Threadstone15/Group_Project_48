@@ -1,18 +1,23 @@
 <?php
 
-include_once "../../logs/save.php"; 
-require_once "../../config/database.php"; 
+include_once "../../logs/save.php";
+require_once "../../config/database.php";
 
-class WorkoutPlan {
+class WorkoutPlan
+{
     private $conn;
-    private $table = "workout_plan";
+    private $table = "workout_plans";
 
-    public function __construct() {
+
+
+    public function __construct()
+    {
         $this->conn = DatabaseConnection::getInstance()->getConnection();
         logMessage("WorkoutPlan model initialized with database connection.");
     }
 
-    public function addWorkoutPlan($trainer_id, $name, $description) {
+    public function addWorkoutPlan($user_id, $description)
+    {
         logMessage("Adding new workout plan...");
 
         if (!$this->conn) {
@@ -21,8 +26,8 @@ class WorkoutPlan {
         }
 
         // Prepare the insert query
-        $query = "INSERT INTO " . $this->table . " (trainer_id, name, description) 
-                  VALUES (?, ?, ?)";
+        $query = "INSERT INTO " . $this->table . " (user_id, description) 
+              VALUES (?, ?)";
         $stmt = $this->conn->prepare($query);
 
         if ($stmt === false) {
@@ -30,16 +35,16 @@ class WorkoutPlan {
             return false;
         }
 
-        // Bind the parameters for trainer_id, name, and description
-        if (!$stmt->bind_param("sss", $trainer_id, $name, $description)) {
+        // Bind the parameters for user_id and description
+        if (!$stmt->bind_param("is", $user_id, $description)) {
             logMessage("Error binding parameters for workout plan insertion: " . $stmt->error);
             return false;
         }
-        logMessage("Query bound for adding workout plan: $name");
+        logMessage("Query bound for adding workout plan for user_id: $user_id");
 
         // Execute the query
         if ($stmt->execute()) {
-            logMessage("Workout plan added successfully: $name");
+            logMessage("Workout plan added successfully for user_id: $user_id");
             return true;
         } else {
             logMessage("Workout plan insertion failed: " . $stmt->error);
@@ -47,7 +52,9 @@ class WorkoutPlan {
         }
     }
 
-    public function getWorkoutPlans() {
+
+    public function getWorkoutPlans()
+    {
         logMessage("Fetching workout plans...");
 
         // Query to get all workout plans
@@ -76,7 +83,8 @@ class WorkoutPlan {
         }
     }
 
-    public function updateWorkoutPlan($workout_plan_id, $trainer_id, $name, $description) {
+    public function updateWorkoutPlan($workout_plan_id, $trainer_id, $name, $description)
+    {
         logMessage("Updating workout plan with ID: $workout_plan_id");
 
         $query = "UPDATE " . $this->table . " 
@@ -104,7 +112,8 @@ class WorkoutPlan {
         }
     }
 
-    public function deleteWorkoutPlan($workout_plan_id) {
+    public function deleteWorkoutPlan($workout_plan_id)
+    {
         logMessage("Deleting workout plan with ID: $workout_plan_id");
 
         $query = "DELETE FROM " . $this->table . " WHERE workout_plan_id = ?";
@@ -127,4 +136,3 @@ class WorkoutPlan {
         }
     }
 }
-?>

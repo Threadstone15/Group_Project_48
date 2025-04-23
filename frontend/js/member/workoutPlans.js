@@ -1,5 +1,6 @@
 export function initMember_workoutPlans() {
   console.log('initializing workoutPlans.js');
+
   // Get DOM Elements
   const workoutDaysContainer = document.querySelector('.workout-days-container');
   const workoutPlannerContainer = document.getElementById('workout-planner');
@@ -18,7 +19,6 @@ export function initMember_workoutPlans() {
     workoutDaysContainer.style.display = 'none';
     workoutPlannerContainer.innerHTML = '';
 
-    // Generate planner columns for each day
     for (let i = 1; i <= workoutDays; i++) {
       const column = document.createElement('div');
       column.className = 'workout-column';
@@ -43,6 +43,13 @@ export function initMember_workoutPlans() {
 
       workoutPlannerContainer.appendChild(column);
     }
+
+    // Optionally, add a save button
+    const saveButton = document.createElement('button');
+    saveButton.className = 'save-workout-btn';
+    saveButton.textContent = 'Save Workout Plan';
+    saveButton.addEventListener('click', sendWorkoutPlanToBackend);
+    workoutPlannerContainer.appendChild(saveButton);
   }
 
   // Function to add an exercise row
@@ -51,16 +58,20 @@ export function initMember_workoutPlans() {
     exerciseRow.className = 'exercise-row';
 
     exerciseRow.innerHTML = `
-    <input type="text" placeholder="Exercise name" class="exercise-name">
-    <input type="number" placeholder="No. of sets" class="exercise-sets">
-    <input type="number" placeholder="No. of reps" class="exercise-reps">
-  `;
+      <input type="text" placeholder="Exercise name" class="exercise-name">
+      <input type="number" placeholder="No. of sets" class="exercise-sets">
+      <input type="number" placeholder="No. of reps" class="exercise-reps">
+    `;
 
     const editButton = document.createElement('button');
     editButton.className = 'edit-exercise-btn';
     editButton.textContent = 'Edit';
     editButton.addEventListener('click', () =>
-      showEditModal(exerciseRow.querySelector('.exercise-name'), exerciseRow.querySelector('.exercise-sets'), exerciseRow.querySelector('.exercise-reps'))
+      showEditModal(
+        exerciseRow.querySelector('.exercise-name'),
+        exerciseRow.querySelector('.exercise-sets'),
+        exerciseRow.querySelector('.exercise-reps')
+      )
     );
     exerciseRow.appendChild(editButton);
 
@@ -73,7 +84,7 @@ export function initMember_workoutPlans() {
     container.appendChild(exerciseRow);
   }
 
-  // Function to show a modal
+  // Modal utility
   function showModal({ title, content, onConfirm, onCancel }) {
     const modalOverlay = document.createElement('div');
     modalOverlay.className = 'modal-overlay';
@@ -87,9 +98,7 @@ export function initMember_workoutPlans() {
     const closeButton = document.createElement('button');
     closeButton.className = 'close-btn';
     closeButton.textContent = '×';
-    closeButton.addEventListener('click', () =>
-      document.body.removeChild(modalOverlay)
-    );
+    closeButton.addEventListener('click', () => document.body.removeChild(modalOverlay));
     modalHeader.appendChild(closeButton);
 
     const modalContent = document.createElement('div');
@@ -126,16 +135,16 @@ export function initMember_workoutPlans() {
     document.body.appendChild(modalOverlay);
   }
 
-  // Function to show edit modal
+  // Edit modal
   function showEditModal(exerciseInput, setsInput, repsInput) {
     const content = `
-    <label>Exercise Name:</label>
-    <input type="text" value="${exerciseInput.value}" id="edit-exercise-name">
-    <label>No. of Sets:</label>
-    <input type="number" value="${setsInput.value}" id="edit-sets">
-    <label>No. of Reps:</label>
-    <input type="number" value="${repsInput.value}" id="edit-reps">
-  `;
+      <label>Exercise Name:</label>
+      <input type="text" value="${exerciseInput.value}" id="edit-exercise-name">
+      <label>No. of Sets:</label>
+      <input type="number" value="${setsInput.value}" id="edit-sets">
+      <label>No. of Reps:</label>
+      <input type="number" value="${repsInput.value}" id="edit-reps">
+    `;
     showModal({
       title: 'Edit Exercise',
       content,
@@ -145,11 +154,11 @@ export function initMember_workoutPlans() {
         repsInput.value = document.getElementById('edit-reps').value;
         alert('Exercise updated successfully!');
       },
-      onCancel: () => console.log('Edit canceled.'),
+      onCancel: () => console.log('Edit canceled.')
     });
   }
 
-  // Function to show delete modal
+  // Delete modal
   function showDeleteModal(exerciseRow) {
     const content = `<p>Are you sure you want to delete this exercise?</p>`;
     showModal({
@@ -159,11 +168,66 @@ export function initMember_workoutPlans() {
         exerciseRow.remove();
         alert('Exercise deleted successfully!');
       },
-      onCancel: () => console.log('Delete canceled.'),
+      onCancel: () => console.log('Delete canceled.')
     });
   }
 
-  // Attach event listener
-  generatePlannerButton.addEventListener('click', generateWorkoutPlanner);
+  // Collect workout plan data
+  function collectWorkoutPlanData() {
+    const workoutColumns = document.querySelectorAll('.workout-column');
+    const workoutPlan = [];
 
+    workoutColumns.forEach((column, index) => {
+      const day = index + 1;
+      const exercises = [];
+
+      const exerciseRows = column.querySelectorAll('.exercise-row');
+      exerciseRows.forEach(row => {
+        const name = row.querySelector('.exercise-name').value;
+        const sets = parseInt(row.querySelector('.exercise-sets').value);
+        const reps = parseInt(row.querySelector('.exercise-reps').value);
+
+        if (name && sets && reps) {
+          exercises.push({ name, sets, reps });
+        }
+      });
+
+      workoutPlan.push({ day, exercises });
+    });
+
+    return workoutPlan;
+  }
+
+  // Send workout plan to backend
+  async function sendWorkoutPlanToBackend() {
+    const workoutPlan = collectWorkoutPlanData();
+    const authToken = localStorage.getItem("authToken");
+    console.log(workoutPlan);
+
+    if (!authToken) {
+      alert("Auth token not found. Please log in.");
+      return;
+    }
+
+    const response = await fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=create_workout_plan", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${authToken}`
+      },
+      body: JSON.stringify({
+        workout_plan: workoutPlan
+      })
+    });
+
+    const result = await response.json();
+    if (response.ok) {
+      alert("Workout plan saved successfully!");
+    } else {
+      alert("Failed to save workout plan: " + result.message);
+    }
+  }
+
+  // Initialize
+  generatePlannerButton.addEventListener('click', generateWorkoutPlanner);
 }
