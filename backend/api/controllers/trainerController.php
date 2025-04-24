@@ -93,11 +93,40 @@ switch ($action) {
         logMessage("Running get_created_workout_plans....in controller");
         createdTrainerWorkoutPlans($user_id);
         break;
+    //edit created workout plans
+    case 'edit_created_workout_plans':
+        logMessage("Running edit_created_workout_plans....in controller");
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        editCreatedWorkoutPlans($data);
+        break;
+    //delete created workout plans
+    case 'delete_created_workout_plans':
+        logMessage("Running delete_created_workout_plans....in controller");
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        $plan_id = $data['id'];
+        deleteCreatedWorkoutPlans($plan_id);
+        break;
+
+
 
     //view created meal plans
     case 'get_created_meal_plans':
         logMessage("Running get_created_meal_plans....in controller");
         createdTrainerMealPlans($user_id);
+        break;
+    //edit created meal plans
+    case 'edit_created_meal_plans':
+        logMessage("Running edit_created_meal_plans....in controller");
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        editCreatedMealPlans($user_id);
+        break;
+    //delete created meal plans
+    case 'delete_created_meal_plans':
+        logMessage("Running delete_created_meal_plans....in controller");
+        deleteCreatedMealPlans($user_id);
         break;
 
     //Plan Requests from the user

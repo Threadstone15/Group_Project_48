@@ -290,4 +290,128 @@ class PlanRequest
             return false;
         }
     }
+
+    public function updateWorkoutPlanDescription($id, $description)
+    {
+        logMessage("Updating workout plan description for id: $id");
+
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
+        $query = "UPDATE workout_plans SET description = ? WHERE id = ?";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing update query: " . $this->conn->error);
+            return false;
+        }
+
+        if (!$stmt->bind_param("si", $description, $id)) {
+            logMessage("Error binding parameters: " . $stmt->error);
+            return false;
+        }
+
+        if ($stmt->execute()) {
+            logMessage("Workout plan updated successfully for id: $id");
+            return true;
+        } else {
+            logMessage("Error executing update: " . $stmt->error);
+            return false;
+        }
+    }
+
+    public function updateMealPlanDescription($id, $description)
+    {
+        logMessage("Updating meal plan description for id: $id");
+
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
+        $query = "UPDATE workout_plans SET description = ? WHERE id = ?";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing update query: " . $this->conn->error);
+            return false;
+        }
+
+        if (!$stmt->bind_param("si", $description, $id)) {
+            logMessage("Error binding parameters: " . $stmt->error);
+            return false;
+        }
+
+        if ($stmt->execute()) {
+            logMessage("Meal plan updated successfully for id: $id");
+            return true;
+        } else {
+            logMessage("Error executing update: " . $stmt->error);
+            return false;
+        }
+    }
+
+    public function deleteWorkoutPlan($id)
+    {
+        logMessage("Deleting workout plan for id: $id");
+
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
+        $query = "DELETE FROM workout_plans WHERE id = ?";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing delete query: " . $this->conn->error);
+            return false;
+        }
+
+        if (!$stmt->bind_param("i", $id)) {
+            logMessage("Error binding parameters: " . $stmt->error);
+            return false;
+        }
+
+        if ($stmt->execute()) {
+            logMessage("Workout plan deleted successfully for id: $id");
+            return true;
+        } else {
+            logMessage("Error executing delete: " . $stmt->error);
+            return false;
+        }
+    }
+
+    public function deleteMealPlan($id, $description)
+    {
+        logMessage("Deleting meal plan for id: $id");
+
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
+        $query = "DELETE FROM workout_plans WHERE id = ? AND description = ?";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing delete query: " . $this->conn->error);
+            return false;
+        }
+
+        if (!$stmt->bind_param("is", $id, $description)) {
+            logMessage("Error binding parameters: " . $stmt->error);
+            return false;
+        }
+
+        if ($stmt->execute()) {
+            logMessage("Meal plan deleted successfully for id: $id");
+            return true;
+        } else {
+            logMessage("Error executing delete: " . $stmt->error);
+            return false;
+        }
+    }
 }

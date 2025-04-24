@@ -1,28 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Trainer Workout Plans</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Workout Plans</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <div class="container">
-    <h1>Trainer Dashboard</h1>
-    <div class="summary">
-      <span>Total Workout Plans: <strong id="planCount">0</strong></span>
-    </div>
-    <table id="plansTable">
-      <thead>
-        <tr>
-          <th>Member Name</th>
-          <th>Phone Number</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Rows will be populated here -->
-      </tbody>
-    </table>
+    <header>
+      <h1>My Workout Plans</h1>
+      <div class="stats">
+        <div class="stat-card">
+          <h3>Total Plans Created</h3>
+          <p id="totalPlans">0</p>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="table-container">
+        <table id="workoutPlansTable">
+          <thead>
+            <tr>
+              <th>Member Name</th>
+              <th>Phone Number</th>
+              <th>Last Updated</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="plansTableBody">
+            <!-- Plans will be inserted here by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </main>
   </div>
+
+  <!-- View Plan Modal -->
+  <div id="viewPlanModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Workout Plan Details</h2>
+      <div id="planDetails" class="plan-details"></div>
+    </div>
+  </div>
+
+<!-- Edit Plan Modal -->
+<div id="editPlanModal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-edit-btn">&times;</span>
+    <h2>Edit Workout Plan</h2>
+
+    <!-- Display Member Information (Name and Phone) -->
+    <p><strong>Member Name:</strong> <span id="editMemberName"></span></p>
+    <p><strong>Phone Number:</strong> <span id="editPhone"></span></p>
+
+    <!-- Dynamic Exercises Container -->
+    <div id="editExercisesContainer"></div>
+
+    <!-- Hidden Field to Store Plan ID -->
+    <input type="hidden" id="editPlanId">
+
+    <!-- Save Button -->
+    <button id="saveEditBtn">Save Changes</button>
+  </div>
+</div>
+
+
+
+
 </body>
+
 </html>

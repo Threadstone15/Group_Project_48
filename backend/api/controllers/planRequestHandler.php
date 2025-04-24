@@ -179,3 +179,48 @@ function createdTrainerMealPlans($user_id)
         echo json_encode(["message" => "No requests found."]);
     }
 }
+
+function editCreatedWorkoutPlans($data)
+{
+    $request_id = $data['id'];
+    $description = $data['description'];
+
+    logMessage("Running editCreatedWorkoutPlans in controller for request_id: $request_id and description: $description");
+
+    $planRequest = new planRequest();
+    $result = $planRequest->updateWorkoutPlanDescription($request_id, $description);
+
+    if ($result) {
+        echo json_encode([
+            "status" => "success",
+            "message" => "Workout plan updated successfully."
+        ]);
+    } else {
+        http_response_code(500);
+        echo json_encode([
+            "status" => "error",
+            "message" => "Failed to update the workout plan."
+        ]);
+    }
+}
+
+function deleteCreatedWorkoutPlans($plan_id)
+{
+    logMessage("Running deleteCreatedWorkoutPlans in controller for plan_id: $plan_id");
+
+    $planRequest = new planRequest();
+    $result = $planRequest->deleteWorkoutPlan($plan_id);
+
+    if ($result) {
+        echo json_encode([
+            "status" => "success",
+            "message" => "Workout plan deleted successfully."
+        ]);
+    } else {
+        http_response_code(500);
+        echo json_encode([
+            "status" => "error",
+            "message" => "Failed to delete the workout plan."
+        ]);
+    }
+}
