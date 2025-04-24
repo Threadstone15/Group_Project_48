@@ -146,10 +146,10 @@ switch ($action) {
     case 'get_classes':
         getTrainerClasses();
         break;
-    case 'get_enrolled_member_list_of_class' :
+    case 'get_enrolled_member_list_of_class':
         getEnrolledMemberListOfClass();
         break;
-        
+
 
 
     default:

@@ -17,13 +17,14 @@ export function initTrainer_planRequests() {
     const mealPlannerContainer = document.getElementById('mealPlannerContainer');
     const mealPlanner = document.getElementById('mealPlanner');
     const saveMealPlanBtn = document.getElementById('saveMealPlanBtn');
+    const spinner = document.getElementById("loading-spinner");
   
     // Global variables
     let currentRequests = [];
     let currentRequestType = '';
     let currentMemberId = '';
     let currentRequestId = '';
-  
+    spinner.classList.remove("hidden");
     // Initialize the page
     fetchRequests();
   
@@ -55,6 +56,7 @@ export function initTrainer_planRequests() {
   
         const data = await response.json();
         console.log(data);
+        spinner.classList.add("hidden");
         currentRequests = data || [];
         
         // Update badge counts
@@ -68,6 +70,7 @@ export function initTrainer_planRequests() {
         
       } catch (error) {
         console.error('Error fetching requests:', error);
+        spinner.classList.add("hidden");
         alert('Error fetching requests. Please try again.');
       }
     }
@@ -492,4 +495,18 @@ export function initTrainer_planRequests() {
       modalOverlay.appendChild(modal);
       document.body.appendChild(modalOverlay);
     }
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = `toast ${type}`;
+      toast.innerText = message;
+  
+      container.appendChild(toast);
+  
+      setTimeout(() => {
+          toast.remove();
+      }, 4000);
+    }
+
+
 }

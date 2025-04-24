@@ -15,6 +15,8 @@ include_once "./accountDetailHandler.php";
 include_once "./trainerClassHandler.php";
 include_once "./assignedTrainerHandler.php";
 include_once "./planRequestHandler.php";
+include_once "noticeHandler.php";
+include_once "markAttendanceHandler.php";
 
 $conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -34,6 +36,22 @@ $user_id  = getUserIdFromToken($token);
 logMessage("Running trainer controller, $action token - $token   id - $user_id ");
 
 switch ($action) {
+    // Trainer Home Page Features
+    case 'get_personal_notices':
+        logMessage("Running get_personal_notices....in controller");
+        getPersonalNotices($user_id);
+        break;
+
+    case 'get_gym_crowd':
+        logMessage("Running get_gym_crowd....in controller");
+        getGymCrowd();
+        break;
+
+    case 'mark_notice_as_read':
+        logMessage("Running mark_notice_read....in controller");
+        markNoticeAsRead($user_id);
+        break;
+
     case 'add_workout_plan':
         logMessage("Running add_workout_plan....in controller");
         addWorkoutPlan();
