@@ -1,5 +1,8 @@
-export function initMember_home() {
+import { navigate } from "../router.js";
+import { runSessionTimedOut } from "../routeConfig.js";
 
+export function initMember_home() {
+  let isMembershipPlanVerified = false;
 
   // Load QRCode.js library (optional, only if not in HTML already)
   const qrScript = document.createElement('script');
@@ -176,9 +179,125 @@ export function initMember_home() {
       })
       .catch(error => console.error("Error fetching gym data:", error));
   }
-  updateGymData();
-  updateAttendance()
-  setInterval(updateAttendance, 5000);
+
+  function verifyMembershipPlan() {
+    const authToken = localStorage.getItem("authToken");
+    const basePlanID = localStorage.getItem("basePlanID");
+
+    if (!authToken || !basePlanID) {
+      showToast("An error has occurred. Please log in again", "error");
+      navigate("login");
+      return;
+    }
+
+    const payload = {
+      "base_plan_id": basePlanID
+    }
+
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${authToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+      redirect: 'follow'
+    };
+
+    fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=verify_membership_plan", requestOptions)
+      .then(response => {
+        return response.json().then(data => {
+          if (data.error && data.error === "Token expired") {
+            throw new Error("Token expired");
+          }
+          if (!response.ok) throw new Error("Failed to verify the membership plan");
+          return data;
+        });
+      })
+      .then(data => {
+        if (data.message && data.message === "membership plan verified") {
+          isMembershipPlanVerified = true;
+          controlAccessToFeatures();
+        } else if (data.error) {
+          showToast("An error has occurred. Please log in again", "error");
+          setTimeout(() => {
+            //logging out -> this func does the same
+            runSessionTimedOut();
+          }, 4000);
+        }
+      })
+      .catch(error => {
+        console.error("API Error:", error.message);
+        if (error.message === "Token expired") {
+          showToast("Your session has timed out. Please log in again", "error");
+          setTimeout(() => {
+            runSessionTimedOut();
+          }, 4000);
+        } else {
+          showToast(error.message, "error");
+        }
+      });
+  }
+  function controlAccessToFeatures() {
+    const basePlanID = localStorage.getItem("basePlanID");
+    if (isMembershipPlanVerified) {
+      const noticesFeature = document.getElementById('noticesFeature');
+      const gymCrowdFeature = document.getElementById('gymCrowdFeature');
+      const attendanceFeature = document.getElementById('attendanceFeature');
+      const calendarFeature = document.getElementById('calendarFeature');
+      const upgradePlanPopup = document.getElementById("planUpgradePopup");
+
+      if (basePlanID === "MP1") {
+        noticesFeature?.classList.add("disabled-feature");
+        gymCrowdFeature?.classList.add("disabled-feature");
+        attendanceFeature?.classList.add("disabled-feature");
+        calendarFeature?.classList.add("disabled-feature");
+
+        //showing upgrade plan popup
+        upgradePlanPopup.querySelector(".upgrade-message").textContent = '';
+        upgradePlanPopup.querySelector(".upgrade-message").textContent = "Upgrade your plan to get access to these exclusive features!";
+        upgradePlanPopup.style.display = 'block';
+
+      } else if (basePlanID === "MP2") {
+        noticesFeature?.classList.remove("disabled-feature");
+        gymCrowdFeature?.classList.remove("disabled-feature");
+        attendanceFeature?.classList.remove("disabled-feature");
+        calendarFeature?.classList.add("disabled-feature");
+        //closing the upgrade plan popup
+        upgradePlanPopup.style.display = 'none';
+
+        document.getElementById('calendarFeatureContainer').onclick = () => {
+          //showing upgrade plan popup
+          upgradePlanPopup.querySelector(".upgrade-message").textContent = '';
+          upgradePlanPopup.querySelector(".upgrade-message").textContent = "Upgrade your plan to enroll in trainer sessions!";
+          upgradePlanPopup.style.display = 'block';
+        };
+
+        updateGymData();
+        updateAttendance();
+      } else if (basePlanID === "MP3") {
+        noticesFeature?.classList.remove("disabled-feature");
+        gymCrowdFeature?.classList.remove("disabled-feature");
+        attendanceFeature?.classList.remove("disabled-feature");
+        calendarFeature?.classList.remove("disabled-feature");
+        //closing the upgrade plan popup
+        upgradePlanPopup.style.display = 'none';
+
+        updateGymData();
+        updateAttendance();
+      }
+    }
+  }
+
+  document.getElementById("close-planUpgradePopup").onclick = () => {
+    document.getElementById("planUpgradePopup").style.display = "none";
+  };
+
+  document.getElementById("upgradePlanBtn").onclick = () => {
+    navigate('member/upgradePlan');
+  };
+
+  verifyMembershipPlan();
 
   window.addEventListener('message', (event) => {
     if (event.data.call === 'SHOW_TOAST') {
@@ -194,5 +313,17 @@ export function initMember_home() {
     }
   });
 
+  function showToast(message, type) {
+    const container = document.getElementById('global-toast-container');
+    const toast = document.createElement('div');
+    toast.className = `global-toast ${type}`;
+    toast.innerHTML = message;
+
+    container.appendChild(toast);
+
+    setTimeout(() => {
+      toast.remove();
+    }, 4000);
+  }
 
 }

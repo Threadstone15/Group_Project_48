@@ -63,13 +63,15 @@ export function initlogin() {
           localStorage.setItem('role', data.role);
           localStorage.setItem('amount', data.amount);
           localStorage.setItem('date_time', data.date_time);
-          localStorage.setItem('membership_plan_id', data.membership_plan_id);
           localStorage.setItem('status', data.status);
 
           switch (data.role) {
             case 'staff': navigate('staff/staffHome'); break;
             case 'admin': navigate('admin/adminHome'); break;
-            case 'member': navigate('member/memberHome'); break;
+            case 'member': 
+              localStorage.setItem('basePlanID', data.base_plan_id);
+              navigate('member/memberHome'); 
+              break;
             case 'owner': navigate('owner/ownerHome'); break;
             case 'trainer': navigate('trainer/trainerHome'); break;
           }

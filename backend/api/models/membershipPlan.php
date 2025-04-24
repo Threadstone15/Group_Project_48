@@ -149,5 +149,26 @@ class MembershipPlan {
             return false;
         }
     }
+
+    public function getBasePlanIdFromMembershipPlanId($membership_plan_id){
+        if(!$this->conn){
+            logMessage("Database connection is not established.");
+            return false;
+        }
+        $query = "SELECT base_plan_id FROM " . $this->table . " WHERE membership_plan_id = ?";
+        $stmt = $this->conn->prepare($query);
+        if ($stmt === false) {
+            logMessage("Error preparing statement for retrieving base plan ID: " . $this->conn->error);
+            return false;
+        }
+        $stmt->bind_param("s", $membership_plan_id);
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            return $result->fetch_assoc()['base_plan_id'];
+        }else{
+            logMessage("Error retrieving base plan ID: " . $stmt->error);
+            return false;
+        }
+    }
 }
 ?>

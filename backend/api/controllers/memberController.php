@@ -16,6 +16,7 @@ include_once "./markAttendanceHandler.php";
 include_once "./accountDetailHandler.php";
 include_once "./assignedTrainerHandler.php";
 include_once "./classBookingHandler.php";
+include_once "./memberPlan_check.php";
 
 $conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -130,6 +131,12 @@ switch ($action) {
         break; 
     case 'cancel_class_enroll' :
         cancelEnrollmentToClass($user_id);
+        break;
+
+    //veirfy subscribed membership plan
+    case 'verify_membership_plan' :
+        logMessage("running verify_membership_plan....in controller");
+        verifyMembershipPlanOfMember($user_id);
         break;
 
     default:
