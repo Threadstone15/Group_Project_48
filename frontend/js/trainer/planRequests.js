@@ -54,11 +54,13 @@ export function initTrainer_planRequests() {
       
             const data = await response.json();
             console.log(data);
-            currentRequests = data.requests || [];
+            currentRequests = data || [];
             
             // Update badge counts
-            const workoutCount = currentRequests.filter(req => req.workout_plan === 1).length;
-            const mealCount = currentRequests.filter(req => req.workout_plan === 0).length;
+            const workoutCount = currentRequests.filter(req => req.workout_plan == 1).length;
+            const mealCount = currentRequests.filter(req => req.workout_plan == 0).length;
+
+            console.log(workoutCount, mealCount);
             
             workoutBadge.textContent = workoutCount;
             mealBadge.textContent = mealCount;
@@ -86,7 +88,8 @@ export function initTrainer_planRequests() {
             filteredRequests.forEach(request => {
               const row = document.createElement('tr');
               row.innerHTML = `
-                <td>${request.member_name}</td>
+                <td>${request.full_name}</td>
+                <td>${request.member_id}</td>
                 <td>${request.message || 'No message'}</td>
                 <td>${new Date(request.requested_time).toLocaleString()}</td>
                 <td>

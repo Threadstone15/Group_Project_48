@@ -75,4 +75,43 @@ class PlanRequest
             return false;
         }
     }
+
+    public function getRequests($user_id)
+    {
+        logMessage("Fetching requests for trainer with user_id: $user_id");
+
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
+        $query = "CALL GetRequestsByTrainerUserID(?)";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing getRequests statement: " . $this->conn->error);
+            return false;
+        }
+
+        if (!$stmt->bind_param("i", $user_id)) {
+            logMessage("Error binding parameters in getRequests: " . $stmt->error);
+            return false;
+        }
+
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+
+            if ($result === false) {
+                logMessage("Error getting result set from getRequests: " . $stmt->error);
+                return false;
+            }
+
+            $requests = $result->fetch_all(MYSQLI_ASSOC);
+            logMessage("Successfully fetched requests for trainer user_id: $user_id");
+            return $requests;
+        } else {
+            logMessage("Execution failed for getRequests. Error: " . $stmt->error);
+            return false;
+        }
+    }
 }

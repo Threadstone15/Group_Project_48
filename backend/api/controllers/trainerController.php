@@ -13,6 +13,7 @@ include_once "workoutPlanHandler.php";
 include_once "../models/User.php";
 include_once "./accountDetailHandler.php";
 include_once "./trainerClassHandler.php";
+include_once "./planRequestHandler.php";
 
 $conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -48,7 +49,7 @@ switch ($action) {
         logMessage("Running delete_workout_plan....in controller");
         deleteWorkoutPlan();
         break;
-    
+
     case 'add_class':
         logMessage("Running add_class....in controller");
         addTrainerClass($user_id);
@@ -85,6 +86,12 @@ switch ($action) {
     case 'change_password':
         logMessage("Running change_password....in controller");
         changePassword($user_id);
+        break;
+
+    //Plan Requests from the user
+    case 'get_requests':
+        logMessage("Running get_requests....in controller");
+        getRequests($user_id);
         break;
 
     default:

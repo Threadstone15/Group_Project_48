@@ -59,3 +59,18 @@ function requestMealPlan($user_id, $data)
         echo json_encode(["message" => "Missing required fields: user_id, trainer_id, or message."]);
     }
 }
+
+function getRequests($user_id)
+{
+    logMessage("Running getRequests....in controller user_id: " . $user_id);
+    $planRequest = new planRequest();
+    $requests = $planRequest->getRequests($user_id);
+
+    if ($requests) {
+        http_response_code(200);
+        echo json_encode($requests);
+    } else {
+        http_response_code(404);
+        echo json_encode(["message" => "No requests found."]);
+    }
+}
