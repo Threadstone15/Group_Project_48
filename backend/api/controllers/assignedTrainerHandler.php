@@ -170,3 +170,19 @@ function getTrainersDetailsWithMemberCount()
         echo json_encode($trainerDetails);
     }
 }
+
+function getAssignedMembersOfATrainer($user_id)
+{
+    logMessage("get assigned members of a trainer func running..");
+    $trainer = new Trainer();
+    $trainer_id = $trainer->getTrainerIDbyUserID($user_id);
+    $assignedTrainer = new AssignedTrainer();
+    $assignedMembers = $assignedTrainer->getAssignedMembersOfATrainer($trainer_id);
+    if ($assignedMembers === false) {
+        logMessage("Error in getting assigned members of a trainer");
+        echo json_encode(["error" => "Error Getting Assigned Members of a Trainer"]);
+    } else {
+        logMessage("Assigned members retrieved successfully");
+        echo json_encode($assignedMembers);
+    }
+}
