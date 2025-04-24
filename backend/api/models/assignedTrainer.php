@@ -231,13 +231,14 @@ class AssignedTrainer
         }
     }
 
-    public function getAssignedMembersOfATrainer($trainer_id){
+    public function getAssignedMembersOfATrainer($trainer_id)
+    {
         logMessage("getting the assigned members of a trainer");
         if (!$this->conn) {
             logMessage("Database connection is not valid.");
             return false;
         }
-        $query = "SELECT A.member_id, CONCAT(M.firstName ,' ', M.lastName) AS fullName, M.gender, A.assigned_date 
+        $query = "SELECT A.member_id, CONCAT(M.firstName ,' ', M.lastName) AS fullName, M.phone, M.gender, A.assigned_date 
         FROM " . $this->table . " A , member M , users U 
         WHERE A.member_id = M.member_id 
         AND 
