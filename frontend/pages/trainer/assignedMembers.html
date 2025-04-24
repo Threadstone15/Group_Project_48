@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,47 +9,32 @@
     <!-- <link rel="stylesheet" href="/Group_Project_48/frontend/css/trainer/assignedMembers.css">
     <link rel="stylesheet" href="/Group_Project_48/frontend/css/globals.css"> -->
 </head>
+
 <body>
 
 
 
     <div class="content">
 
-    <div class="header">
-        <p class="heading">
-            Member Attendance
-        </p>
-    </div>
+        <div class="header">
+            <p class="heading">
+                Assigned Members
+            </p>
+        </div>
 
-    <div class="table-container">
-        <table id="attendanceTable">
-            <thead>
-                <tr>    
-                    <th>Member ID</th>
-                    <th>Name</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <?php if (!empty($members)) : ?>
-            <tbody>
-                <?php foreach ($members as $member) : ?>
+        <div class="table-container">
+            <table id="assigned-members-table">
+                <thead>
                     <tr>
-                        <td><?php echo htmlspecialchars($member['Member ID']); ?></td>
-                        <td><?php echo htmlspecialchars($member['name']); ?></td>
-                        <td><?php echo htmlspecialchars($member['Status']); ?></td>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Assigned Date</th>
                     </tr>
-                <?php endforeach; ?>
-            </tbody>
-        <?php else : ?>
-            <tbody>
-                <tr>
-                    <td colspan="5" style="text-align: center;">No members found</td>
-                </tr>
-            </tbody>
-        <?php endif; ?>
-        
-        </table>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
-<!-- <script src="/Group_Project_48/frontend/js/trainer/assignedMembers.js"></script> -->
+    <div id="toast-container" class="toast-container"></div>
 </body>

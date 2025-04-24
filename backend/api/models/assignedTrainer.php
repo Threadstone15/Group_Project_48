@@ -230,4 +230,40 @@ class AssignedTrainer
             return false;
         }
     }
+
+    public function getAssignedMembersOfATrainer($trainer_id){
+        logMessage("getting the assigned members of a trainer");
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+        $query = "SELECT A.member_id, CONCAT(M.firstName ,' ', M.lastName) AS fullName, M.gender, A.assigned_date 
+        FROM " . $this->table . " A , member M , users U 
+        WHERE A.member_id = M.member_id 
+        AND 
+        M.user_id = U.user_id
+        AND 
+        U.status = 1
+        AND
+        A.trainer_id = ? ";
+        $stmt = $this->conn->prepare($query);
+        if ($stmt === false) {
+            logMessage("Error preparing statement for getting assigned members of a trainer: " . $this->conn->error);
+            return false;
+        }
+        $stmt->bind_param("s", $trainer_id);
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) {
+                $rows = $result->fetch_all(MYSQLI_ASSOC);
+                return $rows;
+            } else {
+                logMessage("No records found in assigned_trainer table for trainer id : $trainer_id");
+                return [];
+            }
+        } else {
+            logMessage("Error executing query for getting assigned members of a trainer: " . $stmt->error);
+            return false;
+        }
+    }
 }

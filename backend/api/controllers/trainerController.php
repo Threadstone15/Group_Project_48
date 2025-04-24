@@ -13,6 +13,7 @@ include_once "workoutPlanHandler.php";
 include_once "../models/User.php";
 include_once "./accountDetailHandler.php";
 include_once "./trainerClassHandler.php";
+include_once "./assignedTrainerHandler.php";
 
 $conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -85,6 +86,11 @@ switch ($action) {
     case 'change_password':
         logMessage("Running change_password....in controller");
         changePassword($user_id);
+        break;
+    
+    case 'get_assigned_members':
+        logMessage("Running get_assigned_members....in controller");
+        getAssignedMembersOfATrainer($user_id);
         break;
 
     default:

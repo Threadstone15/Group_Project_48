@@ -217,6 +217,7 @@ export function runDashboardPgJS(role, page) {
             case 'createWorkoutPlans' : initTrainer_createWorkoutPlans(); break;
             case 'createMealPlans' : initTrainer_createMealPlans(); break;
             case 'planRequests' : initTrainer_planRequests(); break;
+            case 'assignedMembers' : initTrainer_assignedMembers(); break;
 
 
             default : console.error("Undefined trainer dashboard "); break;
