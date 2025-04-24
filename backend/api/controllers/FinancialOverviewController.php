@@ -22,7 +22,7 @@ class FinancialOverviewController {
             }
 
             // Fetch total attendance count
-            $totalAttendance = $this->model->getTotalAttendance();
+            //$totalAttendance = $this->model->getTotalAttendance();
 
 
             
