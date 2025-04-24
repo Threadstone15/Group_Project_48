@@ -15,6 +15,7 @@ include_once "../models/Member.php";
 include_once "../models/Subscription.php";
 include_once "../../logs/save.php";
 include_once "./passwordReset.php";
+include_once "../models/membershipPlan.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     logMessage("Handling preflight OPTIONS request.");
@@ -130,15 +131,19 @@ function login()
                         "success" => true,
                         "message" => "Login successful",
                         "role" => $role,
-                        "token" => $token
+                        "token" => $token,
+                        "base_plan_id" => "MP1"
                     ];
                 } else {
+                    //getting base plan id of membership plan
+                    $membershipPlan = new MembershipPlan();
+                    $basePlanId = $membershipPlan->getBasePlanIdFromMembershipPlanId($payments['membership_plan_id']);
                     $response = [
                         "success" => true,
                         "message" => "Login successful",
                         "role" => $role,
                         "token" => $token,
-                        "membership_plan_id" => $payments['membership_plan_id'],
+                        "base_plan_id" => $basePlanId,
                         "amount" => $payments['amount'],
                         "status" => $payments['status'],
                         "date_time" => $payments['date_time']

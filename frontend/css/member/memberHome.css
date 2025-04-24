@@ -283,3 +283,123 @@ label {
     transform: translateY(-20px);
   }
 }
+
+.disabled-feature {
+  opacity: 0.5;
+  pointer-events: none;
+  filter: grayscale(1);
+  position: relative;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px; 
+  padding: 30px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90%; 
+}
+
+/* Close button styling */
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-button:hover {
+  color: #ff5f5f; 
+}
+
+/* Popup content styling */
+.popup-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%; 
+  padding: 20px;
+  background-color: white;
+}
+
+/* Popup header styling */
+.popup h3 {
+  font-size: 26px;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Popup paragraph styling */
+.popup p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+
+.popup-buttons {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  gap: 30px; 
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.popup-confirm {
+  background-color: transparent;
+  color: #FF5F00;
+  border: 2px solid #FF5F00;
+  padding: 12px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 150px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.popup-confirm:hover {
+  background-color: #FF5F00;
+  color: white;
+}
+
+/* Popup cancel button (outlined) */
+.popup-cancel {
+  background-color: transparent;
+  color: #333;
+  border: 2px solid #ccc;
+  padding: 12px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 150px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.popup-cancel:hover {
+  background-color: #ccc;
+  color: white;
+}

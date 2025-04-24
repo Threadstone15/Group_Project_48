@@ -9,15 +9,25 @@
 </head>
 
 <body>
-  <section>
+  <section class="trainers" id="assignedTrainerFeature">
     <div id="assigned-trainer" class="trainer-profile"></div>
   </section>
-  <section class="trainers">
+  <section class="trainers" id="selectTrainerFeature">
     <!-- Trainer Profile 1 -->
     <div id="trainers-profiles" class="trainers-profiles">
     </div>
   </section>
   <div id="toast-container" class="toast-container"></div>
+  <div id="planUpgradePopup" class="popup" style="display: none;">
+    <p class="upgrade-message">Upgrade your plan to unlock premium features, including:
+      <ul>
+        <li>A certified trainer for your fitness journey</li>
+        <li>Personalized workout & meal plans</li>
+        <li>Access to exclusive training sessions</li>
+      </ul>
+    </p>
+    <button id="upgradePlanBtn" class="popup-buttons popup-confirm">Upgrade Now</button>
+  </div>
 </body>
 
 </html>
