@@ -3,12 +3,14 @@ import { runSessionTimedOut } from "../routeConfig.js";
 
 export function initMember_getATrainer() {
     console.log("Initializing getATrainer.js");
-    fetchAssignedTrainer();
+    verifyMembershipPlan();
+    // fetchAssignedTrainer(); //starts running after plan is verified and after access to features are controlled
 
     let assignedTrainerExists = false;
     let assignedTrainer = null;
     let assignedTrainerInfo = null;
     let allTrainers = [];
+    let isMembershipPlanVerified = false;
 
     function fetchAssignedTrainer() {
         const authToken = localStorage.getItem("authToken");
@@ -332,6 +334,93 @@ export function initMember_getATrainer() {
                 }
             });
     }
+
+    function verifyMembershipPlan() {
+        const authToken = localStorage.getItem("authToken");
+        const basePlanID = localStorage.getItem("basePlanID");
+
+        if (!authToken || !basePlanID) {
+            showToast("An error has occurred. Please log in again", "error");
+            navigate("login");
+            return;
+        }
+
+        const payload = {
+            "base_plan_id": basePlanID
+        }
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${authToken}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload),
+            redirect: 'follow'
+        };
+
+        fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=verify_membership_plan", requestOptions)
+            .then(response => {
+                return response.json().then(data => {
+                    if (data.error && data.error === "Token expired") {
+                        throw new Error("Token expired");
+                    }
+                    if (!response.ok) throw new Error("Failed to verify the membership plan");
+                    return data;
+                });
+            })
+            .then(data => {
+                if (data.message && data.message === "membership plan verified") {
+                    isMembershipPlanVerified = true;
+                    controlAccessToFeatures();
+                } else if (data.error) {
+                    showToast("An error has occurred. Please log in again", "error");
+                    setTimeout(() => {
+                        //logging out -> this func does the same
+                        runSessionTimedOut();
+                    }, 4000);
+                }
+            })
+            .catch(error => {
+                console.error("API Error:", error.message);
+                if (error.message === "Token expired") {
+                    showToast("Your session has timed out. Please log in again", "error");
+                    setTimeout(() => {
+                        runSessionTimedOut();
+                    }, 4000);
+                } else {
+                    showToast(error.message, "error");
+                }
+            });
+    }
+
+    function controlAccessToFeatures() {
+        const basePlanID = localStorage.getItem("basePlanID");
+        if (isMembershipPlanVerified) {
+            const assignedTrainerFeature = document.getElementById('assignedTrainerFeature');
+            const selectTrainerFeature = document.getElementById('selectTrainerFeature');
+            const upgradePlanPopup = document.getElementById("planUpgradePopup");
+
+            if (basePlanID === 'MP1' || basePlanID === 'MP2') {
+                assignedTrainerFeature?.classList.add("disabled-feature");
+                selectTrainerFeature?.classList.add("disabled-feature");
+                //showing upgrade plan popup
+                upgradePlanPopup.style.display = 'block';
+                fetchDetailsOfTrainers();
+            } else if (basePlanID === 'MP3') {
+                assignedTrainerFeature?.classList.remove("disabled-feature");
+                selectTrainerFeature?.classList.remove("disabled-feature");
+                //closing upgrade plan popup
+                upgradePlanPopup.style.display = 'none';
+
+                fetchAssignedTrainer();
+            }
+        }
+    }
+
+    document.getElementById("upgradePlanBtn").onclick = () => {
+        navigate('member/upgradePlan');
+    };
 
     function showToast(message, type) {
         const container = document.getElementById('toast-container');

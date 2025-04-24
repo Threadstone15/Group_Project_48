@@ -35,7 +35,12 @@ const months = [
 
 let allClasses = [];
 let enrolledClasses = [];
-fetchEnrolledClasses();
+
+//checking if member has access to calendar features
+const basePlanID = localStorage.getItem("basePlanID");
+if(basePlanID === 'MP3'){
+  fetchEnrolledClasses();
+}
 
 //function to add days in days with class day and prev-date next-date on previous month and next month days and active on today
 //generates and displays the calendar grid
