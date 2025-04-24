@@ -149,7 +149,7 @@ class PlanRequest
         }
     }
 
-    public function acceptRequest($request_id, $description)
+    public function acceptRequestWorkout($request_id, $description)
     {
         logMessage("Accepting request with request_id: $request_id and description: $description");
 
@@ -160,7 +160,7 @@ class PlanRequest
 
         $reason = null;
 
-        $query = "CALL HandleRequestAction('accept', ?, ?, ?)";
+        $query = "CALL HandleWorkoutRequestAction('accept', ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
 
         if ($stmt === false) {
@@ -178,6 +178,39 @@ class PlanRequest
             return true;
         } else {
             logMessage("Execution failed for acceptRequest. Error: " . $stmt->error);
+            return false;
+        }
+    }
+
+    public function acceptRequestMeal($request_id, $description)
+    {
+        logMessage("Accepting meal request with request_id: $request_id and description: $description");
+
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
+        $reason = null;
+
+        $query = "CALL HandleMealRequestAction(?, 'accept', ?, ?)";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing acceptRequestMeal statement: " . $this->conn->error);
+            return false;
+        }
+
+        if (!$stmt->bind_param("iss", $request_id, $description, $reason)) {
+            logMessage("Error binding parameters in acceptRequestMeal: " . $stmt->error);
+            return false;
+        }
+
+        if ($stmt->execute()) {
+            logMessage("Successfully accepted meal request with id: $request_id");
+            return true;
+        } else {
+            logMessage("Execution failed for acceptRequestMeal. Error: " . $stmt->error);
             return false;
         }
     }

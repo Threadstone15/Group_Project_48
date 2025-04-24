@@ -108,7 +108,7 @@ function createWorkoutPlanForMember($data)
     logMessage("Running createWorkoutPlanForMember in controller for request_id: $request_id and description: $description");
 
     $planRequest = new planRequest();
-    $result = $planRequest->acceptRequest($request_id, $description);
+    $result = $planRequest->acceptRequestWorkout($request_id, $description);
 
     if ($result) {
         echo json_encode([
@@ -120,6 +120,30 @@ function createWorkoutPlanForMember($data)
         echo json_encode([
             "status" => "error",
             "message" => "Failed to create the workout plan."
+        ]);
+    }
+}
+
+function createMealPlanForMember($data)
+{
+    $request_id = $data['request_id'];
+    $description = json_encode($data['meal_plan']);
+
+    logMessage("Running createMealPlanForMember in controller for request_id: $request_id and description: $description");
+
+    $planRequest = new planRequest();
+    $result = $planRequest->acceptRequestMeal($request_id, $description);
+
+    if ($result) {
+        echo json_encode([
+            "status" => "success",
+            "message" => "Meal plan created successfully."
+        ]);
+    } else {
+        http_response_code(500);
+        echo json_encode([
+            "status" => "error",
+            "message" => "Failed to create the meal plan."
         ]);
     }
 }

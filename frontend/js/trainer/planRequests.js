@@ -122,6 +122,7 @@ export function initTrainer_planRequests() {
       const requestId = e.target.dataset.id;
       currentMemberId = e.target.dataset.member_id;
       currentRequestId = e.target.dataset.id;
+      console.log("currentRequestId", currentRequestId);
       
       if (currentRequestType === 'workout') {
         showWorkoutPlanner();
@@ -402,14 +403,14 @@ export function initTrainer_planRequests() {
       }
   
       try {
-        const response = await fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/trainerController.php?action=create_meal_plan", {
+        const response = await fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/trainerController.php?action=create_meal_plan_for_member", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${authToken}`
           },
           body: JSON.stringify({
-            member_id: currentMemberId,
+            request_id: currentRequestId,
             meal_plan: mealPlan
           })
         });

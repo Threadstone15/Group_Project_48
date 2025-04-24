@@ -88,6 +88,12 @@ switch ($action) {
         changePassword($user_id);
         break;
 
+    //view created workout plans
+    case 'get_created_workout_plans':
+        logMessage("Running get_created_workout_plans....in controller");
+        //createdTrainerPlans($user_id);
+        break;
+
     //Plan Requests from the user
     case 'get_requests':
         logMessage("Running get_requests....in controller");
@@ -98,6 +104,12 @@ switch ($action) {
         $data = json_decode(file_get_contents("php://input"), true);
         logMessage("data: " . json_encode($data));
         createWorkoutPlanForMember($data);
+        break;
+    case 'create_meal_plan_for_member':
+        logMessage("Running create_meal_plan_for_member....in controller");
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        createMealPlanForMember($data);
         break;
 
     // Reject a plan request

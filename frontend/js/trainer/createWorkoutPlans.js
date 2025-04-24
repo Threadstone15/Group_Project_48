@@ -1,169 +1,107 @@
 export function initTrainer_createWorkoutPlans() {
     console.log("initializing workout meal plans");
-    // Get DOM Elements
-    const workoutDaysContainer = document.querySelector('.workout-days-container');
-    const workoutPlannerContainer = document.getElementById('workout-planner');
-    const generatePlannerButton = document.getElementById('generate-planner');
-    const workoutDaysInput = document.getElementById('workout-days');
-  
-    // Function to generate the workout planner
-    function generateWorkoutPlanner() {
-      const workoutDays = parseInt(workoutDaysInput.value);
-  
-      if (!workoutDays || workoutDays < 1 || workoutDays > 7) {
-        alert('Please enter a valid number of days (1-7).');
+    
+      const authToken = localStorage.getItem('authToken'); // Assuming authToken is stored in localStorage
+    
+      if (!authToken) {
+        alert('Trainer ID or Auth Token not found.');
         return;
       }
-  
-      workoutDaysContainer.style.display = 'none';
-      workoutPlannerContainer.innerHTML = '';
-  
-      // Generate planner columns for each day
-      for (let i = 1; i <= workoutDays; i++) {
-        const column = document.createElement('div');
-        column.className = 'workout-column';
-  
-        const title = document.createElement('h3');
-        title.textContent = `Day ${i}`;
-        column.appendChild(title);
-  
-        const exerciseContainer = document.createElement('div');
-        exerciseContainer.className = 'exercise-container';
-        column.appendChild(exerciseContainer);
-  
-        addExerciseRow(exerciseContainer);
-  
-        const addExerciseButton = document.createElement('button');
-        addExerciseButton.className = 'add-exercise-btn';
-        addExerciseButton.textContent = 'Add another exercise';
-        addExerciseButton.addEventListener('click', () =>
-          addExerciseRow(exerciseContainer)
-        );
-        column.appendChild(addExerciseButton);
-  
-        workoutPlannerContainer.appendChild(column);
+    
+      fetchPlans(authToken);
+
+    
+    function fetchPlans(authToken) {
+      fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/trainerController.php?action=get_created_workout_plans`, {
+        headers: {
+          'Authorization': `Bearer ${authToken}`
+        }
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data && Array.isArray(data.plans)) {
+            document.getElementById('planCount').textContent = data.plans.length;
+            populateTable(data.plans);
+          } else {
+            alert('No plans found.');
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching plans:', error);
+          alert('Failed to fetch plans.');
+        });
+    }
+    
+    function populateTable(plans) {
+      const tbody = document.querySelector('#plansTable tbody');
+      tbody.innerHTML = ''; // Clear existing rows
+    
+      plans.forEach(plan => {
+        const tr = document.createElement('tr');
+    
+        const nameTd = document.createElement('td');
+        nameTd.textContent = plan.member_name || 'N/A';
+        tr.appendChild(nameTd);
+    
+        const phoneTd = document.createElement('td');
+        phoneTd.textContent = plan.phone_number || 'N/A';
+        tr.appendChild(phoneTd);
+    
+        const actionsTd = document.createElement('td');
+    
+        const viewBtn = document.createElement('button');
+        viewBtn.textContent = 'View';
+        viewBtn.className = 'action-btn view-btn';
+        viewBtn.addEventListener('click', () => viewPlan(plan.id));
+        actionsTd.appendChild(viewBtn);
+    
+        const updateBtn = document.createElement('button');
+        updateBtn.textContent = 'Update';
+        updateBtn.className = 'action-btn update-btn';
+        updateBtn.addEventListener('click', () => updatePlan(plan.id));
+        actionsTd.appendChild(updateBtn);
+    
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'Delete';
+        deleteBtn.className = 'action-btn delete-btn';
+        deleteBtn.addEventListener('click', () => deletePlan(plan.id));
+        actionsTd.appendChild(deleteBtn);
+    
+        tr.appendChild(actionsTd);
+        tbody.appendChild(tr);
+      });
+    }
+    
+    function viewPlan(planId) {
+      // Implement view functionality
+      alert(`Viewing plan ID: ${planId}`);
+    }
+    
+    function updatePlan(planId) {
+      // Implement update functionality
+      alert(`Updating plan ID: ${planId}`);
+    }
+    
+    function deletePlan(planId) {
+      if (confirm('Are you sure you want to delete this plan?')) {
+        const authToken = localStorage.getItem('authToken');
+        fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/trainerController.php?action=delete_workout_plan&id=${planId}`, {
+          method: 'DELETE',
+          headers: {
+            'Authorization': `Bearer ${authToken}`
+          }
+        })
+          .then(response => response.json())
+          .then(data => {
+            alert(data.message || 'Plan deleted.');
+            fetchPlans(authToken);
+          })
+          .catch(error => {
+            console.error('Error deleting plan:', error);
+            alert('Failed to delete plan.');
+          });
       }
     }
-  
-    // Function to add an exercise row
-    function addExerciseRow(container) {
-      const exerciseRow = document.createElement('div');
-      exerciseRow.className = 'exercise-row';
-  
-      exerciseRow.innerHTML = `
-      <input type="text" placeholder="Exercise name" class="exercise-name">
-      <input type="number" placeholder="No. of sets" class="exercise-sets">
-      <input type="number" placeholder="No. of reps" class="exercise-reps">
-    `;
-  
-      const editButton = document.createElement('button');
-      editButton.className = 'edit-exercise-btn';
-      editButton.textContent = 'Edit';
-      editButton.addEventListener('click', () =>
-        showEditModal(exerciseRow.querySelector('.exercise-name'), exerciseRow.querySelector('.exercise-sets'), exerciseRow.querySelector('.exercise-reps'))
-      );
-      exerciseRow.appendChild(editButton);
-  
-      const deleteButton = document.createElement('button');
-      deleteButton.className = 'delete-exercise-btn';
-      deleteButton.textContent = 'Delete';
-      deleteButton.addEventListener('click', () => showDeleteModal(exerciseRow));
-      exerciseRow.appendChild(deleteButton);
-  
-      container.appendChild(exerciseRow);
-    }
-  
-    // Function to show a modal
-    function showModal({ title, content, onConfirm, onCancel }) {
-      const modalOverlay = document.createElement('div');
-      modalOverlay.className = 'modal-overlay';
-  
-      const modal = document.createElement('div');
-      modal.className = 'modal';
-  
-      const modalHeader = document.createElement('div');
-      modalHeader.className = 'modal-header';
-      modalHeader.innerHTML = `<h3>${title}</h3>`;
-      const closeButton = document.createElement('button');
-      closeButton.className = 'close-btn';
-      closeButton.textContent = '×';
-      closeButton.addEventListener('click', () =>
-        document.body.removeChild(modalOverlay)
-      );
-      modalHeader.appendChild(closeButton);
-  
-      const modalContent = document.createElement('div');
-      modalContent.className = 'modal-content';
-      modalContent.innerHTML = content;
-  
-      const modalFooter = document.createElement('div');
-      modalFooter.className = 'modal-footer';
-  
-      const confirmButton = document.createElement('button');
-      confirmButton.className = 'confirm-btn';
-      confirmButton.textContent = 'Confirm';
-      confirmButton.addEventListener('click', () => {
-        onConfirm();
-        document.body.removeChild(modalOverlay);
-      });
-  
-      const cancelButton = document.createElement('button');
-      cancelButton.className = 'cancel-btn';
-      cancelButton.textContent = 'Cancel';
-      cancelButton.addEventListener('click', () => {
-        onCancel();
-        document.body.removeChild(modalOverlay);
-      });
-  
-      modalFooter.appendChild(confirmButton);
-      modalFooter.appendChild(cancelButton);
-  
-      modal.appendChild(modalHeader);
-      modal.appendChild(modalContent);
-      modal.appendChild(modalFooter);
-  
-      modalOverlay.appendChild(modal);
-      document.body.appendChild(modalOverlay);
-    }
-  
-    // Function to show edit modal
-    function showEditModal(exerciseInput, setsInput, repsInput) {
-      const content = `
-      <label>Exercise Name:</label>
-      <input type="text" value="${exerciseInput.value}" id="edit-exercise-name">
-      <label>No. of Sets:</label>
-      <input type="number" value="${setsInput.value}" id="edit-sets">
-      <label>No. of Reps:</label>
-      <input type="number" value="${repsInput.value}" id="edit-reps">
-    `;
-      showModal({
-        title: 'Edit Exercise',
-        content,
-        onConfirm: () => {
-          exerciseInput.value = document.getElementById('edit-exercise-name').value;
-          setsInput.value = document.getElementById('edit-sets').value;
-          repsInput.value = document.getElementById('edit-reps').value;
-          alert('Exercise updated successfully!');
-        },
-        onCancel: () => console.log('Edit canceled.'),
-      });
-    }
-  
-    // Function to show delete modal
-    function showDeleteModal(exerciseRow) {
-      const content = `<p>Are you sure you want to delete this exercise?</p>`;
-      showModal({
-        title: 'Delete Exercise',
-        content,
-        onConfirm: () => {
-          exerciseRow.remove();
-          alert('Exercise deleted successfully!');
-        },
-        onCancel: () => console.log('Delete canceled.'),
-      });
-    }
-  
-    // Attach event listener
-    generatePlannerButton.addEventListener('click', generateWorkoutPlanner);
+    
   
   }
