@@ -224,3 +224,48 @@ function deleteCreatedWorkoutPlans($plan_id)
         ]);
     }
 }
+
+function editCreatedMealPlans($data)
+{
+    $request_id = $data['id'];
+    $description = $data['description'];
+
+    logMessage("Running editCreatedMealPlans in controller for request_id: $request_id and description: $description");
+
+    $planRequest = new planRequest();
+    $result = $planRequest->updateMealPlanDescription($request_id, $description);
+
+    if ($result) {
+        echo json_encode([
+            "status" => "success",
+            "message" => "Meal plan updated successfully."
+        ]);
+    } else {
+        http_response_code(500);
+        echo json_encode([
+            "status" => "error",
+            "message" => "Failed to update the meal plan."
+        ]);
+    }
+}
+
+function deleteCreatedMealPlans($plan_id)
+{
+    logMessage("Running deleteCreatedMealPlans in controller for plan_id: $plan_id");
+
+    $planRequest = new planRequest();
+    $result = $planRequest->deleteMealPlan($plan_id);
+
+    if ($result) {
+        echo json_encode([
+            "status" => "success",
+            "message" => "Meal plan deleted successfully."
+        ]);
+    } else {
+        http_response_code(500);
+        echo json_encode([
+            "status" => "error",
+            "message" => "Failed to delete the meal plan."
+        ]);
+    }
+}

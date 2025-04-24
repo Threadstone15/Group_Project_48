@@ -117,16 +117,19 @@ switch ($action) {
         createdTrainerMealPlans($user_id);
         break;
     //edit created meal plans
-    case 'edit_created_meal_plans':
+    case 'edit_created_meal_plan':
         logMessage("Running edit_created_meal_plans....in controller");
         $data = json_decode(file_get_contents("php://input"), true);
         logMessage("data: " . json_encode($data));
-        editCreatedMealPlans($user_id);
+        editCreatedMealPlans($data);
         break;
     //delete created meal plans
-    case 'delete_created_meal_plans':
+    case 'delete_created_meal_plan':
         logMessage("Running delete_created_meal_plans....in controller");
-        deleteCreatedMealPlans($user_id);
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        $plan_id = $data['id'];
+        deleteCreatedMealPlans($plan_id);
         break;
 
     //Plan Requests from the user

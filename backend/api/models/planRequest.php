@@ -331,7 +331,7 @@ class PlanRequest
             return false;
         }
 
-        $query = "UPDATE workout_plans SET description = ? WHERE id = ?";
+        $query = "UPDATE meal_plans SET description = ? WHERE id = ?";
         $stmt = $this->conn->prepare($query);
 
         if ($stmt === false) {
@@ -384,7 +384,7 @@ class PlanRequest
         }
     }
 
-    public function deleteMealPlan($id, $description)
+    public function deleteMealPlan($id)
     {
         logMessage("Deleting meal plan for id: $id");
 
@@ -393,7 +393,7 @@ class PlanRequest
             return false;
         }
 
-        $query = "DELETE FROM workout_plans WHERE id = ? AND description = ?";
+        $query = "DELETE FROM meal_plans WHERE id = ?";
         $stmt = $this->conn->prepare($query);
 
         if ($stmt === false) {
@@ -401,7 +401,7 @@ class PlanRequest
             return false;
         }
 
-        if (!$stmt->bind_param("is", $id, $description)) {
+        if (!$stmt->bind_param("i", $id)) {
             logMessage("Error binding parameters: " . $stmt->error);
             return false;
         }
