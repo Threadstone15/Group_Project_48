@@ -99,3 +99,27 @@ function rejectRequest($data)
         ]);
     }
 }
+
+function createWorkoutPlanForMember($data)
+{
+    $request_id = $data['request_id'];
+    $description = json_encode($data['workout_plan']);
+
+    logMessage("Running createWorkoutPlanForMember in controller for request_id: $request_id and description: $description");
+
+    $planRequest = new planRequest();
+    $result = $planRequest->acceptRequest($request_id, $description);
+
+    if ($result) {
+        echo json_encode([
+            "status" => "success",
+            "message" => "Workout plan created successfully."
+        ]);
+    } else {
+        http_response_code(500);
+        echo json_encode([
+            "status" => "error",
+            "message" => "Failed to create the workout plan."
+        ]);
+    }
+}

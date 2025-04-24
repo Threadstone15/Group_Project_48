@@ -93,6 +93,13 @@ switch ($action) {
         logMessage("Running get_requests....in controller");
         getRequests($user_id);
         break;
+    case 'create_workout_plan_for_member':
+        logMessage("Running create_workout_plan_for_member....in controller");
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        createWorkoutPlanForMember($data);
+        break;
+
     // Reject a plan request
     case 'reject_request':
         logMessage("Running reject_request....in controller");

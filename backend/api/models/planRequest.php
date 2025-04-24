@@ -8,6 +8,7 @@ class PlanRequest
     private $conn;
     private $table = "plan_requests";
 
+
     public function __construct()
     {
         $this->conn = DatabaseConnection::getInstance()->getConnection();
@@ -124,7 +125,7 @@ class PlanRequest
             return false;
         }
 
-        $query = "CALL HandleRequestAction('delete', ?, ?)";
+        $query = "CALL HandleRequestAction('delete', ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
 
         if ($stmt === false) {
@@ -132,7 +133,9 @@ class PlanRequest
             return false;
         }
 
-        if (!$stmt->bind_param("is", $request_id, $reason)) {
+        $description = null; // define a null variable explicitly
+
+        if (!$stmt->bind_param("iss", $request_id, $reason, $description)) {
             logMessage("Error binding parameters in rejectRequest: " . $stmt->error);
             return false;
         }
@@ -142,6 +145,39 @@ class PlanRequest
             return true;
         } else {
             logMessage("Execution failed for rejectRequest. Error: " . $stmt->error);
+            return false;
+        }
+    }
+
+    public function acceptRequest($request_id, $description)
+    {
+        logMessage("Accepting request with request_id: $request_id and description: $description");
+
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
+        $reason = null;
+
+        $query = "CALL HandleRequestAction('accept', ?, ?, ?)";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing acceptRequest statement: " . $this->conn->error);
+            return false;
+        }
+
+        if (!$stmt->bind_param("iss", $request_id, $reason, $description)) {
+            logMessage("Error binding parameters in acceptRequest: " . $stmt->error);
+            return false;
+        }
+
+        if ($stmt->execute()) {
+            logMessage("Successfully accepted request with id: $request_id");
+            return true;
+        } else {
+            logMessage("Execution failed for acceptRequest. Error: " . $stmt->error);
             return false;
         }
     }
