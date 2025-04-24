@@ -91,7 +91,13 @@ switch ($action) {
     //view created workout plans
     case 'get_created_workout_plans':
         logMessage("Running get_created_workout_plans....in controller");
-        //createdTrainerPlans($user_id);
+        createdTrainerWorkoutPlans($user_id);
+        break;
+
+    //view created meal plans
+    case 'get_created_meal_plans':
+        logMessage("Running get_created_meal_plans....in controller");
+        createdTrainerMealPlans($user_id);
         break;
 
     //Plan Requests from the user

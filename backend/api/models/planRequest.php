@@ -214,4 +214,80 @@ class PlanRequest
             return false;
         }
     }
+
+    public function createdTrainerWorkoutPlans($trainer_id)
+    {
+        logMessage("Fetching workout plans created by trainer_id: $trainer_id");
+
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
+        $query = "CALL GetTrainerCreatedWorkoutPlans(?)";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing GetTrainerCreatedWorkoutPlans call: " . $this->conn->error);
+            return false;
+        }
+
+        if (!$stmt->bind_param("s", $trainer_id)) {
+            logMessage("Error binding parameter for GetTrainerCreatedWorkoutPlans: " . $stmt->error);
+            return false;
+        }
+
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            $plans = [];
+
+            while ($row = $result->fetch_assoc()) {
+                $plans[] = $row;
+            }
+
+            logMessage("Workout plans fetched successfully for trainer_id: $trainer_id");
+            return $plans;
+        } else {
+            logMessage("Execution failed for GetTrainerCreatedWorkoutPlans: " . $stmt->error);
+            return false;
+        }
+    }
+
+    public function createdTrainerMealPlans($trainer_id)
+    {
+        logMessage("Fetching meal plans created by trainer_id: $trainer_id");
+
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
+        $query = "CALL GetTrainerCreatedMealPlans(?)";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing GetTrainerCreatedMealPlans call: " . $this->conn->error);
+            return false;
+        }
+
+        if (!$stmt->bind_param("s", $trainer_id)) {
+            logMessage("Error binding parameter for GetTrainerCreatedMealPlans: " . $stmt->error);
+            return false;
+        }
+
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            $plans = [];
+
+            while ($row = $result->fetch_assoc()) {
+                $plans[] = $row;
+            }
+
+            logMessage("Meal plans fetched successfully for trainer_id: $trainer_id");
+            return $plans;
+        } else {
+            logMessage("Execution failed for GetTrainerCreatedMealPlans: " . $stmt->error);
+            return false;
+        }
+    }
 }

@@ -48599,3 +48599,685 @@ ka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
 [2025-04-24 10:45:02] Config model initialized with database connection.
 [2025-04-24 10:45:03] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
 [2025-04-24 10:45:03] Database connection closed.
+[2025-04-24 10:55:02] Running auth controller ,get_footer_info 
+[2025-04-24 10:55:02] Running get_footer_info....in controller
+[2025-04-24 10:55:03] Connection established successfully to the database: rad_gymverse
+[2025-04-24 10:55:03] Config model initialized with database connection.
+[2025-04-24 10:55:04] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-24 10:55:04] Database connection closed.
+[2025-04-24 10:55:04] Connection established successfully to the database: rad_gymverse
+[2025-04-24 10:55:04] User class instantiated with database connection.
+[2025-04-24 10:55:04] Fetching user role by user ID: 177
+[2025-04-24 10:55:05] User role fetched successfully for user ID: 177
+[2025-04-24 10:55:05] Running trainer controller, get_requests token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTQ5MjQwMH0=.fb2d0987f1ae5564f6a02d241225d2ef9211dc69aabd43e96f6529a5313a79e1   id - 177 
+[2025-04-24 10:55:05] Running get_requests....in controller
+[2025-04-24 10:55:05] Running getRequests....in controller user_id: 177
+[2025-04-24 10:55:05] WorkoutPlan model initialized with database connection.
+[2025-04-24 10:55:05] Fetching requests for trainer with user_id: 177
+[2025-04-24 10:55:05] Successfully fetched requests for trainer user_id: 177
+[2025-04-24 10:55:05] Database connection closed.
+[2025-04-24 10:55:10] Connection established successfully to the database: rad_gymverse
+[2025-04-24 10:55:10] User class instantiated with database connection.
+[2025-04-24 10:55:10] Fetching user role by user ID: 177
+[2025-04-24 10:55:11] User role fetched successfully for user ID: 177
+[2025-04-24 10:55:11] Running trainer controller, get_created_workout_plans token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTQ5MjQwMH0=.fb2d0987f1ae5564f6a02d241225d2ef9211dc69aabd43e96f6529a5313a79e1   id - 177 
+[2025-04-24 10:55:11] Running get_created_workout_plans....in controller
+[2025-04-24 10:55:11] Running createdTrainerWorkoutPlans in controller for user_id: 177
+[2025-04-24 10:55:11] WorkoutPlan model initialized with database connection.
+[2025-04-24 10:55:11] Fetching workout plans created by trainer_id: 177
+[2025-04-24 10:55:11] Workout plans fetched successfully for trainer_id: 177
+[2025-04-24 10:55:11] Database connection closed.
+[2025-04-24 10:56:11] Connection established successfully to the database: rad_gymverse
+[2025-04-24 10:56:11] User class instantiated with database connection.
+[2025-04-24 10:56:11] Fetching user role by user ID: 177
+[2025-04-24 10:56:11] User role fetched successfully for user ID: 177
+[2025-04-24 10:56:11] Running trainer controller, get_created_workout_plans token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTQ5MjQwMH0=.fb2d0987f1ae5564f6a02d241225d2ef9211dc69aabd43e96f6529a5313a79e1   id - 177 
+[2025-04-24 10:56:11] Running get_created_workout_plans....in controller
+[2025-04-24 10:56:11] Running createdTrainerWorkoutPlans in controller for user_id: 177
+[2025-04-24 10:56:11] WorkoutPlan model initialized with database connection.
+[2025-04-24 10:56:11] Fetching workout plans created by trainer_id: 177
+[2025-04-24 10:56:12] Workout plans fetched successfully for trainer_id: 177
+[2025-04-24 10:56:12] Database connection closed.
+[2025-04-24 10:56:12] Running auth controller ,get_footer_info 
+[2025-04-24 10:56:12] Running get_footer_info....in controller
+[2025-04-24 10:56:12] Connection established successfully to the database: rad_gymverse
+[2025-04-24 10:56:12] Config model initialized with database connection.
+[2025-04-24 10:56:13] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-24 10:56:13] Database connection closed.
+[2025-04-24 10:56:54] Connection established successfully to the database: rad_gymverse
+[2025-04-24 10:56:54] User class instantiated with database connection.
+[2025-04-24 10:56:54] Fetching user role by user ID: 177
+[2025-04-24 10:56:54] User role fetched successfully for user ID: 177
+[2025-04-24 10:56:54] Running trainer controller, get_created_workout_plans token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTQ5MjQwMH0=.fb2d0987f1ae5564f6a02d241225d2ef9211dc69aabd43e96f6529a5313a79e1   id - 177 
+[2025-04-24 10:56:54] Running get_created_workout_plans....in controller
+[2025-04-24 10:56:54] Running createdTrainerWorkoutPlans in controller for user_id: 177
+[2025-04-24 10:56:54] WorkoutPlan model initialized with database connection.
+[2025-04-24 10:56:54] Fetching workout plans created by trainer_id: 177
+[2025-04-24 10:56:54] Workout plans fetched successfully for trainer_id: 177
+[2025-04-24 10:56:54] Database connection closed.
+[2025-04-24 10:56:54] Running auth controller ,get_footer_info 
+[2025-04-24 10:56:54] Running get_footer_info....in controller
+[2025-04-24 10:56:55] Connection established successfully to the database: rad_gymverse
+[2025-04-24 10:56:55] Config model initialized with database connection.
+[2025-04-24 10:56:56] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-24 10:56:56] Database connection closed.
+[2025-04-24 10:57:41] Running auth controller ,get_footer_info 
+[2025-04-24 10:57:41] Running get_footer_info....in controller
+[2025-04-24 10:57:42] Connection established successfully to the database: rad_gymverse
+[2025-04-24 10:57:42] Config model initialized with database connection.
+[2025-04-24 10:57:43] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-24 10:57:43] Database connection closed.
+[2025-04-24 10:57:44] Running auth controller ,login 
+[2025-04-24 10:57:44] running login...in auth controller
+[2025-04-24 10:57:44] login function running...
+[2025-04-24 10:57:45] Connection established successfully to the database: rad_gymverse
+[2025-04-24 10:57:45] User class instantiated with database connection.
+[2025-04-24 10:57:45] User Login model running for: sandeep1@gmail.com
+[2025-04-24 10:57:45] Fetching user by email: sandeep1@gmail.com
+[2025-04-24 10:57:45] User found for email: sandeep1@gmail.com
+[2025-04-24 10:57:45] Query bound and ready to execute for login: sandeep1@gmail.com
+[2025-04-24 10:57:46] User status: 1
+[2025-04-24 10:57:46] User login successful: sandeep1@gmail.com with role: member
+[2025-04-24 10:57:46] Config model initialized with database connection.
+[2025-04-24 10:57:46] Login Successful: eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTQ5MjQwMH0=.c602b17fc8be0ca3e53cefc68f840292e9231a933ad785e513e2e31b1e464f48 member
+[2025-04-24 10:57:46] Payment model initialized
+[2025-04-24 10:57:46] Fetching latest payment record for user_id: 181
+[2025-04-24 10:57:47] Query bound for fetching latest payment of user_id: 181
+[2025-04-24 10:57:48] Fetched latest payment for user_id: 181
+[2025-04-24 10:57:48] Database connection closed.
+[2025-04-24 10:57:49] Connection established successfully to the database: rad_gymverse
+[2025-04-24 10:57:49] User class instantiated with database connection.
+[2025-04-24 10:57:49] Fetching user role by user ID: 181
+[2025-04-24 10:57:49] User role fetched successfully for user ID: 181
+[2025-04-24 10:57:49] Running member controller ,get_gym_crowd token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTQ5MjQwMH0=.c602b17fc8be0ca3e53cefc68f840292e9231a933ad785e513e2e31b1e464f48   id - 181 
+[2025-04-24 10:57:49] Running get_gym_crowd....in controller
+[2025-04-24 10:57:49] Running getGymCrowd...
+[2025-04-24 10:57:49] Attendance model initialized with database connection.
+[2025-04-24 10:57:49] Fetching number of unique users with latest arrival marked as 1...
+[2025-04-24 10:57:50] Total users with latest Arrived=1: 0
+[2025-04-24 10:57:50] Fetching gym capacity from configuration...
+[2025-04-24 10:57:50] Gym capacity fetched successfully: 51
+[2025-04-24 10:57:50] Gym crowd count: 0 (0%)
+[2025-04-24 10:57:50] Database connection closed.
+[2025-04-24 10:57:50] Connection established successfully to the database: rad_gymverse
+[2025-04-24 10:57:50] User class instantiated with database connection.
+[2025-04-24 10:57:50] Fetching user role by user ID: 181
+[2025-04-24 10:57:51] User role fetched successfully for user ID: 181
+[2025-04-24 10:57:51] Running member controller ,update_attendance token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTQ5MjQwMH0=.c602b17fc8be0ca3e53cefc68f840292e9231a933ad785e513e2e31b1e464f48   id - 181 
+[2025-04-24 10:57:51] Running member mark_attendance....in controller
+[2025-04-24 10:57:51] Running userArrivedStatus...
+[2025-04-24 10:57:51] Attendance model initialized with database connection.
+[2025-04-24 10:57:51] Fetching latest Arrived status for User ID: 181
+[2025-04-24 10:57:51] No records found for User ID: 181
+[2025-04-24 10:57:51] Database connection closed.
+[2025-04-24 10:57:51] Connection established successfully to the database: rad_gymverse
+[2025-04-24 10:57:51] User class instantiated with database connection.
+[2025-04-24 10:57:51] Fetching user role by user ID: 181
+[2025-04-24 10:57:52] User role fetched successfully for user ID: 181
+[2025-04-24 10:57:52] Running member controller ,get_enrolled_classes token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTQ5MjQwMH0=.c602b17fc8be0ca3e53cefc68f840292e9231a933ad785e513e2e31b1e464f48   id - 181 
+[2025-04-24 10:57:52] get enrolled classes function running.......
+[2025-04-24 10:57:52] Member model initialized with database connection.
+[2025-04-24 10:57:52] Fetching member_id of a member by user id: 181
+[2025-04-24 10:57:52] BookTrainerClass model initialized with database conection
+[2025-04-24 10:57:52] getting member enrolled classes
+[2025-04-24 10:57:53] Successfully retrieved enrolled classes for member M15
+[2025-04-24 10:57:53] Database connection closed.
+[2025-04-24 10:57:53] Connection established successfully to the database: rad_gymverse
+[2025-04-24 10:57:53] User class instantiated with database connection.
+[2025-04-24 10:57:53] Fetching user role by user ID: 181
+[2025-04-24 10:57:53] User role fetched successfully for user ID: 181
+[2025-04-24 10:57:53] Running member controller ,check_trainer token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTQ5MjQwMH0=.c602b17fc8be0ca3e53cefc68f840292e9231a933ad785e513e2e31b1e464f48   id - 181 
+[2025-04-24 10:57:53] Running check_trainer....in controller
+[2025-04-24 10:57:53] get assigned trainer func runnign..
+[2025-04-24 10:57:53] Member model initialized with database connection.
+[2025-04-24 10:57:53] Fetching member_id of a member by user id: 181
+[2025-04-24 10:57:54] AssignedTrainer model initialized with database connection.
+[2025-04-24 10:57:54] checking whether trainer is assigned and getting the trainer assigned to member
+[2025-04-24 10:57:54] Assigned trainer info retrieved
+[2025-04-24 10:57:54] Database connection closed.
+[2025-04-24 10:57:56] Connection established successfully to the database: rad_gymverse
+[2025-04-24 10:57:56] User class instantiated with database connection.
+[2025-04-24 10:57:56] Fetching user role by user ID: 181
+[2025-04-24 10:57:56] User role fetched successfully for user ID: 181
+[2025-04-24 10:57:56] Running member controller ,request_workout_plan token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTQ5MjQwMH0=.c602b17fc8be0ca3e53cefc68f840292e9231a933ad785e513e2e31b1e464f48   id - 181 
+[2025-04-24 10:57:56] Running request_workout_plan....in controller
+[2025-04-24 10:57:56] data: {"message":"wwww","trainer_id":"T11"}
+[2025-04-24 10:57:56] Running requestWorkoutPlan....in controller data: {"message":"wwww","trainer_id":"T11"}
+[2025-04-24 10:57:56] Running requestWorkoutPlan....in controller data: {"message":"wwww","trainer_id":"T11"}
+[2025-04-24 10:57:56] WorkoutPlan model initialized with database connection.
+[2025-04-24 10:57:56] Inserting workout plan request for user_id: 181
+[2025-04-24 10:57:57] Workout plan request inserted successfully for user_id: 181
+[2025-04-24 10:57:57] Database connection closed.
+[2025-04-24 10:57:59] Running auth controller ,get_footer_info 
+[2025-04-24 10:57:59] Running get_footer_info....in controller
+[2025-04-24 10:58:00] Connection established successfully to the database: rad_gymverse
+[2025-04-24 10:58:00] Config model initialized with database connection.
+[2025-04-24 10:58:01] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-24 10:58:01] Database connection closed.
+[2025-04-24 10:58:03] Running auth controller ,login 
+[2025-04-24 10:58:03] running login...in auth controller
+[2025-04-24 10:58:03] login function running...
+[2025-04-24 10:58:04] Connection established successfully to the database: rad_gymverse
+[2025-04-24 10:58:04] User class instantiated with database connection.
+[2025-04-24 10:58:04] User Login model running for: nalaka@gmail.com
+[2025-04-24 10:58:04] Fetching user by email: nalaka@gmail.com
+[2025-04-24 10:58:04] User found for email: nalaka@gmail.com
+[2025-04-24 10:58:05] Query bound and ready to execute for login: nalaka@gmail.com
+[2025-04-24 10:58:05] User status: 1
+[2025-04-24 10:58:05] User login successful: nalaka@gmail.com with role: trainer
+[2025-04-24 10:58:05] Config model initialized with database connection.
+[2025-04-24 10:58:05] Login Successful: eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTQ5MjQwMH0=.fb2d0987f1ae5564f6a02d241225d2ef9211dc69aabd43e96f6529a5313a79e1 trainer
+[2025-04-24 10:58:05] Database connection closed.
+[2025-04-24 10:58:06] Connection established successfully to the database: rad_gymverse
+[2025-04-24 10:58:06] User class instantiated with database connection.
+[2025-04-24 10:58:06] Fetching user role by user ID: 177
+[2025-04-24 10:58:06] User role fetched successfully for user ID: 177
+[2025-04-24 10:58:06] Running trainer controller, get_classes_of_trainer token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTQ5MjQwMH0=.fb2d0987f1ae5564f6a02d241225d2ef9211dc69aabd43e96f6529a5313a79e1   id - 177 
+[2025-04-24 10:58:06] Running get_classes_of_trainer....in controller
+[2025-04-24 10:58:06] get classes belong to a trainer func is runing.....
+[2025-04-24 10:58:06] TrainerClass model initialized with database conection
+[2025-04-24 10:58:06] Trainer model initialized with database connection.
+[2025-04-24 10:58:06] Fetching trainer ID by user ID : 177...
+[2025-04-24 10:58:07] getting classes belongs to the trainer : T11
+[2025-04-24 10:58:07] Classes belongs to the trainer fetched successfully
+[2025-04-24 10:58:07] classes retrieved successfully
+[2025-04-24 10:58:07] Database connection closed.
+[2025-04-24 10:58:08] Connection established successfully to the database: rad_gymverse
+[2025-04-24 10:58:08] User class instantiated with database connection.
+[2025-04-24 10:58:08] Fetching user role by user ID: 177
+[2025-04-24 10:58:08] User role fetched successfully for user ID: 177
+[2025-04-24 10:58:08] Running trainer controller, get_classes token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTQ5MjQwMH0=.fb2d0987f1ae5564f6a02d241225d2ef9211dc69aabd43e96f6529a5313a79e1   id - 177 
+[2025-04-24 10:58:08] Running get_classes....in controller
+[2025-04-24 10:58:08] TrainerClass model initialized with database conection
+[2025-04-24 10:58:08] fetching all classes.....
+[2025-04-24 10:58:08] Classes fetched successfully
+[2025-04-24 10:58:08] classes retrieved successfully
+[2025-04-24 10:58:08] Database connection closed.
+[2025-04-24 10:58:09] Connection established successfully to the database: rad_gymverse
+[2025-04-24 10:58:09] User class instantiated with database connection.
+[2025-04-24 10:58:09] Fetching user role by user ID: 177
+[2025-04-24 10:58:09] User role fetched successfully for user ID: 177
+[2025-04-24 10:58:09] Running trainer controller, get_requests token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTQ5MjQwMH0=.fb2d0987f1ae5564f6a02d241225d2ef9211dc69aabd43e96f6529a5313a79e1   id - 177 
+[2025-04-24 10:58:09] Running get_requests....in controller
+[2025-04-24 10:58:09] Running getRequests....in controller user_id: 177
+[2025-04-24 10:58:09] WorkoutPlan model initialized with database connection.
+[2025-04-24 10:58:09] Fetching requests for trainer with user_id: 177
+[2025-04-24 10:58:10] Successfully fetched requests for trainer user_id: 177
+[2025-04-24 10:58:10] Database connection closed.
+[2025-04-24 10:58:37] Connection established successfully to the database: rad_gymverse
+[2025-04-24 10:58:37] User class instantiated with database connection.
+[2025-04-24 10:58:37] Fetching user role by user ID: 177
+[2025-04-24 10:58:37] User role fetched successfully for user ID: 177
+[2025-04-24 10:58:37] Running trainer controller, create_workout_plan_for_member token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTQ5MjQwMH0=.fb2d0987f1ae5564f6a02d241225d2ef9211dc69aabd43e96f6529a5313a79e1   id - 177 
+[2025-04-24 10:58:37] Running create_workout_plan_for_member....in controller
+[2025-04-24 10:58:37] data: {"request_id":"10","workout_plan":[{"day":1,"exercises":[{"name":"ddd","sets":2,"reps":3},{"name":"ddd","sets":3,"reps":3}]}]}
+[2025-04-24 10:58:37] Running createWorkoutPlanForMember in controller for request_id: 10 and description: [{"day":1,"exercises":[{"name":"ddd","sets":2,"reps":3},{"name":"ddd","sets":3,"reps":3}]}]
+[2025-04-24 10:58:37] WorkoutPlan model initialized with database connection.
+[2025-04-24 10:58:37] Accepting request with request_id: 10 and description: [{"day":1,"exercises":[{"name":"ddd","sets":2,"reps":3},{"name":"ddd","sets":3,"reps":3}]}]
+[2025-04-24 10:58:37] Successfully accepted request with id: 10
+[2025-04-24 10:58:37] Database connection closed.
+[2025-04-24 10:58:39] Connection established successfully to the database: rad_gymverse
+[2025-04-24 10:58:39] User class instantiated with database connection.
+[2025-04-24 10:58:39] Fetching user role by user ID: 177
+[2025-04-24 10:58:39] User role fetched successfully for user ID: 177
+[2025-04-24 10:58:39] Running trainer controller, get_requests token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTQ5MjQwMH0=.fb2d0987f1ae5564f6a02d241225d2ef9211dc69aabd43e96f6529a5313a79e1   id - 177 
+[2025-04-24 10:58:39] Running get_requests....in controller
+[2025-04-24 10:58:39] Running getRequests....in controller user_id: 177
+[2025-04-24 10:58:39] WorkoutPlan model initialized with database connection.
+[2025-04-24 10:58:39] Fetching requests for trainer with user_id: 177
+[2025-04-24 10:58:40] Successfully fetched requests for trainer user_id: 177
+[2025-04-24 10:58:40] Database connection closed.
+[2025-04-24 10:58:42] Connection established successfully to the database: rad_gymverse
+[2025-04-24 10:58:42] User class instantiated with database connection.
+[2025-04-24 10:58:42] Fetching user role by user ID: 177
+[2025-04-24 10:58:42] User role fetched successfully for user ID: 177
+[2025-04-24 10:58:42] Running trainer controller, get_requests token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTQ5MjQwMH0=.fb2d0987f1ae5564f6a02d241225d2ef9211dc69aabd43e96f6529a5313a79e1   id - 177 
+[2025-04-24 10:58:42] Running get_requests....in controller
+[2025-04-24 10:58:42] Running getRequests....in controller user_id: 177
+[2025-04-24 10:58:42] WorkoutPlan model initialized with database connection.
+[2025-04-24 10:58:42] Fetching requests for trainer with user_id: 177
+[2025-04-24 10:58:43] Successfully fetched requests for trainer user_id: 177
+[2025-04-24 10:58:43] Database connection closed.
+[2025-04-24 10:58:43] Connection established successfully to the database: rad_gymverse
+[2025-04-24 10:58:43] User class instantiated with database connection.
+[2025-04-24 10:58:43] Fetching user role by user ID: 177
+[2025-04-24 10:58:43] User role fetched successfully for user ID: 177
+[2025-04-24 10:58:43] Running trainer controller, get_created_workout_plans token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTQ5MjQwMH0=.fb2d0987f1ae5564f6a02d241225d2ef9211dc69aabd43e96f6529a5313a79e1   id - 177 
+[2025-04-24 10:58:43] Running get_created_workout_plans....in controller
+[2025-04-24 10:58:43] Running createdTrainerWorkoutPlans in controller for user_id: 177
+[2025-04-24 10:58:43] WorkoutPlan model initialized with database connection.
+[2025-04-24 10:58:43] Fetching workout plans created by trainer_id: 177
+[2025-04-24 10:58:44] Workout plans fetched successfully for trainer_id: 177
+[2025-04-24 10:58:44] Database connection closed.
+[2025-04-24 11:03:14] Running auth controller ,get_footer_info 
+[2025-04-24 11:03:14] Running get_footer_info....in controller
+[2025-04-24 11:03:14] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:03:14] Config model initialized with database connection.
+[2025-04-24 11:03:15] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-24 11:03:15] Database connection closed.
+[2025-04-24 11:03:16] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:03:16] User class instantiated with database connection.
+[2025-04-24 11:03:16] Fetching user role by user ID: 177
+[2025-04-24 11:03:16] User role fetched successfully for user ID: 177
+[2025-04-24 11:03:16] Running trainer controller, get_created_workout_plans token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTQ5MjQwMH0=.fb2d0987f1ae5564f6a02d241225d2ef9211dc69aabd43e96f6529a5313a79e1   id - 177 
+[2025-04-24 11:03:16] Running get_created_workout_plans....in controller
+[2025-04-24 11:03:16] Running createdTrainerWorkoutPlans in controller for user_id: 177
+[2025-04-24 11:03:16] WorkoutPlan model initialized with database connection.
+[2025-04-24 11:03:16] Fetching workout plans created by trainer_id: 177
+[2025-04-24 11:03:17] Workout plans fetched successfully for trainer_id: 177
+[2025-04-24 11:03:17] Database connection closed.
+[2025-04-24 11:04:27] Running auth controller ,get_footer_info 
+[2025-04-24 11:04:27] Running get_footer_info....in controller
+[2025-04-24 11:04:28] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:04:28] Config model initialized with database connection.
+[2025-04-24 11:04:29] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-24 11:04:29] Database connection closed.
+[2025-04-24 11:04:30] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:04:30] User class instantiated with database connection.
+[2025-04-24 11:04:30] Fetching user role by user ID: 177
+[2025-04-24 11:04:30] User role fetched successfully for user ID: 177
+[2025-04-24 11:04:30] Running trainer controller, get_created_workout_plans token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTQ5MjQwMH0=.fb2d0987f1ae5564f6a02d241225d2ef9211dc69aabd43e96f6529a5313a79e1   id - 177 
+[2025-04-24 11:04:30] Running get_created_workout_plans....in controller
+[2025-04-24 11:04:30] Running createdTrainerWorkoutPlans in controller for user_id: 177
+[2025-04-24 11:04:30] WorkoutPlan model initialized with database connection.
+[2025-04-24 11:04:30] Fetching workout plans created by trainer_id: 177
+[2025-04-24 11:04:30] Workout plans fetched successfully for trainer_id: 177
+[2025-04-24 11:04:30] Database connection closed.
+[2025-04-24 11:09:26] Running auth controller ,get_footer_info 
+[2025-04-24 11:09:26] Running get_footer_info....in controller
+[2025-04-24 11:09:26] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:09:26] Config model initialized with database connection.
+[2025-04-24 11:09:27] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-24 11:09:27] Database connection closed.
+[2025-04-24 11:09:28] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:09:28] User class instantiated with database connection.
+[2025-04-24 11:09:28] Fetching user role by user ID: 177
+[2025-04-24 11:09:28] User role fetched successfully for user ID: 177
+[2025-04-24 11:09:28] Running trainer controller, get_created_workout_plans token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTQ5MjQwMH0=.fb2d0987f1ae5564f6a02d241225d2ef9211dc69aabd43e96f6529a5313a79e1   id - 177 
+[2025-04-24 11:09:28] Running get_created_workout_plans....in controller
+[2025-04-24 11:09:28] Running createdTrainerWorkoutPlans in controller for user_id: 177
+[2025-04-24 11:09:28] WorkoutPlan model initialized with database connection.
+[2025-04-24 11:09:28] Fetching workout plans created by trainer_id: 177
+[2025-04-24 11:09:29] Workout plans fetched successfully for trainer_id: 177
+[2025-04-24 11:09:29] Database connection closed.
+[2025-04-24 11:09:50] Running auth controller ,get_footer_info 
+[2025-04-24 11:09:50] Running get_footer_info....in controller
+[2025-04-24 11:09:51] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:09:51] Config model initialized with database connection.
+[2025-04-24 11:09:52] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-24 11:09:52] Database connection closed.
+[2025-04-24 11:09:53] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:09:53] User class instantiated with database connection.
+[2025-04-24 11:09:53] Fetching user role by user ID: 177
+[2025-04-24 11:09:53] User role fetched successfully for user ID: 177
+[2025-04-24 11:09:53] Running trainer controller, get_created_workout_plans token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTQ5MjQwMH0=.fb2d0987f1ae5564f6a02d241225d2ef9211dc69aabd43e96f6529a5313a79e1   id - 177 
+[2025-04-24 11:09:53] Running get_created_workout_plans....in controller
+[2025-04-24 11:09:53] Running createdTrainerWorkoutPlans in controller for user_id: 177
+[2025-04-24 11:09:53] WorkoutPlan model initialized with database connection.
+[2025-04-24 11:09:53] Fetching workout plans created by trainer_id: 177
+[2025-04-24 11:09:54] Workout plans fetched successfully for trainer_id: 177
+[2025-04-24 11:09:54] Database connection closed.
+[2025-04-24 11:13:06] Running auth controller ,get_footer_info 
+[2025-04-24 11:13:06] Running get_footer_info....in controller
+[2025-04-24 11:13:06] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:13:06] Config model initialized with database connection.
+[2025-04-24 11:13:07] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-24 11:13:07] Database connection closed.
+[2025-04-24 11:13:08] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:13:08] User class instantiated with database connection.
+[2025-04-24 11:13:08] Fetching user role by user ID: 177
+[2025-04-24 11:13:08] User role fetched successfully for user ID: 177
+[2025-04-24 11:13:08] Running trainer controller, get_created_workout_plans token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTQ5MjQwMH0=.fb2d0987f1ae5564f6a02d241225d2ef9211dc69aabd43e96f6529a5313a79e1   id - 177 
+[2025-04-24 11:13:08] Running get_created_workout_plans....in controller
+[2025-04-24 11:13:08] Running createdTrainerWorkoutPlans in controller for user_id: 177
+[2025-04-24 11:13:08] WorkoutPlan model initialized with database connection.
+[2025-04-24 11:13:08] Fetching workout plans created by trainer_id: 177
+[2025-04-24 11:13:08] Workout plans fetched successfully for trainer_id: 177
+[2025-04-24 11:13:08] Database connection closed.
+[2025-04-24 11:14:17] Running auth controller ,get_footer_info 
+[2025-04-24 11:14:17] Running get_footer_info....in controller
+[2025-04-24 11:14:38] Running auth controller ,get_footer_info 
+[2025-04-24 11:14:38] Running get_footer_info....in controller
+[2025-04-24 11:14:38] Running auth controller ,get_footer_info 
+[2025-04-24 11:14:38] Running get_footer_info....in controller
+[2025-04-24 11:14:39] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:14:39] Config model initialized with database connection.
+[2025-04-24 11:14:39] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:14:39] Config model initialized with database connection.
+[2025-04-24 11:14:39] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:14:39] Config model initialized with database connection.
+[2025-04-24 11:14:39] Running auth controller ,login 
+[2025-04-24 11:14:39] running login...in auth controller
+[2025-04-24 11:14:39] login function running...
+[2025-04-24 11:14:40] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-24 11:14:40] Database connection closed.
+[2025-04-24 11:14:44] Running auth controller ,login 
+[2025-04-24 11:14:44] running login...in auth controller
+[2025-04-24 11:14:44] login function running...
+[2025-04-24 11:14:48] Running auth controller ,get_footer_info 
+[2025-04-24 11:14:48] Running get_footer_info....in controller
+[2025-04-24 11:14:49] Running auth controller ,login 
+[2025-04-24 11:14:49] running login...in auth controller
+[2025-04-24 11:14:49] login function running...
+[2025-04-24 11:15:01] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:15:01] User class instantiated with database connection.
+[2025-04-24 11:15:01] Fetching user role by user ID: 177
+[2025-04-24 11:15:02] User role fetched successfully for user ID: 177
+[2025-04-24 11:15:02] Running trainer controller, get_created_workout_plans token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTQ5MjQwMH0=.fb2d0987f1ae5564f6a02d241225d2ef9211dc69aabd43e96f6529a5313a79e1   id - 177 
+[2025-04-24 11:15:02] Running get_created_workout_plans....in controller
+[2025-04-24 11:15:02] Running createdTrainerWorkoutPlans in controller for user_id: 177
+[2025-04-24 11:15:02] WorkoutPlan model initialized with database connection.
+[2025-04-24 11:15:02] Fetching workout plans created by trainer_id: 177
+[2025-04-24 11:15:02] Workout plans fetched successfully for trainer_id: 177 with count: 1
+[2025-04-24 11:15:02] Database connection closed.
+[2025-04-24 11:15:03] Running auth controller ,get_footer_info 
+[2025-04-24 11:15:03] Running get_footer_info....in controller
+[2025-04-24 11:15:04] Running auth controller ,login 
+[2025-04-24 11:15:04] running login...in auth controller
+[2025-04-24 11:15:04] login function running...
+[2025-04-24 11:15:05] Error fetching config value: MySQL server has gone away
+[2025-04-24 11:15:05] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":null}
+[2025-04-24 11:15:05] Database connection closed.
+[2025-04-24 11:15:05] Error fetching config value: MySQL server has gone away
+[2025-04-24 11:15:05] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":null}
+[2025-04-24 11:15:05] Database connection closed.
+[2025-04-24 11:15:06] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:15:06] User class instantiated with database connection.
+[2025-04-24 11:15:06] User Login model running for: nalaka@gmail.com
+[2025-04-24 11:15:06] Fetching user by email: nalaka@gmail.com
+[2025-04-24 11:15:06] User found for email: nalaka@gmail.com
+[2025-04-24 11:15:07] Query bound and ready to execute for login: nalaka@gmail.com
+[2025-04-24 11:15:07] User status: 1
+[2025-04-24 11:15:07] User login successful: nalaka@gmail.com with role: trainer
+[2025-04-24 11:15:07] Config model initialized with database connection.
+[2025-04-24 11:15:07] Login Successful: eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTQ5NjAwMH0=.3c10edc3e328f1e75fe18e74485057466aabcb4f6e71f3db60d5979787f5c266 trainer
+[2025-04-24 11:15:07] Database connection closed.
+[2025-04-24 11:15:09] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:15:09] Config model initialized with database connection.
+[2025-04-24 11:15:10] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-24 11:15:10] Database connection closed.
+[2025-04-24 11:15:11] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:15:11] User class instantiated with database connection.
+[2025-04-24 11:15:11] User Login model running for: nalaka@gmail.com
+[2025-04-24 11:15:11] Fetching user by email: nalaka@gmail.com
+[2025-04-24 11:15:11] User found for email: nalaka@gmail.com
+[2025-04-24 11:15:11] Query bound and ready to execute for login: nalaka@gmail.com
+[2025-04-24 11:15:11] User status: 1
+[2025-04-24 11:15:11] User login successful: nalaka@gmail.com with role: trainer
+[2025-04-24 11:15:11] Config model initialized with database connection.
+[2025-04-24 11:15:12] Login Successful: eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTQ5NjAwMH0=.3c10edc3e328f1e75fe18e74485057466aabcb4f6e71f3db60d5979787f5c266 trainer
+[2025-04-24 11:15:12] Database connection closed.
+[2025-04-24 11:15:21] Running auth controller ,login 
+[2025-04-24 11:15:21] running login...in auth controller
+[2025-04-24 11:15:21] login function running...
+[2025-04-24 11:15:23] Running auth controller ,get_footer_info 
+[2025-04-24 11:15:23] Running get_footer_info....in controller
+[2025-04-24 11:15:24] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:15:24] User class instantiated with database connection.
+[2025-04-24 11:15:24] Fetching user role by user ID: 177
+[2025-04-24 11:15:24] User role fetched successfully for user ID: 177
+[2025-04-24 11:15:24] Running trainer controller, get_created_workout_plans token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTQ5MjQwMH0=.fb2d0987f1ae5564f6a02d241225d2ef9211dc69aabd43e96f6529a5313a79e1   id - 177 
+[2025-04-24 11:15:24] Running get_created_workout_plans....in controller
+[2025-04-24 11:15:24] Running createdTrainerWorkoutPlans in controller for user_id: 177
+[2025-04-24 11:15:24] WorkoutPlan model initialized with database connection.
+[2025-04-24 11:15:24] Fetching workout plans created by trainer_id: 177
+[2025-04-24 11:15:24] Running auth controller ,login 
+[2025-04-24 11:15:24] running login...in auth controller
+[2025-04-24 11:15:24] login function running...
+[2025-04-24 11:15:24] Workout plans fetched successfully for trainer_id: 177 with count: 1
+[2025-04-24 11:15:24] Database connection closed.
+[2025-04-24 11:15:24] Running auth controller ,get_footer_info 
+[2025-04-24 11:15:24] Running get_footer_info....in controller
+[2025-04-24 11:15:25] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:15:25] Config model initialized with database connection.
+[2025-04-24 11:15:26] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-24 11:15:26] Database connection closed.
+[2025-04-24 11:15:26] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:15:26] User class instantiated with database connection.
+[2025-04-24 11:15:26] User Login model running for: nalaka@gmail.com
+[2025-04-24 11:15:26] Fetching user by email: nalaka@gmail.com
+[2025-04-24 11:15:26] User found for email: nalaka@gmail.com
+[2025-04-24 11:15:26] Query bound and ready to execute for login: nalaka@gmail.com
+[2025-04-24 11:15:27] User status: 1
+[2025-04-24 11:15:27] User login successful: nalaka@gmail.com with role: trainer
+[2025-04-24 11:15:27] Config model initialized with database connection.
+[2025-04-24 11:15:27] Login Successful: eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTQ5NjAwMH0=.3c10edc3e328f1e75fe18e74485057466aabcb4f6e71f3db60d5979787f5c266 trainer
+[2025-04-24 11:15:27] Database connection closed.
+[2025-04-24 11:15:30] Running auth controller ,login 
+[2025-04-24 11:15:30] running login...in auth controller
+[2025-04-24 11:15:30] login function running...
+[2025-04-24 11:15:42] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:15:42] User class instantiated with database connection.
+[2025-04-24 11:15:42] User Login model running for: nalaka@gmail.com
+[2025-04-24 11:15:42] Fetching user by email: nalaka@gmail.com
+[2025-04-24 11:15:43] User found for email: nalaka@gmail.com
+[2025-04-24 11:15:43] Query bound and ready to execute for login: nalaka@gmail.com
+[2025-04-24 11:15:43] User status: 1
+[2025-04-24 11:15:43] User login successful: nalaka@gmail.com with role: trainer
+[2025-04-24 11:15:43] Config model initialized with database connection.
+[2025-04-24 11:15:43] Login Successful: eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTQ5NjAwMH0=.3c10edc3e328f1e75fe18e74485057466aabcb4f6e71f3db60d5979787f5c266 trainer
+[2025-04-24 11:15:43] Database connection closed.
+[2025-04-24 11:15:45] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:15:45] Config model initialized with database connection.
+[2025-04-24 11:15:46] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-24 11:15:46] Database connection closed.
+[2025-04-24 11:15:46] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:15:46] Config model initialized with database connection.
+[2025-04-24 11:15:46] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:15:46] User class instantiated with database connection.
+[2025-04-24 11:15:46] User Login model running for: nalaka@gmail.com
+[2025-04-24 11:15:46] Fetching user by email: nalaka@gmail.com
+[2025-04-24 11:15:46] User found for email: nalaka@gmail.com
+[2025-04-24 11:15:46] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-24 11:15:46] Database connection closed.
+[2025-04-24 11:15:47] Query bound and ready to execute for login: nalaka@gmail.com
+[2025-04-24 11:15:47] User status: 1
+[2025-04-24 11:15:47] User login successful: nalaka@gmail.com with role: trainer
+[2025-04-24 11:15:47] Config model initialized with database connection.
+[2025-04-24 11:15:47] Login Successful: eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTQ5NjAwMH0=.3c10edc3e328f1e75fe18e74485057466aabcb4f6e71f3db60d5979787f5c266 trainer
+[2025-04-24 11:15:47] Database connection closed.
+[2025-04-24 11:15:52] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:15:52] User class instantiated with database connection.
+[2025-04-24 11:15:52] User Login model running for: sandeep1@gmail.com
+[2025-04-24 11:15:52] Fetching user by email: sandeep1@gmail.com
+[2025-04-24 11:15:52] User found for email: sandeep1@gmail.com
+[2025-04-24 11:15:52] Query bound and ready to execute for login: sandeep1@gmail.com
+[2025-04-24 11:15:53] User status: 1
+[2025-04-24 11:15:53] User login successful: sandeep1@gmail.com with role: member
+[2025-04-24 11:15:53] Config model initialized with database connection.
+[2025-04-24 11:15:53] Login Successful: eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTQ5NjAwMH0=.251bf7e1bfe87069a7b75e9a838d98da26e8317980fdf93e253d5e20d98d663d member
+[2025-04-24 11:15:53] Payment model initialized
+[2025-04-24 11:15:53] Fetching latest payment record for user_id: 181
+[2025-04-24 11:15:53] Query bound for fetching latest payment of user_id: 181
+[2025-04-24 11:15:53] Fetched latest payment for user_id: 181
+[2025-04-24 11:15:53] Database connection closed.
+[2025-04-24 11:16:09] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:16:09] User class instantiated with database connection.
+[2025-04-24 11:16:09] Fetching user role by user ID: 177
+[2025-04-24 11:16:09] User role fetched successfully for user ID: 177
+[2025-04-24 11:16:09] Running trainer controller, get_classes_of_trainer token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTQ5NjAwMH0=.3c10edc3e328f1e75fe18e74485057466aabcb4f6e71f3db60d5979787f5c266   id - 177 
+[2025-04-24 11:16:09] Running get_classes_of_trainer....in controller
+[2025-04-24 11:16:09] get classes belong to a trainer func is runing.....
+[2025-04-24 11:16:09] TrainerClass model initialized with database conection
+[2025-04-24 11:16:09] Trainer model initialized with database connection.
+[2025-04-24 11:16:09] Fetching trainer ID by user ID : 177...
+[2025-04-24 11:16:09] getting classes belongs to the trainer : T11
+[2025-04-24 11:16:10] Classes belongs to the trainer fetched successfully
+[2025-04-24 11:16:10] classes retrieved successfully
+[2025-04-24 11:16:10] Database connection closed.
+[2025-04-24 11:16:15] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:16:15] User class instantiated with database connection.
+[2025-04-24 11:16:15] Fetching user role by user ID: 181
+[2025-04-24 11:16:15] User role fetched successfully for user ID: 181
+[2025-04-24 11:16:15] Running member controller ,get_gym_crowd token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTQ5NjAwMH0=.251bf7e1bfe87069a7b75e9a838d98da26e8317980fdf93e253d5e20d98d663d   id - 181 
+[2025-04-24 11:16:15] Running get_gym_crowd....in controller
+[2025-04-24 11:16:15] Running getGymCrowd...
+[2025-04-24 11:16:15] Attendance model initialized with database connection.
+[2025-04-24 11:16:15] Fetching number of unique users with latest arrival marked as 1...
+[2025-04-24 11:16:16] Total users with latest Arrived=1: 0
+[2025-04-24 11:16:16] Fetching gym capacity from configuration...
+[2025-04-24 11:16:16] Gym capacity fetched successfully: 51
+[2025-04-24 11:16:16] Gym crowd count: 0 (0%)
+[2025-04-24 11:16:16] Database connection closed.
+[2025-04-24 11:16:38] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:16:38] User class instantiated with database connection.
+[2025-04-24 11:16:38] Fetching user role by user ID: 181
+[2025-04-24 11:16:38] User role fetched successfully for user ID: 181
+[2025-04-24 11:16:38] Running member controller ,update_attendance token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTQ5NjAwMH0=.251bf7e1bfe87069a7b75e9a838d98da26e8317980fdf93e253d5e20d98d663d   id - 181 
+[2025-04-24 11:16:38] Running member mark_attendance....in controller
+[2025-04-24 11:16:38] Running userArrivedStatus...
+[2025-04-24 11:16:38] Attendance model initialized with database connection.
+[2025-04-24 11:16:38] Fetching latest Arrived status for User ID: 181
+[2025-04-24 11:16:39] No records found for User ID: 181
+[2025-04-24 11:16:39] Database connection closed.
+[2025-04-24 11:17:31] Running auth controller ,get_footer_info 
+[2025-04-24 11:17:31] Running get_footer_info....in controller
+[2025-04-24 11:17:31] Error fetching system configs: php_network_getaddresses: getaddrinfo for mysql-rad.alwaysdata.net failed: No such host is known. 
+[2025-04-24 11:17:31] Running auth controller ,login 
+[2025-04-24 11:17:31] running login...in auth controller
+[2025-04-24 11:17:31] login function running...
+[2025-04-24 11:17:31] Running auth controller ,login 
+[2025-04-24 11:17:31] running login...in auth controller
+[2025-04-24 11:17:31] login function running...
+[2025-04-24 11:17:34] Running auth controller ,get_footer_info 
+[2025-04-24 11:17:34] Running get_footer_info....in controller
+[2025-04-24 11:17:34] Error fetching system configs: php_network_getaddresses: getaddrinfo for mysql-rad.alwaysdata.net failed: No such host is known. 
+[2025-04-24 11:17:34] Running auth controller ,get_footer_info 
+[2025-04-24 11:17:34] Running get_footer_info....in controller
+[2025-04-24 11:17:34] Error fetching system configs: php_network_getaddresses: getaddrinfo for mysql-rad.alwaysdata.net failed: No such host is known. 
+[2025-04-24 11:17:34] Running auth controller ,get_footer_info 
+[2025-04-24 11:17:34] Running get_footer_info....in controller
+[2025-04-24 11:17:34] Error fetching system configs: php_network_getaddresses: getaddrinfo for mysql-rad.alwaysdata.net failed: No such host is known. 
+[2025-04-24 11:17:35] Running auth controller ,login 
+[2025-04-24 11:17:35] running login...in auth controller
+[2025-04-24 11:17:35] login function running...
+[2025-04-24 11:18:01] Running auth controller ,login 
+[2025-04-24 11:18:01] running login...in auth controller
+[2025-04-24 11:18:01] login function running...
+[2025-04-24 11:18:02] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:18:02] User class instantiated with database connection.
+[2025-04-24 11:18:02] User Login model running for: sandeep1@gmail.com
+[2025-04-24 11:18:02] Fetching user by email: sandeep1@gmail.com
+[2025-04-24 11:18:02] User found for email: sandeep1@gmail.com
+[2025-04-24 11:18:02] Query bound and ready to execute for login: sandeep1@gmail.com
+[2025-04-24 11:18:02] User status: 1
+[2025-04-24 11:18:02] User login successful: sandeep1@gmail.com with role: member
+[2025-04-24 11:18:02] Config model initialized with database connection.
+[2025-04-24 11:18:03] Login Successful: eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTQ5NjAwMH0=.251bf7e1bfe87069a7b75e9a838d98da26e8317980fdf93e253d5e20d98d663d member
+[2025-04-24 11:18:03] Payment model initialized
+[2025-04-24 11:18:03] Fetching latest payment record for user_id: 181
+[2025-04-24 11:18:03] Query bound for fetching latest payment of user_id: 181
+[2025-04-24 11:18:03] Fetched latest payment for user_id: 181
+[2025-04-24 11:18:03] Database connection closed.
+[2025-04-24 11:18:19] Running auth controller ,get_footer_info 
+[2025-04-24 11:18:19] Running get_footer_info....in controller
+[2025-04-24 11:18:25] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:18:25] User class instantiated with database connection.
+[2025-04-24 11:18:25] Fetching user role by user ID: 181
+[2025-04-24 11:18:25] User role fetched successfully for user ID: 181
+[2025-04-24 11:18:25] Running member controller ,update_attendance token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTQ5NjAwMH0=.251bf7e1bfe87069a7b75e9a838d98da26e8317980fdf93e253d5e20d98d663d   id - 181 
+[2025-04-24 11:18:25] Running member mark_attendance....in controller
+[2025-04-24 11:18:25] Running userArrivedStatus...
+[2025-04-24 11:18:25] Attendance model initialized with database connection.
+[2025-04-24 11:18:25] Fetching latest Arrived status for User ID: 181
+[2025-04-24 11:18:25] No records found for User ID: 181
+[2025-04-24 11:18:25] Database connection closed.
+[2025-04-24 11:18:40] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:18:40] Config model initialized with database connection.
+[2025-04-24 11:18:41] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-24 11:18:41] Database connection closed.
+[2025-04-24 11:18:47] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:18:47] User class instantiated with database connection.
+[2025-04-24 11:18:47] Fetching user role by user ID: 181
+[2025-04-24 11:18:47] User role fetched successfully for user ID: 181
+[2025-04-24 11:18:47] Running member controller ,get_gym_crowd token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTQ5NjAwMH0=.251bf7e1bfe87069a7b75e9a838d98da26e8317980fdf93e253d5e20d98d663d   id - 181 
+[2025-04-24 11:18:47] Running get_gym_crowd....in controller
+[2025-04-24 11:18:47] Running getGymCrowd...
+[2025-04-24 11:18:47] Attendance model initialized with database connection.
+[2025-04-24 11:18:47] Fetching number of unique users with latest arrival marked as 1...
+[2025-04-24 11:18:47] Total users with latest Arrived=1: 0
+[2025-04-24 11:18:47] Fetching gym capacity from configuration...
+[2025-04-24 11:18:48] Gym capacity fetched successfully: 51
+[2025-04-24 11:18:48] Gym crowd count: 0 (0%)
+[2025-04-24 11:18:48] Database connection closed.
+[2025-04-24 11:19:09] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:19:09] User class instantiated with database connection.
+[2025-04-24 11:19:09] Fetching user role by user ID: 181
+[2025-04-24 11:19:10] User role fetched successfully for user ID: 181
+[2025-04-24 11:19:10] Running member controller ,get_enrolled_classes token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTQ5NjAwMH0=.251bf7e1bfe87069a7b75e9a838d98da26e8317980fdf93e253d5e20d98d663d   id - 181 
+[2025-04-24 11:19:10] get enrolled classes function running.......
+[2025-04-24 11:19:10] Member model initialized with database connection.
+[2025-04-24 11:19:10] Fetching member_id of a member by user id: 181
+[2025-04-24 11:19:10] BookTrainerClass model initialized with database conection
+[2025-04-24 11:19:10] getting member enrolled classes
+[2025-04-24 11:19:10] Successfully retrieved enrolled classes for member M15
+[2025-04-24 11:19:10] Database connection closed.
+[2025-04-24 11:19:10] Running auth controller ,get_footer_info 
+[2025-04-24 11:19:10] Running get_footer_info....in controller
+[2025-04-24 11:19:32] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:19:32] Config model initialized with database connection.
+[2025-04-24 11:19:33] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-24 11:19:33] Database connection closed.
+[2025-04-24 11:19:33] Running auth controller ,login 
+[2025-04-24 11:19:33] running login...in auth controller
+[2025-04-24 11:19:33] login function running...
+[2025-04-24 11:19:54] Connection established successfully to the database: rad_gymverse
+[2025-04-24 11:19:54] User class instantiated with database connection.
+[2025-04-24 11:19:54] User Login model running for: nalaka@gmail.com
+[2025-04-24 11:19:54] Fetching user by email: nalaka@gmail.com
+[2025-04-24 11:19:54] User found for email: nalaka@gmail.com
+[2025-04-24 11:19:55] Query bound and ready to execute for login: nalaka@gmail.com
+[2025-04-24 11:19:55] User status: 1
+[2025-04-24 11:19:55] User login successful: nalaka@gmail.com with role: trainer
+[2025-04-24 11:19:55] Config model initialized with database connection.
+[2025-04-24 11:19:55] Login Successful: eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTQ5NjAwMH0=.3c10edc3e328f1e75fe18e74485057466aabcb4f6e71f3db60d5979787f5c266 trainer
+[2025-04-24 11:19:55] Database connection closed.
+[2025-04-24 11:19:55] Running auth controller ,get_footer_info 
+[2025-04-24 11:19:55] Running get_footer_info....in controller
+[2025-04-24 14:07:42] Running auth controller ,login 
+[2025-04-24 14:07:42] running login...in auth controller
+[2025-04-24 14:07:42] login function running...
+[2025-04-24 14:08:04] Connection established successfully to the database: rad_gymverse
+[2025-04-24 14:08:04] User class instantiated with database connection.
+[2025-04-24 14:08:04] User Login model running for: sandeep1@gmail.com
+[2025-04-24 14:08:04] Fetching user by email: sandeep1@gmail.com
+[2025-04-24 14:08:04] User found for email: sandeep1@gmail.com
+[2025-04-24 14:08:04] Query bound and ready to execute for login: sandeep1@gmail.com
+[2025-04-24 14:08:05] User status: 1
+[2025-04-24 14:08:05] User login successful: sandeep1@gmail.com with role: member
+[2025-04-24 14:08:05] Config model initialized with database connection.
+[2025-04-24 14:08:05] Login Successful: eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTUwNjgwMH0=.2f9fd985014de49704efbffdf28e8d8930baf11e9e6178ab62839d0ae3a3a842 member
+[2025-04-24 14:08:05] Payment model initialized
+[2025-04-24 14:08:05] Fetching latest payment record for user_id: 181
+[2025-04-24 14:08:05] Query bound for fetching latest payment of user_id: 181
+[2025-04-24 14:08:06] Fetched latest payment for user_id: 181
+[2025-04-24 14:08:06] Database connection closed.
+[2025-04-24 14:08:06] Running auth controller ,get_footer_info 
+[2025-04-24 14:08:06] Running get_footer_info....in controller
+[2025-04-24 14:08:28] Connection established successfully to the database: rad_gymverse
+[2025-04-24 14:08:28] Config model initialized with database connection.
+[2025-04-24 14:08:29] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-24 14:08:29] Database connection closed.
+[2025-04-24 14:08:29] Running auth controller ,login 
+[2025-04-24 14:08:29] running login...in auth controller
+[2025-04-24 14:08:29] login function running...
+[2025-04-24 14:08:37] Running auth controller ,get_footer_info 
+[2025-04-24 14:08:37] Running get_footer_info....in controller
+[2025-04-24 14:08:41] Running auth controller ,login 
+[2025-04-24 14:08:41] running login...in auth controller
+[2025-04-24 14:08:41] login function running...
+[2025-04-24 14:08:50] Connection established successfully to the database: rad_gymverse
+[2025-04-24 14:08:50] User class instantiated with database connection.
+[2025-04-24 14:08:50] User Login model running for: sandeep1@gmail.com
+[2025-04-24 14:08:50] Fetching user by email: sandeep1@gmail.com
+[2025-04-24 14:08:50] User found for email: sandeep1@gmail.com
+[2025-04-24 14:08:50] Query bound and ready to execute for login: sandeep1@gmail.com
+[2025-04-24 14:08:51] User status: 1
+[2025-04-24 14:08:51] User login successful: sandeep1@gmail.com with role: member
+[2025-04-24 14:08:51] Config model initialized with database connection.
+[2025-04-24 14:08:51] Login Successful: eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTUwNjgwMH0=.2f9fd985014de49704efbffdf28e8d8930baf11e9e6178ab62839d0ae3a3a842 member
+[2025-04-24 14:08:51] Payment model initialized
+[2025-04-24 14:08:51] Fetching latest payment record for user_id: 181
+[2025-04-24 14:08:51] Query bound for fetching latest payment of user_id: 181
+[2025-04-24 14:08:51] Fetched latest payment for user_id: 181
+[2025-04-24 14:08:51] Database connection closed.

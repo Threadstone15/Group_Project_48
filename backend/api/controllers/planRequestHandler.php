@@ -147,3 +147,35 @@ function createMealPlanForMember($data)
         ]);
     }
 }
+
+function createdTrainerWorkoutPlans($user_id)
+{
+    logMessage("Running createdTrainerWorkoutPlans in controller for user_id: $user_id");
+
+    $planRequest = new planRequest();
+    $result = $planRequest->createdTrainerWorkoutPlans($user_id);
+
+    if ($result) {
+        http_response_code(200);
+        echo json_encode($result);
+    } else {
+        http_response_code(404);
+        echo json_encode(["message" => "No requests found."]);
+    }
+}
+
+function createdTrainerMealPlans($user_id)
+{
+    logMessage("Running createdTrainerMealPlans in controller for user_id: $user_id");
+
+    $planRequest = new planRequest();
+    $result = $planRequest->createdTrainerMealPlans($user_id);
+
+    if ($result) {
+        http_response_code(200);
+        echo json_encode($result);
+    } else {
+        http_response_code(404);
+        echo json_encode(["message" => "No requests found."]);
+    }
+}

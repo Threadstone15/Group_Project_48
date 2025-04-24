@@ -19,6 +19,7 @@ export function initTrainer_createWorkoutPlans() {
       })
         .then(response => response.json())
         .then(data => {
+          console.log('Fetched plans:', data);
           if (data && Array.isArray(data.plans)) {
             document.getElementById('planCount').textContent = data.plans.length;
             populateTable(data.plans);
