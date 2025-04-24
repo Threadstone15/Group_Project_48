@@ -74,3 +74,28 @@ function getRequests($user_id)
         echo json_encode(["message" => "No requests found."]);
     }
 }
+
+
+function rejectRequest($data)
+{
+    $request_id = $data['request_id'];
+    $reason = $data['reason'];
+
+    logMessage("Running rejectRequest in controller for request_id: $request_id");
+
+    $planRequest = new planRequest();
+    $result = $planRequest->rejectRequest($request_id, $reason);
+
+    if ($result) {
+        echo json_encode([
+            "status" => "success",
+            "message" => "Request rejected successfully."
+        ]);
+    } else {
+        http_response_code(500);
+        echo json_encode([
+            "status" => "error",
+            "message" => "Failed to reject the request."
+        ]);
+    }
+}

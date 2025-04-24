@@ -285,3 +285,12 @@
     background-color: #95a5a6;
     color: white;
   }
+.modal-content textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 8px;
+    resize: vertical;
+    min-height: 80px;
+  }

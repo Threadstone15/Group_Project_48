@@ -93,6 +93,13 @@ switch ($action) {
         logMessage("Running get_requests....in controller");
         getRequests($user_id);
         break;
+    // Reject a plan request
+    case 'reject_request':
+        logMessage("Running reject_request....in controller");
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        rejectRequest($data);
+        break;
 
     default:
         echo json_encode(["error" => "Invalid action"]);

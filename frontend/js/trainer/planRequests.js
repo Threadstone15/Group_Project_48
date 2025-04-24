@@ -119,7 +119,7 @@ export function initTrainer_planRequests() {
         // Handle accept button click
         function handleAccept(e) {
           const requestId = e.target.dataset.id;
-          currentMemberId = e.target.dataset.memberId;
+          currentMemberId = e.target.dataset.member_id;
           
           if (currentRequestType === 'workout') {
             showWorkoutPlanner();
@@ -129,44 +129,70 @@ export function initTrainer_planRequests() {
         }
       
         // Handle reject button click
-        async function handleReject(e) {
-          const requestId = e.target.dataset.id;
-          
-          try {
-            const authToken = localStorage.getItem("authToken");
-            if (!authToken) {
-              alert("Auth token not found. Please log in.");
-              return;
-            }
-      
-            const response = await fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/trainerController.php?action=reject_request&request_id=${requestId}`, {
-              method: "POST",
-              headers: {
-                "Authorization": `Bearer ${authToken}`
-              }
-            });
-      
-            if (!response.ok) {
-              throw new Error('Failed to reject request');
-            }
-      
-            // Remove the request from the UI
-            e.target.closest('tr').remove();
-            
-            // Update the badge count
-            if (currentRequestType === 'workout') {
-              workoutBadge.textContent = parseInt(workoutBadge.textContent) - 1;
-            } else {
-              mealBadge.textContent = parseInt(mealBadge.textContent) - 1;
-            }
-            
-            alert('Request rejected successfully');
-            
-          } catch (error) {
-            console.error('Error rejecting request:', error);
-            alert('Error rejecting request. Please try again.');
-          }
+        // Handle reject button click
+async function handleReject(e) {
+    const requestId = e.target.dataset.id;
+    
+    showModal({
+      title: 'Confirm Rejection',
+      content: `
+        <p>Are you sure you want to reject this request?</p>
+        <label for="rejectReason">Reason for rejection:</label>
+        <textarea id="rejectReason" rows="3" style="width: 100%; padding: 8px;" placeholder="Enter reason for rejection..."></textarea>
+      `,
+      onConfirm: async () => {
+        const rejectReason = document.getElementById('rejectReason').value.trim();
+        
+        if (!rejectReason) {
+          alert('Please provide a reason for rejection.');
+          return;
         }
+        
+        try {
+          const authToken = localStorage.getItem("authToken");
+          if (!authToken) {
+            alert("Auth token not found. Please log in.");
+            return;
+          }
+  
+          const response = await fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/trainerController.php?action=reject_request`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${authToken}`
+            },
+            body: JSON.stringify({
+              request_id: requestId,
+              reason: rejectReason
+            })
+          });
+  
+          if (!response.ok) {
+            throw new Error('Failed to reject request');
+          }
+  
+          // Remove the request from the UI
+          e.target.closest('tr').remove();
+          
+          // Update the badge count
+          if (currentRequestType === 'workout') {
+            workoutBadge.textContent = parseInt(workoutBadge.textContent) - 1;
+          } else {
+            mealBadge.textContent = parseInt(mealBadge.textContent) - 1;
+          }
+          
+          alert('Request rejected successfully');
+          
+        } catch (error) {
+          console.error('Error rejecting request:', error);
+          alert('Error rejecting request. Please try again.');
+        }
+      },
+      onCancel: () => {
+        console.log('Rejection cancelled');
+      }
+    });
+  }
       
         // Show workout planner
         function showWorkoutPlanner() {

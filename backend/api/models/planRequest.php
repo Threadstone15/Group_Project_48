@@ -114,4 +114,35 @@ class PlanRequest
             return false;
         }
     }
+
+    public function rejectRequest($request_id, $reason)
+    {
+        logMessage("Rejecting request with request_id: $request_id");
+
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
+        $query = "CALL HandleRequestAction('delete', ?, ?)";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing rejectRequest statement: " . $this->conn->error);
+            return false;
+        }
+
+        if (!$stmt->bind_param("is", $request_id, $reason)) {
+            logMessage("Error binding parameters in rejectRequest: " . $stmt->error);
+            return false;
+        }
+
+        if ($stmt->execute()) {
+            logMessage("Successfully rejected request with id: $request_id");
+            return true;
+        } else {
+            logMessage("Execution failed for rejectRequest. Error: " . $stmt->error);
+            return false;
+        }
+    }
 }
