@@ -14,6 +14,7 @@ include_once "../models/User.php";
 include_once "./accountDetailHandler.php";
 include_once "./trainerClassHandler.php";
 include_once "./assignedTrainerHandler.php";
+include_once "./planRequestHandler.php";
 
 $conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -49,7 +50,7 @@ switch ($action) {
         logMessage("Running delete_workout_plan....in controller");
         deleteWorkoutPlan();
         break;
-    
+
     case 'add_class':
         logMessage("Running add_class....in controller");
         addTrainerClass($user_id);
@@ -87,10 +88,80 @@ switch ($action) {
         logMessage("Running change_password....in controller");
         changePassword($user_id);
         break;
-    
+
     case 'get_assigned_members':
         logMessage("Running get_assigned_members....in controller");
         getAssignedMembersOfATrainer($user_id);
+        break;
+
+    //view created workout plans
+    case 'get_created_workout_plans':
+        logMessage("Running get_created_workout_plans....in controller");
+        createdTrainerWorkoutPlans($user_id);
+        break;
+    //edit created workout plans
+    case 'edit_created_workout_plans':
+        logMessage("Running edit_created_workout_plans....in controller");
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        editCreatedWorkoutPlans($data);
+        break;
+    //delete created workout plans
+    case 'delete_created_workout_plans':
+        logMessage("Running delete_created_workout_plans....in controller");
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        $plan_id = $data['id'];
+        deleteCreatedWorkoutPlans($plan_id);
+        break;
+
+
+
+    //view created meal plans
+    case 'get_created_meal_plans':
+        logMessage("Running get_created_meal_plans....in controller");
+        createdTrainerMealPlans($user_id);
+        break;
+    //edit created meal plans
+    case 'edit_created_meal_plan':
+        logMessage("Running edit_created_meal_plans....in controller");
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        editCreatedMealPlans($data);
+        break;
+    //delete created meal plans
+    case 'delete_created_meal_plan':
+        logMessage("Running delete_created_meal_plans....in controller");
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        $plan_id = $data['id'];
+        deleteCreatedMealPlans($plan_id);
+        break;
+
+    //Plan Requests from the user
+    case 'get_requests':
+        logMessage("Running get_requests....in controller");
+        getRequests($user_id);
+        break;
+    case 'create_workout_plan_for_member':
+        logMessage("Running create_workout_plan_for_member....in controller");
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        createWorkoutPlanForMember($data);
+        break;
+    case 'create_meal_plan_for_member':
+        logMessage("Running create_meal_plan_for_member....in controller");
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        createMealPlanForMember($data);
+        break;
+
+    // Reject a plan request
+    case 'reject_request':
+        logMessage("Running reject_request....in controller");
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        rejectRequest($data);
         break;
 
     default:
