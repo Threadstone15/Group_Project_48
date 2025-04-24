@@ -1,114 +1,166 @@
+import { navigate } from "../router.js";
+import { runSessionTimedOut } from "../routeConfig.js";
+
 export function initMember_trackProgress() {
     console.log("initialzing trackProgress.js");
-    //test function that stimulate the data from the database
-    // const testData = [
-    //     { date: "2024-11-01", weight: 75 },
-    //     { date: "2024-11-02", weight: 76 },
-    //     { date: "2024-11-03", weight: 75.5 },
-    //     { date: "2024-11-04", weight: 74.8 },
-    //     { date: "2024-11-05", weight: 74 },
-    //     { date: "2024-11-06", weight: 73.5 },
-    //     { date: "2024-11-07", weight: 73.2 },
-    // ];
+    fetchLastWeeklyPogressOfMember();
 
-    // const labels = testData.map(entry => entry.date);
-    // const weights = testData.map(entry => entry.weight);
+    let currentWeekProgressInfo = null;
+    let currentWeekWorkoutProgress = null;
+    console.log("initialzing trackProgress.js");
 
-    // // the chart
-    // const ctx = document.getElementById('weightChart').getContext('2d');
-    // new Chart(ctx, {
-    //     type: 'line',
-    //     data: {
-    //         labels: labels,
-    //         datasets: [{
-    //             label: 'Weight (kg)',
-    //             data: weights,
-    //             borderColor: 'rgba(255, 95, 0, 1) ',
-    //             backgroundColor: 'rgba(245, 245, 245, 1)',
-
-    //             borderWidth: 1
-    //         }]
-    //     },
-    //     options: {
-    //         responsive: true,
-    //         scales: {
-    //             y: {
-    //                 beginAtZero: false // Set to false to avoid starting the Y-axis at 0
-    //             }
-    //         }
-    //     }
-    // });
-
-
-    // actual function that fetches data from the database using a PHP API
-    {/*}
-fetch('path_to_your_php_file.php') // Replace with the correct PHP API path
-    .then(response => response.json())
-    .then(data => {
-        const labels = data.map(entry => entry.date); 
-        const weights = data.map(entry => entry.weight); 
-
-        //  the chart
-        const ctx = document.getElementById('weightChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'line', 
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'Weight',
-                    data: weights,
-                    borderColor: 'rgba(255, 95, 0, 1) ',
-                    backgroundColor: 'rgba(245, 245, 245, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true
+    function fetchLastWeeklyPogressOfMember() {
+        const authToken = localStorage.getItem("authToken");
+        if (!authToken) {
+            showToast("An error has occurred. Please log in again", "error");
+            navigate("login");
+            return;
+        }
+        const requestOptions = {
+            method: "GET",
+            headers: { "Authorization": `Bearer ${authToken}` },
+            redirect: "follow"
+        };
+        fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=get_last_weekly_progress", requestOptions)
+            .then(response => {
+                return response.json().then(data => {
+                    if (data.error && data.error === "Token expired") {
+                        throw new Error("Token expired");
                     }
+                    if (!response.ok) throw new Error("Failed to fetch the last weekly progress");
+                    return data;
+                });
+            })
+            .then(data => {
+                if (data.error) {
+                    showToast(data.error, "error");
+                } else {
+                    currentWeekProgressInfo = data;
+                    currentWeekWorkoutProgress = JSON.parse(currentWeekProgressInfo.weekly_progress);
+                    displayCurrentWeekProgress(currentWeekWorkoutProgress);
                 }
-            }
-        });
-    })
-    .catch(error => console.error('Error fetching data:', error));
-
-*/}
-
-    //php api example
-    {/*
-<?php
-
-$host = "localhost";
-$username = "root";
-$password = "";
-$database = "gym_db";
-
-$conn = new mysqli($host, $username, $password, $database);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Get weight data for the member (can be filtered by member ID, etc.)
-$sql = "SELECT date, weight FROM members_weight ORDER BY date DESC";
-$result = $conn->query($sql);
-
-$data = [];
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        $data[] = [
-            'date' => $row['date'],
-            'weight' => $row['weight']
-        ];
+            })
+            .catch(error => {
+                console.error("API Error:", error.message);
+                if (error.message === "Token expired") {
+                    runSessionTimedOut();
+                } else {
+                    showToast(error.message, "error");
+                }
+            });
     }
-}
 
-// Return data as JSON
-header('Content-Type: application/json');
-echo json_encode($data);
-$conn->close();
-?>
- */}
+    function displayCurrentWeekProgress(progress) {
+        console.log(progress);
+        const logProgressForms = document.getElementById("log-progress-forms");
+        logProgressForms.innerHTML = ""; // Clear previous content
+
+        console.log("hehe1");
+
+        // Set week number
+        const weekNo = document.getElementById("week-no");
+        weekNo.innerHTML = `Week ${currentWeekProgressInfo.week_number}`;
+
+        progress.forEach((dayProgress, dayIndex) => {
+            const dayCard = document.createElement("div");
+            dayCard.className = "day-card";
+
+            const dayTitle = document.createElement("h4");
+            dayTitle.textContent = `Day ${dayProgress.day}`;
+            dayCard.appendChild(dayTitle);
+
+            //real time day -> according to exercise day
+            if (dayProgress.completedAt !== null) {
+                const dayProgressDate = document.createElement("p");
+                dayProgressDate.textContent = `Date : ${dayProgress.completedAt}`;
+                dayCard.appendChild(dayProgressDate);
+            }
+
+            // Exercises list
+            dayProgress.exercises.forEach((exercise, exIndex) => {
+                const exerciseContainer = document.createElement("div");
+                exerciseContainer.style.margin = "10px 0";
+
+                const name = document.createElement("p");
+                name.innerHTML = `<strong>Exercise:</strong> ${exercise.name}`;
+                exerciseContainer.appendChild(name);
+
+                const setsReps = document.createElement("p");
+                setsReps.innerHTML = `<strong>Sets:</strong> ${exercise.sets}, <strong>Reps:</strong> ${exercise.reps}`;
+                exerciseContainer.appendChild(setsReps);
+
+                const setsCompletedLabel = document.createElement("label");
+                setsCompletedLabel.textContent = "Sets Completed: ";
+                const setsCompletedInput = document.createElement("input");
+                setsCompletedInput.type = "number";
+                setsCompletedInput.min = 0;
+                setsCompletedInput.value = exercise.sets_completed || 0;
+                setsCompletedInput.name = `day${dayIndex}-exercise${exIndex}`;
+                setsCompletedInput.style.marginLeft = "10px";
+
+                setsCompletedLabel.appendChild(setsCompletedInput);
+                exerciseContainer.appendChild(setsCompletedLabel);
+
+                dayCard.appendChild(exerciseContainer);
+            });
+
+            // Update button
+            const updateBtn = document.createElement("button");
+            updateBtn.textContent = "Update Progress";
+            updateBtn.classList.add("update-button");
+
+            updateBtn.addEventListener("click", () => {
+                let allCompleted = true;
+
+                dayProgress.exercises.forEach((exercise, exIndex) => {
+                    const inputName = `day${dayIndex}-exercise${exIndex}`;
+                    const input = document.querySelector(`input[name="${inputName}"]`);
+                    const newCompletedSets = parseInt(input.value);
+
+                    if (isNaN(newCompletedSets) || newCompletedSets < 0 || newCompletedSets > exercise.sets) {
+                        showToast("Invalid input for sets completed.", "error");
+                        return;
+                    }
+
+                    // Update the corresponding exercise in the main data structure
+                    currentWeekWorkoutProgress[dayIndex].exercises[exIndex].sets_completed = newCompletedSets;
+
+                    if (newCompletedSets < exercise.sets) {
+                        allCompleted = false;
+                    }
+                });
+
+                // Update day-level completion
+                currentWeekWorkoutProgress[dayIndex].completed = allCompleted;
+
+                if (allCompleted) {
+                    const today = new Date().toISOString().split("T")[0];
+                    currentWeekWorkoutProgress[dayIndex].completedAt = today;
+                } else {
+                    currentWeekWorkoutProgress[dayIndex].completedAt = null;
+                }
+
+                showToast(`Day ${dayProgress.day} progress updated`, "success");
+                console.log("Updated Progress:", currentWeekWorkoutProgress[dayIndex]);
+            });
+
+
+            dayCard.appendChild(updateBtn);
+            logProgressForms.appendChild(dayCard);
+        });
+    }
+
+
+    function showToast(message, type) {
+        const container = document.getElementById('toast-container');
+        const toast = document.createElement('div');
+        toast.className = `toast ${type}`;
+        toast.innerHTML = message;
+
+        container.appendChild(toast);
+
+        setTimeout(() => {
+            toast.remove();
+        }, 4000);
+    }
 }

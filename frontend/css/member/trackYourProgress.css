@@ -24,3 +24,108 @@ canvas {
     margin-top: 20px;
     max-width: 100%;
 }
+
+.progress-form-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.progress-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.progress-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  text-align: center;
+  position: relative;
+}
+
+.career-role {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.career-requirements {
+  font-size: 0.9em;
+  margin: 10px 0;
+}
+
+.update-button {
+  background-color: #ff7f50;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: auto;           
+  margin-bottom: 5px;
+}
+
+.update-button:hover {
+  background-color: #ff6347;
+}
+
+.day-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.toast {
+  margin-bottom: 10px;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: white;
+  background-color: #333;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  animation: fadeInOut 4s forwards;
+}
+
+.toast.success {
+  background-color: #28a745;
+}
+
+.toast.error {
+  background-color: #dc3545;
+}
+
+@keyframes fadeInOut {
+  0% {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+
+  10%,
+  90% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  100% {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+}
+
+

@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gym Member Weight Chart</title>
+    <title>Track Workout Progress</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="content">
-    <h1>Gym Member Weight Progress</h1>
-    <canvas id="weightChart" width="400" height="200"></canvas>
+        <h1>Log Your Workout Progress</h1>
+        <section class="progress-form-container">
+            <h3 id="week-no"></h3>
+            <div id="log-progress-forms" class="progress-cards-container">
+                <!-- Job cards will be dynamically inserted here -->
+            </div>
+        </section>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <div id="toast-container" class="toast-container"></div>
 </body>
+
 </html>
