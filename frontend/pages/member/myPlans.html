@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workout Plan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+      <h1 class="title">Choose a Plan</h1>
+      <div class="main-buttons">
+        <button id="workoutBtn" class="primary-btn">Workout Plans</button>
+        <button id="mealBtn" class="primary-btn">Meal Plans</button>
+      </div>
+    </div>
+  
+    <!-- Plan Type Popup -->
+    <div id="planTypeModal" class="modal hidden">
+      <div class="modal-content">
+        <h2>Select Plan Type</h2>
+        <button class="secondary-btn" data-type="personal">Personal Plan</button>
+        <button class="secondary-btn" data-type="trainer">From Trainer</button>
+        <button class="close-btn">Close</button>
+      </div>
+    </div>
+  
+    <!-- Plan List Popup -->
+    <div id="planListModal" class="modal hidden">
+      <div class="modal-content">
+        <h2 id="planListTitle"></h2>
+        <div class="plans-section">
+            <h2 id="planListTitle"></h2>
+            <table id="plansTable" class="plans-table">
+              <thead>
+                <tr>
+                  <th>Plan No</th>
+                  <th>Details</th>
+                  <th>Trainer</th>
+                  <th>Created At</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="plansTableBody">
+                <!-- JS will populate this -->
+              </tbody>
+            </table>
+          </div>
+          
+    </div>
+    <!-- Edit Plan Modal -->
+<div id="editPlanModal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Edit Plan</h2>
+      <form id="editPlanForm">
+        <input type="hidden" id="editPlanId">
+        <input type="hidden" id="editPlanCategory">
+  
+        <div>
+          <label for="planName">Plan Name</label>
+          <input type="text" id="planName" required>
+        </div>
+  
+        <div id="mealDetails" class="hidden">
+          <h3>Meal Plan</h3>
+          <div id="mealInputs"></div>
+        </div>
+  
+        <div id="workoutDetails" class="hidden">
+          <h3>Workout Plan</h3>
+          <div id="workoutInputs"></div>
+          <button type="button" onclick="addWorkoutRow()">Add Exercise</button>
+        </div>
+  
+        <button type="submit">Save Changes</button>
+        <button type="button" class="close-btn">Cancel</button>
+      </form>
+    </div>
+  </div>
+  
+  
+
+  </body>
+</html>

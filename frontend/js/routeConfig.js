@@ -48,8 +48,9 @@ import { initMember_home } from "./member/memberHome.js";
 import { initMember_myAcnt } from "./member/myAcnt.js";
 import { initMember_trackProgress } from "./member/trackYourProgress.js";
 import { initMember_upgradePlan } from "./member/upgradePlan.js";
-import { initMember_viewPlan } from "./member/viewPlan.js";
-import { initMember_workoutMealPlan } from "./member/workoutMealPlans.js";
+import { initMember_myPlans } from "./member/myPlans.js";
+import { initMember_workoutPlans } from "./member/workoutPlans.js";
+import { initMember_workoutMealPlans } from "./member/workoutMealPlans.js";
 import { initMember_payments } from "./member/payments.js";
 import { initMember_getATrainer } from "./member/getATrainer.js";
 
@@ -66,7 +67,9 @@ import { initTrainer_assignedMembers } from "./trainer/assignedMembers.js";
 import { initTrainer_classSchedule } from "./trainer/classSchedule.js";
 import { initTrainer_myAcnt } from "./trainer/myAcnt.js";
 import { initTrainer_home } from "./trainer/trainerHome.js";
-import { initTrainer_workoutMealPlans } from "./trainer/workoutMealPlans.js";
+import { initTrainer_createMealPlans } from "./trainer/createMealPlans.js";
+import { initTrainer_createWorkoutPlans } from "./trainer/createWorkoutPlans.js";
+import { initTrainer_planRequests } from "./trainer/planRequests.js";
 
 import { navigate } from "./router.js";
 
@@ -98,9 +101,11 @@ export const validRoutes = {
             "member/getATrainer",
             "member/payments",
             "member/trackYourProgress",
+            "member/workoutPlans",
             "member/workoutMealPlans",
             "member/upgradePlan",
             "member/myAcnt",
+            "member/myPlans",
         ],
         admin: [
             "admin/adminHome",
@@ -123,9 +128,11 @@ export const validRoutes = {
         trainer: [
             "trainer/trainerHome",
             "trainer/assignedMembers",
-            "trainer/workoutMealPlans",
             "trainer/myAcnt",
-            "trainer/classSchedule"
+            "trainer/classSchedule",
+            "trainer/createWorkoutPlans",
+            "trainer/createMealPlans",
+            "trainer/planRequests"
         ]
     }
 };
@@ -183,8 +190,9 @@ export function runDashboardPgJS(role, page) {
             case 'trackYourProgress' : initMember_trackProgress(); break;
             case 'payments' : initMember_payments(); break;
             case 'upgradePlan' : initMember_upgradePlan(); break;
-            case 'viewPlan' : initMember_viewPlan(); break;
-            case 'workoutMealPlans' : initMember_workoutMealPlan(); break;
+            case 'myPlans' : initMember_myPlans(); break;
+            case 'workoutPlans' : initMember_workoutPlans(); break;
+            case 'workoutMealPlans' : initMember_workoutMealPlans(); break;
             case 'getATrainer' : initMember_getATrainer(); break;
             default : console.error("Undefined member dashboard page js func"); break;
         }
@@ -206,7 +214,11 @@ export function runDashboardPgJS(role, page) {
             case 'classSchedule' : initTrainer_classSchedule(); break;
             case 'myAcnt' : initTrainer_myAcnt(); break;
             case 'trainerHome' : initTrainer_home(); break;
-            case 'workoutMealPlans' : initTrainer_workoutMealPlans(); break;
+            case 'createWorkoutPlans' : initTrainer_createWorkoutPlans(); break;
+            case 'createMealPlans' : initTrainer_createMealPlans(); break;
+            case 'planRequests' : initTrainer_planRequests(); break;
+
+
             default : console.error("Undefined trainer dashboard "); break;
         }
     }

@@ -299,6 +299,8 @@ export function initMember_home() {
 
   verifyMembershipPlan();
 
+  //setInterval(updateAttendance, 5000);
+  
   window.addEventListener('message', (event) => {
     if (event.data.call === 'SHOW_TOAST') {
       const container = document.getElementById('global-toast-container');
