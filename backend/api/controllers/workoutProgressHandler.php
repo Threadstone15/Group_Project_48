@@ -136,6 +136,20 @@ function getLastWeeklyProgressOfMember($user_id)
         echo json_encode($lastWeeklyProgress);
     } else {
         logMessage("Failed to retrieve last weekly progress for user: " . $user_id);
-        echo json_encode(["error" => "Failed to retrieve last weekly progress"]);
+        echo json_encode(["error" => "No progress found"]);
+    }
+}
+
+function getCurrentWorkoutPlanOfMember($user_id)
+{
+    logMessage("get current workout plan function running......");
+    $workoutPlan = new WorkoutPlan();
+    $current_workout_plan = $workoutPlan->getCurrentWorkoutPlanOfMember($user_id);
+    if ($current_workout_plan) {
+        logMessage("Current workout plan is retrieved successfully for user: " . $user_id);
+        echo json_encode($current_workout_plan);
+    } else {
+        logMessage("Failed to retrieve current workout plan for user: " . $user_id);
+        echo json_encode(["error" => "No current workout plan found"]);
     }
 }

@@ -208,6 +208,10 @@ switch ($action) {
         logMessage("Running get_last_weekly_progress....in controller");
         getLastWeeklyProgressOfMember($user_id);
         break;
+    case 'get_current_workout_plan':
+        logMessage("Running get_current_workout_plan....in controller");
+        getCurrentWorkoutPlanOfMember($user_id);
+        break;
 
     default:
         echo json_encode(["error" => "Invalid action"]);

@@ -127,4 +127,42 @@ class WorkoutPlan
             return false;
         }
     }
+
+    public function getCurrentWorkoutPlanOfMember($user_id)
+    {
+        logMessage("Fetching current workout plan for user_id: $user_id");
+
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
+        $query = "SELECT id,description FROM " . $this->table . " WHERE user_id = ? ORDER BY created_at DESC LIMIT 1";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing statement for fetching current workout plan: " . $this->conn->error);
+            return false;
+        }
+
+        if (!$stmt->bind_param("i", $user_id)) {
+            logMessage("Error binding parameter for fetching current workout plan: " . $stmt->error);
+            return false;
+        }
+
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                logMessage("Current workout plan fetched successfully for user_id: $user_id");
+                return $row;
+            } else {
+                logMessage("No active workout plan found for user_id: $user_id");
+                return null;
+            }
+        } else {
+            logMessage("Fetching current workout plan failed: " . $stmt->error);
+            return false;
+        }
+    }
 }

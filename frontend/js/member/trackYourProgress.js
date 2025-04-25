@@ -7,7 +7,7 @@ export function initMember_trackProgress() {
 
     let currentWeekProgressInfo = null;
     let currentWeekWorkoutProgress = null;
-    console.log("initialzing trackProgress.js");
+    let currentWeekNo = 1;
 
     function fetchLastWeeklyPogressOfMember() {
         const authToken = localStorage.getItem("authToken");
@@ -32,11 +32,130 @@ export function initMember_trackProgress() {
                 });
             })
             .then(data => {
+                if (data.error && data.error === "No progress found") {
+                    // No progress found for the user
+                    // ask the user to start with a new weekly progress
+                    document.getElementById("progress-start").style.display = "block";
+                } else if (data.error) {
+                    // Handle other errors
+                    showToast(data.error, "error");
+                }else{
+                    // Successfully fetched the weekly progress
+                    currentWeekProgressInfo = data;
+                    currentWeekWorkoutProgress = JSON.parse(currentWeekProgressInfo.weekly_progress);  //converting the JSON string into js object
+                    currentWeekNo = currentWeekProgressInfo.week_number;
+                    displayCurrentWeekProgress(currentWeekWorkoutProgress);
+                }
+            })
+            .catch(error => {
+                console.error("API Error:", error.message);
+                if (error.message === "Token expired") {
+                    runSessionTimedOut();
+                } else {
+                    showToast(error.message, "error");
+                }
+            });
+    }
+    //no progress found->fetching the currently selected workout plan of member and starting the weekly progress
+    const startProgressBtn = document.getElementById("start-progress-btn");
+    startProgressBtn.addEventListener("click", () => {
+        fetchCurrentWorkoutPlan();
+        // startNewWeekProgress();
+    });
+
+    function fetchCurrentWorkoutPlan() {
+        const authToken = localStorage.getItem("authToken");
+        if (!authToken) {
+            showToast("An error has occurred. Please log in again", "error");
+            navigate("login");
+            return;
+        }
+        const requestOptions = {
+            method: "GET",
+            headers: { "Authorization": `Bearer ${authToken}` },
+            redirect: "follow"
+        };
+        fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=get_current_workout_plan", requestOptions)
+            .then(response => {
+                return response.json().then(data => {
+                    if (data.error && data.error === "Token expired") {
+                        throw new Error("Token expired");
+                    }
+                    if (!response.ok) throw new Error("Failed to fetch the current workout plan");
+                    return data;
+                });
+            })
+            .then(data => {
+                if (data.error && data.error === "No current workout plan found") {
+                    showToast("You have not created/selected a workout plan yet", "error");  
+                } else {
+                    const currentWorkoutPlan = data;
+                    startNewWeekProgress(currentWorkoutPlan.id, JSON.parse(currentWorkoutPlan.description));
+                }
+            })
+            .catch(error => {
+                console.error("API Error:", error.message);
+                if (error.message === "Token expired") {
+                    runSessionTimedOut();
+                } else {
+                    showToast(error.message, "error");
+                }
+            });
+    }
+
+    function startNewWeekProgress(workoutPlanId, workoutPlanDescription) {
+        console.log("workout Plan description : ", workoutPlanDescription)
+        const initial_weekly_progress = workoutPlanDescription.map((day, index) => {
+            return {
+                day: day.day,
+                exercises: day.exercises.map(exercise => ({
+                    name: exercise.name,
+                    sets: exercise.sets,
+                    reps: exercise.reps,
+                    sets_completed: 0
+                }))
+            };
+        });
+        console.log("initial_weekly_progress : ", initial_weekly_progress);
+        const authToken = localStorage.getItem("authToken");
+        if (!authToken) {
+            showToast("An error has occurred. Please log in again", "error");
+            navigate("login");
+            return;
+        }
+        const payload = {
+            workout_plan_id: workoutPlanId,
+            week_number: currentWeekNo,
+            weekly_progress: JSON.stringify(initial_weekly_progress), //convertinng the js object into JSON string
+        }
+        const requestOptions = {
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${authToken}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload),
+            redirect: "follow"
+        };
+        fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=add_weekly_progress", requestOptions)
+            .then(response => {
+                return response.json().then(data => {
+                    if (data.error && data.error === "Token expired") {
+                        throw new Error("Token expired");
+                    }
+                    if (!response.ok) throw new Error("Failed to start a new weekly progress");
+                    return data;
+                });
+            })
+            .then(data => {
+                //do from here
                 if (data.error) {
                     showToast(data.error, "error");
                 } else {
+                    // Successfully started a new weekly progress
                     currentWeekProgressInfo = data;
-                    currentWeekWorkoutProgress = JSON.parse(currentWeekProgressInfo.weekly_progress);
+                    currentWeekWorkoutProgress = JSON.parse(currentWeekProgressInfo.weekly_progress);  //converting the JSON string into js object
+                    currentWeekNo = currentWeekProgressInfo.week_number;
                     displayCurrentWeekProgress(currentWeekWorkoutProgress);
                 }
             })

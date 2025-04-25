@@ -115,14 +115,8 @@ class WorkoutProgress
         );
         if ($stmt->execute()) {
             $result = $stmt->get_result();
-            if ($result->num_rows > 0) {
-                $weekly_progress = $result->fetch_assoc();
-                logMessage("Last weekly progress record retrieved successfully for member : $member_id");
-                return $weekly_progress;
-            } else {
-                logMessage("No last weekly progress record found for member : $member_id");
-                return false;
-            }
+            $weekly_progress = $result->fetch_assoc();
+            return $weekly_progress;
         } else {
             logMessage("Last weekly progress record retrieval failed: " . $stmt->error);
             return false;
