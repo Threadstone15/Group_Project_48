@@ -123,17 +123,15 @@ function getLastWeeklyProgressOfMember($user_id)
     $memberData = $member->getMemberIdByUserId($user_id);
     $member_id = $memberData['member_id'];
 
-    $workoutPlan = new WorkoutPlan();
-    $current_workout_plan_id = $workoutPlan->getCurrentWorkoutPlanIdOfMember($user_id);
-    logMessage("Current workout plan ID: " . $current_workout_plan_id);
-    if (!$current_workout_plan_id) {
+    //check if workout plan exists for the user
+    $current_workout_plan = $workoutProgress->getCurrentWorkoutPlanOfMember($user_id);
+    if (!$current_workout_plan) {
         logMessage("No current workout plan found for user: " . $user_id);
-        echo json_encode(["error" => "Please select or create a workout plan first"]);
+        echo json_encode(["error" => "No current workout plan found"]);
         return;
     }
     $lastWeeklyProgress = $workoutProgress->getLastWeekProgressOfAMember(
-        $member_id,
-        $current_workout_plan_id
+        $member_id
     );
     if ($lastWeeklyProgress) {
         logMessage("Last weekly progress is retrieved successfully for user: " . $user_id);
@@ -147,8 +145,8 @@ function getLastWeeklyProgressOfMember($user_id)
 function getCurrentWorkoutPlanOfMember($user_id)
 {
     logMessage("get current workout plan function running......");
-    $workoutPlan = new WorkoutPlan();
-    $current_workout_plan = $workoutPlan->getCurrentWorkoutPlanOfMember($user_id);
+    $workoutProgess = new WorkoutProgress();
+    $current_workout_plan = $workoutProgess->getCurrentWorkoutPlanOfMember($user_id);
     if ($current_workout_plan) {
         logMessage("Current workout plan is retrieved successfully for user: " . $user_id);
         echo json_encode($current_workout_plan);

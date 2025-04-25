@@ -90,7 +90,7 @@ class WorkoutProgress
         }
     }
 
-    public function getLastWeekProgressOfAMember($member_id, $workout_plan_id)
+    public function getLastWeekProgressOfAMember($member_id)
     {
         logMessage("Getting last weekly progress...");
         if (!$this->conn) {
@@ -98,7 +98,7 @@ class WorkoutProgress
             return false;
         }
 
-        $query = "SELECT * FROM " . $this->table . " WHERE member_id = ? AND workout_plan_id = ? ORDER BY week_number DESC LIMIT 1";
+        $query = "SELECT * FROM " . $this->table . " WHERE member_id = ? ORDER BY week_number DESC LIMIT 1";
         $stmt = $this->conn->prepare($query);
         if ($stmt === false) {
             logMessage("Error preparing statement for getting last weekly progress: " . $this->conn->error);
@@ -106,9 +106,8 @@ class WorkoutProgress
         }
 
         $stmt->bind_param(
-            "si",
-            $member_id,
-            $workout_plan_id
+            "s",
+            $member_id
         );
         if ($stmt->execute()) {
             $result = $stmt->get_result();
@@ -183,6 +182,41 @@ class WorkoutProgress
             }
         } else {
             logMessage("Previous weekly progress record retrieval failed: " . $stmt->error);
+            return false;
+        }
+    }
+
+    public function getCurrentWorkoutPlanOfMember($user_id)
+    {
+        logMessage("Getting current workout plan...");
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
+        $query = "SELECT workout_plan_id, description FROM selected_workout WHERE user_id = ? ORDER BY created_at DESC LIMIT 1";
+        $stmt = $this->conn->prepare($query);
+        if ($stmt === false) {
+            logMessage("Error preparing statement for getting current workout plan: " . $this->conn->error);
+            return false;
+        }
+
+        $stmt->bind_param(
+            "i",
+            $user_id
+        );
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) {
+                $current_workout_plan = $result->fetch_assoc();
+                logMessage("Current workout plan record retrieved successfully for user : $user_id");
+                return $current_workout_plan;
+            } else {
+                logMessage("No current workout plan record found for user : $user_id");
+                return false;
+            }
+        } else {
+            logMessage("Current workout plan record retrieval failed: " . $stmt->error);
             return false;
         }
     }

@@ -36,6 +36,12 @@ export function initMember_trackProgress() {
                     // No progress found for the user
                     // ask the user to start with a new weekly progress
                     document.getElementById("progress-start").style.display = "block";
+                } else if (data.error && data.error === "No current workout plan found") {
+                    //show a popup message to navigate into the workout plan page
+                    const selectWorkoutPlanPopup = document.getElementById("select-workout-plan-popup");
+                    selectWorkoutPlanPopup.style.display = "block";
+                    //adding dark overlay around popup
+                    document.getElementById("overlay").style.display = "block";
                 } else if (data.error) {
                     // Handle other errors
                     showToast(data.error, "error");
@@ -66,6 +72,15 @@ export function initMember_trackProgress() {
         // startNewWeekProgress();
     });
 
+    //attaching event listener to the popup button
+    const selectWorkoutPlanPopupBtn = document.getElementById("select-workout-plan-popup-button");
+    selectWorkoutPlanPopupBtn.addEventListener("click", () => {
+        const selectWorkoutPlanPopup = document.getElementById("select-workout-plan-popup");
+        selectWorkoutPlanPopup.style.display = "none"; // Hide the popup
+        document.getElementById("overlay").style.display = "none"; // Hide the dark overlay
+        navigate("member/workoutPlans"); // Navigate to the workout plan page
+    });
+
     function fetchCurrentWorkoutPlan() {
         const authToken = localStorage.getItem("authToken");
         if (!authToken) {
@@ -93,7 +108,7 @@ export function initMember_trackProgress() {
                     showToast("You have not created/selected a workout plan", "error");
                 } else {
                     const currentWorkoutPlan = data;
-                    startNewWeekProgress(currentWorkoutPlan.id, JSON.parse(currentWorkoutPlan.description));
+                    startNewWeekProgress(currentWorkoutPlan.workout_plan_id, JSON.parse(currentWorkoutPlan.description));
                 }
             })
             .catch(error => {
@@ -198,7 +213,7 @@ export function initMember_trackProgress() {
             // Exercises list
             dayProgress.exercises.forEach((exercise, exIndex) => {
                 const exerciseContainer = document.createElement("div");
-                exerciseContainer.style.margin = "10px 0";
+                exerciseContainer.className = "exercise-container";
 
                 const name = document.createElement("p");
                 name.innerHTML = `<strong>Exercise:</strong> ${exercise.name}`;
@@ -210,12 +225,14 @@ export function initMember_trackProgress() {
 
                 const setsCompletedLabel = document.createElement("label");
                 setsCompletedLabel.textContent = "Sets Completed: ";
+                setsCompletedLabel.className = "sets-completed-label";
+
                 const setsCompletedInput = document.createElement("input");
                 setsCompletedInput.type = "number";
                 setsCompletedInput.min = 0;
                 setsCompletedInput.value = exercise.sets_completed || 0;
                 setsCompletedInput.name = `day${dayIndex}-exercise${exIndex}`;
-                setsCompletedInput.style.marginLeft = "10px";
+                setsCompletedInput.className = "sets-completed-input";
 
                 setsCompletedLabel.appendChild(setsCompletedInput);
                 exerciseContainer.appendChild(setsCompletedLabel);
@@ -225,7 +242,7 @@ export function initMember_trackProgress() {
 
             // Update button
             const updateBtn = document.createElement("button");
-            updateBtn.textContent = "Update Progress";
+            updateBtn.innerHTML = "Update Progress";
             updateBtn.classList.add("update-button");
 
             dayCard.appendChild(updateBtn);
@@ -242,7 +259,7 @@ export function initMember_trackProgress() {
 
                     if (isNaN(newCompletedSets) || newCompletedSets < 0 || newCompletedSets > exercise.sets) {
                         showToast("Invalid input for sets completed.", "error");
-                        return;
+                        exit();
                     }
                     // Update the corresponding exercise in the main data structure
                     currentWeekWorkoutProgress[dayIndex].exercises[exIndex].sets_completed = newCompletedSets;
@@ -369,7 +386,7 @@ export function initMember_trackProgress() {
 
         previousProgress.forEach(week => {
             const weekCard = document.createElement("div");
-            weekCard.className = "progress-card";
+            weekCard.className = "week-progress-card";
 
             const weekTitle = document.createElement("h4");
             weekTitle.textContent = `Week ${week.week_number}  Started on ${week.started_at}`;
@@ -378,18 +395,42 @@ export function initMember_trackProgress() {
             const weekly_progress = JSON.parse(week.weekly_progress); //converting the JSON string into js object
             weekly_progress.forEach((day) => {
                 //showing progress percentage for each day
+                // const dayCard = document.createElement("div");
+                // dayCard.className = "day-progress-card";
+                // const dayTitle = document.createElement("p");
+                // dayTitle.textContent = `Day ${day.day} - Progress: ${day.dayCompletedPercetange} %`;
+                // dayCard.appendChild(dayTitle);
+
+                // weekCard.appendChild(dayCard);
+                // Card for each day
                 const dayCard = document.createElement("div");
-                dayCard.className = "day-card";
+                dayCard.className = "day-progress-card";
+
+                // Day title and percentage text
                 const dayTitle = document.createElement("p");
                 dayTitle.textContent = `Day ${day.day} - Progress: ${day.dayCompletedPercetange} %`;
                 dayCard.appendChild(dayTitle);
 
+                // Progress bar container
+                const progressBar = document.createElement("div");
+                progressBar.className = "progress-bar";
+
+                // Filled portion of the progress bar
+                const progressFill = document.createElement("div");
+                progressFill.className = "progress-fill";
+                progressFill.style.width = `${day.dayCompletedPercetange}%`;
+
+                // Append fill to progress bar
+                progressBar.appendChild(progressFill);
+                dayCard.appendChild(progressBar);
+
+                // Append day card to week card
                 weekCard.appendChild(dayCard);
             });
             previousWeekCardsContainer.appendChild(weekCard);
         });
 
-    };
+    }
 
 
 
