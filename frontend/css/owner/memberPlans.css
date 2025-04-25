@@ -5,12 +5,12 @@
 }
 
 .content {
-    width: 80%;
+    width: 100%;
     border-collapse: collapse;
 }
 
 .table-container {
-    width: 90%;
+    width: 100;
     margin: 20px auto;
     border-collapse: collapse;
 }
@@ -116,14 +116,17 @@ tbody tr:hover {
   .section-title {
     color: #FF5F00;
     line-height: 2;
-    margin-top: 12px;
     font-size: 18px;
-    margin-left: 15px;
+  }
+  
+  .fas fa-plus-circle {
+    color: #FF5F00;
   }
 
   .add-equipment-title {
     display:flex;
-    margin-bottom: 0px;
+    align-items: center;
+    gap: 10px;
   }
   
   .equipment-form {
@@ -176,9 +179,7 @@ tbody tr:hover {
     font-family: 'Poppins', sans-serif;
     margin-top: 30px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 130px;
+    justify-content: flex-end;
     transition: all 0.3s ease; 
   }
 
