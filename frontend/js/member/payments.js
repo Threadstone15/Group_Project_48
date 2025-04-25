@@ -1,5 +1,7 @@
 export async function initMember_payments() {
     console.log("Initializing payments.js");
+
+    const spinner = document.getElementById("loading-spinner");
   
     const paymentList = document.getElementById('paymentHistoryList');
     const iconUrl = 'https://cdn.builder.io/api/v1/image/assets/TEMP/ac58bc182abb457871439b9b65b2f6ea5ba64f82b7b4681906f421fbb22c192e?apiKey=015e1c54eb5347dfb8c175d60fbc5fdf';
@@ -7,6 +9,7 @@ export async function initMember_payments() {
     async function getSubscriptionListOfMember() {
       try {
         console.log("Fetching membership plan ID of member");
+        spinner.classList.remove("hidden");
   
         const authToken = localStorage.getItem("authToken");
         if (!authToken) {
@@ -25,9 +28,11 @@ export async function initMember_payments() {
   
         const subscription = await response.json();
         console.log("Fetched Payments:", subscription);
+        spinner.classList.add("hidden");
         return subscription;
       } catch (error) {
         console.error("Error fetching subscription of the member:", error);
+        spinner.classList.add("hidden");
         return [];
       }
     }
@@ -58,7 +63,7 @@ export async function initMember_payments() {
                 <span class="payment-record__time">at ${displayTime}</span>
               </div>
             </div>
-            <span class="payment-record__amount">$ ${payment.amount}</span>
+            <span class="payment-record__amount">LKR ${payment.amount}</span>
           </article>
         `;
         paymentList.appendChild(listItem);
