@@ -86,4 +86,39 @@ class MealPlan
             return false;
         }
     }
+
+    public function editMealPlan($plan_id, $description)
+    {
+        logMessage("Editing meal plan...");
+
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
+        // Prepare the update query
+        $query = "UPDATE " . $this->table . " SET description = ? WHERE id = ?";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing statement for meal plan update: " . $this->conn->error);
+            return false;
+        }
+
+        // Bind the parameters for description and plan_id
+        if (!$stmt->bind_param("si", $description, $plan_id)) {
+            logMessage("Error binding parameters for meal plan update: " . $stmt->error);
+            return false;
+        }
+        logMessage("Query bound for updating meal plan with plan_id: $plan_id");
+
+        // Execute the query
+        if ($stmt->execute()) {
+            logMessage("Meal plan updated successfully for plan_id: $plan_id");
+            return true;
+        } else {
+            logMessage("Meal plan update failed: " . $stmt->error);
+            return false;
+        }
+    }
 }

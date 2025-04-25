@@ -269,3 +269,65 @@ function deleteCreatedMealPlans($plan_id)
         ]);
     }
 }
+
+function trackWorkoutPlan($user_id, $data)
+{
+    $plan_id = $data['plan_id'];
+
+    logMessage("Running trackWorkoutPlan in controller for user_id: $user_id and plan_id: $plan_id");
+
+    $planRequest = new planRequest();
+    $result = $planRequest->trackWorkoutPlan($user_id, $plan_id);
+
+    if ($result) {
+        echo json_encode([
+            "status" => "success",
+            "message" => "Workout plan tracked successfully."
+        ]);
+    } else {
+        http_response_code(500);
+        echo json_encode([
+            "status" => "error",
+            "message" => "Failed to track the workout plan."
+        ]);
+    }
+}
+
+function stopTrackingPlan($user_id)
+{
+
+    logMessage("Running stopTrackingPlan in controller for user_id: $user_id");
+
+    $planRequest = new planRequest();
+    $result = $planRequest->stopTrackingPlan($user_id);
+
+    if ($result) {
+        echo json_encode([
+            "status" => "success",
+            "message" => "Stopped tracking the workout plan successfully."
+        ]);
+    } else {
+        http_response_code(500);
+        echo json_encode([
+            "status" => "error",
+            "message" => "Failed to stop tracking the workout plan."
+        ]);
+    }
+}
+
+function getSelectedWorkout($user_id)
+{
+    logMessage("Running getSelectedWorkout in controller for user_id: $user_id");
+
+    $planRequest = new planRequest();
+    $plan_id = $planRequest->getSelectedWorkoutPlanId($user_id);
+
+    if ($plan_id !== null) {
+        echo json_encode(["plan_id" => $plan_id]);
+    } else {
+        http_response_code(404);
+        echo json_encode(["message" => "No selected workout plan found."]);
+    }
+
+    logMessage("getSelectedWorkout result: " . json_encode(["plan_id" => $plan_id]));
+}
