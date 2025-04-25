@@ -1,6 +1,6 @@
-export function initOwner_myAcnt(){
-    console.log("Initializing owner account...");
-
+export function initOwner_myAcnt() {
+  console.log("Initializing owner account...");
+  const spinner = document.getElementById("loading-spinner");
   const authToken = localStorage.getItem("authToken");
   if (!authToken) {
     showToast("Not authenticated. Please login again.");
@@ -14,7 +14,7 @@ export function initOwner_myAcnt(){
       Authorization: `Bearer ${authToken}`,
     },
   };
-
+  spinner.classList.remove("hidden");
   // Fetch Profile Data
   fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/ownerController.php?action=get_profile", requestOptions)
     .then((res) => {
@@ -23,10 +23,11 @@ export function initOwner_myAcnt(){
     })
     .then((data) => {
       console.log("Profile data:", data);
+      spinner.classList.add("hidden");
     
       const user = data.data; // This is the actual profile info
     
-      document.getElementById("name").textContent = user.full_name;
+      document.getElementById("name").textContent = user.full_name + " (ID: " + user.rollID + ")";
       document.getElementById("email").value = user.email;
       document.getElementById("address").value = user.address;
     
@@ -96,6 +97,7 @@ export function initOwner_myAcnt(){
   // Update Profile
   document.getElementById("update-profile-btn").addEventListener("click", () => {
     console.log("Updating profile...");
+    spinner.classList.remove("hidden");
     if (!validateProfileInputs()) return; // If validation fails, do not proceed
 
     const formData = new FormData();
@@ -120,10 +122,12 @@ export function initOwner_myAcnt(){
       })
       .then((result) => {
         showToast(result.message);
+        spinner.classList.add("hidden");
         document.getElementById("update-profile-btn").disabled = true;
       })
       .catch((err) => {
         console.error("Error updating profile:");
+        spinner.classList.add("hidden");
         showToast("Error updating profile", "error");
       });
   });
@@ -171,6 +175,7 @@ export function initOwner_myAcnt(){
 
   document.getElementById("submit-change-password").addEventListener("click", () => {
     if (!validateChangePasswordInputs()) return; // If validation fails, do not proceed
+    spinner.classList.remove("hidden");
 
     const oldPass = document.getElementById("old-password").value;
     const newPass = document.getElementById("new-password").value;
@@ -194,13 +199,16 @@ export function initOwner_myAcnt(){
       .then((data) => {
         if (data.success) {
           changePasswordPopup.classList.add("hidden");
+          spinner.classList.add("hidden");
           showToast(data.message);
         }else{
+          spinner.classList.add("hidden");
           showToast(data.message, "error");
         }
       })
       .catch((error) => {
         console.error("Error:", error);
+        spinner.classList.add("hidden");
         showToast("Error changing password" , "error");
       });
   });
@@ -252,11 +260,13 @@ export function initOwner_myAcnt(){
             window.location.href = "/Group_Project_48/home";
           }, 3000);
         }else{
+          spinner.classList.add("hidden");
           showToast(data.message, "error");
         }
       })
       .catch((err) => {
         console.error("Error deleting account:", err);
+        spinner.classList.add("hidden");
         showToast("Account deletion failed.", "error");
       });
   });
