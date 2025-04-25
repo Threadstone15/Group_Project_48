@@ -6,7 +6,6 @@ export function initMember_myPlans() {
   const mealBtn = document.getElementById('mealBtn');
   const planListModal = document.getElementById('planListModal');
   const planListTitle = document.getElementById('planListTitle');
-  const addWorkoutRowBtn = document.getElementById('addWorkoutRow');
 
   let selectedCategory = ''; // "workout" or "meal"
   let currentlyTrackedPlanId = null; // Track which plan is currently being tracked
@@ -57,22 +56,22 @@ export function initMember_myPlans() {
                   alert("You cannot edit a plan created by your trainer.");
                   return;
               }
-
-              document.getElementById('editPlanId').value = plan.id;
-              document.getElementById('editPlanCategory').value = category;
-              document.getElementById('planName').value = plan.name;
       
               try {
-                  const parsedDescription = JSON.parse(plan.description);
-                  if (category === 'meal') {
-                      document.getElementById('mealDetails').classList.remove('hidden');
-                      document.getElementById('workoutDetails').classList.add('hidden');
-                      renderMealInputs(parsedDescription);
-                  } else {
-                      document.getElementById('workoutDetails').classList.remove('hidden');
-                      document.getElementById('mealDetails').classList.add('hidden');
-                      renderWorkoutInputs(parsedDescription);
-                  }
+                const parsedDescription = JSON.parse(plan.description);
+                if (category === 'meal') {
+                    // Set up meal plan edit modal
+                    document.getElementById('editMealPlanId').value = plan.id;
+                    document.getElementById('editMealPlanCategory').value = category;
+                    renderMealInputs(parsedDescription);
+                    document.getElementById('editMealPlanModal').classList.remove('hidden');
+                } else {
+                    // Set up workout plan edit modal
+                    document.getElementById('editWorkoutPlanId').value = plan.id;
+                    document.getElementById('editWorkoutPlanCategory').value = category;
+                    renderWorkoutInputs(parsedDescription);
+                    document.getElementById('editWorkoutPlanModal').classList.remove('hidden');
+                }
               } catch (e) {
                   console.error("Error parsing plan description:", e);
                   alert("Error loading plan details. The format may be invalid.");
@@ -89,7 +88,7 @@ export function initMember_myPlans() {
               return;
           }
 
-          if (currentlyTrackedPlanId === id) {
+          if (currentlyTrackedPlanId == id) {
               if (confirm("This plan is already being tracked. Do you want to stop tracking it?")) {
                   await stopTrackingPlan(id);
               }
@@ -115,104 +114,116 @@ export function initMember_myPlans() {
       }
   });
 
-  // Add workout row button
-  addWorkoutRowBtn?.addEventListener('click', () => {
-      const container = document.getElementById('workoutInputs');
-      if (!container) return;
-      
-      const dayCount = container.querySelectorAll('h4').length;
-      const exerciseCount = container.querySelectorAll('.exercise-row').length;
-      
-      const exerciseDiv = document.createElement('div');
-      exerciseDiv.className = 'exercise-row';
-      exerciseDiv.innerHTML = `
-          <input type="text" name="exercise_day_${dayCount}_name_${exerciseCount}" placeholder="Exercise Name">
-          <input type="number" name="exercise_day_${dayCount}_sets_${exerciseCount}" placeholder="Sets">
-          <input type="number" name="exercise_day_${dayCount}_reps_${exerciseCount}" placeholder="Reps">
-      `;
-      container.appendChild(exerciseDiv);
-  });
 
-  // Edit plan form submission
-  document.getElementById('editPlanForm')?.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const planId = document.getElementById('editPlanId').value;
-      const category = document.getElementById('editPlanCategory').value;
-      const planName = document.getElementById('planName').value;
-      const authToken = localStorage.getItem('authToken');
-  
-      let description = {};
-  
-      if (category === 'meal') {
-          description = ['breakfast', 'lunch', 'dinner', 'snack'].reduce((acc, meal) => {
-              const nameInput = document.querySelector(`[name="${meal}_name"]`);
-              const timeInput = document.querySelector(`[name="${meal}_time"]`);
-              const caloriesInput = document.querySelector(`[name="${meal}_calories"]`);
-              
-              acc[meal] = {
-                  name: nameInput?.value || '',
-                  time: timeInput?.value || '',
-                  calories: parseInt(caloriesInput?.value) || 0
-              };
-              return acc;
-          }, {});
-      } else {
-          description = [];
-          const dayHeaders = document.querySelectorAll('#workoutInputs h4');
-          
-          dayHeaders.forEach((header, dayIndex) => {
-              const dayExercises = [];
-              const exerciseRows = header.nextElementSibling?.querySelectorAll('.exercise-row') || [];
-              
-              exerciseRows.forEach(row => {
-                  const nameInput = row.querySelector(`[name^="exercise_day_${dayIndex}_name_"]`);
-                  const setsInput = row.querySelector(`[name^="exercise_day_${dayIndex}_sets_"]`);
-                  const repsInput = row.querySelector(`[name^="exercise_day_${dayIndex}_reps_"]`);
-                  
-                  dayExercises.push({
-                      name: nameInput?.value || '',
-                      sets: parseInt(setsInput?.value) || 0,
-                      reps: parseInt(repsInput?.value) || 0
-                  });
-              });
-              
-              description.push({
-                  day: dayIndex + 1,
-                  exercises: dayExercises
-              });
-          });
-      }
-  
-      const updatedPlan = {
-          id: planId,
-          name: planName,
-          description: JSON.stringify(description),
-      };
-  
-      const endpoint = category === 'workout'
-          ? `http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=update_workout_plan`
-          : `http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=update_meal_plan`;
-  
-      try {
-          const response = await fetch(endpoint, {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json',
-                  'Authorization': `Bearer ${authToken}`,
-              },
-              body: JSON.stringify(updatedPlan),
-          });
-  
-          const result = await response.json();
-          if (!response.ok) throw new Error(result.message || 'Failed to update plan.');
-  
-          document.getElementById('editPlanModal').classList.add('hidden');
-          await fetchPlansFromBackend(category);
-          alert('Plan updated successfully!');
-      } catch (error) {
-          console.error('Error updating plan:', error);
-          alert('An error occurred while updating the plan.');
-      }
+  // Meal Plan Form Submission
+  document.getElementById('editMealPlanForm')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const planId = document.getElementById('editMealPlanId').value;
+    const category = document.getElementById('editMealPlanCategory').value;
+    const authToken = localStorage.getItem('authToken');
+    
+    // Create description in the array format
+    let description = ['breakfast', 'lunch', 'dinner', 'snacks'].map(meal => {
+        const nameInput = document.querySelector(`[name="${meal}_name"]`);
+        const timeInput = document.querySelector(`[name="${meal}_time"]`);
+        const caloriesInput = document.querySelector(`[name="${meal}_calories"]`);
+        
+        return {
+            type: meal.charAt(0).toUpperCase() + meal.slice(1), // Capitalize first letter
+            name: nameInput?.value || '',
+            time: timeInput?.value || '',
+            calories: parseInt(caloriesInput?.value) || 0
+        };
+    });
+    
+    const updatedPlan = {
+        id: planId,
+        description: JSON.stringify(description),
+    };
+    
+    const endpoint = `http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=update_meal_plan`;
+    
+    try {
+        const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${authToken}`,
+            },
+            body: JSON.stringify(updatedPlan),
+        });
+    
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.message || 'Failed to update plan.');
+    
+        document.getElementById('editMealPlanModal').classList.add('hidden');
+        await fetchPlansFromBackend(category);
+        alert('Meal plan updated successfully!');
+    } catch (error) {
+        console.error('Error updating meal plan:', error);
+        alert('An error occurred while updating the plan.');
+    }
+});
+
+  // Workout Plan Form Submission
+  document.getElementById('editWorkoutPlanForm')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const planId = document.getElementById('editWorkoutPlanId').value;
+    const category = document.getElementById('editWorkoutPlanCategory').value;
+    const authToken = localStorage.getItem('authToken');
+    
+    let description = [];
+    const dayHeaders = document.querySelectorAll('#workoutInputs h4');
+    
+    dayHeaders.forEach((header, dayIndex) => {
+      const dayExercises = [];
+      const exerciseRows = header.nextElementSibling?.querySelectorAll('.exercise-row') || [];
+      
+      exerciseRows.forEach(row => {
+        const nameInput = row.querySelector(`[name^="exercise_day_${dayIndex}_name_"]`);
+        const setsInput = row.querySelector(`[name^="exercise_day_${dayIndex}_sets_"]`);
+        const repsInput = row.querySelector(`[name^="exercise_day_${dayIndex}_reps_"]`);
+        
+        dayExercises.push({
+          name: nameInput?.value || '',
+          sets: parseInt(setsInput?.value) || 0,
+          reps: parseInt(repsInput?.value) || 0
+        });
+      });
+      
+      description.push({
+        day: dayIndex + 1,
+        exercises: dayExercises
+      });
+    });
+    
+    const updatedPlan = {
+      id: planId,
+      description: JSON.stringify(description),
+    };
+    
+    const endpoint = `http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=update_workout_plan`;
+    
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${authToken}`,
+        },
+        body: JSON.stringify(updatedPlan),
+      });
+    
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.message || 'Failed to update plan.');
+    
+      document.getElementById('editWorkoutPlanModal').classList.add('hidden');
+      await fetchPlansFromBackend(category);
+      alert('Workout plan updated successfully!');
+    } catch (error) {
+      console.error('Error updating workout plan:', error);
+      alert('An error occurred while updating the plan.');
+    }
   });
 
   // Close modal when clicking outside of it
@@ -235,90 +246,90 @@ export function initMember_myPlans() {
 
   // Helper functions
   function displayPlanDetails(plan, category) {
-      const detailsModal = document.getElementById('planDetailsModal');
-      const detailsContent = document.getElementById('planDetailsContent');
-      const detailsTitle = document.getElementById('planDetailsTitle');
-      
-      if (!detailsModal || !detailsContent || !detailsTitle) return;
-      
-      detailsTitle.textContent = plan.name || 'Plan Details';
-      
-      let detailsHTML = `
-          <div class="plan-meta">
-              <p><strong>Created By:</strong> ${plan.trainer_id ? (plan.trainer_name ? `Trainer: ${plan.trainer_name}` : `Trainer #${plan.trainer_id}`) : 'Personal'}</p>
-              <p><strong>Created On:</strong> ${new Date(plan.created_at).toLocaleString()}</p>
-          </div>
-      `;
-      
-      try {
-          const parsedDescription = JSON.parse(plan.description);
-          
-          if (category === 'workout') {
-              detailsHTML += '<div class="workout-plan-details">';
-              if (Array.isArray(parsedDescription)) {
-                  parsedDescription.forEach(day => {
-                      detailsHTML += `
-                          <div class="workout-day">
-                              <h3>Day ${day.day}</h3>
-                              <ul class="exercise-list">
-                      `;
-                      
-                      if (day.exercises && Array.isArray(day.exercises)) {
-                          day.exercises.forEach(ex => {
-                              detailsHTML += `
-                                  <li class="exercise-item">
-                                      <span class="exercise-name">${ex.name || 'Unnamed Exercise'}</span>
-                                      <span class="exercise-sets-reps">${ex.sets || 0} sets × ${ex.reps || 0} reps</span>
-                                  </li>
-                              `;
-                          });
-                      }
-                      
-                      detailsHTML += `
-                              </ul>
-                          </div>
-                      `;
-                  });
-              }
-              detailsHTML += '</div>';
-          } else {
-              detailsHTML += '<div class="meal-plan-details">';
-              if (typeof parsedDescription === 'object' && parsedDescription !== null) {
-                  detailsHTML += `
-                      <div class="meal-plan-grid">
-                          <div class="meal-header">Meal</div>
-                          <div class="meal-header">Name</div>
-                          <div class="meal-header">Time</div>
-                          <div class="meal-header">Calories</div>
-                  `;
-                  
-                  ['breakfast', 'lunch', 'dinner', 'snack'].forEach(meal => {
-                      const mealData = parsedDescription[meal] || { name: '', time: '', calories: '' };
-                      detailsHTML += `
-                          <div class="meal-type">${meal.charAt(0).toUpperCase() + meal.slice(1)}</div>
-                          <div class="meal-name">${mealData.name || '-'}</div>
-                          <div class="meal-time">${mealData.time || '-'}</div>
-                          <div class="meal-calories">${mealData.calories || '0'} kcal</div>
-                      `;
-                  });
-                  
-                  detailsHTML += `</div>`;
-              }
-              detailsHTML += '</div>';
-          }
-      } catch (e) {
-          console.error("Error parsing plan description:", e);
-          detailsHTML += `
-              <div class="plan-description-error">
-                  <p>Could not parse plan details. Showing raw content:</p>
-                  <pre>${plan.description}</pre>
-              </div>
-          `;
-      }
-      
-      detailsContent.innerHTML = detailsHTML;
-      detailsModal.classList.remove('hidden');
-  }
+    const detailsModal = document.getElementById('planDetailsModal');
+    const detailsContent = document.getElementById('planDetailsContent');
+    const detailsTitle = document.getElementById('planDetailsTitle');
+
+    if (!detailsModal || !detailsContent || !detailsTitle) return;
+
+    detailsTitle.textContent = plan.name || 'Plan Details';
+
+    let detailsHTML = `
+        <div class="plan-meta">
+            <p><strong>Created By:</strong> ${plan.trainer_id ? (plan.trainer_name ? `Trainer: ${plan.trainer_name}` : `Trainer #${plan.trainer_id}`) : 'Personal'}</p>
+            <p><strong>Created On:</strong> ${new Date(plan.created_at).toLocaleString()}</p>
+        </div>
+    `;
+
+    try {
+        const parsedDescription = JSON.parse(plan.description);
+
+        if (category === 'workout') {
+            detailsHTML += '<div class="workout-plan-details">';
+            if (Array.isArray(parsedDescription)) {
+                parsedDescription.forEach(day => {
+                    detailsHTML += `
+                        <div class="workout-day">
+                            <h3>Day ${day.day}</h3>
+                            <ul class="exercise-list">
+                    `;
+
+                    if (day.exercises && Array.isArray(day.exercises)) {
+                        day.exercises.forEach(ex => {
+                            detailsHTML += `
+                                <li class="exercise-item">
+                                    <span class="exercise-name">${ex.name || 'Unnamed Exercise'}</span>
+                                    <span class="exercise-sets-reps">${ex.sets || 0} sets × ${ex.reps || 0} reps</span>
+                                </li>
+                            `;
+                        });
+                    }
+
+                    detailsHTML += `
+                            </ul>
+                        </div>
+                    `;
+                });
+            }
+            detailsHTML += '</div>';
+        } else {
+            detailsHTML += '<div class="meal-plan-details">';
+            if (Array.isArray(parsedDescription)) {
+                detailsHTML += `
+                    <div class="meal-plan-grid">
+                        <div class="meal-header">Meal</div>
+                        <div class="meal-header">Name</div>
+                        <div class="meal-header">Time</div>
+                        <div class="meal-header">Calories</div>
+                `;
+
+                parsedDescription.forEach(meal => {
+                    detailsHTML += `
+                        <div class="meal-type">${meal.type || '-'}</div>
+                        <div class="meal-name">${meal.name || '-'}</div>
+                        <div class="meal-time">${meal.time || '-'}</div>
+                        <div class="meal-calories">${meal.calories || '0'} kcal</div>
+                    `;
+                });
+
+                detailsHTML += `</div>`;
+            }
+            detailsHTML += '</div>';
+        }
+    } catch (e) {
+        console.error("Error parsing plan description:", e);
+        detailsHTML += `
+            <div class="plan-description-error">
+                <p>Could not parse plan details. Showing raw content:</p>
+                <pre>${plan.description}</pre>
+            </div>
+        `;
+    }
+
+    detailsContent.innerHTML = detailsHTML;
+    detailsModal.classList.remove('hidden');
+}
+
 
   async function fetchCurrentlyTrackedPlan() {
       const authToken = localStorage.getItem("authToken");
@@ -495,24 +506,40 @@ export function initMember_myPlans() {
   }
 
   function renderMealInputs(description) {
-      const meals = ['breakfast', 'lunch', 'dinner', 'snack'];
-      const container = document.getElementById('mealInputs');
-      if (!container) return;
-      
-      container.innerHTML = '';
-  
-      meals.forEach(meal => {
-          const data = description[meal] || { time: '', calories: '', name: '' };
-          container.innerHTML += `
-              <div class="meal-input-group">
-                  <label>${meal.charAt(0).toUpperCase() + meal.slice(1)}:</label>
-                  <input type="text" name="${meal}_name" placeholder="Meal Name" value="${data.name || ''}">
-                  <input type="text" name="${meal}_time" placeholder="Time" value="${data.time || ''}">
-                  <input type="number" name="${meal}_calories" placeholder="Calories" value="${data.calories || ''}">
-              </div>
-          `;
-      });
-  }
+    const meals = ['Breakfast', 'Lunch', 'Dinner', 'Snacks']; // Note: Capitalized to match your data
+    const container = document.getElementById('mealInputs');
+    if (!container) return;
+    
+    container.innerHTML = '';
+
+    // Convert the array format to the expected object format if needed
+    let mealData = {};
+    if (Array.isArray(description)) {
+        description.forEach(meal => {
+            const type = meal.type.toLowerCase(); // Convert to lowercase for consistency
+            mealData[type] = {
+                name: meal.name,
+                time: meal.time,
+                calories: meal.calories
+            };
+        });
+    } else {
+        mealData = description;
+    }
+
+    meals.forEach(meal => {
+        const type = meal.toLowerCase(); // Convert to lowercase for matching
+        const data = mealData[type] || { time: '', calories: '', name: '' };
+        container.innerHTML += `
+            <div class="meal-input-group">
+                <label>${meal}:</label>
+                <input type="text" name="${type}_name" placeholder="Meal Name" value="${data.name || ''}">
+                <input type="text" name="${type}_time" placeholder="Time" value="${data.time || ''}">
+                <input type="number" name="${type}_calories" placeholder="Calories" value="${data.calories || ''}">
+            </div>
+        `;
+    });
+}
 
   function renderWorkoutInputs(description) {
       const container = document.getElementById('workoutInputs');

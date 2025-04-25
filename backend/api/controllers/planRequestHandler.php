@@ -293,6 +293,28 @@ function trackWorkoutPlan($user_id, $data)
     }
 }
 
+function stopTrackingPlan($user_id)
+{
+
+    logMessage("Running stopTrackingPlan in controller for user_id: $user_id");
+
+    $planRequest = new planRequest();
+    $result = $planRequest->stopTrackingPlan($user_id);
+
+    if ($result) {
+        echo json_encode([
+            "status" => "success",
+            "message" => "Stopped tracking the workout plan successfully."
+        ]);
+    } else {
+        http_response_code(500);
+        echo json_encode([
+            "status" => "error",
+            "message" => "Failed to stop tracking the workout plan."
+        ]);
+    }
+}
+
 function getSelectedWorkout($user_id)
 {
     logMessage("Running getSelectedWorkout in controller for user_id: $user_id");

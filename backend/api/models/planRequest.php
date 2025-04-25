@@ -441,6 +441,43 @@ class PlanRequest
         }
     }
 
+    public function stopTrackingPlan($user_id)
+    {
+        logMessage("Stopping tracking of workout plan for user_id: $user_id");
+
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
+        try {
+            // Prepare the delete query to remove the row where the user_id matches
+            $query = "DELETE FROM selected_workout WHERE user_id = ?";
+            $stmt = $this->conn->prepare($query);
+
+            if ($stmt === false) {
+                logMessage("Error preparing the delete statement: " . $this->conn->error);
+                return false;
+            }
+
+            // Bind the user_id parameter to the query
+            $stmt->bind_param("i", $user_id);
+
+            // Execute the query
+            if ($stmt->execute()) {
+                logMessage("Successfully stopped tracking workout plan for user_id: $user_id");
+                return true;
+            } else {
+                logMessage("Failed to delete the workout plan for user_id: $user_id: " . $stmt->error);
+                return false;
+            }
+        } catch (Exception $e) {
+            logMessage("Exception occurred while stopping tracking workout plan for user_id: $user_id: " . $e->getMessage());
+            return false;
+        }
+    }
+
+
     public function getSelectedWorkoutPlanId($user_id)
     {
         if (!$this->conn) {

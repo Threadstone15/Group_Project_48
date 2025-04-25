@@ -201,6 +201,21 @@ switch ($action) {
         $plan_id = $data['id'];
         deleteCreatedWorkoutPlans($plan_id);
         break;
+    // edit meal plan
+    case 'update_meal_plan':
+        logMessage("Running edit_meal_plan....in controller");
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        editUserMealPlans($data);
+        break;
+
+    // edit workout plan
+    case 'update_workout_plan':
+        logMessage("Running edit_meal_plan....in controller");
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        editUserWorkoutPlans($data);
+        break;
 
     // track workout plan
     case 'track_plan':
@@ -214,6 +229,12 @@ switch ($action) {
         logMessage("Running get_tracked_plan....in controller");
         getSelectedWorkout($user_id);
         break;
+    // stop tracking plan
+    case 'stop_tracking_plan':
+        logMessage("Running stop_tracking_plan....in controller");
+        stopTrackingPlan($user_id);
+        break;
+
     // check trainer
 
 
