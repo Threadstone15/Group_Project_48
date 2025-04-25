@@ -2,6 +2,8 @@ export function initOwner_financialOver() {
     console.log("Initializing financial overview");
 
     let latestData = null; // To store the latest data fetched from the API
+    let selectedPeriod = "daily"; // track the current period selection
+    let financialChart = null; // Chart instance
 
     // Dummy income data
     const dummyIncomeData = {
@@ -15,7 +17,6 @@ export function initOwner_financialOver() {
     const todayBtn = document.getElementById("daily");
     const weekBtn = document.getElementById("weekly");
     const monthBtn = document.getElementById("monthly");
-
     const incomeToggleBtn = document.getElementById("Income");
     const countToggleBtn = document.getElementById("Count");
     const growthToggleBtn = document.getElementById("Growth");
@@ -28,26 +29,28 @@ export function initOwner_financialOver() {
     // Button Events for period selection
     if (todayBtn) {
         todayBtn.addEventListener("click", () => {
-            updateIncomeDisplay("daily");
             setActiveButton(todayBtn);
+            updateIncomeDisplay("daily");
         });
     }
-
     if (weekBtn) {
         weekBtn.addEventListener("click", () => {
-            updateIncomeDisplay("weekly");
             setActiveButton(weekBtn);
+            updateIncomeDisplay("weekly");
         });
     }
-
     if (monthBtn) {
         monthBtn.addEventListener("click", () => {
-            updateIncomeDisplay("monthly");
             setActiveButton(monthBtn);
+            updateIncomeDisplay("monthly");
         });
     }
 
-    if (todayBtn) setActiveButton(todayBtn); // Default active
+    // Set default active button and load data/chart for daily
+    if (todayBtn) {
+        setActiveButton(todayBtn);
+        updateIncomeDisplay("daily");
+    }
 
     function setActiveButton(activeBtn) {
         document.querySelectorAll(".button-container button").forEach(btn => {
@@ -57,21 +60,21 @@ export function initOwner_financialOver() {
     }
 
     async function updateIncomeDisplay(period) {
-        try {
-            const response = await fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/FinancialOverviewController.php?period=${period}`);
-            const result = await response.json();
+        selectedPeriod = period;
 
+        try {
+            const response = await fetch(
+                `http://localhost:8080/Group_Project_48/backend/api/controllers/FinancialOverviewController.php?period=${period}`
+            );
+            const result = await response.json();
             console.log("Fetched Result:", result);
 
             if (result.status === "success") {
                 const latestIncome = result.data.income[0] || 0;
                 totalCountElement.textContent = `Rs. ${latestIncome.toLocaleString()}`;
-                latestData = result.data; 
-                
+                latestData = result.data;
                 if (chartLoaded) {
-                    setupCharts(); // call only after Chart.js is loaded
-                } else {
-                    console.warn("Chart.js not loaded yet");
+                    setupCharts(); // re-render chart with new data
                 }
             } else {
                 console.error("API Error:", result.message || "Unknown error from backend");
@@ -88,68 +91,48 @@ export function initOwner_financialOver() {
     script.onload = () => {
         console.log("Chart.js loaded dynamically");
         chartLoaded = true;
-        // If data is already available
         if (latestData) setupCharts();
     };
-    script.onerror = () => {
-        console.error("Failed to load Chart.js");
-    };
+    script.onerror = () => console.error("Failed to load Chart.js");
     document.head.appendChild(script);
 
-    let financialChart;
-
     function setupCharts() {
-
-      const ctx = document.getElementById("financialChart");
-        if (!ctx) {
-            console.error("Canvas element not found");
+        const ctx = document.getElementById("financialChart");
+        if (!ctx || !latestData) {
+            console.warn("Cannot render chart: missing canvas or data.");
             return;
         }
 
-        //fallback data for chart
-        const chartData = latestData;
-        if (!latestData) {
-            console.warn("No data available to render chart yet.");
-            return;
+        // Destroy existing chart instance before creating new one
+        if (financialChart) {
+            financialChart.destroy();
         }
 
-  
-        // Dummy fallback data
-        const dummyData = {
-            monthly: {
-                labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-                income: [20000, 18000, 22000, 24000, 21000, 20000],
-                paymentCounts: [45, 38, 52, 58, 47, 42],
-                growth: [10, -5, 15, 20, 12, 8]
-            }
-        };
-
+        // Create new chart instance
         financialChart = new Chart(ctx, getChartConfig("income", latestData));
 
-        // Toggle buttons for chart view
-        incomeToggleBtn?.addEventListener("click", () => {
-            financialChart.destroy();
-            financialChart = new Chart(ctx, getChartConfig("income", latestData));
-        });
-
-        countToggleBtn?.addEventListener("click", () => {
-            financialChart.destroy();
-            financialChart = new Chart(ctx, getChartConfig("count", latestData));
-        });
-
-        growthToggleBtn?.addEventListener("click", () => {
-            financialChart.destroy();
-            financialChart = new Chart(ctx, getChartConfig("growth", latestData));
-        });
-    }
-
-    function updateChart(data) {
-        if (!financialChart) return;
-
-        financialChart.data.labels = data.labels;
-        financialChart.data.datasets[0].data = data.income;
-        financialChart.data.datasets[1].data = data.payment_count;
-        financialChart.update();
+        // Attach toggle events (only once)
+        if (!incomeToggleBtn.hasAttribute('data-listener')) {
+            incomeToggleBtn.addEventListener("click", () => {
+                financialChart.destroy();
+                financialChart = new Chart(ctx, getChartConfig("income", latestData));
+            });
+            incomeToggleBtn.setAttribute('data-listener', 'true');
+        }
+        if (!countToggleBtn.hasAttribute('data-listener')) {
+            countToggleBtn.addEventListener("click", () => {
+                financialChart.destroy();
+                financialChart = new Chart(ctx, getChartConfig("count", latestData));
+            });
+            countToggleBtn.setAttribute('data-listener', 'true');
+        }
+        if (!growthToggleBtn.hasAttribute('data-listener')) {
+            growthToggleBtn.addEventListener("click", () => {
+                financialChart.destroy();
+                financialChart = new Chart(ctx, getChartConfig("growth", latestData));
+            });
+            growthToggleBtn.setAttribute('data-listener', 'true');
+        }
     }
 
     function getChartConfig(type, data) {
@@ -160,7 +143,9 @@ export function initOwner_financialOver() {
                 legend: { position: "top" },
                 title: {
                     display: true,
-                    text: `Monthly ${type.charAt(0).toUpperCase() + type.slice(1)} Overview`
+                    text: `${type.charAt(0).toUpperCase() + type.slice(1)} Overview for ${
+                        selectedPeriod.charAt(0).toUpperCase() + selectedPeriod.slice(1)
+                    }`
                 }
             },
             scales: {
@@ -174,67 +159,25 @@ export function initOwner_financialOver() {
             }
         };
 
-        switch (type) {
-            case "income":
-                return {
-                    type: "bar",
-                    data: {
-                        labels: data.labels,
-                        datasets: [
-                            {
-                                label: "Income (Rs.)",
-                                data: data.income,
-                                backgroundColor: "rgba(54, 162, 235, 0.7)",
-                                borderColor: "rgba(54, 162, 235, 1)",
-                                borderWidth: 1
-                            }
-                        ]
-                    },
-                    options: commonOptions
-                };
+        const datasetMap = {
+            income: { label: "Income (Rs.)", data: data.income },
+            count: { label: "Payment Counts", data: data.payment_count },
+            growth: { label: "Growth (%)", data: data.growth_rate }
+        };
 
-            case "count":
-                return {
-                    type: "line",
-                    data: {
-                        labels: data.labels,
-                        datasets: [
-                            {
-                                label: "Payment Counts",
-                                data: data.payment_count,
-                                backgroundColor: "rgba(75, 192, 192, 0.7)",
-                                borderColor: "rgba(75, 192, 192, 1)",
-                                borderWidth: 2,
-                                tension: 0.4,
-                                fill: false
-                            }
-                        ]
-                    },
-                    options: commonOptions
-                };
-
-            case "growth":
-                return {
-                    type: "line",
-                    data: {
-                        labels: data.labels,
-                        datasets: [
-                            {
-                                label: "Growth (%)",
-                                data: data.growth_rate,
-                                backgroundColor: "rgba(255, 206, 86, 0.7)",
-                                borderColor: "rgba(255, 206, 86, 1)",
-                                borderWidth: 2,
-                                tension: 0.4,
-                                fill: false
-                            }
-                        ]
-                    },
-                    options: commonOptions
-                };
-
-            default:
-                return getChartConfig("income", data);
-        }
+        return {
+            type: type === 'income' ? 'bar' : 'line',
+            data: {
+                labels: data.labels,
+                datasets: [{
+                    label: datasetMap[type].label,
+                    data: datasetMap[type].data,
+                    borderWidth: 1,
+                    tension: type === 'income' ? 0 : 0.4,
+                    fill: type !== 'income'
+                }]
+            },
+            options: commonOptions
+        };
     }
 }
