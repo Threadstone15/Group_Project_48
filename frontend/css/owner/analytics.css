@@ -79,6 +79,12 @@
     cursor: pointer;
     transition: background-color 0.2s;
   }
+
+  .infoBtn:hover, .infoBtn:focus, .infoBtn:active {
+    background-color: #E55600; /* Slightly darker orange */
+    color: white;
+  }
+  
   
   .pdfBtn {
     background-color: #FF5F00; /* Orange background */
@@ -105,18 +111,6 @@
     box-shadow: 0 0 0 2px rgba(255, 95, 0, 0.3);
   }
   
-  /* Hover effect */
-  .infoBtn:hover {
-    background-color: #E55600; /* Slightly darker orange */
-    color: white;
-  }
-  
-  /* Active/focus states */
-  .infoBtn:active,
-  .infoBtn:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(255, 95, 0, 0.3);
-  }
   
   .infoChart{
     margin-top: 20px;
@@ -165,5 +159,11 @@
     10%, 90% { opacity: 1; transform: translateY(0); }
     100% { opacity: 0; transform: translateY(-20px); }
   }
+
+  #attendanceChart {
+    max-width: 100%;
+    height: auto;
+  }
+  
   
   

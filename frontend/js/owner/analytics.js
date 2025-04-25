@@ -76,6 +76,9 @@ export function initOwner_analytics() {
     // Render chart with Chart.js
     function renderChart({ labels, values, period }) {
         const ctx = document.getElementById("attendanceChart");
+        ctx.width = 750; // a bit less than 794 to leave margin
+        ctx.height = 400; // you can adjust height as needed
+
         if (!ctx) {
             console.error("Canvas element not found for chart");
             return;

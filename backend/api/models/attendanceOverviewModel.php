@@ -24,25 +24,25 @@ class AttendanceOverviewModel{
     public function getAttendanceByPeriod($periodType){
         switch($periodType){
             case "today":
+                $query = "SELECT DATE_FORMAT(Time, '%H:00') AS label, COUNT(*) AS count 
+                          FROM $this->table 
+                          WHERE DATE(date) = CURDATE()
+                          GROUP BY HOUR(Time)
+                          ORDER BY HOUR(Time)";
+                break;
+            case "week":
                 $query = "SELECT DATE(date) AS label, COUNT(*) AS count 
                           FROM $this->table 
-                          WHERE date >= CURDATE()
+                          WHERE date >= DATE_SUB(CURDATE(), INTERVAL 6 DAY)
                           GROUP BY DATE(date)
                           ORDER BY DATE(date)";
                 break;
-            case "week":
-                $query = "SELECT YEARWEEK(date) AS label, COUNT(*) AS count 
-                          FROM $this->table 
-                          WHERE date >= DATE_SUB(CURDATE(), INTERVAL 7 DAY)
-                          GROUP BY YEARWEEK(date)
-                          ORDER BY YEARWEEK(date)";
-                break;
             case "month":
-                $query = "SELECT DATE_FORMAT(date, '%Y-%m') AS label, COUNT(*) AS count 
+                $query = "SELECT DATE(date) AS label, COUNT(*) AS count 
                           FROM $this->table 
-                          WHERE date >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH)
-                          GROUP BY DATE_FORMAT(date, '%Y-%m')
-                          ORDER BY DATE_FORMAT(date, '%Y-%m')";
+                          WHERE MONTH(date) = MONTH(CURDATE()) AND YEAR(date) = YEAR(CURDATE())
+                          GROUP BY DATE(date)
+                          ORDER BY DATE(date)";
                 break;
             default:
                 logMessage("Invalid period type provided: $periodType");
