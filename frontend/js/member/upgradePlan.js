@@ -1,6 +1,8 @@
 export function initMember_upgradePlan() {
     console.log("initializing upgradePlan.js");
 
+    const spinner = document.getElementById("loading-spinner");
+
     // Dynamically load PayHere script
     const payHereScript = document.createElement('script');
     payHereScript.type = 'text/javascript';
@@ -22,8 +24,11 @@ export function initMember_upgradePlan() {
     pricingSwitch.addEventListener('change', togglePricing);
 
     async function fetchMembershipPlans() {
+        
         try {
             console.log("Fetching membership plans");
+            spinner.classList.remove("hidden");
+
 
             const authToken = localStorage.getItem("authToken");
             if (!authToken) {
@@ -41,6 +46,7 @@ export function initMember_upgradePlan() {
 
             const plans = await response.json();
             console.log("Membership plans:", plans);
+            spinner.classList.add("hidden");
 
             // Get subscription details or default to free plan
             let subscription = await getSubscriptionOfMember();
@@ -50,6 +56,7 @@ export function initMember_upgradePlan() {
                     amount: 0.00,
                     date_time: new Date().toISOString()
                 };
+                spinner.classList.add("hidden");
             }
 
             const planIDofMember = subscription.membership_plan_id;
@@ -65,12 +72,14 @@ export function initMember_upgradePlan() {
             displayMembershipPlans(plans, plans.slice(0, 3), planIDofMember);
         } catch (error) {
             console.error("Error fetching membership plans:", error);
+            spinner.classList.add("hidden");
         }
     }
 
     async function getSubscriptionOfMember() {
         try {
             console.log("Fetching membership plan ID of member");
+            spinner.classList.remove("hidden");
 
             const authToken = localStorage.getItem("authToken");
             if (!authToken) {
@@ -93,8 +102,10 @@ export function initMember_upgradePlan() {
 
             const subscription = await response.json();
             console.log("Subscription details:", subscription);
+            spinner.classList.add("hidden");
             return subscription;
         } catch (error) {
+            spinner.classList.add("hidden");
             console.error("Error fetching subscription of the member:", error);
             return null;
         }
@@ -396,7 +407,7 @@ export function initMember_upgradePlan() {
             <div class="price-container">
                 ${planPeriodofMember === "monthly" ? `<p class="plan-price">LKR${parseFloat(currentPlan.monthlyPrice).toFixed(2)}<span>/month</span></p>` : ""}
                 ${planPeriodofMember === "annual" ? `<p class="plan-price">LKR${parseFloat(currentPlan.yearlyPrice).toFixed(2)}<span>/year</span></p>` : ""}
-                ${planIDofMember === "MP1" ? `<p class="plan-price">Free</p>` : ""}
+                ${planIDofMember === "MP1" ? `<p class="plan-price">LKR0<span>/month</span></p>` : ""}
             </div>
             ${remainingDaysText}
             <ul class="benefit-list">${benefitsList}</ul>                
@@ -440,4 +451,17 @@ export function initMember_upgradePlan() {
         const day = String(date.getDate()).padStart(2, '0');
         return `${year}-${month}-${day}`;
     }
+
+    function showToast(message, type = 'success') {
+        const container = document.getElementById('toast-container');
+        const toast = document.createElement('div');
+        toast.className = `toast ${type}`;
+        toast.innerText = message;
+    
+        container.appendChild(toast);
+    
+        setTimeout(() => {
+            toast.remove();
+        }, 4000);
+      }
 }
