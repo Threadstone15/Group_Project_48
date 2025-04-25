@@ -485,7 +485,6 @@ export function initMember_myPlans() {
 
           row.innerHTML = `
               <td>${index + 1}</td>
-              <td>${plan.name || 'Unnamed Plan'}</td>
               <td>${createdBy}</td>
               <td>${new Date(plan.created_at).toLocaleDateString()}</td>
               <td class="actions-cell">${actionButtons}</td>
