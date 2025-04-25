@@ -193,7 +193,11 @@ switch ($action) {
         logMessage("data: " . json_encode($data));
         trackWorkoutPlan($user_id, $data);
         break;
-
+    // get current tracking plan
+    case 'get_tracked_plan':
+        logMessage("Running get_tracked_plan....in controller");
+        getSelectedWorkout($user_id);
+        break;
     // check trainer
 
 

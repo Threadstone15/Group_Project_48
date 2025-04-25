@@ -292,3 +292,20 @@ function trackWorkoutPlan($user_id, $data)
         ]);
     }
 }
+
+function getSelectedWorkout($user_id)
+{
+    logMessage("Running getSelectedWorkout in controller for user_id: $user_id");
+
+    $planRequest = new planRequest();
+    $plan_id = $planRequest->getSelectedWorkoutPlanId($user_id);
+
+    if ($plan_id !== null) {
+        echo json_encode(["plan_id" => $plan_id]);
+    } else {
+        http_response_code(404);
+        echo json_encode(["message" => "No selected workout plan found."]);
+    }
+
+    logMessage("getSelectedWorkout result: " . json_encode(["plan_id" => $plan_id]));
+}

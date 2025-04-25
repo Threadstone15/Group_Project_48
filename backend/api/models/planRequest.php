@@ -440,4 +440,34 @@ class PlanRequest
             return false;
         }
     }
+
+    public function getSelectedWorkoutPlanId($user_id)
+    {
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
+        try {
+            $stmt = $this->conn->prepare("SELECT workout_plan_id FROM selected_workout WHERE user_id = ?");
+            $stmt->bind_param("i", $user_id);
+
+            if ($stmt->execute()) {
+                $result = $stmt->get_result();
+
+                if ($row = $result->fetch_assoc()) {
+                    return $row['workout_plan_id'];
+                } else {
+                    logMessage("No workout plan found for user_id: $user_id");
+                    return null;
+                }
+            } else {
+                logMessage("Failed to execute query: " . $stmt->error);
+                return false;
+            }
+        } catch (Exception $e) {
+            logMessage("Exception occurred while fetching workout_plan_id: " . $e->getMessage());
+            return false;
+        }
+    }
 }
