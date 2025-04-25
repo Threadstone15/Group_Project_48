@@ -9135,3 +9135,244 @@
 [2025-04-25 14:29:38] Workout plans fetched successfully for user_id: 181
 [2025-04-25 14:29:38] Workout plans data fetched
 [2025-04-25 14:29:38] Database connection closed.
+[2025-04-25 15:27:46] Running auth controller ,get_footer_info 
+[2025-04-25 15:27:46] Running get_footer_info....in controller
+[2025-04-25 15:27:48] Connection established successfully to the database: rad_gymverse
+[2025-04-25 15:27:48] Config model initialized with database connection.
+[2025-04-25 15:27:49] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-25 15:27:49] Database connection closed.
+[2025-04-25 15:27:49] Running auth controller ,login 
+[2025-04-25 15:27:49] running login...in auth controller
+[2025-04-25 15:27:49] login function running...
+[2025-04-25 15:27:49] Connection established successfully to the database: rad_gymverse
+[2025-04-25 15:27:49] User class instantiated with database connection.
+[2025-04-25 15:27:49] User Login model running for: sandeep1@gmail.com
+[2025-04-25 15:27:49] Fetching user by email: sandeep1@gmail.com
+[2025-04-25 15:27:50] User found for email: sandeep1@gmail.com
+[2025-04-25 15:27:50] Query bound and ready to execute for login: sandeep1@gmail.com
+[2025-04-25 15:27:50] User status: 1
+[2025-04-25 15:27:50] User login successful: sandeep1@gmail.com with role: member
+[2025-04-25 15:27:50] Config model initialized with database connection.
+[2025-04-25 15:27:50] Login Successful: eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTU5NjgwMH0=.6d25c7a0690856bfefc7caf3e57b4140fe380420535e4cb5e2eb8956603656b1 member
+[2025-04-25 15:27:50] Payment model initialized
+[2025-04-25 15:27:50] Fetching latest payment record for user_id: 181
+[2025-04-25 15:27:51] Query bound for user_id: 181
+[2025-04-25 15:27:51] Fetched latest payment for user_id: 181 - {"membership_plan_id":"MP5","amount":"10500.00","status":"Success","date_time":"2025-04-25 06:39:38","plan_name":"platinum gold","benefits":"massage therapy"}
+[2025-04-25 15:27:51] Current date: 2025-04-25 15:27:51
+[2025-04-25 15:27:51] Payment date: 2025-04-25 06:39:38
+[2025-04-25 15:27:51] Days gap: 0, Amount: 10500
+[2025-04-25 15:27:51] Membership plan model initialized with database connection.
+[2025-04-25 15:27:51] Database connection closed.
+[2025-04-25 15:27:52] Connection established successfully to the database: rad_gymverse
+[2025-04-25 15:27:52] User class instantiated with database connection.
+[2025-04-25 15:27:52] Fetching user role by user ID: 181
+[2025-04-25 15:27:52] User role fetched successfully for user ID: 181
+[2025-04-25 15:27:52] Running member controller ,verify_membership_plan token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTU5NjgwMH0=.6d25c7a0690856bfefc7caf3e57b4140fe380420535e4cb5e2eb8956603656b1   id - 181 
+[2025-04-25 15:27:52] running verify_membership_plan....in controller
+[2025-04-25 15:27:52] verifying membership plan func running......
+[2025-04-25 15:27:52] Payment model initialized
+[2025-04-25 15:27:52] Fetching latest payment record for user_id: 181
+[2025-04-25 15:27:52] Query bound for user_id: 181
+[2025-04-25 15:27:53] Fetched latest payment for user_id: 181 - {"membership_plan_id":"MP5","amount":"10500.00","status":"Success","date_time":"2025-04-25 06:39:38","plan_name":"platinum gold","benefits":"massage therapy"}
+[2025-04-25 15:27:53] Current date: 2025-04-25 15:27:53
+[2025-04-25 15:27:53] Payment date: 2025-04-25 06:39:38
+[2025-04-25 15:27:53] Days gap: 0, Amount: 10500
+[2025-04-25 15:27:53] Membership plan model initialized with database connection.
+[2025-04-25 15:27:54] recieved Base plan ID matches the base plan id of subscribed membership plan.
+[2025-04-25 15:27:54] Database connection closed.
+[2025-04-25 15:27:55] Connection established successfully to the database: rad_gymverse
+[2025-04-25 15:27:55] User class instantiated with database connection.
+[2025-04-25 15:27:55] Fetching user role by user ID: 181
+[2025-04-25 15:27:55] User role fetched successfully for user ID: 181
+[2025-04-25 15:27:55] Running member controller ,get_tracked_plan token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTU5NjgwMH0=.6d25c7a0690856bfefc7caf3e57b4140fe380420535e4cb5e2eb8956603656b1   id - 181 
+[2025-04-25 15:27:55] Running get_tracked_plan....in controller
+[2025-04-25 15:27:55] Running getSelectedWorkout in controller for user_id: 181
+[2025-04-25 15:27:55] WorkoutPlan model initialized with database connection.
+[2025-04-25 15:27:55] getSelectedWorkout result: {"plan_id":6}
+[2025-04-25 15:27:55] Database connection closed.
+[2025-04-25 15:27:56] Connection established successfully to the database: rad_gymverse
+[2025-04-25 15:27:56] User class instantiated with database connection.
+[2025-04-25 15:27:56] Fetching user role by user ID: 181
+[2025-04-25 15:27:56] User role fetched successfully for user ID: 181
+[2025-04-25 15:27:56] Running member controller ,get_meal_plans token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTU5NjgwMH0=.6d25c7a0690856bfefc7caf3e57b4140fe380420535e4cb5e2eb8956603656b1   id - 181 
+[2025-04-25 15:27:56] Running get_meal_plans....in controller
+[2025-04-25 15:27:56] get meal plans function running...
+[2025-04-25 15:27:56] MealPlan model initialized with database connection.
+[2025-04-25 15:27:56] Fetching meal plans for user_id: 181
+[2025-04-25 15:27:57] Meal plans fetched successfully for user_id: 181
+[2025-04-25 15:27:57] Meal plans data fetched
+[2025-04-25 15:27:57] Database connection closed.
+[2025-04-25 15:28:07] Connection established successfully to the database: rad_gymverse
+[2025-04-25 15:28:07] User class instantiated with database connection.
+[2025-04-25 15:28:07] Fetching user role by user ID: 181
+[2025-04-25 15:28:07] User role fetched successfully for user ID: 181
+[2025-04-25 15:28:07] Running member controller ,get_meal_plans token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTU5NjgwMH0=.6d25c7a0690856bfefc7caf3e57b4140fe380420535e4cb5e2eb8956603656b1   id - 181 
+[2025-04-25 15:28:07] Running get_meal_plans....in controller
+[2025-04-25 15:28:07] get meal plans function running...
+[2025-04-25 15:28:07] MealPlan model initialized with database connection.
+[2025-04-25 15:28:07] Fetching meal plans for user_id: 181
+[2025-04-25 15:28:08] Meal plans fetched successfully for user_id: 181
+[2025-04-25 15:28:08] Meal plans data fetched
+[2025-04-25 15:28:08] Database connection closed.
+[2025-04-25 15:30:22] Connection established successfully to the database: rad_gymverse
+[2025-04-25 15:30:22] User class instantiated with database connection.
+[2025-04-25 15:30:22] Fetching user role by user ID: 181
+[2025-04-25 15:30:22] User role fetched successfully for user ID: 181
+[2025-04-25 15:30:22] Running member controller ,delete_meal_plan token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTU5NjgwMH0=.6d25c7a0690856bfefc7caf3e57b4140fe380420535e4cb5e2eb8956603656b1   id - 181 
+[2025-04-25 15:30:22] Database connection closed.
+[2025-04-25 15:30:24] Connection established successfully to the database: rad_gymverse
+[2025-04-25 15:30:24] User class instantiated with database connection.
+[2025-04-25 15:30:24] Fetching user role by user ID: 181
+[2025-04-25 15:30:25] User role fetched successfully for user ID: 181
+[2025-04-25 15:30:25] Running member controller ,get_meal_plans token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTU5NjgwMH0=.6d25c7a0690856bfefc7caf3e57b4140fe380420535e4cb5e2eb8956603656b1   id - 181 
+[2025-04-25 15:30:25] Running get_meal_plans....in controller
+[2025-04-25 15:30:25] get meal plans function running...
+[2025-04-25 15:30:25] MealPlan model initialized with database connection.
+[2025-04-25 15:30:25] Fetching meal plans for user_id: 181
+[2025-04-25 15:30:25] Meal plans fetched successfully for user_id: 181
+[2025-04-25 15:30:25] Meal plans data fetched
+[2025-04-25 15:30:25] Database connection closed.
+[2025-04-25 15:30:27] Running auth controller ,get_footer_info 
+[2025-04-25 15:30:27] Running get_footer_info....in controller
+[2025-04-25 15:30:27] Connection established successfully to the database: rad_gymverse
+[2025-04-25 15:30:27] Config model initialized with database connection.
+[2025-04-25 15:30:28] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-25 15:30:28] Database connection closed.
+[2025-04-25 15:30:29] Connection established successfully to the database: rad_gymverse
+[2025-04-25 15:30:29] User class instantiated with database connection.
+[2025-04-25 15:30:29] Fetching user role by user ID: 181
+[2025-04-25 15:30:30] User role fetched successfully for user ID: 181
+[2025-04-25 15:30:30] Running member controller ,get_tracked_plan token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTU5NjgwMH0=.6d25c7a0690856bfefc7caf3e57b4140fe380420535e4cb5e2eb8956603656b1   id - 181 
+[2025-04-25 15:30:30] Running get_tracked_plan....in controller
+[2025-04-25 15:30:30] Running getSelectedWorkout in controller for user_id: 181
+[2025-04-25 15:30:30] WorkoutPlan model initialized with database connection.
+[2025-04-25 15:30:30] getSelectedWorkout result: {"plan_id":6}
+[2025-04-25 15:30:30] Database connection closed.
+[2025-04-25 15:30:31] Connection established successfully to the database: rad_gymverse
+[2025-04-25 15:30:31] User class instantiated with database connection.
+[2025-04-25 15:30:31] Fetching user role by user ID: 181
+[2025-04-25 15:30:31] User role fetched successfully for user ID: 181
+[2025-04-25 15:30:31] Running member controller ,get_meal_plans token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTU5NjgwMH0=.6d25c7a0690856bfefc7caf3e57b4140fe380420535e4cb5e2eb8956603656b1   id - 181 
+[2025-04-25 15:30:31] Running get_meal_plans....in controller
+[2025-04-25 15:30:31] get meal plans function running...
+[2025-04-25 15:30:31] MealPlan model initialized with database connection.
+[2025-04-25 15:30:31] Fetching meal plans for user_id: 181
+[2025-04-25 15:30:31] Meal plans fetched successfully for user_id: 181
+[2025-04-25 15:30:31] Meal plans data fetched
+[2025-04-25 15:30:31] Database connection closed.
+[2025-04-25 15:34:43] Running auth controller ,get_footer_info 
+[2025-04-25 15:34:43] Running get_footer_info....in controller
+[2025-04-25 15:34:44] Connection established successfully to the database: rad_gymverse
+[2025-04-25 15:34:44] Config model initialized with database connection.
+[2025-04-25 15:34:45] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-25 15:34:45] Database connection closed.
+[2025-04-25 15:34:46] Connection established successfully to the database: rad_gymverse
+[2025-04-25 15:34:46] User class instantiated with database connection.
+[2025-04-25 15:34:46] Fetching user role by user ID: 181
+[2025-04-25 15:34:46] User role fetched successfully for user ID: 181
+[2025-04-25 15:34:46] Running member controller ,get_tracked_plan token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTU5NjgwMH0=.6d25c7a0690856bfefc7caf3e57b4140fe380420535e4cb5e2eb8956603656b1   id - 181 
+[2025-04-25 15:34:46] Running get_tracked_plan....in controller
+[2025-04-25 15:34:46] Running getSelectedWorkout in controller for user_id: 181
+[2025-04-25 15:34:46] WorkoutPlan model initialized with database connection.
+[2025-04-25 15:34:46] getSelectedWorkout result: {"plan_id":6}
+[2025-04-25 15:34:46] Database connection closed.
+[2025-04-25 15:34:47] Connection established successfully to the database: rad_gymverse
+[2025-04-25 15:34:47] User class instantiated with database connection.
+[2025-04-25 15:34:47] Fetching user role by user ID: 181
+[2025-04-25 15:34:48] User role fetched successfully for user ID: 181
+[2025-04-25 15:34:48] Running member controller ,get_meal_plans token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTU5NjgwMH0=.6d25c7a0690856bfefc7caf3e57b4140fe380420535e4cb5e2eb8956603656b1   id - 181 
+[2025-04-25 15:34:48] Running get_meal_plans....in controller
+[2025-04-25 15:34:48] get meal plans function running...
+[2025-04-25 15:34:48] MealPlan model initialized with database connection.
+[2025-04-25 15:34:48] Fetching meal plans for user_id: 181
+[2025-04-25 15:34:48] Meal plans fetched successfully for user_id: 181
+[2025-04-25 15:34:48] Meal plans data fetched
+[2025-04-25 15:34:48] Database connection closed.
+[2025-04-25 15:34:53] Connection established successfully to the database: rad_gymverse
+[2025-04-25 15:34:53] User class instantiated with database connection.
+[2025-04-25 15:34:53] Fetching user role by user ID: 181
+[2025-04-25 15:34:54] User role fetched successfully for user ID: 181
+[2025-04-25 15:34:54] Running member controller ,delete_meal_plan token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTU5NjgwMH0=.6d25c7a0690856bfefc7caf3e57b4140fe380420535e4cb5e2eb8956603656b1   id - 181 
+[2025-04-25 15:34:54] Running delete_meal_plan....in controller
+[2025-04-25 15:34:54] data: {"id":"3"}
+[2025-04-25 15:34:54] Running deleteCreatedMealPlans in controller for plan_id: 3
+[2025-04-25 15:34:54] WorkoutPlan model initialized with database connection.
+[2025-04-25 15:34:54] Deleting meal plan for id: 3
+[2025-04-25 15:34:54] Meal plan deleted successfully for id: 3
+[2025-04-25 15:34:54] Database connection closed.
+[2025-04-25 15:34:56] Connection established successfully to the database: rad_gymverse
+[2025-04-25 15:34:56] User class instantiated with database connection.
+[2025-04-25 15:34:56] Fetching user role by user ID: 181
+[2025-04-25 15:34:56] User role fetched successfully for user ID: 181
+[2025-04-25 15:34:56] Running member controller ,get_meal_plans token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTU5NjgwMH0=.6d25c7a0690856bfefc7caf3e57b4140fe380420535e4cb5e2eb8956603656b1   id - 181 
+[2025-04-25 15:34:56] Running get_meal_plans....in controller
+[2025-04-25 15:34:56] get meal plans function running...
+[2025-04-25 15:34:56] MealPlan model initialized with database connection.
+[2025-04-25 15:34:56] Fetching meal plans for user_id: 181
+[2025-04-25 15:34:56] Meal plans fetched successfully for user_id: 181
+[2025-04-25 15:34:56] Meal plans data fetched
+[2025-04-25 15:34:56] Database connection closed.
+[2025-04-25 15:35:00] Connection established successfully to the database: rad_gymverse
+[2025-04-25 15:35:00] User class instantiated with database connection.
+[2025-04-25 15:35:00] Fetching user role by user ID: 181
+[2025-04-25 15:35:00] User role fetched successfully for user ID: 181
+[2025-04-25 15:35:00] Running member controller ,get_tracked_plan token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTU5NjgwMH0=.6d25c7a0690856bfefc7caf3e57b4140fe380420535e4cb5e2eb8956603656b1   id - 181 
+[2025-04-25 15:35:00] Running get_tracked_plan....in controller
+[2025-04-25 15:35:00] Running getSelectedWorkout in controller for user_id: 181
+[2025-04-25 15:35:00] WorkoutPlan model initialized with database connection.
+[2025-04-25 15:35:01] getSelectedWorkout result: {"plan_id":6}
+[2025-04-25 15:35:01] Database connection closed.
+[2025-04-25 15:35:01] Running auth controller ,get_footer_info 
+[2025-04-25 15:35:01] Running get_footer_info....in controller
+[2025-04-25 15:35:01] Connection established successfully to the database: rad_gymverse
+[2025-04-25 15:35:01] Config model initialized with database connection.
+[2025-04-25 15:35:02] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-25 15:35:02] Database connection closed.
+[2025-04-25 15:35:03] Connection established successfully to the database: rad_gymverse
+[2025-04-25 15:35:03] User class instantiated with database connection.
+[2025-04-25 15:35:03] Fetching user role by user ID: 181
+[2025-04-25 15:35:03] User role fetched successfully for user ID: 181
+[2025-04-25 15:35:03] Running member controller ,get_meal_plans token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTU5NjgwMH0=.6d25c7a0690856bfefc7caf3e57b4140fe380420535e4cb5e2eb8956603656b1   id - 181 
+[2025-04-25 15:35:03] Running get_meal_plans....in controller
+[2025-04-25 15:35:03] get meal plans function running...
+[2025-04-25 15:35:03] MealPlan model initialized with database connection.
+[2025-04-25 15:35:03] Fetching meal plans for user_id: 181
+[2025-04-25 15:35:04] Meal plans fetched successfully for user_id: 181
+[2025-04-25 15:35:04] Meal plans data fetched
+[2025-04-25 15:35:04] Database connection closed.
+[2025-04-25 15:35:06] Connection established successfully to the database: rad_gymverse
+[2025-04-25 15:35:06] User class instantiated with database connection.
+[2025-04-25 15:35:06] Fetching user role by user ID: 181
+[2025-04-25 15:35:07] User role fetched successfully for user ID: 181
+[2025-04-25 15:35:07] Running member controller ,get_workout_plans token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTU5NjgwMH0=.6d25c7a0690856bfefc7caf3e57b4140fe380420535e4cb5e2eb8956603656b1   id - 181 
+[2025-04-25 15:35:07] Running get_workout_plans....in controller
+[2025-04-25 15:35:07] get workout plans function running...
+[2025-04-25 15:35:07] WorkoutPlan model initialized with database connection.
+[2025-04-25 15:35:07] Fetching workout plans for user_id: 181
+[2025-04-25 15:35:07] Workout plans fetched successfully for user_id: 181
+[2025-04-25 15:35:07] Workout plans data fetched
+[2025-04-25 15:35:07] Database connection closed.
+[2025-04-25 15:35:11] Connection established successfully to the database: rad_gymverse
+[2025-04-25 15:35:11] User class instantiated with database connection.
+[2025-04-25 15:35:11] Fetching user role by user ID: 181
+[2025-04-25 15:35:12] User role fetched successfully for user ID: 181
+[2025-04-25 15:35:12] Running member controller ,delete_workout_plan token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTU5NjgwMH0=.6d25c7a0690856bfefc7caf3e57b4140fe380420535e4cb5e2eb8956603656b1   id - 181 
+[2025-04-25 15:35:12] Running delete_workout_plan....in controller
+[2025-04-25 15:35:12] data: {"id":"4"}
+[2025-04-25 15:35:12] Running deleteCreatedWorkoutPlans in controller for plan_id: 4
+[2025-04-25 15:35:12] WorkoutPlan model initialized with database connection.
+[2025-04-25 15:35:12] Deleting workout plan for id: 4
+[2025-04-25 15:35:12] Workout plan deleted successfully for id: 4
+[2025-04-25 15:35:12] Database connection closed.
+[2025-04-25 15:35:15] Connection established successfully to the database: rad_gymverse
+[2025-04-25 15:35:15] User class instantiated with database connection.
+[2025-04-25 15:35:15] Fetching user role by user ID: 181
+[2025-04-25 15:35:16] User role fetched successfully for user ID: 181
+[2025-04-25 15:35:16] Running member controller ,get_workout_plans token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTU5NjgwMH0=.6d25c7a0690856bfefc7caf3e57b4140fe380420535e4cb5e2eb8956603656b1   id - 181 
+[2025-04-25 15:35:16] Running get_workout_plans....in controller
+[2025-04-25 15:35:16] get workout plans function running...
+[2025-04-25 15:35:16] WorkoutPlan model initialized with database connection.
+[2025-04-25 15:35:16] Fetching workout plans for user_id: 181
+[2025-04-25 15:35:16] Workout plans fetched successfully for user_id: 181
+[2025-04-25 15:35:16] Workout plans data fetched
+[2025-04-25 15:35:16] Database connection closed.

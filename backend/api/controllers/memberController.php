@@ -185,6 +185,22 @@ switch ($action) {
         logMessage("data: " . json_encode($data));
         requestMealPlan($user_id, $data);
         break;
+    // delete meal plan
+    case 'delete_meal_plan':
+        logMessage("Running delete_meal_plan....in controller");
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        $plan_id = $data['id'];
+        deleteCreatedMealPlans($plan_id);
+        break;
+    // delete workout plan
+    case 'delete_workout_plan':
+        logMessage("Running delete_workout_plan....in controller");
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        $plan_id = $data['id'];
+        deleteCreatedWorkoutPlans($plan_id);
+        break;
 
     // track workout plan
     case 'track_plan':
