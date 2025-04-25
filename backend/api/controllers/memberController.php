@@ -186,6 +186,14 @@ switch ($action) {
         requestMealPlan($user_id, $data);
         break;
 
+    // track workout plan
+    case 'track_plan':
+        logMessage("Running track_workout_plan....in controller");
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        trackWorkoutPlan($user_id, $data);
+        break;
+
     // check trainer
 
 

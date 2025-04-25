@@ -414,4 +414,30 @@ class PlanRequest
             return false;
         }
     }
+
+    public function trackWorkoutPlan($user_id, $plan_id)
+    {
+        logMessage("Tracking workout plan for user_id: $user_id and plan_id: $plan_id");
+
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
+        try {
+            $stmt = $this->conn->prepare("CALL select_workout_for_user(?, ?)");
+            $stmt->bind_param("ii", $plan_id, $user_id);
+
+            if ($stmt->execute()) {
+                logMessage("Workout plan tracked successfully.");
+                return true;
+            } else {
+                logMessage("Failed to execute procedure: " . $stmt->error);
+                return false;
+            }
+        } catch (Exception $e) {
+            logMessage("Exception occurred while tracking workout plan: " . $e->getMessage());
+            return false;
+        }
+    }
 }

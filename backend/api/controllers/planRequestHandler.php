@@ -269,3 +269,26 @@ function deleteCreatedMealPlans($plan_id)
         ]);
     }
 }
+
+function trackWorkoutPlan($user_id, $data)
+{
+    $plan_id = $data['plan_id'];
+
+    logMessage("Running trackWorkoutPlan in controller for user_id: $user_id and plan_id: $plan_id");
+
+    $planRequest = new planRequest();
+    $result = $planRequest->trackWorkoutPlan($user_id, $plan_id);
+
+    if ($result) {
+        echo json_encode([
+            "status" => "success",
+            "message" => "Workout plan tracked successfully."
+        ]);
+    } else {
+        http_response_code(500);
+        echo json_encode([
+            "status" => "error",
+            "message" => "Failed to track the workout plan."
+        ]);
+    }
+}

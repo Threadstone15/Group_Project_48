@@ -1,128 +1,162 @@
-/* Global styles */
-body {
-  font-family: 'Poppins', sans-serif;
+* {
   margin: 0;
   padding: 0;
-  background: #f4f4f4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* Container */
+body {
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
 .container {
-  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Title */
 .title {
-  font-size: 2rem;
-  margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 30px;
   color: #333;
 }
 
-/* Buttons */
-.primary-btn,
-.secondary-btn,
-.close-btn {
-  padding: 10px 20px;
-  margin: 10px;
-  border: none;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: background-color 0.3s;
-  font-family: 'Poppins', sans-serif;
+.main-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
 }
 
-/* Orange theme buttons */
+button {
+  cursor: pointer;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
 .primary-btn {
-  background-color: #FF5F00;
+  background-color: #4CAF50;
   color: white;
 }
 
 .primary-btn:hover {
-  background-color: #ff4500;
+  background-color: #45a049;
 }
 
 .secondary-btn {
-  background-color: #FF5F00;
+  background-color: #2196F3;
   color: white;
 }
 
 .secondary-btn:hover {
-  background-color: #ff4500;
+  background-color: #0b7dda;
 }
 
-/* Close button (red variant for cancel/close actions) */
-.close-btn {
-  background-color: #e74c3c;
-  color: white;
-}
-
-.close-btn:hover {
-  background-color: #c0392b;
-}
-
-/* Modal */
 .modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 
-/* Modal content */
-.modal-content {
-  background: white;
-  padding: 30px;
-  border-radius: 15px;
-  text-align: center;
-  width: 80%;
-  max-width: 500px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* Hidden utility class */
-.hidden {
+.modal.hidden {
   display: none;
 }
 
-/* Plans container */
-.plans-container {
-  text-align: left;
-  margin-top: 20px;
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 700px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
 }
 
-/* Individual plan item */
-.plan-item {
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-  font-size: 16px;
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
   color: #333;
 }
+
 .plans-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
-  font-family: 'Poppins', sans-serif;
 }
 
 .plans-table th, .plans-table td {
-  border: 1px solid #ccc;
-  padding: 10px;
+  padding: 12px;
   text-align: left;
-  vertical-align: top;
+  border-bottom: 1px solid #ddd;
 }
 
-.edit-btn, .delete-btn {
-  padding: 4px 8px;
-  margin-right: 5px;
-  cursor: pointer;
+.plans-table th {
+  background-color: #f2f2f2;
+}
+
+.plans-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+#mealInputs > div, .exercise-row {
+  margin-bottom: 15px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+#workoutInputs h4 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.form-actions {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+  margin-left: 10px;
+}
+
+.delete-btn:hover {
+  background-color: #d32f2f;
 }
