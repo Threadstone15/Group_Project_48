@@ -370,6 +370,7 @@ export function initMember_getATrainer() {
                 });
             })
             .then(data => {
+                console.log("Membership Plan Verification Response:", data);
                 if (data.message && data.message === "membership plan verified") {
                     isMembershipPlanVerified = true;
                     controlAccessToFeatures();

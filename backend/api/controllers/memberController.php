@@ -43,7 +43,7 @@ switch ($action) {
         logMessage("Running get_membership plan....in controller");
         getMembershipPlans();
         break;
-    case 'get_subscription':
+    case 'get_subscription': //subscription handler
         logMessage("Running get_subscription....in controller");
         getSubscriptionOfAMember($user_id);
         break;
@@ -138,7 +138,7 @@ switch ($action) {
 
 
     //veirfy subscribed membership plan
-    case 'verify_membership_plan' :
+    case 'verify_membership_plan':
         logMessage("running verify_membership_plan....in controller");
         verifyMembershipPlanOfMember($user_id);
         break;
