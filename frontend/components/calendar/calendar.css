@@ -621,7 +621,7 @@ iframe {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px; 
+  width: 500px; 
   padding: 30px;
   background-color: #fff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -778,3 +778,69 @@ iframe {
   color: #fff; 
 }
 
+.update-button {
+  background-color: #00AB66;
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #fff;
+}
+
+.update-button:hover {
+  background-color: #007144;
+  color: #fff; 
+}
+
+.update-button:active {
+  background-color: #004d2e;
+  color: #fff; 
+}
+
+.submit-button {
+  background-color: #FF5F00;
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #fff;
+}
+
+.submit-button:hover {
+  background-color: #ff7626;
+  color: #fff; 
+}
+
+.submit-button:active {
+  background-color: #d54e00;
+  color: #fff; 
+}
+
+.form-input {
+  flex: 1;
+  min-width: 200px;
+  height: 36px;
+  border-radius: 10px;
+  background-color: rgba(79, 79, 79, 0.05);
+  border: 1px solid rgba(79, 79, 79, 0.05);
+  font-family: Poppins, sans-serif;
+  padding: 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.form-input[aria-label="Select equipment type"] {
+  /* Only add padding to the left side */
+  padding: 5px 10px 5px 5px; /* top right bottom left */
+}
+
+/* Add pointer cursor on hover for the calendar icon */
+.form-input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer; /* Set pointer cursor for calendar icon */
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
