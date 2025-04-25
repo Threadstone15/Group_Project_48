@@ -39,12 +39,15 @@ export function initMember_trackProgress() {
                 } else if (data.error) {
                     // Handle other errors
                     showToast(data.error, "error");
-                }else{
+                } else {
                     // Successfully fetched the weekly progress
                     currentWeekProgressInfo = data;
                     currentWeekWorkoutProgress = JSON.parse(currentWeekProgressInfo.weekly_progress);  //converting the JSON string into js object
                     currentWeekNo = currentWeekProgressInfo.week_number;
+                    // console.log("current week workout progress: ", currentWeekWorkoutProgress);
                     displayCurrentWeekProgress(currentWeekWorkoutProgress);
+                    //fetch and display previous progess of the member
+                    fetchPreviousProgressOfMember();
                 }
             })
             .catch(error => {
@@ -87,7 +90,7 @@ export function initMember_trackProgress() {
             })
             .then(data => {
                 if (data.error && data.error === "No current workout plan found") {
-                    showToast("You have not created/selected a workout plan yet", "error");  
+                    showToast("You have not created/selected a workout plan", "error");
                 } else {
                     const currentWorkoutPlan = data;
                     startNewWeekProgress(currentWorkoutPlan.id, JSON.parse(currentWorkoutPlan.description));
@@ -104,10 +107,10 @@ export function initMember_trackProgress() {
     }
 
     function startNewWeekProgress(workoutPlanId, workoutPlanDescription) {
-        console.log("workout Plan description : ", workoutPlanDescription)
         const initial_weekly_progress = workoutPlanDescription.map((day, index) => {
             return {
                 day: day.day,
+                dayCompletedPercetange: 0,
                 exercises: day.exercises.map(exercise => ({
                     name: exercise.name,
                     sets: exercise.sets,
@@ -116,7 +119,6 @@ export function initMember_trackProgress() {
                 }))
             };
         });
-        console.log("initial_weekly_progress : ", initial_weekly_progress);
         const authToken = localStorage.getItem("authToken");
         if (!authToken) {
             showToast("An error has occurred. Please log in again", "error");
@@ -126,15 +128,15 @@ export function initMember_trackProgress() {
         const payload = {
             workout_plan_id: workoutPlanId,
             week_number: currentWeekNo,
-            weekly_progress: JSON.stringify(initial_weekly_progress), //convertinng the js object into JSON string
-        }
+            weekly_progress: initial_weekly_progress
+        };
         const requestOptions = {
             method: "POST",
             headers: {
                 "Authorization": `Bearer ${authToken}`,
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(payload),
+            body: JSON.stringify(payload), //convertinng the js object into JSON string -> JSON.stringify()
             redirect: "follow"
         };
         fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=add_weekly_progress", requestOptions)
@@ -148,15 +150,13 @@ export function initMember_trackProgress() {
                 });
             })
             .then(data => {
-                //do from here
                 if (data.error) {
-                    showToast(data.error, "error");
+                    showToast("An error has occured. Please try again later", "error");
                 } else {
+                    //hide the start progress div
+                    document.getElementById("progress-start").style.display = "none";
                     // Successfully started a new weekly progress
-                    currentWeekProgressInfo = data;
-                    currentWeekWorkoutProgress = JSON.parse(currentWeekProgressInfo.weekly_progress);  //converting the JSON string into js object
-                    currentWeekNo = currentWeekProgressInfo.week_number;
-                    displayCurrentWeekProgress(currentWeekWorkoutProgress);
+                    fetchLastWeeklyPogressOfMember();
                 }
             })
             .catch(error => {
@@ -170,15 +170,17 @@ export function initMember_trackProgress() {
     }
 
     function displayCurrentWeekProgress(progress) {
-        console.log(progress);
+        // console.log("Current Week Progress:", progress);
+        // displaying end week button
+        const endWeekBtn = document.getElementById("end-week-progress-btn");
+        endWeekBtn.style.display = "block";
+
         const logProgressForms = document.getElementById("log-progress-forms");
         logProgressForms.innerHTML = ""; // Clear previous content
 
-        console.log("hehe1");
-
-        // Set week number
+        // set week number
         const weekNo = document.getElementById("week-no");
-        weekNo.innerHTML = `Week ${currentWeekProgressInfo.week_number}`;
+        weekNo.innerHTML = `Week ${currentWeekProgressInfo.week_number}  Started on ${currentWeekProgressInfo.started_at}`;
 
         progress.forEach((dayProgress, dayIndex) => {
             const dayCard = document.createElement("div");
@@ -188,12 +190,10 @@ export function initMember_trackProgress() {
             dayTitle.textContent = `Day ${dayProgress.day}`;
             dayCard.appendChild(dayTitle);
 
-            //real time day -> according to exercise day
-            if (dayProgress.completedAt !== null) {
-                const dayProgressDate = document.createElement("p");
-                dayProgressDate.textContent = `Date : ${dayProgress.completedAt}`;
-                dayCard.appendChild(dayProgressDate);
-            }
+            //showing completed percentage
+            const dayProgressPercentage = document.createElement("p");
+            dayProgressPercentage.innerHTML = `Day Progress : ${dayProgress.dayCompletedPercetange} %`;
+            dayCard.appendChild(dayProgressPercentage);
 
             // Exercises list
             dayProgress.exercises.forEach((exercise, exIndex) => {
@@ -228,46 +228,169 @@ export function initMember_trackProgress() {
             updateBtn.textContent = "Update Progress";
             updateBtn.classList.add("update-button");
 
+            dayCard.appendChild(updateBtn);
+            logProgressForms.appendChild(dayCard);
+
             updateBtn.addEventListener("click", () => {
-                let allCompleted = true;
+                let allCompletedNoOfSets = 0;
+                let allRequiredNoOfSets = 0;
 
                 dayProgress.exercises.forEach((exercise, exIndex) => {
                     const inputName = `day${dayIndex}-exercise${exIndex}`;
-                    const input = document.querySelector(`input[name="${inputName}"]`);
+                    const input = document.querySelector(`input[name="${inputName}"]`); //getting the input field by inputNmae which waas set eaarlir
                     const newCompletedSets = parseInt(input.value);
 
                     if (isNaN(newCompletedSets) || newCompletedSets < 0 || newCompletedSets > exercise.sets) {
                         showToast("Invalid input for sets completed.", "error");
                         return;
                     }
-
                     // Update the corresponding exercise in the main data structure
                     currentWeekWorkoutProgress[dayIndex].exercises[exIndex].sets_completed = newCompletedSets;
 
-                    if (newCompletedSets < exercise.sets) {
-                        allCompleted = false;
-                    }
+                    allCompletedNoOfSets += newCompletedSets;
+                    allRequiredNoOfSets += exercise.sets;
                 });
 
                 // Update day-level completion
-                currentWeekWorkoutProgress[dayIndex].completed = allCompleted;
-
-                if (allCompleted) {
-                    const today = new Date().toISOString().split("T")[0];
-                    currentWeekWorkoutProgress[dayIndex].completedAt = today;
-                } else {
-                    currentWeekWorkoutProgress[dayIndex].completedAt = null;
-                }
-
-                showToast(`Day ${dayProgress.day} progress updated`, "success");
-                console.log("Updated Progress:", currentWeekWorkoutProgress[dayIndex]);
+                currentWeekWorkoutProgress[dayIndex].dayCompletedPercetange = Math.round((allCompletedNoOfSets / allRequiredNoOfSets) * 100); //calculating the percentage of completed sets
+                // console.log("progress after updating : ", currentWeekWorkoutProgress )
+                //updating displaying percentage
+                dayProgressPercentage.innerHTML = `Day Progress : ${dayProgress.dayCompletedPercetange} %`;
+                updateWeeklyProgress();
             });
-
-
-            dayCard.appendChild(updateBtn);
-            logProgressForms.appendChild(dayCard);
         });
     }
+    // End week progress button
+    const endWeekBtn = document.getElementById("end-week-progress-btn");
+    endWeekBtn.addEventListener("click", () => {
+        //end current week progress 
+        currentWeekNo += 1; // Increment the week number for the next week
+        //fetch the current workout plan of member -> member must have changed the workout plan
+        fetchCurrentWorkoutPlan(); //within the function, the new week progress will be started with the updated weekNo->then last weekly progress will be fetched and displayed
+        fetchPreviousProgressOfMember(); //refreshing previous progress by fetching previous progress of member again
+    });
+
+    function updateWeeklyProgress() {
+        const authToken = localStorage.getItem("authToken");
+        if (!authToken) {
+            showToast("An error has occurred. Please log in again", "error");
+            navigate("login");
+            return;
+        }
+        const payload = {
+            "workout_plan_id": currentWeekProgressInfo.workout_plan_id,
+            "week_number": currentWeekNo,
+            "weekly_progress": currentWeekWorkoutProgress
+        };
+        const requestOptions = {
+            method: "PUT",
+            headers: {
+                "Authorization": `Bearer ${authToken}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload),
+            redirect: "follow"
+        };
+        fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=update_weekly_progress", requestOptions)
+            .then(response => {
+                return response.json().then(data => {
+                    if (data.error && data.error === "Token expired") {
+                        throw new Error("Token expired");
+                    }
+                    if (!response.ok) throw new Error("Failed to update the weekly progress");
+                    return data;
+                });
+            })
+            .then(data => {
+                if (data.error) {
+                    showToast(data.error, "error");
+                } else {
+                    showToast(data.message, "success");
+                }
+            })
+            .catch(error => {
+                console.error("API Error:", error.message);
+                if (error.message === "Token expired") {
+                    runSessionTimedOut();
+                } else {
+                    showToast(error.message, "error");
+                }
+            });
+    }
+
+    function fetchPreviousProgressOfMember() {
+        const authToken = localStorage.getItem("authToken");
+        if (!authToken) {
+            showToast("An error has occurred. Please log in again", "error");
+            navigate("login");
+            return;
+        }
+        const requestOptions = {
+            method: "GET",
+            headers: { "Authorization": `Bearer ${authToken}` },
+            redirect: "follow"
+        };
+        fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=get_previous_progress", requestOptions)
+            .then(response => {
+                return response.json().then(data => {
+                    if (data.error && data.error === "Token expired") {
+                        throw new Error("Token expired");
+                    }
+                    if (!response.ok) throw new Error("Failed to fetch the previous weekly progress");
+                    return data;
+                });
+            })
+            .then(data => {
+                if (data.error) {
+                    showToast(data.error, "error");
+                } else {
+                    // Successfully fetched the previous weekly progress
+                    displayPreviousProgress(data);
+                }
+            })
+            .catch(error => {
+                console.error("API Error:", error.message);
+                if (error.message === "Token expired") {
+                    runSessionTimedOut();
+                } else {
+                    showToast(error.message, "error");
+                }
+            });
+    }
+
+    function displayPreviousProgress(previousProgress) {
+        console.log("Previous Progress:", previousProgress);
+        //display previous progress section
+        const previousProgressSection = document.getElementById("previous-progress-container");
+        previousProgressSection.style.display = "block"; // Show the section
+
+        const previousWeekCardsContainer = document.getElementById("week-cards-container");
+        previousWeekCardsContainer.innerHTML = ""; // Clear previous content
+
+        previousProgress.forEach(week => {
+            const weekCard = document.createElement("div");
+            weekCard.className = "progress-card";
+
+            const weekTitle = document.createElement("h4");
+            weekTitle.textContent = `Week ${week.week_number}  Started on ${week.started_at}`;
+            weekCard.appendChild(weekTitle);
+
+            const weekly_progress = JSON.parse(week.weekly_progress); //converting the JSON string into js object
+            weekly_progress.forEach((day) => {
+                //showing progress percentage for each day
+                const dayCard = document.createElement("div");
+                dayCard.className = "day-card";
+                const dayTitle = document.createElement("p");
+                dayTitle.textContent = `Day ${day.day} - Progress: ${day.dayCompletedPercetange} %`;
+                dayCard.appendChild(dayTitle);
+
+                weekCard.appendChild(dayCard);
+            });
+            previousWeekCardsContainer.appendChild(weekCard);
+        });
+
+    };
+
 
 
     function showToast(message, type) {

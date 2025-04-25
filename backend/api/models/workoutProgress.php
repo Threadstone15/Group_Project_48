@@ -15,7 +15,7 @@ class WorkoutProgress
         logMessage("workout progress model initialized with database connection.");
     }
 
-    function insertWeeklyProgress($member_id, $workout_plan_id, $week_number, $weekly_progress)
+    public function insertWeeklyProgress($member_id, $workout_plan_id, $week_number, $weekly_progress)
     {
         logMessage("Inserting weekly progress...");
         if (!$this->conn) {
@@ -25,12 +25,11 @@ class WorkoutProgress
 
         $current_time = new DateTime('now', new DateTimeZone('Asia/Colombo'));
         $current_date = $current_time->format('Y-m-d');
-        $week_completed = 0; // edfault  week_completed -> false
 
         $weekly_progress_json = json_encode($weekly_progress); // Convert PHP array to JSON string
 
-        $query = "INSERT INTO " . $this->table . " (member_id, workout_plan_id, week_number, weekly_progress , week_completed , created_at, updated_at)
-        VALUES (?, ?, ?, ?, ?, ?, ?)"; 
+        $query = "INSERT INTO " . $this->table . " (member_id, workout_plan_id, week_number, weekly_progress , started_at)
+        VALUES (?, ?, ?, ?, ?)"; 
         $stmt = $this->conn->prepare($query);
         if ($stmt === false) {
             logMessage("Error preparing statement for inserting weekly progress: " . $this->conn->error);
@@ -38,13 +37,11 @@ class WorkoutProgress
         }
 
         $stmt->bind_param(
-            "siisiss",
+            "siiss",
             $member_id,
             $workout_plan_id,
             $week_number,
             $weekly_progress_json,
-            $week_completed,
-            $current_date,
             $current_date,
         );
         if ($stmt->execute()) {
@@ -56,7 +53,7 @@ class WorkoutProgress
         }
     }
 
-    function getProgressOfMemberByWeek($member_id, $workout_plan_id, $week_number)
+    public function getProgressOfMemberByWeek($member_id, $workout_plan_id, $week_number)
     {
         logMessage("Getting weekly progress...");
         if (!$this->conn) {
@@ -93,7 +90,7 @@ class WorkoutProgress
         }
     }
 
-    function getLastWeekProgressOfAMember($member_id, $workout_plan_id)
+    public function getLastWeekProgressOfAMember($member_id, $workout_plan_id)
     {
         logMessage("Getting last weekly progress...");
         if (!$this->conn) {
@@ -123,20 +120,17 @@ class WorkoutProgress
         }
     }
 
-    function updateWeeklyProgressOfMember($member_id, $workout_plan_id, $week_number, $weekly_progress)
+    public function updateWeeklyProgressOfMember($member_id, $workout_plan_id, $week_number, $weekly_progress)
     {
         logMessage("Updating weekly progress...");
         if (!$this->conn) {
             logMessage("Database connection is not valid.");
             return false;
         }
-
-        $current_time = new DateTime('now', new DateTimeZone('Asia/Colombo'));
-        $current_date = $current_time->format('Y-m-d');
         
         $weekly_progress_json = json_encode($weekly_progress); // Convert PHP array to JSON string
         
-        $query = "UPDATE " . $this->table . " SET weekly_progress = ?, updated_at = ? WHERE member_id = ? AND workout_plan_id = ? AND week_number = ?";
+        $query = "UPDATE " . $this->table . " SET weekly_progress = ? WHERE member_id = ? AND workout_plan_id = ? AND week_number = ?";
         $stmt = $this->conn->prepare($query);
         if ($stmt === false) {
             logMessage("Error preparing statement for updating weekly progress: " . $this->conn->error);
@@ -144,9 +138,8 @@ class WorkoutProgress
         }
 
         $stmt->bind_param(
-            "sssii",
+            "ssii",
             $weekly_progress_json,
-            $current_date,
             $member_id,
             $workout_plan_id,
             $week_number
@@ -156,6 +149,40 @@ class WorkoutProgress
             return true;
         } else {
             logMessage("Weekly progress record update failed: " . $stmt->error);
+            return false;
+        }
+    }
+
+    public function getPreviousProgressOfMember($member_id){
+        logMessage("Getting previous weekly progress...");
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
+        $query = "SELECT * FROM " . $this->table . " WHERE member_id = ? ORDER BY week_number DESC ";
+        $stmt = $this->conn->prepare($query);
+        if ($stmt === false) {
+            logMessage("Error preparing statement for getting previous weekly progress: " . $this->conn->error);
+            return false;
+        }
+
+        $stmt->bind_param(
+            "s",
+            $member_id
+        );
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) {
+                $weekly_progress = $result->fetch_all(MYSQLI_ASSOC);    // Fetch all records as an associative array
+                logMessage("Previous weekly progress record retrieved successfully for member : $member_id");
+                return $weekly_progress;
+            } else {
+                logMessage("No previous weekly progress record found for member : $member_id");
+                return [];
+            }
+        } else {
+            logMessage("Previous weekly progress record retrieval failed: " . $stmt->error);
             return false;
         }
     }

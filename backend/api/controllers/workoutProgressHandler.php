@@ -23,12 +23,14 @@ function addWeeklyWorkoutProgress($user_id)
         $week_number = $data['week_number'];
         $weekly_progress = $data['weekly_progress'];
 
-        if ($workoutProgress->insertWeeklyProgress(
-            $member_id,
-            $workout_plan_id,
-            $week_number,
-            $weekly_progress
-        )) {
+        if (
+            $workoutProgress->insertWeeklyProgress(
+                $member_id,
+                $workout_plan_id,
+                $week_number,
+                $weekly_progress
+            )
+        ) {
             logMessage("Weekly progress is added successfully for user: " . $user_id);
             echo json_encode(["message" => "Weekly Progress Added Successfully"]);
         } else {
@@ -93,17 +95,19 @@ function updateWeeklyProgressOfMember($user_id)
         $week_number = $data['week_number'];
         $weekly_progress = $data['weekly_progress'];
 
-        if ($workoutProgress->updateWeeklyProgressOfMember(
-            $member_id,
-            $workout_plan_id,
-            $week_number,
-            $weekly_progress
-        )) {
+        if (
+            $workoutProgress->updateWeeklyProgressOfMember(
+                $member_id,
+                $workout_plan_id,
+                $week_number,
+                $weekly_progress
+            )
+        ) {
             logMessage("Weekly progress is updated successfully for user: " . $user_id);
             echo json_encode(["message" => "Weekly Progress Updated Successfully"]);
         } else {
             logMessage("Failed to update weekly progress for user: " . $user_id);
-            echo json_encode(["error" => "Failed to update weekly progress"]);
+            echo json_encode(["error" => "Failed to update weekly progress. Please try again later"]);
         }
     } else {
         logMessage("Invalid input data for updating weekly progress.");
@@ -151,5 +155,23 @@ function getCurrentWorkoutPlanOfMember($user_id)
     } else {
         logMessage("Failed to retrieve current workout plan for user: " . $user_id);
         echo json_encode(["error" => "No current workout plan found"]);
+    }
+}
+
+function getPreviousProgressOfMember($user_id)
+{
+    logMessage("get previous progress of member function running......");
+    $workoutProgress = new WorkoutProgress();
+    $member = new Member();
+    $memberData = $member->getMemberIdByUserId($user_id);
+    $member_id = $memberData['member_id'];
+
+    $previousProgress = $workoutProgress->getPreviousProgressOfMember($member_id);
+    if ($previousProgress) {
+        logMessage("Previous progress is retrieved successfully for user: " . $user_id);
+        echo json_encode($previousProgress);
+    } else {
+        logMessage("Failed to retrieve previous progress for user: " . $user_id);
+        echo json_encode(["error" => "Failed to retrieve previous progress"]);
     }
 }
