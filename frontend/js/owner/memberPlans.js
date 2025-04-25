@@ -178,6 +178,7 @@ export function initOwner_memberPlans() {
             })
             .catch(error => {
                 const errorMsg = error.error || "Failed to add membership plan.";
+                showToast("Failed to add membership plan", "error");
                 showFormResponse("addFormResponse", errorMsg, "error");
             });
     });
@@ -230,6 +231,7 @@ export function initOwner_memberPlans() {
                         }, 3000);
                     } else {
                         const errorMsg = data.error || "Failed to delete membership plan.";
+                        showToast("Failed to delete membership plan", "error");
                         showFormResponse("deleteResponse", errorMsg, "error");
                     }
                 })
@@ -341,6 +343,7 @@ export function initOwner_memberPlans() {
                     fetchMemberPlans(); // Refresh the equipment list
                 } else {
                     const errorMsg = data.error || "Failed to update membership plan.";
+                    showToast("Failed to update membership plan", "error");
                     showFormResponse("updateFormResponse", errorMsg, "error");
                 }
             })
@@ -440,6 +443,7 @@ export function initOwner_memberPlans() {
                     fetchMemberPlans(); // Refresh the equipment list
                 } else {
                     const errorMsg = data.error || "Failed to update membership plan.";
+                    showToast("Failed to update membership plan", "error");
                     showFormResponse("updateBasicFormResponse", errorMsg, "error");
                 }
             })
@@ -458,6 +462,19 @@ export function initOwner_memberPlans() {
             responseContainer.style.display = "none";
         }, 3000);
     }
+
+    function showToast(message, type = 'success') {
+        const container = document.getElementById('toast-container');
+        const toast = document.createElement('div');
+        toast.className = `toast ${type}`;
+        toast.innerText = message;
+    
+        container.appendChild(toast);
+    
+        setTimeout(() => {
+            toast.remove();
+        }, 4000);
+      }
 
 
 }

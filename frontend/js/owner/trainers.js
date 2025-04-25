@@ -7,6 +7,7 @@ export function initOwner_trainers() {
     const pendingApplicationsTable = document.getElementById("pendingApplications");
     const acceptedRejectedTable = document.getElementById("acceptedRejectedApplications");
 
+
     if (pendingApplicationsTable && acceptedRejectedTable) {
         fetchTrainerAppliedCareers();
     } else {

@@ -62,9 +62,11 @@ export function initOwner_analytics() {
                     renderChart(latestAnalyticsData);
                 } else {
                     console.warn("Chart.js not loaded yet");
+                    showToast("Chart.js is loading, please wait...", "info");
                 }
             } else {
                 console.error("Backend Error:", result.message);
+                showToast("Failed to fetch data from the server", "error");
             }
         } catch (error) {
             console.error("Fetch error:", error);
@@ -175,6 +177,7 @@ export function initOwner_analytics() {
         
             } catch (error) {
                 console.error("PDF generation failed:", error);
+                showToast("Failed to generate PDF", "error");
                 // Restore just in case
                 pdfButton.style.display = "inline-block";
                 if (filterButtons) filterButtons.style.display = "flex";
@@ -182,6 +185,19 @@ export function initOwner_analytics() {
         });
         
 }
+
+function showToast(message, type = 'success') {
+    const container = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.innerText = message;
+
+    container.appendChild(toast);
+
+    setTimeout(() => {
+        toast.remove();
+    }, 4000);
+  }
 
 
 

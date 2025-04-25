@@ -1,5 +1,6 @@
 export function initOwner_accounts() {
     console.log("initlaizing accounts page...");
+    const spinner = document.getElementById("loading-spinner");
     let searchTimeout = null;
     let role = 'member';
     let type = 'active';
@@ -7,6 +8,8 @@ export function initOwner_accounts() {
     // Get all role filter buttons
     const roleButtons = document.querySelectorAll('.role-filter');
     const statusButtons = document.querySelectorAll('.status-filter');
+
+    spinner.classList.remove("hidden");
 
     // Function to toggle the 'selected' class on the clicked button
 
@@ -47,6 +50,7 @@ export function initOwner_accounts() {
 
     async function fetchMembersByRole(role, type) {
     try {
+        spinner.classList.remove("hidden");
         console.log("Selected role: ", role);
         const response = await fetch(`http://localhost:8080/Group_Project_48/backend/api/controllers/ownerController.php?action=get_members_by_role&role=${role}`, {
             method: 'GET',
@@ -66,6 +70,8 @@ export function initOwner_accounts() {
         }
     } catch (error) {
         console.error('Error fetching members by role:', error);
+        spinner.classList.add("hidden");
+        showToast("Error fetching members by role", "error");
     }
     }
 

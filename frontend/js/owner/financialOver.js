@@ -76,11 +76,14 @@ export function initOwner_financialOver() {
                 if (chartLoaded) {
                     setupCharts(); // re-render chart with new data
                 }
+                showToast("Financial data updated successfully", "success");
             } else {
                 console.error("API Error:", result.message || "Unknown error from backend");
+                showToast(result.message || "Failed to load financial data", "error");
             }
         } catch (error) {
             console.error("Fetch error:", error);
+            showToast("Network error while fetching financial data", "error");
         }
     }
 
@@ -180,4 +183,17 @@ export function initOwner_financialOver() {
             options: commonOptions
         };
     }
+
+    function showToast(message, type = 'success') {
+        const container = document.getElementById('toast-container');
+        const toast = document.createElement('div');
+        toast.className = `toast ${type}`;
+        toast.innerText = message;
+    
+        container.appendChild(toast);
+    
+        setTimeout(() => {
+            toast.remove();
+        }, 4000);
+      }
 }

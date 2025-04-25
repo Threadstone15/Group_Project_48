@@ -133,7 +133,12 @@
 
   <div id="toast-container" class="toast-container"></div>
 
-    <style>
+  <!-- Loading Spinner -->
+  <div id="loading-spinner" class="spinner hidden">
+      <div class="spinner-circle"></div>
+  </div>
+
+  <style>
     .toast-container {
         position: fixed;
         top: 20px;
@@ -161,7 +166,7 @@
         10%, 90% { opacity: 1; transform: translateY(0); }
         100% { opacity: 0; transform: translateY(-20px); }
     }
-    </style>
+  </style>
 
 </body>
 
