@@ -20,6 +20,7 @@ include_once "./memberPlan_check.php";
 include_once "./workoutPlanHandler.php";
 include_once "./mealPlanHandler.php";
 include_once "./planRequestHandler.php";
+include_once "./workoutProgressHandler.php";
 
 $conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -190,6 +191,31 @@ switch ($action) {
 
 
 
+    //log workout progress
+    case 'add_weekly_progress':
+        logMessage("Running add_weekly_progress....in controller");
+        addWeeklyWorkoutProgress($user_id);
+        break;
+    case 'get_progress_of_member_by_week':
+        logMessage("Running get_progress_of_member_by_week....in controller");
+        getWorkoutProgressOfAMemberByWeek($user_id);
+        break;
+    case 'update_weekly_progress':
+        logMessage("Running update_weekly_progress....in controller");
+        updateWeeklyProgressOfMember($user_id);
+        break;
+    case 'get_last_weekly_progress':
+        logMessage("Running get_last_weekly_progress....in controller");
+        getLastWeeklyProgressOfMember($user_id);
+        break;
+    case 'get_current_workout_plan':
+        logMessage("Running get_current_workout_plan....in controller");
+        getCurrentWorkoutPlanOfMember($user_id);
+        break;
+    case 'get_previous_progress':
+        logMessage("Running get_previous_progress....in controller");
+        getPreviousProgressOfMember($user_id);
+        break;
 
     default:
         echo json_encode(["error" => "Invalid action"]);

@@ -1,17 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gym Member Weight Chart</title>
+    <title>Track Workout Progress</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="content">
-    <h1>Gym Member Weight Progress</h1>
-    <canvas id="weightChart" width="400" height="200"></canvas>
+        <div id="overlay"></div>
+        <h1>Log Your Workout Progress</h1>
+        <div id="select-workout-plan-popup" class="popup" style="display: none;">
+            <p>Please select or create a workout plan to start logging your progress.</p>
+            <div class="popup-buttons">
+                <button id="select-workout-plan-popup-button" class="popup-confirm">Go to Workout Plans</button>
+            </div>
+        </div>
+        <div id="progress-start" class="progress-start-card" style="display: none;">
+            <p class="progress-message">
+                Start logging your workout progress weekly and track your fitness journey
+            </p>
+            <button id="start-progress-btn" class="progress-button">Start With Week 1</button>
+        </div>
+        <section class="progress-form-container">
+            <h3 id="week-no"></h3>
+            <div id="log-progress-forms" class="progress-cards-container">
+                <!-- cards will be dynamically inserted here -->
+            </div>
+            <div class="popup-buttons">
+                <button id="end-week-progress-btn" style="display: none;" class="progress-button">End Current Week</button>
+            </div>
+        </section>
+        <section id="previous-progress-container" class="previous-progress-container" style="display: none;">
+            <h1> Track Your Fitness Journey</h1>
+            <div id="week-cards-container" class="week-cards-container">
+                <!-- cards will be dynamically inserted here -->
+            </div>
+        </section>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <div id="toast-container" class="toast-container"></div>
 </body>
+
 </html>
