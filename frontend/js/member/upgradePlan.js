@@ -61,10 +61,12 @@ export function initMember_upgradePlan() {
 
             const planIDofMember = subscription.membership_plan_id;
             let planPeriodofMember = "free";
-            if (subscription.amount == 50.00 || subscription.amount == 70.00 || subscription.amount == 60.00) {
+            if (subscription.amount == 4000.00 || subscription.amount == 9000.00 || subscription.amount == 10500.00 || subscription.amount == 11000.00) {
                 planPeriodofMember = "monthly";
+                console.log("Monthly plan selected");
             } else if (subscription.amount > 0) {
                 planPeriodofMember = "annual";
+                console.log("Annual plan selected");
             }
 
             const startDate = subscription.date_time;
@@ -159,10 +161,15 @@ export function initMember_upgradePlan() {
 
         document.querySelectorAll('.select-plan:not(.disabled)').forEach(button => {
             button.removeEventListener('click', handlePlanSelection); 
-            button.addEventListener('click', function() {
-                handlePlanSelection(this.dataset.planId, this.dataset.planName, this.dataset.planPrice);
+            button.addEventListener('click', function () {
+                const card = this.closest('.pricing-card');
+                const activePriceElement = card.querySelector('.price.active');
+                const selectedPrice = activePriceElement ? activePriceElement.textContent.replace(/[^\d.]/g, '') : '0.00';
+        
+                handlePlanSelection(this.dataset.planId, this.dataset.planName, selectedPrice);
             });
         });
+        
 
         togglePricing();
     }
@@ -193,7 +200,7 @@ export function initMember_upgradePlan() {
 
     function showUpgradeConfirmation(planId, planName, planPrice, remainingDays, currentPlanName) {
         const confirmationPopup = document.createElement('div');
-        confirmationPopup.className = 'confirmation-popup';
+        confirmationPopup.className = 'popup-overlay active confirmation-popup';
         confirmationPopup.innerHTML = `
             <div class="popup-content">
                 <span class="close-btn">&times;</span>
@@ -227,23 +234,32 @@ export function initMember_upgradePlan() {
 
     function openPaymentPopup(planId, planName, planPrice) {
         console.log("Payment popup triggered!", { planId, planName, planPrice });
-
+    
         const popup = document.getElementById('paymentPopup');
+        popup.classList.add('active');
+        popup.classList.remove('hidden');
+    
         document.getElementById('popupPlanName').innerText = `Upgrade to ${planName}`;
-        document.getElementById('popupPlanDetails').innerText = `Price: LKR${planPrice}/month`;
-
-        popup.style.display = 'flex';
-
-        document.getElementById('payNowBtn').onclick = function() {
+    
+        const monthlyPrices = [4000, 9000, 10500, 11000];
+        const isMonthly = monthlyPrices.includes(parseFloat(planPrice));
+    
+        const period = isMonthly ? 'month' : 'year';
+        document.getElementById('popupPlanDetails').innerText = `Price: LKR${parseFloat(planPrice).toFixed(2)}/${period}`;
+    
+        document.getElementById('payNowBtn').onclick = function () {
             redirectToPayHere(planId, planName, planPrice);
-            popup.style.display = 'none';
+            popup.classList.remove('active');
+            popup.classList.add('hidden');
         };
     }
+    
+    
 
     function redirectToPayHere(planId, planName, planPrice) {
         const authToken = localStorage.getItem("authToken");
         if (!authToken) {
-            alert("Please log in to proceed with the payment.");
+            showToast("Auth token not found. Please log in.", 'error');
             return;
         }
 
@@ -301,24 +317,24 @@ export function initMember_upgradePlan() {
 
                 payhere.onDismissed = function() {
                     console.log("Payment dismissed");
-                    alert("Payment was cancelled.");
+                    showToast("Payment dismissed. Please try again.", 'error');
                 };
 
                 payhere.onError = function(error) {
                     console.log("Payment error:", error);
-                    alert("Payment failed. Please try again.");
+                    showToast("Payment error. Please try again.", 'error');
                 };
 
                 payhere.startPayment(paymentDetails);
             })
             .catch(error => {
                 console.error("Error generating hash:", error);
-                alert("Failed to initiate payment. Please try again.");
+                showToast("Failed to initiate payment. Please try again.", 'error');
             });
         })
         .catch(error => {
             console.error("Error fetching user details:", error);
-            alert("Failed to retrieve user details. Please try again.");
+            showToast("Failed to fetch user details. Please try again.", 'error');
         });
     }
 
@@ -352,18 +368,21 @@ export function initMember_upgradePlan() {
 
             const result = await response.json();
             console.log("Payment confirmed:", result);
-            alert("Your subscription has been updated successfully!");
+            showToast("Payment confirmed successfully.");
             fetchMembershipPlans();
         } catch (error) {
             console.error("Error confirming payment:", error);
-            alert("Payment confirmation failed. Please contact support.");
+            showToast("Failed to confirm payment. Please try again.", 'error');
         }
     }
 
     // Close popup when clicking close button
-    document.querySelector('.close-btn').addEventListener('click', () => {
-        document.getElementById('paymentPopup').style.display = 'none';
-    });
+    document.querySelector('.close-btn').onclick = () => {
+        const popup = document.getElementById('paymentPopup');
+        popup.classList.remove('active');
+        popup.classList.add('hidden');
+    };
+    
 
     function displayCurrentPlan(plans, planIDofMember, planPeriodofMember, startDate) {
         console.log("Displaying current plan");

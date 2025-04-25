@@ -116,29 +116,79 @@ class Payment
         $stmt = $this->conn->prepare($query);
 
         if ($stmt === false) {
-            logMessage("Error preparing statement for fetching latest user payment: " . $this->conn->error);
+            logMessage("Error preparing statement: " . $this->conn->error);
             return false;
         }
 
         $stmt->bind_param("i", $user_id);
-        logMessage("Query bound for fetching latest payment of user_id: $user_id");
+        logMessage("Query bound for user_id: $user_id");
 
         if ($stmt->execute()) {
             $result = $stmt->get_result();
             $payment = $result->fetch_assoc();
 
             if ($payment) {
-                logMessage("Fetched latest payment for user_id: $user_id");
-                return $payment;
+                logMessage("Fetched latest payment for user_id: $user_id - " . json_encode($payment));
+
+                $paymentDate = new DateTime($payment['date_time']);
+                $currentDate = new DateTime();
+                $interval = $paymentDate->diff($currentDate);
+
+                $daysGap = (int)$interval->format('%a');
+                $amount = (float)$payment['amount'];
+
+                logMessage("Current date: " . $currentDate->format('Y-m-d H:i:s'));
+                logMessage("Payment date: " . $paymentDate->format('Y-m-d H:i:s'));
+                logMessage("Days gap: $daysGap, Amount: $amount");
+
+                $validMonthlyAmounts = [4000.00, 9000.00, 10500.00, 11000.00];
+                $validYearlyAmounts = [44000.00, 99000.00, 115500.00, 121000.00];
+
+                if (
+                    ($daysGap > 30 && in_array($amount, $validMonthlyAmounts)) ||
+                    ($daysGap > 365 && in_array($amount, $validYearlyAmounts))
+                ) {
+                    // Payment is considered expired
+                    return [
+                        'membership_plan_id' => 'MP1',
+                        'amount' => $amount,
+                        'status' => $payment['status'],
+                        'date_time' => $payment['date_time'],
+                        'plan_name' => $payment['plan_name'],
+                        'benefits' => $payment['benefits']
+                    ];
+                } else {
+                    // Payment is recent and valid
+                    return [
+                        'membership_plan_id' => $payment['membership_plan_id'],
+                        'amount' => $amount,
+                        'status' => $payment['status'],
+                        'date_time' => $payment['date_time'],
+                        'plan_name' => $payment['plan_name'],
+                        'benefits' => $payment['benefits']
+                    ];
+                }
             } else {
-                logMessage("No payment record found for user_id: $user_id");
-                return null;
+                logMessage("No payment found for user_id: $user_id");
+
+                // Return default plan MP1 when no payment is found
+                return [
+                    'membership_plan_id' => 'MP1',
+                    'amount' => 0.00,
+                    'status' => 'None',
+                    'date_time' => null,
+                    'plan_name' => 'No Plan',
+                    'benefits' => 'None'
+                ];
             }
         } else {
-            logMessage("Error executing statement: " . $stmt->error);
+            logMessage("Execution failed: " . $stmt->error);
             return false;
         }
     }
+
+
+
 
     public function getPaymentsByUserId($user_id)
     {
