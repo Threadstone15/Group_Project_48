@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MemberHome</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet" />
-  
+
 </head>
 
 <body>
@@ -22,13 +22,15 @@
     </section>
   </div>
 
-  <script type="module">
-    import { initMember_payments } from './payments.js';
+  <!-- Toast container -->
+  <div id="toast-container" class="toast-container"></div>
 
-    document.addEventListener('DOMContentLoaded', () => {
-      initMember_payments();
-    });
-  </script>
+  <!-- Loading Spinner -->
+  <div id="loading-spinner" class="spinner hidden">
+    <div class="spinner-circle"></div>
+  </div>
+
 </body>
 
 </html>
+
