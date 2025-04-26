@@ -150,6 +150,26 @@ switch ($action) {
         getEnrolledMemberListOfClass();
         break;
 
+    // mark attendance QR
+    case 'mark_attendance':
+        logMessage("Running mark_attendance....in controller");
+        $jsonData = json_decode(file_get_contents("php://input"), true);
+        logMessage("Received JSON data: " . json_encode($jsonData));
+        $token = $jsonData['member_id'];
+        $mem_userid = getUserIdFromTokenNoVerify($token);
+        markAttendance($mem_userid, $jsonData);
+        break;
+    // mark attendance manual
+    case 'mark_attendance_manual':
+        logMessage("Running mark_attendance_manual....in controller");
+        $jsonData = json_decode(file_get_contents("php://input"), true);
+        logMessage("Received JSON data: " . json_encode($jsonData));
+        markAttendanceManual($jsonData);
+        break;
+    case 'get_attendance':
+        logMessage("Running get_attendance....in controller");
+        getTodayArrivalDepartureTimes();
+        break;
 
 
     default:

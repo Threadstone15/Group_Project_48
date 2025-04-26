@@ -3,6 +3,8 @@ console.log("Forget password loaded");
 export function initforgotPassword() {
   console.log("Initializing forgotPassword page");
 
+  const spinner = document.getElementById("loading-spinner");
+
   document.getElementById("img1").src = "/Group_Project_48/frontend/assets/images/Too Busy 1.svg";
 
   // Navigate to login page on clicking "Back to Login"
@@ -43,6 +45,8 @@ export function initforgotPassword() {
       redirect: "follow",
     };
 
+    spinner.classList.remove("hidden");
+
     // Send fetch request to the backend
     fetch(
       "http://localhost:8080/Group_Project_48/backend/api/controllers/authController.php?action=password_reset_mail_check",
@@ -53,20 +57,40 @@ export function initforgotPassword() {
         console.log("Password reset response:", result);
 
         if (result.success) {
-            
-          alert("Password reset email sent successfully! Check your inbox.");
+          spinner.classList.add("hidden");
+
           if (result.resetToken) {
             localStorage.setItem("resetToken", result.resetToken);
             console.log("Reset token saved to local storage:", result.resetToken);
+            showToast("Password reset email sent successfully!", "success");
+            //wait for 2 seconds before navigating to the login page
+            setTimeout(() => {
+              navigate("login"); // Navigate to reset password page
+            }, 2000);
           }
-          navigate("login"); // Navigate to reset password page
         } else {
-          alert(result.message || "Failed to send password reset email. Please try again.");
+          spinner.classList.add("hidden");
+          showToast(result.message || "Failed to send password reset email. Please try again.", "error");
         }
       })
       .catch((error) => {
         console.error("Error:", error);
-        alert("An error occurred while sending the password reset email.");
+        spinner.classList.add("hidden");
+        showToast("An error occurred while sending the password reset email.", "error");
       });
   });
+
+  function showToast(message, type = 'success') {
+    const container = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.innerText = message;
+
+    container.appendChild(toast);
+
+    setTimeout(() => {
+        toast.remove();
+    }, 4000);
+  }
+
 }

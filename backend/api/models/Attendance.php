@@ -298,4 +298,39 @@ class Attendance
             return null;
         }
     }
+    public function getTodayArrivalDepartureTimes()
+    {
+        logMessage("Fetching today's Arrival and Departure times");
+
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
+        $query = "CALL GetTodayAttendanceSummary()";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing statement: " . $this->conn->error);
+            return false;
+        }
+
+        if (!$stmt->execute()) {
+            logMessage("Error executing stored procedure: " . $stmt->error);
+            return false;
+        }
+
+        $result = $stmt->get_result();
+        if ($result) {
+            $data = [];
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+            logMessage("Fetched " . count($data) . " record(s)");
+            return $data;
+        } else {
+            logMessage("No records found");
+            return null;
+        }
+    }
 }

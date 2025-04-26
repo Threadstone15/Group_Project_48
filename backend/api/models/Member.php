@@ -131,6 +131,32 @@ class Member
             return false;
         }
     }
+
+    public function getUserIDByMemberID($member_id)
+    {
+        logMessage("Fetching user_id of a member by member id: $member_id");
+
+        // Prepare the query
+        $query = "SELECT user_id FROM " . $this->table . " WHERE member_id = ?";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing statement for getUserIDByMemberID: " . $this->conn->error);
+            return false;
+        }
+
+        // Bind the member_id parameter
+        $stmt->bind_param("s", $member_id);
+
+        // Execute the query
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            return $result->fetch_assoc();
+        } else {
+            logMessage("Error executing getUserIDByMemberID query: " . $stmt->error);
+            return false;
+        }
+    }
     public function getMemberDetailsByUserID($user_id)
     {
         logMessage("Fetching member details for user ID: $user_id");

@@ -5,81 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Staff-Member-Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="/Group_Project_48/frontend/css/staff/memberAttendance.css">
-    <link rel="stylesheet" href="/Group_Project_48/frontend/css/globals.css"> -->
+    <link rel="stylesheet" href="staff_memberAttendance.css">
 </head>
 <body>
-    
     <div class="content">
-
         <div class="header">
             <div class="header-left">
                 <p class="heading">Member Attendance</p>
             </div>
             <div class="header-right">
-                <button id="markAttendanceBtn">Mark Attendance</button>
+                <button id="manualAttendanceBtn">Manual Attendance</button>
+                <button id="markAttendanceBtn">Scan QR Code</button>
             </div>
         </div>
         
-
-    <div class="table-container">
-        <table id="attendanceTable">
-            <thead>
-                <tr>    
-                    <th>Member ID</th>
-                    <th>Name</th>
-                    <th>Arrival Time</th>
-                    <th>Departed Time</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <?php if (!empty($members)) : ?>
-            <tbody>
-                <?php foreach ($members as $member) : ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($member['Member ID']); ?></td>
-                        <td><?php echo htmlspecialchars($member['name']); ?></td>
-                        <td><?php echo htmlspecialchars($member['Arrival Time']); ?></td>
-                        <td><?php echo htmlspecialchars($member['Departed Time']); ?></td>
-                        <td><?php echo htmlspecialchars($member['Status']); ?></td>
+        <div class="table-container">
+            <table id="attendanceTable">
+                <thead>
+                    <tr>    
+                        <th>Member ID</th>
+                        <th>Name</th>
+                        <th>Arrival Time</th>
+                        <th>Departed Time</th>
                     </tr>
-                <?php endforeach; ?>
-            </tbody>
-        <?php else : ?>
-            <tbody>
-                <tr>
-                    <td colspan="5" style="text-align: center;">No members found</td>
-                </tr>
-            </tbody>
-        <?php endif; ?>
-        
-        </table>
-    </div>
+                </thead>
+                <tbody id="attendanceTableBody">
+                    <!-- Data will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
     </div>
 
-
-
-<!-- QR Scanner Modal -->
-<div id="qrModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn">&times;</span>
-        <p>Scan Member QR Code</p>
-        <video id="qr-video" width="100%" style="min-height:300px;" autoplay muted playsinline></video>
-        <div class="modal-buttons">
-            <button id="nextScanBtn" disabled>Next Scan</button>
-            <button id="arrivalBtn" disabled>Arrival</button>
-            <button id="leaveBtn" disabled>Leave</button>
-        </div>        
+    <!-- QR Scanner Modal -->
+    <div id="qrModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <p>Scan Member QR Code</p>
+            <video id="qr-video" width="100%" style="min-height:300px;" autoplay muted playsinline></video>
+            <div class="modal-buttons">
+                <button id="nextScanBtn" disabled>Next Scan</button>
+                <button id="arrivalBtn" disabled>Arrival</button>
+                <button id="leaveBtn" disabled>Leave</button>
+            </div>        
+        </div>
     </div>
-</div>
+
+    <!-- Manual Attendance Modal -->
+    <div id="manualModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn manual-close">&times;</span>
+            <p>Enter Member Details</p>
+            <div class="input-group">
+                <label for="memberId">Member ID:</label>
+                <input type="text" id="memberId" placeholder="e.g. M14, M15">
+            </div>
+            <div class="radio-group">
+                <label>Status:</label>
+                <div>
+                    <input type="radio" id="arrivalRadio" name="attendanceStatus" value="arrival" checked>
+                    <label for="arrivalRadio">Arrival</label>
+                </div>
+                <div>
+                    <input type="radio" id="leaveRadio" name="attendanceStatus" value="leave">
+                    <label for="leaveRadio">Leave</label>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button id="submitManualAttendance">Submit</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Toast container -->
     <div id="toast-container" class="toast-container"></div>
 
-      <!-- Loading Spinner -->
+    <!-- Loading Spinner -->
     <div id="loading-spinner" class="spinner hidden">
-    <div class="spinner-circle"></div>
+        <div class="spinner-circle"></div>
     </div>
 
-
+    <script src="https://unpkg.com/@zxing/library@latest"></script>
+    <script src="staff_memberAttendance.js"></script>
 </body>
+</html>
