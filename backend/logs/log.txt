@@ -11416,3 +11416,25 @@
 [2025-04-25 18:14:43] Workout plans fetched successfully for user_id: 230
 [2025-04-25 18:14:43] Workout plans data fetched
 [2025-04-25 18:14:43] Database connection closed.
+[2025-04-26 17:46:27] Running auth controller ,get_footer_info 
+[2025-04-26 17:46:27] Running get_footer_info....in controller
+[2025-04-26 17:46:28] Connection established successfully to the database: rad_gymverse
+[2025-04-26 17:46:28] Config model initialized with database connection.
+[2025-04-26 17:46:29] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-26 17:46:29] Database connection closed.
+[2025-04-26 17:46:33] Running auth controller ,get_footer_info 
+[2025-04-26 17:46:33] Running get_footer_info....in controller
+[2025-04-26 17:46:34] Connection established successfully to the database: rad_gymverse
+[2025-04-26 17:46:34] Config model initialized with database connection.
+[2025-04-26 17:46:35] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-26 17:46:35] Database connection closed.
+[2025-04-26 17:46:37] Running auth controller ,password_reset_mail_check 
+[2025-04-26 17:46:37] Running password reset mail check....in auth controller
+[2025-04-26 17:46:37] Password reset mail check function invoked.
+[2025-04-26 17:46:37] Sanitized email: sharani5077@yahoo.com
+[2025-04-26 17:46:38] Connection established successfully to the database: rad_gymverse
+[2025-04-26 17:46:38] User class instantiated with database connection.
+[2025-04-26 17:46:38] Checking if user exists for email: sharani5077@yahoo.com
+[2025-04-26 17:46:38] No user found for email: sharani5077@yahoo.com
+[2025-04-26 17:46:38] No account found for email: sharani5077@yahoo.com
+[2025-04-26 17:46:38] Database connection closed.
