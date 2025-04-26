@@ -58,12 +58,16 @@ export function initforgotPassword() {
 
         if (result.success) {
           spinner.classList.add("hidden");
-          showToast("Password reset email sent successfully!", "success");
+
           if (result.resetToken) {
             localStorage.setItem("resetToken", result.resetToken);
             console.log("Reset token saved to local storage:", result.resetToken);
+            showToast("Password reset email sent successfully!", "success");
+            //wait for 2 seconds before navigating to the login page
+            setTimeout(() => {
+              navigate("login"); // Navigate to reset password page
+            }, 2000);
           }
-          navigate("login"); // Navigate to reset password page
         } else {
           spinner.classList.add("hidden");
           showToast(result.message || "Failed to send password reset email. Please try again.", "error");

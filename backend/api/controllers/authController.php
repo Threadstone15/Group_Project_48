@@ -38,7 +38,7 @@ switch ($action) {
         logMessage('running login...in auth controller');
         login();
         break;
-    case 'password_reset_mail_check':
+    case 'password_reset_mail_check': //"./passwordReset.php";
         logMessage("Running password reset mail check....in auth controller");
         pass_reset_mail();
         break;

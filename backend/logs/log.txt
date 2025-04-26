@@ -11438,3 +11438,301 @@
 [2025-04-26 17:46:38] No user found for email: sharani5077@yahoo.com
 [2025-04-26 17:46:38] No account found for email: sharani5077@yahoo.com
 [2025-04-26 17:46:38] Database connection closed.
+[2025-04-26 17:48:52] Running auth controller ,password_reset_mail_check 
+[2025-04-26 17:48:52] Running password reset mail check....in auth controller
+[2025-04-26 17:48:52] Password reset mail check function invoked.
+[2025-04-26 17:48:52] Sanitized email: sharani5077@yahoo.com
+[2025-04-26 17:48:52] Connection established successfully to the database: rad_gymverse
+[2025-04-26 17:48:52] User class instantiated with database connection.
+[2025-04-26 17:48:52] Checking if user exists for email: sharani5077@yahoo.com
+[2025-04-26 17:48:52] No user found for email: sharani5077@yahoo.com
+[2025-04-26 17:48:52] No account found for email: sharani5077@yahoo.com
+[2025-04-26 17:48:52] Database connection closed.
+[2025-04-26 17:50:39] Running auth controller ,password_reset_mail_check 
+[2025-04-26 17:50:39] Running password reset mail check....in auth controller
+[2025-04-26 17:50:39] Password reset mail check function invoked.
+[2025-04-26 17:50:39] Sanitized email: sharani5077@yahoo.com
+[2025-04-26 17:50:39] Connection established successfully to the database: rad_gymverse
+[2025-04-26 17:50:39] User class instantiated with database connection.
+[2025-04-26 17:50:39] Checking if user exists for email: sharani5077@yahoo.com
+[2025-04-26 17:50:40] No user found for email: sharani5077@yahoo.com
+[2025-04-26 17:50:40] No account found for email: sharani5077@yahoo.com
+[2025-04-26 17:50:40] Database connection closed.
+[2025-04-26 17:50:56] Running auth controller ,password_reset_mail_check 
+[2025-04-26 17:50:56] Running password reset mail check....in auth controller
+[2025-04-26 17:50:56] Password reset mail check function invoked.
+[2025-04-26 17:50:56] Sanitized email: sharani5077@yahoo.com
+[2025-04-26 17:50:56] Connection established successfully to the database: rad_gymverse
+[2025-04-26 17:50:56] User class instantiated with database connection.
+[2025-04-26 17:50:56] Checking if user exists for email: sharani5077@yahoo.com
+[2025-04-26 17:50:57] No user found for email: sharani5077@yahoo.com
+[2025-04-26 17:50:57] No account found for email: sharani5077@yahoo.com
+[2025-04-26 17:50:57] Database connection closed.
+[2025-04-26 17:52:29] Running auth controller ,password_reset_mail_check 
+[2025-04-26 17:52:29] Running password reset mail check....in auth controller
+[2025-04-26 17:52:29] Password reset mail check function invoked.
+[2025-04-26 17:52:29] Sanitized email: udeepagallage@gmail.com
+[2025-04-26 17:52:30] Connection established successfully to the database: rad_gymverse
+[2025-04-26 17:52:30] User class instantiated with database connection.
+[2025-04-26 17:52:30] Checking if user exists for email: udeepagallage@gmail.com
+[2025-04-26 17:52:30] User exists for email: udeepagallage@gmail.com with user_id: 156
+[2025-04-26 17:52:30] User exists for email: udeepagallage@gmail.com ID 156
+[2025-04-26 17:52:30] Generated password reset token for email: udeepagallage@gmail.com
+[2025-04-26 17:52:30] Generated reset link: http://localhost:8080/Group_Project_48/resetPw?token=z0G+56UvQhQjUjHN/IdoZ25JaDFjNEV0QXVTQ2RmZUVzMkJITVFndzFXRGlYY2lWTk1SNmM4OUZ0SEJwemFKZ1Z5U1JCYXAxbzl0UHl1SGg=
+[2025-04-26 17:52:30] Database connection closed.
+[2025-04-26 17:54:50] Running auth controller ,get_footer_info 
+[2025-04-26 17:54:50] Running get_footer_info....in controller
+[2025-04-26 17:54:51] Connection established successfully to the database: rad_gymverse
+[2025-04-26 17:54:51] Config model initialized with database connection.
+[2025-04-26 17:54:52] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-26 17:54:52] Database connection closed.
+[2025-04-26 17:57:18] Running auth controller ,register_member 
+[2025-04-26 17:57:18] running member register...in auth controller
+[2025-04-26 17:57:18] register member function running...
+[2025-04-26 17:57:18] Connection established successfully to the database: rad_gymverse
+[2025-04-26 17:57:18] User class instantiated with database connection.
+[2025-04-26 17:57:18] Member model initialized with database connection.
+[2025-04-26 17:57:18] Subscription model initialized with database connection.
+[2025-04-26 17:57:18] Fetching user by email: udeepagallage@gmail.com
+[2025-04-26 17:57:19] User Register model running...
+[2025-04-26 17:57:19] Password hashed for user: udeepagallage@gmail.com
+[2025-04-26 17:57:19] Query bound and ready to execute for user: udeepagallage@gmail.com
+[2025-04-26 17:57:19] User registered successfully: udeepagallage@gmail.com with role: member
+[2025-04-26 17:57:19] User registered: udeepagallage@gmail.com
+[2025-04-26 17:57:19] Fetching user by email: udeepagallage@gmail.com
+[2025-04-26 17:57:19] Entering to members: 328
+[2025-04-26 17:57:19] Registering member...
+[2025-04-26 17:57:20] Query bound for member registration: Udeepa Gallage
+[2025-04-26 17:57:20] Member registered successfully: Udeepa Gallage
+[2025-04-26 17:57:20] Member registered successfully with user ID: 328
+[2025-04-26 17:57:20] Adding new subscription...
+[2025-04-26 17:57:20] Query bound for adding subscription for : M134
+[2025-04-26 17:57:20] subscription added successfully for: M134
+[2025-04-26 17:57:20] Subscription added successfully for member ID: M134
+[2025-04-26 17:57:20] Database connection closed.
+[2025-04-26 17:57:26] Running auth controller ,login 
+[2025-04-26 17:57:26] running login...in auth controller
+[2025-04-26 17:57:26] login function running...
+[2025-04-26 17:57:26] Connection established successfully to the database: rad_gymverse
+[2025-04-26 17:57:26] User class instantiated with database connection.
+[2025-04-26 17:57:26] User Login model running for: udeepagallage@gmail.com
+[2025-04-26 17:57:26] Fetching user by email: udeepagallage@gmail.com
+[2025-04-26 17:57:26] User found for email: udeepagallage@gmail.com
+[2025-04-26 17:57:27] Query bound and ready to execute for login: udeepagallage@gmail.com
+[2025-04-26 17:57:27] User status: 1
+[2025-04-26 17:57:27] User login successful: udeepagallage@gmail.com with role: member
+[2025-04-26 17:57:27] Config model initialized with database connection.
+[2025-04-26 17:57:27] Login Successful: eyJ1c2VyX2lkIjozMjgsImV4cCI6MTc0NTY5MDQwMH0=.cd488bb1dcff23524d896b22c4814f9b6ab8ae9b9dc5afc25003e762de6651c4 member
+[2025-04-26 17:57:27] Payment model initialized
+[2025-04-26 17:57:27] Fetching latest payment record for user_id: 328
+[2025-04-26 17:57:27] Query bound for user_id: 328
+[2025-04-26 17:57:28] No payment found for user_id: 328
+[2025-04-26 17:57:28] Membership plan model initialized with database connection.
+[2025-04-26 17:57:28] Database connection closed.
+[2025-04-26 17:57:29] Connection established successfully to the database: rad_gymverse
+[2025-04-26 17:57:29] User class instantiated with database connection.
+[2025-04-26 17:57:29] Fetching user role by user ID: 328
+[2025-04-26 17:57:29] User role fetched successfully for user ID: 328
+[2025-04-26 17:57:29] Running member controller ,verify_membership_plan token - eyJ1c2VyX2lkIjozMjgsImV4cCI6MTc0NTY5MDQwMH0=.cd488bb1dcff23524d896b22c4814f9b6ab8ae9b9dc5afc25003e762de6651c4   id - 328 
+[2025-04-26 17:57:29] running verify_membership_plan....in controller
+[2025-04-26 17:57:29] verifying membership plan func running......
+[2025-04-26 17:57:29] Payment model initialized
+[2025-04-26 17:57:29] Fetching latest payment record for user_id: 328
+[2025-04-26 17:57:29] Query bound for user_id: 328
+[2025-04-26 17:57:29] No payment found for user_id: 328
+[2025-04-26 17:57:29] Membership plan model initialized with database connection.
+[2025-04-26 17:57:30] recieved Base plan ID matches the base plan id of subscribed membership plan.
+[2025-04-26 17:57:30] Database connection closed.
+[2025-04-26 17:57:37] Running auth controller ,get_footer_info 
+[2025-04-26 17:57:37] Running get_footer_info....in controller
+[2025-04-26 17:57:37] Connection established successfully to the database: rad_gymverse
+[2025-04-26 17:57:37] Config model initialized with database connection.
+[2025-04-26 17:57:39] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-26 17:57:39] Database connection closed.
+[2025-04-26 17:57:46] Running auth controller ,password_reset_mail_check 
+[2025-04-26 17:57:46] Running password reset mail check....in auth controller
+[2025-04-26 17:57:46] Password reset mail check function invoked.
+[2025-04-26 17:57:46] Sanitized email: udeepagallage@gmail.com
+[2025-04-26 17:57:47] Connection established successfully to the database: rad_gymverse
+[2025-04-26 17:57:47] User class instantiated with database connection.
+[2025-04-26 17:57:47] Checking if user exists for email: udeepagallage@gmail.com
+[2025-04-26 17:57:47] User exists for email: udeepagallage@gmail.com with user_id: 328
+[2025-04-26 17:57:47] User exists for email: udeepagallage@gmail.com ID 328
+[2025-04-26 17:57:47] Generated password reset token for email: udeepagallage@gmail.com
+[2025-04-26 17:57:47] Generated reset link: http://localhost:8080/Group_Project_48/resetPw?token=jBXpEarJzkOoJx77dPkIxTVVcFBFa1RRMitPSHVaSEpybUczMnI3cUZveEFDNWRPelRRU3ZleThHa3Urc1hNdjlKRVVQUDlXdDlETzkxRHA=
+[2025-04-26 17:57:47] Database connection closed.
+[2025-04-26 18:09:12] Running auth controller ,password_reset_mail_check 
+[2025-04-26 18:09:12] Running password reset mail check....in auth controller
+[2025-04-26 18:09:12] Password reset mail check function invoked.
+[2025-04-26 18:09:12] Sanitized email: udeepagallage@gmail.com
+[2025-04-26 18:09:13] Connection established successfully to the database: rad_gymverse
+[2025-04-26 18:09:13] User class instantiated with database connection.
+[2025-04-26 18:09:13] Checking if user exists for email: udeepagallage@gmail.com
+[2025-04-26 18:09:14] User exists for email: udeepagallage@gmail.com with user_id: 328
+[2025-04-26 18:09:14] User exists for email: udeepagallage@gmail.com ID 328
+[2025-04-26 18:09:14] Generated password reset token for email: udeepagallage@gmail.com
+[2025-04-26 18:09:14] Generated reset link: http://localhost:8080/Group_Project_48/resetPw?token=a6wiau011guE4VXpcyrS3kFBTGF5NXVTOE9rR2hJeVFXT01OcXdmZjh5Y1BYemcvamg4U3lUL2VHQmE3VzhwVkFKcjR6WDB1WVlGcWJ4Tlo=
+[2025-04-26 18:09:14] Configuring PHPMailer for email sending.
+[2025-04-26 18:09:14] Attempting to send email to: udeepagallage@gmail.com
+[2025-04-26 18:09:18] Password reset email sent successfully to: udeepagallage@gmail.com
+[2025-04-26 18:09:18] Reset token saved for email: udeepagallage@gmail.com
+[2025-04-26 18:09:18] Database connection closed.
+[2025-04-26 18:10:08] Running auth controller ,login 
+[2025-04-26 18:10:08] running login...in auth controller
+[2025-04-26 18:10:08] login function running...
+[2025-04-26 18:10:10] Connection established successfully to the database: rad_gymverse
+[2025-04-26 18:10:10] User class instantiated with database connection.
+[2025-04-26 18:10:10] User Login model running for: udeepagallage@gmail.com
+[2025-04-26 18:10:10] Fetching user by email: udeepagallage@gmail.com
+[2025-04-26 18:10:11] User found for email: udeepagallage@gmail.com
+[2025-04-26 18:10:11] Query bound and ready to execute for login: udeepagallage@gmail.com
+[2025-04-26 18:10:12] User status: 1
+[2025-04-26 18:10:12] User login successful: udeepagallage@gmail.com with role: member
+[2025-04-26 18:10:12] Config model initialized with database connection.
+[2025-04-26 18:10:12] Login Successful: eyJ1c2VyX2lkIjozMjgsImV4cCI6MTc0NTY5NDAwMH0=.a8ea1aafa3db77de203635672a0a5c57a1f4cba6c91f0ad9ad993c17bec7b6ac member
+[2025-04-26 18:10:12] Payment model initialized
+[2025-04-26 18:10:12] Fetching latest payment record for user_id: 328
+[2025-04-26 18:10:13] Query bound for user_id: 328
+[2025-04-26 18:10:13] No payment found for user_id: 328
+[2025-04-26 18:10:13] Membership plan model initialized with database connection.
+[2025-04-26 18:10:13] Database connection closed.
+[2025-04-26 18:10:15] Connection established successfully to the database: rad_gymverse
+[2025-04-26 18:10:15] User class instantiated with database connection.
+[2025-04-26 18:10:15] Fetching user role by user ID: 328
+[2025-04-26 18:10:15] User role fetched successfully for user ID: 328
+[2025-04-26 18:10:15] Running member controller ,verify_membership_plan token - eyJ1c2VyX2lkIjozMjgsImV4cCI6MTc0NTY5NDAwMH0=.a8ea1aafa3db77de203635672a0a5c57a1f4cba6c91f0ad9ad993c17bec7b6ac   id - 328 
+[2025-04-26 18:10:15] running verify_membership_plan....in controller
+[2025-04-26 18:10:15] verifying membership plan func running......
+[2025-04-26 18:10:15] Payment model initialized
+[2025-04-26 18:10:15] Fetching latest payment record for user_id: 328
+[2025-04-26 18:10:15] Query bound for user_id: 328
+[2025-04-26 18:10:15] No payment found for user_id: 328
+[2025-04-26 18:10:15] Membership plan model initialized with database connection.
+[2025-04-26 18:10:16] recieved Base plan ID matches the base plan id of subscribed membership plan.
+[2025-04-26 18:10:16] Database connection closed.
+[2025-04-26 18:10:16] Running auth controller ,get_footer_info 
+[2025-04-26 18:10:16] Running get_footer_info....in controller
+[2025-04-26 18:10:17] Connection established successfully to the database: rad_gymverse
+[2025-04-26 18:10:17] Config model initialized with database connection.
+[2025-04-26 18:10:18] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-26 18:10:18] Database connection closed.
+[2025-04-26 18:10:22] Running auth controller ,password_reset_mail_check 
+[2025-04-26 18:10:22] Running password reset mail check....in auth controller
+[2025-04-26 18:10:22] Password reset mail check function invoked.
+[2025-04-26 18:10:22] Sanitized email: udeepagallage@gmail.com
+[2025-04-26 18:10:23] Connection established successfully to the database: rad_gymverse
+[2025-04-26 18:10:23] User class instantiated with database connection.
+[2025-04-26 18:10:23] Checking if user exists for email: udeepagallage@gmail.com
+[2025-04-26 18:10:23] User exists for email: udeepagallage@gmail.com with user_id: 328
+[2025-04-26 18:10:23] User exists for email: udeepagallage@gmail.com ID 328
+[2025-04-26 18:10:23] Generated password reset token for email: udeepagallage@gmail.com
+[2025-04-26 18:10:23] Generated reset link: http://localhost:8080/Group_Project_48/resetPw?token=9g2aR1AMdKgNQAcKj3/sZVh2SkpwRjloWWxDWVNMcC9LcnRkOVNNTVQ1TjRmeUtCc2k5TkJyOXhvUHFzZHgzOUV0enRhL3JHK2N3alVva20=
+[2025-04-26 18:10:23] Configuring PHPMailer for email sending.
+[2025-04-26 18:10:23] Attempting to send email to: udeepagallage@gmail.com
+[2025-04-26 18:10:28] Password reset email sent successfully to: udeepagallage@gmail.com
+[2025-04-26 18:10:28] Reset token saved for email: udeepagallage@gmail.com
+[2025-04-26 18:10:28] Database connection closed.
+[2025-04-26 18:11:24] Running auth controller ,get_footer_info 
+[2025-04-26 18:11:24] Running get_footer_info....in controller
+[2025-04-26 18:11:25] Connection established successfully to the database: rad_gymverse
+[2025-04-26 18:11:25] Config model initialized with database connection.
+[2025-04-26 18:11:26] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-26 18:11:26] Database connection closed.
+[2025-04-26 18:11:33] Running auth controller ,password_reset_mail_check 
+[2025-04-26 18:11:33] Running password reset mail check....in auth controller
+[2025-04-26 18:11:33] Password reset mail check function invoked.
+[2025-04-26 18:11:33] Sanitized email: udeepagallage@gmail.com
+[2025-04-26 18:11:34] Connection established successfully to the database: rad_gymverse
+[2025-04-26 18:11:34] User class instantiated with database connection.
+[2025-04-26 18:11:34] Checking if user exists for email: udeepagallage@gmail.com
+[2025-04-26 18:11:34] User exists for email: udeepagallage@gmail.com with user_id: 328
+[2025-04-26 18:11:34] User exists for email: udeepagallage@gmail.com ID 328
+[2025-04-26 18:11:34] Generated password reset token for email: udeepagallage@gmail.com
+[2025-04-26 18:11:34] Generated reset link: http://localhost:8080/Group_Project_48/resetPw?token=l6UAdljMv/5D/+PoFFJsDFZLL2YyT081UkFwOGRleU04UExKNkdhb1dITkFUU2dOdjJDRXNneDNvZW1tZ2g3emlwZ1Awb3BZMDhhc2tQWTM=
+[2025-04-26 18:11:34] Configuring PHPMailer for email sending.
+[2025-04-26 18:11:34] Attempting to send email to: udeepagallage@gmail.com
+[2025-04-26 18:11:38] Password reset email sent successfully to: udeepagallage@gmail.com
+[2025-04-26 18:11:38] Reset token saved for email: udeepagallage@gmail.com
+[2025-04-26 18:11:38] Database connection closed.
+[2025-04-26 18:11:56] Running auth controller ,get_footer_info 
+[2025-04-26 18:11:56] Running get_footer_info....in controller
+[2025-04-26 18:11:57] Connection established successfully to the database: rad_gymverse
+[2025-04-26 18:11:57] Config model initialized with database connection.
+[2025-04-26 18:11:58] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-26 18:11:58] Database connection closed.
+[2025-04-26 18:11:58] Running auth controller ,get_footer_info 
+[2025-04-26 18:11:58] Running get_footer_info....in controller
+[2025-04-26 18:11:59] Connection established successfully to the database: rad_gymverse
+[2025-04-26 18:11:59] Config model initialized with database connection.
+[2025-04-26 18:12:00] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-26 18:12:00] Database connection closed.
+[2025-04-26 18:12:04] Running auth controller ,get_footer_info 
+[2025-04-26 18:12:04] Running get_footer_info....in controller
+[2025-04-26 18:12:05] Connection established successfully to the database: rad_gymverse
+[2025-04-26 18:12:05] Config model initialized with database connection.
+[2025-04-26 18:12:06] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-26 18:12:06] Database connection closed.
+[2025-04-26 18:12:09] Running auth controller ,password_reset_mail_check 
+[2025-04-26 18:12:09] Running password reset mail check....in auth controller
+[2025-04-26 18:12:09] Password reset mail check function invoked.
+[2025-04-26 18:12:09] Sanitized email: udeepagallage@gmail.com
+[2025-04-26 18:12:10] Connection established successfully to the database: rad_gymverse
+[2025-04-26 18:12:10] User class instantiated with database connection.
+[2025-04-26 18:12:10] Checking if user exists for email: udeepagallage@gmail.com
+[2025-04-26 18:12:10] User exists for email: udeepagallage@gmail.com with user_id: 328
+[2025-04-26 18:12:10] User exists for email: udeepagallage@gmail.com ID 328
+[2025-04-26 18:12:10] Generated password reset token for email: udeepagallage@gmail.com
+[2025-04-26 18:12:10] Generated reset link: http://localhost:8080/Group_Project_48/resetPw?token=JxcOFyu/urR5F16dTycqQ05iMzUyTUF0eEV5OTdiQkJzZjRhaFVjdEpNbFlsaEZtMGtXTFpFUDNoeGJjY0l3V29iZTNHM0FlRU9JSi9yc3c=
+[2025-04-26 18:12:10] Configuring PHPMailer for email sending.
+[2025-04-26 18:12:10] Attempting to send email to: udeepagallage@gmail.com
+[2025-04-26 18:12:15] Password reset email sent successfully to: udeepagallage@gmail.com
+[2025-04-26 18:12:15] Reset token saved for email: udeepagallage@gmail.com
+[2025-04-26 18:12:15] Database connection closed.
+[2025-04-26 18:12:44] Running auth controller ,get_footer_info 
+[2025-04-26 18:12:44] Running get_footer_info....in controller
+[2025-04-26 18:12:44] Connection established successfully to the database: rad_gymverse
+[2025-04-26 18:12:44] Config model initialized with database connection.
+[2025-04-26 18:12:45] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-26 18:12:45] Database connection closed.
+[2025-04-26 18:12:50] Running auth controller ,password_reset_mail_check 
+[2025-04-26 18:12:50] Running password reset mail check....in auth controller
+[2025-04-26 18:12:50] Password reset mail check function invoked.
+[2025-04-26 18:12:50] Sanitized email: udeepagallage@gmail.com
+[2025-04-26 18:12:50] Connection established successfully to the database: rad_gymverse
+[2025-04-26 18:12:50] User class instantiated with database connection.
+[2025-04-26 18:12:50] Checking if user exists for email: udeepagallage@gmail.com
+[2025-04-26 18:12:50] User exists for email: udeepagallage@gmail.com with user_id: 328
+[2025-04-26 18:12:50] User exists for email: udeepagallage@gmail.com ID 328
+[2025-04-26 18:12:50] Generated password reset token for email: udeepagallage@gmail.com
+[2025-04-26 18:12:50] Generated reset link: http://localhost:8080/Group_Project_48/resetPw?token=rPiqYTV3pCJy4+wsF2f7gUdkbU05dGREYlErR1hBRFJaL2J0L0V0Ukpzam5peFlxRS8vQlViVm1wbmVkaXduZ1ZGLyt6WjVrUTZ5blJydk4=
+[2025-04-26 18:12:50] Configuring PHPMailer for email sending.
+[2025-04-26 18:12:50] Attempting to send email to: udeepagallage@gmail.com
+[2025-04-26 18:12:55] Password reset email sent successfully to: udeepagallage@gmail.com
+[2025-04-26 18:12:55] Reset token saved for email: udeepagallage@gmail.com
+[2025-04-26 18:12:55] Database connection closed.
+[2025-04-26 18:16:43] Running auth controller ,get_footer_info 
+[2025-04-26 18:16:44] Running get_footer_info....in controller
+[2025-04-26 18:16:44] Connection established successfully to the database: rad_gymverse
+[2025-04-26 18:16:44] Config model initialized with database connection.
+[2025-04-26 18:16:45] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467754"}
+[2025-04-26 18:16:45] Database connection closed.
+[2025-04-26 18:16:47] Running auth controller ,password_reset_mail_check 
+[2025-04-26 18:16:47] Running password reset mail check....in auth controller
+[2025-04-26 18:16:47] Password reset mail check function invoked.
+[2025-04-26 18:16:47] Sanitized email: udeepagall33age@gmail.com
+[2025-04-26 18:16:48] Connection established successfully to the database: rad_gymverse
+[2025-04-26 18:16:48] User class instantiated with database connection.
+[2025-04-26 18:16:48] Checking if user exists for email: udeepagall33age@gmail.com
+[2025-04-26 18:16:48] No user found for email: udeepagall33age@gmail.com
+[2025-04-26 18:16:48] No account found for email: udeepagall33age@gmail.com
+[2025-04-26 18:16:48] Database connection closed.
+[2025-04-26 18:16:53] Running auth controller ,password_reset_mail_check 
+[2025-04-26 18:16:53] Running password reset mail check....in auth controller
+[2025-04-26 18:16:53] Password reset mail check function invoked.
+[2025-04-26 18:16:53] Sanitized email: udeepagall33age@gmail.com
+[2025-04-26 18:16:54] Connection established successfully to the database: rad_gymverse
+[2025-04-26 18:16:54] User class instantiated with database connection.
+[2025-04-26 18:16:54] Checking if user exists for email: udeepagall33age@gmail.com
+[2025-04-26 18:16:54] No user found for email: udeepagall33age@gmail.com
+[2025-04-26 18:16:54] No account found for email: udeepagall33age@gmail.com
+[2025-04-26 18:16:54] Database connection closed.
