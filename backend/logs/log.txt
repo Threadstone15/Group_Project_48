@@ -14557,3 +14557,15 @@
 [2025-04-26 23:30:34] Classes fetched successfully
 [2025-04-26 23:30:34] classes retrieved successfully
 [2025-04-26 23:30:34] Database connection closed.
+[2025-04-26 23:30:47] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:30:47] User class instantiated with database connection.
+[2025-04-26 23:30:47] Fetching user role by user ID: 68
+[2025-04-26 23:30:47] User role fetched successfully for user ID: 68
+[2025-04-26 23:30:47] Running staff controller ,get_attendance token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzEyMDAwfQ==.dd57f7174fd795ce0830eee0240f66d3da0a7bdbd118b221ce30828f8b30255e   id - 68 
+[2025-04-26 23:30:47] Running get_attendance....in controller
+[2025-04-26 23:30:47] Running getTodayArrivalDepartureTimes...
+[2025-04-26 23:30:47] Attendance model initialized with database connection.
+[2025-04-26 23:30:47] Fetching today's Arrival and Departure times
+[2025-04-26 23:30:48] Fetched 4 record(s)
+[2025-04-26 23:30:48] Today's arrival and departure times: [{"MemberID":"M15","Name":"Sandeep Perera","ArrivalTime":"02:14:27","DepartedTime":"02:32:46"},{"MemberID":"M16","Name":"Nishani Adhikari","ArrivalTime":"02:34:21","DepartedTime":"02:34:28"},{"MemberID":"M17","Name":"Dinesh Sumith","ArrivalTime":"02:34:38","DepartedTime":null},{"MemberID":"M18","Name":"Lakshani Fernando","ArrivalTime":"02:34:49","DepartedTime":null}]
+[2025-04-26 23:30:48] Database connection closed.
