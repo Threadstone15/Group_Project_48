@@ -38,7 +38,7 @@ export function initTrainer_createMealPlans() {
       renderPlans();
     } catch (error) {
       console.error("Error fetching meal plans:", error);
-      alert("Error fetching meal plans. Please try again.");
+      showToast("Error fetching meal plans. Please try again", "error");
     }
   }
 
@@ -100,36 +100,73 @@ export function initTrainer_createMealPlans() {
     editModal.classList.remove("hidden");
   };
 
-  async function handleDeletePlan(e) {
-    const id = e.target.dataset.id;
-    if (confirm("Are you sure you want to delete this meal plan?")) {
-      try {
-        const authToken = localStorage.getItem("authToken");
-        if (!authToken) {
-          alert("Auth token not found. Please log in.");
-          return;
-        }
+  // ------------------- delete popup modal -------------------
+  const deleteModal = document.getElementById('deleteConfirmationModal');
+  const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+  const cancelDeleteBtn = document.getElementById('cancelDeleteBtn');
+  const closeModalBtn = deleteModal.querySelector('.close-btn');
 
-        const response = await fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/trainerController.php?action=delete_created_meal_plan", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${authToken}`
-          },
-          body: JSON.stringify({ id })
-        });
+  let currentDeletionId = null;
 
-        const result = await response.json();
-        if (!response.ok) throw new Error(result.message || "Failed to delete plan");
-
-        alert("Meal plan deleted successfully");
-        await fetchMealPlans();
-      } catch (err) {
-        console.error("Error deleting plan:", err);
-        alert("Error deleting plan. Please try again.");
-      }
-    }
+  //delete handler
+  function handleDeletePlan(e) {
+    currentDeletionId = e.target.dataset.id;
+    deleteModal.classList.remove('hidden');
   }
+
+  // Confirm deletion
+  confirmDeleteBtn.onclick = async function() {
+    if (!currentDeletionId) return;
+    
+    try {
+      const authToken = localStorage.getItem('authToken');
+      if (!authToken) {
+        console.error('Auth token not found');
+        return;
+      }
+
+      const response = await fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/trainerController.php?action=delete_created_meal_plan", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${authToken}`
+        },
+        body: JSON.stringify({ id: currentDeletionId })
+      });
+
+      const result = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(result.message || "Failed to delete plan");
+      }
+      
+      console.log('Meal plan deleted successfully');
+      showToast("Meal plan deleted successfully", 'success');
+      await fetchMealPlans(); // Refresh the list
+      deleteModal.classList.add('hidden');
+      
+    } catch (err) {
+      console.error('Error deleting plan:', err);
+      showToast("Error deleting plan: " + err.message, 'error');
+    }
+  };
+
+  // Close modal handlers for delete model
+  [cancelDeleteBtn, closeModalBtn].forEach(btn => {
+    btn.onclick = () => deleteModal.classList.add('hidden');
+  });
+
+  // Close when clicking outside modal for delete model
+  window.onclick = function(event) {
+    if (event.target === deleteModal) {
+      deleteModal.classList.add('hidden');
+    }
+  };
+
+  // Update existing delete button listeners
+  document.querySelectorAll('.delete-btn').forEach(btn => {
+    btn.onclick = handleDeletePlan;
+  });
 
   saveEditBtn.onclick = async () => {
     const id = parseInt(document.getElementById("editPlanId").value);
@@ -170,19 +207,31 @@ export function initTrainer_createMealPlans() {
       const result = await response.json();
       if (!response.ok) throw new Error(result.message || "Failed to update meal plan");
 
-      alert("Meal plan updated successfully");
+      showToast("Meal plan updated successfully", 'success');
       editModal.classList.add("hidden");
       await fetchMealPlans();
 
     } catch (err) {
       console.error("Error updating plan:", err);
-      alert("Error updating plan: " + err.message);
+      showToast("Error updating plan: " + err.message, 'error');
     }
   };
 
   closeBtn.onclick = () => viewModal.classList.add("hidden");
   closeEditBtn.onclick = () => editModal.classList.add("hidden");
 
+  function showToast(message, type = 'success') {
+    const container = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.innerText = message;
+
+    container.appendChild(toast);
+
+    setTimeout(() => {
+        toast.remove();
+    }, 4000);
+  }
 
 
   fetchMealPlans(); // Initial fetch when the function runs

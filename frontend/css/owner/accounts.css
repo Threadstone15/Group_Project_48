@@ -6,22 +6,25 @@
 }
 
 .content {
-    width: 80%;
+    width: 100%;
 }
 
 .table-container {
-    width: 90%;
+    width: 100%;
     margin: 20px auto;
     border-collapse: collapse;
+    max-height: 400px;
+    overflow-y: auto;
+    display: block;
 }
 
 .table-container table {
     width: 100%;
     border-collapse: collapse;
-    border-spacing: 0; /* Removes spacing between cells if needed */
-    border-radius: 10px; /* Adjust the radius as desired */
-    overflow: hidden; /* Ensures corners stay rounded if there’s content overflow */
-    box-shadow: 0px 4px 10px rgba(15, 15, 15, 0.1); /* Optional shadow for a softer look */
+    border-spacing: 0; 
+    border-radius: 10px; 
+    box-shadow: 0px 4px 10px rgba(15, 15, 15, 0.1);
+
 }
 
 th, td {
@@ -38,7 +41,7 @@ th, td {
 
 /* Optional: Add a bottom border for row dividers */
 .table-container tr td {
-    border-bottom: 1px solid #e0e0e0; /* Light border between rows */
+    border-bottom: 1px solid #e0e0e0; 
 }
 
 th {
@@ -56,8 +59,8 @@ tbody tr:nth-child(even) {
 }
 
 .table-container tr {
-    border: 1px solid #e0e0e0; /* Light border around each row */
-    border-radius: 8px; /* Optional: rounded corners on each row */
+    border: 1px solid #e0e0e0;
+    border-radius: 8px; 
 }
 
 tbody {
@@ -73,18 +76,18 @@ tbody tr:hover {
 }
 
 .header {
-    text-align: left; /* Center the text content */
-    margin: 0 auto; /* Center the entire header block */
-    padding: 20px; /* Add some padding to the header for spacing */
+    text-align: left; 
+    margin: 0 auto; 
+    padding: 20px; 
     margin-top: 30px;
   }
 
   .signup-form-heading {
-    font-size: 18px; /* Set font size for heading */
-    font-weight: 600; /* Set font weight to bold for emphasis */
-    font-family: 'Poppins', sans-serif; /* Use Poppins font */
-    color: #FF5F00; /* Set text color (black) */
-    margin-bottom: 10px; /* Add spacing between heading and subheading */
+    font-size: 18px; 
+    font-weight: 600; 
+    font-family: 'Poppins', sans-serif; 
+    color: #FF5F00;
+    margin-bottom: 10px; 
     justify-content: center;
   }
   
