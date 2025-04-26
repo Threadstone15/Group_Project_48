@@ -239,18 +239,18 @@ function updateEvents(date) {
       events += `<div class="event">
           <div class="title">
             <i class="fas fa-circle"></i>
-            <h3 class="event-title">${classObj.className}</h3>
+            <h3 class="event-title"><strong>${classObj.className}</strong></h3>
           </div>
           <div class="event-time">
             <span>${classObj.start_time} - ${classObj.end_time}</span>
           </div>
           <div class="event-trainer">
-            <span> Trainer Name : ${classObj.trainerName}</span>
+            <span><b> Trainer Name : </b>${classObj.trainerName}</span>
           </div>
           <div class="event-desc">
             <span>${classObj.description}</span>
           </div>
-      </div>`;
+      `;
 
       //checking if class date  & time is in future -> cuz member can enroll/unenroll from class
       const [startHours, startMinutes] = classObj.start_time.split(':').map(Number);
@@ -264,11 +264,18 @@ function updateEvents(date) {
         const enrolledClassIds = enrolledClasses.map(c => c.class_id);
         const isEnrolledClass = enrolledClassIds.includes(classObj.class_id);
         if (!isEnrolledClass) {
-          events += `<button class="enroll-btn" id="enrollClass" data-class-id="${classObj.class_id}">Enroll</button>`;
+          events += `
+            <div class="event-buttons">
+            <button class="enroll-btn" id="enrollClass" data-class-id="${classObj.class_id}">Enroll</button>
+            </div>`;
         } else {
-          events += `<button class="cancel-enroll-btn" id="cancelEnrollClass" data-class-id="${classObj.class_id}">Cancel Enrollment</button>`;
+          events += `
+            <div class="event-buttons">
+            <button class="cancel-enroll-btn" id="cancelEnrollClass" data-class-id="${classObj.class_id}">Cancel Enrollment</button>
+            </div>`;
         }
       }
+      events += `</div>`; //adding closing div for event
     }
   });
 

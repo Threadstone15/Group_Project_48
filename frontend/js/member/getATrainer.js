@@ -40,6 +40,9 @@ export function initMember_getATrainer() {
                 } else if (data.message === "No Assigned Trainer") {
                     document.getElementById("assigned-trainer").innerHTML = '';
                     assignedTrainerExists = false;
+                    //hiding assigned trainer container
+                    const assignedTrainerContainer = document.getElementById("assignedTrainerFeature");
+                    assignedTrainerContainer.style.display = "none";
                     fetchDetailsOfTrainers();
                 } else {
                     assignedTrainerExists = true;
@@ -110,6 +113,10 @@ export function initMember_getATrainer() {
         const trainersCards = document.getElementById("trainers-profiles");
         trainersCards.innerHTML = "";
 
+        //changing assigned count of some trainers to 50 to test the functionality
+        trainers[0].assigned_member_count = 50;
+        trainers[2].assigned_member_count = 50;
+
         trainers.forEach(trainer => {
             let selectChangeTrainerPossible = true;
             if (Number(trainer.assigned_member_count) >= 50) {
@@ -137,6 +144,11 @@ export function initMember_getATrainer() {
                         Select Trainer
                     </button>`
                 }
+                ${!selectChangeTrainerPossible ?
+                    `<p class="trainer-select-error-msg" style="color: red;">This trainer has reached maximum capacity and cannot accept new clients at this time.</p>`
+                    :
+                    `` 
+                }
             `;
 
             trainersCards.appendChild(trainerProfile);
@@ -157,10 +169,13 @@ export function initMember_getATrainer() {
     });
 
     function displayAssignedTrainer(trainer) {
+        //displaying assigned trainer container
+        const assignedTrainerContainer = document.getElementById("assignedTrainerFeature");
+        assignedTrainerContainer.style.display = "block";
+        
         const assignedTrainerCard = document.getElementById("assigned-trainer");
         assignedTrainerCard.innerHTML = "";
         assignedTrainerCard.innerHTML = `
-        <h1 class="profile-label">Assigned Trainer : </h2>
         <h2 class="profile-label">${trainer.firstName} ${trainer.lastName}</h2>
         <p class="profile-name">${trainer.email}</p>
         <p class="profile-name">${trainer.phone}</p>
