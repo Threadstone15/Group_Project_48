@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>System Configuration</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
@@ -18,22 +19,25 @@
     </div>
   </div>
 
-<!-- Toast container -->
-<div id="toast-container" class="toast-container"></div>
+  <!-- Toast container -->
+  <div id="toast-container" class="toast-container"></div>
 
-<!-- Loading Spinner -->
-<div id="loading-spinner" class="spinner hidden">
-<div class="spinner-circle"></div>
-</div>
-
-    <!-- Confirmation Modal -->
-<div id="confirmation-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.4); z-index:9999;">
-  <div style="background:#fff; padding:20px; max-width:400px; margin:100px auto; border-radius:8px; text-align:center;">
-    <p id="confirmation-message" style="margin-bottom:20px;"></p>
-    <button id="confirm-btn" class="btn btn-success">Confirm</button>
-    <button id="cancel-btn" class="btn btn-secondary">Cancel</button>
+  <!-- Loading Spinner -->
+  <div id="loading-spinner" class="spinner hidden">
+    <div class="spinner-circle"></div>
   </div>
-</div>
+
+  <!-- Confirmation Modal -->
+  <div id="confirmation-modal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Confirm Update</h3>
+      <p id="confirmation-message"></p>
+      <div class="modal-actions">
+        <button id="cancel-btn" class="btn btn-secondary">Cancel</button>
+        <button id="confirm-btn" class="btn btn-success">Confirm</button>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>

@@ -24,11 +24,11 @@ export async function initAdmin_systemConfig() {
         renderConfigField(key, configs[key]);
       });
     } else {
-      alert("Could not load configuration settings.");
+      showToast("Could not load configuration settings.", "error");
     }
   } catch (error) {
     console.error("Error fetching configs:", error);
-    alert("An error occurred while loading settings.");
+    showToast("An error occurred while loading settings.", "error");
   }
 
   spinner.classList.add("hidden");
@@ -79,22 +79,20 @@ export async function initAdmin_systemConfig() {
 
       // Validation
       if ((key === "gym_capacity" || key === "session_time") && !/^[1-9]\d*$/.test(newValue)) {
-        alert("Please enter a valid positive integer for " + label.textContent);
+        showToast(`Please enter a valid positive integer for ${label.textContent}`, "error");
         return;
       }
 
       if (key === "gym_no" && !/^\d{10}$/.test(newValue)) {
-        alert("Phone number must be exactly 10 digits.");
+        showToast("Phone number must be exactly 10 digits.", "error");
         return;
       }
 
       if (key === "gym_email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newValue)) {
-        alert("Please enter a valid email address.");
+        showToast("Please enter a valid email address.", "error");
         return;
       }
       
-
-      // Show custom confirmation modal
       showConfirmationPopup(label.textContent, newValue, () => {
         updateConfigValue(key, newValue);
       });
@@ -107,6 +105,9 @@ export async function initAdmin_systemConfig() {
   }
 
   async function updateConfigValue(key, value) {
+    const spinner = document.getElementById("loading-spinner");
+    spinner.classList.remove("hidden");
+
     const payload = {
       action: "update_system_config",
       key,
@@ -126,17 +127,18 @@ export async function initAdmin_systemConfig() {
       const data = await res.json();
 
       if (res.ok && data.success) {
-        alert("Configuration updated successfully!");
+        showToast("Configuration updated successfully!", "success");
       } else {
-        alert(data.message || "Failed to update configuration.");
+        showToast(data.message || "Failed to update configuration.", "error");
       }
     } catch (err) {
       console.error("Update error:", err);
-      alert("An error occurred while updating configuration.");
+      showToast("An error occurred while updating configuration.", "error");
+    } finally {
+      spinner.classList.add("hidden");
     }
   }
 
-  // Custom confirmation popup
   function showConfirmationPopup(field, value, onConfirm) {
     const modal = document.getElementById("confirmation-modal");
     const message = document.getElementById("confirmation-message");
@@ -144,15 +146,42 @@ export async function initAdmin_systemConfig() {
     const cancelBtn = document.getElementById("cancel-btn");
 
     message.textContent = `Are you sure you want to update "${field}" to "${value}"?`;
-    modal.style.display = "block";
+    modal.classList.remove("hidden");
 
-    confirmBtn.onclick = () => {
-      modal.style.display = "none";
+    const confirmHandler = () => {
+      modal.classList.add("hidden");
       onConfirm();
+      confirmBtn.removeEventListener("click", confirmHandler);
+      cancelBtn.removeEventListener("click", cancelHandler);
     };
 
-    cancelBtn.onclick = () => {
-      modal.style.display = "none";
+    const cancelHandler = () => {
+      modal.classList.add("hidden");
+      confirmBtn.removeEventListener("click", confirmHandler);
+      cancelBtn.removeEventListener("click", cancelHandler);
     };
+
+    confirmBtn.addEventListener("click", confirmHandler);
+    cancelBtn.addEventListener("click", cancelHandler);
   }
+
+  function showToast(message, type = "info") {
+    const toastContainer = document.getElementById("toast-container");
+    const toast = document.createElement("div");
+    toast.className = `toast ${type}`;
+    toast.textContent = message;
+    toastContainer.appendChild(toast);
+
+    setTimeout(() => {
+      toast.classList.add("show");
+    }, 10);
+
+    setTimeout(() => {
+      toast.classList.remove("show");
+      setTimeout(() => {
+        toast.remove();
+      }, 300);
+    }, 5000);
+  }
+  
 }
