@@ -186,6 +186,55 @@ switch ($action) {
         logMessage("data: " . json_encode($data));
         requestMealPlan($user_id, $data);
         break;
+    // delete meal plan
+    case 'delete_meal_plan':
+        logMessage("Running delete_meal_plan....in controller");
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        $plan_id = $data['id'];
+        deleteCreatedMealPlans($plan_id);
+        break;
+    // delete workout plan
+    case 'delete_workout_plan':
+        logMessage("Running delete_workout_plan....in controller");
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        $plan_id = $data['id'];
+        deleteCreatedWorkoutPlans($plan_id);
+        break;
+    // edit meal plan
+    case 'update_meal_plan':
+        logMessage("Running edit_meal_plan....in controller");
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        editUserMealPlans($data);
+        break;
+
+    // edit workout plan
+    case 'update_workout_plan':
+        logMessage("Running edit_meal_plan....in controller");
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        editUserWorkoutPlans($data);
+        break;
+
+    // track workout plan
+    case 'track_plan':
+        logMessage("Running track_workout_plan....in controller");
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        trackWorkoutPlan($user_id, $data);
+        break;
+    // get current tracking plan
+    case 'get_tracked_plan':
+        logMessage("Running get_tracked_plan....in controller");
+        getSelectedWorkout($user_id);
+        break;
+    // stop tracking plan
+    case 'stop_tracking_plan':
+        logMessage("Running stop_tracking_plan....in controller");
+        stopTrackingPlan($user_id);
+        break;
 
     // check trainer
 

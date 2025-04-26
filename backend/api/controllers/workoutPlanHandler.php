@@ -62,3 +62,21 @@ function getWorkoutPlans($user_id)
         echo json_encode(["error" => "No workout plans found"]);
     }
 }
+
+function editUserWorkoutPlans($data)
+{
+    logMessage("editUserWorkoutPlans function running...");
+
+    $workoutPlan = new WorkoutPlan();
+
+    $plan_id = $data['id'];
+    $description = $data['description'];
+
+    if ($workoutPlan->editWorkoutPlan($plan_id, $description)) {
+        logMessage("Workout plan updated: $plan_id");
+        echo json_encode(["message" => "Workout plan updated successfully"]);
+    } else {
+        logMessage("Failed to update workout plan: $plan_id");
+        echo json_encode(["error" => "Workout plan update failed"]);
+    }
+}
