@@ -80,7 +80,7 @@ export function initMember_workoutPlans() {
     const workoutDays = parseInt(workoutDaysInput.value);
 
     if (!workoutDays || workoutDays < 1 || workoutDays > 7) {
-      alert('Please enter a valid number of days (1-7).');
+      showToast('Please enter a valid number of days (1-7)', 'error');
       return;
     }
 
@@ -301,4 +301,17 @@ export function initMember_workoutPlans() {
 
   // Initialize
   generatePlannerButton.addEventListener('click', generateWorkoutPlanner);
+
+  function showToast(message, type) {
+    const container = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.innerHTML = message;
+
+    container.appendChild(toast);
+
+    setTimeout(() => {
+        toast.remove();
+    }, 4000);
+}
 }
