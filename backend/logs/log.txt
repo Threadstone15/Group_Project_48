@@ -14146,3 +14146,414 @@
 [2025-04-26 22:44:29] User role fetched successfully for user ID: 68
 [2025-04-26 22:44:29] Running staff controller ,get_attendance token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzA4NDAwfQ==.3c542c2bd6591ad1f1c404b673595c9d783ce812d4424dadd6a4cf03525090e0   id - 68 
 [2025-04-26 22:44:29] Database connection closed.
+[2025-04-26 22:51:54] Running auth controller ,get_footer_info 
+[2025-04-26 22:51:54] Running get_footer_info....in controller
+[2025-04-26 22:51:54] Connection established successfully to the database: rad_gymverse
+[2025-04-26 22:51:54] Config model initialized with database connection.
+[2025-04-26 22:51:55] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-26 22:51:55] Database connection closed.
+[2025-04-26 22:51:56] Connection established successfully to the database: rad_gymverse
+[2025-04-26 22:51:56] User class instantiated with database connection.
+[2025-04-26 22:51:56] Fetching user role by user ID: 68
+[2025-04-26 22:51:56] User role fetched successfully for user ID: 68
+[2025-04-26 22:51:56] Running staff controller ,get_attendance token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzA4NDAwfQ==.3c542c2bd6591ad1f1c404b673595c9d783ce812d4424dadd6a4cf03525090e0   id - 68 
+[2025-04-26 22:51:56] Database connection closed.
+[2025-04-26 22:52:03] Connection established successfully to the database: rad_gymverse
+[2025-04-26 22:52:03] User class instantiated with database connection.
+[2025-04-26 22:52:03] Fetching user role by user ID: 68
+[2025-04-26 22:52:04] User role fetched successfully for user ID: 68
+[2025-04-26 22:52:04] Running staff controller ,mark_attendance_manual token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzA4NDAwfQ==.3c542c2bd6591ad1f1c404b673595c9d783ce812d4424dadd6a4cf03525090e0   id - 68 
+[2025-04-26 22:52:04] Running mark_attendance_manual....in controller
+[2025-04-26 22:52:04] Received JSON data: {"member_id":"M14","arrived":1,"date":"2025-04-26","time":"02:22:03"}
+[2025-04-26 22:52:04] Running markAttendanceManual...
+[2025-04-26 22:52:04] Attendance model initialized with database connection.
+[2025-04-26 22:52:04] Member model initialized with database connection.
+[2025-04-26 22:52:04] Fetching member_id of a member by user id: M14
+[2025-04-26 22:52:04] Marking attendance for User ID:  with Date: 2025-04-26, Time: 02:22:03, Arrived: 1
+[2025-04-26 22:52:04] Existing date in today_attendance: 2025-04-26
+[2025-04-26 22:52:04] Same date as existing. No need to archive.
+[2025-04-26 22:52:04] Inserting new attendance record...
+[2025-04-26 22:52:05] Database connection closed.
+[2025-04-26 22:52:34] Connection established successfully to the database: rad_gymverse
+[2025-04-26 22:52:34] User class instantiated with database connection.
+[2025-04-26 22:52:34] Fetching user role by user ID: 68
+[2025-04-26 22:52:34] User role fetched successfully for user ID: 68
+[2025-04-26 22:52:34] Running staff controller ,mark_attendance_manual token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzA4NDAwfQ==.3c542c2bd6591ad1f1c404b673595c9d783ce812d4424dadd6a4cf03525090e0   id - 68 
+[2025-04-26 22:52:34] Running mark_attendance_manual....in controller
+[2025-04-26 22:52:34] Received JSON data: {"member_id":"M15","arrived":1,"date":"2025-04-26","time":"02:22:33"}
+[2025-04-26 22:52:34] Running markAttendanceManual...
+[2025-04-26 22:52:34] Attendance model initialized with database connection.
+[2025-04-26 22:52:34] Member model initialized with database connection.
+[2025-04-26 22:52:34] Fetching member_id of a member by user id: M15
+[2025-04-26 22:52:34] Marking attendance for User ID:  with Date: 2025-04-26, Time: 02:22:33, Arrived: 1
+[2025-04-26 22:52:35] Existing date in today_attendance: 2025-04-26
+[2025-04-26 22:52:35] Same date as existing. No need to archive.
+[2025-04-26 22:52:35] Inserting new attendance record...
+[2025-04-26 22:52:35] Database connection closed.
+[2025-04-26 22:54:35] Connection established successfully to the database: rad_gymverse
+[2025-04-26 22:54:35] User class instantiated with database connection.
+[2025-04-26 22:54:35] Fetching user role by user ID: 68
+[2025-04-26 22:54:36] User role fetched successfully for user ID: 68
+[2025-04-26 22:54:36] Running staff controller ,mark_attendance_manual token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzA4NDAwfQ==.3c542c2bd6591ad1f1c404b673595c9d783ce812d4424dadd6a4cf03525090e0   id - 68 
+[2025-04-26 22:54:36] Running mark_attendance_manual....in controller
+[2025-04-26 22:54:36] Received JSON data: {"member_id":"M14","arrived":1,"date":"2025-04-26","time":"02:24:35"}
+[2025-04-26 22:54:36] Running markAttendanceManual...
+[2025-04-26 22:54:36] Attendance model initialized with database connection.
+[2025-04-26 22:54:36] Member model initialized with database connection.
+[2025-04-26 22:54:36] Fetching user_id of a member by member id: M14
+[2025-04-26 22:54:36] Marking attendance for User ID: Array with Date: 2025-04-26, Time: 02:24:35, Arrived: 1
+[2025-04-26 22:54:36] Existing date in today_attendance: 2025-04-26
+[2025-04-26 22:54:36] Same date as existing. No need to archive.
+[2025-04-26 22:54:36] Inserting new attendance record...
+[2025-04-26 22:54:37] Database connection closed.
+[2025-04-26 22:55:48] Connection established successfully to the database: rad_gymverse
+[2025-04-26 22:55:48] User class instantiated with database connection.
+[2025-04-26 22:55:48] Fetching user role by user ID: 68
+[2025-04-26 22:55:49] User role fetched successfully for user ID: 68
+[2025-04-26 22:55:49] Running staff controller ,mark_attendance_manual token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzA4NDAwfQ==.3c542c2bd6591ad1f1c404b673595c9d783ce812d4424dadd6a4cf03525090e0   id - 68 
+[2025-04-26 22:55:49] Running mark_attendance_manual....in controller
+[2025-04-26 22:55:49] Received JSON data: {"member_id":"M15","arrived":1,"date":"2025-04-26","time":"02:25:48"}
+[2025-04-26 22:55:49] Running markAttendanceManual...
+[2025-04-26 22:55:49] Attendance model initialized with database connection.
+[2025-04-26 22:55:49] Member model initialized with database connection.
+[2025-04-26 22:55:49] Fetching user_id of a member by member id: M15
+[2025-04-26 22:55:49] Marking attendance for User ID: Array with Date: 2025-04-26, Time: 02:25:48, Arrived: 1
+[2025-04-26 22:55:49] Existing date in today_attendance: 2025-04-26
+[2025-04-26 22:55:49] Same date as existing. No need to archive.
+[2025-04-26 22:55:49] Inserting new attendance record...
+[2025-04-26 22:55:50] Database connection closed.
+[2025-04-26 23:00:19] Running auth controller ,get_footer_info 
+[2025-04-26 23:00:19] Running get_footer_info....in controller
+[2025-04-26 23:00:20] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:00:20] Config model initialized with database connection.
+[2025-04-26 23:00:21] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-26 23:00:21] Database connection closed.
+[2025-04-26 23:00:22] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:00:22] User class instantiated with database connection.
+[2025-04-26 23:00:22] Fetching user role by user ID: 68
+[2025-04-26 23:00:23] User role fetched successfully for user ID: 68
+[2025-04-26 23:00:23] Running staff controller ,get_attendance token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzA4NDAwfQ==.3c542c2bd6591ad1f1c404b673595c9d783ce812d4424dadd6a4cf03525090e0   id - 68 
+[2025-04-26 23:00:23] Database connection closed.
+[2025-04-26 23:00:27] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:00:27] User class instantiated with database connection.
+[2025-04-26 23:00:27] Fetching user role by user ID: 68
+[2025-04-26 23:00:28] User role fetched successfully for user ID: 68
+[2025-04-26 23:00:28] Running staff controller ,mark_attendance_manual token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzA4NDAwfQ==.3c542c2bd6591ad1f1c404b673595c9d783ce812d4424dadd6a4cf03525090e0   id - 68 
+[2025-04-26 23:00:28] Running mark_attendance_manual....in controller
+[2025-04-26 23:00:28] Received JSON data: {"member_id":"M15","arrived":1,"date":"2025-04-26","time":"02:30:27"}
+[2025-04-26 23:00:28] Running markAttendanceManual...
+[2025-04-26 23:00:28] Attendance model initialized with database connection.
+[2025-04-26 23:00:28] Member model initialized with database connection.
+[2025-04-26 23:00:28] Fetching user_id of a member by member id: M15
+[2025-04-26 23:00:28] Marking attendance for User ID: Array with Date: 2025-04-26, Time: 02:30:27, Arrived: 1
+[2025-04-26 23:00:28] Existing date in today_attendance: 2025-04-26
+[2025-04-26 23:00:28] Same date as existing. No need to archive.
+[2025-04-26 23:00:28] Inserting new attendance record...
+[2025-04-26 23:00:28] Database connection closed.
+[2025-04-26 23:02:46] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:02:46] User class instantiated with database connection.
+[2025-04-26 23:02:46] Fetching user role by user ID: 68
+[2025-04-26 23:02:46] User role fetched successfully for user ID: 68
+[2025-04-26 23:02:46] Running staff controller ,mark_attendance_manual token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzA4NDAwfQ==.3c542c2bd6591ad1f1c404b673595c9d783ce812d4424dadd6a4cf03525090e0   id - 68 
+[2025-04-26 23:02:46] Running mark_attendance_manual....in controller
+[2025-04-26 23:02:46] Received JSON data: {"member_id":"M15","arrived":0,"date":"2025-04-26","time":"02:32:46"}
+[2025-04-26 23:02:46] Running markAttendanceManual...
+[2025-04-26 23:02:46] Attendance model initialized with database connection.
+[2025-04-26 23:02:46] Member model initialized with database connection.
+[2025-04-26 23:02:46] Fetching user_id of a member by member id: M15
+[2025-04-26 23:02:47] Marking attendance for User ID: 181 with Date: 2025-04-26, Time: 02:32:46, Arrived: 0
+[2025-04-26 23:02:47] Existing date in today_attendance: 2025-04-26
+[2025-04-26 23:02:47] Same date as existing. No need to archive.
+[2025-04-26 23:02:47] Inserting new attendance record...
+[2025-04-26 23:02:47] Attendance recorded successfully for User ID: 181
+[2025-04-26 23:02:47] Attendance marked successfully for User ID: 181
+[2025-04-26 23:02:47] Database connection closed.
+[2025-04-26 23:02:48] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:02:48] User class instantiated with database connection.
+[2025-04-26 23:02:48] Fetching user role by user ID: 68
+[2025-04-26 23:02:48] User role fetched successfully for user ID: 68
+[2025-04-26 23:02:48] Running staff controller ,get_attendance token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzA4NDAwfQ==.3c542c2bd6591ad1f1c404b673595c9d783ce812d4424dadd6a4cf03525090e0   id - 68 
+[2025-04-26 23:02:48] Database connection closed.
+[2025-04-26 23:04:21] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:04:21] User class instantiated with database connection.
+[2025-04-26 23:04:21] Fetching user role by user ID: 68
+[2025-04-26 23:04:22] User role fetched successfully for user ID: 68
+[2025-04-26 23:04:22] Running staff controller ,mark_attendance_manual token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzA4NDAwfQ==.3c542c2bd6591ad1f1c404b673595c9d783ce812d4424dadd6a4cf03525090e0   id - 68 
+[2025-04-26 23:04:22] Running mark_attendance_manual....in controller
+[2025-04-26 23:04:22] Received JSON data: {"member_id":"M16","arrived":1,"date":"2025-04-26","time":"02:34:21"}
+[2025-04-26 23:04:22] Running markAttendanceManual...
+[2025-04-26 23:04:22] Attendance model initialized with database connection.
+[2025-04-26 23:04:22] Member model initialized with database connection.
+[2025-04-26 23:04:22] Fetching user_id of a member by member id: M16
+[2025-04-26 23:04:22] Marking attendance for User ID: 182 with Date: 2025-04-26, Time: 02:34:21, Arrived: 1
+[2025-04-26 23:04:22] Existing date in today_attendance: 2025-04-26
+[2025-04-26 23:04:22] Same date as existing. No need to archive.
+[2025-04-26 23:04:22] Inserting new attendance record...
+[2025-04-26 23:04:23] Attendance recorded successfully for User ID: 182
+[2025-04-26 23:04:23] Attendance marked successfully for User ID: 182
+[2025-04-26 23:04:23] Database connection closed.
+[2025-04-26 23:04:23] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:04:23] User class instantiated with database connection.
+[2025-04-26 23:04:23] Fetching user role by user ID: 68
+[2025-04-26 23:04:24] User role fetched successfully for user ID: 68
+[2025-04-26 23:04:24] Running staff controller ,get_attendance token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzA4NDAwfQ==.3c542c2bd6591ad1f1c404b673595c9d783ce812d4424dadd6a4cf03525090e0   id - 68 
+[2025-04-26 23:04:24] Database connection closed.
+[2025-04-26 23:04:29] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:04:29] User class instantiated with database connection.
+[2025-04-26 23:04:29] Fetching user role by user ID: 68
+[2025-04-26 23:04:29] User role fetched successfully for user ID: 68
+[2025-04-26 23:04:29] Running staff controller ,mark_attendance_manual token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzA4NDAwfQ==.3c542c2bd6591ad1f1c404b673595c9d783ce812d4424dadd6a4cf03525090e0   id - 68 
+[2025-04-26 23:04:29] Running mark_attendance_manual....in controller
+[2025-04-26 23:04:29] Received JSON data: {"member_id":"M16","arrived":0,"date":"2025-04-26","time":"02:34:28"}
+[2025-04-26 23:04:29] Running markAttendanceManual...
+[2025-04-26 23:04:29] Attendance model initialized with database connection.
+[2025-04-26 23:04:29] Member model initialized with database connection.
+[2025-04-26 23:04:29] Fetching user_id of a member by member id: M16
+[2025-04-26 23:04:30] Marking attendance for User ID: 182 with Date: 2025-04-26, Time: 02:34:28, Arrived: 0
+[2025-04-26 23:04:30] Existing date in today_attendance: 2025-04-26
+[2025-04-26 23:04:30] Same date as existing. No need to archive.
+[2025-04-26 23:04:30] Inserting new attendance record...
+[2025-04-26 23:04:30] Attendance recorded successfully for User ID: 182
+[2025-04-26 23:04:30] Attendance marked successfully for User ID: 182
+[2025-04-26 23:04:30] Database connection closed.
+[2025-04-26 23:04:31] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:04:31] User class instantiated with database connection.
+[2025-04-26 23:04:31] Fetching user role by user ID: 68
+[2025-04-26 23:04:31] User role fetched successfully for user ID: 68
+[2025-04-26 23:04:31] Running staff controller ,get_attendance token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzA4NDAwfQ==.3c542c2bd6591ad1f1c404b673595c9d783ce812d4424dadd6a4cf03525090e0   id - 68 
+[2025-04-26 23:04:31] Database connection closed.
+[2025-04-26 23:04:39] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:04:39] User class instantiated with database connection.
+[2025-04-26 23:04:39] Fetching user role by user ID: 68
+[2025-04-26 23:04:39] User role fetched successfully for user ID: 68
+[2025-04-26 23:04:39] Running staff controller ,mark_attendance_manual token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzA4NDAwfQ==.3c542c2bd6591ad1f1c404b673595c9d783ce812d4424dadd6a4cf03525090e0   id - 68 
+[2025-04-26 23:04:39] Running mark_attendance_manual....in controller
+[2025-04-26 23:04:39] Received JSON data: {"member_id":"M17","arrived":1,"date":"2025-04-26","time":"02:34:38"}
+[2025-04-26 23:04:39] Running markAttendanceManual...
+[2025-04-26 23:04:39] Attendance model initialized with database connection.
+[2025-04-26 23:04:39] Member model initialized with database connection.
+[2025-04-26 23:04:39] Fetching user_id of a member by member id: M17
+[2025-04-26 23:04:39] Marking attendance for User ID: 183 with Date: 2025-04-26, Time: 02:34:38, Arrived: 1
+[2025-04-26 23:04:40] Existing date in today_attendance: 2025-04-26
+[2025-04-26 23:04:40] Same date as existing. No need to archive.
+[2025-04-26 23:04:40] Inserting new attendance record...
+[2025-04-26 23:04:40] Attendance recorded successfully for User ID: 183
+[2025-04-26 23:04:40] Attendance marked successfully for User ID: 183
+[2025-04-26 23:04:40] Database connection closed.
+[2025-04-26 23:04:41] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:04:41] User class instantiated with database connection.
+[2025-04-26 23:04:41] Fetching user role by user ID: 68
+[2025-04-26 23:04:41] User role fetched successfully for user ID: 68
+[2025-04-26 23:04:41] Running staff controller ,get_attendance token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzA4NDAwfQ==.3c542c2bd6591ad1f1c404b673595c9d783ce812d4424dadd6a4cf03525090e0   id - 68 
+[2025-04-26 23:04:41] Database connection closed.
+[2025-04-26 23:04:50] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:04:50] User class instantiated with database connection.
+[2025-04-26 23:04:50] Fetching user role by user ID: 68
+[2025-04-26 23:04:50] User role fetched successfully for user ID: 68
+[2025-04-26 23:04:50] Running staff controller ,mark_attendance_manual token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzA4NDAwfQ==.3c542c2bd6591ad1f1c404b673595c9d783ce812d4424dadd6a4cf03525090e0   id - 68 
+[2025-04-26 23:04:50] Running mark_attendance_manual....in controller
+[2025-04-26 23:04:50] Received JSON data: {"member_id":"M18","arrived":1,"date":"2025-04-26","time":"02:34:49"}
+[2025-04-26 23:04:50] Running markAttendanceManual...
+[2025-04-26 23:04:50] Attendance model initialized with database connection.
+[2025-04-26 23:04:50] Member model initialized with database connection.
+[2025-04-26 23:04:50] Fetching user_id of a member by member id: M18
+[2025-04-26 23:04:50] Marking attendance for User ID: 184 with Date: 2025-04-26, Time: 02:34:49, Arrived: 1
+[2025-04-26 23:04:50] Existing date in today_attendance: 2025-04-26
+[2025-04-26 23:04:50] Same date as existing. No need to archive.
+[2025-04-26 23:04:50] Inserting new attendance record...
+[2025-04-26 23:04:51] Attendance recorded successfully for User ID: 184
+[2025-04-26 23:04:51] Attendance marked successfully for User ID: 184
+[2025-04-26 23:04:51] Database connection closed.
+[2025-04-26 23:04:51] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:04:51] User class instantiated with database connection.
+[2025-04-26 23:04:51] Fetching user role by user ID: 68
+[2025-04-26 23:04:52] User role fetched successfully for user ID: 68
+[2025-04-26 23:04:52] Running staff controller ,get_attendance token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzA4NDAwfQ==.3c542c2bd6591ad1f1c404b673595c9d783ce812d4424dadd6a4cf03525090e0   id - 68 
+[2025-04-26 23:04:52] Database connection closed.
+[2025-04-26 23:24:34] Running auth controller ,get_footer_info 
+[2025-04-26 23:24:34] Running get_footer_info....in controller
+[2025-04-26 23:24:34] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:24:34] Config model initialized with database connection.
+[2025-04-26 23:24:36] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-26 23:24:36] Database connection closed.
+[2025-04-26 23:24:36] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:24:36] User class instantiated with database connection.
+[2025-04-26 23:24:36] Fetching user role by user ID: 68
+[2025-04-26 23:24:36] User role fetched successfully for user ID: 68
+[2025-04-26 23:24:36] Running staff controller ,get_attendance token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzA4NDAwfQ==.3c542c2bd6591ad1f1c404b673595c9d783ce812d4424dadd6a4cf03525090e0   id - 68 
+[2025-04-26 23:24:36] Running get_attendance....in controller
+[2025-04-26 23:24:36] Running getTodayArrivalDepartureTimes...
+[2025-04-26 23:24:36] Attendance model initialized with database connection.
+[2025-04-26 23:24:36] Fetching today's Arrival and Departure times
+[2025-04-26 23:24:37] Database connection closed.
+[2025-04-26 23:26:10] Running auth controller ,get_footer_info 
+[2025-04-26 23:26:10] Running get_footer_info....in controller
+[2025-04-26 23:26:10] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:26:10] Config model initialized with database connection.
+[2025-04-26 23:26:11] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-26 23:26:11] Database connection closed.
+[2025-04-26 23:26:12] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:26:12] User class instantiated with database connection.
+[2025-04-26 23:26:12] Fetching user role by user ID: 68
+[2025-04-26 23:26:12] User role fetched successfully for user ID: 68
+[2025-04-26 23:26:12] Running staff controller ,get_attendance token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzA4NDAwfQ==.3c542c2bd6591ad1f1c404b673595c9d783ce812d4424dadd6a4cf03525090e0   id - 68 
+[2025-04-26 23:26:12] Running get_attendance....in controller
+[2025-04-26 23:26:12] Running getTodayArrivalDepartureTimes...
+[2025-04-26 23:26:12] Attendance model initialized with database connection.
+[2025-04-26 23:26:12] Fetching today's Arrival and Departure times
+[2025-04-26 23:26:12] Fetched 4 record(s)
+[2025-04-26 23:26:12] Today's arrival and departure times: [{"MemberID":"M15","Name":"Sandeep Perera","ArrivalTime":"02:14:27","DepartedTime":"02:32:46"},{"MemberID":"M16","Name":"Nishani Adhikari","ArrivalTime":"02:34:21","DepartedTime":"02:34:28"},{"MemberID":"M17","Name":"Dinesh Sumith","ArrivalTime":"02:34:38","DepartedTime":null},{"MemberID":"M18","Name":"Lakshani Fernando","ArrivalTime":"02:34:49","DepartedTime":null}]
+[2025-04-26 23:26:12] Database connection closed.
+[2025-04-26 23:27:15] Running auth controller ,get_footer_info 
+[2025-04-26 23:27:15] Running get_footer_info....in controller
+[2025-04-26 23:27:16] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:27:16] Config model initialized with database connection.
+[2025-04-26 23:27:17] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-26 23:27:17] Database connection closed.
+[2025-04-26 23:27:17] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:27:17] User class instantiated with database connection.
+[2025-04-26 23:27:17] Fetching user role by user ID: 68
+[2025-04-26 23:27:18] User role fetched successfully for user ID: 68
+[2025-04-26 23:27:18] Running staff controller ,get_attendance token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzA4NDAwfQ==.3c542c2bd6591ad1f1c404b673595c9d783ce812d4424dadd6a4cf03525090e0   id - 68 
+[2025-04-26 23:27:18] Running get_attendance....in controller
+[2025-04-26 23:27:18] Running getTodayArrivalDepartureTimes...
+[2025-04-26 23:27:18] Attendance model initialized with database connection.
+[2025-04-26 23:27:18] Fetching today's Arrival and Departure times
+[2025-04-26 23:27:18] Fetched 4 record(s)
+[2025-04-26 23:27:18] Today's arrival and departure times: [{"MemberID":"M15","Name":"Sandeep Perera","ArrivalTime":"02:14:27","DepartedTime":"02:32:46"},{"MemberID":"M16","Name":"Nishani Adhikari","ArrivalTime":"02:34:21","DepartedTime":"02:34:28"},{"MemberID":"M17","Name":"Dinesh Sumith","ArrivalTime":"02:34:38","DepartedTime":null},{"MemberID":"M18","Name":"Lakshani Fernando","ArrivalTime":"02:34:49","DepartedTime":null}]
+[2025-04-26 23:27:18] Database connection closed.
+[2025-04-26 23:28:23] Running auth controller ,get_footer_info 
+[2025-04-26 23:28:23] Running get_footer_info....in controller
+[2025-04-26 23:28:24] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:28:24] Config model initialized with database connection.
+[2025-04-26 23:28:25] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-26 23:28:25] Database connection closed.
+[2025-04-26 23:28:25] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:28:25] User class instantiated with database connection.
+[2025-04-26 23:28:25] Fetching user role by user ID: 68
+[2025-04-26 23:28:26] User role fetched successfully for user ID: 68
+[2025-04-26 23:28:26] Running staff controller ,get_attendance token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzA4NDAwfQ==.3c542c2bd6591ad1f1c404b673595c9d783ce812d4424dadd6a4cf03525090e0   id - 68 
+[2025-04-26 23:28:26] Running get_attendance....in controller
+[2025-04-26 23:28:26] Running getTodayArrivalDepartureTimes...
+[2025-04-26 23:28:26] Attendance model initialized with database connection.
+[2025-04-26 23:28:26] Fetching today's Arrival and Departure times
+[2025-04-26 23:28:26] Fetched 4 record(s)
+[2025-04-26 23:28:26] Today's arrival and departure times: [{"MemberID":"M15","Name":"Sandeep Perera","ArrivalTime":"02:14:27","DepartedTime":"02:32:46"},{"MemberID":"M16","Name":"Nishani Adhikari","ArrivalTime":"02:34:21","DepartedTime":"02:34:28"},{"MemberID":"M17","Name":"Dinesh Sumith","ArrivalTime":"02:34:38","DepartedTime":null},{"MemberID":"M18","Name":"Lakshani Fernando","ArrivalTime":"02:34:49","DepartedTime":null}]
+[2025-04-26 23:28:26] Database connection closed.
+[2025-04-26 23:28:52] Running auth controller ,get_footer_info 
+[2025-04-26 23:28:52] Running get_footer_info....in controller
+[2025-04-26 23:28:52] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:28:52] Config model initialized with database connection.
+[2025-04-26 23:28:53] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-26 23:28:53] Database connection closed.
+[2025-04-26 23:28:54] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:28:54] User class instantiated with database connection.
+[2025-04-26 23:28:54] Fetching user role by user ID: 68
+[2025-04-26 23:28:54] User role fetched successfully for user ID: 68
+[2025-04-26 23:28:54] Running staff controller ,get_attendance token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzA4NDAwfQ==.3c542c2bd6591ad1f1c404b673595c9d783ce812d4424dadd6a4cf03525090e0   id - 68 
+[2025-04-26 23:28:54] Running get_attendance....in controller
+[2025-04-26 23:28:54] Running getTodayArrivalDepartureTimes...
+[2025-04-26 23:28:54] Attendance model initialized with database connection.
+[2025-04-26 23:28:54] Fetching today's Arrival and Departure times
+[2025-04-26 23:28:54] Fetched 4 record(s)
+[2025-04-26 23:28:54] Today's arrival and departure times: [{"MemberID":"M15","Name":"Sandeep Perera","ArrivalTime":"02:14:27","DepartedTime":"02:32:46"},{"MemberID":"M16","Name":"Nishani Adhikari","ArrivalTime":"02:34:21","DepartedTime":"02:34:28"},{"MemberID":"M17","Name":"Dinesh Sumith","ArrivalTime":"02:34:38","DepartedTime":null},{"MemberID":"M18","Name":"Lakshani Fernando","ArrivalTime":"02:34:49","DepartedTime":null}]
+[2025-04-26 23:28:54] Database connection closed.
+[2025-04-26 23:29:08] Running auth controller ,get_footer_info 
+[2025-04-26 23:29:08] Running get_footer_info....in controller
+[2025-04-26 23:29:08] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:29:08] Config model initialized with database connection.
+[2025-04-26 23:29:09] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-26 23:29:09] Database connection closed.
+[2025-04-26 23:29:10] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:29:10] User class instantiated with database connection.
+[2025-04-26 23:29:10] Fetching user role by user ID: 68
+[2025-04-26 23:29:10] User role fetched successfully for user ID: 68
+[2025-04-26 23:29:10] Running staff controller ,get_attendance token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzA4NDAwfQ==.3c542c2bd6591ad1f1c404b673595c9d783ce812d4424dadd6a4cf03525090e0   id - 68 
+[2025-04-26 23:29:10] Running get_attendance....in controller
+[2025-04-26 23:29:10] Running getTodayArrivalDepartureTimes...
+[2025-04-26 23:29:10] Attendance model initialized with database connection.
+[2025-04-26 23:29:10] Fetching today's Arrival and Departure times
+[2025-04-26 23:29:11] Fetched 4 record(s)
+[2025-04-26 23:29:11] Today's arrival and departure times: [{"MemberID":"M15","Name":"Sandeep Perera","ArrivalTime":"02:14:27","DepartedTime":"02:32:46"},{"MemberID":"M16","Name":"Nishani Adhikari","ArrivalTime":"02:34:21","DepartedTime":"02:34:28"},{"MemberID":"M17","Name":"Dinesh Sumith","ArrivalTime":"02:34:38","DepartedTime":null},{"MemberID":"M18","Name":"Lakshani Fernando","ArrivalTime":"02:34:49","DepartedTime":null}]
+[2025-04-26 23:29:11] Database connection closed.
+[2025-04-26 23:29:50] Running auth controller ,get_footer_info 
+[2025-04-26 23:29:50] Running get_footer_info....in controller
+[2025-04-26 23:29:51] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:29:51] Config model initialized with database connection.
+[2025-04-26 23:29:52] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-26 23:29:52] Database connection closed.
+[2025-04-26 23:29:52] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:29:52] User class instantiated with database connection.
+[2025-04-26 23:29:52] Fetching user role by user ID: 68
+[2025-04-26 23:29:53] User role fetched successfully for user ID: 68
+[2025-04-26 23:29:53] Running staff controller ,get_attendance token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzA4NDAwfQ==.3c542c2bd6591ad1f1c404b673595c9d783ce812d4424dadd6a4cf03525090e0   id - 68 
+[2025-04-26 23:29:53] Running get_attendance....in controller
+[2025-04-26 23:29:53] Running getTodayArrivalDepartureTimes...
+[2025-04-26 23:29:53] Attendance model initialized with database connection.
+[2025-04-26 23:29:53] Fetching today's Arrival and Departure times
+[2025-04-26 23:29:53] Fetched 4 record(s)
+[2025-04-26 23:29:53] Today's arrival and departure times: [{"MemberID":"M15","Name":"Sandeep Perera","ArrivalTime":"02:14:27","DepartedTime":"02:32:46"},{"MemberID":"M16","Name":"Nishani Adhikari","ArrivalTime":"02:34:21","DepartedTime":"02:34:28"},{"MemberID":"M17","Name":"Dinesh Sumith","ArrivalTime":"02:34:38","DepartedTime":null},{"MemberID":"M18","Name":"Lakshani Fernando","ArrivalTime":"02:34:49","DepartedTime":null}]
+[2025-04-26 23:29:53] Database connection closed.
+[2025-04-26 23:30:27] Running auth controller ,get_footer_info 
+[2025-04-26 23:30:27] Running get_footer_info....in controller
+[2025-04-26 23:30:27] Running auth controller ,get_footer_info 
+[2025-04-26 23:30:27] Running get_footer_info....in controller
+[2025-04-26 23:30:27] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:30:27] Config model initialized with database connection.
+[2025-04-26 23:30:27] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:30:27] Config model initialized with database connection.
+[2025-04-26 23:30:28] Running auth controller ,login 
+[2025-04-26 23:30:28] running login...in auth controller
+[2025-04-26 23:30:28] login function running...
+[2025-04-26 23:30:28] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-26 23:30:28] Database connection closed.
+[2025-04-26 23:30:29] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-26 23:30:29] Database connection closed.
+[2025-04-26 23:30:29] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:30:29] User class instantiated with database connection.
+[2025-04-26 23:30:29] User Login model running for: staff@gmail.com
+[2025-04-26 23:30:29] Fetching user by email: staff@gmail.com
+[2025-04-26 23:30:29] User found for email: staff@gmail.com
+[2025-04-26 23:30:29] Query bound and ready to execute for login: staff@gmail.com
+[2025-04-26 23:30:30] User status: 1
+[2025-04-26 23:30:30] User login successful: staff@gmail.com with role: staff
+[2025-04-26 23:30:30] Config model initialized with database connection.
+[2025-04-26 23:30:30] Login Successful: eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzEyMDAwfQ==.dd57f7174fd795ce0830eee0240f66d3da0a7bdbd118b221ce30828f8b30255e staff
+[2025-04-26 23:30:30] Database connection closed.
+[2025-04-26 23:30:31] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:30:31] User class instantiated with database connection.
+[2025-04-26 23:30:31] Fetching user role by user ID: 68
+[2025-04-26 23:30:31] User role fetched successfully for user ID: 68
+[2025-04-26 23:30:31] Running staff controller ,get_personal_notices token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzEyMDAwfQ==.dd57f7174fd795ce0830eee0240f66d3da0a7bdbd118b221ce30828f8b30255e   id - 68 
+[2025-04-26 23:30:31] Running get_personal_notices....in controller
+[2025-04-26 23:30:31] get personal notices function running...
+[2025-04-26 23:30:31] Notice model initialized with database connection.
+[2025-04-26 23:30:31] Fetching personal notices for user ID: 68
+[2025-04-26 23:30:31] Expired notices removed.
+[2025-04-26 23:30:32] Fetched 7 unread notices for user ID: 68
+[2025-04-26 23:30:32] Personal notices fetched successfully
+[2025-04-26 23:30:32] Database connection closed.
+[2025-04-26 23:30:32] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:30:32] User class instantiated with database connection.
+[2025-04-26 23:30:32] Fetching user role by user ID: 68
+[2025-04-26 23:30:32] User role fetched successfully for user ID: 68
+[2025-04-26 23:30:32] Running staff controller ,get_gym_crowd token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzEyMDAwfQ==.dd57f7174fd795ce0830eee0240f66d3da0a7bdbd118b221ce30828f8b30255e   id - 68 
+[2025-04-26 23:30:32] Running get_gym_crowd....in controller
+[2025-04-26 23:30:32] Running getGymCrowd...
+[2025-04-26 23:30:32] Attendance model initialized with database connection.
+[2025-04-26 23:30:32] Fetching number of unique users with latest arrival marked as 1...
+[2025-04-26 23:30:33] Total users with latest Arrived=1: 2
+[2025-04-26 23:30:33] Fetching gym capacity from configuration...
+[2025-04-26 23:30:33] Gym capacity fetched successfully: 53
+[2025-04-26 23:30:33] Gym crowd count: 2 (3.7735849056604%)
+[2025-04-26 23:30:33] Database connection closed.
+[2025-04-26 23:30:34] Connection established successfully to the database: rad_gymverse
+[2025-04-26 23:30:34] User class instantiated with database connection.
+[2025-04-26 23:30:34] Fetching user role by user ID: 68
+[2025-04-26 23:30:34] User role fetched successfully for user ID: 68
+[2025-04-26 23:30:34] Running staff controller ,get_classes token - eyJ1c2VyX2lkIjo2OCwiZXhwIjoxNzQ1NzEyMDAwfQ==.dd57f7174fd795ce0830eee0240f66d3da0a7bdbd118b221ce30828f8b30255e   id - 68 
+[2025-04-26 23:30:34] TrainerClass model initialized with database conection
+[2025-04-26 23:30:34] fetching all classes.....
+[2025-04-26 23:30:34] Classes fetched successfully
+[2025-04-26 23:30:34] classes retrieved successfully
+[2025-04-26 23:30:34] Database connection closed.

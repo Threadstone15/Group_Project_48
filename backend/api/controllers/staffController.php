@@ -162,9 +162,14 @@ switch ($action) {
     // mark attendance manual
     case 'mark_attendance_manual':
         logMessage("Running mark_attendance_manual....in controller");
-        markAttendanceManual($user_id);
+        $jsonData = json_decode(file_get_contents("php://input"), true);
+        logMessage("Received JSON data: " . json_encode($jsonData));
+        markAttendanceManual($jsonData);
         break;
-
+    case 'get_attendance':
+        logMessage("Running get_attendance....in controller");
+        getTodayArrivalDepartureTimes();
+        break;
 
 
     default:

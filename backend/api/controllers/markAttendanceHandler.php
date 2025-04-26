@@ -2,6 +2,7 @@
 // markAttendanceHandler.php
 
 include_once "../models/Attendance.php";
+include_once "../models/Member.php";
 include_once "../../logs/save.php";
 
 function markAttendance($userid, $jsonData)
@@ -10,6 +11,28 @@ function markAttendance($userid, $jsonData)
 
     $attendance = new Attendance();
 
+    $date = $jsonData['date'];
+    $time = $jsonData['time'];
+    $arrived = $jsonData['arrived'];
+
+    if ($attendance->markAttendance($userid, $date, $time, $arrived)) {
+        logMessage("Attendance marked successfully for User ID: $userid");
+        echo json_encode(["message" => "Attendance marked successfully"]);
+    } else {
+        logMessage("Failed to mark attendance for User ID: $userid");
+        echo json_encode(["error" => "Failed to mark attendance"]);
+    }
+}
+
+function markAttendanceManual($jsonData)
+{
+    logMessage("Running markAttendanceManual...");
+    $member_id = $jsonData['member_id'];
+
+    $attendance = new Attendance();
+    $member = new Member();
+    $user =  $member->getUserIDByMemberID($member_id);
+    $userid = $user ? $user['user_id'] : null;
     $date = $jsonData['date'];
     $time = $jsonData['time'];
     $arrived = $jsonData['arrived'];
@@ -80,4 +103,19 @@ function userArrivedStatus($userid)
     } else {
         echo json_encode(["error" => "Failed to fetch user arrived status"]);
     }
+}
+
+function getTodayArrivalDepartureTimes()
+{
+    logMessage("Running getTodayArrivalDepartureTimes...");
+
+    $attendance = new Attendance();
+    $result = $attendance->getTodayArrivalDepartureTimes();
+
+    if ($result !== false) {
+        echo json_encode($result);
+    } else {
+        echo json_encode(["error" => "Failed to fetch today's arrival and departure times"]);
+    }
+    logMessage("Today's arrival and departure times: " . json_encode($result));
 }

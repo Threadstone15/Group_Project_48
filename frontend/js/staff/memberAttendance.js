@@ -154,7 +154,7 @@ export function initStaff_memberAttendance() {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        member_id: data,
+                        member_id: memberId,
                         arrived: arrived,
                         date: date,
                         time: time
@@ -179,7 +179,7 @@ export function initStaff_memberAttendance() {
                 showLoading(false);
             }
         }
-        
+
         async function fetchAttendanceData() {
             try {
                 showLoading(true);
@@ -202,7 +202,7 @@ export function initStaff_memberAttendance() {
 
                 const result = await response.json();
                 console.log("Attendance Data:", result);
-                populateAttendanceTable(result.data || []);
+                populateAttendanceTable(result || []);
             } catch (error) {
                 console.error("Error fetching attendance data:", error);
                 showToast(`Error: ${error.message}`, "error");
@@ -225,11 +225,10 @@ export function initStaff_memberAttendance() {
             members.forEach(member => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td>${escapeHtml(member.member_id)}</td>
-                    <td>${escapeHtml(member.name)}</td>
-                    <td>${escapeHtml(member.arrival_time || '-')}</td>
-                    <td>${escapeHtml(member.departure_time || '-')}</td>
-                    <td>${getStatusText(member.status)}</td>
+                    <td>${escapeHtml(member.MemberID)}</td>
+                    <td>${escapeHtml(member.Name)}</td>
+                    <td>${escapeHtml(member.ArrivalTime || '-')}</td>
+                    <td>${escapeHtml(member.DepartedTime || '-')}</td>
                 `;
                 attendanceTableBody.appendChild(row);
             });
