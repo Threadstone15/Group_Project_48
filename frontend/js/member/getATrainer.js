@@ -113,10 +113,6 @@ export function initMember_getATrainer() {
         const trainersCards = document.getElementById("trainers-profiles");
         trainersCards.innerHTML = "";
 
-        //changing assigned count of some trainers to 50 to test the functionality
-        trainers[0].assigned_member_count = 50;
-        trainers[2].assigned_member_count = 50;
-
         trainers.forEach(trainer => {
             let selectChangeTrainerPossible = true;
             if (Number(trainer.assigned_member_count) >= 50) {
