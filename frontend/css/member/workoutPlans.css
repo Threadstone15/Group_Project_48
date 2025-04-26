@@ -112,7 +112,11 @@ button#request-planner:hover {
   display: flex;
   flex-direction: column;
   gap: 20px; /* Add spacing between days */
+  max-height: 80vh; /* Limit popup height to 80% of the viewport */
+  overflow-y: auto; /* Add scroll inside if content exceeds */
+  align-items: center;
 }
+
 
 .workout-column {
   width: 100%; /* Full width */
@@ -338,13 +342,24 @@ button#request-planner:hover {
   display: flex; align-items: center; justify-content: center;
   z-index: 999;
 }
-.modal1-content {
+/* .modal1-content {
   background: white;
   padding: 2rem;
   border-radius: 10px;
   width: 400px;
   text-align: center;
+  
+} */
+
+.modal1-content {
+  width: 80%; /* or even 90% */
+  max-width: 900px;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
 }
+
+
 .hidden1 {
   display: none;
 }
@@ -372,6 +387,24 @@ button#request-planner:hover {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   opacity: 0;
   animation: fadeInOut 4s forwards;
+}
+
+.save-workout-btn{
+  padding: 12px 20px;
+  font-size: 16px;
+  background-color: #ff5f00;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  width: 30%;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.save-workout-btn:hover {
+  background-color: #e65400;
 }
 
 .toast.success {
