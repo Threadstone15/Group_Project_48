@@ -16,6 +16,7 @@ export function initTrainer_createWorkoutPlans() {
   const editPlanId = document.getElementById('editPlanId');
   const saveEditBtn = document.getElementById('saveEditBtn');
   const editExercisesContainer = document.getElementById('editExercisesContainer');
+ 
 
   // Global variables
   let workoutPlans = [];
@@ -81,7 +82,7 @@ export function initTrainer_createWorkoutPlans() {
 
     } catch (error) {
       console.error('Error fetching workout plans:', error);
-      alert('Error fetching workout plans. Please try again.');
+      showToast('Error fetching workout plans', 'error');
     }
   }
 
@@ -218,7 +219,7 @@ export function initTrainer_createWorkoutPlans() {
       editPlanModal.classList.remove('hidden');
     } catch (error) {
       console.error('Error parsing workout plan:', error);
-      alert('Error loading workout plan for editing.');
+      showToast('Error loading workout plan for editing', 'error');
     }
   }
 
@@ -285,49 +286,99 @@ export function initTrainer_createWorkoutPlans() {
         throw new Error(result.message || 'Failed to update workout plan');
       }
 
-      alert('Workout plan updated successfully!');
+      showToast('Workout plan updated successfully!');
       editPlanModal.classList.add('hidden');
       await fetchWorkoutPlans();
 
     } catch (err) {
       console.error(err);
-      alert('Error updating plan: ' + err.message);
+     showToast('Error updating workout plan', 'error');
     }
   }
 
+  //---------delete plan modal-------------
+  const deleteModal = document.getElementById('deleteModal');
+  const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+  const cancelDeleteBtn = document.getElementById('cancelDeleteBtn');
+  const closeDeleteBtn = document.querySelector('.close-delete-btn');
+
+  // Store the current ID to be deleted
+  let currentDeletionId = null;
+
+  // Modified delete handler
   async function handleDeletePlan(e) {
-    const planId = e.target.dataset.id;
-    console.log("Deleting plan with ID:", planId);
+    currentDeletionId = e.target.dataset.id;
+    console.log("Preparing to delete plan with ID:", currentDeletionId);
+    
+    // Show modal instead of confirm()
+    deleteModal.classList.remove('hidden');
+  }
 
-    if (confirm('Are you sure you want to delete this workout plan?')) {
-      try {
-        const authToken = localStorage.getItem("authToken");
-        if (!authToken) {
-          alert("Auth token not found. Please log in.");
-          return;
-        }
+  // Confirm deletion handler
+  confirmDeleteBtn.onclick = async function() {
+    if (!currentDeletionId) return;
+    
+    try {
+      // Show loading state
+      confirmDeleteBtn.disabled = true;
+      confirmDeleteBtn.textContent = 'Deleting...';
+      
+      const authToken = localStorage.getItem("authToken");
+      if (!authToken) {
+        console.error("Auth token not found");
+        return;
+      }
 
-        const response = await fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/trainerController.php?action=delete_created_workout_plans", {
+      const response = await fetch(
+        "http://localhost:8080/Group_Project_48/backend/api/controllers/trainerController.php?action=delete_created_workout_plans", 
+        {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${authToken}`
           },
-          body: JSON.stringify({ id: planId })
-        });
-
-        const result = await response.json();
-        if (!response.ok) {
-          throw new Error(result.message || 'Failed to delete workout plan');
+          body: JSON.stringify({ id: currentDeletionId })
         }
+      );
 
-        alert('Workout plan deleted successfully');
-        await fetchWorkoutPlans();
-
-      } catch (error) {
-        console.error('Error deleting workout plan:', error);
-        alert('Error deleting workout plan. Please try again.');
+      const result = await response.json();
+      if (!response.ok) {
+        throw new Error(result.message || 'Failed to delete workout plan');
       }
+
+      console.log('Workout plan deleted successfully');
+      await fetchWorkoutPlans();
+      
+    } catch (error) {
+      console.error('Error deleting workout plan:', error);
+      showToast('Error deleting workout plan', 'error');
+    } finally {
+      // Reset modal state
+      deleteModal.classList.add('hidden');
+      confirmDeleteBtn.disabled = false;
+      confirmDeleteBtn.textContent = 'Delete';
     }
+  };
+
+  // Close modal handlers
+  [cancelDeleteBtn, closeDeleteBtn].forEach(btn => {
+    btn.onclick = () => {
+      deleteModal.classList.add('hidden');
+    };
+  });
+
+  function showToast(message, type = 'success') {
+    const container = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.innerText = message;
+
+    container.appendChild(toast);
+
+    setTimeout(() => {
+        toast.remove();
+    }, 4000);
   }
+
+  
 }

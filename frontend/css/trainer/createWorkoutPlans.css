@@ -96,7 +96,7 @@ tr:hover {
 }
 
 .edit-btn {
-  background-color: #f39c12;
+  background-color: #00AB66;
   color: white;
 }
 
@@ -195,60 +195,159 @@ tr:hover {
   }
 }
 
-#editPlanForm {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-#editPlanForm input,
-#editPlanForm textarea,
-#editPlanForm button {
-  padding: 10px;
-  font-size: 1rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-}
-
-#editPlanForm input:focus,
-#editPlanForm textarea:focus {
-  outline: none;
-  border-color: #ff5f00;
-  background-color: #fff;
-}
-
-#editPlanForm button {
+#saveEditBtn {
   background-color: #ff5f00;
   color: white;
+  padding: 10px 20px;
   border: none;
+  border-radius: 8px;
   cursor: pointer;
+  font-size: 1rem;
   transition: background-color 0.3s ease;
 }
 
-#editPlanForm button:hover {
-  background-color: #e65100;
+
+/* edit plan modal inputs */
+#editExercisesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
 }
 
 .exercise-edit-block {
   display: flex;
-  gap: 8px;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.exercise-input,
+.sets-input,
+.reps-input {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 200px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.exercise-input:focus,
+.sets-input:focus,
+.reps-input:focus {
+  border-color: #007bff; /* Light blue on focus */
+}
+
+.exercise-input::placeholder,
+.sets-input::placeholder,
+.reps-input::placeholder {
+  color: #aaa;
+}
+
+/* Optional: Make Day titles look nice */
+#editExercisesContainer h3 {
+  font-size: 20px;
   margin-bottom: 10px;
+  color: #333;
 }
 
-.exercise-edit-block input {
-  flex: 1;
-}
-
-.exercise-edit-block button {
-  background: #ff5f00;
-  color: white;
-  border: none;
-  padding: 6px 10px;
-  border-radius: 4px;
+.close-edit-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
   cursor: pointer;
 }
 
-.exercise-edit-block button:hover {
-  background: #e65100;
+.close-edit-btn:hover {
+  color: black;
 }
+
+/* Delete Modal*/
+#deleteModal .modal-content {
+  max-width: 450px;
+  padding: 25px;
+}
+
+#deleteModal h3 {
+  color: #dc3545;
+  margin-top: 0;
+}
+
+#deleteModal p {
+  margin: 15px 0;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.close-delete-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-delete-btn:hover {
+  color: black;
+}
+
+/*toast container*/
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.toast {
+  margin-bottom: 10px;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: white;
+  background-color: #333;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  opacity: 0;
+  animation: fadeInOut 4s forwards;
+}
+
+.toast.success { background-color: #28a745; }
+.toast.error { background-color: #dc3545; }
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-20px); }
+  10%, 90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+
