@@ -78,7 +78,7 @@ export function initMember_trackProgress() {
         const selectWorkoutPlanPopup = document.getElementById("select-workout-plan-popup");
         selectWorkoutPlanPopup.style.display = "none"; // Hide the popup
         document.getElementById("overlay").style.display = "none"; // Hide the dark overlay
-        navigate("member/workoutPlans"); // Navigate to the workout plan page
+        navigate("member/myPlans"); // Navigate to the my plans page
     });
 
     function fetchCurrentWorkoutPlan() {

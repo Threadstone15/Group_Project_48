@@ -1,23 +1,23 @@
 /* Base Styles */
 :root {
-  --primary-color: #4a6fa5;
-  --primary-dark: #3a5a8a;
+  --primary-color: #FF5F00;
+  --primary-dark: #FF5F00;
   --secondary-color: #ff7e5f;
   --secondary-dark: #e06b4e;
   --light-color: #f8f9fa;
   --dark-color: #343a40;
   --gray-color: #6c757d;
   --light-gray: #e9ecef;
-  --success-color: #28a745;
+  --success-color: #2ca728;
   --danger-color: #dc3545;
   --warning-color: #ffc107;
-  --info-color: #17a2b8;
+  --info-color: #c79442;
   --border-radius: 8px;
   --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s ease;
 }
 
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -29,7 +29,7 @@ body {
   color: var(--dark-color);
   background-color: #f5f7fa;
   padding: 20px;
-}
+} */
 
 .container {
   max-width: 1200px;

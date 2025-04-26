@@ -1,7 +1,9 @@
 export function initMember_workoutMealPlans() {
   console.log('Initializing single-day meal planner');
 
-  const mealPlannerContainer = document.getElementById('meal-planner');
+  const mealPlanner = document.getElementById('meal-planner');
+  const mealPlannerContainer = document.getElementById('meal-planner-container');
+  const mealPlannerCloseButton = document.getElementById('closeMealPlannerBtn');
   const generatePlannerButton = document.getElementById('generate-meal-planner');
   const requestBtn = document.getElementById('request-planner');
   const modal = document.getElementById('requestModal');
@@ -75,13 +77,14 @@ export function initMember_workoutMealPlans() {
   const mealTypes = ['Breakfast', 'Lunch', 'Dinner', 'Snacks'];
 
   function generateMealPlanner() {
-    mealPlannerContainer.innerHTML = '';
+    mealPlannerContainer.style.display = 'block';
+    mealPlanner.innerHTML = '';
 
     const column = document.createElement('div');
     column.className = 'meal-column';
 
     const title = document.createElement('h3');
-    title.textContent = `Meal Plan for Today`;
+    title.textContent = `Meal Planner`;
     column.appendChild(title);
 
     const mealContainer = document.createElement('div');
@@ -109,14 +112,21 @@ export function initMember_workoutMealPlans() {
     saveButton.addEventListener('click', sendMealPlanToBackend);
 
     column.appendChild(saveButton);
-    mealPlannerContainer.appendChild(column);
+    mealPlanner.appendChild(column);
   }
+
+  mealPlannerCloseButton.addEventListener('click', () => {
+    mealPlannerContainer.style.display = 'none';
+    mealPlanner.innerHTML = '';
+  });
 
   async function sendMealPlanToBackend() {
     const mealPlan = collectMealPlanData();
     const authToken = localStorage.getItem("authToken");
 
-    console.log(mealPlan);
+    if (!mealPlan) {
+      return;
+    }
 
     if (!authToken) {
       alert("Auth token not found. Please log in.");
@@ -136,9 +146,11 @@ export function initMember_workoutMealPlans() {
 
     const result = await response.json();
     if (response.ok) {
-      alert("Meal plan saved successfully!");
+      showToast("Meal plan saved successfully!", "success");
+      mealPlannerContainer.style.display = 'none';
+      mealPlanner.innerHTML = '';
     } else {
-      alert("Failed to save meal plan: " + result.message);
+      showToast("Failed to save meal plan. Please try again later", "error");
     }
   }
 
@@ -152,6 +164,11 @@ export function initMember_workoutMealPlans() {
       const time = row.querySelector('.meal-time').value;
       const calories = row.querySelector('.meal-calories').value;
 
+      if (!name || !time || !calories) {
+        showToast("All fields are required", "error");
+        return null; // Stop and return nothing
+      }
+
       plan.push({
         type,
         name,
@@ -164,4 +181,17 @@ export function initMember_workoutMealPlans() {
   }
 
   generatePlannerButton.addEventListener('click', generateMealPlanner);
+
+  function showToast(message, type) {
+    const container = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.innerHTML = message;
+
+    container.appendChild(toast);
+
+    setTimeout(() => {
+      toast.remove();
+    }, 4000);
+  }
 }
