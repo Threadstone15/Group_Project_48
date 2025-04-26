@@ -471,6 +471,8 @@ button:hover {
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   width: 100vw; /* Ensure it covers the full viewport */
   height: 100vh;
   background-color: rgba(255, 255, 255, 0.8);

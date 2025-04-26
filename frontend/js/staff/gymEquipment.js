@@ -225,7 +225,7 @@ export function initStaff_equipment() {
 
         // Validate Maintenance Duration
         if (!/^\d+$/.test(maintenanceDuration) || maintenanceDuration < 1 || maintenanceDuration > 365) {
-            alert("Maintenance duration must be a number between 1 and 365.");
+            showToast("Please enter a valid maintenance duration (1-365 days).", "error");
             return;
         }
         spinner.classList.remove("hidden");
@@ -283,7 +283,7 @@ export function initStaff_equipment() {
 
         // Validate maintenance duration
         if (!validateMaintenanceDuration(maintenanceDuration)) {
-            alert("Please enter a valid maintenance duration (1-365 days).");
+            showToast("Please enter a valid maintenance duration (1-365 days).", "error");
             return;
         }
 

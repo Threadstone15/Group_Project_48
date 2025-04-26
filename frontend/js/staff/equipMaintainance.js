@@ -247,7 +247,7 @@ export function initStaff_equipmentMaintain() {
 
 
         if (!maintenanceDate || !details || !nextMaintenanceDate) {
-            alert("Please fill in all fields.");
+            showToast("Please fill in all fields.", "error");
             return;
         }
 
@@ -256,7 +256,7 @@ export function initStaff_equipmentMaintain() {
         const nextMaintenanceDateObj = new Date(nextMaintenanceDate);
 
         if (nextMaintenanceDateObj <= maintenanceDateObj) {
-            alert("Next Maintenance Date must be later than the Maintenance Date.");
+            showToast("Next Maintenance Date must be later than the Maintenance Date.", "error");
             return;
         }
 
@@ -404,7 +404,7 @@ document.getElementById('equipmentName').classList.add('has-suggestions');
 document.getElementById('equipmentName').classList.remove('has-suggestions');
 
 
-    document.getElementById('equipmentForm').addEventListener('submit', (event) => {
+document.getElementById('equipmentForm').addEventListener('submit', (event) => {
         event.preventDefault();
 
         console.log("Add maintenance record form submitted");
@@ -420,11 +420,11 @@ document.getElementById('equipmentName').classList.remove('has-suggestions');
 
         // Validate the form inputs
         if (!equipmentID || isNaN(equipmentID)) {
-            alert("Please enter a valid Equipment ID.");
+            showToast("Please select a valid equipment.", "error");
             return;
         }
         if (!maintainanceDate || !maintenanceDetails || !nextMaintenanceDate) {
-            alert("Please fill in all fields.");
+            showToast("Please fill in all fields.", "error");
             return;
         }
 
@@ -433,7 +433,7 @@ document.getElementById('equipmentName').classList.remove('has-suggestions');
         const nextMaintenanceDateObj = new Date(nextMaintenanceDate);
 
         if (nextMaintenanceDateObj <= maintenanceDateObj) {
-            alert("Next Maintenance Date must be later than the Maintenance Date.");
+            showToast("Next Maintenance Date must be later than the Maintenance Date.", "error");
             return;
         }
 
