@@ -12,54 +12,63 @@
 
   <div class="content">
 
-    <div class="card-container">
-
-      <div class="notice-container" id="noticesFeature" style="display: none;">
-        <h2>Notices</h2>
-        <div id="noticeContent"></div>
-        <label>
-          <input type="checkbox" id="readCheckbox"> Mark as Read
-        </label>
-      </div>
-
-      <div class="gym-card" id="gymCrowdFeature">
-        <h2>Gym Crowd</h2>
-        <p class="date" id="dateDisplay">Friday</p>
-        <progress id="gymProgress" value="0" max="100"></progress>
-        <p class="member-count" id="memberCount">Members Present: 0</p>
-      </div>
-
-      <!-- ✅ NEW ATTENDANCE CARD -->
-      <div class="attendance-card" id="attendanceFeature">
-        <div class="toggle-button">
-          <input type="checkbox" id="toggle" class="toggleCheckbox" />
-          <label for="toggle" class='toggleContainer'>
-            <div>Arrived</div>
-            <div>Left</div>
+    <div id="MP2FeatureContainer" style="display: none;">
+      <div class="card-container">
+        <div class="notice-container" id="noticesFeature">
+          <h2>Notices</h2>
+          <div id="noticeContent"></div>
+          <label>
+            <input type="checkbox" id="readCheckbox"> Mark as Read
           </label>
         </div>
 
-        <div class="attendance-section">
-          <button id="markAttendanceBtn">Mark Attendance</button>
+        <div class="gym-card" id="gymCrowdFeature">
+          <h2>Gym Crowd</h2>
+          <p class="date" id="dateDisplay">Friday</p>
+          <progress id="gymProgress" value="0" max="100"></progress>
+          <p class="member-count" id="memberCount">Members Present: 0</p>
         </div>
-      </div>
 
-      <div id="qrModal" class="qr-modal">
-        <div class="qr-modal-content">
-          <span class="close-btn">&times;</span>
-          <h3>Scan this QR Code</h3>
-          <div id="qrCode"></div>
+        <!-- ✅ NEW ATTENDANCE CARD -->
+        <div class="attendance-card" id="attendanceFeature">
+          <div class="toggle-button">
+            <input type="checkbox" id="toggle" class="toggleCheckbox" />
+            <label for="toggle" class='toggleContainer'>
+              <div>Arrived</div>
+              <div>Left</div>
+            </label>
+          </div>
+
+          <div class="attendance-section">
+            <button id="markAttendanceBtn">Mark Attendance</button>
+          </div>
         </div>
-      </div>
-      <div id="planUpgradePopup" class="popup" style="display: none;">
-        <button id="close-planUpgradePopup" class="close-button">&times;</button> <!-- Close button -->
-        <p class="upgrade-message"></p>
-        <button id="upgradePlanBtn" class="popup-buttons popup-confirm">Upgrade Now</button>
-      </div>
 
+        <div id="qrModal" class="qr-modal">
+          <div class="qr-modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>Scan this QR Code</h3>
+            <div id="qrCode"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div id="MP2ContentContainer" class="feature-container" style="display: none;">
+      <div class="upgrade-plan-container">
+        <h3>Unlock Premium Features!</h3>
+        <p>Upgrade to a membership plan to access exclusive premium features, including:</p>
+        <ul>
+          <li>Personal trainer</li>
+          <li>Personalized Workout Plans</li>
+          <li>Access to Trainer Sessions</li>
+          <li>Personalized Meal Plans</li>
+        </ul>
+        <button class="upgrade-btn" id="upgradePlanBtn2">Upgrade Your Plan</button>
+      </div>
     </div>
 
-    <div class="content-bottom" id="calendarFeatureContainer">
+    <div class="content-bottom" id="MP3FeatureContainer" style="display: none;">
       <div id="calendarFeature" class="content-bottom">
         <iframe id="task-calendar-iframe"
           src="/Group_Project_48/frontend/components/calendar/memberCalendar/calendar.html"
@@ -67,7 +76,49 @@
         </iframe>
       </div>
     </div>
+    <div id="MP1FeatureContainer" class="feature-container" style="display: none;">
+      <div class="welcome-message">
+        <h2>Welcome to GymVerse!</h2>
+        <p>Your fitness journey starts here. As a Free Plan member, you have access to our gym's essential features.
+          Start by creating your workout and meal plans to track your progress and get the most out of your experience.
+        </p>
+      </div>
+
+      <div class="action-container">
+        <div class="action-box">
+          <h3>Create Your Workout Plan Today!</h3>
+          <p>Ready to take the first step? Plan your workouts and track your fitness journey with GymVerse's easy-to-use
+            workout planner.</p>
+          <button class="action-btn" id="createWorkoutBtn">Create Workout Plan</button>
+        </div>
+
+        <div class="action-box">
+          <h3>Plan Your Meals & Nutrition</h3>
+          <p>Get on top of your nutrition with GymVerse’s meal planner. Plan your meals and make healthier food
+            choices.</p>
+          <button class="action-btn" id="createMealBtn">Create Meal Plan</button>
+        </div>
+      </div>
+
+      <div class="upgrade-plan-container">
+        <h3>Unlock Premium Features!</h3>
+        <p>Upgrade to a higher membership plan to access exclusive features, including:</p>
+        <ul>
+          <li>Personal trainer</li>
+          <li>Personalized Workout Plans</li>
+          <li>Access to Trainer Sessions</li>
+          <li>Personalized Meal Plans</li>
+          <li>Full Gym Access</li>
+        </ul>
+        <button class="upgrade-btn" id="upgradePlanBtn">Upgrade Your Plan</button>
+      </div>
+    </div>
+
     <div id="global-toast-container" class="global-toast-container"></div>
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="spinner hidden">
+      <div class="spinner-circle"></div>
+    </div>
 
   </div>
 

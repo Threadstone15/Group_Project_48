@@ -3,25 +3,85 @@ import { runSessionTimedOut } from "../routeConfig.js";
 import { verifyMembershipPlan } from "./memberCommonFunc.js";
 
 export function initMember_home() {
+
+  const spinner = document.getElementById("loading-spinner");
+  spinner.classList.remove("hidden");
   let isMembershipPlanVerified = false;
-  
+
   checkMembershipPlan();
   async function checkMembershipPlan() {
-    let isMembershipPlanVerified = false;
     isMembershipPlanVerified = await verifyMembershipPlan();
-  
+
     if (!isMembershipPlanVerified) {
       showToast("Selected Membership plan verification failed. Redirecting to login", "error");
       setTimeout(() => {
         runSessionTimedOut();
       }, 4000);
-      return; 
+      return;
     } else {
-      controlAccessToFeatures(); 
+      // console.log(isMembershipPlanVerified);
+      controlAccessToFeatures();
     }
   }
-  
-  
+
+  function controlAccessToFeatures() {
+    const basePlanID = localStorage.getItem("basePlanID");
+    const basicPlanFeatures = document.getElementById('MP1FeatureContainer');
+    const standardPlanFeatures = document.getElementById('MP2FeatureContainer');
+    const standardPlanContentContainer = document.getElementById('MP2ContentContainer');
+    const premiumPlanFeatures = document.getElementById('MP3FeatureContainer');
+
+    if (basePlanID === "MP1") {
+      //eneabling basic plan features
+      basicPlanFeatures.style.display = 'flex';
+      //disabling standard and premium plan features
+      standardPlanFeatures.style.display = 'none'; 
+      standardPlanContentContainer.style.display = 'none';
+      premiumPlanFeatures.style.display = 'none';
+      //hiding spinner
+      spinner.classList.add("hidden");
+
+    } else if (basePlanID === "MP2") {
+      //eneabling standard plan features
+      standardPlanFeatures.style.display = 'block';
+      standardPlanContentContainer.style.display = 'flex';
+      //disabling basic and premium plan features
+      basicPlanFeatures.style.display = 'none';
+      premiumPlanFeatures.style.display = 'none';
+
+      updateGymData();
+      updateAttendance();
+      //hiding spinner
+      spinner.classList.add("hidden");
+    } else if (basePlanID === "MP3") {
+      //eneabling premium and standard plan features
+      premiumPlanFeatures.style.display = 'block';
+      standardPlanFeatures.style.display = 'block';
+      //disabling basic plan features and standard plan content container
+      basicPlanFeatures.style.display = 'none';
+      standardPlanContentContainer.style.display = 'none';
+      
+      updateGymData();
+      updateAttendance();
+      //hiding spinner
+      spinner.classList.add("hidden");
+    }
+  }
+
+  document.getElementById("createWorkoutBtn").addEventListener("click", () => {
+    navigate("member/workoutPlans");
+  });
+  document.getElementById("createMealBtn").addEventListener("click", () => {
+    navigate("member/workoutMealPlans");
+  });
+  document.getElementById("upgradePlanBtn").addEventListener("click", () => {
+    navigate("member/upgradePlan");
+  });
+  document.getElementById("upgradePlanBtn2").addEventListener("click", () => {
+    navigate("member/upgradePlan");
+  });
+
+
 
   // Load QRCode.js library (optional, only if not in HTML already)
   const qrScript = document.createElement('script');
@@ -42,7 +102,10 @@ export function initMember_home() {
       const token = localStorage.getItem('authToken');
 
       if (!token) {
-        alert("User token not found in localStorage.");
+        showToast("User token not found in localStorage", "error");
+        setTimeout(() => {
+          runSessionTimedOut();
+        }, 4000);
         return;
       }
 
@@ -199,67 +262,8 @@ export function initMember_home() {
       .catch(error => console.error("Error fetching gym data:", error));
   }
 
-  function controlAccessToFeatures() {
-    const basePlanID = localStorage.getItem("basePlanID");
-    if (isMembershipPlanVerified) {
-      const noticesFeature = document.getElementById('noticesFeature');
-      const gymCrowdFeature = document.getElementById('gymCrowdFeature');
-      const attendanceFeature = document.getElementById('attendanceFeature');
-      const calendarFeature = document.getElementById('calendarFeature');
-      const upgradePlanPopup = document.getElementById("planUpgradePopup");
-
-      if (basePlanID === "MP1") {
-        noticesFeature?.classList.add("disabled-feature");
-        gymCrowdFeature?.classList.add("disabled-feature");
-        attendanceFeature?.classList.add("disabled-feature");
-        calendarFeature?.classList.add("disabled-feature");
-
-        //showing upgrade plan popup
-        upgradePlanPopup.querySelector(".upgrade-message").textContent = '';
-        upgradePlanPopup.querySelector(".upgrade-message").textContent = "Upgrade your plan to get access to these exclusive features!";
-        upgradePlanPopup.style.display = 'block';
-
-      } else if (basePlanID === "MP2") {
-        noticesFeature?.classList.remove("disabled-feature");
-        gymCrowdFeature?.classList.remove("disabled-feature");
-        attendanceFeature?.classList.remove("disabled-feature");
-        calendarFeature?.classList.add("disabled-feature");
-        //closing the upgrade plan popup
-        upgradePlanPopup.style.display = 'none';
-
-        document.getElementById('calendarFeatureContainer').onclick = () => {
-          //showing upgrade plan popup
-          upgradePlanPopup.querySelector(".upgrade-message").textContent = '';
-          upgradePlanPopup.querySelector(".upgrade-message").textContent = "Upgrade your plan to enroll in trainer sessions!";
-          upgradePlanPopup.style.display = 'block';
-        };
-
-        updateGymData();
-        updateAttendance();
-      } else if (basePlanID === "MP3") {
-        noticesFeature?.classList.remove("disabled-feature");
-        gymCrowdFeature?.classList.remove("disabled-feature");
-        attendanceFeature?.classList.remove("disabled-feature");
-        calendarFeature?.classList.remove("disabled-feature");
-        //closing the upgrade plan popup
-        upgradePlanPopup.style.display = 'none';
-
-        updateGymData();
-        updateAttendance();
-      }
-    }
-  }
-
-  document.getElementById("close-planUpgradePopup").onclick = () => {
-    document.getElementById("planUpgradePopup").style.display = "none";
-  };
-
-  document.getElementById("upgradePlanBtn").onclick = () => {
-    navigate('member/upgradePlan');
-  };
-
   //setInterval(updateAttendance, 5000);
-  
+
   window.addEventListener('message', (event) => {
     if (event.data.call === 'SHOW_TOAST') {
       const container = document.getElementById('global-toast-container');

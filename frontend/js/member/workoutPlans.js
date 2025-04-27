@@ -1,7 +1,45 @@
 import { navigate } from "../router.js";
+import { runSessionTimedOut } from "../routeConfig.js";
+import { verifyMembershipPlan } from "./memberCommonFunc.js";
 
 export function initMember_workoutPlans() {
   console.log('initializing workoutPlans.js');
+  const spinner = document.getElementById("loading-spinner");
+  spinner.classList.remove("hidden");
+  let isMembershipPlanVerified = false;
+
+  checkMembershipPlan();
+  async function checkMembershipPlan() {
+    isMembershipPlanVerified = await verifyMembershipPlan();
+
+    if (!isMembershipPlanVerified) {
+      showToast("Selected Membership plan verification failed. Redirecting to login", "error");
+      setTimeout(() => {
+        runSessionTimedOut();
+      }, 4000);
+      return;
+    } else {
+      // console.log(isMembershipPlanVerified);
+      controlAccessToFeatures();
+    }
+  }
+
+  function controlAccessToFeatures() {
+    const basePlanID = localStorage.getItem("basePlanID");
+    const premiumPlanFeatures = document.getElementById('request-plan-container');
+    if(basePlanID === 'MP3'){
+      //eneabling premium plan features
+      premiumPlanFeatures.style.display = 'block';
+      //hiding spinner
+      spinner.classList.add("hidden");
+    }else{
+      //disabling premium plan features
+      premiumPlanFeatures.style.display = 'none';
+      //hiding spinner
+      spinner.classList.add("hidden");
+    }
+
+  }
 
   // Get DOM Elements
   const workoutDaysContainer = document.querySelector('.workout-days-container');
@@ -20,12 +58,6 @@ export function initMember_workoutPlans() {
 
 
   const authToken = localStorage.getItem('authToken');
-  const basePlanID = localStorage.getItem('basePlanID');
-
-  if(basePlanID === 'MP3'){
-    // If the user has choosen a plan which includes premium plan feaatures, shhow the request plan container
-    document.getElementById('request-plan-container').style.display = 'block';
-  }
   let assignedTrainerId = null;
 
   requestBtn.addEventListener('click', async () => {
@@ -254,7 +286,7 @@ export function initMember_workoutPlans() {
         exerciseInput.value = document.getElementById('edit-exercise-name').value;
         setsInput.value = document.getElementById('edit-sets').value;
         repsInput.value = document.getElementById('edit-reps').value;
-        alert('Exercise updated successfully!');
+        showToast('Exercise updated successfully!', "success");
       },
       onCancel: () => console.log('Edit canceled.')
     });
@@ -268,7 +300,7 @@ export function initMember_workoutPlans() {
       content,
       onConfirm: () => {
         exerciseRow.remove();
-        alert('Exercise deleted successfully!');
+        showToast('Exercise deleted successfully!', "success");
       },
       onCancel: () => console.log('Delete canceled.')
     });
@@ -324,7 +356,10 @@ export function initMember_workoutPlans() {
     }
 
     if (!authToken) {
-      alert("Auth token not found. Please log in.");
+      showToast("Auth token not found. Please log in again", 'error');
+      setTimeout(() => {
+        runSessionTimedOut();
+      }, 4000);
       return;
     }
 

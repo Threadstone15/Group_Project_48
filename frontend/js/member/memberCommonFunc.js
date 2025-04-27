@@ -24,6 +24,7 @@ export function verifyMembershipPlan() {
       fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=verify_membership_plan", requestOptions)
         .then(response => response.json())
         .then(data => {
+            console.log(data);
           if (data.error && data.error === "Token expired") {
             throw new Error("Token expired");
           }
