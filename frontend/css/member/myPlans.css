@@ -32,25 +32,27 @@ body {
 } */
 
 .container {
-  max-width: 1200px;
+  align-items: left;
+  margin-top: 50px;
+  margin-left: 50px;
+  /* max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   background-color: white;
   border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow); */
 }
 
 .title {
-  text-align: center;
+  text-align: left;
   margin-bottom: 30px;
-  color: var(--primary-color);
   font-weight: 700;
 }
 
 /* Buttons */
 .main-buttons {
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
   gap: 20px;
   margin-bottom: 30px;
 }
@@ -66,6 +68,7 @@ body {
   cursor: pointer;
   transition: var(--transition);
   box-shadow: var(--box-shadow);
+  margin: 10px 20px;
 }
 
 .primary-btn:hover {
@@ -446,5 +449,87 @@ body {
   
   .plan-meta {
     font-size: 14px;
+  }
+}
+
+/* Spinner Overlay Container */
+.spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+/* The Circle Spinner */
+.spinner-circle {
+  width: 50px;
+  height: 50px;
+  border: 6px solid #ffffff;
+  border-top: 6px solid #ff5f00;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Hide spinner when needed */
+.hidden {
+  display: none;
+}
+
+
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.toast {
+  margin-bottom: 10px;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: white;
+  background-color: #333;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  animation: fadeInOut 4s forwards;
+}
+
+
+.toast.success {
+  background-color: #28a745;
+}
+
+.toast.error {
+  background-color: #dc3545;
+}
+
+@keyframes fadeInOut {
+  0% {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+
+  10%,
+  90% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  100% {
+      opacity: 0;
+      transform: translateY(-20px);
   }
 }

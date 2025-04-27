@@ -8,8 +8,14 @@
 
 </head>
 <body>
+  <div id="overlay" class="overlay"></div>
   <div class="container">
-    <h1 class="title">Choose a Plan</h1>
+    <h1 class="title">View Available Workout plans and Meal plans</h1>
+    <p>Here, you can easily view and customize your workout and meal plans to fit your goals. 
+    </p><p>Whether
+       you're looking to adjust your routine or make it more challenging, you're in control. 
+    </p>
+    <p style="margin-bottom: 30px;">Start tracking a workout plan and log your fitness progress</p>
     <div class="main-buttons">
       <button id="workoutBtn" class="primary-btn">Workout Plans</button>
       <button id="mealBtn" class="primary-btn">Meal Plans</button>
@@ -98,6 +104,11 @@
     </form>
   </div>
 </div>
+<!-- Loading Spinner -->
+<div id="loading-spinner" class="spinner hidden">
+  <div class="spinner-circle"></div>
+</div>
+<div id="toast-container" class="toast-container"></div>
 
 
 
