@@ -90,12 +90,13 @@ export function initTrainer_planRequests() {
         requestsTableBody.innerHTML = '<tr><td colspan="4" style="text-align: center;">No requests found</td></tr>';
       } else {
         filteredRequests.forEach(request => {
+          console.log(request);
           const row = document.createElement('tr');
           row.innerHTML = `
             <td>${request.full_name}</td>
             <td>${request.member_id}</td>
             <td>${request.message || 'No message'}</td>
-            <td>${new Date(request.requested_time).toLocaleString()}</td>
+            <td>${request.created_at}</td>
             <td>
               <button class="action-btn accept-btn" data-id="${request.id}" data-member-id="${request.member_id}">Generate</button>
               <button class="action-btn reject-btn" data-id="${request.id}">Reject</button>
