@@ -844,3 +844,39 @@ iframe {
   align-items: center;
   margin-bottom: 20px;
 }
+
+.event-buttons {
+  align-items: center;
+  margin: 10px;
+}
+
+.enroll-btn{
+  background-color: #fff;
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #FF5F00;
+  width: 100px;
+}
+
+.enroll-btn:hover {
+  background-color: #e5e5e5;
+  color: #FF5F00; 
+  cursor: pointer;
+}
+
+.cancel-enroll-btn{
+  background-color: #fff;
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #282828;
+}
+
+.cancel-enroll-btn:hover {
+  background-color: #dbdbdb;
+  color: #282828; 
+  cursor: pointer;
+}

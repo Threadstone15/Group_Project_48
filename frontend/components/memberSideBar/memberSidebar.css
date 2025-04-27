@@ -27,7 +27,7 @@ body {
   flex-basis: 350px;
   width: 100%; 
   flex-shrink: 0;
-  height: 100vh; 
+  height: 110vh; 
   background-color: var(--sidebar);
   display: flex;
   flex-direction: column;
@@ -67,7 +67,7 @@ body {
   }
   
   .sidebar-menu li {
-    margin: 15px 0;
+    margin: 11px 0;
     font-family: 'Poppins', sans-serif;
   }
   

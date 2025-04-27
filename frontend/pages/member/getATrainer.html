@@ -9,12 +9,15 @@
 </head>
 
 <body>
-  <section class="trainers" id="assignedTrainerFeature">
+  <section id="assignedTrainerFeature" style="display: none;" class="assigned-trainer-container">
+    <div class="assigned-trainer-profile-header">
+      <h2 class="trainer-profile-title">Your Currently Assigned Trainer : </h2>
+    </div>
     <div id="assigned-trainer" class="trainer-profile"></div>
   </section>
   <section class="trainers" id="selectTrainerFeature">
     <!-- Trainer Profile 1 -->
-    <div id="trainers-profiles" class="trainers-profiles">
+    <div id="trainers-profiles" class="trainers">
     </div>
   </section>
   <div id="toast-container" class="toast-container"></div>
@@ -26,7 +29,13 @@
         <li>Access to exclusive training sessions</li>
       </ul>
     </p>
-    <button id="upgradePlanBtn" class="popup-buttons popup-confirm">Upgrade Now</button>
+    <div class="popup-buttons">
+      <button id="upgradePlanBtn" class="popup-confirm">Upgrade Now</button>
+    </div>
+  </div>
+  <!-- Loading Spinner -->
+  <div id="loading-spinner" class="spinner hidden">
+    <div class="spinner-circle"></div>
   </div>
 </body>
 

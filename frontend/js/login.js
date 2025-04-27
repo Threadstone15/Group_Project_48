@@ -40,6 +40,31 @@ export function initlogin() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+
+    if (!email && !password) {
+      showFormResponse('Email and Password is required', "error");
+      return false;
+    }
+
+    if (!email) {
+      showFormResponse('Email is required' , "error");
+      return false;
+    }
+
+    if (!validateEmail(email)) {
+      showFormResponse('Please enter a valid email address' , "error");
+      return false;
+    }
+
+    if (!password) {
+      showFormResponse('Password is required', "error");
+      return false;
+    }
+
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -68,9 +93,9 @@ export function initlogin() {
           switch (data.role) {
             case 'staff': navigate('staff/staffHome'); break;
             case 'admin': navigate('admin/adminHome'); break;
-            case 'member': 
+            case 'member':
               localStorage.setItem('basePlanID', data.base_plan_id);
-              navigate('member/memberHome'); 
+              navigate('member/memberHome');
               break;
             case 'owner': navigate('owner/ownerHome'); break;
             case 'trainer': navigate('trainer/trainerHome'); break;

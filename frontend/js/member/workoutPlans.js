@@ -1,5 +1,45 @@
+import { navigate } from "../router.js";
+import { runSessionTimedOut } from "../routeConfig.js";
+import { verifyMembershipPlan } from "./memberCommonFunc.js";
+
 export function initMember_workoutPlans() {
   console.log('initializing workoutPlans.js');
+  const spinner = document.getElementById("loading-spinner");
+  spinner.classList.remove("hidden");
+  let isMembershipPlanVerified = false;
+
+  checkMembershipPlan();
+  async function checkMembershipPlan() {
+    isMembershipPlanVerified = await verifyMembershipPlan();
+
+    if (!isMembershipPlanVerified) {
+      showToast("Selected Membership plan verification failed. Redirecting to login", "error");
+      setTimeout(() => {
+        runSessionTimedOut();
+      }, 4000);
+      return;
+    } else {
+      // console.log(isMembershipPlanVerified);
+      controlAccessToFeatures();
+    }
+  }
+
+  function controlAccessToFeatures() {
+    const basePlanID = localStorage.getItem("basePlanID");
+    const premiumPlanFeatures = document.getElementById('request-plan-container');
+    if(basePlanID === 'MP3'){
+      //eneabling premium plan features
+      premiumPlanFeatures.style.display = 'block';
+      //hiding spinner
+      spinner.classList.add("hidden");
+    }else{
+      //disabling premium plan features
+      premiumPlanFeatures.style.display = 'none';
+      //hiding spinner
+      spinner.classList.add("hidden");
+    }
+
+  }
 
   // Get DOM Elements
   const workoutDaysContainer = document.querySelector('.workout-days-container');
@@ -10,15 +50,20 @@ export function initMember_workoutPlans() {
   const modal = document.getElementById('requestModal');
   const closeBtn = document.querySelector('.close1-btn');
   const messageArea = document.getElementById('modal1-message-area');
-  const noTrainerMsg = document.getElementById('no-trainer-msg');
+  const noTrainerModal = document.getElementById('no-trainer-modal');
   const sendMessageBtn = document.getElementById('sendMessageBtn');
   const trainerMessage = document.getElementById('trainerMessage');
+  const plannerModal = document.getElementById('plannerModal');
+  const closePlannerBtn = document.getElementById('closePlannerBtn');
+
 
   const authToken = localStorage.getItem('authToken');
   let assignedTrainerId = null;
 
   requestBtn.addEventListener('click', async () => {
     try {
+      //adding spinner
+      spinner.classList.remove("hidden");
       const res = await fetch('http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=check_trainer', {
         headers: {
           'Authorization': `Bearer ${authToken}`
@@ -26,18 +71,23 @@ export function initMember_workoutPlans() {
       });
       const data = await res.json();
       console.log(data);
-      modal.classList.remove('hidden1');
       if (data && data.trainer_id) {
         assignedTrainerId = data.trainer_id;
         messageArea.classList.remove('hidden1');
-        noTrainerMsg.classList.add('hidden1');
+        noTrainerModal.classList.add('hidden1');
+        modal.classList.remove('hidden1');
       } else {
         messageArea.classList.add('hidden1');
-        noTrainerMsg.classList.remove('hidden1');
+        modal.classList.add('hidden1');
+        noTrainerModal.classList.remove('hidden1');
       }
+      //hiding spinner
+      spinner.classList.add("hidden");
     } catch (err) {
-      alert('Error checking trainer status.');
+      showToast('Error checking trainer status.', 'error');
       console.error(err);
+      //hiding spinner
+      spinner.classList.add("hidden");
     }
   });
 
@@ -46,9 +96,20 @@ export function initMember_workoutPlans() {
     trainerMessage.value = '';
   });
 
+  //closing the no trainer modal when clicked on the close button
+  document.getElementById('close-no-trainer-modal-button').addEventListener('click', () => {
+    noTrainerModal.classList.add('hidden1');
+  });
+
+  //when request -> no trainer selected -> get a trainer button is clicked -> navigate to the trainer selection page
+  document.getElementById('select-trainer-button').addEventListener('click', () => {
+    noTrainerModal.classList.add('hidden1');
+    navigate('member/getATrainer');
+  });
+
   sendMessageBtn.addEventListener('click', async () => {
     const message = trainerMessage.value.trim();
-    if (!message) return alert('Please enter a message.');
+    if (!message) return showToast('Please enter a message within the request', 'error');
 
     try {
       const res = await fetch('http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=request_workout_plan', {
@@ -57,7 +118,7 @@ export function initMember_workoutPlans() {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${authToken}`,
         },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
           message: message,
           trainer_id: assignedTrainerId
         })
@@ -66,13 +127,18 @@ export function initMember_workoutPlans() {
       const result = await res.json();
       if (!res.ok) throw new Error(result.message || 'Failed to send message.');
 
-      alert('Request sent successfully!');
+      showToast('Request sent successfully!', 'success');
       modal.classList.add('hidden1');
       trainerMessage.value = '';
     } catch (err) {
       console.error(err);
-      alert('Failed to send message.');
+      showToast('Failed to send the request. Please try again.', 'error');
     }
+  });
+
+  document.getElementById('close-request-btn').addEventListener('click', () => {
+    modal.classList.add('hidden1');
+    trainerMessage.value = '';
   });
 
   // Function to generate the workout planner
@@ -80,11 +146,13 @@ export function initMember_workoutPlans() {
     const workoutDays = parseInt(workoutDaysInput.value);
 
     if (!workoutDays || workoutDays < 1 || workoutDays > 7) {
-      alert('Please enter a valid number of days (1-7).');
+      showToast('Please enter a valid number of days (1-7)', 'error');
       return;
     }
 
-    workoutDaysContainer.style.display = 'none';
+    plannerModal.classList.remove('hidden1');
+
+    // workoutDaysContainer.style.display = 'none';
     workoutPlannerContainer.innerHTML = '';
 
     for (let i = 1; i <= workoutDays; i++) {
@@ -119,6 +187,10 @@ export function initMember_workoutPlans() {
     saveButton.addEventListener('click', sendWorkoutPlanToBackend);
     workoutPlannerContainer.appendChild(saveButton);
   }
+
+  closePlannerBtn.addEventListener('click', () => {
+    plannerModal.classList.add('hidden1');
+  });
 
   // Function to add an exercise row
   function addExerciseRow(container) {
@@ -220,7 +292,7 @@ export function initMember_workoutPlans() {
         exerciseInput.value = document.getElementById('edit-exercise-name').value;
         setsInput.value = document.getElementById('edit-sets').value;
         repsInput.value = document.getElementById('edit-reps').value;
-        alert('Exercise updated successfully!');
+        showToast('Exercise updated successfully!', "success");
       },
       onCancel: () => console.log('Edit canceled.')
     });
@@ -234,7 +306,7 @@ export function initMember_workoutPlans() {
       content,
       onConfirm: () => {
         exerciseRow.remove();
-        alert('Exercise deleted successfully!');
+        showToast('Exercise deleted successfully!', "success");
       },
       onCancel: () => console.log('Delete canceled.')
     });
@@ -266,14 +338,34 @@ export function initMember_workoutPlans() {
     return workoutPlan;
   }
 
+  function validateWorkoutPlanner() {
+    const inputs = document.querySelectorAll('.workout-planner input, .workout-planner select, .workout-planner textarea');
+
+    for (let input of inputs) {
+      if (input.value.trim() === '') {
+        showToast('Fields cannot be empty' ,"error");
+        return false;
+      }
+    }
+    return true;
+  }
+
+
   // Send workout plan to backend
   async function sendWorkoutPlanToBackend() {
     const workoutPlan = collectWorkoutPlanData();
     const authToken = localStorage.getItem("authToken");
     console.log(workoutPlan);
 
+    if (!validateWorkoutPlanner()) {
+      return;
+    }
+
     if (!authToken) {
-      alert("Auth token not found. Please log in.");
+      showToast("Auth token not found. Please log in again", 'error');
+      setTimeout(() => {
+        runSessionTimedOut();
+      }, 4000);
       return;
     }
 
@@ -290,9 +382,10 @@ export function initMember_workoutPlans() {
 
     const result = await response.json();
     if (response.ok) {
-      alert("Workout plan saved successfully!");
+      showToast("Workout plan saved successfully!", "success");
+      plannerModal.classList.add('hidden1');
     } else {
-      alert("Failed to save workout plan: " + result.message);
+      showToast("Failed to save workout plan: " + result.message, "error");
     }
   }
 
@@ -301,4 +394,17 @@ export function initMember_workoutPlans() {
 
   // Initialize
   generatePlannerButton.addEventListener('click', generateWorkoutPlanner);
+
+  function showToast(message, type) {
+    const container = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.innerHTML = message;
+
+    container.appendChild(toast);
+
+    setTimeout(() => {
+      toast.remove();
+    }, 4000);
+  }
 }

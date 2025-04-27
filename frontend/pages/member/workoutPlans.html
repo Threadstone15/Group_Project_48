@@ -15,35 +15,57 @@
     <!-- Number of Workout Days Section -->
     <div class="workout-days-container">
       <h1>Create your own workout plan</h1>
+      <p style="width: 600px; margin-bottom: 20px;">Whether you’re aiming for strength, flexibility, or endurance, creating a workout plan puts you in control of your progress. Start now and see how consistency brings results!"</p>
       <div class="input-row">
         <label for="workout-days">How many workout days?</label>
         <input type="number" id="workout-days" min="1" max="7" placeholder="Enter number of days">
       </div>
       <button id="generate-planner">Generate Planner</button>
     </div>
-    <div class="request-plan-container">
+    <div class="request-plan-container" id="request-plan-container" style="display: none;">
       <h1>Request a Plan from your Trainer</h1>
+      <p style="width: 800px; margin-bottom: 20px;"> Not sure where to start? Our trainers are ready to design a workout plan tailored to your unique goals.  Simply let us know your fitness goals and preferences, and our trainers will create a workout schedule that's perfect for you.  </p>
       <button id="request-planner">Request Plan</button>
     </div>
 
-    <!-- Workout Planner Section -->
-    <div class="workout-table-wrapper">
-      <div id="workout-planner" class="workout-planner"></div>
+    <!-- Workout Planner Modal -->
+    <div id="plannerModal" class="modal1 hidden1">
+      <div class="modal1-content">
+        <span class="close1-btn" id="closePlannerBtn">&times;</span>
+        <h2>Workout Planner</h2>
+        <div id="workout-planner" class="workout-planner"></div>
+      </div>
     </div>
+
   </div>
 
   <div id="requestModal" class="modal1 hidden1">
     <div class="modal1-content">
-      <span class="close1-btn">&times;</span>
+      <span class="close1-btn" id="close-request-btn">&times;</span>
       <h2 id="modal1-title">Request a Workout Plan</h2>
-      <div id="modal1-message-area">
-        <textarea id="trainerMessage" placeholder="Write your message here..." rows="4" style="width: 100%;"></textarea>
-        <button id="sendMessageBtn">Send</button>
+      <p style="text-align: left; border: 10px;">Please mention your fitness goals, medical conditions, current height
+        and weight, and age within the request message</p>
+      <p style="color: #dc3545; font-size: 14px; text-align: left;">**Note that the requested data will only be used for
+        creating an efficient workout plan and no any other purposes</p>
+      <div id="modal1-message-area" style="margin: 10px;">
+        <textarea id="trainerMessage" placeholder="Write your message here..." rows="10"
+          style="width: 100%; font-family: 'Poppins', sans-serif; font-size: 16px;"></textarea>
+        <button id="sendMessageBtn" class="save-workout-btn">Send</button>
       </div>
-      <p id="no-trainer-msg" class="hidden1">Sorry, you don't have any trainers assigned.</p>
     </div>
   </div>
-
+  <div id="no-trainer-modal" class="modal1 hidden1">
+    <div class="modal1-content" style="width: 400px; height: 200px;">
+      <span class="close1-btn" id="close-no-trainer-modal-button">&times;</span>
+      <p id="no-trainer-msg" style="margin: 20px 10px;">Please select a trainer first</p>
+      <button id="select-trainer-button" class="save-workout-btn" style="width: 300px;">Get A Trainer</button>
+    </div>
+  </div>
+  <div id="toast-container" class="toast-container"></div>
+  <!-- Loading Spinner -->
+  <div id="loading-spinner" class="spinner hidden">
+    <div class="spinner-circle"></div>
+  </div>
   <!-- <script src="/Group_Project_48/frontend/js/member/workoutMealPlans.js"></script> -->
 </body>
 
