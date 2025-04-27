@@ -100,6 +100,7 @@ export function initStaff_equipmentMaintain() {
                         const row = document.createElement("tr");
 
                         row.innerHTML = `
+                        <td>${equipment['maintenance_id']}</td>
                         <td>${equipment['name']}</td>
                         <td>${equipment['maintenance_date']}</td>
                         <td>${equipment['details']}</td>
@@ -120,7 +121,7 @@ export function initStaff_equipmentMaintain() {
                     }
                 } else {
                     const noDataRow = document.createElement("tr");
-                    noDataRow.innerHTML = `<td colspan="6" style="text-align: center;">No equipment found</td>`;
+                    noDataRow.innerHTML = `<td colspan="7" style="text-align: center;">No equipment found</td>`;
                     tableBody.appendChild(noDataRow);
                 }
             })
