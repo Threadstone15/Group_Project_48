@@ -104,7 +104,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 998;
   opacity: 0;
   visibility: hidden;
   transition: var(--transition);
@@ -532,4 +532,46 @@ body {
       opacity: 0;
       transform: translateY(-20px);
   }
+}
+
+/* Basic styling for the confirmation popup */
+.confirmation-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.confirmation-popup button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: var(--primary-color);
+  color: white;
+}
+.confirmation-popup button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
 }

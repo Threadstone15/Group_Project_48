@@ -50,13 +50,20 @@ export function initMember_myPlans() {
     // Plan list modal handler
     planListModal?.addEventListener('click', async (e) => {
         if (e.target.classList.contains('close-btn')) {
-            planListModal?.classList.add('hidden');
+            switch(e.target.id){
+                case 'close-planListModal':
+                    planListModal?.classList.add('hidden');
+                    break;
+            }
+            // planListModal?.classList.add('hidden');
         } else if (e.target.classList.contains('delete-btn')) {
             const id = e.target.dataset.id;
             const category = e.target.dataset.category;
-            if(id && category) {
-                await deletePlan(id, category);
-            }
+            //display confirmation popup
+            const confirmationMessage = "Are you sure you want to delete this plan?";
+            showConfirmationPopup(confirmationMessage, function () {
+                deletePlan(id, category);
+            });
             // if (confirm("Are you sure you want to delete this plan?")) {
             //     await deletePlan(id, category);
             // }
@@ -105,18 +112,30 @@ export function initMember_myPlans() {
             }
 
             if (currentlyTrackedPlanId == id) {
-                if (confirm("This plan is already being tracked. Do you want to stop tracking it?")) {
-                    await stopTrackingPlan(id);
-                }
+                // if (confirm("This plan is already being tracked. Do you want to stop tracking it?")) {
+                //     await stopTrackingPlan(id);
+                // }
+                //display confirmation popup
+                const confirmationMessage = "This plan is already being tracked. Do you want to stop tracking it?";
+                showConfirmationPopup(confirmationMessage, function () {
+                    stopTrackingPlan(id);
+                });
             } else {
                 if (currentlyTrackedPlanId) {
-                    if (!confirm("You're already tracking another plan. Switching will lose your progress tracking. Continue?")) {
-                        return;
-                    }
+                    // if (!confirm("You're already tracking another plan. Switching will lose your progress tracking. Continue?")) {
+                    //     return;
+                    // }
+                    const confirmationMessage = "You're already tracking another plan. Switching will lose your progress tracking for the this plan. Continue?";
+                    showConfirmationPopup(confirmationMessage, function () {
+                        trackPlan(id);
+                    });
+                    return;
                 }
-                if (confirm("Do you want to track this workout plan? You can only track one plan at a time.")) {
-                    await trackPlan(id);
-                }
+                // Track the new plan
+                trackPlan(id);
+                // if (confirm("Do you want to track this workout plan? You can only track one plan at a time.")) {
+                //     await trackPlan(id);
+                // }
             }
         } else if (e.target.classList.contains('view-btn')) {
             const id = e.target.dataset.id;
@@ -174,10 +193,10 @@ export function initMember_myPlans() {
 
             document.getElementById('editMealPlanModal').classList.add('hidden');
             await fetchPlansFromBackend(category);
-            alert('Meal plan updated successfully!');
+            showToast('Meal plan updated successfully!', "success");
         } catch (error) {
             console.error('Error updating meal plan:', error);
-            alert('An error occurred while updating the plan.');
+            showToast('An error occurred while updating the plan.', "error");
         }
     });
 
@@ -235,10 +254,10 @@ export function initMember_myPlans() {
 
             document.getElementById('editWorkoutPlanModal').classList.add('hidden');
             await fetchPlansFromBackend(category);
-            alert('Workout plan updated successfully!');
+            showToast('Workout plan updated successfully!', "success");
         } catch (error) {
             console.error('Error updating workout plan:', error);
-            alert('An error occurred while updating the plan.');
+            showToast('An error occurred while updating the plan', "error");
         }
     });
 
@@ -252,13 +271,22 @@ export function initMember_myPlans() {
     });
 
     // Close buttons handler
-    document.querySelectorAll('.close-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.querySelectorAll('.modal').forEach(modal => {
-                modal.classList.add('hidden');
-            });
-        });
+    document.getElementById('close-planDetailsModal').addEventListener('click', () => {
+        document.getElementById('planDetailsModal').classList.add('hidden');
     });
+    document.getElementById('close-editMealPlanModal').addEventListener('click', () => {
+        document.getElementById('editMealPlanModal').classList.add('hidden');
+    });
+    document.getElementById('close-editWorkoutPlanModal').addEventListener('click',() => {
+        document.getElementById('editWorkoutPlanModal').classList.add('hidden');
+    });
+    // document.querySelectorAll('.close-btn').forEach(btn => {
+    //     btn.addEventListener('click', () => {
+    //         document.querySelectorAll('.modal').forEach(modal => {
+    //             modal.classList.add('hidden');
+    //         });
+    //     });
+    // });
 
     // Helper functions
     function displayPlanDetails(plan, category) {
@@ -375,7 +403,10 @@ export function initMember_myPlans() {
     async function trackPlan(planId) {
         const authToken = localStorage.getItem("authToken");
         if (!authToken) {
-            alert("Auth token not found. Please log in.");
+            showToast("Auth token not found. Please log in.", "error");
+            setTimeout(() => {
+                runSessionTimedOut();
+            }, 4000);
             return;
         }
         console.log("Tracking plan with ID:", planId);
@@ -394,7 +425,7 @@ export function initMember_myPlans() {
             if (!response.ok) throw new Error(result.message || "Failed to track plan.");
 
             currentlyTrackedPlanId = planId;
-            alert("Plan is now being tracked!");
+            showToast("Plan is now being tracked!", "success");
 
             // Refresh the plans list to update the track button status
             await fetchPlansFromBackend('workout');
@@ -402,14 +433,17 @@ export function initMember_myPlans() {
             renderPlans('workout', allPlans);
         } catch (error) {
             console.error("Error tracking plan:", error);
-            alert("An error occurred while tracking the plan.");
+            showToast("An error occurred while tracking the plan.", "error");
         }
     }
 
     async function stopTrackingPlan(planId) {
         const authToken = localStorage.getItem("authToken");
         if (!authToken) {
-            alert("Auth token not found. Please log in.");
+            showToast("Auth token not found. Please log in again.", "error");
+            setTimeout(() => {
+                runSessionTimedOut();
+            }, 4000);
             return;
         }
 
@@ -427,7 +461,7 @@ export function initMember_myPlans() {
             if (!response.ok) throw new Error(result.message || "Failed to stop tracking plan.");
 
             currentlyTrackedPlanId = null;
-            alert("Plan is no longer being tracked.");
+            showToast("Plan is no longer being tracked.", "success");
 
             // Refresh the plans list to update the track button status
             await fetchPlansFromBackend('workout');
@@ -435,7 +469,7 @@ export function initMember_myPlans() {
             renderPlans('workout', allPlans);
         } catch (error) {
             console.error("Error stopping tracking plan:", error);
-            alert("An error occurred while stopping tracking the plan.");
+            showToast("An error occurred while stopping tracking the plan.", "error");
         }
     }
 
@@ -444,7 +478,10 @@ export function initMember_myPlans() {
 
         const authToken = localStorage.getItem("authToken");
         if (!authToken) {
-            alert("Auth token not found. Please log in.");
+            showToast("Auth token not found. Please log in.", "error");
+            setTimeout(() => {
+                runSessionTimedOut();
+            }, 4000);
             return;
         }
 
@@ -468,7 +505,7 @@ export function initMember_myPlans() {
             localStorage.setItem(`${category}_plans`, JSON.stringify(data));
         } catch (error) {
             console.error("Error fetching plans:", error);
-            alert("An error occurred while fetching your plans.");
+            showToast("An error occurred while fetching your plans.", "error");
         }
     }
 
@@ -607,7 +644,7 @@ export function initMember_myPlans() {
 
             const result = await response.json();
             if (!response.ok) throw new Error(result.message || "Failed to delete plan.");
-            alert("Plan deleted successfully.");
+            showToast("Plan deleted successfully.", "success");
 
             // If we're deleting the currently tracked plan, stop tracking it
             if (currentlyTrackedPlanId == planId) {
@@ -619,20 +656,44 @@ export function initMember_myPlans() {
             renderPlans(category, updatedPlans);
         } catch (error) {
             console.error("Error deleting plan:", error);
-            alert("An error occurred while deleting the plan.");
+            showToast("An error occurred while deleting the plan.", "error");
         }
     }
+
+    function showConfirmationPopup(message, onConfirmCallback) {
+        const popupMessageElement = document.getElementById("popupMessage");
+        popupMessageElement.textContent = message; // Set the custom message
+
+        // Store the callback function to be triggered if confirmed
+        document.getElementById("confirmBtn").onclick = function () {
+            onConfirmCallback();  // Execute the callback function
+            hideConfirmationPopup(); // Close the popup
+        };
+
+        // Show the popup and overlay
+        document.getElementById("confirmationPopup").style.display = "block";
+        document.getElementById("overlay").style.display = "block";
+    }
+
+    // Function to hide the confirmation popup
+    function hideConfirmationPopup() {
+        document.getElementById("confirmationPopup").style.display = "none";
+        document.getElementById("overlay").style.display = "none";
+    }
+
+    // Event listener for the "No" button (cancel action)
+    document.getElementById("cancelBtn").addEventListener("click", hideConfirmationPopup);
 
     function showToast(message, type) {
         const container = document.getElementById('toast-container');
         const toast = document.createElement('div');
         toast.className = `toast ${type}`;
         toast.innerHTML = message;
-    
+
         container.appendChild(toast);
-    
+
         setTimeout(() => {
-          toast.remove();
+            toast.remove();
         }, 4000);
-      }
+    }
 }
