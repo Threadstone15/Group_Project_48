@@ -64,6 +64,7 @@ import { initStaff_home } from "./staff/staffHome.js";
 
 //import trainer dashboardPg js funcs
 import { initTrainer_assignedMembers } from "./trainer/assignedMembers.js";
+import { initTrainer_messages } from "./trainer/messages.js";
 import { initTrainer_classSchedule } from "./trainer/classSchedule.js";
 import { initTrainer_myAcnt } from "./trainer/myAcnt.js";
 import { initTrainer_home } from "./trainer/trainerHome.js";
@@ -127,6 +128,7 @@ export const validRoutes = {
         ],
         trainer: [
             "trainer/trainerHome",
+            "trainer/messages",
             "trainer/assignedMembers",
             "trainer/myAcnt",
             "trainer/classSchedule",
@@ -211,6 +213,7 @@ export function runDashboardPgJS(role, page) {
     if(role == 'trainer'){
         switch(page){
             case 'trainerHome' : initTrainer_home(); break;
+            case 'messages' : initTrainer_messages(); break;
             case 'classSchedule' : initTrainer_classSchedule(); break;
             case 'myAcnt' : initTrainer_myAcnt(); break;
             case 'trainerHome' : initTrainer_home(); break;
