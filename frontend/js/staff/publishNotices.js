@@ -117,14 +117,14 @@ export function initStaff_publishNotice() {
         })
             .then(response => {
                 if (!response.ok) throw new Error("Failed to add notice");
-                return response.text();
+                return response.json();
             })
             .then(() => {
                 showToast("Notice published successfully!", "success");
-                fetchNoticeList();
                 document.getElementById("noticeInput").value = "";
                 document.getElementById("noticeInputTopic").value = "";
                 document.getElementById("noticeDuration").value = "";
+                fetchNoticeList();
             })
             .catch(error => {
                 console.error("Error adding notice:", error);
