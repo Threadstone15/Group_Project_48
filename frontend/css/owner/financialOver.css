@@ -19,18 +19,11 @@ body {
 }
 
 
-/* Header styles */
-.header-container {
-  width: 100%;
-  text-align: center;
-  align-items: center; /* Centers child elements */
-  margin-top: 50px;
-}
-
 .header {
   font-size: 1.5rem;
   color: #616161;
   font-weight: 500;
+  margin-top: 30px;
 }
 
 
@@ -59,7 +52,7 @@ font-weight: 1000;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   flex-basis: 33.3%;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
   max-width: 600px; /* control the width */
 }
 
@@ -183,3 +176,23 @@ h2 {
 
 .toast.success { background-color: #28a745; }
 .toast.error { background-color: #dc3545; }
+
+.pdfBtn-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: end;
+  margin-top: 20px;
+}
+
+.pdfBtn {
+  background-color: #FF5F00; /* Orange background */
+  color: white; /* White text */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: poppins, sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}

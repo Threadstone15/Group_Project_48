@@ -183,7 +183,102 @@ export function initOwner_financialOver() {
             options: commonOptions
         };
     }
-
+    
+    function loadHtml2PdfScript() {
+        return new Promise((resolve, reject) => {
+            if (window.html2pdf) {
+                resolve();
+                return;
+            }
+            const script = document.createElement("script");
+            script.src = "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+        });
+    }
+    
+    const pdfBtn = document.getElementById("pdfBtn");
+    if (pdfBtn) {
+        pdfBtn.addEventListener("click", async () => {
+            console.log("PDF button clicked");
+        
+            // Show loading indicator
+            const spinner = document.createElement('div');
+            spinner.innerHTML = 'Generating PDF...';
+            spinner.style.position = 'fixed';
+            spinner.style.top = '50%';
+            spinner.style.left = '50%';
+            spinner.style.transform = 'translate(-50%, -50%)';
+            spinner.style.padding = '20px';
+            spinner.style.background = 'white';
+            spinner.style.border = '1px solid #FF5F00';
+            spinner.style.borderRadius = '5px';
+            spinner.style.zIndex = '10000';
+            spinner.style.color = '#FF5F00';
+            spinner.style.fontFamily = 'Poppins, sans-serif';
+            document.body.appendChild(spinner);
+    
+            try {
+                await loadHtml2PdfScript();
+                
+                // Create a container for just the chart and its title
+                const chartContainer = document.createElement('div');
+                chartContainer.style.padding = '20px';
+                chartContainer.style.backgroundColor = 'white';
+                
+                // Get the current chart title from the chart configuration
+                const chartTitle = financialChart?.options?.plugins?.title?.text || 'Financial Chart';
+                
+                // Add title to our container
+                const titleElement = document.createElement('h2');
+                titleElement.textContent = chartTitle;
+                titleElement.style.textAlign = 'center';
+                titleElement.style.color = '#FF5F00';
+                titleElement.style.marginBottom = '20px';
+                chartContainer.appendChild(titleElement);
+                
+                // Convert canvas to image and add to container
+                const canvas = document.getElementById('financialChart');
+                if (canvas) {
+                    await new Promise(resolve => setTimeout(resolve, 500)); // Wait for chart rendering
+                    const imgData = canvas.toDataURL('image/png');
+                    const img = document.createElement('img');
+                    img.src = imgData;
+                    img.style.maxWidth = '100%';
+                    img.style.display = 'block';
+                    img.style.margin = '0 auto';
+                    chartContainer.appendChild(img);
+                } else {
+                    throw new Error('Chart not found');
+                }
+                
+                // PDF options
+                const opt = {
+                    margin: 0.5,
+                    filename: `financial-chart-${selectedPeriod}-${new Date().toISOString().split('T')[0]}.pdf`,
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { 
+                        scale: 2,
+                        logging: true,
+                        useCORS: true
+                    },
+                    jsPDF: { unit: 'in', format: 'a4', orientation: 'landscape' } // Landscape for better chart display
+                };
+                
+                // Generate PDF
+                await html2pdf().set(opt).from(chartContainer).save();
+                
+                showToast("Chart exported to PDF successfully", "success");
+            } catch (error) {
+                console.error("PDF generation failed:", error);
+                showToast("Failed to export chart to PDF", "error");
+            } finally {
+                // Remove spinner
+                spinner.remove();
+            }
+        });
+    }
     function showToast(message, type = 'success') {
         const container = document.getElementById('toast-container');
         const toast = document.createElement('div');
