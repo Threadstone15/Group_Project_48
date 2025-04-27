@@ -17,8 +17,8 @@ class DatabaseConnection
     private $servername = "localhost";
     private $username = "root";
     private $password = "";
-    private $dbname = "rad_gymverse";
-    private $port = 8081;
+    private $dbname = "group_48";
+    private $port = 3306;
 
 
     // Private constructor to prevent multiple instances

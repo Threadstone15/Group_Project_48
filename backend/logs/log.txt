@@ -19761,3 +19761,454 @@
 [2025-04-27 19:45:55] Config model initialized with database connection.
 [2025-04-27 19:45:56] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
 [2025-04-27 19:45:56] Database connection closed.
+[2025-04-27 19:49:37] Running auth controller ,get_footer_info 
+[2025-04-27 19:49:37] Running get_footer_info....in controller
+[2025-04-27 19:51:08] Running auth controller ,get_footer_info 
+[2025-04-27 19:51:08] Running get_footer_info....in controller
+[2025-04-27 19:58:51] Running auth controller ,get_footer_info 
+[2025-04-27 19:58:51] Running get_footer_info....in controller
+[2025-04-27 19:58:51] Error fetching system configs: Access denied for user 'root'@'localhost' (using password: YES)
+[2025-04-27 20:05:40] Running auth controller ,get_footer_info 
+[2025-04-27 20:05:40] Running get_footer_info....in controller
+[2025-04-27 20:05:40] Connection established successfully to the database: rad_gymverse
+[2025-04-27 20:05:40] Config model initialized with database connection.
+[2025-04-27 20:05:40] Error fetching config value: PROCEDURE rad_gymverse.GetConfigValue does not exist
+[2025-04-27 20:05:40] Error fetching config value: PROCEDURE rad_gymverse.GetConfigValue does not exist
+[2025-04-27 20:05:40] Error fetching config value: PROCEDURE rad_gymverse.GetConfigValue does not exist
+[2025-04-27 20:05:40] Configs: {"gym_address":null,"gym_email":null,"gym_no":null}
+[2025-04-27 20:05:40] Database connection closed.
+[2025-04-27 20:11:01] Running auth controller ,get_footer_info 
+[2025-04-27 20:11:01] Running get_footer_info....in controller
+[2025-04-27 20:11:01] Connection established successfully to the database: group_48
+[2025-04-27 20:11:01] Config model initialized with database connection.
+[2025-04-27 20:11:01] Error fetching config value: The user specified as a definer ('rad'@'%') does not exist
+[2025-04-27 20:11:01] Error fetching config value: The user specified as a definer ('rad'@'%') does not exist
+[2025-04-27 20:11:01] Error fetching config value: The user specified as a definer ('rad'@'%') does not exist
+[2025-04-27 20:11:01] Configs: {"gym_address":null,"gym_email":null,"gym_no":null}
+[2025-04-27 20:11:01] Database connection closed.
+[2025-04-27 20:11:04] Running auth controller ,get_footer_info 
+[2025-04-27 20:11:04] Running get_footer_info....in controller
+[2025-04-27 20:11:04] Connection established successfully to the database: group_48
+[2025-04-27 20:11:04] Config model initialized with database connection.
+[2025-04-27 20:11:04] Error fetching config value: The user specified as a definer ('rad'@'%') does not exist
+[2025-04-27 20:11:04] Error fetching config value: The user specified as a definer ('rad'@'%') does not exist
+[2025-04-27 20:11:04] Error fetching config value: The user specified as a definer ('rad'@'%') does not exist
+[2025-04-27 20:11:04] Configs: {"gym_address":null,"gym_email":null,"gym_no":null}
+[2025-04-27 20:11:04] Database connection closed.
+[2025-04-27 20:12:06] Running auth controller ,get_footer_info 
+[2025-04-27 20:12:06] Running get_footer_info....in controller
+[2025-04-27 20:12:06] Connection established successfully to the database: group_48
+[2025-04-27 20:12:06] Config model initialized with database connection.
+[2025-04-27 20:12:06] Error fetching config value: The user specified as a definer ('rad'@'%') does not exist
+[2025-04-27 20:12:06] Error fetching config value: The user specified as a definer ('rad'@'%') does not exist
+[2025-04-27 20:12:06] Error fetching config value: The user specified as a definer ('rad'@'%') does not exist
+[2025-04-27 20:12:06] Configs: {"gym_address":null,"gym_email":null,"gym_no":null}
+[2025-04-27 20:12:06] Database connection closed.
+[2025-04-27 20:14:10] Connected successfully to database: group_48
+[2025-04-27 20:14:18] Running auth controller ,get_footer_info 
+[2025-04-27 20:14:18] Running get_footer_info....in controller
+[2025-04-27 20:14:18] Connection established successfully to the database: group_48
+[2025-04-27 20:14:18] Config model initialized with database connection.
+[2025-04-27 20:14:18] Error fetching config value: The user specified as a definer ('rad'@'%') does not exist
+[2025-04-27 20:14:18] Error fetching config value: The user specified as a definer ('rad'@'%') does not exist
+[2025-04-27 20:14:18] Error fetching config value: The user specified as a definer ('rad'@'%') does not exist
+[2025-04-27 20:14:18] Configs: {"gym_address":null,"gym_email":null,"gym_no":null}
+[2025-04-27 20:14:18] Database connection closed.
+[2025-04-27 20:16:44] Running auth controller ,get_footer_info 
+[2025-04-27 20:16:44] Running get_footer_info....in controller
+[2025-04-27 20:16:44] Connection established successfully to the database: group_48
+[2025-04-27 20:16:44] Config model initialized with database connection.
+[2025-04-27 20:16:44] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-27 20:16:44] Database connection closed.
+[2025-04-27 20:16:48] Connection established successfully to the database: group_48
+[2025-04-27 20:16:48] User class instantiated with database connection.
+[2025-04-27 20:16:48] Fetching user role by user ID: 177
+[2025-04-27 20:16:48] User role fetched successfully for user ID: 177
+[2025-04-27 20:16:48] Running trainer controller, get_personal_notices token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NDAwMH0=.c56d070fabf2239bb7af8d269f0d62f7b97cfa6985f9dbf45fa4626651a64fa7   id - 177 
+[2025-04-27 20:16:48] Running get_personal_notices....in controller
+[2025-04-27 20:16:48] get personal notices function running...
+[2025-04-27 20:16:48] Notice model initialized with database connection.
+[2025-04-27 20:16:48] Fetching personal notices for user ID: 177
+[2025-04-27 20:16:48] Expired notices removed.
+[2025-04-27 20:16:48] Fetched 3 unread notices for user ID: 177
+[2025-04-27 20:16:48] Personal notices fetched successfully
+[2025-04-27 20:16:48] Database connection closed.
+[2025-04-27 20:16:48] Connection established successfully to the database: group_48
+[2025-04-27 20:16:48] User class instantiated with database connection.
+[2025-04-27 20:16:48] Fetching user role by user ID: 177
+[2025-04-27 20:16:48] User role fetched successfully for user ID: 177
+[2025-04-27 20:16:48] Running trainer controller, get_gym_crowd token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NDAwMH0=.c56d070fabf2239bb7af8d269f0d62f7b97cfa6985f9dbf45fa4626651a64fa7   id - 177 
+[2025-04-27 20:16:48] Running get_gym_crowd....in controller
+[2025-04-27 20:16:48] Running getGymCrowd...
+[2025-04-27 20:16:48] Attendance model initialized with database connection.
+[2025-04-27 20:16:48] Fetching number of unique users with latest arrival marked as 1...
+[2025-04-27 20:16:48] Total users with latest Arrived=1: 2
+[2025-04-27 20:16:48] Fetching gym capacity from configuration...
+[2025-04-27 20:16:48] Gym capacity fetched successfully: 80
+[2025-04-27 20:16:48] Gym crowd count: 2 (2.5%)
+[2025-04-27 20:16:48] Database connection closed.
+[2025-04-27 20:16:48] Connection established successfully to the database: group_48
+[2025-04-27 20:16:48] User class instantiated with database connection.
+[2025-04-27 20:16:48] Fetching user role by user ID: 177
+[2025-04-27 20:16:48] User role fetched successfully for user ID: 177
+[2025-04-27 20:16:48] Running trainer controller, get_classes_of_trainer token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NDAwMH0=.c56d070fabf2239bb7af8d269f0d62f7b97cfa6985f9dbf45fa4626651a64fa7   id - 177 
+[2025-04-27 20:16:48] Running get_classes_of_trainer....in controller
+[2025-04-27 20:16:48] get classes belong to a trainer func is runing.....
+[2025-04-27 20:16:48] TrainerClass model initialized with database conection
+[2025-04-27 20:16:48] Trainer model initialized with database connection.
+[2025-04-27 20:16:48] Fetching trainer ID by user ID : 177...
+[2025-04-27 20:16:48] getting classes belongs to the trainer : T11
+[2025-04-27 20:16:48] Classes belongs to the trainer fetched successfully
+[2025-04-27 20:16:48] classes retrieved successfully
+[2025-04-27 20:16:48] Database connection closed.
+[2025-04-27 20:16:48] Connection established successfully to the database: group_48
+[2025-04-27 20:16:48] User class instantiated with database connection.
+[2025-04-27 20:16:48] Fetching user role by user ID: 177
+[2025-04-27 20:16:48] User role fetched successfully for user ID: 177
+[2025-04-27 20:16:48] Running trainer controller, get_classes token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NDAwMH0=.c56d070fabf2239bb7af8d269f0d62f7b97cfa6985f9dbf45fa4626651a64fa7   id - 177 
+[2025-04-27 20:16:48] Running get_classes....in controller
+[2025-04-27 20:16:48] TrainerClass model initialized with database conection
+[2025-04-27 20:16:48] fetching all classes.....
+[2025-04-27 20:16:48] Classes fetched successfully
+[2025-04-27 20:16:48] classes retrieved successfully
+[2025-04-27 20:16:48] Database connection closed.
+[2025-04-27 20:16:51] Running auth controller ,get_footer_info 
+[2025-04-27 20:16:51] Running get_footer_info....in controller
+[2025-04-27 20:16:51] Connection established successfully to the database: group_48
+[2025-04-27 20:16:51] Config model initialized with database connection.
+[2025-04-27 20:16:51] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-27 20:16:51] Database connection closed.
+[2025-04-27 20:16:52] Running auth controller ,login 
+[2025-04-27 20:16:52] running login...in auth controller
+[2025-04-27 20:16:52] login function running...
+[2025-04-27 20:16:52] Connection established successfully to the database: group_48
+[2025-04-27 20:16:52] User class instantiated with database connection.
+[2025-04-27 20:16:52] User Login model running for: nalaka@gmail.com
+[2025-04-27 20:16:52] Fetching user by email: nalaka@gmail.com
+[2025-04-27 20:16:52] User found for email: nalaka@gmail.com
+[2025-04-27 20:16:52] Query bound and ready to execute for login: nalaka@gmail.com
+[2025-04-27 20:16:52] User status: 1
+[2025-04-27 20:16:52] User login successful: nalaka@gmail.com with role: trainer
+[2025-04-27 20:16:52] Config model initialized with database connection.
+[2025-04-27 20:16:52] Login Successful: eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NzYwMH0=.2a265e326c4df0c5bc59fc5c64c947de55b10e4ac2d0290a3b03451797f0ffd6 trainer
+[2025-04-27 20:16:52] Database connection closed.
+[2025-04-27 20:16:53] Connection established successfully to the database: group_48
+[2025-04-27 20:16:53] User class instantiated with database connection.
+[2025-04-27 20:16:53] Fetching user role by user ID: 177
+[2025-04-27 20:16:53] User role fetched successfully for user ID: 177
+[2025-04-27 20:16:53] Running trainer controller, get_gym_crowd token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NzYwMH0=.2a265e326c4df0c5bc59fc5c64c947de55b10e4ac2d0290a3b03451797f0ffd6   id - 177 
+[2025-04-27 20:16:53] Running get_gym_crowd....in controller
+[2025-04-27 20:16:53] Running getGymCrowd...
+[2025-04-27 20:16:53] Attendance model initialized with database connection.
+[2025-04-27 20:16:53] Fetching number of unique users with latest arrival marked as 1...
+[2025-04-27 20:16:53] Total users with latest Arrived=1: 2
+[2025-04-27 20:16:53] Fetching gym capacity from configuration...
+[2025-04-27 20:16:53] Gym capacity fetched successfully: 80
+[2025-04-27 20:16:53] Gym crowd count: 2 (2.5%)
+[2025-04-27 20:16:53] Database connection closed.
+[2025-04-27 20:16:53] Connection established successfully to the database: group_48
+[2025-04-27 20:16:53] User class instantiated with database connection.
+[2025-04-27 20:16:53] Fetching user role by user ID: 177
+[2025-04-27 20:16:53] User role fetched successfully for user ID: 177
+[2025-04-27 20:16:53] Running trainer controller, get_personal_notices token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NzYwMH0=.2a265e326c4df0c5bc59fc5c64c947de55b10e4ac2d0290a3b03451797f0ffd6   id - 177 
+[2025-04-27 20:16:53] Running get_personal_notices....in controller
+[2025-04-27 20:16:53] get personal notices function running...
+[2025-04-27 20:16:53] Notice model initialized with database connection.
+[2025-04-27 20:16:53] Fetching personal notices for user ID: 177
+[2025-04-27 20:16:53] Expired notices removed.
+[2025-04-27 20:16:53] Fetched 3 unread notices for user ID: 177
+[2025-04-27 20:16:53] Personal notices fetched successfully
+[2025-04-27 20:16:53] Database connection closed.
+[2025-04-27 20:16:53] Connection established successfully to the database: group_48
+[2025-04-27 20:16:53] User class instantiated with database connection.
+[2025-04-27 20:16:53] Fetching user role by user ID: 177
+[2025-04-27 20:16:53] User role fetched successfully for user ID: 177
+[2025-04-27 20:16:53] Running trainer controller, get_classes_of_trainer token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NzYwMH0=.2a265e326c4df0c5bc59fc5c64c947de55b10e4ac2d0290a3b03451797f0ffd6   id - 177 
+[2025-04-27 20:16:53] Running get_classes_of_trainer....in controller
+[2025-04-27 20:16:53] get classes belong to a trainer func is runing.....
+[2025-04-27 20:16:53] TrainerClass model initialized with database conection
+[2025-04-27 20:16:53] Trainer model initialized with database connection.
+[2025-04-27 20:16:53] Fetching trainer ID by user ID : 177...
+[2025-04-27 20:16:53] getting classes belongs to the trainer : T11
+[2025-04-27 20:16:53] Classes belongs to the trainer fetched successfully
+[2025-04-27 20:16:53] classes retrieved successfully
+[2025-04-27 20:16:53] Database connection closed.
+[2025-04-27 20:16:53] Connection established successfully to the database: group_48
+[2025-04-27 20:16:53] User class instantiated with database connection.
+[2025-04-27 20:16:53] Fetching user role by user ID: 177
+[2025-04-27 20:16:53] User role fetched successfully for user ID: 177
+[2025-04-27 20:16:53] Running trainer controller, get_classes token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NzYwMH0=.2a265e326c4df0c5bc59fc5c64c947de55b10e4ac2d0290a3b03451797f0ffd6   id - 177 
+[2025-04-27 20:16:53] Running get_classes....in controller
+[2025-04-27 20:16:53] TrainerClass model initialized with database conection
+[2025-04-27 20:16:53] fetching all classes.....
+[2025-04-27 20:16:53] Classes fetched successfully
+[2025-04-27 20:16:53] classes retrieved successfully
+[2025-04-27 20:16:53] Database connection closed.
+[2025-04-27 20:16:56] Connection established successfully to the database: group_48
+[2025-04-27 20:16:56] User class instantiated with database connection.
+[2025-04-27 20:16:56] Fetching user role by user ID: 177
+[2025-04-27 20:16:56] User role fetched successfully for user ID: 177
+[2025-04-27 20:16:56] Running trainer controller, get_profile token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NzYwMH0=.2a265e326c4df0c5bc59fc5c64c947de55b10e4ac2d0290a3b03451797f0ffd6   id - 177 
+[2025-04-27 20:16:56] Running get_profile....in controller
+[2025-04-27 20:16:56] Running get_profile....in handler
+[2025-04-27 20:16:56] User class instantiated with database connection.
+[2025-04-27 20:16:56] Fetching profile for user ID: 177
+[2025-04-27 20:16:56] Profile data fetched successfully for user ID: 177
+[2025-04-27 20:16:56] Profile data: {"email":"nalaka@gmail.com","rollID":"T11","full_name":"nalaka herath","DOB":"2002-02-03","phone":"0734567892","address":"rajagiriya,sri lanka","gender":"M"}
+[2025-04-27 20:16:56] Database connection closed.
+[2025-04-27 20:16:56] Connection established successfully to the database: group_48
+[2025-04-27 20:16:56] User class instantiated with database connection.
+[2025-04-27 20:16:56] Fetching user role by user ID: 177
+[2025-04-27 20:16:56] User role fetched successfully for user ID: 177
+[2025-04-27 20:16:56] Running trainer controller, get_threads token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NzYwMH0=.2a265e326c4df0c5bc59fc5c64c947de55b10e4ac2d0290a3b03451797f0ffd6   id - 177 
+[2025-04-27 20:16:56] Running get_threads....in controller
+[2025-04-27 20:16:56] trainer_roll_id: "T11"
+[2025-04-27 20:16:56] Fetching threads for user ID: T11
+[2025-04-27 20:16:56] Message model initialized with database connection.
+[2025-04-27 20:16:56] Getting message threads for user_id: T11
+[2025-04-27 20:16:56] Successfully fetched message threads for user_id: T11
+[2025-04-27 20:16:56] Fetched threads: [{"otherUserId":"M32","otherUserName":"Lasitha Bandara","otherUserPhone":"0751234567","lastMessageText":"What's up","lastMessageTime":"2025-04-27 21:57:47","unread":"0"},{"otherUserId":"M125","otherUserName":"Chathura Fernando","otherUserPhone":"0754567802","lastMessageText":"rtrtrt","lastMessageTime":"2025-04-27 21:02:05","unread":"0"},{"otherUserId":"M22","otherUserName":"Chamari Dissanayake","otherUserPhone":"0779012345","lastMessageText":"Hiiiiiiii","lastMessageTime":"2025-04-27 20:54:06","unread":"0"},{"otherUserId":"M15","otherUserName":"Sandeep Perera","otherUserPhone":"0712345678","lastMessageText":"Your request has been accepted. Please refer to the Plans section.","lastMessageTime":"2025-04-27 20:51:35","unread":"0"}]
+[2025-04-27 20:16:56] Database connection closed.
+[2025-04-27 20:16:56] Connection established successfully to the database: group_48
+[2025-04-27 20:16:56] User class instantiated with database connection.
+[2025-04-27 20:16:56] Fetching user role by user ID: 177
+[2025-04-27 20:16:56] User role fetched successfully for user ID: 177
+[2025-04-27 20:16:56] Running trainer controller, get_assigned_members token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NzYwMH0=.2a265e326c4df0c5bc59fc5c64c947de55b10e4ac2d0290a3b03451797f0ffd6   id - 177 
+[2025-04-27 20:16:56] Running get_assigned_members....in controller
+[2025-04-27 20:16:56] get assigned members of a trainer func running..
+[2025-04-27 20:16:56] Trainer model initialized with database connection.
+[2025-04-27 20:16:56] Fetching trainer ID by user ID : 177...
+[2025-04-27 20:16:56] AssignedTrainer model initialized with database connection.
+[2025-04-27 20:16:56] getting the assigned members of a trainer
+[2025-04-27 20:16:56] Assigned members retrieved successfully
+[2025-04-27 20:16:56] Database connection closed.
+[2025-04-27 20:16:57] Connection established successfully to the database: group_48
+[2025-04-27 20:16:57] User class instantiated with database connection.
+[2025-04-27 20:16:57] Fetching user role by user ID: 177
+[2025-04-27 20:16:57] User role fetched successfully for user ID: 177
+[2025-04-27 20:16:57] Running trainer controller, get_messages token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NzYwMH0=.2a265e326c4df0c5bc59fc5c64c947de55b10e4ac2d0290a3b03451797f0ffd6   id - 177 
+[2025-04-27 20:16:57] Running get_messages....in controller
+[2025-04-27 20:16:57] current_user_id: "T11"
+[2025-04-27 20:16:57] other_user_id: "M125"
+[2025-04-27 20:16:57] Fetching messages between user ID: T11 and user ID: M125
+[2025-04-27 20:16:57] Message model initialized with database connection.
+[2025-04-27 20:16:57] Getting messages between user_id: T11 and other_user_id: M125
+[2025-04-27 20:16:57] Successfully fetched messages between user_id: T11 and other_user_id: M125
+[2025-04-27 20:16:57] Fetched messages: [{"id":6,"from_user_id":"T11","to_user_id":"M125","text":"rtrtrt","created_at":"2025-04-27 21:02:05","is_read":0,"sender_name":"nalaka herath"}]
+[2025-04-27 20:16:57] Database connection closed.
+[2025-04-27 20:16:57] Connection established successfully to the database: group_48
+[2025-04-27 20:16:57] User class instantiated with database connection.
+[2025-04-27 20:16:57] Fetching user role by user ID: 177
+[2025-04-27 20:16:57] User role fetched successfully for user ID: 177
+[2025-04-27 20:16:57] Running trainer controller, mark_as_read token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NzYwMH0=.2a265e326c4df0c5bc59fc5c64c947de55b10e4ac2d0290a3b03451797f0ffd6   id - 177 
+[2025-04-27 20:16:57] Running mark_as_read....in controller
+[2025-04-27 20:16:57] data: {"userId":"T11","otherUserId":"M125"}
+[2025-04-27 20:16:57] Marking message as read with data: {"userId":"T11","otherUserId":"M125"}
+[2025-04-27 20:16:57] Message model initialized with database connection.
+[2025-04-27 20:16:57] Marking messages as read between user_id: T11 and other_user_id: M125
+[2025-04-27 20:16:57] Successfully marked messages as read between user_id: T11 and other_user_id: M125
+[2025-04-27 20:16:57] Database connection closed.
+[2025-04-27 20:16:57] Connection established successfully to the database: group_48
+[2025-04-27 20:16:57] User class instantiated with database connection.
+[2025-04-27 20:16:57] Fetching user role by user ID: 177
+[2025-04-27 20:16:57] User role fetched successfully for user ID: 177
+[2025-04-27 20:16:57] Running trainer controller, get_threads token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NzYwMH0=.2a265e326c4df0c5bc59fc5c64c947de55b10e4ac2d0290a3b03451797f0ffd6   id - 177 
+[2025-04-27 20:16:57] Running get_threads....in controller
+[2025-04-27 20:16:57] trainer_roll_id: "T11"
+[2025-04-27 20:16:57] Fetching threads for user ID: T11
+[2025-04-27 20:16:57] Message model initialized with database connection.
+[2025-04-27 20:16:57] Getting message threads for user_id: T11
+[2025-04-27 20:16:57] Successfully fetched message threads for user_id: T11
+[2025-04-27 20:16:57] Fetched threads: [{"otherUserId":"M32","otherUserName":"Lasitha Bandara","otherUserPhone":"0751234567","lastMessageText":"What's up","lastMessageTime":"2025-04-27 21:57:47","unread":"0"},{"otherUserId":"M125","otherUserName":"Chathura Fernando","otherUserPhone":"0754567802","lastMessageText":"rtrtrt","lastMessageTime":"2025-04-27 21:02:05","unread":"0"},{"otherUserId":"M22","otherUserName":"Chamari Dissanayake","otherUserPhone":"0779012345","lastMessageText":"Hiiiiiiii","lastMessageTime":"2025-04-27 20:54:06","unread":"0"},{"otherUserId":"M15","otherUserName":"Sandeep Perera","otherUserPhone":"0712345678","lastMessageText":"Your request has been accepted. Please refer to the Plans section.","lastMessageTime":"2025-04-27 20:51:35","unread":"0"}]
+[2025-04-27 20:16:57] Database connection closed.
+[2025-04-27 20:16:59] Connection established successfully to the database: group_48
+[2025-04-27 20:16:59] User class instantiated with database connection.
+[2025-04-27 20:16:59] Fetching user role by user ID: 177
+[2025-04-27 20:16:59] User role fetched successfully for user ID: 177
+[2025-04-27 20:16:59] Running trainer controller, get_messages token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NzYwMH0=.2a265e326c4df0c5bc59fc5c64c947de55b10e4ac2d0290a3b03451797f0ffd6   id - 177 
+[2025-04-27 20:16:59] Running get_messages....in controller
+[2025-04-27 20:16:59] current_user_id: "T11"
+[2025-04-27 20:16:59] other_user_id: "M32"
+[2025-04-27 20:16:59] Fetching messages between user ID: T11 and user ID: M32
+[2025-04-27 20:16:59] Message model initialized with database connection.
+[2025-04-27 20:16:59] Getting messages between user_id: T11 and other_user_id: M32
+[2025-04-27 20:16:59] Successfully fetched messages between user_id: T11 and other_user_id: M32
+[2025-04-27 20:16:59] Fetched messages: [{"id":4,"from_user_id":"M32","to_user_id":"T11","text":"What's up","created_at":"2025-04-27 20:55:15","is_read":1,"sender_name":"Lasitha Bandara"},{"id":9,"from_user_id":"M32","to_user_id":"T11","text":"ttttt","created_at":"2025-04-27 21:57:47","is_read":1,"sender_name":"Lasitha Bandara"}]
+[2025-04-27 20:16:59] Database connection closed.
+[2025-04-27 20:16:59] Connection established successfully to the database: group_48
+[2025-04-27 20:16:59] User class instantiated with database connection.
+[2025-04-27 20:16:59] Fetching user role by user ID: 177
+[2025-04-27 20:16:59] User role fetched successfully for user ID: 177
+[2025-04-27 20:16:59] Running trainer controller, mark_as_read token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NzYwMH0=.2a265e326c4df0c5bc59fc5c64c947de55b10e4ac2d0290a3b03451797f0ffd6   id - 177 
+[2025-04-27 20:16:59] Running mark_as_read....in controller
+[2025-04-27 20:16:59] data: {"userId":"T11","otherUserId":"M32"}
+[2025-04-27 20:16:59] Marking message as read with data: {"userId":"T11","otherUserId":"M32"}
+[2025-04-27 20:16:59] Message model initialized with database connection.
+[2025-04-27 20:16:59] Marking messages as read between user_id: T11 and other_user_id: M32
+[2025-04-27 20:16:59] Successfully marked messages as read between user_id: T11 and other_user_id: M32
+[2025-04-27 20:16:59] Database connection closed.
+[2025-04-27 20:16:59] Connection established successfully to the database: group_48
+[2025-04-27 20:16:59] User class instantiated with database connection.
+[2025-04-27 20:16:59] Fetching user role by user ID: 177
+[2025-04-27 20:16:59] User role fetched successfully for user ID: 177
+[2025-04-27 20:16:59] Running trainer controller, get_threads token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NzYwMH0=.2a265e326c4df0c5bc59fc5c64c947de55b10e4ac2d0290a3b03451797f0ffd6   id - 177 
+[2025-04-27 20:16:59] Running get_threads....in controller
+[2025-04-27 20:16:59] trainer_roll_id: "T11"
+[2025-04-27 20:16:59] Fetching threads for user ID: T11
+[2025-04-27 20:16:59] Message model initialized with database connection.
+[2025-04-27 20:16:59] Getting message threads for user_id: T11
+[2025-04-27 20:16:59] Successfully fetched message threads for user_id: T11
+[2025-04-27 20:16:59] Fetched threads: [{"otherUserId":"M32","otherUserName":"Lasitha Bandara","otherUserPhone":"0751234567","lastMessageText":"What's up","lastMessageTime":"2025-04-27 21:57:47","unread":"0"},{"otherUserId":"M125","otherUserName":"Chathura Fernando","otherUserPhone":"0754567802","lastMessageText":"rtrtrt","lastMessageTime":"2025-04-27 21:02:05","unread":"0"},{"otherUserId":"M22","otherUserName":"Chamari Dissanayake","otherUserPhone":"0779012345","lastMessageText":"Hiiiiiiii","lastMessageTime":"2025-04-27 20:54:06","unread":"0"},{"otherUserId":"M15","otherUserName":"Sandeep Perera","otherUserPhone":"0712345678","lastMessageText":"Your request has been accepted. Please refer to the Plans section.","lastMessageTime":"2025-04-27 20:51:35","unread":"0"}]
+[2025-04-27 20:16:59] Database connection closed.
+[2025-04-27 20:17:00] Connection established successfully to the database: group_48
+[2025-04-27 20:17:00] User class instantiated with database connection.
+[2025-04-27 20:17:00] Fetching user role by user ID: 177
+[2025-04-27 20:17:00] User role fetched successfully for user ID: 177
+[2025-04-27 20:17:00] Running trainer controller, get_messages token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NzYwMH0=.2a265e326c4df0c5bc59fc5c64c947de55b10e4ac2d0290a3b03451797f0ffd6   id - 177 
+[2025-04-27 20:17:00] Running get_messages....in controller
+[2025-04-27 20:17:00] current_user_id: "T11"
+[2025-04-27 20:17:00] other_user_id: "M22"
+[2025-04-27 20:17:00] Fetching messages between user ID: T11 and user ID: M22
+[2025-04-27 20:17:00] Message model initialized with database connection.
+[2025-04-27 20:17:00] Getting messages between user_id: T11 and other_user_id: M22
+[2025-04-27 20:17:00] Successfully fetched messages between user_id: T11 and other_user_id: M22
+[2025-04-27 20:17:00] Fetched messages: [{"id":3,"from_user_id":"T11","to_user_id":"M22","text":"Hiiiiiiii","created_at":"2025-04-27 20:54:06","is_read":0,"sender_name":"nalaka herath"}]
+[2025-04-27 20:17:00] Database connection closed.
+[2025-04-27 20:17:00] Connection established successfully to the database: group_48
+[2025-04-27 20:17:00] User class instantiated with database connection.
+[2025-04-27 20:17:00] Fetching user role by user ID: 177
+[2025-04-27 20:17:00] User role fetched successfully for user ID: 177
+[2025-04-27 20:17:00] Running trainer controller, mark_as_read token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NzYwMH0=.2a265e326c4df0c5bc59fc5c64c947de55b10e4ac2d0290a3b03451797f0ffd6   id - 177 
+[2025-04-27 20:17:00] Running mark_as_read....in controller
+[2025-04-27 20:17:00] data: {"userId":"T11","otherUserId":"M22"}
+[2025-04-27 20:17:00] Marking message as read with data: {"userId":"T11","otherUserId":"M22"}
+[2025-04-27 20:17:00] Message model initialized with database connection.
+[2025-04-27 20:17:00] Marking messages as read between user_id: T11 and other_user_id: M22
+[2025-04-27 20:17:00] Successfully marked messages as read between user_id: T11 and other_user_id: M22
+[2025-04-27 20:17:00] Database connection closed.
+[2025-04-27 20:17:00] Connection established successfully to the database: group_48
+[2025-04-27 20:17:00] User class instantiated with database connection.
+[2025-04-27 20:17:00] Fetching user role by user ID: 177
+[2025-04-27 20:17:00] User role fetched successfully for user ID: 177
+[2025-04-27 20:17:00] Running trainer controller, get_threads token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NzYwMH0=.2a265e326c4df0c5bc59fc5c64c947de55b10e4ac2d0290a3b03451797f0ffd6   id - 177 
+[2025-04-27 20:17:00] Running get_threads....in controller
+[2025-04-27 20:17:00] trainer_roll_id: "T11"
+[2025-04-27 20:17:00] Fetching threads for user ID: T11
+[2025-04-27 20:17:00] Message model initialized with database connection.
+[2025-04-27 20:17:00] Getting message threads for user_id: T11
+[2025-04-27 20:17:00] Successfully fetched message threads for user_id: T11
+[2025-04-27 20:17:00] Fetched threads: [{"otherUserId":"M32","otherUserName":"Lasitha Bandara","otherUserPhone":"0751234567","lastMessageText":"What's up","lastMessageTime":"2025-04-27 21:57:47","unread":"0"},{"otherUserId":"M125","otherUserName":"Chathura Fernando","otherUserPhone":"0754567802","lastMessageText":"rtrtrt","lastMessageTime":"2025-04-27 21:02:05","unread":"0"},{"otherUserId":"M22","otherUserName":"Chamari Dissanayake","otherUserPhone":"0779012345","lastMessageText":"Hiiiiiiii","lastMessageTime":"2025-04-27 20:54:06","unread":"0"},{"otherUserId":"M15","otherUserName":"Sandeep Perera","otherUserPhone":"0712345678","lastMessageText":"Your request has been accepted. Please refer to the Plans section.","lastMessageTime":"2025-04-27 20:51:35","unread":"0"}]
+[2025-04-27 20:17:00] Database connection closed.
+[2025-04-27 20:17:01] Connection established successfully to the database: group_48
+[2025-04-27 20:17:01] User class instantiated with database connection.
+[2025-04-27 20:17:01] Fetching user role by user ID: 177
+[2025-04-27 20:17:01] User role fetched successfully for user ID: 177
+[2025-04-27 20:17:01] Running trainer controller, get_messages token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NzYwMH0=.2a265e326c4df0c5bc59fc5c64c947de55b10e4ac2d0290a3b03451797f0ffd6   id - 177 
+[2025-04-27 20:17:01] Running get_messages....in controller
+[2025-04-27 20:17:01] current_user_id: "T11"
+[2025-04-27 20:17:01] other_user_id: "M15"
+[2025-04-27 20:17:01] Fetching messages between user ID: T11 and user ID: M15
+[2025-04-27 20:17:01] Message model initialized with database connection.
+[2025-04-27 20:17:01] Getting messages between user_id: T11 and other_user_id: M15
+[2025-04-27 20:17:01] Successfully fetched messages between user_id: T11 and other_user_id: M15
+[2025-04-27 20:17:01] Fetched messages: [{"id":10,"from_user_id":"T11","to_user_id":"M15","text":"Your request has been accepted. Please refer to the Plans section.","created_at":"2025-04-24 22:24:29","is_read":0,"sender_name":"nalaka herath"},{"id":2,"from_user_id":"M15","to_user_id":"T11","text":"Bye","created_at":"2025-04-27 20:51:35","is_read":1,"sender_name":"Sandeep Perera"}]
+[2025-04-27 20:17:01] Database connection closed.
+[2025-04-27 20:17:01] Connection established successfully to the database: group_48
+[2025-04-27 20:17:01] User class instantiated with database connection.
+[2025-04-27 20:17:01] Fetching user role by user ID: 177
+[2025-04-27 20:17:01] User role fetched successfully for user ID: 177
+[2025-04-27 20:17:01] Running trainer controller, mark_as_read token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NzYwMH0=.2a265e326c4df0c5bc59fc5c64c947de55b10e4ac2d0290a3b03451797f0ffd6   id - 177 
+[2025-04-27 20:17:01] Running mark_as_read....in controller
+[2025-04-27 20:17:01] data: {"userId":"T11","otherUserId":"M15"}
+[2025-04-27 20:17:01] Marking message as read with data: {"userId":"T11","otherUserId":"M15"}
+[2025-04-27 20:17:01] Message model initialized with database connection.
+[2025-04-27 20:17:01] Marking messages as read between user_id: T11 and other_user_id: M15
+[2025-04-27 20:17:01] Successfully marked messages as read between user_id: T11 and other_user_id: M15
+[2025-04-27 20:17:01] Database connection closed.
+[2025-04-27 20:17:01] Connection established successfully to the database: group_48
+[2025-04-27 20:17:01] User class instantiated with database connection.
+[2025-04-27 20:17:01] Fetching user role by user ID: 177
+[2025-04-27 20:17:01] User role fetched successfully for user ID: 177
+[2025-04-27 20:17:01] Running trainer controller, get_threads token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NzYwMH0=.2a265e326c4df0c5bc59fc5c64c947de55b10e4ac2d0290a3b03451797f0ffd6   id - 177 
+[2025-04-27 20:17:01] Running get_threads....in controller
+[2025-04-27 20:17:01] trainer_roll_id: "T11"
+[2025-04-27 20:17:01] Fetching threads for user ID: T11
+[2025-04-27 20:17:01] Message model initialized with database connection.
+[2025-04-27 20:17:01] Getting message threads for user_id: T11
+[2025-04-27 20:17:01] Successfully fetched message threads for user_id: T11
+[2025-04-27 20:17:01] Fetched threads: [{"otherUserId":"M32","otherUserName":"Lasitha Bandara","otherUserPhone":"0751234567","lastMessageText":"What's up","lastMessageTime":"2025-04-27 21:57:47","unread":"0"},{"otherUserId":"M125","otherUserName":"Chathura Fernando","otherUserPhone":"0754567802","lastMessageText":"rtrtrt","lastMessageTime":"2025-04-27 21:02:05","unread":"0"},{"otherUserId":"M22","otherUserName":"Chamari Dissanayake","otherUserPhone":"0779012345","lastMessageText":"Hiiiiiiii","lastMessageTime":"2025-04-27 20:54:06","unread":"0"},{"otherUserId":"M15","otherUserName":"Sandeep Perera","otherUserPhone":"0712345678","lastMessageText":"Your request has been accepted. Please refer to the Plans section.","lastMessageTime":"2025-04-27 20:51:35","unread":"0"}]
+[2025-04-27 20:17:01] Database connection closed.
+[2025-04-27 20:17:02] Connection established successfully to the database: group_48
+[2025-04-27 20:17:02] User class instantiated with database connection.
+[2025-04-27 20:17:02] Fetching user role by user ID: 177
+[2025-04-27 20:17:02] User role fetched successfully for user ID: 177
+[2025-04-27 20:17:02] Running trainer controller, get_created_workout_plans token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NzYwMH0=.2a265e326c4df0c5bc59fc5c64c947de55b10e4ac2d0290a3b03451797f0ffd6   id - 177 
+[2025-04-27 20:17:02] Running get_created_workout_plans....in controller
+[2025-04-27 20:17:02] Running createdTrainerWorkoutPlans in controller for user_id: 177
+[2025-04-27 20:17:02] WorkoutPlan model initialized with database connection.
+[2025-04-27 20:17:02] Fetching workout plans created by trainer_id: 177
+[2025-04-27 20:17:02] Workout plans fetched successfully for trainer_id: 177
+[2025-04-27 20:17:02] Database connection closed.
+[2025-04-27 20:17:04] Connection established successfully to the database: group_48
+[2025-04-27 20:17:04] User class instantiated with database connection.
+[2025-04-27 20:17:04] Fetching user role by user ID: 177
+[2025-04-27 20:17:04] User role fetched successfully for user ID: 177
+[2025-04-27 20:17:04] Running trainer controller, get_requests token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NzYwMH0=.2a265e326c4df0c5bc59fc5c64c947de55b10e4ac2d0290a3b03451797f0ffd6   id - 177 
+[2025-04-27 20:17:04] Running get_requests....in controller
+[2025-04-27 20:17:04] Running getRequests....in controller user_id: 177
+[2025-04-27 20:17:04] WorkoutPlan model initialized with database connection.
+[2025-04-27 20:17:04] Fetching requests for trainer with user_id: 177
+[2025-04-27 20:17:04] Successfully fetched requests for trainer user_id: 177
+[2025-04-27 20:17:04] Database connection closed.
+[2025-04-27 20:17:05] Connection established successfully to the database: group_48
+[2025-04-27 20:17:05] User class instantiated with database connection.
+[2025-04-27 20:17:05] Fetching user role by user ID: 177
+[2025-04-27 20:17:05] User role fetched successfully for user ID: 177
+[2025-04-27 20:17:05] Running trainer controller, get_personal_notices token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NzYwMH0=.2a265e326c4df0c5bc59fc5c64c947de55b10e4ac2d0290a3b03451797f0ffd6   id - 177 
+[2025-04-27 20:17:05] Running get_personal_notices....in controller
+[2025-04-27 20:17:05] get personal notices function running...
+[2025-04-27 20:17:05] Notice model initialized with database connection.
+[2025-04-27 20:17:05] Fetching personal notices for user ID: 177
+[2025-04-27 20:17:05] Expired notices removed.
+[2025-04-27 20:17:05] Fetched 3 unread notices for user ID: 177
+[2025-04-27 20:17:05] Personal notices fetched successfully
+[2025-04-27 20:17:05] Database connection closed.
+[2025-04-27 20:17:05] Connection established successfully to the database: group_48
+[2025-04-27 20:17:05] User class instantiated with database connection.
+[2025-04-27 20:17:05] Fetching user role by user ID: 177
+[2025-04-27 20:17:05] User role fetched successfully for user ID: 177
+[2025-04-27 20:17:05] Running trainer controller, get_gym_crowd token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NzYwMH0=.2a265e326c4df0c5bc59fc5c64c947de55b10e4ac2d0290a3b03451797f0ffd6   id - 177 
+[2025-04-27 20:17:05] Running get_gym_crowd....in controller
+[2025-04-27 20:17:05] Running getGymCrowd...
+[2025-04-27 20:17:05] Attendance model initialized with database connection.
+[2025-04-27 20:17:05] Fetching number of unique users with latest arrival marked as 1...
+[2025-04-27 20:17:05] Total users with latest Arrived=1: 2
+[2025-04-27 20:17:05] Fetching gym capacity from configuration...
+[2025-04-27 20:17:05] Gym capacity fetched successfully: 80
+[2025-04-27 20:17:05] Gym crowd count: 2 (2.5%)
+[2025-04-27 20:17:05] Database connection closed.
+[2025-04-27 20:17:05] Connection established successfully to the database: group_48
+[2025-04-27 20:17:05] User class instantiated with database connection.
+[2025-04-27 20:17:05] Fetching user role by user ID: 177
+[2025-04-27 20:17:05] User role fetched successfully for user ID: 177
+[2025-04-27 20:17:05] Running trainer controller, get_classes_of_trainer token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NzYwMH0=.2a265e326c4df0c5bc59fc5c64c947de55b10e4ac2d0290a3b03451797f0ffd6   id - 177 
+[2025-04-27 20:17:05] Running get_classes_of_trainer....in controller
+[2025-04-27 20:17:05] get classes belong to a trainer func is runing.....
+[2025-04-27 20:17:05] TrainerClass model initialized with database conection
+[2025-04-27 20:17:05] Trainer model initialized with database connection.
+[2025-04-27 20:17:05] Fetching trainer ID by user ID : 177...
+[2025-04-27 20:17:05] getting classes belongs to the trainer : T11
+[2025-04-27 20:17:05] Classes belongs to the trainer fetched successfully
+[2025-04-27 20:17:05] classes retrieved successfully
+[2025-04-27 20:17:05] Database connection closed.
+[2025-04-27 20:17:05] Connection established successfully to the database: group_48
+[2025-04-27 20:17:05] User class instantiated with database connection.
+[2025-04-27 20:17:05] Fetching user role by user ID: 177
+[2025-04-27 20:17:05] User role fetched successfully for user ID: 177
+[2025-04-27 20:17:05] Running trainer controller, get_classes token - eyJ1c2VyX2lkIjoxNzcsImV4cCI6MTc0NTc4NzYwMH0=.2a265e326c4df0c5bc59fc5c64c947de55b10e4ac2d0290a3b03451797f0ffd6   id - 177 
+[2025-04-27 20:17:05] Running get_classes....in controller
+[2025-04-27 20:17:05] TrainerClass model initialized with database conection
+[2025-04-27 20:17:05] fetching all classes.....
+[2025-04-27 20:17:05] Classes fetched successfully
+[2025-04-27 20:17:05] classes retrieved successfully
+[2025-04-27 20:17:05] Database connection closed.
