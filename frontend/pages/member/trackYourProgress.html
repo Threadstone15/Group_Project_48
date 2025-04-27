@@ -12,6 +12,12 @@
     <div class="content">
         <div id="overlay"></div>
         <h1>Log Your Workout Progress</h1>
+        <div style="margin: 30px 50px;">
+            <p style="width: 600px;">Log your workout progress on each day and stay motivated on your fitness journey.!</p>
+            <p>Once you end the current week, the progress for next week will be displayed</p>
+            <p style="color: red; font-size: 15px;">**Note : if you start tracking a new workout plan, end the current
+                week and start next week with the new workout plan</p>
+        </div>
         <div id="select-workout-plan-popup" class="popup" style="display: none;">
             <p>Please select a workout plan to start logging your progress.</p>
             <div class="popup-buttons">
@@ -30,17 +36,24 @@
                 <!-- cards will be dynamically inserted here -->
             </div>
             <div class="popup-buttons">
-                <button id="end-week-progress-btn" style="display: none;" class="progress-button">End Current Week</button>
+                <button id="end-week-progress-btn" style="display: none;" class="progress-button">End Current
+                    Week</button>
             </div>
         </section>
         <section id="previous-progress-container" class="previous-progress-container" style="display: none;">
             <h1> Track Your Fitness Journey</h1>
+            <p style="margin-bottom: 30px; margin-left: 50px;">Track your
+                progress, and celebrate your achievements!</p>
             <div id="week-cards-container" class="week-cards-container">
                 <!-- cards will be dynamically inserted here -->
             </div>
         </section>
     </div>
     <div id="toast-container" class="toast-container"></div>
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="spinner hidden">
+        <div class="spinner-circle"></div>
+    </div>
 </body>
 
 </html>

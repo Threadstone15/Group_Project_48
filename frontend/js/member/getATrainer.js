@@ -1,16 +1,56 @@
 import { navigate } from "../router.js";
 import { runSessionTimedOut } from "../routeConfig.js";
+import { verifyMembershipPlan } from "./memberCommonFunc.js";
 
 export function initMember_getATrainer() {
     console.log("Initializing getATrainer.js");
-    verifyMembershipPlan();
-    // fetchAssignedTrainer(); //starts running after plan is verified and after access to features are controlled
+    const spinner = document.getElementById("loading-spinner");
+    spinner.classList.remove("hidden");
+    
+    let isMembershipPlanVerified = false;
+
+    checkMembershipPlan();
+    async function checkMembershipPlan() {
+        isMembershipPlanVerified = await verifyMembershipPlan();
+
+        if (!isMembershipPlanVerified) {
+            showToast("Selected Membership plan verification failed. Redirecting to login", "error");
+            setTimeout(() => {
+                runSessionTimedOut();
+            }, 4000);
+            return;
+        } else {
+            // console.log(isMembershipPlanVerified);
+            controlAccessToFeatures();
+        }
+    }
+
+    function controlAccessToFeatures() {
+        const basePlanID = localStorage.getItem("basePlanID");
+        const assignedTrainerFeature = document.getElementById('assignedTrainerFeature');
+        const selectTrainerFeature = document.getElementById('selectTrainerFeature');
+        const upgradePlanPopup = document.getElementById("planUpgradePopup");
+
+        if (basePlanID === 'MP1' || basePlanID === 'MP2') {
+            assignedTrainerFeature?.classList.add("disabled-feature");
+            selectTrainerFeature?.classList.add("disabled-feature");
+            //showing upgrade plan popup
+            upgradePlanPopup.style.display = 'block';
+            fetchDetailsOfTrainers();
+        } else if (basePlanID === 'MP3') {
+            assignedTrainerFeature?.classList.remove("disabled-feature");
+            selectTrainerFeature?.classList.remove("disabled-feature");
+            //closing upgrade plan popup
+            upgradePlanPopup.style.display = 'none';
+
+            fetchAssignedTrainer();
+        }
+    }
 
     let assignedTrainerExists = false;
     let assignedTrainer = null;
     let assignedTrainerInfo = null;
     let allTrainers = [];
-    let isMembershipPlanVerified = false;
 
     function fetchAssignedTrainer() {
         const authToken = localStorage.getItem("authToken");
@@ -83,6 +123,8 @@ export function initMember_getATrainer() {
                 });
             })
             .then(data => {
+                //hiding spinner
+                spinner.classList.add("hidden");
                 if (data.error) {
                     showToast(data.error, "error");
                     return;
@@ -97,6 +139,8 @@ export function initMember_getATrainer() {
                 }
             })
             .catch(error => {
+                //hiding spinner
+                spinner.classList.add("hidden");
                 console.error("API Error:", error.message);
                 if (error.message === "Token expired") {
                     showToast("Your session has timed out. Please log in again", "error");
@@ -143,7 +187,7 @@ export function initMember_getATrainer() {
                 ${!selectChangeTrainerPossible ?
                     `<p class="trainer-select-error-msg" style="color: red;">This trainer has reached maximum capacity and cannot accept new clients at this time.</p>`
                     :
-                    `` 
+                    ``
                 }
             `;
 
@@ -168,7 +212,7 @@ export function initMember_getATrainer() {
         //displaying assigned trainer container
         const assignedTrainerContainer = document.getElementById("assignedTrainerFeature");
         assignedTrainerContainer.style.display = "block";
-        
+
         const assignedTrainerCard = document.getElementById("assigned-trainer");
         assignedTrainerCard.innerHTML = "";
         assignedTrainerCard.innerHTML = `
@@ -195,6 +239,8 @@ export function initMember_getATrainer() {
     });
 
     function removeTrainer() {
+        //show spinner
+        spinner.classList.remove("hidden");
         const authToken = localStorage.getItem("authToken");
         if (!authToken) {
             showToast("An error has occurred. Please log in again", "error");
@@ -217,6 +263,8 @@ export function initMember_getATrainer() {
                 });
             })
             .then(data => {
+                //hiding spinner
+                spinner.classList.add("hidden");
                 if (data.error) {
                     showToast(data.error, "error");
                     return;
@@ -230,6 +278,8 @@ export function initMember_getATrainer() {
                 }
             })
             .catch(error => {
+                //hiding spinner
+                spinner.classList.add("hidden");
                 console.error("API Error:", error.message);
                 if (error.message === "Token expired") {
                     showToast("Your session has timed out. Please log in again", "error");
@@ -240,9 +290,13 @@ export function initMember_getATrainer() {
                     showToast(error.message, "error");
                 }
             });
+            //hiding spinner
+            spinner.classList.add("hidden");
     }
 
     function selectTrainer(trainerID) {
+        //show spinner
+        spinner.classList.remove("hidden");
         const authToken = localStorage.getItem("authToken");
         if (!authToken) {
             showToast("An error has occurred. Please log in again", "error");
@@ -275,6 +329,8 @@ export function initMember_getATrainer() {
                 });
             })
             .then(data => {
+                //hiding spinner
+                spinner.classList.add("hidden");
                 if (data.error) {
                     showToast(data.error, "error");
                     return;
@@ -287,6 +343,8 @@ export function initMember_getATrainer() {
             })
             .catch(error => {
                 console.error("API Error:", error.message);
+                //hiding spinner
+                spinner.classList.add("hidden");
                 if (error.message === "Token expired") {
                     showToast("Your session has timed out. Please log in again", "error");
                     setTimeout(() => {
@@ -299,6 +357,8 @@ export function initMember_getATrainer() {
     }
 
     function changeTrainer(trainerID) {
+        //show spinner
+        spinner.classList.remove("hidden");
         const authToken = localStorage.getItem("authToken");
         const payload = {
             "trainer_id": trainerID
@@ -323,6 +383,8 @@ export function initMember_getATrainer() {
                 });
             })
             .then(data => {
+                //hiding spinner
+                spinner.classList.add("hidden");
                 if (data.error) {
                     showToast(data.error, "error");
                     return;
@@ -334,6 +396,8 @@ export function initMember_getATrainer() {
                 }
             })
             .catch(error => {
+                //hiding spinner
+                spinner.classList.add("hidden");
                 console.error("API Error:", error.message);
                 if (error.message === "Token expired") {
                     showToast("Your session has timed out. Please log in again", "error");
@@ -344,90 +408,6 @@ export function initMember_getATrainer() {
                     showToast(error.message, "error");
                 }
             });
-    }
-
-    function verifyMembershipPlan() {
-        const authToken = localStorage.getItem("authToken");
-        const basePlanID = localStorage.getItem("basePlanID");
-
-        if (!authToken || !basePlanID) {
-            showToast("An error has occurred. Please log in again", "error");
-            navigate("login");
-            return;
-        }
-
-        const payload = {
-            "base_plan_id": basePlanID
-        }
-
-        const requestOptions = {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${authToken}`,
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(payload),
-            redirect: 'follow'
-        };
-
-        fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=verify_membership_plan", requestOptions)
-            .then(response => {
-                return response.json().then(data => {
-                    if (data.error && data.error === "Token expired") {
-                        throw new Error("Token expired");
-                    }
-                    if (!response.ok) throw new Error("Failed to verify the membership plan");
-                    return data;
-                });
-            })
-            .then(data => {
-                console.log("Membership Plan Verification Response:", data);
-                if (data.message && data.message === "membership plan verified") {
-                    isMembershipPlanVerified = true;
-                    controlAccessToFeatures();
-                } else if (data.error) {
-                    showToast("An error has occurred. Please log in again", "error");
-                    setTimeout(() => {
-                        //logging out -> this func does the same
-                        runSessionTimedOut();
-                    }, 4000);
-                }
-            })
-            .catch(error => {
-                console.error("API Error:", error.message);
-                if (error.message === "Token expired") {
-                    showToast("Your session has timed out. Please log in again", "error");
-                    setTimeout(() => {
-                        runSessionTimedOut();
-                    }, 4000);
-                } else {
-                    showToast(error.message, "error");
-                }
-            });
-    }
-
-    function controlAccessToFeatures() {
-        const basePlanID = localStorage.getItem("basePlanID");
-        if (isMembershipPlanVerified) {
-            const assignedTrainerFeature = document.getElementById('assignedTrainerFeature');
-            const selectTrainerFeature = document.getElementById('selectTrainerFeature');
-            const upgradePlanPopup = document.getElementById("planUpgradePopup");
-
-            if (basePlanID === 'MP1' || basePlanID === 'MP2') {
-                assignedTrainerFeature?.classList.add("disabled-feature");
-                selectTrainerFeature?.classList.add("disabled-feature");
-                //showing upgrade plan popup
-                upgradePlanPopup.style.display = 'block';
-                fetchDetailsOfTrainers();
-            } else if (basePlanID === 'MP3') {
-                assignedTrainerFeature?.classList.remove("disabled-feature");
-                selectTrainerFeature?.classList.remove("disabled-feature");
-                //closing upgrade plan popup
-                upgradePlanPopup.style.display = 'none';
-
-                fetchAssignedTrainer();
-            }
-        }
     }
 
     document.getElementById("upgradePlanBtn").onclick = () => {

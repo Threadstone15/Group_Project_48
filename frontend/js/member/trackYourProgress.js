@@ -3,6 +3,9 @@ import { runSessionTimedOut } from "../routeConfig.js";
 
 export function initMember_trackProgress() {
     console.log("initialzing trackProgress.js");
+    const spinner = document.getElementById("loading-spinner");
+    spinner.classList.remove("hidden");
+
     fetchLastWeeklyPogressOfMember();
 
     let currentWeekProgressInfo = null;
@@ -36,15 +39,20 @@ export function initMember_trackProgress() {
                     // No progress found for the user
                     // ask the user to start with a new weekly progress
                     document.getElementById("progress-start").style.display = "block";
+                    //hide spinner
+                    spinner.classList.add("hidden");
                 } else if (data.error && data.error === "No current workout plan found") {
                     //show a popup message to navigate into the workout plan page
                     const selectWorkoutPlanPopup = document.getElementById("select-workout-plan-popup");
                     selectWorkoutPlanPopup.style.display = "block";
                     //adding dark overlay around popup
                     document.getElementById("overlay").style.display = "block";
+                    //hide spinner
+                    spinner.classList.add("hidden");
                 } else if (data.error) {
                     // Handle other errors
                     showToast(data.error, "error");
+                    spinner.classList.add("hidden");
                 } else {
                     // Successfully fetched the weekly progress
                     currentWeekProgressInfo = data;
@@ -54,6 +62,8 @@ export function initMember_trackProgress() {
                     displayCurrentWeekProgress(currentWeekWorkoutProgress);
                     //fetch and display previous progess of the member
                     fetchPreviousProgressOfMember();
+                    //hide spinner
+                    spinner.classList.add("hidden");
                 }
             })
             .catch(error => {

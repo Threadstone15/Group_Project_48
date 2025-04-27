@@ -26,6 +26,11 @@ export function initMember_myPlans() {
         fetchPlansFromBackend(selectedCategory).then(() => {
             planListTitle.textContent = 'Workout Plans';
             const allPlans = JSON.parse(localStorage.getItem(`${selectedCategory}_plans`)) || [];
+            //if there are no plans, show a message
+            if(allPlans.error && allPlans.error == "No workout plans found"){
+                showToast("No workout plans found. Please create a workout plan through the workout planner section", "error");
+                return;
+            }
             renderPlans(selectedCategory, allPlans);
             planListModal?.classList.remove('hidden');
         });
@@ -40,6 +45,11 @@ export function initMember_myPlans() {
         fetchPlansFromBackend(selectedCategory).then(() => {
             planListTitle.textContent = 'Meal Plans';
             const allPlans = JSON.parse(localStorage.getItem(`${selectedCategory}_plans`)) || [];
+            //if there are no plans, show a message
+            if(allPlans.error && allPlans.error == "No meal plans found"){
+                showToast("No meal plans found. Please create a meal plan through the meal planner section", "error");
+                return;
+            }
             renderPlans(selectedCategory, allPlans);
             planListModal?.classList.remove('hidden');
         });
