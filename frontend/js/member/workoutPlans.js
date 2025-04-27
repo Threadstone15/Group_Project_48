@@ -62,6 +62,8 @@ export function initMember_workoutPlans() {
 
   requestBtn.addEventListener('click', async () => {
     try {
+      //adding spinner
+      spinner.classList.remove("hidden");
       const res = await fetch('http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=check_trainer', {
         headers: {
           'Authorization': `Bearer ${authToken}`
@@ -79,9 +81,13 @@ export function initMember_workoutPlans() {
         modal.classList.add('hidden1');
         noTrainerModal.classList.remove('hidden1');
       }
+      //hiding spinner
+      spinner.classList.add("hidden");
     } catch (err) {
       showToast('Error checking trainer status.', 'error');
       console.error(err);
+      //hiding spinner
+      spinner.classList.add("hidden");
     }
   });
 

@@ -13,38 +13,60 @@
     <!-- Number of Meal Days Section -->
     <div class="meal-days-container">
       <h1>Create your own meal plan</h1>
+      <p style="width: 600px; margin-bottom: 20px;">Fuel your body the right way! Creating a personalized meal plan helps you stay on track with your nutrition goals, whether you're aiming to lose weight, gain muscle, or maintain a healthy lifestyle.</p>
       <button id="generate-meal-planner">Generate Meal Planner</button>
     </div>
 
     <!-- Meal Planner Section -->
     <div id="meal-planner-container" class="meal-table-wrapper" style="display: none;">
-      <div class="meal-planner-content">
-        <span class="close1-btn" id="closeMealPlannerBtn">&times;</span>
-        <!-- <h2>Meal Planner</h2> -->
-        <div id="meal-planner" class="meal-planner"></div>
+      <div class="meal-planner-section">
+        <div class="meal-planner-content">
+          <span class="close1-btn" id="closeMealPlannerBtn">&times;</span>
+          <!-- <h2>Meal Planner</h2> -->
+          <div id="meal-planner" class="meal-planner"></div>
+        </div>
       </div>
     </div>
-    <div class="request-plan-container">
-      <h1>Request a Plan from your Trainer</h1>
-      <button id="request-planner">Request Plan</button>
+    <div id="MP3FeatureContainer" style="display: none;">
+      <div class="request-plan-container">
+        <h1>Request a Plan from your Trainer</h1>
+        <p style="width: 800px; margin-bottom: 20px;">Need a little help? Fuel your fitness journey with a meal plan crafted by your personal trainer. Based on your workout goals and preferences, your trainer will create a meal plan that complements your fitness routine. </p>
+        <button id="request-planner">Request Plan</button>
+      </div>
     </div>
 
     <div id="requestModal" class="modal1 hidden1">
       <div class="modal1-content">
-        <span class="close1-btn">&times;</span>
+        <span class="close1-btn" id="close-request-btn">&times;</span>
         <h2 id="modal1-title">Request a Meal Plan</h2>
-        <div id="modal1-message-area">
-          <textarea id="trainerMessage" placeholder="Write your message here..." rows="4"
-            style="width: 100%;"></textarea>
-          <button id="sendMessageBtn">Send</button>
+        <p style="text-align: left; border: 10px;">Please mention your fitness goals, medical conditions, current height
+          and weight, and age within the request message</p>
+        <p style="color: #dc3545; font-size: 14px; text-align: left;">**Note that the requested data will only be used for
+          creating an efficient meal plan and no any other purposes</p>
+        <div id="modal1-message-area" style="margin: 10px;">
+          <textarea id="trainerMessage" placeholder="Write your message here..." rows="10"
+            style="width: 100%; font-family: 'Poppins', sans-serif; font-size: 16px;"></textarea>
+          <button id="sendMessageBtn" class="save-workout-btn">Send</button>
         </div>
         <p id="no-trainer-msg" class="hidden1">Sorry, you don't have any trainers assigned.</p>
       </div>
     </div>
   </div>
+
+  <div id="no-trainer-modal" class="modal1 hidden1">
+    <div class="modal1-content" style="width: 400px; height: 200px;">
+      <span class="close1-btn" id="close-no-trainer-modal-button">&times;</span>
+      <p id="no-trainer-msg" style="margin: 20px 10px;">Please select a trainer first</p>
+      <button id="select-trainer-button" class="save-workout-btn" style="width: 300px;">Get A Trainer</button>
+    </div>
+  </div>
+
   <div id="toast-container" class="toast-container"></div>
 
-  <!-- Optional JavaScript if you're dynamically generating plans -->
+  <!-- Loading Spinner -->
+  <div id="loading-spinner" class="spinner hidden">
+    <div class="spinner-circle"></div>
+  </div>
   <!-- <script src="mealPlans.js"></script> -->
 </body>
 

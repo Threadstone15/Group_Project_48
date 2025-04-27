@@ -1,5 +1,45 @@
+import { navigate } from "../router.js";
+import { runSessionTimedOut } from "../routeConfig.js";
+import { verifyMembershipPlan } from "./memberCommonFunc.js";
+
 export function initMember_workoutMealPlans() {
   console.log('Initializing single-day meal planner');
+  
+  const spinner = document.getElementById("loading-spinner");
+  spinner.classList.remove("hidden");
+
+  let isMembershipPlanVerified = false;
+  checkMembershipPlan();
+  async function checkMembershipPlan() {
+    isMembershipPlanVerified = await verifyMembershipPlan();
+
+    if (!isMembershipPlanVerified) {
+      showToast("Selected Membership plan verification failed. Redirecting to login", "error");
+      setTimeout(() => {
+        runSessionTimedOut();
+      }, 4000);
+      return;
+    } else {
+      // console.log(isMembershipPlanVerified);
+      controlAccessToFeatures();
+    }
+  }
+
+  function controlAccessToFeatures() {
+    const basePlanID = localStorage.getItem("basePlanID");
+    const premiumPlanFeatures = document.getElementById('MP3FeatureContainer');
+    if (basePlanID === "MP3") {
+      // enabling premium plan features
+      premiumPlanFeatures.style.display = 'block';
+      //hiding spinner
+      spinner.classList.add("hidden");
+    }else{
+      // disabling premium plan features
+      premiumPlanFeatures.style.display = 'none';
+      //hiding spinner
+      spinner.classList.add("hidden");
+    }
+  }
 
   const mealPlanner = document.getElementById('meal-planner');
   const mealPlannerContainer = document.getElementById('meal-planner-container');
@@ -7,17 +47,22 @@ export function initMember_workoutMealPlans() {
   const generatePlannerButton = document.getElementById('generate-meal-planner');
   const requestBtn = document.getElementById('request-planner');
   const modal = document.getElementById('requestModal');
+  const closeRequestModalBtn = document.getElementById('close-request-btn');
   const closeBtn = document.querySelector('.close1-btn');
   const messageArea = document.getElementById('modal1-message-area');
-  const noTrainerMsg = document.getElementById('no-trainer-msg');
   const sendMessageBtn = document.getElementById('sendMessageBtn');
   const trainerMessage = document.getElementById('trainerMessage');
+  const noCurrentTrainerModal = document.getElementById('no-trainer-modal');
+  const noCurrentTrainerModalCloseBtn = document.getElementById('close-no-trainer-modal-button');
+  const selectTrainerBtn = document.getElementById('select-trainer-button');
 
   const authToken = localStorage.getItem('authToken');
   let assignedTrainerId = null;
 
   requestBtn.addEventListener('click', async () => {
     try {
+      //adding spinner
+      spinner.classList.remove("hidden");
       const res = await fetch('http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=check_trainer', {
         headers: {
           'Authorization': `Bearer ${authToken}`
@@ -25,18 +70,25 @@ export function initMember_workoutMealPlans() {
       });
       const data = await res.json();
       console.log(data);
-      modal.classList.remove('hidden1');
       if (data && data.trainer_id) {
         assignedTrainerId = data.trainer_id;
+        //opeinng request section
         messageArea.classList.remove('hidden1');
-        noTrainerMsg.classList.add('hidden1');
+        modal.classList.remove('hidden1');
+        //hiding no trainer message popup
+        noCurrentTrainerModal.classList.add('hidden1');
       } else {
         messageArea.classList.add('hidden1');
-        noTrainerMsg.classList.remove('hidden1');
+        //opening no trainer message popup
+        noCurrentTrainerModal.classList.remove('hidden1');
       }
+      //hiding spinner
+      spinner.classList.add("hidden");
     } catch (err) {
-      alert('Error checking trainer status.');
+      showToast('Error checking trainer status. Please try again later to make a meal plan  request. ', 'error');
       console.error(err);
+      //hiding spinner
+      spinner.classList.add("hidden");
     }
   });
 
@@ -45,9 +97,22 @@ export function initMember_workoutMealPlans() {
     trainerMessage.value = '';
   });
 
+  closeRequestModalBtn.addEventListener('click', () => {
+    modal.classList.add('hidden1');
+    trainerMessage.value = '';
+  });
+
+  noCurrentTrainerModalCloseBtn.addEventListener('click', () => {
+    noCurrentTrainerModal.classList.add('hidden1');
+  });
+
+  selectTrainerBtn.addEventListener('click', () => {
+    navigate('member/getATrainer');
+  });
+
   sendMessageBtn.addEventListener('click', async () => {
     const message = trainerMessage.value.trim();
-    if (!message) return alert('Please enter a message.');
+    if (!message) return showToast('Please enter a message in the request.', 'error');
 
     try {
       const res = await fetch('http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=request_meal_plan', {
@@ -65,12 +130,12 @@ export function initMember_workoutMealPlans() {
       const result = await res.json();
       if (!res.ok) throw new Error(result.message || 'Failed to send message.');
 
-      alert('Request sent successfully!');
+      showToast('Request sent successfully!', 'success');
       modal.classList.add('hidden1');
       trainerMessage.value = '';
     } catch (err) {
       console.error(err);
-      alert('Failed to send message.');
+      showToast('Failed to send the request.', 'error');
     }
   });
 
@@ -129,7 +194,10 @@ export function initMember_workoutMealPlans() {
     }
 
     if (!authToken) {
-      alert("Auth token not found. Please log in.");
+      showToast("Auth token not found. Please log in again.", "error");
+      setTimeout(() => {
+        runSessionTimedOut();
+      }, 4000);
       return;
     }
 

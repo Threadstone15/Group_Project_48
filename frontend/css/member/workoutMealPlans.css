@@ -12,51 +12,62 @@
     min-height: 100vh;
   } */
 
-  .meal-table-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .meal-planner-content {
-    background-color: white;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 900px;
-    max-height: 90vh;
-    overflow-y: auto;
-    padding: 30px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.25);
-    align-items: center;
-  }
+.meal-table-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: flex; /* Enable flexbox */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+}
 
-  .save-meal-plan-btn{
-    padding: 12px 20px;
-    font-size: 16px;
-    background-color: #ff5f00;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    width: 30%;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-    font-family: 'Poppins', sans-serif;
-  }
-  .save-meal-plan-btn:hover {
-    background-color: #e65400;
-  }
-  
+.meal-planner-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 150px;
+}
+
+.meal-planner-content {
+  background-color: white;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  align-items: center;
+}
+
+.save-meal-plan-btn {
+  padding: 12px 20px;
+  font-size: 16px;
+  background-color: #ff5f00;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  width: 30%;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.save-meal-plan-btn:hover {
+  background-color: #e65400;
+}
+
 
 .modal1-content {
-  width: 80%; /* or even 90% */
+  width: 80%;
+  /* or even 90% */
   max-width: 900px;
   background-color: #ffffff;
   padding: 2rem;
@@ -68,11 +79,32 @@
 /* Meal Days Section */
 .meal-days-container {
   text-align: left;
-  margin-top: 90px;
+  margin-top: 30px;
+  margin-left: 60px;
+}
+
+.request-plan-container{
+  text-align: left;
+  margin-top: 50px;
   margin-left: 60px;
 }
 
 .meal-days-container h1 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #333;
+  margin: 20px 0;
+}
+
+#requestModal{
+  text-align: center;
+}
+
+#no-trainer-modal{
+  text-align: center;
+}
+
+.request-plan-container h1 {
   font-size: 32px;
   font-weight: 600;
   color: #333;
@@ -253,13 +285,6 @@ button#generate-meal-planner:hover {
   z-index: 999;
 }
 
-.modal1-content {
-  background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  width: 400px;
-  text-align: center;
-}
 
 .hidden1 {
   display: none;
@@ -308,6 +333,20 @@ button#request-planner:hover {
   animation: fadeInOut 4s forwards;
 }
 
+.save-workout-btn{
+  padding: 12px 20px;
+  font-size: 16px;
+  background-color: #ff5f00;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  width: 30%;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
 .save-workout-btn:hover {
   background-color: #e65400;
 }
@@ -322,18 +361,58 @@ button#request-planner:hover {
 
 @keyframes fadeInOut {
   0% {
-      opacity: 0;
-      transform: translateY(-20px);
+    opacity: 0;
+    transform: translateY(-20px);
   }
 
   10%,
   90% {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 
   100% {
-      opacity: 0;
-      transform: translateY(-20px);
+    opacity: 0;
+    transform: translateY(-20px);
   }
+}
+
+/* Spinner Overlay Container */
+.spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+/* The Circle Spinner */
+.spinner-circle {
+  width: 50px;
+  height: 50px;
+  border: 6px solid #ffffff;
+  border-top: 6px solid #ff5f00;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Hide spinner when needed */
+.hidden {
+  display: none;
 }

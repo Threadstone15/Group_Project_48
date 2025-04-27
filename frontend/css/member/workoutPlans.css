@@ -15,7 +15,7 @@ body {
 /* Workout Days Section */
 .workout-days-container {
   text-align: left;
-  margin-top: 90px;
+  margin-top: 30px;
   margin-left: 80px;
   align-items: left;
   margin-bottom: 50px;
@@ -38,7 +38,7 @@ body {
 
 .request-plan-container {
   text-align: left;
-  margin-top: 90px;
+  margin-top: 30px;
   margin-left: 80px;
   align-items: left;
 }
@@ -365,6 +365,7 @@ button#request-planner:hover {
   background-color: #ffffff;
   padding: 2rem;
   border-radius: 10px;
+  align-items: center;
 }
 
 
