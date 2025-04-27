@@ -1,8 +1,27 @@
 import { navigate } from "../router.js";
 import { runSessionTimedOut } from "../routeConfig.js";
+import { verifyMembershipPlan } from "./memberCommonFunc.js";
 
 export function initMember_home() {
   let isMembershipPlanVerified = false;
+  
+  checkMembershipPlan();
+  async function checkMembershipPlan() {
+    let isMembershipPlanVerified = false;
+    isMembershipPlanVerified = await verifyMembershipPlan();
+  
+    if (!isMembershipPlanVerified) {
+      showToast("Selected Membership plan verification failed. Redirecting to login", "error");
+      setTimeout(() => {
+        runSessionTimedOut();
+      }, 4000);
+      return; 
+    } else {
+      controlAccessToFeatures(); 
+    }
+  }
+  
+  
 
   // Load QRCode.js library (optional, only if not in HTML already)
   const qrScript = document.createElement('script');
@@ -180,64 +199,6 @@ export function initMember_home() {
       .catch(error => console.error("Error fetching gym data:", error));
   }
 
-  function verifyMembershipPlan() {
-    const authToken = localStorage.getItem("authToken");
-    const basePlanID = localStorage.getItem("basePlanID");
-
-    if (!authToken || !basePlanID) {
-      showToast("An error has occurred. Please log in again", "error");
-      navigate("login");
-      return;
-    }
-
-    const payload = {
-      "base_plan_id": basePlanID
-    }
-
-    const requestOptions = {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${authToken}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(payload),
-      redirect: 'follow'
-    };
-
-    fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=verify_membership_plan", requestOptions)
-      .then(response => {
-        return response.json().then(data => {
-          if (data.error && data.error === "Token expired") {
-            throw new Error("Token expired");
-          }
-          if (!response.ok) throw new Error("Failed to verify the membership plan");
-          return data;
-        });
-      })
-      .then(data => {
-        if (data.message && data.message === "membership plan verified") {
-          isMembershipPlanVerified = true;
-          controlAccessToFeatures();
-        } else if (data.error) {
-          showToast("An error has occurred. Please log in again", "error");
-          setTimeout(() => {
-            //logging out -> this func does the same
-            runSessionTimedOut();
-          }, 4000);
-        }
-      })
-      .catch(error => {
-        console.error("API Error:", error.message);
-        if (error.message === "Token expired") {
-          showToast("Your session has timed out. Please log in again", "error");
-          setTimeout(() => {
-            runSessionTimedOut();
-          }, 4000);
-        } else {
-          showToast(error.message, "error");
-        }
-      });
-  }
   function controlAccessToFeatures() {
     const basePlanID = localStorage.getItem("basePlanID");
     if (isMembershipPlanVerified) {
@@ -297,13 +258,12 @@ export function initMember_home() {
     navigate('member/upgradePlan');
   };
 
-  verifyMembershipPlan();
-
   //setInterval(updateAttendance, 5000);
   
   window.addEventListener('message', (event) => {
     if (event.data.call === 'SHOW_TOAST') {
       const container = document.getElementById('global-toast-container');
+      container.innerHTML = ""; // Clear previous toasts
       const toast = document.createElement('div');
       toast.className = `global-toast ${event.data.toastType}`;
       toast.innerHTML = event.data.message;
