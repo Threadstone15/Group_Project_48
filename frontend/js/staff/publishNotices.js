@@ -10,11 +10,11 @@ export function initStaff_publishNotice() {
     }
 
     function showSpinner() {
-        if (spinner) spinner.style.display = 'block';
+        if (spinner) spinner.classList.remove('hidden');
     }
 
     function hideSpinner() {
-        if (spinner) spinner.style.display = 'none';
+        if (spinner) spinner.classList.add('hidden');
     }
 
     function showToast(message, type = 'success') {
