@@ -186,3 +186,21 @@ function getAssignedMembersOfATrainer($user_id)
         echo json_encode($assignedMembers);
     }
 }
+
+function getActiveTrainers()
+{
+    logMessage("getActiveTrainers function running...");
+    $trainer = new Trainer();
+    $activeTrainers = $trainer->getAllActiveTrainers();
+
+    if ($activeTrainers === false) {
+        logMessage("Error fetching active trainers");
+        echo json_encode(["error" => "Error Fetching Active Trainers"]);
+    } else if (empty($activeTrainers)) {
+        logMessage("No active trainers found");
+        echo json_encode(["error" => "No Active Trainers Found"]);
+    } else {
+        logMessage("Active trainers retrieved successfully " . json_encode($activeTrainers));
+        echo json_encode($activeTrainers);
+    }
+}

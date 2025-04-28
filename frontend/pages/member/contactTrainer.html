@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Messages</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet" />
+
+</head>
+
+<body>
+  <div class="messages-container">
+    <!-- Sidebar with message threads -->
+    <div class="messages-sidebar">
+      <div class="messages-header">
+        <h2>Messages</h2>
+        <button id="new-message-btn">New Message</button>
+      </div>
+      <div class="messages-search">
+        <input type="text" placeholder="Search messages..." />
+      </div>
+      <div class="messages-list" id="messages-list">
+        <!-- Message threads will be loaded here -->
+      </div>
+    </div>
+
+    <!-- Main chat area -->
+    <div class="messages-chat-area">
+      <div class="chat-header" id="chat-header">
+        <div class="chat-header-placeholder">
+          <p>Select a conversation to start chatting</p>
+        </div>
+      </div>
+      <div class="chat-messages" id="chat-messages">
+        <!-- Messages will be displayed here -->
+      </div>
+      <div class="chat-input-area hidden" id="chat-input-area">
+        <textarea id="message-input" placeholder="Type your message here..."></textarea>
+        <button id="send-message-btn">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- New Message Popup -->
+  <div id="new-message-popup" class="popup hidden">
+    <div class="popup-content">
+      <h3>New Message</h3>
+      <select id="recipient-select">
+        <option value="">Select a trainer</option>
+        <!-- Trainers will be loaded here -->
+      </select>
+      <textarea id="new-message-text" placeholder="Type your message here..."></textarea>
+      <div class="popup-buttons">
+        <button id="submit-new-message">Send</button>
+        <button id="cancel-new-message" class="cancel-popup">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div id="loading-spinner" class="spinner hidden">
+    <div class="spinner-circle"></div>
+  </div>
+
+  <!-- Toast container -->
+  <div id="toast-container" class="toast-container"></div>
+
+</body>
+
+</html>
