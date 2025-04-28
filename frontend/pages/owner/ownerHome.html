@@ -12,21 +12,17 @@
 
     <div class="content">
         <div class="card-container">
-            <div class="total-members">
-                <h2>Total Members</h2>
-                <p class="date" id="dateDisplay">Friday</p>
-                <p class="total-count" id="totalCount">Total members:</p>
-            </div>
-            <div class="new-signups">
-                <h2>New Sign-ups</h2>
-                <p class="date" id="dateDisplay">Friday</p>
-                <p class="new-signups-count" id="newSignups">New Sign-ups:</p>
+            <div class="notice-container">
+                <h2>Notices</h2>
+                <button id="viewNoticesBtn">View Notices</button>
+                <p id="noticeCount" style="margin-top: 8px;">Notices Available: 0</p>
             </div>
 
             <div class="gym-card">
                 <h2>Gym Crowd</h2>
                 <p class="date" id="dateDisplay">Friday</p>
-                <p class="member-count" id="memberCount">Members Present:</p>
+                <progress id="gymProgress" value="0" max="100"></progress>
+                <p class="member-count" id="memberCount">Members Present: 0</p>
             </div>
         </div>
 
@@ -39,6 +35,37 @@
         </div>
         <div id="global-toast-container" class="global-toast-container"></div>
     </div>
+
+    <div id="noticeModal" class="notice-modal" style="display:none;">
+        <div class="modal-content">
+            <span id="closeModal" class="close-button">&times;</span>
+            <div class="notice-body">
+                <h3 id="modalNoticeTitle"></h3>
+                <p id="modalNoticeDescription"></p>
+            </div>
+
+            <div class="notice-navigation">
+                <button id="prevNoticeBtn">Previous</button>
+                <span id="noticeIndexDisplay">1 of 1</span>
+                <button id="nextNoticeBtn">Next</button>
+            </div>
+
+            <button id="markAsReadBtn">Mark as Read</button>
+        </div>
+    </div>
+
+    <!-- Toast container -->
+    <div id="toast-container" class="toast-container"></div>
+    <div id="global-toast-container" class="toast-container"></div>
+
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="spinner hidden">
+        <div class="spinner-circle"></div>
+    </div>
+
+
+
+
 
 </body>
 </html>
