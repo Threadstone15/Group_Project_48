@@ -32,8 +32,6 @@ class FinancialOverviewController
             // Fetch total attendance count
             //$totalAttendance = $this->model->getTotalAttendance();
 
-
-
             header('Content-Type: application/json');
             echo json_encode([
                 "status" => "success",

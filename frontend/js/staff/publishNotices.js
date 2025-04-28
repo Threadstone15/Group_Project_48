@@ -10,11 +10,11 @@ export function initStaff_publishNotice() {
     }
 
     function showSpinner() {
-        if (spinner) spinner.style.display = 'block';
+        if (spinner) spinner.classList.remove('hidden');
     }
 
     function hideSpinner() {
-        if (spinner) spinner.style.display = 'none';
+        if (spinner) spinner.classList.add('hidden');
     }
 
     function showToast(message, type = 'success') {
@@ -117,14 +117,14 @@ export function initStaff_publishNotice() {
         })
             .then(response => {
                 if (!response.ok) throw new Error("Failed to add notice");
-                return response.text();
+                return response.json();
             })
             .then(() => {
                 showToast("Notice published successfully!", "success");
-                fetchNoticeList();
                 document.getElementById("noticeInput").value = "";
                 document.getElementById("noticeInputTopic").value = "";
                 document.getElementById("noticeDuration").value = "";
+                fetchNoticeList();
             })
             .catch(error => {
                 console.error("Error adding notice:", error);
