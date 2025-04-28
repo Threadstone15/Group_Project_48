@@ -96,12 +96,12 @@ switch ($action) {
         break;
     case 'update_membershipPlan':
         logMessage("Running update_membership plan....in controller");
-        updateMembershipPlan();
+        updateMembershipPlanStatus();
         break;
-    case 'delete_membershipPlan':
-        logMessage("Running delete_membership plan....in controller");
-        deleteMembershipPlan();
-        break;
+    // case 'delete_membershipPlan':
+    //     logMessage("Running delete_membership plan....in controller");
+    //     deleteMembershipPlan();
+    //     break;
 
     case 'get_trainerApplications':
         logMessage("Running get_trainer_applications....in controller");

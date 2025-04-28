@@ -9,6 +9,12 @@
 </head>
 
 <body>
+    <!-- Toast container -->
+    <div id="toast-container" class="toast-container"></div>
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="spinner hidden">
+        <div class="spinner-circle"></div>
+    </div>
     <div id="overlay"></div>
 
     <div class="content-wrapper">
@@ -22,12 +28,16 @@
                     Membership Plans
                 </p>
             </div>
+            <div style="margin-left: 50px;">
+                <p style="color: red; font-size: 15px;">**Note : Access to features on the GymVerse platform by members depends on the base plans</p>
+                <p style="color: red; font-size: 15px;">Any of the custom plan should be an extended version of one of the basic plans</p>
+            </div>
             <h3>Basic Plans</h3>
             <div class="table-container">
                 <table id="plansTable">
                     <thead>
                         <tr>
-                            <th>Plan ID</th>
+                            <!-- <th>Plan ID</th> -->
                             <th>Name</th>
                             <th>Benefits</th>
                             <th>Monthly Price</th>
@@ -44,12 +54,12 @@
                 <table id="CustomPlansTable">
                     <thead>
                         <tr>
-                            <th>Plan ID</th>
+                            <!-- <th>Plan ID</th> -->
                             <th>Name</th>
                             <th>Benefits</th>
                             <th>Monthly Price</th>
                             <th>Yearly Price</th>
-                            <th>Base Plan ID</th>
+                            <!-- <th>Base Plan ID</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -58,18 +68,16 @@
                 </table>
             </div>
 
-            <!-- Delete confirmation popup -->
-            <div id="deletePopup" class="popup" style="display: none;">
-                <button id="closePopup" class="close-button">&times;</button> <!-- Close button -->
+            <!-- Status confirmation popup -->
+            <div id="updatePlanStatusPopup" class="popup" style="display: none;">
+                <button id="close-updatePlanStatusPopup" class="close-button">&times;</button> <!-- Close button -->
                 <div class="popup-content">
-                    <h2>Confirm Delete</h2>
-                    <p>Are you sure you want to delete this plan?</p>
+                    <h2>Confirm Deactivate</h2>
+                    <p>Are you sure you want to deactivate this plan?</p>
                     <div class="popup-buttons">
-                        <button id="confirmDelete" class="popup-confirm">Yes</button>
-                        <button id="cancelDelete" class="popup-cancel">No</button>
+                        <button id="confirmUpdateStatus" class="popup-confirm">Yes</button>
+                        <button id="cancelUpdateStatusu" class="popup-cancel">No</button>
                     </div>
-                    <!-- Response Message Container -->
-                    <div id="deleteResponse" class="form-response" style="display: none;"></div>
                 </div>
             </div>
 
@@ -86,15 +94,15 @@
                         </div>
                         <div class="form-group">
                             <label for="updateBenefits">Benefits:</label>
-                            <input type="text" id="updateBasicBenefits" class="form-input" disabled/>
+                            <input type="text" id="updateBasicBenefits" class="form-input" disabled />
                         </div>
                         <div class="form-group">
                             <label for="updateMonthlyPrice">Monthly Price:</label>
-                            <input type="number" id="updateBasicMonthlyPrice" class="form-input"/>
+                            <input type="number" id="updateBasicMonthlyPrice" class="form-input" />
                         </div>
                         <div class="form-group">
                             <label for="updateDiscount">Discount for yearly plan:</label>
-                            <input type="number" id="updateBasicDiscount" class="form-input"/>
+                            <input type="number" id="updateBasicDiscount" class="form-input" />
                         </div>
                         <button type="submit" class="submit-button">Update Membership Plan</button>
                         <!-- Response Message Container -->
@@ -127,11 +135,11 @@
                         </div>
                         <div class="form-group">
                             <label for="updateMonthlyPrice">Monthly Price:</label>
-                            <input type="number" id="updateMonthlyPrice" class="form-input"/>
+                            <input type="number" id="updateMonthlyPrice" class="form-input" />
                         </div>
                         <div class="form-group">
                             <label for="updateDiscount">Discount for yearly plan:</label>
-                            <input type="number" id="updateDiscount" class="form-input"/>
+                            <input type="number" id="updateDiscount" class="form-input" />
                         </div>
                         <button type="submit" class="submit-button">Update Membership Plan</button>
                         <!-- Response Message Container -->
@@ -153,28 +161,30 @@
 
                 <form class="equipment-form" id="plansForm">
                     <div class="form-group">
-                        <label for="basePlanID" class="form-label">Select the basic plan to extend:</label><br/>
+                        <label for="basePlanID" class="form-label">Select the basic plan to extend:</label><br />
                         <select id="basePlanID" class="form-input" aria-label="basePlanID">
-                            <option value="MP1">MP1</option>
-                            <option value="MP2">MP2</option>
-                            <option value="MP3">MP3</option>
+                            <option value="MP1">Free</option>
+                            <option value="MP2">Standard</option>
+                            <option value="MP3">Premium</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="name" class="form-label">Name :</label>
-                        <input type="text" id="name" class="form-input" aria-label="Enter name" placeholder="Platinum" />
+                        <input type="text" id="name" class="form-input" aria-label="Enter name"
+                            placeholder="Platinum" />
                     </div>
                     <div class="form-group">
                         <label for="benefits" class="form-label">Additional Benefits :</label>
-                        <input type="text" id="benefits" class="form-input" aria-label="benefits" placeholder="supplements, massage therapy"/>
+                        <input type="text" id="benefits" class="form-input" aria-label="benefits"
+                            placeholder="supplements, massage therapy" />
                     </div>
                     <div class="form-group">
                         <label for="monthlyPrice" class="form-label">Monthly Price :</label>
-                        <input type="number" id="monthlyPrice" class="form-input" aria-label="monthlyPrice"/>
+                        <input type="number" id="monthlyPrice" class="form-input" aria-label="monthlyPrice" />
                     </div>
                     <div class="form-group">
                         <label for="discount" class="form-label">Discount for yearly plan :</label>
-                        <input type="number" id="discount" class="form-input" aria-label="discount"/>
+                        <input type="number" id="discount" class="form-input" aria-label="discount" />
                     </div>
 
                     <button type="submit" class="submit-button">Add plan</button>
@@ -184,8 +194,6 @@
             </div>
         </section>
     </div>
-     <!-- Toast container -->
-     <div id="toast-container" class="toast-container"></div>
 
 
 </body>

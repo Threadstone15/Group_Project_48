@@ -51,8 +51,8 @@ class MembershipPlan
             return false;
         }
 
-        $query = "INSERT INTO " . $this->table . " (membership_plan_id, plan_name, benefits, monthlyPrice, yearlyPrice, base_plan_id)
-                  VALUES (?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO " . $this->table . " (membership_plan_id, plan_name, benefits, monthlyPrice, yearlyPrice, base_plan_id, status)
+                  VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
 
         if ($stmt === false) {
@@ -60,7 +60,9 @@ class MembershipPlan
             return false;
         }
 
-        if (!$stmt->bind_param("sssdds", $membership_plan_id, $name, $benefits, $monthlyPrice, $yearlyPrice, $basePlanID)) {
+
+        $status = "active"; // Default status for new plans
+        if (!$stmt->bind_param("sssddss",$membership_plan_id, $name,$benefits, $monthlyPrice, $yearlyPrice, $basePlanID, $status)) {    
             logMessage("Error binding parameters for membership plan insertion: " . $stmt->error);
             return false;
         }
@@ -133,6 +135,26 @@ class MembershipPlan
     }
 
 
+    public function updateMembershipPlanStatus($membership_plan_id, $status){
+        $query = "UPDATE " . $this->table . " SET status = ? WHERE membership_plan_id = ?";
+        $stmt = $this->conn->prepare($query);   
+        if($stmt === false) {
+            logMessage("Error preparing statement for updating membership plan status: " . $this->conn->error);
+            return false;
+        }
+        $stmt->bind_param("ss", $status, $membership_plan_id);
+        logMessage("Query bound for updating membership plan status ID: $membership_plan_id");
+        if($stmt->execute()){
+            logMessage("Membership plan status updated successfully for ID: $membership_plan_id");
+            return true;
+        }else{
+            logMessage("Error updating membership plan status: " . $stmt->error);
+            return false;
+        }
+    }
+    
+
+
     public function deleteMembershipPlan($membership_plan_id)
     {
         logMessage("Deleting membership plan with ID: $membership_plan_id");
@@ -178,6 +200,33 @@ class MembershipPlan
             return false;
         }
     }
+  
+    public function checkIfPlanNameExists($plan_name){
+        if(!$this->conn){
+            logMessage("Database connection is not established.");
+            return false;
+        }
+        $query = "SELECT membership_plan_id FROM " . $this->table . " WHERE plan_name = ? AND status = 'active' ";
+        $stmt = $this->conn->prepare($query);
+        if($stmt === false) {
+            logMessage("Error preparing statement for checking plan name: " . $this->conn->error);
+            return false;
+        }
+        $stmt->bind_param("s", $plan_name);
+        if($stmt->execute()){
+            $result = $stmt->get_result();
+            if($result->num_rows > 0){
+                logMessage("Plan name already exists: $plan_name");
+                return true;
+            }else{
+                logMessage("Plan name does not exist: $plan_name");
+                return false;
+            }
+        }else{
+            logMessage("Error checking plan name: " . $stmt->error);
+            return false;
+        }
+  }
 
     public function getActiveMembershipPlansFromTable()
     {
@@ -210,4 +259,4 @@ class MembershipPlan
             return false;
         }
     }
-}
+
