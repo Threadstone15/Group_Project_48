@@ -431,3 +431,252 @@
   color: #000000;
   margin-bottom: 10px;
 }
+
+/* Loading Spinner Styles */
+.spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.spinner-circle {
+  width: 60px;
+  height: 60px;
+  border: 6px solid rgba(255, 95, 0, 0.2);
+  border-top: 6px solid #FF5F00;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* View Button Styles */
+.view-button {
+  background-color: #FF5F00;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.view-button:hover {
+  background-color: #e65300;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.view-button:active {
+  background-color: #cc4a00;
+  transform: translateY(0);
+}
+
+/* Status Badges */
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.accepted {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-badge.rejected {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Application Details Popup */
+#viewApplicationPopup {
+  width: 600px;
+  max-width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.application-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.detail-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detail-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+}
+
+.detail-value {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  word-break: break-word;
+}
+
+#popup-name {
+  grid-column: 1 / -1;
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+#popup-cv {
+  color: #FF5F00;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+#popup-cv:hover {
+  color: #e65300;
+  text-decoration: underline;
+}
+
+#pendingApplicationButtonsPopup, 
+#rejectedAcceptedButtonsPopup {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+#approveBtn {
+  background-color: #28a745;
+}
+
+#approveBtn:hover {
+  background-color: #218838;
+}
+
+#rejectBtn {
+  background-color: #dc3545;
+}
+
+#rejectBtn:hover {
+  background-color: #c82333;
+}
+
+#deleteBtn {
+  background-color: #6c757d;
+}
+
+#deleteBtn:hover {
+  background-color: #5a6268;
+}
+
+/* Toast Styles */
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: white;
+  background-color: #333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transform: translateX(100%);
+  animation: slideIn 0.3s forwards, fadeOut 0.3s 3.7s forwards;
+  gap: 10px;
+}
+
+.toast.success {
+  background-color: #28a745;
+}
+
+.toast.error {
+  background-color: #dc3545;
+}
+
+.toast i {
+  font-size: 18px;
+}
+
+@keyframes slideIn {
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+      opacity: 0;
+  transform: translateX(100%);
+  height: 0;
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .application-details {
+      grid-template-columns: 1fr;
+  }
+  
+  #pendingApplicationButtonsPopup,
+  #rejectedAcceptedButtonsPopup {
+      flex-direction: column;
+  }
+  
+  .view-button {
+      padding: 6px 12px;
+      font-size: 13px;
+  }
+}
