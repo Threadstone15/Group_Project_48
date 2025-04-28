@@ -53,7 +53,6 @@ export function initAdmin_jobs() {
                     data.forEach((job) => {
                         const row = document.createElement("tr");
                         row.innerHTML = `
-                            <td>${job["career_id"]}</td>
                             <td>${job["job_role"]}</td>
                             <td>${job["requirements"]}</td>
                             <td>
