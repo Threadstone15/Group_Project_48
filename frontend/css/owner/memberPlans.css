@@ -1,26 +1,28 @@
 /* style.css */
-.content-wrapper {
+/* .content-wrapper {
     display:flex;
-    flex-direction: column;
-}
+    flex-direction: column; 
+} */
 
 .content {
-    width: 100%;
-    border-collapse: collapse;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.table-container {
-    width: 100;
+.table-container { 
+    width: 100%;
     margin: 20px auto;
     border-collapse: collapse;
 }
 
 .table-container table {
-    width: 100%;
+    width: 1000px;
     border-collapse: collapse;
     border-spacing: 0; /* Removes spacing between cells if needed */
     border-radius: 10px; /* Adjust the radius as desired */
-    overflow: hidden; /* Ensures corners stay rounded if there’s content overflow */
+    /* overflow: hidden; Ensures corners stay rounded if there’s content overflow */
     box-shadow: 0px 4px 10px rgba(15, 15, 15, 0.1); /* Optional shadow for a softer look */
 }
 
@@ -93,6 +95,11 @@ tbody tr:hover {
     letter-spacing: -0.36px;
     margin: 0 auto;
     display: flex;
+    margin: 30px auto;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: column; */
+
   }
   
   .add-equipment-content {
@@ -233,6 +240,17 @@ tbody tr:hover {
 .update-button:active {
   background-color: #000; 
   color: #fff; 
+}
+
+.disabled-btn {
+  background-color: #bfbfbf;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: not-allowed; 
+  pointer-events: none; 
 }
 
 .delete-button {
@@ -448,4 +466,39 @@ h3 {
   0% { opacity: 0; transform: translateY(-20px); }
   10%, 90% { opacity: 1; transform: translateY(0); }
   100% { opacity: 0; transform: translateY(-20px); }
+}
+
+/* Spinner Overlay Container */
+.spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+/* The Circle Spinner */
+.spinner-circle {
+  width: 50px;
+  height: 50px;
+  border: 6px solid #ffffff;
+  border-top: 6px solid #ff5f00;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Hide spinner when needed */
+.hidden {
+  display: none;
 }

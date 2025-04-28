@@ -4,8 +4,10 @@
 include_once "../models/membershipPlan.php";
 include_once "../models/Subscription.php";
 include_once "../../logs/save.php";
+include_once "../models/Payments.php";
 
-function addMembershipPlan() {
+function addMembershipPlan()
+{
     logMessage("add membership plan function running...");
 
     $membershipPlan = new MembershipPlan();
@@ -27,6 +29,13 @@ function addMembershipPlan() {
         $yearlyPrice = floatval($data['yearlyPrice']);
         $basePlanID = $data['basePlanID'];
 
+        //chck if an active plan with the same name already exists
+        if ($membershipPlan->checkIfPlanNameExists($name)) {
+            logMessage("Membership plan with the same name already exists: $name");
+            echo json_encode(["error" => "An active Membership plan with the same name already exists"]);
+            exit();
+        }
+
         if ($membershipPlan->addMembershipPlan($name, $benefits, $monthlyPrice, $yearlyPrice, $basePlanID)) {
             logMessage("Membership plan added: $name");
             echo json_encode(["message" => "Membership plan added successfully"]);
@@ -42,7 +51,8 @@ function addMembershipPlan() {
 
 
 
-function getMembershipPlans() {
+function getMembershipPlans()
+{
     logMessage("get membership plans running running...");
     $membershipPlan = new MembershipPlan();
 
@@ -58,7 +68,8 @@ function getMembershipPlans() {
     }
 }
 
-function updateMembershipPlan() {
+function updateMembershipPlanStatus()
+{
     logMessage("update membership plqn function running...");
 
     $membershipPlan = new MembershipPlan();
@@ -67,25 +78,33 @@ function updateMembershipPlan() {
     if (
         isset($data['membership_plan_id']) &&
         isset($data['name']) &&
-        isset($data['benefits']) &&
-        isset($data['monthlyPrice']) &&
-        isset($data['yearlyPrice']) &&
-        isset($data['basePlanID'])
+        isset($data['status'])
     ) {
 
         $membership_plan_id = $data['membership_plan_id'];
         $name = $data['name'];
-        $benefits = $data['benefits'];
-        $monthlyPrice = intval($data['monthlyPrice']);
-        $yearlyPrice = intval($data['yearlyPrice']);
-        $basePlanID = $data['basePlanID'];
+        $status = $data['status'];
 
-        if ($membershipPlan->updateMembershipPlan($membership_plan_id,$name, $benefits, $monthlyPrice, $yearlyPrice, $basePlanID)) {
-            logMessage("Membership plan updated successfully: ID $membership_plan_id");
-            echo json_encode(["message" => "Membership plan updated successfully"]);
+        if ($status === 'active') {
+            //chck if an active plan with the same name already exists
+            if ($membershipPlan->checkIfPlanNameExists($name)) {
+                logMessage("Membership plan with the same name already exists: $name");
+                echo json_encode(["error" => "An active Membership plan with the same name already exists"]);
+                exit();
+            }
+        }
+
+        if (
+            $membershipPlan->updateMembershipPlanStatus(
+                $membership_plan_id,
+                $status
+            )
+        ) {
+            logMessage("Membership plan status updated successfully: ID $membership_plan_id");
+            echo json_encode(["message" => "Membership plan status updated successfully"]);
         } else {
             logMessage("Failed to update membership plan: ID $membership_plan_id");
-            echo json_encode(["error" => "Membership Plan update failed"]);
+            echo json_encode(["error" => "Failed to update membership plan status"]);
         }
     } else {
         logMessage("Invalid input for membership plan update");
@@ -94,7 +113,8 @@ function updateMembershipPlan() {
 }
 
 
-function deleteMembershipPlan() {
+function deleteMembershipPlan()
+{
     logMessage("delete membership plan function running...");
 
     $membershipPlan = new MembershipPlan();
@@ -103,14 +123,14 @@ function deleteMembershipPlan() {
     if (isset($_GET['membership_plan_id'])) {
         $membership_plan_id = $_GET['membership_plan_id'];
 
-        if($membership_plan_id == "MP1" || $membership_plan_id == "MP2" || $membership_plan_id == "MP3"){
+        if ($membership_plan_id == "MP1" || $membership_plan_id == "MP2" || $membership_plan_id == "MP3") {
             logMessage("Membership plan ID $membership_plan_id is a reserved ID -> basic plans cannot be deleted");
             echo json_encode(["error" => "Basic plans cannot be deleted"]);
             exit();
         }
 
         $subscriptionData = $subscription->getSubscriptionByMembershipPlanID($membership_plan_id);
-        if($subscriptionData){
+        if ($subscriptionData) {
             logMessage("Membership plan ID $membership_plan_id has active subscriptions -> cannot be deleted");
             echo json_encode(["error" => "Membership plan with active subscriptions cannot be deleted"]);
             exit();
