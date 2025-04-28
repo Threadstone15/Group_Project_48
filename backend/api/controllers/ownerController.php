@@ -16,6 +16,7 @@ include_once "./staffHandler.php";
 include_once "./accountDetailHandler.php";
 include_once "./markAttendanceHandler.php";
 include_once "./trainerClassHandler.php";
+include_once "noticeHandler.php";
 
 
 $conn = include_once "../../config/database.php";
@@ -37,6 +38,22 @@ $user_id = getUserIdFromToken($token);
 logMessage("Running owner controller ,$action token - $token   id - $user_id ");
 
 switch ($action) {
+    case 'get_personal_notices':
+        logMessage("Running get_personal_notices....in controller");
+        getPersonalNotices($user_id);
+        break;
+
+    case 'get_gym_crowd':
+        logMessage("Running get_gym_crowd....in controller");
+        getGymCrowd();
+        break;
+
+    case 'mark_notice_as_read':
+        logMessage("Running mark_notice_read....in controller");
+        markNoticeAsRead($user_id);
+        break;
+
+
     //for accounts section
     case 'get_members_by_role':
         $role = $_POST['role'] ?? $_GET['role'] ?? null;
