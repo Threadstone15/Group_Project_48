@@ -14,12 +14,10 @@
 
     <div id="MP2FeatureContainer" style="display: none;">
       <div class="card-container">
-        <div class="notice-container" id="noticesFeature">
+        <div class="notice-container">
           <h2>Notices</h2>
-          <div id="noticeContent"></div>
-          <label>
-            <input type="checkbox" id="readCheckbox"> Mark as Read
-          </label>
+          <button id="viewNoticesBtn">View Notices</button>
+          <p id="noticeCount" style="margin-top: 8px;">Notices Available: 0</p>
         </div>
 
         <div class="gym-card" id="gymCrowdFeature">
@@ -29,7 +27,6 @@
           <p class="member-count" id="memberCount">Members Present: 0</p>
         </div>
 
-        <!-- ✅ NEW ATTENDANCE CARD -->
         <div class="attendance-card" id="attendanceFeature">
           <div class="toggle-button">
             <input type="checkbox" id="toggle" class="toggleCheckbox" />
@@ -51,9 +48,9 @@
             <div id="qrCode"></div>
           </div>
         </div>
-
       </div>
     </div>
+    
     <div id="MP2ContentContainer" class="feature-container" style="display: none;">
       <div class="upgrade-plan-container">
         <h3>Unlock Premium Features!</h3>
@@ -76,6 +73,7 @@
         </iframe>
       </div>
     </div>
+    
     <div id="MP1FeatureContainer" class="feature-container" style="display: none;">
       <div class="welcome-message">
         <h2>Welcome to GymVerse!</h2>
@@ -94,7 +92,7 @@
 
         <div class="action-box">
           <h3>Plan Your Meals & Nutrition</h3>
-          <p>Get on top of your nutrition with GymVerse’s meal planner. Plan your meals and make healthier food
+          <p>Get on top of your nutrition with GymVerse's meal planner. Plan your meals and make healthier food
             choices.</p>
           <button class="action-btn" id="createMealBtn">Create Meal Plan</button>
         </div>
@@ -114,7 +112,28 @@
       </div>
     </div>
 
+    <div id="noticeModal" class="notice-modal" style="display:none;">
+      <div class="modal-content">
+          <span id="closeModal" class="close-button">&times;</span>
+          <div class="notice-body">
+              <h3 id="modalNoticeTitle"></h3>
+              <p id="modalNoticeDescription"></p>
+          </div>
+
+          <div class="notice-navigation">
+              <button id="prevNoticeBtn">Previous</button>
+              <span id="noticeIndexDisplay">1 of 1</span>
+              <button id="nextNoticeBtn">Next</button>
+          </div>
+
+          <button id="markAsReadBtn">Mark as Read</button>
+      </div>
+    </div>
+    
+    <!-- Toast container -->
+    <div id="toast-container" class="toast-container"></div>
     <div id="global-toast-container" class="global-toast-container"></div>
+    
     <!-- Loading Spinner -->
     <div id="loading-spinner" class="spinner hidden">
       <div class="spinner-circle"></div>

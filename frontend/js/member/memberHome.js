@@ -3,10 +3,15 @@ import { runSessionTimedOut } from "../routeConfig.js";
 import { verifyMembershipPlan } from "./memberCommonFunc.js";
 
 export function initMember_home() {
-
   const spinner = document.getElementById("loading-spinner");
   spinner.classList.remove("hidden");
   let isMembershipPlanVerified = false;
+
+  // Notice-related variables
+  let notices = [];
+  let currentNoticeIndex = 0;
+  const noticeModal = document.getElementById("noticeModal");
+  const noticeCountText = document.getElementById("noticeCount");
 
   checkMembershipPlan();
   async function checkMembershipPlan() {
@@ -19,7 +24,6 @@ export function initMember_home() {
       }, 4000);
       return;
     } else {
-      // console.log(isMembershipPlanVerified);
       controlAccessToFeatures();
     }
   }
@@ -32,199 +36,178 @@ export function initMember_home() {
     const premiumPlanFeatures = document.getElementById('MP3FeatureContainer');
 
     if (basePlanID === "MP1") {
-      //eneabling basic plan features
+      // Enabling basic plan features
       basicPlanFeatures.style.display = 'flex';
-      //disabling standard and premium plan features
+      // Disabling standard and premium plan features
       standardPlanFeatures.style.display = 'none'; 
       standardPlanContentContainer.style.display = 'none';
       premiumPlanFeatures.style.display = 'none';
-      //hiding spinner
+      // Hiding spinner
       spinner.classList.add("hidden");
 
     } else if (basePlanID === "MP2") {
-      //eneabling standard plan features
+      // Enabling standard plan features
       standardPlanFeatures.style.display = 'block';
       standardPlanContentContainer.style.display = 'flex';
-      //disabling basic and premium plan features
+      // Disabling basic and premium plan features
       basicPlanFeatures.style.display = 'none';
       premiumPlanFeatures.style.display = 'none';
 
       updateGymData();
       updateAttendance();
-      //hiding spinner
+      fetchAndDisplayNotices(); // Added notices for standard plan
+      // Hiding spinner
       spinner.classList.add("hidden");
     } else if (basePlanID === "MP3") {
-      //eneabling premium and standard plan features
+      // Enabling premium and standard plan features
       premiumPlanFeatures.style.display = 'block';
       standardPlanFeatures.style.display = 'block';
-      //disabling basic plan features and standard plan content container
+      // Disabling basic plan features and standard plan content container
       basicPlanFeatures.style.display = 'none';
       standardPlanContentContainer.style.display = 'none';
       
       updateGymData();
       updateAttendance();
-      //hiding spinner
+      fetchAndDisplayNotices(); // Added notices for premium plan
+      // Hiding spinner
       spinner.classList.add("hidden");
     }
   }
 
-  document.getElementById("createWorkoutBtn").addEventListener("click", () => {
-    navigate("member/workoutPlans");
-  });
-  document.getElementById("createMealBtn").addEventListener("click", () => {
-    navigate("member/workoutMealPlans");
-  });
-  document.getElementById("upgradePlanBtn").addEventListener("click", () => {
-    navigate("member/upgradePlan");
-  });
-  document.getElementById("upgradePlanBtn2").addEventListener("click", () => {
-    navigate("member/upgradePlan");
-  });
+  // Notice-related functions
+  function fetchAndDisplayNotices() {
+    console.log("Fetching notices...");
+    spinner.classList.remove("hidden");
 
-
-
-  // Load QRCode.js library (optional, only if not in HTML already)
-  const qrScript = document.createElement('script');
-  qrScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
-  qrScript.onload = () => console.log('QRCode library loaded');
-  qrScript.onerror = () => console.error('Failed to load QRCode library');
-  document.head.appendChild(qrScript);
-
-  // QR Modal logic
-  const qrModal = document.getElementById("qrModal");
-  const qrCodeDiv = document.getElementById("qrCode");
-  const markAttendanceBtn = document.getElementById("markAttendanceBtn");
-  const closeBtn = document.querySelector(".close-btn");
-
-  if (markAttendanceBtn) {
-    markAttendanceBtn.addEventListener("click", () => {
-      console.log("Mark attendance button clicked");
-      const token = localStorage.getItem('authToken');
-
-      if (!token) {
-        showToast("User token not found in localStorage", "error");
-        setTimeout(() => {
-          runSessionTimedOut();
-        }, 4000);
-        return;
-      }
-
-      // Clear any previous QR code
-      qrCodeDiv.innerHTML = "";
-
-      // Show QR modal
-      qrModal.style.display = "flex";
-
-      // Generate QR with token
-      new QRCode(qrCodeDiv, {
-        text: token,
-        width: 200,
-        height: 200
-      });
-    });
-  }
-
-  if (closeBtn) {
-    closeBtn.addEventListener("click", () => {
-      qrModal.style.display = "none";
-    });
-  }
-
-  window.addEventListener("click", (e) => {
-    if (e.target === qrModal) {
-      qrModal.style.display = "none";
-    }
-  });
-
-  const noticeContent = document.getElementById("noticeContent");
-  const readCheckbox = document.getElementById("readCheckbox");
-  let notices = [];
-  let currentNoticeIndex = 0;
-
-  const dateDisplay = document.getElementById("dateDisplay");
-  const progressBar = document.getElementById('gymProgress');
-
-
-  const today = new Date();
-  const options = { weekday: 'long' };
-  const dayOfWeek = today.toLocaleDateString('en-US', options);
-  const formattedDate = `${dayOfWeek}, ${today.toLocaleDateString()}`;
-  dateDisplay.textContent = formattedDate;
-
-  function updateAttendance() {
     const formData = new FormData();
-    formData.append("action", "update_attendance");
+    formData.append("action", "get_personal_notices");
 
     const authToken = localStorage.getItem("authToken");
-
     if (!authToken) {
       console.error("Auth token not found. Please log in.");
+      spinner.classList.add("hidden");
       return;
     }
 
     fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php", {
-      method: 'POST',
+      method: "POST",
       headers: { 'Authorization': `Bearer ${authToken}` },
-      body: formData,
-      redirect: 'follow'
+      body: formData
     })
-      .then(response => {
-        if (!response.ok) throw new Error("Failed to update attendance");
-        return response.json();
-      })
-      .then(result => {
-        console.log("Attendance updated successfully:", result);
+      .then(response => response.json())
+      .then(data => {
+        const today = new Date();
+        notices = data.filter(notice => {
+          const publishDate = new Date(notice.PublishDate);
+          const expiryDate = new Date(publishDate);
+          const duration = parseInt(notice.duration) || 0;
+          expiryDate.setDate(publishDate.getDate() + duration);
 
-        // ✅ Update toggle based on result
-        if (result && typeof result.arrived !== "undefined") {
-          const toggleCheckbox = document.getElementById("toggle");
-          toggleCheckbox.checked = result.arrived == 1;
-        } else {
-          // fallback fetch
-          fetchAttendanceStatus();
-        }
+          return publishDate <= today && expiryDate >= today;
+        });
+
+        currentNoticeIndex = 0;
+        noticeCountText.textContent = `Notices Available: ${notices.length}`;
       })
       .catch(error => {
-        console.error("Error updating attendance:", error);
+        console.error("Failed to load notices:", error);
+        showToast("Failed to fetch notices.", "error");
+      })
+      .finally(() => {
+        spinner.classList.add("hidden");
       });
   }
-  fetch("get_notices.php")
-    .then(response => response.json())
-    .then(data => {
-      notices = data;
-      displayNotice();
-    });
 
   function displayNotice() {
-    if (currentNoticeIndex < notices.length) {
-      noticeContent.textContent = notices[currentNoticeIndex].content;
-      readCheckbox.checked = false;
+    const total = notices.length;
+
+    if (total === 0) {
+      document.getElementById("modalNoticeTitle").textContent = "No Notices Available";
+      document.getElementById("modalNoticeDescription").textContent = "";
+      document.getElementById("markAsReadBtn").style.display = "none";
+      document.getElementById("prevNoticeBtn").style.display = "none";
+      document.getElementById("nextNoticeBtn").style.display = "none";
+      document.getElementById("noticeIndexDisplay").style.display = "none";
     } else {
-      noticeContent.textContent = "No more notices.";
-      readCheckbox.style.display = "none";
+      const currentNotice = notices[currentNoticeIndex];
+      document.getElementById("modalNoticeTitle").textContent = currentNotice.title;
+      document.getElementById("modalNoticeDescription").textContent = currentNotice.description;
+
+      document.getElementById("noticeIndexDisplay").textContent = `${currentNoticeIndex + 1} of ${total}`;
+      document.getElementById("prevNoticeBtn").disabled = currentNoticeIndex === 0;
+      document.getElementById("nextNoticeBtn").disabled = currentNoticeIndex === total - 1;
+
+      const markBtn = document.getElementById("markAsReadBtn");
+      markBtn.style.display = "inline-block";
+      markBtn.onclick = function () {
+        markNoticeAsRead(currentNotice.notice_id);
+      };
     }
+
+    noticeModal.style.display = "flex";
   }
 
-  readCheckbox.addEventListener("change", function () {
-    if (this.checked && currentNoticeIndex < notices.length) {
-      const noticeId = notices[currentNoticeIndex].id;
+  function markNoticeAsRead(noticeId) {
+    console.log("Marking notice as read... ", noticeId);
 
-      // Mark the notice as read in the backend
-      fetch("mark_notice_read.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id: noticeId })
-      })
-        .then(response => response.json())
-        .then(data => {
-          if (data.success) {
+    const authToken = localStorage.getItem("authToken");
+    if (!authToken) {
+      console.error("Auth token not found. Please log in.");
+      showToast("Authentication error. Please log in.", "error");
+      return;
+    }
+
+    spinner.classList.remove("hidden");
+
+    fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php?action=mark_notice_as_read", {
+      method: "POST",
+      headers: {
+        'Authorization': `Bearer ${authToken}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ notice_id: noticeId })
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.message) {
+          showToast("Marked as read!");
+          if (notices.length > 1) {
             currentNoticeIndex++;
-            displayNotice();
+            noticeCountText.textContent = `Notices Available: ${notices.length - currentNoticeIndex}`;
+            displayNotice();             
           }
-        });
+        } else {
+          console.error("Failed to mark notice as read.", data);
+          showToast("Failed to mark as read.", "error");
+        }
+      })
+      .catch(err => {
+        console.error("Error marking notice as read:", err);
+      })
+      .finally(() => {
+        spinner.classList.add("hidden");
+      });
+  }
+
+  // Event listeners for notice modal
+  document.getElementById("viewNoticesBtn")?.addEventListener("click", displayNotice);
+  document.getElementById("prevNoticeBtn")?.addEventListener("click", function() {
+    if (currentNoticeIndex > 0) {
+      currentNoticeIndex--;
+      displayNotice();
     }
   });
+  document.getElementById("nextNoticeBtn")?.addEventListener("click", function() {
+    if (currentNoticeIndex < notices.length - 1) {
+      currentNoticeIndex++;
+      displayNotice();
+    }
+  });
+  document.getElementById("closeModal")?.addEventListener("click", function() {
+    noticeModal.style.display = "none";
+  });
 
+  // Rest of your existing functions (updateGymData, updateAttendance, etc.)
   function updateGymData() {
     console.log("Updating gym data...");
     const formData = new FormData();
@@ -253,29 +236,102 @@ export function initMember_home() {
         console.log("Total Members:", totalMembers);
         console.log("Percentage Present:", percentagePresent);
 
+        const progressBar = document.getElementById('gymProgress');
         progressBar.value = percentagePresent;
 
         const memberCountText = document.getElementById('memberCount');
         memberCountText.textContent = `Members Present: ${totalMembers} (${Math.round(percentagePresent)}%)`;
-
       })
       .catch(error => console.error("Error fetching gym data:", error));
   }
 
-  //setInterval(updateAttendance, 5000);
+  function updateAttendance() {
+    const formData = new FormData();
+    formData.append("action", "update_attendance");
 
-  window.addEventListener('message', (event) => {
-    if (event.data.call === 'SHOW_TOAST') {
-      const container = document.getElementById('global-toast-container');
-      container.innerHTML = ""; // Clear previous toasts
-      const toast = document.createElement('div');
-      toast.className = `global-toast ${event.data.toastType}`;
-      toast.innerHTML = event.data.message;
-      container.appendChild(toast);
+    const authToken = localStorage.getItem("authToken");
 
-      setTimeout(() => {
-        toast.remove();
-      }, 4000);
+    if (!authToken) {
+      console.error("Auth token not found. Please log in.");
+      return;
+    }
+
+    fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/memberController.php", {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${authToken}` },
+      body: formData,
+      redirect: 'follow'
+    })
+      .then(response => {
+        if (!response.ok) throw new Error("Failed to update attendance");
+        return response.json();
+      })
+      .then(result => {
+        console.log("Attendance updated successfully:", result);
+
+        if (result && typeof result.arrived !== "undefined") {
+          const toggleCheckbox = document.getElementById("toggle");
+          toggleCheckbox.checked = result.arrived == 1;
+        }
+      })
+      .catch(error => {
+        console.error("Error updating attendance:", error);
+      });
+  }
+
+  // Existing event listeners
+  document.getElementById("createWorkoutBtn")?.addEventListener("click", () => {
+    navigate("member/workoutPlans");
+  });
+  document.getElementById("createMealBtn")?.addEventListener("click", () => {
+    navigate("member/workoutMealPlans");
+  });
+  document.getElementById("upgradePlanBtn")?.addEventListener("click", () => {
+    navigate("member/upgradePlan");
+  });
+  document.getElementById("upgradePlanBtn2")?.addEventListener("click", () => {
+    navigate("member/upgradePlan");
+  });
+
+  // QR Code functionality
+  const qrModal = document.getElementById("qrModal");
+  const qrCodeDiv = document.getElementById("qrCode");
+  const markAttendanceBtn = document.getElementById("markAttendanceBtn");
+  const closeBtn = document.querySelector(".close-btn");
+
+  if (markAttendanceBtn) {
+    markAttendanceBtn.addEventListener("click", () => {
+      console.log("Mark attendance button clicked");
+      const token = localStorage.getItem('authToken');
+
+      if (!token) {
+        showToast("User token not found in localStorage", "error");
+        setTimeout(() => {
+          runSessionTimedOut();
+        }, 4000);
+        return;
+      }
+
+      qrCodeDiv.innerHTML = "";
+      qrModal.style.display = "flex";
+
+      new QRCode(qrCodeDiv, {
+        text: token,
+        width: 200,
+        height: 200
+      });
+    });
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      qrModal.style.display = "none";
+    });
+  }
+
+  window.addEventListener("click", (e) => {
+    if (e.target === qrModal) {
+      qrModal.style.display = "none";
     }
   });
 
@@ -292,4 +348,18 @@ export function initMember_home() {
     }, 4000);
   }
 
+  window.addEventListener('message', (event) => {
+    if (event.data.call === 'SHOW_TOAST') {
+      const container = document.getElementById('global-toast-container');
+      container.innerHTML = "";
+      const toast = document.createElement('div');
+      toast.className = `global-toast ${event.data.toastType}`;
+      toast.innerHTML = event.data.message;
+      container.appendChild(toast);
+
+      setTimeout(() => {
+        toast.remove();
+      }, 4000);
+    }
+  });
 }

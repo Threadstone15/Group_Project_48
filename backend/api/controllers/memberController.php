@@ -22,6 +22,7 @@ include_once "./mealPlanHandler.php";
 include_once "./planRequestHandler.php";
 include_once "./workoutProgressHandler.php";
 include_once "./messageHandler.php";
+include_once "./noticeHandler.php";
 
 $conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -298,6 +299,23 @@ switch ($action) {
         logMessage("Running get_previous_progress....in controller");
         getPreviousProgressOfMember($user_id);
         break;
+
+    // Member Home Page Features
+    case 'get_personal_notices':
+        logMessage("Running get_personal_notices....in controller");
+        getPersonalNotices($user_id);
+        break;
+
+    case 'get_gym_crowd':
+        logMessage("Running get_gym_crowd....in controller");
+        getGymCrowd();
+        break;
+
+    case 'mark_notice_as_read':
+        logMessage("Running mark_notice_read....in controller");
+        markNoticeAsRead($user_id);
+        break;
+
 
     default:
         echo json_encode(["error" => "Invalid action"]);
