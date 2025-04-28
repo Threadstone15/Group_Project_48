@@ -147,4 +147,24 @@ class Trainer
             return false;
         }
     }
+
+    public function getAllActiveTrainers()
+    {
+        logMessage("Calling stored procedure to fetch active trainers...");
+
+        $query = "CALL GetActiveTrainers()";
+        $result = $this->conn->query($query);
+
+        if ($result && $result->num_rows > 0) {
+            $trainers = [];
+            while ($row = $result->fetch_assoc()) {
+                $trainers[] = $row;
+            }
+            logMessage("Active trainers fetched successfully. Count: " . count($trainers));
+            return $trainers;
+        } else {
+            logMessage("No active trainers found or error occurred: " . $this->conn->error);
+            return [];
+        }
+    }
 }

@@ -21,6 +21,7 @@ include_once "./workoutPlanHandler.php";
 include_once "./mealPlanHandler.php";
 include_once "./planRequestHandler.php";
 include_once "./workoutProgressHandler.php";
+include_once "./messageHandler.php";
 
 $conn = include_once "../../config/database.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -238,6 +239,38 @@ switch ($action) {
 
     // check trainer
 
+
+    //messaging
+    case 'get_assigned_trainers':
+        logMessage("Running get_assigned_trainers....in controller");
+        getActiveTrainers();
+        break;
+    case 'get_threads':
+        logMessage("Running get_threads....in controller");
+        $member_roll_id = $_GET['userId'] ?? null;
+        logMessage("trainer_roll_id: " . json_encode($member_roll_id));
+        getThreads($member_roll_id);
+        break;
+    case 'get_messages':
+        logMessage("Running get_messages....in controller");
+        $current_user_id = $_GET['userId'] ?? null;
+        $other_user_id = $_GET['otherUserId'] ?? null;
+        logMessage("current_user_id: " . json_encode($current_user_id));
+        logMessage("other_user_id: " . json_encode($other_user_id));
+        getMessages($current_user_id, $other_user_id);
+        break;
+    case 'send':
+        logMessage("Running send....in controller");
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        sendMessage($data);
+        break;
+    case 'mark_as_read':
+        logMessage("Running mark_as_read....in controller");
+        $data = json_decode(file_get_contents("php://input"), true);
+        logMessage("data: " . json_encode($data));
+        markAsRead($data);
+        break;
 
 
     //log workout progress
