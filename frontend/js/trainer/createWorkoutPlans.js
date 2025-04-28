@@ -82,7 +82,7 @@ export function initTrainer_createWorkoutPlans() {
 
     } catch (error) {
       console.error('Error fetching workout plans:', error);
-      showToast('Error fetching workout plans', 'error');
+      showToast('There are no workout plans created', 'error');
     }
   }
 

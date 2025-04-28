@@ -70,8 +70,8 @@ export function initTrainer_planRequests() {
         
       } catch (error) {
         console.error('Error fetching requests:', error);
+        showToast("There are no requests", "error");
         spinner.classList.add("hidden");
-        alert('Error fetching requests. Please try again.');
       }
     }
   
@@ -191,7 +191,7 @@ export function initTrainer_planRequests() {
             
           } catch (error) {
             console.error('Error rejecting request:', error);
-            alert('Error rejecting request. Please try again.');
+            showToast("Error rejecting request: " + error.message, 'error');
           }
         },
         onCancel: () => {
@@ -360,7 +360,7 @@ export function initTrainer_planRequests() {
   
         const result = await response.json();
         if (response.ok) {
-          alert("Workout plan saved successfully!");
+          showToast("Workout plan saved successfully!", 'success');
           // Optionally refresh the requests list
           fetchRequests();
           // Reset the UI
@@ -370,7 +370,7 @@ export function initTrainer_planRequests() {
         }
       } catch (error) {
         console.error('Error saving workout plan:', error);
-        alert('Error saving workout plan. Please try again.');
+        showToast('Error saving workout plan. Please try again.', 'error');
       }
     }
   
@@ -421,7 +421,7 @@ export function initTrainer_planRequests() {
   
         const result = await response.json();
         if (response.ok) {
-          alert("Meal plan saved successfully!");
+          showToast("Meal plan saved successfully!", 'success');
           // Optionally refresh the requests list
           fetchRequests();
           // Reset the UI
@@ -431,7 +431,7 @@ export function initTrainer_planRequests() {
         }
       } catch (error) {
         console.error('Error saving meal plan:', error);
-        alert('Error saving meal plan. Please try again.');
+        showToast('Error saving meal plan. Please try again.', 'error');
       }
     }
   

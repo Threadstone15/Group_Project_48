@@ -38,7 +38,7 @@ export function initTrainer_createMealPlans() {
       renderPlans();
     } catch (error) {
       console.error("Error fetching meal plans:", error);
-      showToast("Error fetching meal plans. Please try again", "error");
+      showToast("There are no meal plans created", "error");
     }
   }
 
