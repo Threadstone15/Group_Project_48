@@ -1,5 +1,50 @@
+import { navigate } from "../router.js";
+import { runSessionTimedOut } from "../routeConfig.js";
+import { verifyMembershipPlan } from "./memberCommonFunc.js";
+
 export function initMember_contactTrainer() {
     console.log("Contact Trainer Modal Initialized");
+    const spinner = document.getElementById("loading-spinner");
+  
+        spinner.classList.remove("hidden");
+        let isMembershipPlanVerified = false;
+    
+        checkMembershipPlan();
+        async function checkMembershipPlan() {
+            isMembershipPlanVerified = await verifyMembershipPlan();
+    
+            if (!isMembershipPlanVerified) {
+                showToast("Selected Membership plan verification failed. Redirecting to login", "error");
+                setTimeout(() => {
+                    runSessionTimedOut();
+                }, 4000);
+                return;
+            } else {
+                // console.log(isMembershipPlanVerified);
+                controlAccessToFeatures();
+            }
+        }
+        function controlAccessToFeatures() {
+          const basePlanID = localStorage.getItem("basePlanID");
+          const MP3FeatureContainer = document.getElementById("MP3FeatureContainer");
+          const upgradePlanPopup = document.getElementById("planUpgradePopup");
+
+          if (basePlanID === 'MP1' || basePlanID === 'MP2') {
+            MP3FeatureContainer?.classList.add("disabled-feature");
+            //showing upgrade plan popup
+            upgradePlanPopup.style.display = 'block';
+          } else if (basePlanID === 'MP3') {
+            MP3FeatureContainer?.classList.remove("disabled-feature");
+            selectTrainerFeature?.classList.remove("disabled-feature");
+            //closing upgrade plan popup
+            upgradePlanPopup.style.display = 'none';
+          }
+          spinner.classList.add("hidden");
+        }
+
+        document.getElementById("upgradePlanBtn").onclick = () => {
+                navigate('member/upgradePlan');
+        };
 
         // DOM Elements
         const messagesList = document.getElementById('messages-list');
@@ -14,7 +59,6 @@ export function initMember_contactTrainer() {
         const newMessageText = document.getElementById('new-message-text');
         const submitNewMessageBtn = document.getElementById('submit-new-message');
         const cancelNewMessageBtn = document.getElementById('cancel-new-message');
-        const spinner = document.getElementById("loading-spinner");
         const toastContainer = document.getElementById('toast-container');
       
         // State variables

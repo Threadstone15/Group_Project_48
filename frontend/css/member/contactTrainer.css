@@ -1,4 +1,4 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
@@ -9,7 +9,7 @@
     height: 100vh;
     background-color: #f9f9f9;
     padding: 20px;
-  }
+  } */
   
   .messages-container {
     display: flex;
@@ -249,16 +249,27 @@
   /* Popups */
   .popup {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
     z-index: 1000;
-  }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 90%;
+}
+
+.upgrade-message{
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
   
   .popup-content {
     background: white;
@@ -294,17 +305,40 @@
   
   .popup-buttons {
     display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-  }
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.popup-confirm {
+  background-color: transparent;
+  color: #FF5F00;
+  border: 2px solid #FF5F00;
+  padding: 12px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 200px;
+  height: 50px;
+  font-family: 'Poppins', sans-serif;
+  padding: 10px;
+}
+
+.popup-confirm:hover {
+  background-color: #FF5F00;
+  color: white;
+}
   
-  .popup-buttons button {
+  /* .popup-buttons button {
     padding: 8px 15px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
+  } */
   
   .popup-buttons button:first-child {
     background-color: #ff5f00;
@@ -397,3 +431,10 @@
   .no-assigned-trainers p {
     margin-bottom: 15px;
   }
+
+  .disabled-feature {
+    opacity: 0.5;
+    pointer-events: none;
+    filter: grayscale(1);
+    position: relative;
+}
