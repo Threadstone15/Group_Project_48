@@ -7,6 +7,12 @@ export function initMember_home() {
   spinner.classList.remove("hidden");
   let isMembershipPlanVerified = false;
 
+  const qrScript = document.createElement('script');
+  qrScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+  qrScript.onload = () => console.log('QRCode library loaded');
+  qrScript.onerror = () => console.error('Failed to load QRCode library');
+  document.head.appendChild(qrScript);
+
   // Notice-related variables
   let notices = [];
   let currentNoticeIndex = 0;

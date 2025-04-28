@@ -23,6 +23,7 @@ include_once "../models/User.php";
 include_once "./accountDetailHandler.php";
 include_once "./trainerClassHandler.php";
 include_once "./classBookingHandler.php";
+include_once "./membershipPlanHandler.php";
 
 // Establish database connection
 $conn = include_once "../../config/database.php";
@@ -169,6 +170,17 @@ switch ($action) {
     case 'get_attendance':
         logMessage("Running get_attendance....in controller");
         getTodayArrivalDepartureTimes();
+        break;
+
+    //fetch get_active_plans
+    case 'get_active_plans':
+        logMessage("Running get_active_plans....in controller");
+        getActiveMembershipPlans();
+        break;
+    //record_payment_reciept
+    case 'record_payment':
+        logMessage("Running record_payment_reciept....in controller");
+        recordPaymentReciept();
         break;
 
 
