@@ -62,6 +62,7 @@ import { initStaff_memberAttendance } from "./staff/memberAttendance.js";
 import { initStaff_myAcnt } from "./staff/myAcnt.js";
 import { initStaff_publishNotice } from "./staff/publishNotices.js";
 import { initStaff_home } from "./staff/staffHome.js";
+import { initStaff_memberPayments } from "./staff/memberPayments.js";
 
 //import trainer dashboardPg js funcs
 import { initTrainer_assignedMembers } from "./trainer/assignedMembers.js";
@@ -126,7 +127,8 @@ export const validRoutes = {
             "staff/gymEquipment",
             "staff/equipMaintainance",
             "staff/publishNotices",
-            "staff/myAcnt"
+            "staff/myAcnt",
+            "staff/memberPayments"
         ],
         trainer: [
             "trainer/trainerHome",
@@ -210,6 +212,7 @@ export function runDashboardPgJS(role, page) {
             case 'memberAttendance' : initStaff_memberAttendance(); break;
             case 'myAcnt' : initStaff_myAcnt(); break;
             case 'publishNotices' : initStaff_publishNotice(); break;
+            case 'memberPayments' : initStaff_memberPayments(); break;
             default : console.error("Undefined staff dashboard pg js func"); break;
         }
     }

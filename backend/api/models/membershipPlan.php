@@ -1,25 +1,28 @@
 <?php
 
-include_once "../../logs/save.php"; 
-require_once "../../config/database.php"; 
+include_once "../../logs/save.php";
+require_once "../../config/database.php";
 
-class MembershipPlan {
+class MembershipPlan
+{
     private $conn;
     private $table = "membership_plan";
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->conn = DatabaseConnection::getInstance()->getConnection();
         logMessage("Membership plan model initialized with database connection.");
     }
 
-    private function generatePlanID() {
+    private function generatePlanID()
+    {
         // Use SUBSTRING to extract the numeric part and ORDER BY it as an integer
         $query = "SELECT membership_plan_id 
                   FROM " . $this->table . " 
                   ORDER BY CAST(SUBSTRING(membership_plan_id, 3) AS UNSIGNED) DESC 
                   LIMIT 1";
         $result = $this->conn->query($query);
-    
+
         if ($result && $row = $result->fetch_assoc()) {
             // Extract the numeric part of the last ID and increment it
             $lastID = (int)substr($row['membership_plan_id'], 2); // Remove 'MP' and convert to integer
@@ -31,8 +34,9 @@ class MembershipPlan {
             return 'MP1';
         }
     }
-    
-    public function addMembershipPlan($name, $benefits, $monthlyPrice, $yearlyPrice, $basePlanID) {
+
+    public function addMembershipPlan($name, $benefits, $monthlyPrice, $yearlyPrice, $basePlanID)
+    {
         logMessage("Adding new membership plan...");
 
         if (!$this->conn) {
@@ -56,7 +60,7 @@ class MembershipPlan {
             return false;
         }
 
-        if (!$stmt->bind_param("sssdds",$membership_plan_id, $name,$benefits, $monthlyPrice, $yearlyPrice, $basePlanID)) {
+        if (!$stmt->bind_param("sssdds", $membership_plan_id, $name, $benefits, $monthlyPrice, $yearlyPrice, $basePlanID)) {
             logMessage("Error binding parameters for membership plan insertion: " . $stmt->error);
             return false;
         }
@@ -71,16 +75,17 @@ class MembershipPlan {
         }
     }
 
-    public function getMembershipPlans() {
+    public function getMembershipPlans()
+    {
         logMessage("Fetching membership plan...");
 
-            $query = "SELECT * FROM " . $this->table;
-            $stmt = $this->conn->prepare($query);
+        $query = "SELECT * FROM " . $this->table;
+        $stmt = $this->conn->prepare($query);
 
-            if ($stmt === false) {
-                logMessage("Error preparing statement for fetching all membership plans: " . $this->conn->error);
-                return false;
-            }    
+        if ($stmt === false) {
+            logMessage("Error preparing statement for fetching all membership plans: " . $this->conn->error);
+            return false;
+        }
 
         if ($stmt->execute()) {
             $result = $stmt->get_result();
@@ -98,14 +103,15 @@ class MembershipPlan {
         }
     }
 
-    public function updateMembershipPlan($membership_plan_id, $name, $benefits, $monthlyPrice, $yearlyPrice, $basePlanID) {
+    public function updateMembershipPlan($membership_plan_id, $name, $benefits, $monthlyPrice, $yearlyPrice, $basePlanID)
+    {
         logMessage("Updating membership plan with ID: $membership_plan_id");
 
         $query = "UPDATE " . $this->table . " 
                   SET plan_name = ?, benefits = ?, monthlyPrice = ?, yearlyPrice = ? , base_plan_id = ?
                   WHERE membership_plan_id = ?";
         $stmt = $this->conn->prepare($query);
-    
+
         if ($stmt === false) {
             logMessage("Error preparing statement for updating membership plan: " . $this->conn->error);
             return false;
@@ -125,9 +131,10 @@ class MembershipPlan {
             return false;
         }
     }
-    
 
-    public function deleteMembershipPlan($membership_plan_id) {
+
+    public function deleteMembershipPlan($membership_plan_id)
+    {
         logMessage("Deleting membership plan with ID: $membership_plan_id");
 
         $query = "DELETE FROM " . $this->table . " WHERE membership_plan_id = ?";
@@ -150,8 +157,9 @@ class MembershipPlan {
         }
     }
 
-    public function getBasePlanIdFromMembershipPlanId($membership_plan_id){
-        if(!$this->conn){
+    public function getBasePlanIdFromMembershipPlanId($membership_plan_id)
+    {
+        if (!$this->conn) {
             logMessage("Database connection is not established.");
             return false;
         }
@@ -165,10 +173,41 @@ class MembershipPlan {
         if ($stmt->execute()) {
             $result = $stmt->get_result();
             return $result->fetch_assoc()['base_plan_id'];
-        }else{
+        } else {
             logMessage("Error retrieving base plan ID: " . $stmt->error);
             return false;
         }
     }
+
+    public function getActiveMembershipPlansFromTable()
+    {
+        if (!$this->conn) {
+            logMessage("Database connection is not established.");
+            return false;
+        }
+
+        // Call the stored procedure
+        $query = "CALL GetActiveMembershipPlans()";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing statement for calling the stored procedure: " . $this->conn->error);
+            return false;
+        }
+
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            $plans = [];
+
+            // Fetch all rows of active plans
+            while ($row = $result->fetch_assoc()) {
+                $plans[] = $row;
+            }
+
+            return $plans;
+        } else {
+            logMessage("Error calling stored procedure: " . $stmt->error);
+            return false;
+        }
+    }
 }
-?>

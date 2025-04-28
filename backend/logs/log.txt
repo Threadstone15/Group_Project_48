@@ -25198,3 +25198,1040 @@
 [2025-04-28 18:39:31] Classes belongs to the trainer fetched successfully
 [2025-04-28 18:39:31] classes retrieved successfully
 [2025-04-28 18:39:31] Database connection closed.
+[2025-04-28 18:42:02] Running auth controller ,get_footer_info 
+[2025-04-28 18:42:02] Running get_footer_info....in controller
+[2025-04-28 18:42:03] Connection established successfully to the database: rad_gymverse
+[2025-04-28 18:42:03] Config model initialized with database connection.
+[2025-04-28 18:42:04] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-28 18:42:04] Database connection closed.
+[2025-04-28 18:42:14] Running auth controller ,login 
+[2025-04-28 18:42:14] running login...in auth controller
+[2025-04-28 18:42:14] login function running...
+[2025-04-28 18:42:14] Connection established successfully to the database: rad_gymverse
+[2025-04-28 18:42:14] User class instantiated with database connection.
+[2025-04-28 18:42:14] User Login model running for: chamara125@gmail.com
+[2025-04-28 18:42:14] Fetching user by email: chamara125@gmail.com
+[2025-04-28 18:42:15] User found for email: chamara125@gmail.com
+[2025-04-28 18:42:15] Query bound and ready to execute for login: chamara125@gmail.com
+[2025-04-28 18:42:15] User status: 1
+[2025-04-28 18:42:15] User login successful: chamara125@gmail.com with role: staff
+[2025-04-28 18:42:15] Config model initialized with database connection.
+[2025-04-28 18:42:15] Login Successful: eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg2NjgwMH0=.feffdec7b1385a4ba002e9216af4b1cf8ebc7645dad690989e01f2ed5fcc4710 staff
+[2025-04-28 18:42:15] Database connection closed.
+[2025-04-28 18:42:16] Connection established successfully to the database: rad_gymverse
+[2025-04-28 18:42:16] User class instantiated with database connection.
+[2025-04-28 18:42:16] Fetching user role by user ID: 317
+[2025-04-28 18:42:16] User role fetched successfully for user ID: 317
+[2025-04-28 18:42:16] Running staff controller ,get_gym_crowd token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg2NjgwMH0=.feffdec7b1385a4ba002e9216af4b1cf8ebc7645dad690989e01f2ed5fcc4710   id - 317 
+[2025-04-28 18:42:16] Running get_gym_crowd....in controller
+[2025-04-28 18:42:16] Running getGymCrowd...
+[2025-04-28 18:42:16] Attendance model initialized with database connection.
+[2025-04-28 18:42:16] Fetching number of unique users with latest arrival marked as 1...
+[2025-04-28 18:42:17] Total users with latest Arrived=1: 1
+[2025-04-28 18:42:17] Fetching gym capacity from configuration...
+[2025-04-28 18:42:17] Gym capacity fetched successfully: 80
+[2025-04-28 18:42:17] Gym crowd count: 1 (1.25%)
+[2025-04-28 18:42:17] Database connection closed.
+[2025-04-28 18:42:18] Connection established successfully to the database: rad_gymverse
+[2025-04-28 18:42:18] User class instantiated with database connection.
+[2025-04-28 18:42:18] Fetching user role by user ID: 317
+[2025-04-28 18:42:18] User role fetched successfully for user ID: 317
+[2025-04-28 18:42:18] Running staff controller ,get_personal_notices token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg2NjgwMH0=.feffdec7b1385a4ba002e9216af4b1cf8ebc7645dad690989e01f2ed5fcc4710   id - 317 
+[2025-04-28 18:42:18] Running get_personal_notices....in controller
+[2025-04-28 18:42:18] get personal notices function running...
+[2025-04-28 18:42:18] Notice model initialized with database connection.
+[2025-04-28 18:42:18] Fetching personal notices for user ID: 317
+[2025-04-28 18:42:18] Expired notices removed.
+[2025-04-28 18:42:18] Fetched 5 unread notices for user ID: 317
+[2025-04-28 18:42:18] Personal notices fetched successfully
+[2025-04-28 18:42:18] Database connection closed.
+[2025-04-28 18:42:19] Connection established successfully to the database: rad_gymverse
+[2025-04-28 18:42:19] User class instantiated with database connection.
+[2025-04-28 18:42:19] Fetching user role by user ID: 317
+[2025-04-28 18:42:21] User role fetched successfully for user ID: 317
+[2025-04-28 18:42:21] Running staff controller ,get_classes token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg2NjgwMH0=.feffdec7b1385a4ba002e9216af4b1cf8ebc7645dad690989e01f2ed5fcc4710   id - 317 
+[2025-04-28 18:42:21] TrainerClass model initialized with database conection
+[2025-04-28 18:42:21] fetching all classes.....
+[2025-04-28 18:42:21] Classes fetched successfully
+[2025-04-28 18:42:21] classes retrieved successfully
+[2025-04-28 18:42:21] Database connection closed.
+[2025-04-28 18:42:21] Connection established successfully to the database: rad_gymverse
+[2025-04-28 18:42:21] User class instantiated with database connection.
+[2025-04-28 18:42:21] Fetching user role by user ID: 317
+[2025-04-28 18:42:22] User role fetched successfully for user ID: 317
+[2025-04-28 18:42:22] Running staff controller ,get_attendance token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg2NjgwMH0=.feffdec7b1385a4ba002e9216af4b1cf8ebc7645dad690989e01f2ed5fcc4710   id - 317 
+[2025-04-28 18:42:22] Running get_attendance....in controller
+[2025-04-28 18:42:22] Running getTodayArrivalDepartureTimes...
+[2025-04-28 18:42:22] Attendance model initialized with database connection.
+[2025-04-28 18:42:22] Fetching today's Arrival and Departure times
+[2025-04-28 18:42:22] Fetched 1 record(s)
+[2025-04-28 18:42:22] Today's arrival and departure times: [{"MemberID":"M126","Name":"Nishadi Silva","ArrivalTime":"11:18:05","DepartedTime":null}]
+[2025-04-28 18:42:22] Database connection closed.
+[2025-04-28 18:47:49] Connection established successfully to the database: rad_gymverse
+[2025-04-28 18:47:49] User class instantiated with database connection.
+[2025-04-28 18:47:49] Fetching user role by user ID: 317
+[2025-04-28 18:47:49] User role fetched successfully for user ID: 317
+[2025-04-28 18:47:49] Running staff controller ,get_equipments token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg2NjgwMH0=.feffdec7b1385a4ba002e9216af4b1cf8ebc7645dad690989e01f2ed5fcc4710   id - 317 
+[2025-04-28 18:47:49] Running get_equip....in controller
+[2025-04-28 18:47:49] get equip function running...
+[2025-04-28 18:47:49] Equipment model initialized with database connection.
+[2025-04-28 18:47:49] Fetching equipment...
+[2025-04-28 18:47:50] Equipment fetched successfully
+[2025-04-28 18:47:50] Equipment data fetched
+[2025-04-28 18:47:50] Database connection closed.
+[2025-04-28 18:47:50] Connection established successfully to the database: rad_gymverse
+[2025-04-28 18:47:50] User class instantiated with database connection.
+[2025-04-28 18:47:50] Fetching user role by user ID: 317
+[2025-04-28 18:47:50] User role fetched successfully for user ID: 317
+[2025-04-28 18:47:50] Running staff controller ,get_equipment_types token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg2NjgwMH0=.feffdec7b1385a4ba002e9216af4b1cf8ebc7645dad690989e01f2ed5fcc4710   id - 317 
+[2025-04-28 18:47:50] Running get_equip_types....in controller
+[2025-04-28 18:47:50] Fetching equipment types...
+[2025-04-28 18:47:50] EquipmentTypes model initialized with database connection.
+[2025-04-28 18:47:50] Fetching all equipment types...
+[2025-04-28 18:47:51] Equipment types fetched successfully.
+[2025-04-28 18:47:51] Equipment types fetched successfully. Total: 29
+[2025-04-28 18:47:51] Database connection closed.
+[2025-04-28 19:04:04] Running auth controller ,get_footer_info 
+[2025-04-28 19:04:05] Running get_footer_info....in controller
+[2025-04-28 19:04:05] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:04:05] Config model initialized with database connection.
+[2025-04-28 19:04:06] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-28 19:04:06] Database connection closed.
+[2025-04-28 19:04:06] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:04:06] User class instantiated with database connection.
+[2025-04-28 19:04:06] Fetching user role by user ID: 317
+[2025-04-28 19:04:07] User role fetched successfully for user ID: 317
+[2025-04-28 19:04:07] Running staff controller ,get_equipment_types token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg2NjgwMH0=.feffdec7b1385a4ba002e9216af4b1cf8ebc7645dad690989e01f2ed5fcc4710   id - 317 
+[2025-04-28 19:04:07] Running get_equip_types....in controller
+[2025-04-28 19:04:07] Fetching equipment types...
+[2025-04-28 19:04:07] EquipmentTypes model initialized with database connection.
+[2025-04-28 19:04:07] Fetching all equipment types...
+[2025-04-28 19:04:07] Equipment types fetched successfully.
+[2025-04-28 19:04:07] Equipment types fetched successfully. Total: 29
+[2025-04-28 19:04:07] Database connection closed.
+[2025-04-28 19:04:08] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:04:08] User class instantiated with database connection.
+[2025-04-28 19:04:08] Fetching user role by user ID: 317
+[2025-04-28 19:04:08] User role fetched successfully for user ID: 317
+[2025-04-28 19:04:08] Running staff controller ,get_equipments token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg2NjgwMH0=.feffdec7b1385a4ba002e9216af4b1cf8ebc7645dad690989e01f2ed5fcc4710   id - 317 
+[2025-04-28 19:04:08] Running get_equip....in controller
+[2025-04-28 19:04:08] get equip function running...
+[2025-04-28 19:04:08] Equipment model initialized with database connection.
+[2025-04-28 19:04:08] Fetching equipment...
+[2025-04-28 19:04:08] Equipment fetched successfully
+[2025-04-28 19:04:08] Equipment data fetched
+[2025-04-28 19:04:08] Database connection closed.
+[2025-04-28 19:04:14] Running auth controller ,get_footer_info 
+[2025-04-28 19:04:14] Running get_footer_info....in controller
+[2025-04-28 19:04:14] Running auth controller ,get_footer_info 
+[2025-04-28 19:04:14] Running get_footer_info....in controller
+[2025-04-28 19:04:14] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:04:14] Config model initialized with database connection.
+[2025-04-28 19:04:14] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:04:14] Config model initialized with database connection.
+[2025-04-28 19:04:15] Running auth controller ,login 
+[2025-04-28 19:04:15] running login...in auth controller
+[2025-04-28 19:04:15] login function running...
+[2025-04-28 19:04:15] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-28 19:04:15] Database connection closed.
+[2025-04-28 19:04:15] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-28 19:04:15] Database connection closed.
+[2025-04-28 19:04:15] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:04:15] User class instantiated with database connection.
+[2025-04-28 19:04:15] User Login model running for: chamara125@gmail.com
+[2025-04-28 19:04:15] Fetching user by email: chamara125@gmail.com
+[2025-04-28 19:04:16] User found for email: chamara125@gmail.com
+[2025-04-28 19:04:16] Query bound and ready to execute for login: chamara125@gmail.com
+[2025-04-28 19:04:16] User status: 1
+[2025-04-28 19:04:16] User login successful: chamara125@gmail.com with role: staff
+[2025-04-28 19:04:16] Config model initialized with database connection.
+[2025-04-28 19:04:16] Login Successful: eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07 staff
+[2025-04-28 19:04:16] Database connection closed.
+[2025-04-28 19:04:17] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:04:17] User class instantiated with database connection.
+[2025-04-28 19:04:17] Fetching user role by user ID: 317
+[2025-04-28 19:04:17] User role fetched successfully for user ID: 317
+[2025-04-28 19:04:17] Running staff controller ,get_personal_notices token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:04:17] Running get_personal_notices....in controller
+[2025-04-28 19:04:17] get personal notices function running...
+[2025-04-28 19:04:17] Notice model initialized with database connection.
+[2025-04-28 19:04:17] Fetching personal notices for user ID: 317
+[2025-04-28 19:04:17] Expired notices removed.
+[2025-04-28 19:04:18] Fetched 6 unread notices for user ID: 317
+[2025-04-28 19:04:18] Personal notices fetched successfully
+[2025-04-28 19:04:18] Database connection closed.
+[2025-04-28 19:04:18] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:04:18] User class instantiated with database connection.
+[2025-04-28 19:04:18] Fetching user role by user ID: 317
+[2025-04-28 19:04:18] User role fetched successfully for user ID: 317
+[2025-04-28 19:04:18] Running staff controller ,get_gym_crowd token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:04:18] Running get_gym_crowd....in controller
+[2025-04-28 19:04:18] Running getGymCrowd...
+[2025-04-28 19:04:18] Attendance model initialized with database connection.
+[2025-04-28 19:04:18] Fetching number of unique users with latest arrival marked as 1...
+[2025-04-28 19:04:19] Total users with latest Arrived=1: 1
+[2025-04-28 19:04:19] Fetching gym capacity from configuration...
+[2025-04-28 19:04:19] Gym capacity fetched successfully: 80
+[2025-04-28 19:04:19] Gym crowd count: 1 (1.25%)
+[2025-04-28 19:04:19] Database connection closed.
+[2025-04-28 19:04:20] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:04:20] User class instantiated with database connection.
+[2025-04-28 19:04:20] Fetching user role by user ID: 317
+[2025-04-28 19:04:20] User role fetched successfully for user ID: 317
+[2025-04-28 19:04:20] Running staff controller ,get_classes token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:04:20] TrainerClass model initialized with database conection
+[2025-04-28 19:04:20] fetching all classes.....
+[2025-04-28 19:04:20] Classes fetched successfully
+[2025-04-28 19:04:20] classes retrieved successfully
+[2025-04-28 19:04:20] Database connection closed.
+[2025-04-28 19:04:30] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:04:30] User class instantiated with database connection.
+[2025-04-28 19:04:30] Fetching user role by user ID: 317
+[2025-04-28 19:04:30] User role fetched successfully for user ID: 317
+[2025-04-28 19:04:30] Running staff controller ,get_equipment_types token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:04:30] Running get_equip_types....in controller
+[2025-04-28 19:04:30] Fetching equipment types...
+[2025-04-28 19:04:30] EquipmentTypes model initialized with database connection.
+[2025-04-28 19:04:30] Fetching all equipment types...
+[2025-04-28 19:04:31] Equipment types fetched successfully.
+[2025-04-28 19:04:31] Equipment types fetched successfully. Total: 29
+[2025-04-28 19:04:31] Database connection closed.
+[2025-04-28 19:04:31] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:04:31] User class instantiated with database connection.
+[2025-04-28 19:04:31] Fetching user role by user ID: 317
+[2025-04-28 19:04:31] User role fetched successfully for user ID: 317
+[2025-04-28 19:04:31] Running staff controller ,get_equipments token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:04:31] Running get_equip....in controller
+[2025-04-28 19:04:31] get equip function running...
+[2025-04-28 19:04:31] Equipment model initialized with database connection.
+[2025-04-28 19:04:31] Fetching equipment...
+[2025-04-28 19:04:32] Equipment fetched successfully
+[2025-04-28 19:04:32] Equipment data fetched
+[2025-04-28 19:04:32] Database connection closed.
+[2025-04-28 19:05:14] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:05:14] User class instantiated with database connection.
+[2025-04-28 19:05:14] Fetching user role by user ID: 317
+[2025-04-28 19:05:15] User role fetched successfully for user ID: 317
+[2025-04-28 19:05:15] Running staff controller ,get_attendance token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:05:15] Running get_attendance....in controller
+[2025-04-28 19:05:15] Running getTodayArrivalDepartureTimes...
+[2025-04-28 19:05:15] Attendance model initialized with database connection.
+[2025-04-28 19:05:15] Fetching today's Arrival and Departure times
+[2025-04-28 19:05:15] Fetched 1 record(s)
+[2025-04-28 19:05:15] Today's arrival and departure times: [{"MemberID":"M126","Name":"Nishadi Silva","ArrivalTime":"11:18:05","DepartedTime":null}]
+[2025-04-28 19:05:15] Database connection closed.
+[2025-04-28 19:05:48] Running auth controller ,get_footer_info 
+[2025-04-28 19:05:48] Running get_footer_info....in controller
+[2025-04-28 19:05:49] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:05:49] Config model initialized with database connection.
+[2025-04-28 19:05:50] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-28 19:05:50] Database connection closed.
+[2025-04-28 19:05:50] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:05:50] User class instantiated with database connection.
+[2025-04-28 19:05:50] Fetching user role by user ID: 317
+[2025-04-28 19:05:51] User role fetched successfully for user ID: 317
+[2025-04-28 19:05:51] Running staff controller ,get_attendance token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:05:51] Running get_attendance....in controller
+[2025-04-28 19:05:51] Running getTodayArrivalDepartureTimes...
+[2025-04-28 19:05:51] Attendance model initialized with database connection.
+[2025-04-28 19:05:51] Fetching today's Arrival and Departure times
+[2025-04-28 19:05:51] Fetched 1 record(s)
+[2025-04-28 19:05:51] Today's arrival and departure times: [{"MemberID":"M126","Name":"Nishadi Silva","ArrivalTime":"11:18:05","DepartedTime":null}]
+[2025-04-28 19:05:51] Database connection closed.
+[2025-04-28 19:05:54] Running auth controller ,get_footer_info 
+[2025-04-28 19:05:54] Running get_footer_info....in controller
+[2025-04-28 19:05:54] Running auth controller ,get_footer_info 
+[2025-04-28 19:05:54] Running get_footer_info....in controller
+[2025-04-28 19:05:54] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:05:54] Config model initialized with database connection.
+[2025-04-28 19:05:55] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:05:55] Config model initialized with database connection.
+[2025-04-28 19:05:55] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-28 19:05:55] Database connection closed.
+[2025-04-28 19:05:55] Running auth controller ,login 
+[2025-04-28 19:05:55] running login...in auth controller
+[2025-04-28 19:05:55] login function running...
+[2025-04-28 19:05:55] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-28 19:05:55] Database connection closed.
+[2025-04-28 19:05:56] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:05:56] User class instantiated with database connection.
+[2025-04-28 19:05:56] User Login model running for: chamara125@gmail.com
+[2025-04-28 19:05:56] Fetching user by email: chamara125@gmail.com
+[2025-04-28 19:05:56] User found for email: chamara125@gmail.com
+[2025-04-28 19:05:56] Query bound and ready to execute for login: chamara125@gmail.com
+[2025-04-28 19:05:56] User status: 1
+[2025-04-28 19:05:56] User login successful: chamara125@gmail.com with role: staff
+[2025-04-28 19:05:56] Config model initialized with database connection.
+[2025-04-28 19:05:57] Login Successful: eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07 staff
+[2025-04-28 19:05:57] Database connection closed.
+[2025-04-28 19:05:57] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:05:57] User class instantiated with database connection.
+[2025-04-28 19:05:57] Fetching user role by user ID: 317
+[2025-04-28 19:05:57] User role fetched successfully for user ID: 317
+[2025-04-28 19:05:57] Running staff controller ,get_personal_notices token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:05:57] Running get_personal_notices....in controller
+[2025-04-28 19:05:57] get personal notices function running...
+[2025-04-28 19:05:57] Notice model initialized with database connection.
+[2025-04-28 19:05:57] Fetching personal notices for user ID: 317
+[2025-04-28 19:05:58] Expired notices removed.
+[2025-04-28 19:05:58] Fetched 6 unread notices for user ID: 317
+[2025-04-28 19:05:58] Personal notices fetched successfully
+[2025-04-28 19:05:58] Database connection closed.
+[2025-04-28 19:05:59] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:05:59] User class instantiated with database connection.
+[2025-04-28 19:05:59] Fetching user role by user ID: 317
+[2025-04-28 19:05:59] User role fetched successfully for user ID: 317
+[2025-04-28 19:05:59] Running staff controller ,get_gym_crowd token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:05:59] Running get_gym_crowd....in controller
+[2025-04-28 19:05:59] Running getGymCrowd...
+[2025-04-28 19:05:59] Attendance model initialized with database connection.
+[2025-04-28 19:05:59] Fetching number of unique users with latest arrival marked as 1...
+[2025-04-28 19:05:59] Total users with latest Arrived=1: 1
+[2025-04-28 19:05:59] Fetching gym capacity from configuration...
+[2025-04-28 19:05:59] Gym capacity fetched successfully: 80
+[2025-04-28 19:05:59] Gym crowd count: 1 (1.25%)
+[2025-04-28 19:05:59] Database connection closed.
+[2025-04-28 19:06:00] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:06:00] User class instantiated with database connection.
+[2025-04-28 19:06:00] Fetching user role by user ID: 317
+[2025-04-28 19:06:00] User role fetched successfully for user ID: 317
+[2025-04-28 19:06:00] Running staff controller ,get_classes token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:06:00] TrainerClass model initialized with database conection
+[2025-04-28 19:06:00] fetching all classes.....
+[2025-04-28 19:06:00] Classes fetched successfully
+[2025-04-28 19:06:00] classes retrieved successfully
+[2025-04-28 19:06:00] Database connection closed.
+[2025-04-28 19:12:39] Running auth controller ,get_footer_info 
+[2025-04-28 19:12:39] Running get_footer_info....in controller
+[2025-04-28 19:12:40] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:12:40] Config model initialized with database connection.
+[2025-04-28 19:12:41] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-28 19:12:41] Database connection closed.
+[2025-04-28 19:12:41] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:12:41] User class instantiated with database connection.
+[2025-04-28 19:12:41] Fetching user role by user ID: 317
+[2025-04-28 19:12:41] User role fetched successfully for user ID: 317
+[2025-04-28 19:12:41] Running staff controller ,get_active_plans token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:12:41] Running get_active_plans....in controller
+[2025-04-28 19:12:41] Database connection closed.
+[2025-04-28 19:14:05] Running auth controller ,get_footer_info 
+[2025-04-28 19:14:05] Running get_footer_info....in controller
+[2025-04-28 19:14:05] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:14:05] Config model initialized with database connection.
+[2025-04-28 19:14:06] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-28 19:14:06] Database connection closed.
+[2025-04-28 19:14:07] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:14:07] User class instantiated with database connection.
+[2025-04-28 19:14:07] Fetching user role by user ID: 317
+[2025-04-28 19:14:07] User role fetched successfully for user ID: 317
+[2025-04-28 19:14:07] Running staff controller ,get_active_plans token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:14:07] Running get_active_plans....in controller
+[2025-04-28 19:14:07] Database connection closed.
+[2025-04-28 19:14:31] Running auth controller ,get_footer_info 
+[2025-04-28 19:14:31] Running get_footer_info....in controller
+[2025-04-28 19:14:32] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:14:32] Config model initialized with database connection.
+[2025-04-28 19:14:33] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-28 19:14:33] Database connection closed.
+[2025-04-28 19:14:33] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:14:33] User class instantiated with database connection.
+[2025-04-28 19:14:33] Fetching user role by user ID: 317
+[2025-04-28 19:14:34] User role fetched successfully for user ID: 317
+[2025-04-28 19:14:34] Running staff controller ,get_active_plans token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:14:34] Running get_active_plans....in controller
+[2025-04-28 19:14:34] get active membership plans running running...
+[2025-04-28 19:14:34] Membership plan model initialized with database connection.
+[2025-04-28 19:14:34] Active Membership plans fetched
+[2025-04-28 19:14:34] Database connection closed.
+[2025-04-28 19:14:57] Running auth controller ,get_footer_info 
+[2025-04-28 19:14:57] Running get_footer_info....in controller
+[2025-04-28 19:14:57] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:14:57] Config model initialized with database connection.
+[2025-04-28 19:14:58] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-28 19:14:58] Database connection closed.
+[2025-04-28 19:14:59] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:14:59] User class instantiated with database connection.
+[2025-04-28 19:14:59] Fetching user role by user ID: 317
+[2025-04-28 19:14:59] User role fetched successfully for user ID: 317
+[2025-04-28 19:14:59] Running staff controller ,get_active_plans token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:14:59] Running get_active_plans....in controller
+[2025-04-28 19:14:59] get active membership plans running running...
+[2025-04-28 19:14:59] Membership plan model initialized with database connection.
+[2025-04-28 19:14:59] Active Membership plans fetched
+[2025-04-28 19:14:59] Active Membership plans fetched: [{"membership_plan_id":"MP1","plan_name":"Free","benefits":"Workout and Meal Plans, Progress Tracking","monthlyPrice":"0.00","yearlyPrice":"0.00","base_plan_id":"MP1","status":"active"},{"membership_plan_id":"MP2","plan_name":"Standard","benefits":"Workout and Meal Plans, Progress Tracking, Gym Access","monthlyPrice":"4000.00","yearlyPrice":"44000.00","base_plan_id":"MP2","status":"active"},{"membership_plan_id":"MP3","plan_name":"Premium","benefits":"Personalized Workout and Meal Plans, Progress Tracking, Gym Access , Personal Trainer, Training Sessions","monthlyPrice":"9000.00","yearlyPrice":"99000.00","base_plan_id":"MP3","status":"active"},{"membership_plan_id":"MP4","plan_name":"platinum","benefits":"supplements","monthlyPrice":"11000.00","yearlyPrice":"121000.00","base_plan_id":"MP3","status":"active"},{"membership_plan_id":"MP5","plan_name":"platinum gold","benefits":"massage therapy","monthlyPrice":"10500.00","yearlyPrice":"115500.00","base_plan_id":"MP2","status":"active"}]
+[2025-04-28 19:14:59] Database connection closed.
+[2025-04-28 19:16:00] Running auth controller ,get_footer_info 
+[2025-04-28 19:16:00] Running get_footer_info....in controller
+[2025-04-28 19:16:00] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:16:00] Config model initialized with database connection.
+[2025-04-28 19:16:01] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-28 19:16:01] Database connection closed.
+[2025-04-28 19:16:02] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:16:02] User class instantiated with database connection.
+[2025-04-28 19:16:02] Fetching user role by user ID: 317
+[2025-04-28 19:16:02] User role fetched successfully for user ID: 317
+[2025-04-28 19:16:02] Running staff controller ,get_active_plans token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:16:02] Running get_active_plans....in controller
+[2025-04-28 19:16:02] get active membership plans running running...
+[2025-04-28 19:16:02] Membership plan model initialized with database connection.
+[2025-04-28 19:16:02] Active Membership plans fetched
+[2025-04-28 19:16:02] Active Membership plans fetched: [{"membership_plan_id":"MP1","plan_name":"Free","benefits":"Workout and Meal Plans, Progress Tracking","monthlyPrice":"0.00","yearlyPrice":"0.00","base_plan_id":"MP1","status":"active"},{"membership_plan_id":"MP2","plan_name":"Standard","benefits":"Workout and Meal Plans, Progress Tracking, Gym Access","monthlyPrice":"4000.00","yearlyPrice":"44000.00","base_plan_id":"MP2","status":"active"},{"membership_plan_id":"MP3","plan_name":"Premium","benefits":"Personalized Workout and Meal Plans, Progress Tracking, Gym Access , Personal Trainer, Training Sessions","monthlyPrice":"9000.00","yearlyPrice":"99000.00","base_plan_id":"MP3","status":"active"},{"membership_plan_id":"MP4","plan_name":"platinum","benefits":"supplements","monthlyPrice":"11000.00","yearlyPrice":"121000.00","base_plan_id":"MP3","status":"active"},{"membership_plan_id":"MP5","plan_name":"platinum gold","benefits":"massage therapy","monthlyPrice":"10500.00","yearlyPrice":"115500.00","base_plan_id":"MP2","status":"active"}]
+[2025-04-28 19:16:02] Database connection closed.
+[2025-04-28 19:16:18] Running auth controller ,get_footer_info 
+[2025-04-28 19:16:18] Running get_footer_info....in controller
+[2025-04-28 19:16:18] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:16:18] Config model initialized with database connection.
+[2025-04-28 19:16:19] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-28 19:16:19] Database connection closed.
+[2025-04-28 19:16:20] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:16:20] User class instantiated with database connection.
+[2025-04-28 19:16:20] Fetching user role by user ID: 317
+[2025-04-28 19:16:20] User role fetched successfully for user ID: 317
+[2025-04-28 19:16:20] Running staff controller ,get_active_plans token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:16:20] Running get_active_plans....in controller
+[2025-04-28 19:16:20] get active membership plans running running...
+[2025-04-28 19:16:20] Membership plan model initialized with database connection.
+[2025-04-28 19:16:20] Active Membership plans fetched
+[2025-04-28 19:16:20] Active Membership plans fetched: [{"membership_plan_id":"MP1","plan_name":"Free","benefits":"Workout and Meal Plans, Progress Tracking","monthlyPrice":"0.00","yearlyPrice":"0.00","base_plan_id":"MP1","status":"active"},{"membership_plan_id":"MP2","plan_name":"Standard","benefits":"Workout and Meal Plans, Progress Tracking, Gym Access","monthlyPrice":"4000.00","yearlyPrice":"44000.00","base_plan_id":"MP2","status":"active"},{"membership_plan_id":"MP3","plan_name":"Premium","benefits":"Personalized Workout and Meal Plans, Progress Tracking, Gym Access , Personal Trainer, Training Sessions","monthlyPrice":"9000.00","yearlyPrice":"99000.00","base_plan_id":"MP3","status":"active"},{"membership_plan_id":"MP4","plan_name":"platinum","benefits":"supplements","monthlyPrice":"11000.00","yearlyPrice":"121000.00","base_plan_id":"MP3","status":"active"},{"membership_plan_id":"MP5","plan_name":"platinum gold","benefits":"massage therapy","monthlyPrice":"10500.00","yearlyPrice":"115500.00","base_plan_id":"MP2","status":"active"}]
+[2025-04-28 19:16:20] Database connection closed.
+[2025-04-28 19:22:31] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:22:31] User class instantiated with database connection.
+[2025-04-28 19:22:31] Fetching user role by user ID: 317
+[2025-04-28 19:22:31] User role fetched successfully for user ID: 317
+[2025-04-28 19:22:31] Running staff controller ,record_payment token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:22:31] Database connection closed.
+[2025-04-28 19:22:57] Running auth controller ,get_footer_info 
+[2025-04-28 19:22:57] Running get_footer_info....in controller
+[2025-04-28 19:22:57] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:22:57] Config model initialized with database connection.
+[2025-04-28 19:22:58] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-28 19:22:58] Database connection closed.
+[2025-04-28 19:22:59] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:22:59] User class instantiated with database connection.
+[2025-04-28 19:22:59] Fetching user role by user ID: 317
+[2025-04-28 19:22:59] User role fetched successfully for user ID: 317
+[2025-04-28 19:22:59] Running staff controller ,get_active_plans token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:22:59] Running get_active_plans....in controller
+[2025-04-28 19:22:59] get active membership plans running running...
+[2025-04-28 19:22:59] Membership plan model initialized with database connection.
+[2025-04-28 19:22:59] Active Membership plans fetched
+[2025-04-28 19:22:59] Active Membership plans fetched: [{"membership_plan_id":"MP1","plan_name":"Free","benefits":"Workout and Meal Plans, Progress Tracking","monthlyPrice":"0.00","yearlyPrice":"0.00","base_plan_id":"MP1","status":"active"},{"membership_plan_id":"MP2","plan_name":"Standard","benefits":"Workout and Meal Plans, Progress Tracking, Gym Access","monthlyPrice":"4000.00","yearlyPrice":"44000.00","base_plan_id":"MP2","status":"active"},{"membership_plan_id":"MP3","plan_name":"Premium","benefits":"Personalized Workout and Meal Plans, Progress Tracking, Gym Access , Personal Trainer, Training Sessions","monthlyPrice":"9000.00","yearlyPrice":"99000.00","base_plan_id":"MP3","status":"active"},{"membership_plan_id":"MP4","plan_name":"platinum","benefits":"supplements","monthlyPrice":"11000.00","yearlyPrice":"121000.00","base_plan_id":"MP3","status":"active"},{"membership_plan_id":"MP5","plan_name":"platinum gold","benefits":"massage therapy","monthlyPrice":"10500.00","yearlyPrice":"115500.00","base_plan_id":"MP2","status":"active"}]
+[2025-04-28 19:22:59] Database connection closed.
+[2025-04-28 19:23:12] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:23:12] User class instantiated with database connection.
+[2025-04-28 19:23:12] Fetching user role by user ID: 317
+[2025-04-28 19:23:12] User role fetched successfully for user ID: 317
+[2025-04-28 19:23:12] Running staff controller ,record_payment token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:23:12] Database connection closed.
+[2025-04-28 19:23:55] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:23:55] User class instantiated with database connection.
+[2025-04-28 19:23:55] Fetching user role by user ID: 317
+[2025-04-28 19:23:56] User role fetched successfully for user ID: 317
+[2025-04-28 19:23:56] Running staff controller ,record_payment token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:23:56] Running record_payment_reciept....in controller
+[2025-04-28 19:23:56] Received JSON data: null
+[2025-04-28 19:23:56] Database connection closed.
+[2025-04-28 19:27:49] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:27:49] User class instantiated with database connection.
+[2025-04-28 19:27:49] Fetching user role by user ID: 317
+[2025-04-28 19:27:50] User role fetched successfully for user ID: 317
+[2025-04-28 19:27:50] Running staff controller ,record_payment token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:27:50] Running record_payment_reciept....in controller
+[2025-04-28 19:27:50] record payment reciept function running...
+[2025-04-28 19:27:50] Received data: membership_plan_id: MP2, member_roll_id: M12, amount: 4000.00, type: monthly, currency: LKR, method: manual, payment_date: 2025-04-28
+[2025-04-28 19:27:50] Database connection closed.
+[2025-04-28 19:31:58] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:31:58] User class instantiated with database connection.
+[2025-04-28 19:31:58] Fetching user role by user ID: 317
+[2025-04-28 19:31:58] User role fetched successfully for user ID: 317
+[2025-04-28 19:31:58] Running staff controller ,record_payment token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:31:58] Running record_payment_reciept....in controller
+[2025-04-28 19:31:58] record payment reciept function running...
+[2025-04-28 19:31:58] Member model initialized with database connection.
+[2025-04-28 19:31:58] Fetching user_id of a member by member id: M12
+[2025-04-28 19:31:58] User ID fetched from member roll ID: : 
+[2025-04-28 19:31:58] Received data: membership_plan_id: MP2, member_roll_id: M12, amount: 4000.00, type: monthly, currency: LKR, method: manual, payment_date: 2025-04-28
+[2025-04-28 19:31:58] Database connection closed.
+[2025-04-28 19:32:19] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:32:19] User class instantiated with database connection.
+[2025-04-28 19:32:19] Fetching user role by user ID: 317
+[2025-04-28 19:32:20] User role fetched successfully for user ID: 317
+[2025-04-28 19:32:20] Running staff controller ,record_payment token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:32:20] Running record_payment_reciept....in controller
+[2025-04-28 19:32:20] record payment reciept function running...
+[2025-04-28 19:32:20] Member model initialized with database connection.
+[2025-04-28 19:32:20] Fetching user_id of a member by member id: M15
+[2025-04-28 19:32:20] User ID fetched from member roll ID: : Array
+[2025-04-28 19:32:20] Received data: membership_plan_id: MP2, member_roll_id: M15, amount: 4000.00, type: monthly, currency: LKR, method: manual, payment_date: 2025-04-28
+[2025-04-28 19:32:20] Database connection closed.
+[2025-04-28 19:32:57] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:32:57] User class instantiated with database connection.
+[2025-04-28 19:32:57] Fetching user role by user ID: 317
+[2025-04-28 19:32:57] User role fetched successfully for user ID: 317
+[2025-04-28 19:32:57] Running staff controller ,record_payment token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:32:57] Running record_payment_reciept....in controller
+[2025-04-28 19:32:57] record payment reciept function running...
+[2025-04-28 19:32:57] Member model initialized with database connection.
+[2025-04-28 19:32:57] Fetching user_id of a member by member id: M15
+[2025-04-28 19:32:58] User ID fetched from member roll ID: : 181
+[2025-04-28 19:32:58] Received data: membership_plan_id: MP2, member_roll_id: M15, amount: 4000.00, type: monthly, currency: LKR, method: manual, payment_date: 2025-04-28
+[2025-04-28 19:32:58] Database connection closed.
+[2025-04-28 19:33:39] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:33:39] User class instantiated with database connection.
+[2025-04-28 19:33:39] Fetching user role by user ID: 317
+[2025-04-28 19:33:40] User role fetched successfully for user ID: 317
+[2025-04-28 19:33:40] Running staff controller ,record_payment token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:33:40] Running record_payment_reciept....in controller
+[2025-04-28 19:33:40] record payment reciept function running...
+[2025-04-28 19:33:40] Member model initialized with database connection.
+[2025-04-28 19:33:40] Fetching user_id of a member by member id: M1566
+[2025-04-28 19:33:40] User ID fetched from member roll ID: : 
+[2025-04-28 19:33:40] Failed to fetch user ID from member roll ID: M1566
+[2025-04-28 19:33:40] Database connection closed.
+[2025-04-28 19:40:14] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:40:14] User class instantiated with database connection.
+[2025-04-28 19:40:14] Fetching user role by user ID: 317
+[2025-04-28 19:40:14] User role fetched successfully for user ID: 317
+[2025-04-28 19:40:14] Running staff controller ,record_payment token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:40:14] Running record_payment_reciept....in controller
+[2025-04-28 19:40:14] record payment reciept function running...
+[2025-04-28 19:40:14] Member model initialized with database connection.
+[2025-04-28 19:40:14] Fetching user_id of a member by member id: M1566
+[2025-04-28 19:40:14] User ID fetched from member roll ID: : 
+[2025-04-28 19:40:14] Failed to fetch user ID from member roll ID: M1566
+[2025-04-28 19:40:14] Database connection closed.
+[2025-04-28 19:40:23] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:40:23] User class instantiated with database connection.
+[2025-04-28 19:40:23] Fetching user role by user ID: 317
+[2025-04-28 19:40:23] User role fetched successfully for user ID: 317
+[2025-04-28 19:40:23] Running staff controller ,record_payment token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:40:23] Running record_payment_reciept....in controller
+[2025-04-28 19:40:23] record payment reciept function running...
+[2025-04-28 19:40:23] Member model initialized with database connection.
+[2025-04-28 19:40:23] Fetching user_id of a member by member id: M15
+[2025-04-28 19:40:24] User ID fetched from member roll ID: : 181
+[2025-04-28 19:40:24] Payment model initialized
+[2025-04-28 19:40:24] Adding new payment record...
+[2025-04-28 19:40:24] parameters: MP2, 181, MP22025-04-28, 4000.00, LKR, active, manual
+[2025-04-28 19:40:24] Query bound for adding payment with payment_id: MP22025-04-28
+[2025-04-28 19:40:24] Database connection closed.
+[2025-04-28 19:52:20] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:52:20] User class instantiated with database connection.
+[2025-04-28 19:52:20] Fetching user role by user ID: 317
+[2025-04-28 19:52:20] User role fetched successfully for user ID: 317
+[2025-04-28 19:52:20] Running staff controller ,record_payment token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:52:20] Running record_payment_reciept....in controller
+[2025-04-28 19:52:20] Record payment receipt function running...
+[2025-04-28 19:52:20] Member model initialized with database connection.
+[2025-04-28 19:52:20] Fetching user_id of a member by member id: M15
+[2025-04-28 19:52:20] Payment model initialized
+[2025-04-28 19:52:20] Adding new payment record...
+[2025-04-28 19:52:20] parameters: MP2, 181, 0, 4000.00, LKR, active, manual
+[2025-04-28 19:52:20] Query bound for adding payment with payment_id: 0
+[2025-04-28 19:52:21] Database connection closed.
+[2025-04-28 19:55:23] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:55:23] User class instantiated with database connection.
+[2025-04-28 19:55:23] Fetching user role by user ID: 317
+[2025-04-28 19:55:23] User role fetched successfully for user ID: 317
+[2025-04-28 19:55:23] Running staff controller ,record_payment token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:55:23] Running record_payment_reciept....in controller
+[2025-04-28 19:55:23] Record payment receipt function running...
+[2025-04-28 19:55:23] Member model initialized with database connection.
+[2025-04-28 19:55:23] Fetching user_id of a member by member id: M15
+[2025-04-28 19:55:24] Payment model initialized
+[2025-04-28 19:55:24] Generated payment ID: 0
+[2025-04-28 19:55:24] Adding new payment record...
+[2025-04-28 19:55:24] parameters: MP2, 181, 0, 4000.00, LKR, active, manual
+[2025-04-28 19:55:24] Query bound for adding payment with payment_id: 0
+[2025-04-28 19:55:24] Database connection closed.
+[2025-04-28 19:57:41] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:57:41] User class instantiated with database connection.
+[2025-04-28 19:57:41] Fetching user role by user ID: 317
+[2025-04-28 19:57:41] User role fetched successfully for user ID: 317
+[2025-04-28 19:57:41] Running staff controller ,record_payment token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:57:41] Running record_payment_reciept....in controller
+[2025-04-28 19:57:41] Record payment receipt function running...
+[2025-04-28 19:57:41] Received payment data: {"action":"record_payment","membership_plan_id":"MP2","member_roll_id":"M15","amount":"4000.00","type":"monthly","currency":"LKR","method":"manual","payment_date":"2025-04-28"}
+[2025-04-28 19:57:41] Member model initialized with database connection.
+[2025-04-28 19:57:41] Fetching user_id of a member by member id: M15
+[2025-04-28 19:57:41] Payment model initialized
+[2025-04-28 19:57:41] Generated payment ID: 0
+[2025-04-28 19:57:41] Adding new payment record...
+[2025-04-28 19:57:41] parameters: MP2, 181, 0, 4000.00, LKR, active, manual
+[2025-04-28 19:57:41] Query bound for adding payment with payment_id: 0
+[2025-04-28 19:57:42] Database connection closed.
+[2025-04-28 19:59:05] Connection established successfully to the database: rad_gymverse
+[2025-04-28 19:59:05] User class instantiated with database connection.
+[2025-04-28 19:59:05] Fetching user role by user ID: 317
+[2025-04-28 19:59:06] User role fetched successfully for user ID: 317
+[2025-04-28 19:59:06] Running staff controller ,record_payment token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 19:59:06] Running record_payment_reciept....in controller
+[2025-04-28 19:59:06] Record payment receipt function running...
+[2025-04-28 19:59:06] Received payment data: {"action":"record_payment","membership_plan_id":"MP2","member_roll_id":"M15","amount":"4000.00","type":"monthly","currency":"LKR","method":"manual","payment_date":"2025-04-28"}
+[2025-04-28 19:59:06] Member model initialized with database connection.
+[2025-04-28 19:59:06] Fetching user_id of a member by member id: M15
+[2025-04-28 19:59:06] Payment model initialized
+[2025-04-28 19:59:06] Generated payment ID: 18120250428000000
+[2025-04-28 19:59:06] Adding new payment record...
+[2025-04-28 19:59:06] parameters: MP2, 181, 18120250428000000, 4000.00, LKR, active, manual
+[2025-04-28 19:59:06] Query bound for adding payment with payment_id: 18120250428000000
+[2025-04-28 19:59:06] Database connection closed.
+[2025-04-28 20:00:34] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:00:34] User class instantiated with database connection.
+[2025-04-28 20:00:34] Fetching user role by user ID: 317
+[2025-04-28 20:00:34] User role fetched successfully for user ID: 317
+[2025-04-28 20:00:34] Running staff controller ,record_payment token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 20:00:34] Running record_payment_reciept....in controller
+[2025-04-28 20:00:34] Record payment receipt function running...
+[2025-04-28 20:00:34] Received payment data: {"action":"record_payment","membership_plan_id":"MP2","member_roll_id":"M15","amount":"4000.00","type":"monthly","currency":"LKR","method":"manual","payment_date":"2025-04-28"}
+[2025-04-28 20:00:34] Member model initialized with database connection.
+[2025-04-28 20:00:34] Fetching user_id of a member by member id: M15
+[2025-04-28 20:00:34] Payment model initialized
+[2025-04-28 20:00:34] Generated payment ID: PAY_680fc242948841.80887072
+[2025-04-28 20:00:34] Adding new payment record...
+[2025-04-28 20:00:34] parameters: MP2, 181, PAY_680fc242948841.80887072, 4000.00, LKR, active, manual
+[2025-04-28 20:00:34] Query bound for adding payment with payment_id: PAY_680fc242948841.80887072
+[2025-04-28 20:00:34] Database connection closed.
+[2025-04-28 20:04:50] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:04:50] User class instantiated with database connection.
+[2025-04-28 20:04:50] Fetching user role by user ID: 317
+[2025-04-28 20:04:51] User role fetched successfully for user ID: 317
+[2025-04-28 20:04:51] Running staff controller ,record_payment token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 20:04:51] Running record_payment_reciept....in controller
+[2025-04-28 20:04:51] Record payment receipt function running...
+[2025-04-28 20:04:51] Received payment data: {"action":"record_payment","membership_plan_id":"MP2","member_roll_id":"M15","amount":"4000.00","type":"monthly","currency":"LKR","method":"manual","payment_date":"2025-04-28"}
+[2025-04-28 20:04:51] Member model initialized with database connection.
+[2025-04-28 20:04:51] Fetching user_id of a member by member id: M15
+[2025-04-28 20:04:51] Payment model initialized
+[2025-04-28 20:04:51] Generated payment ID: PAY_680fc34377ac27.80690287
+[2025-04-28 20:04:51] Adding new payment record...
+[2025-04-28 20:04:51] parameters: MP2, 181, PAY_680fc34377ac27.80690287, 4000, LKR, active, manual
+[2025-04-28 20:04:51] Query bound for adding payment with payment_id: PAY_680fc34377ac27.80690287
+[2025-04-28 20:04:51] Database connection closed.
+[2025-04-28 20:05:52] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:05:52] User class instantiated with database connection.
+[2025-04-28 20:05:52] Fetching user role by user ID: 317
+[2025-04-28 20:05:53] User role fetched successfully for user ID: 317
+[2025-04-28 20:05:53] Running staff controller ,record_payment token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 20:05:53] Running record_payment_reciept....in controller
+[2025-04-28 20:05:53] Record payment receipt function running...
+[2025-04-28 20:05:53] Received payment data: {"action":"record_payment","membership_plan_id":"MP2","member_roll_id":"M15","amount":"4002","type":"monthly","currency":"LKR","method":"manual","payment_date":"2025-04-28"}
+[2025-04-28 20:05:53] Member model initialized with database connection.
+[2025-04-28 20:05:53] Fetching user_id of a member by member id: M15
+[2025-04-28 20:05:53] Payment model initialized
+[2025-04-28 20:05:53] Generated payment ID: PAY_680fc3819f6be0.25939458
+[2025-04-28 20:05:53] Adding new payment record...
+[2025-04-28 20:05:53] parameters: MP2, 181, PAY_680fc3819f6be0.25939458, 4002, LKR, active, manual
+[2025-04-28 20:05:53] Query bound for adding payment with payment_id: PAY_680fc3819f6be0.25939458
+[2025-04-28 20:05:53] Database connection closed.
+[2025-04-28 20:06:09] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:06:09] User class instantiated with database connection.
+[2025-04-28 20:06:09] Fetching user role by user ID: 317
+[2025-04-28 20:06:09] User role fetched successfully for user ID: 317
+[2025-04-28 20:06:09] Running staff controller ,record_payment token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 20:06:09] Running record_payment_reciept....in controller
+[2025-04-28 20:06:09] Record payment receipt function running...
+[2025-04-28 20:06:09] Received payment data: {"action":"record_payment","membership_plan_id":"MP2","member_roll_id":"M15","amount":"4000.00","type":"monthly","currency":"LKR","method":"manual","payment_date":"2025-04-28"}
+[2025-04-28 20:06:09] Member model initialized with database connection.
+[2025-04-28 20:06:09] Fetching user_id of a member by member id: M15
+[2025-04-28 20:06:09] Payment model initialized
+[2025-04-28 20:06:09] Generated payment ID: PAY_680fc391aecb86.55144053
+[2025-04-28 20:06:09] Adding new payment record...
+[2025-04-28 20:06:09] parameters: MP2, 181, PAY_680fc391aecb86.55144053, 4000, LKR, active, manual
+[2025-04-28 20:06:09] Query bound for adding payment with payment_id: PAY_680fc391aecb86.55144053
+[2025-04-28 20:06:10] Database connection closed.
+[2025-04-28 20:07:53] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:07:53] User class instantiated with database connection.
+[2025-04-28 20:07:53] Fetching user role by user ID: 317
+[2025-04-28 20:07:53] User role fetched successfully for user ID: 317
+[2025-04-28 20:07:53] Running staff controller ,record_payment token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 20:07:53] Running record_payment_reciept....in controller
+[2025-04-28 20:07:53] Record payment receipt function running...
+[2025-04-28 20:07:53] Received payment data: {"action":"record_payment","membership_plan_id":"MP2","member_roll_id":"M15","amount":"4000.00","type":"monthly","currency":"LKR","method":"manual","payment_date":"2025-04-28"}
+[2025-04-28 20:07:53] Member model initialized with database connection.
+[2025-04-28 20:07:53] Fetching user_id of a member by member id: M15
+[2025-04-28 20:07:54] Payment model initialized
+[2025-04-28 20:07:54] Generated payment ID: PAY_680fc3fa51d610.59384856
+[2025-04-28 20:07:54] Adding new payment record...
+[2025-04-28 20:07:54] parameters: MP2, 181, PAY_680fc3fa51d610.59384856, 4000, LKR, active, manual
+[2025-04-28 20:07:54] Query bound for adding payment with payment_id: PAY_680fc3fa51d610.59384856
+[2025-04-28 20:07:54] Database connection closed.
+[2025-04-28 20:10:54] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:10:54] User class instantiated with database connection.
+[2025-04-28 20:10:54] Fetching user role by user ID: 317
+[2025-04-28 20:10:55] User role fetched successfully for user ID: 317
+[2025-04-28 20:10:55] Running staff controller ,record_payment token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 20:10:55] Running record_payment_reciept....in controller
+[2025-04-28 20:10:55] Record payment receipt function running...
+[2025-04-28 20:10:55] Received payment data: {"action":"record_payment","membership_plan_id":"MP2","member_roll_id":"M15","amount":"4000.00","type":"monthly","currency":"LKR","method":"manual","payment_date":"2025-04-28"}
+[2025-04-28 20:10:55] Member model initialized with database connection.
+[2025-04-28 20:10:55] Fetching user_id of a member by member id: M15
+[2025-04-28 20:10:55] Payment model initialized
+[2025-04-28 20:10:55] Generated payment ID: PAY_680fc4af5ba282.45979180
+[2025-04-28 20:10:55] Adding new payment record...
+[2025-04-28 20:10:55] parameters: MP2, 181, PAY_680fc4af5ba282.45979180, 4000, LKR, Success, manual
+[2025-04-28 20:10:55] Query bound for adding payment with payment_id: PAY_680fc4af5ba282.45979180
+[2025-04-28 20:10:55] Payment added successfully for payment_id: PAY_680fc4af5ba282.45979180
+[2025-04-28 20:10:55] Payment record created successfully: ID PAY_680fc4af5ba282.45979180
+[2025-04-28 20:10:55] PaymentEvidence model initialized with database connection.
+[2025-04-28 20:10:55] Adding new payment evidence record...
+[2025-04-28 20:10:55] Query bound for adding payment evidence with payment_id: PAY_680fc4af5ba282.45979180
+[2025-04-28 20:10:57] Payment evidence added successfully for payment_id: PAY_680fc4af5ba282.45979180
+[2025-04-28 20:10:57] Payment evidence uploaded successfully for payment_id: PAY_680fc4af5ba282.45979180
+[2025-04-28 20:10:57] Database connection closed.
+[2025-04-28 20:12:22] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:12:22] User class instantiated with database connection.
+[2025-04-28 20:12:22] Fetching user role by user ID: 317
+[2025-04-28 20:12:23] User role fetched successfully for user ID: 317
+[2025-04-28 20:12:23] Running staff controller ,record_payment token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 20:12:23] Running record_payment_reciept....in controller
+[2025-04-28 20:12:23] Record payment receipt function running...
+[2025-04-28 20:12:23] Received payment data: {"action":"record_payment","membership_plan_id":"MP2","member_roll_id":"M15","amount":"4000.00","type":"monthly","currency":"LKR","method":"manual","payment_date":"2025-04-28"}
+[2025-04-28 20:12:23] Member model initialized with database connection.
+[2025-04-28 20:12:23] Fetching user_id of a member by member id: M15
+[2025-04-28 20:12:23] Payment model initialized
+[2025-04-28 20:12:23] Generated payment ID: PAY_680fc50761a191.03533001
+[2025-04-28 20:12:23] Adding new payment record...
+[2025-04-28 20:12:23] parameters: MP2, 181, PAY_680fc50761a191.03533001, 4000, LKR, Success, manual
+[2025-04-28 20:12:23] Query bound for adding payment with payment_id: PAY_680fc50761a191.03533001
+[2025-04-28 20:12:23] Payment added successfully for payment_id: PAY_680fc50761a191.03533001
+[2025-04-28 20:12:23] Payment record created successfully: ID PAY_680fc50761a191.03533001
+[2025-04-28 20:12:23] PaymentEvidence model initialized with database connection.
+[2025-04-28 20:12:23] Adding new payment evidence record...
+[2025-04-28 20:12:23] Query bound for adding payment evidence with payment_id: PAY_680fc50761a191.03533001
+[2025-04-28 20:12:24] Payment evidence added successfully for payment_id: PAY_680fc50761a191.03533001
+[2025-04-28 20:12:24] Payment evidence uploaded successfully for payment_id: PAY_680fc50761a191.03533001
+[2025-04-28 20:12:24] Database connection closed.
+[2025-04-28 20:13:25] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:13:25] User class instantiated with database connection.
+[2025-04-28 20:13:25] Fetching user role by user ID: 317
+[2025-04-28 20:13:25] User role fetched successfully for user ID: 317
+[2025-04-28 20:13:25] Running staff controller ,record_payment token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 20:13:25] Running record_payment_reciept....in controller
+[2025-04-28 20:13:25] Record payment receipt function running...
+[2025-04-28 20:13:25] Received payment data: {"action":"record_payment","membership_plan_id":"MP3","member_roll_id":"M15","amount":"9000.00","type":"monthly","currency":"LKR","method":"manual","payment_date":"2025-04-28"}
+[2025-04-28 20:13:25] Member model initialized with database connection.
+[2025-04-28 20:13:25] Fetching user_id of a member by member id: M15
+[2025-04-28 20:13:25] Payment model initialized
+[2025-04-28 20:13:25] Generated payment ID: PAY_680fc545a582e8.78791777
+[2025-04-28 20:13:25] Adding new payment record...
+[2025-04-28 20:13:25] parameters: MP3, 181, PAY_680fc545a582e8.78791777, 9000, LKR, Success, manual
+[2025-04-28 20:13:25] Query bound for adding payment with payment_id: PAY_680fc545a582e8.78791777
+[2025-04-28 20:13:25] Payment added successfully for payment_id: PAY_680fc545a582e8.78791777
+[2025-04-28 20:13:25] Payment record created successfully: ID PAY_680fc545a582e8.78791777
+[2025-04-28 20:13:25] PaymentEvidence model initialized with database connection.
+[2025-04-28 20:13:25] Adding new payment evidence record...
+[2025-04-28 20:13:26] Query bound for adding payment evidence with payment_id: PAY_680fc545a582e8.78791777
+[2025-04-28 20:13:27] Payment evidence added successfully for payment_id: PAY_680fc545a582e8.78791777
+[2025-04-28 20:13:27] Payment evidence uploaded successfully for payment_id: PAY_680fc545a582e8.78791777
+[2025-04-28 20:13:27] Database connection closed.
+[2025-04-28 20:16:13] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:16:13] User class instantiated with database connection.
+[2025-04-28 20:16:13] Fetching user role by user ID: 317
+[2025-04-28 20:16:14] User role fetched successfully for user ID: 317
+[2025-04-28 20:16:14] Running staff controller ,record_payment token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 20:16:14] Running record_payment_reciept....in controller
+[2025-04-28 20:16:14] Record payment receipt function running...
+[2025-04-28 20:16:14] Received payment data: {"action":"record_payment","membership_plan_id":"MP2","member_roll_id":"M15","amount":"4000.00","type":"monthly","currency":"LKR","method":"manual","payment_date":"2025-04-28"}
+[2025-04-28 20:16:14] Member model initialized with database connection.
+[2025-04-28 20:16:14] Fetching user_id of a member by member id: M15
+[2025-04-28 20:16:14] Payment model initialized
+[2025-04-28 20:16:14] Generated payment ID: PAY_680fc5ee7dbc88.39167167
+[2025-04-28 20:16:14] Adding new payment record...
+[2025-04-28 20:16:14] parameters: MP2, 181, PAY_680fc5ee7dbc88.39167167, 4000, LKR, Success, manual
+[2025-04-28 20:16:14] Query bound for adding payment with payment_id: PAY_680fc5ee7dbc88.39167167
+[2025-04-28 20:16:14] Payment added successfully for payment_id: PAY_680fc5ee7dbc88.39167167
+[2025-04-28 20:16:14] Payment record created successfully: ID PAY_680fc5ee7dbc88.39167167
+[2025-04-28 20:16:14] PaymentEvidence model initialized with database connection.
+[2025-04-28 20:16:14] Adding new payment evidence record...
+[2025-04-28 20:16:14] Query bound for adding payment evidence with payment_id: PAY_680fc5ee7dbc88.39167167
+[2025-04-28 20:16:15] Payment evidence added successfully for payment_id: PAY_680fc5ee7dbc88.39167167
+[2025-04-28 20:16:15] Payment evidence uploaded successfully for payment_id: PAY_680fc5ee7dbc88.39167167
+[2025-04-28 20:16:15] Database connection closed.
+[2025-04-28 20:17:27] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:17:27] User class instantiated with database connection.
+[2025-04-28 20:17:27] Fetching user role by user ID: 317
+[2025-04-28 20:17:27] User role fetched successfully for user ID: 317
+[2025-04-28 20:17:27] Running staff controller ,record_payment token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 20:17:27] Running record_payment_reciept....in controller
+[2025-04-28 20:17:27] Record payment receipt function running...
+[2025-04-28 20:17:27] Received payment data: {"action":"record_payment","membership_plan_id":"MP2","member_roll_id":"M15","amount":"4000.00","type":"monthly","currency":"LKR","method":"manual","payment_date":"2025-04-28"}
+[2025-04-28 20:17:27] Member model initialized with database connection.
+[2025-04-28 20:17:27] Fetching user_id of a member by member id: M15
+[2025-04-28 20:17:28] Payment model initialized
+[2025-04-28 20:17:28] Generated payment ID: PAY_680fc638146b01.58397296
+[2025-04-28 20:17:28] Adding new payment record...
+[2025-04-28 20:17:28] parameters: MP2, 181, PAY_680fc638146b01.58397296, 4000, LKR, Success, manual
+[2025-04-28 20:17:28] Query bound for adding payment with payment_id: PAY_680fc638146b01.58397296
+[2025-04-28 20:17:28] Payment added successfully for payment_id: PAY_680fc638146b01.58397296
+[2025-04-28 20:17:28] Payment record created successfully: ID PAY_680fc638146b01.58397296
+[2025-04-28 20:17:28] PaymentEvidence model initialized with database connection.
+[2025-04-28 20:17:28] Adding new payment evidence record...
+[2025-04-28 20:17:28] Query bound for adding payment evidence with payment_id: PAY_680fc638146b01.58397296
+[2025-04-28 20:17:29] Payment evidence added successfully for payment_id: PAY_680fc638146b01.58397296
+[2025-04-28 20:17:29] Payment evidence uploaded successfully for payment_id: PAY_680fc638146b01.58397296
+[2025-04-28 20:17:29] Database connection closed.
+[2025-04-28 20:17:34] Running auth controller ,get_footer_info 
+[2025-04-28 20:17:34] Running get_footer_info....in controller
+[2025-04-28 20:17:34] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:17:34] Config model initialized with database connection.
+[2025-04-28 20:17:36] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-28 20:17:36] Database connection closed.
+[2025-04-28 20:17:36] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:17:36] User class instantiated with database connection.
+[2025-04-28 20:17:36] Fetching user role by user ID: 317
+[2025-04-28 20:17:37] User role fetched successfully for user ID: 317
+[2025-04-28 20:17:37] Running staff controller ,get_active_plans token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 20:17:37] Running get_active_plans....in controller
+[2025-04-28 20:17:37] get active membership plans running running...
+[2025-04-28 20:17:37] Membership plan model initialized with database connection.
+[2025-04-28 20:17:37] Active Membership plans fetched
+[2025-04-28 20:17:37] Active Membership plans fetched: [{"membership_plan_id":"MP1","plan_name":"Free","benefits":"Workout and Meal Plans, Progress Tracking","monthlyPrice":"0.00","yearlyPrice":"0.00","base_plan_id":"MP1","status":"active"},{"membership_plan_id":"MP2","plan_name":"Standard","benefits":"Workout and Meal Plans, Progress Tracking, Gym Access","monthlyPrice":"4000.00","yearlyPrice":"44000.00","base_plan_id":"MP2","status":"active"},{"membership_plan_id":"MP3","plan_name":"Premium","benefits":"Personalized Workout and Meal Plans, Progress Tracking, Gym Access , Personal Trainer, Training Sessions","monthlyPrice":"9000.00","yearlyPrice":"99000.00","base_plan_id":"MP3","status":"active"},{"membership_plan_id":"MP4","plan_name":"platinum","benefits":"supplements","monthlyPrice":"11000.00","yearlyPrice":"121000.00","base_plan_id":"MP3","status":"active"},{"membership_plan_id":"MP5","plan_name":"platinum gold","benefits":"massage therapy","monthlyPrice":"10500.00","yearlyPrice":"115500.00","base_plan_id":"MP2","status":"active"}]
+[2025-04-28 20:17:37] Database connection closed.
+[2025-04-28 20:18:05] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:18:05] User class instantiated with database connection.
+[2025-04-28 20:18:05] Fetching user role by user ID: 317
+[2025-04-28 20:18:05] User role fetched successfully for user ID: 317
+[2025-04-28 20:18:05] Running staff controller ,record_payment token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 20:18:05] Running record_payment_reciept....in controller
+[2025-04-28 20:18:05] Record payment receipt function running...
+[2025-04-28 20:18:05] Received payment data: {"action":"record_payment","membership_plan_id":"MP2","member_roll_id":"M15","amount":"4000.00","type":"monthly","currency":"LKR","method":"manual","payment_date":"2025-04-28"}
+[2025-04-28 20:18:05] Member model initialized with database connection.
+[2025-04-28 20:18:05] Fetching user_id of a member by member id: M15
+[2025-04-28 20:18:05] Payment model initialized
+[2025-04-28 20:18:05] Generated payment ID: PAY_680fc65dd4e678.76994330
+[2025-04-28 20:18:05] Adding new payment record...
+[2025-04-28 20:18:06] parameters: MP2, 181, PAY_680fc65dd4e678.76994330, 4000, LKR, Success, manual
+[2025-04-28 20:18:06] Query bound for adding payment with payment_id: PAY_680fc65dd4e678.76994330
+[2025-04-28 20:18:06] Payment added successfully for payment_id: PAY_680fc65dd4e678.76994330
+[2025-04-28 20:18:06] Payment record created successfully: ID PAY_680fc65dd4e678.76994330
+[2025-04-28 20:18:06] PaymentEvidence model initialized with database connection.
+[2025-04-28 20:18:06] Adding new payment evidence record...
+[2025-04-28 20:18:06] Query bound for adding payment evidence with payment_id: PAY_680fc65dd4e678.76994330
+[2025-04-28 20:18:07] Payment evidence added successfully for payment_id: PAY_680fc65dd4e678.76994330
+[2025-04-28 20:18:07] Payment evidence uploaded successfully for payment_id: PAY_680fc65dd4e678.76994330
+[2025-04-28 20:18:07] Database connection closed.
+[2025-04-28 20:19:56] Running auth controller ,get_footer_info 
+[2025-04-28 20:19:56] Running get_footer_info....in controller
+[2025-04-28 20:19:57] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:19:57] Config model initialized with database connection.
+[2025-04-28 20:19:58] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-28 20:19:58] Database connection closed.
+[2025-04-28 20:19:58] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:19:58] User class instantiated with database connection.
+[2025-04-28 20:19:58] Fetching user role by user ID: 317
+[2025-04-28 20:19:59] User role fetched successfully for user ID: 317
+[2025-04-28 20:19:59] Running staff controller ,get_active_plans token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3MDQwMH0=.eef2f464ca721d6fd059fcd40989eef2b9b156e79167e622fa779b1a53a8fb07   id - 317 
+[2025-04-28 20:19:59] Running get_active_plans....in controller
+[2025-04-28 20:19:59] get active membership plans running running...
+[2025-04-28 20:19:59] Membership plan model initialized with database connection.
+[2025-04-28 20:19:59] Active Membership plans fetched
+[2025-04-28 20:19:59] Active Membership plans fetched: [{"membership_plan_id":"MP1","plan_name":"Free","benefits":"Workout and Meal Plans, Progress Tracking","monthlyPrice":"0.00","yearlyPrice":"0.00","base_plan_id":"MP1","status":"active"},{"membership_plan_id":"MP2","plan_name":"Standard","benefits":"Workout and Meal Plans, Progress Tracking, Gym Access","monthlyPrice":"4000.00","yearlyPrice":"44000.00","base_plan_id":"MP2","status":"active"},{"membership_plan_id":"MP3","plan_name":"Premium","benefits":"Personalized Workout and Meal Plans, Progress Tracking, Gym Access , Personal Trainer, Training Sessions","monthlyPrice":"9000.00","yearlyPrice":"99000.00","base_plan_id":"MP3","status":"active"},{"membership_plan_id":"MP4","plan_name":"platinum","benefits":"supplements","monthlyPrice":"11000.00","yearlyPrice":"121000.00","base_plan_id":"MP3","status":"active"},{"membership_plan_id":"MP5","plan_name":"platinum gold","benefits":"massage therapy","monthlyPrice":"10500.00","yearlyPrice":"115500.00","base_plan_id":"MP2","status":"active"}]
+[2025-04-28 20:19:59] Database connection closed.
+[2025-04-28 20:20:51] Running auth controller ,get_footer_info 
+[2025-04-28 20:20:51] Running get_footer_info....in controller
+[2025-04-28 20:20:51] Running auth controller ,get_footer_info 
+[2025-04-28 20:20:51] Running get_footer_info....in controller
+[2025-04-28 20:20:51] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:20:51] Config model initialized with database connection.
+[2025-04-28 20:20:51] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:20:51] Config model initialized with database connection.
+[2025-04-28 20:20:52] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-28 20:20:52] Database connection closed.
+[2025-04-28 20:20:52] Running auth controller ,login 
+[2025-04-28 20:20:52] running login...in auth controller
+[2025-04-28 20:20:52] login function running...
+[2025-04-28 20:20:52] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-28 20:20:52] Database connection closed.
+[2025-04-28 20:20:53] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:20:53] User class instantiated with database connection.
+[2025-04-28 20:20:53] User Login model running for: chamara125@gmail.com
+[2025-04-28 20:20:53] Fetching user by email: chamara125@gmail.com
+[2025-04-28 20:20:53] User found for email: chamara125@gmail.com
+[2025-04-28 20:20:53] Query bound and ready to execute for login: chamara125@gmail.com
+[2025-04-28 20:20:54] User status: 1
+[2025-04-28 20:20:54] User login successful: chamara125@gmail.com with role: staff
+[2025-04-28 20:20:54] Config model initialized with database connection.
+[2025-04-28 20:20:54] Login Successful: eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3NDAwMH0=.b211c2587937339f7c02cb552029c61d01711fb6df0084824f07d77b8f2eec1f staff
+[2025-04-28 20:20:54] Database connection closed.
+[2025-04-28 20:20:54] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:20:54] User class instantiated with database connection.
+[2025-04-28 20:20:54] Fetching user role by user ID: 317
+[2025-04-28 20:20:55] User role fetched successfully for user ID: 317
+[2025-04-28 20:20:55] Running staff controller ,get_personal_notices token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3NDAwMH0=.b211c2587937339f7c02cb552029c61d01711fb6df0084824f07d77b8f2eec1f   id - 317 
+[2025-04-28 20:20:55] Running get_personal_notices....in controller
+[2025-04-28 20:20:55] get personal notices function running...
+[2025-04-28 20:20:55] Notice model initialized with database connection.
+[2025-04-28 20:20:55] Fetching personal notices for user ID: 317
+[2025-04-28 20:20:55] Expired notices removed.
+[2025-04-28 20:20:55] Fetched 6 unread notices for user ID: 317
+[2025-04-28 20:20:55] Personal notices fetched successfully
+[2025-04-28 20:20:55] Database connection closed.
+[2025-04-28 20:20:56] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:20:56] User class instantiated with database connection.
+[2025-04-28 20:20:56] Fetching user role by user ID: 317
+[2025-04-28 20:20:56] User role fetched successfully for user ID: 317
+[2025-04-28 20:20:56] Running staff controller ,get_gym_crowd token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3NDAwMH0=.b211c2587937339f7c02cb552029c61d01711fb6df0084824f07d77b8f2eec1f   id - 317 
+[2025-04-28 20:20:56] Running get_gym_crowd....in controller
+[2025-04-28 20:20:56] Running getGymCrowd...
+[2025-04-28 20:20:56] Attendance model initialized with database connection.
+[2025-04-28 20:20:56] Fetching number of unique users with latest arrival marked as 1...
+[2025-04-28 20:20:57] Total users with latest Arrived=1: 1
+[2025-04-28 20:20:57] Fetching gym capacity from configuration...
+[2025-04-28 20:20:57] Gym capacity fetched successfully: 80
+[2025-04-28 20:20:57] Gym crowd count: 1 (1.25%)
+[2025-04-28 20:20:57] Database connection closed.
+[2025-04-28 20:20:58] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:20:58] User class instantiated with database connection.
+[2025-04-28 20:20:58] Fetching user role by user ID: 317
+[2025-04-28 20:20:58] User role fetched successfully for user ID: 317
+[2025-04-28 20:20:58] Running staff controller ,get_classes token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3NDAwMH0=.b211c2587937339f7c02cb552029c61d01711fb6df0084824f07d77b8f2eec1f   id - 317 
+[2025-04-28 20:20:58] TrainerClass model initialized with database conection
+[2025-04-28 20:20:58] fetching all classes.....
+[2025-04-28 20:20:58] Classes fetched successfully
+[2025-04-28 20:20:58] classes retrieved successfully
+[2025-04-28 20:20:58] Database connection closed.
+[2025-04-28 20:20:59] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:20:59] User class instantiated with database connection.
+[2025-04-28 20:20:59] Fetching user role by user ID: 317
+[2025-04-28 20:20:59] User role fetched successfully for user ID: 317
+[2025-04-28 20:20:59] Running staff controller ,get_active_plans token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3NDAwMH0=.b211c2587937339f7c02cb552029c61d01711fb6df0084824f07d77b8f2eec1f   id - 317 
+[2025-04-28 20:20:59] Running get_active_plans....in controller
+[2025-04-28 20:20:59] get active membership plans running running...
+[2025-04-28 20:20:59] Membership plan model initialized with database connection.
+[2025-04-28 20:20:59] Active Membership plans fetched
+[2025-04-28 20:20:59] Active Membership plans fetched: [{"membership_plan_id":"MP1","plan_name":"Free","benefits":"Workout and Meal Plans, Progress Tracking","monthlyPrice":"0.00","yearlyPrice":"0.00","base_plan_id":"MP1","status":"active"},{"membership_plan_id":"MP2","plan_name":"Standard","benefits":"Workout and Meal Plans, Progress Tracking, Gym Access","monthlyPrice":"4000.00","yearlyPrice":"44000.00","base_plan_id":"MP2","status":"active"},{"membership_plan_id":"MP3","plan_name":"Premium","benefits":"Personalized Workout and Meal Plans, Progress Tracking, Gym Access , Personal Trainer, Training Sessions","monthlyPrice":"9000.00","yearlyPrice":"99000.00","base_plan_id":"MP3","status":"active"},{"membership_plan_id":"MP4","plan_name":"platinum","benefits":"supplements","monthlyPrice":"11000.00","yearlyPrice":"121000.00","base_plan_id":"MP3","status":"active"},{"membership_plan_id":"MP5","plan_name":"platinum gold","benefits":"massage therapy","monthlyPrice":"10500.00","yearlyPrice":"115500.00","base_plan_id":"MP2","status":"active"}]
+[2025-04-28 20:20:59] Database connection closed.
+[2025-04-28 20:21:28] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:21:28] User class instantiated with database connection.
+[2025-04-28 20:21:28] Fetching user role by user ID: 317
+[2025-04-28 20:21:29] User role fetched successfully for user ID: 317
+[2025-04-28 20:21:29] Running staff controller ,record_payment token - eyJ1c2VyX2lkIjozMTcsImV4cCI6MTc0NTg3NDAwMH0=.b211c2587937339f7c02cb552029c61d01711fb6df0084824f07d77b8f2eec1f   id - 317 
+[2025-04-28 20:21:29] Running record_payment_reciept....in controller
+[2025-04-28 20:21:29] Record payment receipt function running...
+[2025-04-28 20:21:29] Received payment data: {"action":"record_payment","membership_plan_id":"MP5","member_roll_id":"M15","amount":"10500.00","type":"monthly","currency":"LKR","method":"manual","payment_date":"2025-04-28"}
+[2025-04-28 20:21:29] Member model initialized with database connection.
+[2025-04-28 20:21:29] Fetching user_id of a member by member id: M15
+[2025-04-28 20:21:29] Payment model initialized
+[2025-04-28 20:21:29] Generated payment ID: PAY_680fc7296f0ce5.19809262
+[2025-04-28 20:21:29] Adding new payment record...
+[2025-04-28 20:21:29] parameters: MP5, 181, PAY_680fc7296f0ce5.19809262, 10500, LKR, Success, manual
+[2025-04-28 20:21:29] Query bound for adding payment with payment_id: PAY_680fc7296f0ce5.19809262
+[2025-04-28 20:21:29] Payment added successfully for payment_id: PAY_680fc7296f0ce5.19809262
+[2025-04-28 20:21:29] Payment record created successfully: ID PAY_680fc7296f0ce5.19809262
+[2025-04-28 20:21:29] PaymentEvidence model initialized with database connection.
+[2025-04-28 20:21:29] Adding new payment evidence record...
+[2025-04-28 20:21:29] Query bound for adding payment evidence with payment_id: PAY_680fc7296f0ce5.19809262
+[2025-04-28 20:21:30] Payment evidence added successfully for payment_id: PAY_680fc7296f0ce5.19809262
+[2025-04-28 20:21:30] Payment evidence uploaded successfully for payment_id: PAY_680fc7296f0ce5.19809262
+[2025-04-28 20:21:30] Database connection closed.
+[2025-04-28 20:21:38] Running auth controller ,get_footer_info 
+[2025-04-28 20:21:38] Running get_footer_info....in controller
+[2025-04-28 20:21:38] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:21:38] Config model initialized with database connection.
+[2025-04-28 20:21:39] Configs: {"gym_address":"No.7A, Colombo 07, Sri Lanka.","gym_email":"gymverse.services@gmail.com","gym_no":"0755467756"}
+[2025-04-28 20:21:39] Database connection closed.
+[2025-04-28 20:21:40] Running auth controller ,login 
+[2025-04-28 20:21:40] running login...in auth controller
+[2025-04-28 20:21:40] login function running...
+[2025-04-28 20:21:41] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:21:41] User class instantiated with database connection.
+[2025-04-28 20:21:41] User Login model running for: sandeep1@gmail.com
+[2025-04-28 20:21:41] Fetching user by email: sandeep1@gmail.com
+[2025-04-28 20:21:41] User found for email: sandeep1@gmail.com
+[2025-04-28 20:21:41] Query bound and ready to execute for login: sandeep1@gmail.com
+[2025-04-28 20:21:41] User status: 1
+[2025-04-28 20:21:41] User login successful: sandeep1@gmail.com with role: member
+[2025-04-28 20:21:41] Config model initialized with database connection.
+[2025-04-28 20:21:42] Login Successful: eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTg3NDAwMH0=.d195825ac9ba34677fead26da831b7610208cadec767cb671986e20db63e23bc member
+[2025-04-28 20:21:42] Payment model initialized
+[2025-04-28 20:21:42] Fetching latest payment record for user_id: 181
+[2025-04-28 20:21:42] Query bound for user_id: 181
+[2025-04-28 20:21:42] Fetched latest payment for user_id: 181 - {"membership_plan_id":"MP5","amount":"10500.00","status":"Success","date_time":"2025-04-28 20:21:30","plan_name":"platinum gold","benefits":"massage therapy"}
+[2025-04-28 20:21:42] Current date: 2025-04-28 20:21:42
+[2025-04-28 20:21:42] Payment date: 2025-04-28 20:21:30
+[2025-04-28 20:21:42] Days gap: 0, Amount: 10500
+[2025-04-28 20:21:42] Membership plan model initialized with database connection.
+[2025-04-28 20:21:42] Database connection closed.
+[2025-04-28 20:21:43] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:21:43] User class instantiated with database connection.
+[2025-04-28 20:21:43] Fetching user role by user ID: 181
+[2025-04-28 20:21:43] User role fetched successfully for user ID: 181
+[2025-04-28 20:21:43] Running member controller ,verify_membership_plan token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTg3NDAwMH0=.d195825ac9ba34677fead26da831b7610208cadec767cb671986e20db63e23bc   id - 181 
+[2025-04-28 20:21:43] running verify_membership_plan....in controller
+[2025-04-28 20:21:43] verifying membership plan func running......
+[2025-04-28 20:21:43] Payment model initialized
+[2025-04-28 20:21:43] Fetching latest payment record for user_id: 181
+[2025-04-28 20:21:43] Query bound for user_id: 181
+[2025-04-28 20:21:44] Fetched latest payment for user_id: 181 - {"membership_plan_id":"MP5","amount":"10500.00","status":"Success","date_time":"2025-04-28 20:21:30","plan_name":"platinum gold","benefits":"massage therapy"}
+[2025-04-28 20:21:44] Current date: 2025-04-28 20:21:44
+[2025-04-28 20:21:44] Payment date: 2025-04-28 20:21:30
+[2025-04-28 20:21:44] Days gap: 0, Amount: 10500
+[2025-04-28 20:21:44] Membership plan model initialized with database connection.
+[2025-04-28 20:21:44] recieved Base plan ID matches the base plan id of subscribed membership plan.
+[2025-04-28 20:21:44] Database connection closed.
+[2025-04-28 20:21:45] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:21:45] User class instantiated with database connection.
+[2025-04-28 20:21:45] Fetching user role by user ID: 181
+[2025-04-28 20:21:46] User role fetched successfully for user ID: 181
+[2025-04-28 20:21:46] Running member controller ,get_gym_crowd token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTg3NDAwMH0=.d195825ac9ba34677fead26da831b7610208cadec767cb671986e20db63e23bc   id - 181 
+[2025-04-28 20:21:46] Running get_gym_crowd....in controller
+[2025-04-28 20:21:46] Running getGymCrowd...
+[2025-04-28 20:21:46] Attendance model initialized with database connection.
+[2025-04-28 20:21:46] Fetching number of unique users with latest arrival marked as 1...
+[2025-04-28 20:21:46] Total users with latest Arrived=1: 1
+[2025-04-28 20:21:46] Fetching gym capacity from configuration...
+[2025-04-28 20:21:47] Gym capacity fetched successfully: 80
+[2025-04-28 20:21:47] Gym crowd count: 1 (1.25%)
+[2025-04-28 20:21:47] Database connection closed.
+[2025-04-28 20:21:47] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:21:47] User class instantiated with database connection.
+[2025-04-28 20:21:47] Fetching user role by user ID: 181
+[2025-04-28 20:21:47] User role fetched successfully for user ID: 181
+[2025-04-28 20:21:47] Running member controller ,update_attendance token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTg3NDAwMH0=.d195825ac9ba34677fead26da831b7610208cadec767cb671986e20db63e23bc   id - 181 
+[2025-04-28 20:21:47] Running member mark_attendance....in controller
+[2025-04-28 20:21:47] Running userArrivedStatus...
+[2025-04-28 20:21:47] Attendance model initialized with database connection.
+[2025-04-28 20:21:47] Fetching latest Arrived status for User ID: 181
+[2025-04-28 20:21:48] No records found for User ID: 181
+[2025-04-28 20:21:48] Database connection closed.
+[2025-04-28 20:21:48] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:21:48] User class instantiated with database connection.
+[2025-04-28 20:21:48] Fetching user role by user ID: 181
+[2025-04-28 20:21:48] User role fetched successfully for user ID: 181
+[2025-04-28 20:21:48] Running member controller ,get_personal_notices token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTg3NDAwMH0=.d195825ac9ba34677fead26da831b7610208cadec767cb671986e20db63e23bc   id - 181 
+[2025-04-28 20:21:48] Running get_personal_notices....in controller
+[2025-04-28 20:21:48] get personal notices function running...
+[2025-04-28 20:21:48] Notice model initialized with database connection.
+[2025-04-28 20:21:48] Fetching personal notices for user ID: 181
+[2025-04-28 20:21:49] Expired notices removed.
+[2025-04-28 20:21:49] Fetched 4 unread notices for user ID: 181
+[2025-04-28 20:21:49] Personal notices fetched successfully
+[2025-04-28 20:21:49] Database connection closed.
+[2025-04-28 20:21:53] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:21:53] User class instantiated with database connection.
+[2025-04-28 20:21:53] Fetching user role by user ID: 181
+[2025-04-28 20:21:54] User role fetched successfully for user ID: 181
+[2025-04-28 20:21:54] Running member controller ,get_membershipPlans token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTg3NDAwMH0=.d195825ac9ba34677fead26da831b7610208cadec767cb671986e20db63e23bc   id - 181 
+[2025-04-28 20:21:54] Running get_membership plan....in controller
+[2025-04-28 20:21:54] get membership plans running running...
+[2025-04-28 20:21:54] Membership plan model initialized with database connection.
+[2025-04-28 20:21:54] Fetching membership plan...
+[2025-04-28 20:21:54] Membership Plans fetched successfully
+[2025-04-28 20:21:54] Membership plans fetched
+[2025-04-28 20:21:54] Database connection closed.
+[2025-04-28 20:21:54] Connection established successfully to the database: rad_gymverse
+[2025-04-28 20:21:54] User class instantiated with database connection.
+[2025-04-28 20:21:54] Fetching user role by user ID: 181
+[2025-04-28 20:21:55] User role fetched successfully for user ID: 181
+[2025-04-28 20:21:55] Running member controller ,get_subscription token - eyJ1c2VyX2lkIjoxODEsImV4cCI6MTc0NTg3NDAwMH0=.d195825ac9ba34677fead26da831b7610208cadec767cb671986e20db63e23bc   id - 181 
+[2025-04-28 20:21:55] Running get_subscription....in controller
+[2025-04-28 20:21:55] getSubscriptionOfAMember func running...
+[2025-04-28 20:21:55] Payment model initialized
+[2025-04-28 20:21:55] Fetching latest payment record for user_id: 181
+[2025-04-28 20:21:55] Query bound for user_id: 181
+[2025-04-28 20:21:55] Fetched latest payment for user_id: 181 - {"membership_plan_id":"MP5","amount":"10500.00","status":"Success","date_time":"2025-04-28 20:21:30","plan_name":"platinum gold","benefits":"massage therapy"}
+[2025-04-28 20:21:55] Current date: 2025-04-28 20:21:55
+[2025-04-28 20:21:55] Payment date: 2025-04-28 20:21:30
+[2025-04-28 20:21:55] Days gap: 0, Amount: 10500
+[2025-04-28 20:21:55] Database connection closed.
