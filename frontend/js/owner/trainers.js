@@ -6,9 +6,10 @@ export function initOwner_trainers() {
 
     const pendingApplicationsTable = document.getElementById("pendingApplications");
     const acceptedRejectedTable = document.getElementById("acceptedRejectedApplications");
-
+    const spinner = document.getElementById("loading-spinner");
 
     if (pendingApplicationsTable && acceptedRejectedTable) {
+        showSpinner();
         fetchTrainerAppliedCareers();
     } else {
         console.warn("One or both tables not found. Skipping fetch.");
@@ -41,18 +42,19 @@ export function initOwner_trainers() {
             .then(data => {
                 if (data.length > 0) {
                     allTrainerAppliedCareers = data;
-                    fetchApplications(); //fetching applications after career offers are fected
+                    fetchApplications();
                 } else {
-                    console.warn("No Trainer career ofers Available at the moment");
+                    console.warn("No Trainer career offers available at the moment");
                     fetchApplications();
                 }
             })
             .catch(error => {
+                hideSpinner();
                 console.error("API Error:", error.message);
                 if (error.message === "Token expired") {
                     runSessionTimedOut();
                 } else {
-                    alert("Error: " + error.message);
+                    showToast("Error: " + error.message, "error");
                 }
             });
     }
@@ -90,70 +92,78 @@ export function initOwner_trainers() {
                     const rejectedApplications = data.filter(app => app.approved_by_owner == 2);
                     allApplications = data;
 
-                    // combining accepted and rejected appli..
                     const acceptedRejectedApplications = [...acceptedApplications, ...rejectedApplications];
 
                     if (pendingApplications.length > 0) {
                         populatePendingApplicationsTable(pendingApplications, pendingApplicationsTableBody);
                     } else {
-                        const noDataRow = `<tr><td colspan="6" style="text-align: center;">No applications found</td></tr>`;
+                        const noDataRow = `<tr><td colspan="6" style="text-align: center;">No pending applications</td></tr>`;
                         pendingApplicationsTableBody.innerHTML = noDataRow;
                     }
 
                     if (acceptedRejectedApplications.length > 0) {
                         populateAcceptedRejectedTable(acceptedRejectedApplications, acceptedRejectedTableBody);
                     } else {
-                        const noDataRow = `<tr><td colspan="6" style="text-align: center;">No applications found</td></tr>`;
+                        const noDataRow = `<tr><td colspan="6" style="text-align: center;">No processed applications</td></tr>`;
                         acceptedRejectedTableBody.innerHTML = noDataRow;
                     }
                 } else {
-                    //data nt availble
                     const noDataRow = `<tr><td colspan="6" style="text-align: center;">No applications found</td></tr>`;
                     pendingApplicationsTableBody.innerHTML = noDataRow;
                     acceptedRejectedTableBody.innerHTML = noDataRow;
                 }
             })
-            .catch(error => console.error("Error fetching trainer applications", error));
+            .catch(error => {
+                console.error("Error fetching trainer applications", error);
+                showToast("Error fetching applications: " + error.message, "error");
+            })
+            .finally(() => {
+                hideSpinner();
+            });
     }
 
     function populatePendingApplicationsTable(applications, tableBody) {
         applications.forEach(application => {
             const row = document.createElement("tr");
 
-            //finding the carer offer using career_id
             const career = allTrainerAppliedCareers.find(career => career.career_id === application.career_id);
             const jobName = career ? career.job_role : "N/A";
 
             row.innerHTML = `
             <td>${application['firstName']} ${application['lastName']}</td>
             <td>${jobName}</td>
-            <td>${application['submission_date']}</td>
+            <td>${formatDate(application['submission_date'])}</td>
             <td>
-                <button id="viewApp" data-app-id="${application['application_id']}">View</button>
+                <button id="viewApp" data-app-id="${application['application_id']}" class="view-button">
+                    <i class="fas fa-eye"></i> View
+                </button>
             </td>
             `;
             tableBody.appendChild(row);
         });
 
-        // adding event listener to the table body
         tableBody.addEventListener('click', (event) => {
-            if (event.target.id == "viewApp") {
-                const applicationId = event.target.getAttribute('data-app-id');
+            if (event.target.closest("#viewApp")) {
+                const applicationId = event.target.closest("#viewApp").getAttribute('data-app-id');
                 openViewPopup(applicationId);
             }
         });
     }
+
     function populateAcceptedRejectedTable(applications, tableBody) {
         applications.forEach(application => {
             const row = document.createElement("tr");
 
-            //finding the carer offer using career_id
             const career = allTrainerAppliedCareers.find(career => career.career_id === application.career_id);
             const jobName = career ? career.job_role : "N/A";
             let status;
             switch (application.approved_by_owner) {
-                case 1: status = "Accepted"; break;
-                case 2: status = "Rejected"; break;
+                case 1: 
+                    status = `<span class="status-badge accepted">Accepted</span>`; 
+                    break;
+                case 2: 
+                    status = `<span class="status-badge rejected">Rejected</span>`; 
+                    break;
                 default: status = "N/A";
             }
 
@@ -161,17 +171,19 @@ export function initOwner_trainers() {
             <td>${application['firstName']} ${application['lastName']}</td>
             <td>${jobName}</td>
             <td>${status}</td>
-            <td>${application['submission_date']}</td>
+            <td>${formatDate(application['submission_date'])}</td>
             <td>
-                <button id="viewApp2" data-app-id="${application['application_id']}">View</button>
+                <button id="viewApp2" data-app-id="${application['application_id']}" class="view-button">
+                    <i class="fas fa-eye"></i> View
+                </button>
             </td>
             `;
             tableBody.appendChild(row);
         });
-        // adding event listener to the table body
+
         tableBody.addEventListener('click', (event) => {
-            if (event.target.id == "viewApp2") {
-                const applicationId = event.target.getAttribute('data-app-id');
+            if (event.target.closest("#viewApp2")) {
+                const applicationId = event.target.closest("#viewApp2").getAttribute('data-app-id');
                 openViewPopup(applicationId);
             }
         });
@@ -191,34 +203,42 @@ export function initOwner_trainers() {
         const pendingApplicationButtons = document.getElementById('pendingApplicationButtonsPopup');
         const acceptedRejectedButtons = document.getElementById('rejectedAcceptedButtonsPopup');
 
+        // Populate the popup with application data
         document.getElementById('popup-name').textContent = `${application.firstName} ${application.lastName}`;
-        document.getElementById('popup-job').textContent = appliedCareer.job_role;
-        document.getElementById('popup-nic').textContent = application.NIC;
-        document.getElementById('popup-dob').textContent = application.DOB;
-        document.getElementById('popup-email').textContent = application.email;
-        document.getElementById('popup-phone').textContent = application.mobile_number;
-        document.getElementById('popup-address').textContent = application.address;
-        document.getElementById('popup-experience').textContent = `${application.years_of_experience} years`;
-        document.getElementById('popup-specialties').textContent = application.specialties;
-        document.getElementById('popup-cv').href = application.cv;
-        document.getElementById('popup-date').textContent = application.submission_date;
+        document.getElementById('popup-job').textContent = appliedCareer ? appliedCareer.job_role : "N/A";
+        document.getElementById('popup-nic').textContent = application.NIC || "N/A";
+        document.getElementById('popup-dob').textContent = application.DOB ? formatDate(application.DOB) : "N/A";
+        document.getElementById('popup-email').textContent = application.email || "N/A";
+        document.getElementById('popup-phone').textContent = application.mobile_number || "N/A";
+        document.getElementById('popup-address').textContent = application.address || "N/A";
+        document.getElementById('popup-experience').textContent = application.years_of_experience ? 
+            `${application.years_of_experience} years` : "N/A";
+        document.getElementById('popup-specialties').textContent = application.specialties || "N/A";
+        document.getElementById('popup-cv').href = application.cv || "#";
+        document.getElementById('popup-cv').textContent = application.cv ? "Download CV" : "No CV available";
+        document.getElementById('popup-date').textContent = application.submission_date ? 
+            formatDate(application.submission_date) : "N/A";
 
-        popup.style.display = 'block';  //showing the popup
-
-        closeBtn.onclick = () => {
-            pendingApplicationButtons.style.display = 'none';
-            acceptedRejectedButtons.style.display = 'none';
-            popup.style.display = 'none';
-        };
-
-        //displaying accept & reject buttons if application is pending
+        // Show/hide appropriate buttons
         if (application.approved_by_owner == 0) {
             pendingApplicationButtons.style.display = 'block';
+            acceptedRejectedButtons.style.display = 'none';
         } else {
-            //displaying delete buttons if application is accepted or rejected
+            pendingApplicationButtons.style.display = 'none';
             acceptedRejectedButtons.style.display = 'block';
         }
 
+        // Show the popup
+        popup.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+
+        // Close button handler
+        closeBtn.onclick = () => {
+            popup.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        };
+
+        // Button handlers
         document.getElementById('approveBtn').onclick = () => {
             handleApplicationDecision(application.application_id, 1);
         };
@@ -226,10 +246,9 @@ export function initOwner_trainers() {
         document.getElementById('rejectBtn').onclick = () => {
             handleApplicationDecision(application.application_id, 2);
         };
+
         document.getElementById('deleteBtn').onclick = () => {
             handleApplicationDecision(application.application_id, "Delete");
-            acceptedRejectedButtons.style.display = 'none';
-            popup.style.display = 'none';
         };
     }
 
@@ -242,8 +261,7 @@ export function initOwner_trainers() {
     }
 
     function updateApplicationStatus(applicationID, decision) {
-        //decision - 1 --> Accepted
-        //decision - 2 --> Rejected
+        showSpinner();
         const payload = {
             "application_id": applicationID,
             "approved_by_owner": decision
@@ -273,15 +291,15 @@ export function initOwner_trainers() {
             })
             .then(data => {
                 if (data.message) {
-                    showToast(data.message);
+                    showToast(data.message, "success");
                     setTimeout(() => {
                         document.getElementById("pendingApplicationButtonsPopup").style.display = "none";
                         document.getElementById("viewApplicationPopup").style.display = "none";
-                    }, 3000);
-                    fetchApplications(); // refreshing tables by fetching applicatons again
+                        document.body.style.overflow = 'auto';
+                        fetchApplications();
+                    }, 1500);
                 } else {
-                    const errorMsg = data.error || "Failed to update Application Status.";
-                    showToast("applicationStatusResponse", "error");
+                    throw new Error(data.error || "Failed to update Application Status.");
                 }
             })
             .catch(error => {
@@ -289,8 +307,11 @@ export function initOwner_trainers() {
                 if (error.message === "Token expired") {
                     runSessionTimedOut();
                 } else {
-                    console.error("Error: " + error.message);
+                    showToast("Error: " + error.message, "error");
                 }
+            })
+            .finally(() => {
+                hideSpinner();
             });
     }
 
@@ -298,7 +319,12 @@ export function initOwner_trainers() {
         const deletePopup = document.getElementById("deletePopup");
         deletePopup.style.display = "block";
 
+        document.getElementById("cancelDelete").onclick = () => {
+            deletePopup.style.display = "none";
+        };
+
         document.getElementById("confirmDelete").onclick = () => {
+            showSpinner();
             const authToken = localStorage.getItem("authToken");
             if (!authToken) {
                 console.error("Auth token not found. Please log in.");
@@ -319,22 +345,21 @@ export function initOwner_trainers() {
                         if (data.error && data.error === "Token expired") {
                             throw new Error("Token expired");
                         }
-                        if (!response.ok) throw new Error("Failed to Update trainer application status");
+                        if (!response.ok) throw new Error("Failed to delete trainer application");
                         return data;
                     });
                 })
                 .then(data => {
                     if (data.message) {
-                        showFormResponse("deleteResponse", data.message, "success");
+                        showToast(data.message, "success");
                         setTimeout(() => {
                             deletePopup.style.display = "none";
-                            document.getElementById("rejectedAcceptedButtonsPopup").style.display = "none";
                             document.getElementById("viewApplicationPopup").style.display = "none";
-                        }, 3000);
-                        fetchApplications();
+                            document.body.style.overflow = 'auto';
+                            fetchApplications();
+                        }, 1500);
                     } else {
-                        const errorMsg = data.error || "Failed to delete membership plan.";
-                        showFormResponse("deleteResponse", errorMsg, "error");
+                        throw new Error(data.error || "Failed to delete application.");
                     }
                 })
                 .catch(error => {
@@ -342,35 +367,51 @@ export function initOwner_trainers() {
                     if (error.message === "Token expired") {
                         runSessionTimedOut();
                     } else {
-                        console.error("Error: " + error.message);
+                        showToast("Error: " + error.message, "error");
                     }
+                })
+                .finally(() => {
+                    hideSpinner();
                 });
         };
     }
 
-    function showFormResponse(formType, message, type) {
-        console.log("Displaying message:", message, "Type:", type); // Debugging log
-        const responseContainer = document.getElementById(formType);
-        responseContainer.textContent = message;
-        responseContainer.className = `form-response ${type}`;
-        responseContainer.style.display = "block";
+    function showSpinner() {
+        const spinner = document.getElementById('loading-spinner');
+        if (spinner) spinner.classList.remove('hidden');
+    }
 
-        setTimeout(() => {
-            responseContainer.style.display = "none";
-        }, 3000);
+    function hideSpinner() {
+        const spinner = document.getElementById('loading-spinner');
+        if (spinner) spinner.classList.add('hidden');
+    }
+
+    function formatDate(dateString) {
+        if (!dateString) return "N/A";
+        const date = new Date(dateString);
+        return date.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+        });
     }
 
     function showToast(message, type = 'success') {
         const container = document.getElementById('toast-container');
         const toast = document.createElement('div');
         toast.className = `toast ${type}`;
-        toast.innerText = message;
+        toast.innerHTML = `
+            <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+            <span>${message}</span>
+        `;
     
         container.appendChild(toast);
     
         setTimeout(() => {
-            toast.remove();
+            toast.classList.add('fade-out');
+            setTimeout(() => {
+                toast.remove();
+            }, 300);
         }, 4000);
-      }
-
+    }
 }
