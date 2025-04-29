@@ -676,3 +676,135 @@ label {
   10%, 90% { opacity: 1; transform: translateY(0); }
   100% { opacity: 0; transform: translateY(-20px); }
   }
+
+  /* ====================
+   MOBILE RESPONSIVENESS (Below 768px) 
+   ==================== */
+@media (max-width: 768px) {
+  /* Card Container */
+  .card-container {
+    flex-direction: column;
+    gap: 15px;
+    margin: 10px;
+  }
+
+  .notice-container, 
+  .gym-card {
+    flex-basis: 100%;
+    padding: 15px;
+  }
+
+  /* Toggle Button */
+  .toggleContainer {
+    width: 140px;
+    margin: 10px auto;
+  }
+
+  /* Content Bottom Area */
+  .content-bottom {
+    height: 400px;
+    margin-top: 15px;
+  }
+
+  /* Popup Modals */
+  .popup {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .popup-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .popup-confirm, 
+  .popup-cancel {
+    width: 100%;
+  }
+
+  /* Action Container */
+  .action-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .action-box {
+    width: 90%;
+    margin-bottom: 15px;
+  }
+
+  /* Upgrade Plan */
+  .upgrade-plan-container {
+    width: 95%;
+  }
+
+  /* Notice Modal */
+  .notice-modal .modal-content {
+    width: 95%;
+    padding: 20px;
+  }
+
+  /* Table Elements (for notices) */
+  #noticeTable {
+    font-size: 14px;
+  }
+
+  #noticeTable th, 
+  #noticeTable td {
+    padding: 8px 5px;
+  }
+
+  /* QR Modal */
+  .qr-modal-content {
+    width: 90%;
+  }
+
+  /* Toast Notifications */
+  .toast-container {
+    width: 90%;
+    left: 5%;
+    right: auto;
+  }
+}
+
+/* ====================
+   SMALL MOBILE (Below 480px) 
+   ==================== */
+@media (max-width: 480px) {
+  /* Font Sizes */
+  .notice-container h2, 
+  .gym-card h2 {
+    font-size: 18px;
+  }
+
+  .notice-container #noticeContent,
+  .gym-card p {
+    font-size: 14px;
+  }
+
+  /* Buttons */
+  .notice-container button,
+  #markAttendanceBtn {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  /* Table Adjustments */
+  #noticeTable {
+    display: block;
+    overflow-x: auto;
+  }
+
+  /* Hide less important columns */
+  #noticeTable td:nth-child(4),
+  #noticeTable th:nth-child(4) {
+    display: none;
+  }
+
+  /* Spinner */
+  .spinner-circle {
+    width: 40px;
+    height: 40px;
+    border-width: 4px;
+  }
+}
