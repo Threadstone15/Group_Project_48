@@ -129,21 +129,22 @@ function recordPaymentReciept()
     logMessage("Generated payment ID: $payment_id");
     //convert amount into double
     $amount = doubleval($amount);
-
+    $evidence_id = null;
+    $evidence_id = $payment->createPaymentManually($membership_plan_id, $user_id, $payment_id, $amount, $currency, $status, $method);
 
     // Create payment record
-    if ($payment->createPayment($membership_plan_id, $user_id, $payment_id, $amount, $currency, $status, $method)) {
-        logMessage("Payment record created successfully: ID $payment_id");
+    if ($evidence_id) {
+        logMessage("Payment record created successfully: ID $evidence_id");
 
         // Now handle evidence image upload
         if (isset($_FILES['evidence_image']) && $_FILES['evidence_image']['error'] == 0) {
             $imageContent = file_get_contents($_FILES['evidence_image']['tmp_name']);
 
             $paymentEvidence = new PaymentEvidence();
-            if ($paymentEvidence->addPaymentEvidence($payment_id, $imageContent)) {
-                logMessage("Payment evidence uploaded successfully for payment_id: $payment_id");
+            if ($paymentEvidence->addPaymentEvidence($evidence_id, $imageContent)) {
+                logMessage("Payment evidence uploaded successfully for payment_id: $evidence_id");
             } else {
-                logMessage("Failed to upload payment evidence for payment_id: $payment_id");
+                logMessage("Failed to upload payment evidence for payment_id: $evidence_id");
             }
         } else {
             if (isset($_FILES['evidence_image'])) {
@@ -153,7 +154,7 @@ function recordPaymentReciept()
             }
         }
     } else {
-        logMessage("Failed to create payment record: ID $payment_id");
+        logMessage("Failed to create payment record: ID $evidence_id");
         echo json_encode(["error" => "Failed to create payment"]);
     }
 
@@ -244,5 +245,19 @@ function deleteMembershipPlan()
     }
 }
 
-?>
 
+function getFullPaymentDetailsWithEvidence()
+{
+    logMessage("get full payment details with evidence function running...");
+
+    $paymentEvidence = new PaymentEvidence();
+    $result = $paymentEvidence->getFullPaymentDetailsWithEvidence();
+
+    if ($result) {
+        logMessage("Full payment details with evidence fetched");
+        echo $result;
+    } else {
+        logMessage("No full payment details with evidence found");
+        echo json_encode(["error" => "No full payment details with evidence found"]);
+    }
+}

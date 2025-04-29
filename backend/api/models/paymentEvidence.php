@@ -48,4 +48,44 @@ class PaymentEvidence
             return false;
         }
     }
+
+    function getFullPaymentDetailsWithEvidence()
+    {
+        logMessage("Fetching full payment details with evidence...");
+
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return json_encode(["success" => false, "message" => "Database connection error"]);
+        }
+
+        try {
+            $query = "CALL GetFullPaymentDetailsWithEvidence()";
+            $result = $this->conn->query($query);
+
+            if ($result === false) {
+                logMessage("Error executing stored procedure: " . $this->conn->error);
+                return json_encode(["success" => false, "message" => "Database error"]);
+            }
+
+            $data = [];
+            while ($row = $result->fetch_assoc()) {
+                // Convert blob to base64 if image exists
+                if (isset($row['evidence_image'])) {
+                    $row['evidence_image'] = base64_encode($row['evidence_image']);
+                }
+                $data[] = $row;
+            }
+
+            $result->free();
+            while ($this->conn->more_results() && $this->conn->next_result()) {
+                $this->conn->use_result();
+            }
+
+            logMessage("Retrieved " . count($data) . " payment records with evidence.");
+            return json_encode(["success" => true, "payments" => $data]);
+        } catch (Exception $e) {
+            logMessage("Exception: " . $e->getMessage());
+            return json_encode(["success" => false, "message" => $e->getMessage()]);
+        }
+    }
 }

@@ -1,31 +1,36 @@
 <?php
 // api/models/attendanceOverviewModel.php
 
-include_once "../../logs/save.php"; 
+include_once "../../logs/save.php";
 require_once "../../config/database.php";
 
-class AttendanceOverviewModel{
+class AttendanceOverviewModel
+{
     private $conn;
     private $table = "Attendance_History";
+    private $table2 = "today_attendance";
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->conn = DatabaseConnection::getInstance()->getConnection();
         logMessage("AttendanceOverviewModel initialized with database connection.");
     }
 
     //Fetch total attendance count for a day
-    public function getTotalAttendance(){
-        $query = "SELECT COUNT(*) AS total FROM $this->table";
+    public function getTotalAttendance()
+    {
+        $query = "SELECT COUNT(*) AS total FROM $this->table2 WHERE Arrived = 1";
         $result = $this->conn->query($query);
         return $result->fetch_assoc();
     }
 
     //Fetch attendance count grouped by day/week/month
-    public function getAttendanceByPeriod($periodType){
-        switch($periodType){
+    public function getAttendanceByPeriod($periodType)
+    {
+        switch ($periodType) {
             case "today":
                 $query = "SELECT DATE_FORMAT(Time, '%H:00') AS label, COUNT(*) AS count 
-                          FROM $this->table 
+                          FROM $this->table2 
                           WHERE DATE(date) = CURDATE()
                           GROUP BY HOUR(Time)
                           ORDER BY HOUR(Time)";

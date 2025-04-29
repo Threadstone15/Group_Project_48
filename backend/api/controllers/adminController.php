@@ -25,6 +25,7 @@ include_once "./markAttendanceHandler.php";
 include_once "./systemHistoryHandler.php";
 include_once "./noticeHandler.php";
 include_once "./configHandler.php";
+include_once "./membershipPlanHandler.php";
 
 // Handle CORS preflight request
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -163,16 +164,22 @@ switch ($action) {
         logMessage("Running delete_notice....in controller");
         deleteNotice();
         break;
-    
+
     //trainer class handling
-    case 'get_classes' : 
+    case 'get_classes':
         getTrainerClasses();
         break;
-    case 'update_class' :
+    case 'update_class':
         updateTrainerClass("admin");
         break;
-    case 'delete_class' :
+    case 'delete_class':
         deleteTrainerClass("admin");
+        break;
+
+    //cash payments
+    case 'get_cash_payments':
+        logMessage("Running get_cash_payments....in controller");
+        getFullPaymentDetailsWithEvidence();
         break;
 
     // Default case for undefined actions
