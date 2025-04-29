@@ -12,6 +12,8 @@
   border-radius: 10px; /* Adjust the radius as desired */
   overflow: hidden; /* Ensures corners stay rounded if there’s content overflow */
   box-shadow: 0px 4px 10px rgba(15, 15, 15, 0.1); /* Optional shadow for a softer look */
+  max-height: 400px;
+  overflow-y: auto; /* Enables vertical scrolling if content exceeds max height */
 }
 
 th, td {

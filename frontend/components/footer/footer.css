@@ -16,8 +16,8 @@
 
 .footer-main {
   display: flex;
+  justify-content: space-between; /* This will push children to opposite ends */
   align-items: flex-start;
-  gap: 100px;
   color: #fff;
   font: 500 16px Poppins, sans-serif;
 }
@@ -25,16 +25,14 @@
 .footer-logo {
   font-size: 45px;
   font-weight: 600;
-  flex-grow: 1;
-  width: 220px;
   margin: 0;
+  /* Remove flex-grow and width to let it take natural space */
 }
 
 .footer-nav {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  flex-grow: 2;
+  /* Remove gap here since we'll handle spacing in columns */
 }
 
 .footer-columns {
@@ -58,30 +56,7 @@
   text-decoration: none;
 }
 
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 77px;
-}
-
-.social-icons {
-  display: flex;
-  gap: 15px;
-}
-
-.icon {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
-}
-
-.copyright {
-  color: #fff;
-  font: 700 16px Poppins, sans-serif;
-  margin: 0;
-}
-
+/* Mobile responsiveness */
 @media (max-width: 991px) {
   .footer {
     padding: 52px 20px;
@@ -94,22 +69,15 @@
 
   .footer-logo {
     font-size: 40px;
+    width: auto; /* Remove fixed width */
   }
 
   .footer-nav {
-    flex-direction: column;
-    gap: 20px;
+    width: 100%; /* Take full width on mobile */
   }
 
   .footer-columns {
     flex-direction: column;
-    gap: 20px;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 30px;
-    margin-top: 40px;
+    gap: 60px;
   }
 }
