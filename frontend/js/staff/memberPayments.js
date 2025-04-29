@@ -31,37 +31,54 @@ export function initStaff_memberPayments() {
     paymentDateInput.value = today;
   
     // Fetch Membership Plans
-    function fetchMembershipPlans() {
-      spinner.classList.remove("hidden");
+    async function fetchPayments() {
+      showLoading(true);
       
-      const requestOptions = {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${authToken}`,
-        },
-      };
-  
-      fetch("http://localhost:8080/Group_Project_48/backend/api/controllers/staffController.php?action=get_active_plans", requestOptions)
-        .then((res) => {
-          if (!res.ok) throw new Error("Failed to load membership plans");
-          return res.json();
-        })
-        .then((data) => {
-          spinner.classList.add("hidden");
-          
-          if (data) {
-            console.log("Membership Plans:", data);
-            membershipPlans = data;
-            populateMembershipPlans(membershipPlans);
-          } else {
-            showToast("No membership plans available", "error");
+      const authToken = localStorage.getItem('authToken');
+      if (!authToken) {
+        showToast('Not authenticated. Please login again.', 'error');
+        window.location.href = '/login';
+        return;
+      }
+      
+      try {
+        const response = await fetch('http://localhost:8080/Group_Project_48/backend/api/controllers/adminController.php?action=getFullPaymentDetailsWithEvidence', {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${authToken}`,
+            'Content-Type': 'application/json'
           }
-        })
-        .catch((err) => {
-          console.error("Error fetching membership plans:", err);
-          spinner.classList.add("hidden");
-          showToast("Failed to load membership plans", "error");
         });
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const text = await response.text(); // First get the raw text
+        console.log('Raw response:', text);
+        
+        try {
+          const data = JSON.parse(text); // Then try to parse it
+          console.log('Parsed data:', data);
+          
+          if (data.success) {
+            allPayments = data.payments;
+            filteredPayments = [...allPayments];
+            totalPages = Math.ceil(filteredPayments.length / ITEMS_PER_PAGE);
+            renderPayments();
+          } else {
+            showToast(data.message || 'Failed to load payments', 'error');
+          }
+        } catch (parseError) {
+          console.error('JSON parse error:', parseError);
+          throw new Error('Invalid JSON response from server');
+        }
+      } catch (error) {
+        console.error('Error fetching payments:', error);
+        showToast('Error fetching payments. Please try again.', 'error');
+      } finally {
+        showLoading(false);
+      }
     }
   
     // Populate Membership Plans dropdown
@@ -72,7 +89,7 @@ export function initStaff_memberPayments() {
         if (plan.status === 'active') {
           const option = document.createElement('option');
           option.value = plan.membership_plan_id;
-          option.textContent = `${plan.plan_name} (${plan.base_plan_id})`;
+          option.textContent = `${plan.plan_name} (${plan.membership_plan_id})`;
           membershipPlanSelect.appendChild(option);
         }
       });

@@ -829,6 +829,43 @@ iframe {
   cursor: pointer;
 }
 
+
+/* members.sort((a, b) => new Date(b.assigned_date) - new Date(a.assigned_date));
+array.sort((a, b) => {
+  return a - b; // ascending
+}); */
+
+/* members.sort((a, b) => a.fullName.localeCompare(b.fullName)); */
+/* members.sort((a, b) => a.fullName.localeCompare(b.fullName, undefined, { sensitivity: 'base' })); //case insensitive */
+
+/* function calculateAge(dobString) {
+  const today = new Date();
+  const dob = new Date(dobString); // Convert string to Date object
+
+  let age = today.getFullYear() - dob.getFullYear(); // Difference in years
+  const monthDifference = today.getMonth() - dob.getMonth();
+  const dayDifference = today.getDate() - dob.getDate();
+
+  // If birthday hasn't occurred yet this year, subtract 1
+  if (monthDifference < 0 || (monthDifference === 0 && dayDifference < 0)) {
+    age--;
+  }
+
+  return age;
+} */
+
+/* const today = new Date();
+const oneMonthAgo = new Date(today);  // clone the date to avoid changing original
+
+oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+
+console.log("Today:       ", today.toDateString());
+console.log("1 Month Ago: ", oneMonthAgo.toDateString()); */
+
+/* const d = new Date("2024-03-31");
+d.setMonth(d.getMonth() - 1);
+console.log(d.toDateString());  // Output: "Fri Mar 01 2024" */
+
 .form-input[aria-label="Select equipment type"] {
   /* Only add padding to the left side */
   padding: 5px 10px 5px 5px; /* top right bottom left */

@@ -48,6 +48,42 @@ class Payment
         }
     }
 
+    public function createPaymentManually($membership_plan_id, $user_id, $payment_id, $amount, $currency, $status, $method)
+    {
+        logMessage("Adding new payment record...");
+
+        if (!$this->conn) {
+            logMessage("Database connection is not valid.");
+            return false;
+        }
+
+        // Use the correct data types for binding parameters
+        $query = "INSERT INTO " . $this->table . " (membership_plan_id, user_id, payment_id, amount, currency, status, method)
+              VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            logMessage("Error preparing statement for payment insertion: " . $this->conn->error);
+            return false;
+        }
+        logMessage("parameters: $membership_plan_id, $user_id, $payment_id, $amount, $currency, $status, $method");
+
+        // Correct binding of parameters with the appropriate data types
+        $stmt->bind_param("sisdsss", $membership_plan_id, $user_id, $payment_id, $amount, $currency, $status, $method);
+        logMessage("Query bound for adding payment with payment_id: $payment_id");
+
+        if ($stmt->execute()) {
+            // On success, return the ID of the newly inserted row
+            $newPaymentId = $this->conn->insert_id;
+            logMessage("Payment added successfully with ID: $newPaymentId");
+            return $newPaymentId;
+        } else {
+            logMessage("Payment insertion failed: " . $stmt->error);
+            return false;
+        }
+    }
+
+
 
     public function getPaymentByPaymentId($payment_id)
     {

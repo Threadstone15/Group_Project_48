@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cash Payments</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+</head>
+<body>
+  <div class="payments-container">
+    <div class="payments-header">
+      <h1>Cash Payments</h1>
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search by ID or name..."/>
+        <button id="search-btn"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+
+    <div class="payments-table-container">
+      <table id="payments-table">
+        <thead>
+          <tr>
+            <th>Payment ID</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Method</th>
+            <th>Date</th>
+            <th>Member ID</th>
+            <th>Member Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="payments-table-body">
+          <!-- Payments will be loaded here -->
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pagination">
+      <button id="prev-page" disabled><i class="fas fa-chevron-left"></i></button>
+      <span id="page-info">Page 1 of 1</span>
+      <button id="next-page" disabled><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+
+  <!-- Image View Modal -->
+  <div id="image-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h3>Payment Evidence</h3>
+      <div class="image-container">
+        <img id="evidence-image" src="" alt="Payment Evidence"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div id="loading-spinner" class="spinner hidden">
+    <div class="spinner-circle"></div>
+  </div>
+
+  <!-- Toast container -->
+  <div id="toast-container" class="toast-container"></div>
+</body>
+</html>
