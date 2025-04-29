@@ -105,9 +105,11 @@ label {
   background: #FF5F00;
   font-weight: bold;
   color: #FF5F00;
-  cursor: pointer;
+  cursor: default;
   margin-left: 30px;
   margin-right: 30px;
+  pointer-events: none;
+  user-select: none;
 }
 .toggleContainer::before {
   content: '';
@@ -120,7 +122,7 @@ label {
   transition: all 0.3s;
 }
 .toggleCheckbox:checked + .toggleContainer::before {
-   left: 50%;
+   right: 50%;
 }
 .toggleContainer div {
   padding: 6px;

@@ -71,7 +71,7 @@ export function initMember_trackProgress() {
                 if (error.message === "Token expired") {
                     runSessionTimedOut();
                 } else {
-                    showToast(error.message, "error");
+                    console.error("API Error:", error.message);
                 }
             });
     }
@@ -126,7 +126,7 @@ export function initMember_trackProgress() {
                 if (error.message === "Token expired") {
                     runSessionTimedOut();
                 } else {
-                    showToast(error.message, "error");
+                    console.error("API Error:", error.message);
                 }
             });
     }
@@ -189,7 +189,7 @@ export function initMember_trackProgress() {
                 if (error.message === "Token expired") {
                     runSessionTimedOut();
                 } else {
-                    showToast(error.message, "error");
+                    console.error("API Error:", error.message);
                 }
             });
     }
@@ -340,7 +340,7 @@ export function initMember_trackProgress() {
                 if (error.message === "Token expired") {
                     runSessionTimedOut();
                 } else {
-                    showToast(error.message, "error");
+                    console.error("API Error:", error.message);
                 }
             });
     }
@@ -380,7 +380,7 @@ export function initMember_trackProgress() {
                 if (error.message === "Token expired") {
                     runSessionTimedOut();
                 } else {
-                    showToast(error.message, "error");
+                    console.error("API Error:", error.message);
                 }
             });
     }
