@@ -3,18 +3,27 @@
 
 require_once __DIR__ . '/../logs/save.php';
 
-class DatabaseConnection {
+class DatabaseConnection
+{
     private static $instance = null;
     private $conn;
 
+    /*
     private $servername = "mysql-rad.alwaysdata.net";
     private $username = "rad";
     private $password = "ucsc_rad_123";
     private $dbname = "rad_gymverse";
+    private $port = 3306;*/
+
+    private $servername = "localhost";
+    private $username = "root";
+    private $password = "";
+    private $dbname = "rad_gymverse";
     private $port = 3306;
 
     // Private constructor to prevent multiple instances
-    private function __construct() {
+    private function __construct()
+    {
         $this->conn = new mysqli(
             $this->servername,
             $this->username,
@@ -33,7 +42,8 @@ class DatabaseConnection {
     }
 
     // Singleton method to get the instance
-    public static function getInstance() {
+    public static function getInstance()
+    {
         if (self::$instance === null) {
             self::$instance = new DatabaseConnection();
         }
@@ -41,12 +51,14 @@ class DatabaseConnection {
     }
 
     // Method to get the connection
-    public function getConnection() {
+    public function getConnection()
+    {
         return $this->conn;
     }
 
     // Close connection if needed
-    public function closeConnection() {
+    public function closeConnection()
+    {
         if ($this->conn) {
             $this->conn->close();
             logMessage("Database connection closed.");
@@ -54,7 +66,8 @@ class DatabaseConnection {
     }
 
     // Destructor to ensure connection is closed
-    public function __destruct() {
+    public function __destruct()
+    {
         $this->closeConnection();
     }
 }
