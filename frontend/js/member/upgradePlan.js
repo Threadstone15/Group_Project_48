@@ -115,11 +115,13 @@ export function initMember_upgradePlan() {
 
     function displayMembershipPlans(plans, basicPlans, currentPlanId) {
         pricingCardsContainer.innerHTML = ''; // Clear existing cards
+        console.log("plansss", plans);
 
         // Sort plans by price (assuming higher price means higher tier)
         const sortedPlans = [...plans].sort((a, b) => parseFloat(a.monthlyPrice) - parseFloat(b.monthlyPrice));
+        const activePlans = sortedPlans.filter(plan => plan.status === "active");
 
-        sortedPlans.forEach(plan => {
+        activePlans.forEach(plan => {
             // Skip if this is the current plan (already displayed in current plan section)
             if (plan.membership_plan_id === currentPlanId) return;
 

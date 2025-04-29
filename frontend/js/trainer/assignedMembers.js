@@ -68,10 +68,14 @@ export function initTrainer_assignedMembers() {
 
         if (members.length === 0) {
             const row = document.createElement("tr");
-            row.innerHTML = `<td colspan="4">Currently, You do not have any assigned members</td>`;
+            row.innerHTML = `<td colspan="4">No trainers found</td>`;
             membersTableBody.appendChild(row);
             return;
         }
+
+        // members.sort((a, b) => a.fullName.localeCompare(b.fullName));
+        members.sort((a, b) => a.fullName.localeCompare(b.fullName, undefined, { sensitivity: 'base' })); //case insensitive
+
 
         members.forEach(member => {
             const row = document.createElement("tr");

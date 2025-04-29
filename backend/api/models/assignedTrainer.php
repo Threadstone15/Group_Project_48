@@ -205,6 +205,8 @@ class AssignedTrainer
             users U ON U.user_id = T.user_id
         LEFT JOIN 
             assigned_trainer A ON A.trainer_id = T.trainer_id
+        WHERE 
+            U.status = 1
         GROUP BY 
             T.trainer_id, T.firstName, T.lastName, T.phone, 
             T.years_of_experience, T.specialties, T.gender, 
